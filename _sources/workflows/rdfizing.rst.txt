@@ -110,3 +110,15 @@ Steps
 3. You can then save the file by pressing :code:`CTRL + D`.
 4. You'll need to make sure you can execute the file so make sure you have execute or give yourself full permissions by :code:`chmod 777 process.sh`.
 5. Now, you'll need to get your files there too.  You can do the same process like :code:`cat > files.txt`, pasting your files you created earlier, and then running like :code:`./process.sh files.txt`.
+
+=====================
+Monitoring Long Tasks
+=====================
+
+Sometimes tasks take a long time and you need to dettach or run in background.  To do this, simply and a :code:`&` to the
+end of your command like :code:`./process.sh things.txt&`.
+
+You can then monitor the process like :code:`ps aux | grep 2640` where :code:`2640` is your process id.
+
+You can also watch this automatically like:  :code:`watch -n 1 "ps aux | grep 2640"` where :code:`1` is the interval of
+the request.

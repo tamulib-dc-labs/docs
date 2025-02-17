@@ -202,6 +202,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="kubectl.html">Configuring Kubectl</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#monitoring-long-tasks">Monitoring Long Tasks</a></li>
 </ul>
 
 </div>
@@ -348,6 +349,14 @@ handles. Just specify the collection object you want to use and where to write t
 </section>
 </section>
 </section>
+<section id="monitoring-long-tasks">
+<h1>Monitoring Long Tasks<a class="headerlink" href="#monitoring-long-tasks" title="Link to this heading">¶</a></h1>
+<p>Sometimes tasks take a long time and you need to dettach or run in background.  To do this, simply and a <code class="code docutils literal notranslate"><span class="pre">&amp;</span></code> to the
+end of your command like <code class="code docutils literal notranslate"><span class="pre">./process.sh</span> <span class="pre">things.txt&amp;</span></code>.</p>
+<p>You can then monitor the process like <code class="code docutils literal notranslate"><span class="pre">ps</span> <span class="pre">aux</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">2640</span></code> where <code class="code docutils literal notranslate"><span class="pre">2640</span></code> is your process id.</p>
+<p>You can also watch this automatically like:  <code class="code docutils literal notranslate"><span class="pre">watch</span> <span class="pre">-n</span> <span class="pre">1</span> <span class="pre">&quot;ps</span> <span class="pre">aux</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">2640&quot;</span></code> where <code class="code docutils literal notranslate"><span class="pre">1</span></code> is the interval of
+the request.</p>
+</section>
 
         </article>
       </div>
@@ -404,6 +413,7 @@ handles. Just specify the collection object you want to use and where to write t
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#monitoring-long-tasks">Monitoring Long Tasks</a></li>
 </ul>
 
           </div>
