@@ -69,11 +69,13 @@ handles. Just specify the collection object you want to use and where to write t
 Copying your List and a Process to DSPACE
 -----------------------------------------
 
-In order to script with rdfizer, you need the DSPACE CLI. The DSPACE CLI is usually at :code:`/dspace/bin/dspace` but
-not in PATH. The running container also likely does not have a text editor that you can use.
+In order to script with rdfizer, you need a few things.
 
-To create a bash script and get your files to the container, you can use :code:`cat`.  This isn't ideal, but you can
-write a shell script like :code:`process.sh` by running :code:`cat >> process.sh` then pasting this:
+Steps
+=====
+
+1. First, navigate to a running container with the DSPACE CLI. The DSPACE CLI is usually at :code:`/dspace/bin/dspace` but not in PATH.
+2. The running container also likely does not have a text editor that you can use. To create a bash script and get your files to the container, you can use :code:`cat`.  This isn't ideal, but you can write a shell script like :code:`process.sh` by running :code:`cat >> process.sh` then pasting this:
 
 .. code-block:: bash
 
@@ -105,8 +107,6 @@ write a shell script like :code:`process.sh` by running :code:`cat >> process.sh
         fi
     done < "$INPUT_FILE"
 
-You can then save the file by pressing :code:`CTRL + D`.  You'll need to make sure you can execute the file so make sure
-you have execute or give yourself full permissions by :code:`chmod 777 process.sh`.
-
-Now, you'll need to get your files there too.  You can do the same process like :code:`cat > files.txt`, pasting your files
-you created earlier, and then running like :code:`./process.sh files.txt`.
+3. You can then save the file by pressing :code:`CTRL + D`.
+4. You'll need to make sure you can execute the file so make sure you have execute or give yourself full permissions by :code:`chmod 777 process.sh`.
+5. Now, you'll need to get your files there too.  You can do the same process like :code:`cat > files.txt`, pasting your files you created earlier, and then running like :code:`./process.sh files.txt`.

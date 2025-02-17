@@ -304,10 +304,13 @@ handles. Just specify the collection object you want to use and where to write t
 </section>
 <section id="copying-your-list-and-a-process-to-dspace">
 <h2>Copying your List and a Process to DSPACE<a class="headerlink" href="#copying-your-list-and-a-process-to-dspace" title="Link to this heading">¶</a></h2>
-<p>In order to script with rdfizer, you need the DSPACE CLI. The DSPACE CLI is usually at <code class="code docutils literal notranslate"><span class="pre">/dspace/bin/dspace</span></code> but
-not in PATH. The running container also likely does not have a text editor that you can use.</p>
-<p>To create a bash script and get your files to the container, you can use <code class="code docutils literal notranslate"><span class="pre">cat</span></code>.  This isn’t ideal, but you can
-write a shell script like <code class="code docutils literal notranslate"><span class="pre">process.sh</span></code> by running <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&gt;&gt;</span> <span class="pre">process.sh</span></code> then pasting this:</p>
+<p>In order to script with rdfizer, you need a few things.</p>
+<section id="steps">
+<h3>Steps<a class="headerlink" href="#steps" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>First, navigate to a running container with the DSPACE CLI. The DSPACE CLI is usually at <code class="code docutils literal notranslate"><span class="pre">/dspace/bin/dspace</span></code> but not in PATH.</p></li>
+<li><p>The running container also likely does not have a text editor that you can use. To create a bash script and get your files to the container, you can use <code class="code docutils literal notranslate"><span class="pre">cat</span></code>.  This isn’t ideal, but you can write a shell script like <code class="code docutils literal notranslate"><span class="pre">process.sh</span></code> by running <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&gt;&gt;</span> <span class="pre">process.sh</span></code> then pasting this:</p></li>
+</ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Check if a filename was provided</span>
@@ -337,10 +340,12 @@ write a shell script like <code class="code docutils literal notranslate"><span 
 <span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INPUT_FILE</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>You can then save the file by pressing <code class="code docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">D</span></code>.  You’ll need to make sure you can execute the file so make sure
-you have execute or give yourself full permissions by <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">777</span> <span class="pre">process.sh</span></code>.</p>
-<p>Now, you’ll need to get your files there too.  You can do the same process like <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">files.txt</span></code>, pasting your files
-you created earlier, and then running like <code class="code docutils literal notranslate"><span class="pre">./process.sh</span> <span class="pre">files.txt</span></code>.</p>
+<ol class="arabic simple" start="3">
+<li><p>You can then save the file by pressing <code class="code docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">D</span></code>.</p></li>
+<li><p>You’ll need to make sure you can execute the file so make sure you have execute or give yourself full permissions by <code class="code docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">777</span> <span class="pre">process.sh</span></code>.</p></li>
+<li><p>Now, you’ll need to get your files there too.  You can do the same process like <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&gt;</span> <span class="pre">files.txt</span></code>, pasting your files you created earlier, and then running like <code class="code docutils literal notranslate"><span class="pre">./process.sh</span> <span class="pre">files.txt</span></code>.</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -393,7 +398,10 @@ you created earlier, and then running like <code class="code docutils literal no
             <ul>
 <li><a class="reference internal" href="#">RDFizing DSPACE Works to Generate Manifests</a><ul>
 <li><a class="reference internal" href="#making-a-list">Making a List</a></li>
-<li><a class="reference internal" href="#copying-your-list-and-a-process-to-dspace">Copying your List and a Process to DSPACE</a></li>
+<li><a class="reference internal" href="#copying-your-list-and-a-process-to-dspace">Copying your List and a Process to DSPACE</a><ul>
+<li><a class="reference internal" href="#steps">Steps</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
