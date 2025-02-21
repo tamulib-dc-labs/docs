@@ -15,3 +15,10 @@ Libraries at Texas A&M University.
    :glob:
 
    workflows/*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: HPRC and Supercomputing
+   :glob:
+
+   supercomputing/*
