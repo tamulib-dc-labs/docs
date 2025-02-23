@@ -312,7 +312,7 @@ python<span class="w"> </span>execute.py<span class="w"> </span><span class="c1"
 <h2>Calculating Costs of a SLURM JOB<a class="headerlink" href="#calculating-costs-of-a-slurm-job" title="Link to this heading">¶</a></h2>
 <p>Before you run a job, there is piece of mind in understanding what that job might cost.  To do this, you can use
 <code class="code docutils literal notranslate"><span class="pre">maxconfig</span></code> to get an estimate of what your job will cost and why:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>max-config<span class="w"> </span>-f<span class="w"> </span>my-job.slurm
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>maxconfig<span class="w"> </span>-f<span class="w"> </span>my-job.slurm
 <span class="go">  Showing SU calculation for file is_torch_gpu.slurm</span>
 
 <span class="go">  (CPU-billing + (GPU-billing * GPU-count)) * hours * nodes =   SUs</span>
@@ -344,6 +344,22 @@ python<span class="w"> </span>execute.py<span class="w"> </span><span class="c1"
 <span class="go">          Requested SUs:   0.5</span>
 </pre></div>
 </div>
+</section>
+<section id="pro-tips">
+<h2>Pro tips<a class="headerlink" href="#pro-tips" title="Link to this heading">¶</a></h2>
+<section id="when-nothing-works">
+<h3>When Nothing Works<a class="headerlink" href="#when-nothing-works" title="Link to this heading">¶</a></h3>
+<p>When things go wrong, always:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>deactivate<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ml<span class="w"> </span>purge
+</pre></div>
+</div>
+<p>If you can’t get something working, it’s probably a module inheritance problem.</p>
+</section>
+<section id="check-venv-first-on-node">
+<h3>Check Venv First on Node<a class="headerlink" href="#check-venv-first-on-node" title="Link to this heading">¶</a></h3>
+<p>Before running a job, enter a repl and make sure the things you expect are there.  If you don’t you may waste time and
+service units (<code class="code docutils literal notranslate"><span class="pre">su</span></code>).</p>
+</section>
 </section>
 </section>
 
@@ -401,6 +417,11 @@ python<span class="w"> </span>execute.py<span class="w"> </span><span class="c1"
 <li><a class="reference internal" href="#writing-slurm-job">Writing SLURM Job</a></li>
 <li><a class="reference internal" href="#calculating-costs-of-a-slurm-job">Calculating Costs of a SLURM JOB</a></li>
 <li><a class="reference internal" href="#running-a-job">Running a Job</a></li>
+<li><a class="reference internal" href="#pro-tips">Pro tips</a><ul>
+<li><a class="reference internal" href="#when-nothing-works">When Nothing Works</a></li>
+<li><a class="reference internal" href="#check-venv-first-on-node">Check Venv First on Node</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

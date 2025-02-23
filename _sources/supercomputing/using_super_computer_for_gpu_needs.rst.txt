@@ -88,7 +88,7 @@ Before you run a job, there is piece of mind in understanding what that job migh
 
 .. code-block:: console
 
-    $ max-config -f my-job.slurm
+    $ maxconfig -f my-job.slurm
       Showing SU calculation for file is_torch_gpu.slurm
 
       (CPU-billing + (GPU-billing * GPU-count)) * hours * nodes =   SUs
@@ -121,3 +121,24 @@ Calculate costs then exectute like:
               Project Account: 132667767747
               Account Balance: 19999.858889
               Requested SUs:   0.5
+
+--------
+Pro tips
+--------
+
+When Nothing Works
+==================
+
+When things go wrong, always:
+
+.. code-block:: console
+
+    $ deactivate && ml purge
+
+If you can't get something working, it's probably a module inheritance problem.
+
+Check Venv First on Node
+========================
+
+Before running a job, enter a repl and make sure the things you expect are there.  If you don't you may waste time and
+service units (:code:`su`).
