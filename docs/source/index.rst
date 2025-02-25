@@ -18,6 +18,13 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Troubleshooting
+   :glob:
+
+   troubleshooting/*
+
+.. toctree::
+   :maxdepth: 1
    :caption: HPRC and Supercomputing
    :glob:
 
