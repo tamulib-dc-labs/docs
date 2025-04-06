@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Solving Open Oni Issues" href="../troubleshooting/open-oni.html" /><link rel="prev" title="RDFizing DSPACE Works to Generate Manifests" href="rdfizing.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Configuring and Using Kubectl to Access PODs without a Browser" href="../workflows/kubectl.html" /><link rel="prev" title="Future Plans" href="04_future.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Running Detached Processes in a Docker Container - TAMU Digital Collections Labs documentation</title>
+        <title>Projects - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -199,19 +199,19 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Overview of Digital Library Program</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../about/01_current.html">Infrastructure, Software, and Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about/02_people.html">People and Departments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about/03_gaps.html">Gaps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about/04_future.html">Future Plans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about/05_projects.html">Projects</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_current.html">Infrastructure, Software, and Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_people.html">People and Departments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_gaps.html">Gaps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_future.html">Future Plans</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Projects</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Workflows and Workarounds</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minting_a_doi.html">Minting DOIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Running Detached Processes in a Docker Container</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/minting_a_doi.html">Minting DOIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -240,7 +240,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/workflows/running_detached_processes_in_docker.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/about/05_projects.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -254,59 +254,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="running-detached-processes-in-a-docker-container">
-<h1>Running Detached Processes in a Docker Container<a class="headerlink" href="#running-detached-processes-in-a-docker-container" title="Link to this heading">¶</a></h1>
-<p>Often times, you will need to run a process in the background in a Docker container. This explains how to do that without
-screen or tmux.</p>
-<section id="using-nohup-inside">
-<h2>Using nohup Inside<a class="headerlink" href="#using-nohup-inside" title="Link to this heading">¶</a></h2>
-<p>If you are in a Docker container, you should be able to use <code class="code docutils literal notranslate"><span class="pre">nohup</span></code> like below:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nohup<span class="w"> </span>your_command<span class="w"> </span>&gt;<span class="w"> </span>output.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-</pre></div>
-</div>
-<p>So, to run a DSPACE import, you could do something like:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>nohup<span class="w"> </span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span>-a<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span><span class="w"> </span>-c<span class="w"> </span>a0621c24-2e7c-4b33-a893-8b7798e0a4ad<span class="w"> </span>-s<span class="w"> </span>batch_5_tn<span class="w"> </span>-m<span class="w"> </span>batch_5_tn_not_zipped_post_crash2.txt<span class="w"> </span>&gt;<span class="w"> </span>mark.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-</pre></div>
-</div>
-</section>
-<section id="using-nohup-from-outside">
-<h2>Using nohup from Outside<a class="headerlink" href="#using-nohup-from-outside" title="Link to this heading">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-d<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>nohup<span class="w"> </span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span>-a<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span><span class="w"> </span>-c<span class="w"> </span>a0621c24-2e7c-4b33-a893-8b7798e0a4ad<span class="w"> </span>-s<span class="w"> </span>batch_5_tn<span class="w"> </span>-m<span class="w"> </span>batch_5_tn_not_zipped_post_crash2.txt<span class="w"> </span>&gt;<span class="w"> </span>mark.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-</pre></div>
-</div>
-</section>
-<section id="running-batches">
-<h2>Running Batches<a class="headerlink" href="#running-batches" title="Link to this heading">¶</a></h2>
-<p>A basic example of how to setup batches. You should run this with <code class="code docutils literal notranslate"><span class="pre">nohup</span></code>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-
-<span class="c1"># Define variables</span>
-<span class="nv">EMAIL</span><span class="o">=</span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span>
-<span class="nv">COLLECTION</span><span class="o">=</span><span class="s2">&quot;a0621c24-2e7c-4b33-a893-8b7798e0a4ad&quot;</span>
-
-run_import<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">BATCH_NAME</span><span class="o">=</span><span class="nv">$1</span>
-<span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">METADATA_FILE</span><span class="o">=</span><span class="nv">$2</span>
-<span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">LOG_FILE</span><span class="o">=</span><span class="nv">$3</span>
-
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Starting import for </span><span class="nv">$BATCH_NAME</span><span class="s2">...&quot;</span>
-<span class="w">  </span>nohup<span class="w"> </span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span>-a<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$EMAIL</span><span class="s2">&quot;</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$COLLECTION</span><span class="s2">&quot;</span><span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BATCH_NAME</span><span class="s2">&quot;</span><span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$METADATA_FILE</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Import for </span><span class="nv">$BATCH_NAME</span><span class="s2"> started. Logs: </span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-
-<span class="c1"># Add import information</span>
-run_import<span class="w"> </span><span class="s2">&quot;batch_8_tn&quot;</span><span class="w"> </span><span class="s2">&quot;batch_8_tn_not_zipped_prod2.txt&quot;</span><span class="w"> </span><span class="s2">&quot;mark_prod_batch_8.log&quot;</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;All imports started.&quot;</span>
-</pre></div>
-</div>
-</section>
+          <section id="projects">
+<h1>Projects<a class="headerlink" href="#projects" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -314,23 +269,23 @@ run_import<span class="w"> </span><span class="s2">&quot;batch_8_tn&quot;</span>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../troubleshooting/open-oni.html">
+          <a class="next-page" href="../workflows/kubectl.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Solving Open Oni Issues</div>
+                <div class="title">Configuring and Using Kubectl to Access PODs without a Browser</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="rdfizing.html">
+          <a class="prev-page" href="04_future.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">RDFizing DSPACE Works to Generate Manifests</div>
+                <div class="title">Future Plans</div>
                 
               </div>
             </a>
@@ -352,29 +307,8 @@ run_import<span class="w"> </span><span class="s2">&quot;batch_8_tn&quot;</span>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Running Detached Processes in a Docker Container</a><ul>
-<li><a class="reference internal" href="#using-nohup-inside">Using nohup Inside</a></li>
-<li><a class="reference internal" href="#using-nohup-from-outside">Using nohup from Outside</a></li>
-<li><a class="reference internal" href="#running-batches">Running Batches</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
