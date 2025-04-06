@@ -11,6 +11,13 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Overview of Digital Library Program
+   :glob:
+
+   about/*
+
+.. toctree::
+   :maxdepth: 1
    :caption: Workflows and Workarounds
    :glob:
 
