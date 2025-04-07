@@ -212,6 +212,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../workflows/minting_a_doi.html">Minting DOIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflows/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/sage_import.html">SAGE Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflows/spotlight_import.html">Spotlight Imports</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -289,43 +291,148 @@ community. Normally, but not always, these works will be discoverable through so
 wasn’t designed to deliver cultural heritage collections.</p>
 <section id="saf-creator">
 <h3>SAF Creator<a class="headerlink" href="#saf-creator" title="Link to this heading">¶</a></h3>
+<p>Data is commonly batch imported into OAKTrust via SAF imports.  SAF imports can be uploaded via the web (if less than 500
+MB) or via a command line interface if larger. More information about SAF imports can be found online in the
+<a class="reference external" href="https://wiki.lyrasis.org/pages/viewpage.action?pageId=104566653">DSPACE documentation on the topic</a>.</p>
+<p>To build a SAF import, we commonly use an in-house built application called <a class="reference external" href="https://github.com/TAMULib/SAFCreator">SAF Creator</a>.
+SAF Creator takes a CSV that is informed by the DSPACE documentation above and creates a file structure with metadata
+and other supplementary files that can be imported into DSPACE. In addition to creating data for import, it also attempts
+to validate that the structure will be accepted by DSPACE. While this works in most cases, if you use know DublinCore fields
+the import will validate and pass even though it will be rejected by DSPACE.</p>
 </section>
 </section>
 <section id="fedora">
 <h2>Fedora<a class="headerlink" href="#fedora" title="Link to this heading">¶</a></h2>
+<p>Fedora at Texas A&amp;M University is used for two use cases: A/V materials served by Avalon Media System and cultural
+heritage collections served through SAGE or Spotlight. Originally, it seems the plan for Fedora was to serve as the
+repository and digital assets layer for all cultural heritage material collections. That being said, development behind
+many of these ideas needed for this never happened. Therefore, with the exception of Avalon, Fedora only holds collections,
+files, and works for the most simple use cases. Largely, this is multi-canvased and single-canvased image works. By
+multi-canvased images, we mean book like materials where there is no Alto, HOCR, or OCR but only images. While Fedora
+itself is agnostic to what it can whole, our implementation of Portland Common Data Model was short sighted. This was
+caused by the nature of the work and what our developers were asked to do.</p>
+<p>Fedora at TAMU is headless – we have no way to natively display collections stored here. For that reason, SAGE or Spotlight
+is used and must be manually configured on a collection by collection basis. While Fedora is a discreet service from
+Avalon, the integration between these two services means you can expect things to be organized in a traditional DAMS way.
+For non-Avalon uses, collections are loosely constructed and you many have 6 or 7 unrelated collection aggregations that
+must be organized together in order to serve collections effectively.</p>
+<p>To understand more structures in Fedora, please see <a class="reference external" href="https://tamu-dc-notes.readthedocs.io/en/latest/contents/01b_env_scan_content_modelling.html">Environmental Scan: Content Models</a>
+and <a class="reference external" href="http://tamu-cookbook.readthedocs.io/en/latest/">TAMU Work Type Components and Presentation Recipes</a>.</p>
 </section>
 <section id="sage">
 <h2>SAGE<a class="headerlink" href="#sage" title="Link to this heading">¶</a></h2>
+<p>SAGE is a digital collections discovery platform created by developers at Texas A&amp;M University. SAGE relies
+on Solr for both the source and destination of metadata. When a new collection is ingested into Fedora, a command is
+issued to have Solr reindex Fedora within the appropriate pod (e.g. <a class="reference external" href="https://rancher-dev.library.tamu.edu/dashboard/c/c-zfm6r/explorer/apps.deployment/fcrepo4/fedora#pods">https://rancher-dev.library.tamu.edu/dashboard/c/c-zfm6r/explorer/apps.deployment/fcrepo4/fedora#pods</a>)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:9080/reindexing<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;[&quot;broker:queue:solr.reindex&quot;]&#39;</span>
+</pre></div>
+</div>
+<p>This makes all the metadata and fedora resources be available in Solr. After data is available in a Solr Core according
+to how SAGE expects, a new SAGE collection can be created.  Detailed instructions can be found in the workflows section.</p>
+<p>The most important thing to understand about SAGE is that it’s DAMS-agnostic. SAGE just needs data to match a certain
+format. It is built to hook up to an SOLR instance and remap all the data to a format SAGE can understand.  Because of
+this, a SAGE site can be built from 1 to many collections.</p>
+<section id="example-sage-instances">
+<h3>Example SAGE Instances<a class="headerlink" href="#example-sage-instances" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://library.tamu.edu/discovery/discovery-context/geologic-atlas-united-states?direction=ASC&amp;sort=title">Geologic Atlas of the United States</a></p></li>
+<li><p><a class="reference external" href="https://library.tamu.edu/discovery/discovery-context/tamu-cuba-maps?direction=ASC&amp;sort=title">Historical Maps of Cuba</a></p></li>
+</ul>
+</section>
 </section>
 <section id="spotlight">
 <h2>Spotlight<a class="headerlink" href="#spotlight" title="Link to this heading">¶</a></h2>
+<p>Spotlight is the system used to allow curators and librarians to create digital exhibits from materials in the digital
+library program.</p>
+<section id="example-spotlight-instances">
+<h3>Example Spotlight Instances<a class="headerlink" href="#example-spotlight-instances" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://spotlight.library.tamu.edu/spotlight/bryan-150-exhibit">150 Years and Counting: Celebrating 150 Years of the City of Bryan, Texas</a></p></li>
+<li><p><a class="reference external" href="https://spotlight.library.tamu.edu/spotlight/austin-map">Stephen F. Austin’s 1830 Map of Texas</a></p></li>
+<li><p><a class="reference external" href="https://spotlight.library.tamu.edu/spotlight/charting-texas">Charting Texas</a></p></li>
+</ul>
+</section>
 </section>
 <section id="mirador">
 <h2>Mirador<a class="headerlink" href="#mirador" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://projectmirador.org/">Mirador</a> is the viewer that is used to display works from our digital library program.
+Mirador is used within SAGE and Spotlight using a manifest url that is Solrized to a Solr document.</p>
+<p>An example work can be seen in this
+<a class="reference external" href="https://projectmirador.org/embed/?iiif-content=https://api.library.tamu.edu/iiif-service/fedora/presentation/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/bryan-150_objects/15">“Hilliers Funeral Home” Example</a>.</p>
 </section>
 <section id="cantaloupe">
 <h2>Cantaloupe<a class="headerlink" href="#cantaloupe" title="Link to this heading">¶</a></h2>
+<p>The primary IIIF Image server used at TAMU is Cantaloupe.  Cantaloupe is used to support tiling and deep zooming using
+for files in DSPACE and Fedora. A delegate file exists in our cantaloupe application that translates how to create
+derivatives from each properly. Our Cantaloupe configuration supports many file types including:</p>
+<ul class="simple">
+<li><p>small images (JPEGs, PNGS)</p></li>
+<li><p>large images (Tiffs, JP2s)</p></li>
+<li><p>PDFs</p></li>
+</ul>
+<p>Because of a bug in Cantaloupe for PDFs, we build from a specific commit message.</p>
 </section>
 <section id="iriiifservice">
 <h2>irIIIFService<a class="headerlink" href="#iriiifservice" title="Link to this heading">¶</a></h2>
+<p>irIIIFService is an in house written IIIF Presentation v2 implementation.  It is designed to work with prescribed models
+in DSPACE and Fedora. More information can be found in the <a class="reference external" href="https://github.com/TAMULib/IRIIIFService">IRIIIFService GitHub Repo</a>.</p>
 </section>
 <section id="magpie">
 <h2>MAGPIE<a class="headerlink" href="#magpie" title="Link to this heading">¶</a></h2>
+<p>MAGPIE, or Metadata Assignment GUI Providing Ingest and Export App, is the primary application we use to ingest data into
+Fedora.  MAGPIE can currently only run locally on x86 architecture. MAGPIE assumes that data has been modelled in SAF format
+which aids in reusability but is odd for a linked data system like Fedora.  More information can be found in the
+<a class="reference external" href="https://github.com/TAMULib/MAGPIE">GitHub repository</a>.</p>
 </section>
 <section id="cap">
 <h2>CAP<a class="headerlink" href="#cap" title="Link to this heading">¶</a></h2>
+<p>CAP, or <a class="reference external" href="https://github.com/TAMULib/CAP">Curator’s Administration Platform</a>, is an open source application that has
+been designed to provide a common user interface (UI) and application programing interface (API) for any Institutional
+Repository (IR) participating within a Digital Asset Management Ecosystem (DAME). Currently CAP has support for Fedora 4x through use of the fcrepo-java-client.</p>
+<p>CAP is the only solution we have in house for editing an existing Fedora work.</p>
+<p>More information can be found online in the <a class="reference external" href="https://github.com/TAMULib/CAP/wiki/User-Documentation">wiki</a>.</p>
 </section>
 <section id="open-oni">
 <h2>Open ONI<a class="headerlink" href="#open-oni" title="Link to this heading">¶</a></h2>
+<p>Open ONI is a discreet system from Fedora and DSPACE.  It’s primary use is for newspapers and text highlighting in a
+work. It’s files are stored internally and it uses it’s own image server (RAIS server).</p>
+<p>Open ONI is a fork of the Chronicling America project.  It is designed specifically for newspapers, but because we have
+no Alto / HOCR integration in Fedora currently, when tend to use it in ways it wasn’t designed for.</p>
+<p>For some reason, our partners in Technology Services do not want us depositing materials on our own. Instead, they want
+us to ask for a deposit. Normally, this is okay, but we should note that they can be busy with other things and limited
+in what they have time to do.</p>
+<section id="example-openoni-collections">
+<h3>Example OpenOni Collections<a class="headerlink" href="#example-openoni-collections" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://library.tamu.edu/collections/digital-library/newspapers.php">Texas A&amp;M Newspapers and Periodicals Collection</a></p></li>
+</ul>
+</section>
 </section>
 <section id="internet-archive-bookreader">
 <h2>Internet Archive Bookreader<a class="headerlink" href="#internet-archive-bookreader" title="Link to this heading">¶</a></h2>
+<p>For non-newspaper collections with text highlighting needs, we use a custom app built with Internet Archive bookreader.
+Like Open Oni, content in these collections are not stored in a digital asset management system.</p>
+<p>For more information, see <a class="reference external" href="https://github.com/TAMULib/bookreader">bookreader</a>.</p>
+<section id="example-internetarchive-bookreader-collections">
+<h3>Example InternetArchive Bookreader Collections<a class="headerlink" href="#example-internetarchive-bookreader-collections" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://library.tamu.edu/yearbooks/">Texas A&amp;M Yearbook Collection</a></p></li>
+</ul>
+</section>
 </section>
 <section id="open-journal-system">
 <h2>Open Journal System<a class="headerlink" href="#open-journal-system" title="Link to this heading">¶</a></h2>
+<p>Open Journal System is another system in use where assets are not stored in DSPACE or Fedora. OJS is used primarily for
+collections where an editorial workflow is needed, but it is also used for local collections.  This is because our
+catalogers and metadata librarians felt it was necessary to structure things like a serial.</p>
+<section id="example-ojs-collections">
+<h3>Example OJS Collections<a class="headerlink" href="#example-ojs-collections" title="Link to this heading">¶</a></h3>
+</section>
 </section>
 <section id="hathitrust">
 <h2>HathiTrust<a class="headerlink" href="#hathitrust" title="Link to this heading">¶</a></h2>
+<p>The Libraries contributes rare books and serials to HathiTrust. Normally, this is limited to public domain materials but
+not always.</p>
 </section>
 <section id="avalon-media-system">
 <h2>Avalon Media System<a class="headerlink" href="#avalon-media-system" title="Link to this heading">¶</a></h2>
@@ -334,6 +441,15 @@ wasn’t designed to deliver cultural heritage collections.</p>
 <h2>ArchiveIt<a class="headerlink" href="#archiveit" title="Link to this heading">¶</a></h2>
 <section id="browsertrix">
 <h3>Browsertrix<a class="headerlink" href="#browsertrix" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="other-things">
+<h2>Other Things<a class="headerlink" href="#other-things" title="Link to this heading">¶</a></h2>
+<section id="cervantes">
+<h3>Cervantes<a class="headerlink" href="#cervantes" title="Link to this heading">¶</a></h3>
+</section>
+<section id="crossref">
+<h3>Crossref<a class="headerlink" href="#crossref" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 </section>
@@ -399,20 +515,40 @@ wasn’t designed to deliver cultural heritage collections.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#fedora">Fedora</a></li>
-<li><a class="reference internal" href="#sage">SAGE</a></li>
-<li><a class="reference internal" href="#spotlight">Spotlight</a></li>
+<li><a class="reference internal" href="#sage">SAGE</a><ul>
+<li><a class="reference internal" href="#example-sage-instances">Example SAGE Instances</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spotlight">Spotlight</a><ul>
+<li><a class="reference internal" href="#example-spotlight-instances">Example Spotlight Instances</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mirador">Mirador</a></li>
 <li><a class="reference internal" href="#cantaloupe">Cantaloupe</a></li>
 <li><a class="reference internal" href="#iriiifservice">irIIIFService</a></li>
 <li><a class="reference internal" href="#magpie">MAGPIE</a></li>
 <li><a class="reference internal" href="#cap">CAP</a></li>
-<li><a class="reference internal" href="#open-oni">Open ONI</a></li>
-<li><a class="reference internal" href="#internet-archive-bookreader">Internet Archive Bookreader</a></li>
-<li><a class="reference internal" href="#open-journal-system">Open Journal System</a></li>
+<li><a class="reference internal" href="#open-oni">Open ONI</a><ul>
+<li><a class="reference internal" href="#example-openoni-collections">Example OpenOni Collections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#internet-archive-bookreader">Internet Archive Bookreader</a><ul>
+<li><a class="reference internal" href="#example-internetarchive-bookreader-collections">Example InternetArchive Bookreader Collections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#open-journal-system">Open Journal System</a><ul>
+<li><a class="reference internal" href="#example-ojs-collections">Example OJS Collections</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#hathitrust">HathiTrust</a></li>
 <li><a class="reference internal" href="#avalon-media-system">Avalon Media System</a></li>
 <li><a class="reference internal" href="#archiveit">ArchiveIt</a><ul>
 <li><a class="reference internal" href="#browsertrix">Browsertrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-things">Other Things</a><ul>
+<li><a class="reference internal" href="#cervantes">Cervantes</a></li>
+<li><a class="reference internal" href="#crossref">Crossref</a></li>
 </ul>
 </li>
 </ul>
