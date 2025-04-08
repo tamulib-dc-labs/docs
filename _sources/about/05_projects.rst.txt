@@ -10,23 +10,7 @@ Active DPMT Projects
 
 .. raw:: html
 
-    <iframe src="https://docs.google.com/spreadsheets/d/1PHw7adEr1wFcOmbgprq9J6axXOVJJ-KnSNN8XupzMaE/edit?gid=0#gid=0" height="400" frameborder="0" allowfullscreen></iframe>
-
----------------------
-Awaiting Preservation
----------------------
-
------------------------
-Planned OJS Collections
------------------------
-
-----------
-Other Work
-----------
-
--------------------
-Problem Collections
--------------------
+    <iframe src="https://docs.google.com/spreadsheets/d/1PHw7adEr1wFcOmbgprq9J6axXOVJJ-KnSNN8XupzMaE/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe>
 
 
 
