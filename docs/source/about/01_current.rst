@@ -7,6 +7,9 @@ attempts to define the various applications in use by the Libraries, how they ar
 this document will only include applications that are considered a part of the digital library program. As a result, data
 repository services and applications such as Vireo will be ignored.
 
+.. image:: ../_static/images/cultural-heritage-overview.png
+    :alt: Image that Explains How Most Cultural Heritage Systems Work
+
 -----------------------------------------
 OAKTrust and the Institutional Repository
 -----------------------------------------
@@ -208,26 +211,50 @@ HathiTrust
 ----------
 
 The Libraries contributes rare books and serials to HathiTrust. Normally, this is limited to public domain materials but
-not always.
+not always. In order to be publicly available in HathiTrust, the work must pass its rights database.  Doing this requries
+relative straightforward rights determination, a Creative Commons license, or the IP holder signing the item over to the
+public domain.
 
 -------------------
 Avalon Media System
 -------------------
 
+Example Avalon Media System Collections
+=======================================
+
+* `Owens Folk Music <https://avalon.library.tamu.edu/collections/1c18df80p>`_
+
 ---------
 ArchiveIt
 ---------
 
+`ArchiveIt <https://archive-it.org/home/tamu>`_ is the primary solution used for web archiving. It includes a collection of archived websites including the Dr. Gwendoline Y. Fortune Papers, various Texas A&M websites, and George R.R. Martin's website.
+
+This solution is ran entirely out of Cushing Special Collections.
+
 Browsertrix
 ===========
+
+ArchiveIt is designed to capture textual webarchives.  Therefore, it's not always the most appropriate application when
+capturing high fidelity websites where JavaScript is used to render many parts of the screen.  When this happens, Browsertrix
+is used.
 
 ------------
 Other Things
 ------------
 
-Cervantes
-=========
+Cervantes Collection
+====================
+
+`The Cervantes Collection <https://library.tamu.edu/collections/digital-library/cervantes.php>`_ created by Dr. Eduardo Urbina, is an initiative dedicated to the life, works, and legacy of Miguel de Cervantes, the renowned Spanish writer best known for Don Quixote. The project provides a comprehensive online resource for scholars, students, and enthusiasts. The online tools are based upon one of the world’s largest print collections of Cervantes. Known as the, Eduardo Urbina Cervantes Project Collection, these editions are housed at Cushing Memorial Library and Archives.
+
+The Cervantes Project, housed at Texas A&M University (TAMU), started as a collaborative academic project between Texas A&M’s Department of Hispanic Studies, Department of Computer Science’s  Center for the Study of Digital Libraries (CSDL), Cushing Memorial Library & Archives, Universidad de Castilla-La Mancha, and Dr. Fred Jehle of Indiana-Purdue University.
+
+The project consists of several components including: a discovery interface, a variorum, and an editor. It is all written
+in a legacy JSP site.
 
 Crossref
 ========
+
+Crossref is the service we use for DOI minting.  All DOIs are minted by digital collections.
 
