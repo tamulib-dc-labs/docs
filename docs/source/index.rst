@@ -32,6 +32,13 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Configurations and Mappings
+   :glob:
+
+   config/*
+
+.. toctree::
+   :maxdepth: 1
    :caption: HPRC and Supercomputing
    :glob:
 
