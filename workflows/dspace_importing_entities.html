@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="DSPACE: Importing Basic Items" href="../workflows/dspace_importing.html" /><link rel="prev" title="Future Plans" href="04_future.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Configuring and Using Kubectl to Access PODs without a Browser" href="kubectl.html" /><link rel="prev" title="DSPACE: Importing Basic Items" href="dspace_importing.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Projects - TAMU Digital Collections Labs documentation</title>
+        <title>DSPACE: Importing Entities - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -199,23 +199,23 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Overview of Digital Library Program</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01_current.html">Infrastructure, Software, and Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_people.html">People and Departments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_gaps.html">Gaps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_future.html">Future Plans</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Projects</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/01_current.html">Infrastructure, Software, and Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/02_people.html">People and Departments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/03_gaps.html">Gaps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/04_future.html">Future Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/05_projects.html">Projects</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Workflows and Workarounds</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/minting_a_doi.html">Minting DOIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/sage_import.html">SAGE Import</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../workflows/spotlight_import.html">Spotlight Imports</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">DSPACE: Importing Entities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minting_a_doi.html">Minting DOIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sage_import.html">SAGE Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spotlight_import.html">Spotlight Imports</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -249,7 +249,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/about/05_projects.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/workflows/dspace_importing_entities.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -263,18 +263,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="projects">
-<h1>Projects<a class="headerlink" href="#projects" title="Link to this heading">¶</a></h1>
-<p>This page links to high level information regarding on going projects.</p>
-<section id="active-dpmt-projects">
-<h2>Active DPMT Projects<a class="headerlink" href="#active-dpmt-projects" title="Link to this heading">¶</a></h2>
-<iframe src="https://docs.google.com/spreadsheets/d/1PHw7adEr1wFcOmbgprq9J6axXOVJJ-KnSNN8XupzMaE/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe></section>
+          <section id="dspace-importing-entities">
+<h1>DSPACE: Importing Entities<a class="headerlink" href="#dspace-importing-entities" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -282,23 +278,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../workflows/dspace_importing.html">
+          <a class="next-page" href="kubectl.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">DSPACE: Importing Basic Items</div>
+                <div class="title">Configuring and Using Kubectl to Access PODs without a Browser</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="04_future.html">
+          <a class="prev-page" href="dspace_importing.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Future Plans</div>
+                <div class="title">DSPACE: Importing Basic Items</div>
                 
               </div>
             </a>
@@ -320,27 +316,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Projects</a><ul>
-<li><a class="reference internal" href="#active-dpmt-projects">Active DPMT Projects</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
