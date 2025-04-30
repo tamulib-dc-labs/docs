@@ -144,7 +144,7 @@ Because we have use cases where the model is more simple, I propose we change ou
         JournalIssue -->|isJournalVolumeOfIssue-right|JournalVolume
         JournalIssue -->|isPublicationOfJournalIssue-left| Publication
         Publication -->|isJournalIssueOfPublication-right| JournalIssue
-        Publication -->|isJournalVolumeeOfPublication-right| JournalVolume
+        Publication -->|isJournalVolumeOfPublication-right| JournalVolume
 
 ----------------------
 Conference Proceedings
