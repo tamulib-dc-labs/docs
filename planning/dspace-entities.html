@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Cantloupe Configuration" href="../config/cantaloupe_config.html" /><link rel="prev" title="Spotlight Imports" href="../workflows/spotlight_import.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Using the Super Computer when we Need GPU" href="../supercomputing/using_super_computer_for_gpu_needs.html" /><link rel="prev" title="Understanding Solr Config in Fedora" href="../config/fedora_solr.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Solving Open Oni Issues - TAMU Digital Collections Labs documentation</title>
+        <title>Understanding Our DSPACE Entities - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -218,8 +218,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../workflows/spotlight_import.html">Spotlight Imports</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Solving Open Oni Issues</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/open-oni.html">Solving Open Oni Issues</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Configurations and Mappings</span></p>
 <ul>
@@ -227,8 +227,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../config/fedora_solr.html">Understanding Solr Config in Fedora</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Planning and Conceptual Documents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../planning/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Understanding Our DSPACE Entities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">HPRC and Supercomputing</span></p>
 <ul>
@@ -253,7 +253,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/troubleshooting/open-oni.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/planning/dspace-entities.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -273,22 +273,74 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="solving-open-oni-issues">
-<h1>Solving Open Oni Issues<a class="headerlink" href="#solving-open-oni-issues" title="Link to this heading">¶</a></h1>
-<section id="solr-fails-to-spin-down-and-spin-up-graciously">
-<h2>Solr Fails to Spin down and Spin Up Graciously<a class="headerlink" href="#solr-fails-to-spin-down-and-spin-up-graciously" title="Link to this heading">¶</a></h2>
-<p>Sometimes, users will report that search is broken in Open Oni.  When this happens, it’s almost always due to the Solr
-pod failing to gracefully terminate and restart.  When the new pod is scheduled elsewhere, it encounters a
-<code class="code docutils literal notranslate"><span class="pre">write.lock</span></code> error and refuses to start.  To understand the problem better, see the Arguments and WorkingDir of
-the exec in Rancher:</p>
-<img alt="Open Oni Exec" src="../_images/oni-exec.png" />
-<p>To fix:</p>
-<ol class="arabic simple">
-<li><p>Shell into the Solr pod</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">rm</span> <span class="pre">openoni/data/index/write.lock</span></code></p></li>
-<li><p>Redeploy the pod.</p></li>
-</ol>
+          <section id="understanding-our-dspace-entities">
+<h1>Understanding Our DSPACE Entities<a class="headerlink" href="#understanding-our-dspace-entities" title="Link to this heading">¶</a></h1>
+<p>This document describes our use of DSPACE Entities at Texas A&amp;M University. It explains what is meant by “left” and “right”
+and lays out what a CSV and SAF import should look like.</p>
+<section id="a-brief-overview-of-entities">
+<h2>A Brief Overview of Entities<a class="headerlink" href="#a-brief-overview-of-entities" title="Link to this heading">¶</a></h2>
+<p>In DSpace, an Entity is a special type of Item which often has Relationships to other Entities. Every Entity is an Item
+(the default DSPACE type). This means they must belong to a Collection. Not every Item is an Entity though.</p>
+<p>Entities have a <code class="code docutils literal notranslate"><span class="pre">dspace.entity.type</span></code> field which defines their “Entity type.” Based on that type, an Entity may be
+related to other Entities via a Relationship. One Entity type may support several relationship types at once. Examples
+of relationship types include “isPersonOfProject” or “isPublicationOfAuthor.” In DSpace, an Entity is a special type of
+Item which often has Relationships to other Entities.</p>
+<p>Entities of different types may also have customized visualizations in the User Interface.  These visualizations may also
+dynamically pull in metadata from related Entities.  For example, a Publication entity may be displayed in the User
+Interface with an author name dynamically pulled in from a related Person entity.  The metadata “appears” as though it
+is part of the Entity you are viewing, but it is dynamically pulled via the Relationship.</p>
+<p>Entities and their Relationships are also completely configurable. DSpace provides some sample models out of the box,
+which you can use directly or adapt as needed.</p>
 </section>
+<section id="how-entities-relate-to-pcdm">
+<h2>How Entities Relate to PCDM<a class="headerlink" href="#how-entities-relate-to-pcdm" title="Link to this heading">¶</a></h2>
+<p>The Entity model also has similarities with the <a class="reference external" href="https://pcdm.org/">Portland Common Data Model (PCDM)</a>, with an Entity
+roughly mapping to a “pcdm:Object” and existing Communities and Collections roughly mapping to a “pcdm:Collection”.
+However, at this time DSpace Entities concentrate more on building a graph structure of relationships, instead of a tree
+structure.</p>
+</section>
+<section id="understanding-left-and-right">
+<h2>Understanding Left and Right<a class="headerlink" href="#understanding-left-and-right" title="Link to this heading">¶</a></h2>
+<p>Relationships between entities are conceptualized as <code class="code docutils literal notranslate"><span class="pre">left</span></code> and <code class="code docutils literal notranslate"><span class="pre">right</span></code>. For some reason, the way this is done
+is backwards from what I’d expect. In laymans terms, the <code class="code docutils literal notranslate"><span class="pre">leftType</span></code> is the “parent,” and the <code class="code docutils literal notranslate"><span class="pre">rightType</span></code> is
+the “child.” For instance, let’s think about a <code class="code docutils literal notranslate"><span class="pre">Journal</span></code> and a <code class="code docutils literal notranslate"><span class="pre">JournalVolume</span></code>. In this conceptualization, the
+parent is “Journal” and the <code class="code docutils literal notranslate"><span class="pre">leftType</span></code>. The Journal needs a relationship that ties it to the child. This is expressed
+via the <code class="code docutils literal notranslate"><span class="pre">leftwardType</span></code> relationship. You might think this would be something like <code class="code docutils literal notranslate"><span class="pre">isJournalOfJournalVolume</span></code>,
+but it is in fact the opposite.  The relationship on the parent will always be about the child because when we edit metadata
+about the parent we will be updating it’s relationship to the child. In other words, <code class="code docutils literal notranslate"><span class="pre">leftwardType</span></code> will always be
+a property that refers to the child in a predicate like <code class="code docutils literal notranslate"><span class="pre">isChildOfParent</span></code>.</p>
+<p>Vice versa, <code class="code docutils literal notranslate"><span class="pre">rightwardType</span></code> is a property on the child but it will always refer to the parent in a relationship like
+<code class="code docutils literal notranslate"><span class="pre">isParentOfChild</span></code>.</p>
+</section>
+<section id="journals">
+<h2>Journals<a class="headerlink" href="#journals" title="Link to this heading">¶</a></h2>
+<pre  class="mermaid">
+        graph TD
+    Journal[Journal]
+    JournalVolume[JournalVolume]
+    JournalIssue[JournalIssue]
+    Publication[Publication]
+
+    Journal --&gt;|isVolumeOfJournal-left| JournalVolume
+    JournalVolume --&gt;|isJournalOfVolume-right| Journal
+    JournalVolume --&gt;|isIssueOfJournalVolume-left| JournalIssue
+    JournalIssue --&gt;|isJournalVolumeOfIssue-right|JournalVolume
+    JournalIssue --&gt;|isPublicationOfJournalIssue-left| Publication
+    Publication --&gt;|isJournalIssueOfPublication-right| JournalIssue
+    </pre></section>
+<section id="conferenceproceedings">
+<h2>ConferenceProceedings<a class="headerlink" href="#conferenceproceedings" title="Link to this heading">¶</a></h2>
+<pre  class="mermaid">
+        graph TD
+    Conference[Conference]
+    ConferenceProceeding[ConferenceProceeding]
+    ConferencePaper[ConferencePaper]
+
+    Conference --&gt;|isConferenceProceedingOfConference-left| ConferenceProceeding
+    ConferenceProceeding --&gt;|isConferenceOfConferenceProceeding-right| Conference
+    ConferenceProceeding --&gt;|isConferencePaperOfConferenceProceeding-left| ConferencePaper
+    ConferencePaper --&gt;|isConferenceProceedingOfConferencePaper-right| ConferenceProceeding
+    </pre></section>
 </section>
 
         </article>
@@ -296,23 +348,23 @@ the exec in Rancher:</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../config/cantaloupe_config.html">
+          <a class="next-page" href="../supercomputing/using_super_computer_for_gpu_needs.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Cantloupe Configuration</div>
+                <div class="title">Using the Super Computer when we Need GPU</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../workflows/spotlight_import.html">
+          <a class="prev-page" href="../config/fedora_solr.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Spotlight Imports</div>
+                <div class="title">Understanding Solr Config in Fedora</div>
                 
               </div>
             </a>
@@ -346,8 +398,12 @@ the exec in Rancher:</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Solving Open Oni Issues</a><ul>
-<li><a class="reference internal" href="#solr-fails-to-spin-down-and-spin-up-graciously">Solr Fails to Spin down and Spin Up Graciously</a></li>
+<li><a class="reference internal" href="#">Understanding Our DSPACE Entities</a><ul>
+<li><a class="reference internal" href="#a-brief-overview-of-entities">A Brief Overview of Entities</a></li>
+<li><a class="reference internal" href="#how-entities-relate-to-pcdm">How Entities Relate to PCDM</a></li>
+<li><a class="reference internal" href="#understanding-left-and-right">Understanding Left and Right</a></li>
+<li><a class="reference internal" href="#journals">Journals</a></li>
+<li><a class="reference internal" href="#conferenceproceedings">ConferenceProceedings</a></li>
 </ul>
 </li>
 </ul>
@@ -363,5 +419,13 @@ the exec in Rancher:</p>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     </body>
 </html>

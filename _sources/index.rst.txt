@@ -39,6 +39,13 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Planning and Conceptual Documents
+   :glob:
+
+   planning/*
+
+.. toctree::
+   :maxdepth: 1
    :caption: HPRC and Supercomputing
    :glob:
 
