@@ -54,6 +54,9 @@ Vice versa, :code:`rightwardType` is a property on the child but it will always 
 Journals
 --------
 
+Journals are configured out of the box when entities are enabled.  There are more optional relationships, but so far,
+our default layout looks like this:
+
 .. mermaid::
 
     graph TD
@@ -69,9 +72,85 @@ Journals
         JournalIssue -->|isPublicationOfJournalIssue-left| Publication
         Publication -->|isJournalIssueOfPublication-right| JournalIssue
 
+This is enabled with this configuration:
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE relationships SYSTEM "relationship-types.dtd">
+
+    <relationships>
+
+        <!-- Sample relationship types setup used for the entities development
+         This file can be imported using the initialize-entities launcher -->
+        <type>
+            <leftType>Journal</leftType>
+            <rightType>JournalVolume</rightType>
+            <leftwardType>isVolumeOfJournal</leftwardType>
+            <rightwardType>isJournalOfVolume</rightwardType>
+            <leftCardinality>
+                <min>0</min>
+            </leftCardinality>
+            <rightCardinality>
+                <min>0</min>
+            </rightCardinality>
+        </type>
+        <type>
+            <leftType>JournalVolume</leftType>
+            <rightType>JournalIssue</rightType>
+            <leftwardType>isIssueOfJournalVolume</leftwardType>
+            <rightwardType>isJournalVolumeOfIssue</rightwardType>
+            <leftCardinality>
+                <min>0</min>
+            </leftCardinality>
+            <rightCardinality>
+                <min>0</min>
+            </rightCardinality>
+        </type>
+        <type>
+            <leftType>JournalIssue</leftType>
+            <rightType>Publication</rightType>
+            <leftwardType>isPublicationOfJournalIssue</leftwardType>
+            <rightwardType>isJournalIssueOfPublication</rightwardType>
+            <leftCardinality>
+                <min>0</min>
+            </leftCardinality>
+            <rightCardinality>
+                <min>0</min>
+            </rightCardinality>
+            <copyToRight>true</copyToRight>
+        </type>
+    </relationships>
+
+---------------------------
+Proposed Change to Journals
+---------------------------
+
+Because we have use cases where the model is more simple, I propose we change our XML to support this:
+
+
+.. mermaid::
+
+    graph TD
+        Journal[Journal]
+        JournalVolume[JournalVolume]
+        JournalIssue[JournalIssue]
+        Publication[Publication]
+
+        Journal -->|isVolumeOfJournal-left| JournalVolume
+        JournalVolume -->|isJournalOfVolume-right| Journal
+        JournalVolume -->|isIssueOfJournalVolume-left| JournalIssue
+        JournalVolume -->|isPublicationOfJournalVolume-left| Publication
+        JournalIssue -->|isJournalVolumeOfIssue-right|JournalVolume
+        JournalIssue -->|isPublicationOfJournalIssue-left| Publication
+        Publication -->|isJournalIssueOfPublication-right| JournalIssue
+        Publication -->|isJournalVolumeeOfPublication-right| JournalVolume
+
 ---------------------
 ConferenceProceedings
 ---------------------
+
+In the case that we don't modify things like above, we minimally need something like this:
 
 .. mermaid::
 
@@ -84,3 +163,37 @@ ConferenceProceedings
         ConferenceProceeding -->|isConferenceOfConferenceProceeding-right| Conference
         ConferenceProceeding -->|isConferencePaperOfConferenceProceeding-left| ConferencePaper
         ConferencePaper -->|isConferenceProceedingOfConferencePaper-right| ConferenceProceeding
+
+Our existing metadata will need to be modified to support this:
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE relationships SYSTEM "relationship-types.dtd">
+
+    <relationships>
+        <type>
+            <leftType>Conference</leftType>
+            <rightType>ConferenceProceeding</rightType>
+            <leftwardType>isConferenceProceedingOfConference</leftwardType>
+            <rightwardType>isConferenceOfConferenceProceeding</rightwardType>
+            <leftCardinality>
+                <min>0</min>
+            </leftCardinality>
+            <rightCardinality>
+                <min>0</min>
+            </rightCardinality>
+        </type>
+        <type>
+            <leftType>ConferenceProceeding</leftType>
+            <rightType>ConferencePaper</rightType>
+            <leftwardType>isConferencePaperOfConferenceProceeding</leftwardType>
+            <rightwardType>isConferenceProceedingOfConferencePaper</rightwardType>
+            <leftCardinality>
+                <min>0</min>
+            </leftCardinality>
+            <rightCardinality>
+                <min>0</min>
+            </rightCardinality>
+        </type>
+    </relationships>

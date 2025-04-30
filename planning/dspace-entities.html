@@ -314,6 +314,8 @@ a property that refers to the child in a predicate like <code class="code docuti
 </section>
 <section id="journals">
 <h2>Journals<a class="headerlink" href="#journals" title="Link to this heading">¶</a></h2>
+<p>Journals are configured out of the box when entities are enabled.  There are more optional relationships, but so far,
+our default layout looks like this:</p>
 <pre  class="mermaid">
         graph TD
     Journal[Journal]
@@ -327,9 +329,77 @@ a property that refers to the child in a predicate like <code class="code docuti
     JournalIssue --&gt;|isJournalVolumeOfIssue-right|JournalVolume
     JournalIssue --&gt;|isPublicationOfJournalIssue-left| Publication
     Publication --&gt;|isJournalIssueOfPublication-right| JournalIssue
+    </pre><p>This is enabled with this configuration:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE relationships SYSTEM &quot;relationship-types.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;relationships&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Sample relationship types setup used for the entities development</span>
+<span class="cm">     This file can be imported using the initialize-entities launcher --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftType&gt;</span>Journal<span class="nt">&lt;/leftType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightType&gt;</span>JournalVolume<span class="nt">&lt;/rightType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftwardType&gt;</span>isVolumeOfJournal<span class="nt">&lt;/leftwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightwardType&gt;</span>isJournalOfVolume<span class="nt">&lt;/rightwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/leftCardinality&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/rightCardinality&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/type&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftType&gt;</span>JournalVolume<span class="nt">&lt;/leftType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightType&gt;</span>JournalIssue<span class="nt">&lt;/rightType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftwardType&gt;</span>isIssueOfJournalVolume<span class="nt">&lt;/leftwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightwardType&gt;</span>isJournalVolumeOfIssue<span class="nt">&lt;/rightwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/leftCardinality&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/rightCardinality&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/type&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftType&gt;</span>JournalIssue<span class="nt">&lt;/leftType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightType&gt;</span>Publication<span class="nt">&lt;/rightType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftwardType&gt;</span>isPublicationOfJournalIssue<span class="nt">&lt;/leftwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightwardType&gt;</span>isJournalIssueOfPublication<span class="nt">&lt;/rightwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/leftCardinality&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/rightCardinality&gt;</span>
+<span class="w">        </span><span class="nt">&lt;copyToRight&gt;</span>true<span class="nt">&lt;/copyToRight&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;/relationships&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="proposed-change-to-journals">
+<h2>Proposed Change to Journals<a class="headerlink" href="#proposed-change-to-journals" title="Link to this heading">¶</a></h2>
+<p>Because we have use cases where the model is more simple, I propose we change our XML to support this:</p>
+<pre  class="mermaid">
+        graph TD
+    Journal[Journal]
+    JournalVolume[JournalVolume]
+    JournalIssue[JournalIssue]
+    Publication[Publication]
+
+    Journal --&gt;|isVolumeOfJournal-left| JournalVolume
+    JournalVolume --&gt;|isJournalOfVolume-right| Journal
+    JournalVolume --&gt;|isIssueOfJournalVolume-left| JournalIssue
+    JournalVolume --&gt;|isPublicationOfJournalVolume-left| Publication
+    JournalIssue --&gt;|isJournalVolumeOfIssue-right|JournalVolume
+    JournalIssue --&gt;|isPublicationOfJournalIssue-left| Publication
+    Publication --&gt;|isJournalIssueOfPublication-right| JournalIssue
+    Publication --&gt;|isJournalVolumeeOfPublication-right| JournalVolume
     </pre></section>
 <section id="conferenceproceedings">
 <h2>ConferenceProceedings<a class="headerlink" href="#conferenceproceedings" title="Link to this heading">¶</a></h2>
+<p>In the case that we don’t modify things like above, we minimally need something like this:</p>
 <pre  class="mermaid">
         graph TD
     Conference[Conference]
@@ -340,7 +410,39 @@ a property that refers to the child in a predicate like <code class="code docuti
     ConferenceProceeding --&gt;|isConferenceOfConferenceProceeding-right| Conference
     ConferenceProceeding --&gt;|isConferencePaperOfConferenceProceeding-left| ConferencePaper
     ConferencePaper --&gt;|isConferenceProceedingOfConferencePaper-right| ConferenceProceeding
-    </pre></section>
+    </pre><p>Our existing metadata will need to be modified to support this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE relationships SYSTEM &quot;relationship-types.dtd&quot;&gt;</span>
+
+<span class="nt">&lt;relationships&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftType&gt;</span>Conference<span class="nt">&lt;/leftType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightType&gt;</span>ConferenceProceeding<span class="nt">&lt;/rightType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftwardType&gt;</span>isConferenceProceedingOfConference<span class="nt">&lt;/leftwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightwardType&gt;</span>isConferenceOfConferenceProceeding<span class="nt">&lt;/rightwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/leftCardinality&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/rightCardinality&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/type&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftType&gt;</span>ConferenceProceeding<span class="nt">&lt;/leftType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightType&gt;</span>ConferencePaper<span class="nt">&lt;/rightType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftwardType&gt;</span>isConferencePaperOfConferenceProceeding<span class="nt">&lt;/leftwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightwardType&gt;</span>isConferenceProceedingOfConferencePaper<span class="nt">&lt;/rightwardType&gt;</span>
+<span class="w">        </span><span class="nt">&lt;leftCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/leftCardinality&gt;</span>
+<span class="w">        </span><span class="nt">&lt;rightCardinality&gt;</span>
+<span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/rightCardinality&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;/relationships&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -403,6 +505,7 @@ a property that refers to the child in a predicate like <code class="code docuti
 <li><a class="reference internal" href="#how-entities-relate-to-pcdm">How Entities Relate to PCDM</a></li>
 <li><a class="reference internal" href="#understanding-left-and-right">Understanding Left and Right</a></li>
 <li><a class="reference internal" href="#journals">Journals</a></li>
+<li><a class="reference internal" href="#proposed-change-to-journals">Proposed Change to Journals</a></li>
 <li><a class="reference internal" href="#conferenceproceedings">ConferenceProceedings</a></li>
 </ul>
 </li>
