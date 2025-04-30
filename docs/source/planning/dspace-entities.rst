@@ -146,9 +146,9 @@ Because we have use cases where the model is more simple, I propose we change ou
         Publication -->|isJournalIssueOfPublication-right| JournalIssue
         Publication -->|isJournalVolumeeOfPublication-right| JournalVolume
 
----------------------
-ConferenceProceedings
----------------------
+----------------------
+Conference Proceedings
+----------------------
 
 In the case that we don't modify things like above, we minimally need something like this:
 
