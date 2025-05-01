@@ -152,6 +152,8 @@ Negotiation of Serials
 
 After meeting with Charity on May 1, 2025, we negotiated this structure.
 
+.. mermaid::
+
     graph TD
         Journal[Serial]
         JournalVolume[SerialVolume]
