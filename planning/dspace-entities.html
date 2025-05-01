@@ -397,6 +397,27 @@ our default layout looks like this:</p>
     Publication --&gt;|isJournalIssueOfPublication-right| JournalIssue
     Publication --&gt;|isJournalVolumeOfPublication-right| JournalVolume
     </pre></section>
+<section id="negotiation-of-serials">
+<h2>Negotiation of Serials<a class="headerlink" href="#negotiation-of-serials" title="Link to this heading">¶</a></h2>
+<p>After meeting with Charity on May 1, 2025, we negotiated this structure.</p>
+<blockquote>
+<div><dl>
+<dt>graph TD</dt><dd><p>Journal[Serial]
+JournalVolume[SerialVolume]
+JournalIssue[SerialIssue]
+Publication[Article]</p>
+<p>Journal –&gt;|hasChild-left| JournalVolume
+JournalVolume –&gt;|hasParent-right| Journal
+JournalVolume –&gt;|hasChild-left| JournalIssue
+JournalVolume –&gt;|hasChild-left| Publication
+JournalIssue –&gt;|hasParent-right|JournalVolume
+JournalIssue –&gt;|hasChild-left| Publication
+Publication –&gt;|hasParent-right| JournalIssue
+Publication –&gt;|hasParent-right| JournalVolume</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
 <section id="conference-proceedings">
 <h2>Conference Proceedings<a class="headerlink" href="#conference-proceedings" title="Link to this heading">¶</a></h2>
 <p>In the case that we don’t modify things like above, we minimally need something like this:</p>
@@ -506,6 +527,7 @@ our default layout looks like this:</p>
 <li><a class="reference internal" href="#understanding-left-and-right">Understanding Left and Right</a></li>
 <li><a class="reference internal" href="#journals">Journals</a></li>
 <li><a class="reference internal" href="#proposed-change-to-journals">Proposed Change to Journals</a></li>
+<li><a class="reference internal" href="#negotiation-of-serials">Negotiation of Serials</a></li>
 <li><a class="reference internal" href="#conference-proceedings">Conference Proceedings</a></li>
 </ul>
 </li>
