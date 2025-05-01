@@ -147,6 +147,28 @@ Because we have use cases where the model is more simple, I propose we change ou
         Publication -->|isJournalVolumeOfPublication-right| JournalVolume
 
 ----------------------
+Negotiation of Serials
+----------------------
+
+After meeting with Charity on May 1, 2025, we negotiated this structure.
+
+    graph TD
+        Journal[Serial]
+        JournalVolume[SerialVolume]
+        JournalIssue[SerialIssue]
+        Publication[Article]
+
+        Journal -->|hasChild-left| JournalVolume
+        JournalVolume -->|hasParent-right| Journal
+        JournalVolume -->|hasChild-left| JournalIssue
+        JournalVolume -->|hasChild-left| Publication
+        JournalIssue -->|hasParent-right|JournalVolume
+        JournalIssue -->|hasChild-left| Publication
+        Publication -->|hasParent-right| JournalIssue
+        Publication -->|hasParent-right| JournalVolume
+
+
+----------------------
 Conference Proceedings
 ----------------------
 
