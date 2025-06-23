@@ -24,7 +24,7 @@ Libraries at Texas A&M University.
    workflows/*
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Troubleshooting
    :glob:
 
