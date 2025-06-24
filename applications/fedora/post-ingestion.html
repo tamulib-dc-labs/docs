@@ -297,6 +297,11 @@
 <p>Before you do this, you may need to remove the healthcheck. The settings should look something like this:</p>
 <img alt="../../_images/health-check.png" src="../../_images/health-check.png" />
 <p>After running the reindex, you can then watch the logs to make sure every thing is running well like so:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># karaf log:</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/usr/local/karaf/data/log/karaf.log
+ls<span class="w"> </span>-al<span class="w"> </span>/usr/local/karaf/data/log/
+</pre></div>
+</div>
 <p>It’s still unclear exactly what needs to happen for this to work. We have also see where adding the liveliness check back seems to make things start working again.</p>
 <p>You can also generate a Collection manifest like so:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w">  </span>https://api-pre.library.tamu.edu/iiif-service/fedora/collection/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/london-maps-batch-2-jamess-test
