@@ -22,6 +22,8 @@ Before you do this, you may need to remove the healthcheck. The settings should 
 
 .. image:: ../../_static/images/health-check.png
 
+You can access this page from :code:`Workloads -> Pod Name (fedora) -> Config -> Health Check`
+
 After running the reindex, you can then watch the logs to make sure every thing is running well like so:
 
 .. code-block:: shell
