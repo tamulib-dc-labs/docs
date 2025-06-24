@@ -1,6 +1,6 @@
-================
-DSPACE Workflows
-================
+=================
+DSPACE & Oaktrust
+=================
 
 .. toctree::
    :maxdepth: 1
