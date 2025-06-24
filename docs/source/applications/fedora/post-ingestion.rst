@@ -24,6 +24,12 @@ Before you do this, you may need to remove the healthcheck. The settings should 
 
 After running the reindex, you can then watch the logs to make sure every thing is running well like so:
 
+.. code-block:: shell
+
+    # karaf log:
+    tail -f /usr/local/karaf/data/log/karaf.log
+    ls -al /usr/local/karaf/data/log/
+
 It’s still unclear exactly what needs to happen for this to work. We have also see where adding the liveliness check back seems to make things start working again.
 
 You can also generate a Collection manifest like so:
