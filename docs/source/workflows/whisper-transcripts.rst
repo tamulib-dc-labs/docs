@@ -28,7 +28,7 @@ Each transcription through Whisper will create 2 files: a vtt file with the capt
 Whisper allows for six settings that change the dataset the AI draws from. From smallest to largest, the models are tiny, base, small, medium, turbo, and large.
 Turbo is recommended because it provides high quality transcriptions and does not take too long. (For example, turbo will take about 10-15 minutes to transcribe a 30 minute audio file.)
 
-If transcribing many files, it is recommended to create smaller folders (:code:`folder_subdivision`) within all_source_files to place a selection of audio files so transcription can be done in batches. 
+If transcribing many files, it is recommended to create smaller folders (:code:`folder_subdivision`) within :code:`all_source_files` to place a selection of audio files so transcription can be done in batches. 
 This is because the transcribing program takes a lot of energy and can take about an hour to transcribe 5 30-minute audio files using turbo.
 
 To transcribe, enter the following in the command line:
@@ -110,7 +110,7 @@ Go back to :code:`tamu-whisper` so you can run the program to move the files. In
 
     python move_files_to_reviewer.py
 
-All files in the output/ folder will disappear because they have been moved out of :code:`tamu-whisper` and into :code:`whisper-reviewer`. 
+All files in the :code:`output/` folder will disappear because they have been moved out of :code:`tamu-whisper` and into :code:`whisper-reviewer`. 
 The :code:`test_for_whisper_transcript_online.json` file should have items added. For each .json file moved over, each corresponding audio file will be added to the site.
 The code will appear as a series of three data within a bracket: the :code:`"audio"` (link to url for a specific file), :code:`"url"` (path to get to corresponding json file), and :code:`"name"` (title given to audio file). 
 
