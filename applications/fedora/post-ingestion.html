@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Generating Service Files and Derivatives" href="../../workflows/generating_service_files.html" /><link rel="prev" title="Fedora Workflows" href="../../workflows/fedora.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="IIIF: Generating IIIF and IIIF Collections" href="../../workflows/generating_iiif_collections.html" /><link rel="prev" title="Fedora" href="../../workflows/fedora.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Post Ingestion Tasks - TAMU Digital Collections Labs documentation</title>
+        <title>Reindexing Solr - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -208,16 +208,17 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Workflows and Workarounds</span></p>
 <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE Workflows</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of DSPACE Workflows</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora Workflows</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Fedora Workflows</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Post Ingestion Tasks</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Reindexing Solr</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../workflows/generating_iiif_collections.html">IIIF: Generating IIIF and IIIF Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/generating_service_files.html">Generating Service Files and Derivatives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/minting_a_doi.html">Minting DOIs</a></li>
@@ -277,38 +278,66 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="post-ingestion-tasks">
-<h1>Post Ingestion Tasks<a class="headerlink" href="#post-ingestion-tasks" title="Link to this heading">¶</a></h1>
-<p>After MagPie runs, there a few things you need to do.</p>
-<p>Since we’ve moved to Rancher from Chef, Solr documents don’t get automatically written to fcrepo’s Solr instance. The same goes for the triple store. As a result, you must trigger it by shelling into fcrepo and posting an HTTP request against the Fedora Reindexing Service.</p>
-<p>You can get useful information about the service via cURL:</p>
+          <section id="reindexing-solr">
+<h1>Reindexing Solr<a class="headerlink" href="#reindexing-solr" title="Link to this heading">¶</a></h1>
+<section id="about">
+<h2>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
+<p>Sometimes, Solr needs to be reindexed.  Depending on the health of the server this could be after MAGPIE ingests
+something or when you need to reindex everything after changing ldpath.  This document attempts to explain those
+processes.</p>
+</section>
+<section id="post-ingest">
+<h2>Post Ingest<a class="headerlink" href="#post-ingest" title="Link to this heading">¶</a></h2>
+<p>After MagPie runs, you may need to make Fedora index the documents in Solr.</p>
+<p>Since we have moved to Rancher from Chef, Solr documents do not always get written automatically  to fcrepo’s Solr
+instance. The same goes for the triple store. As a result, you must trigger it by shelling into fcrepo and posting
+an HTTP request against the Fedora Reindexing Service.</p>
+</section>
+<section id="running">
+<h2>Running<a class="headerlink" href="#running" title="Link to this heading">¶</a></h2>
+<p>Connect to the <code class="code docutils literal notranslate"><span class="pre">fedora</span></code> pod or wherever fedora is running via shell.  You can do this in Rancher or via
+kubectl.</p>
+<p>Once inside the container (pod), you can get useful information about the service via cURL:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>http://localhost:9080/reindexing
 </pre></div>
 </div>
-<p>You can POST to the defined re-indexing endpoint, and it will begin to traverse the Fedora repository at that point, sending “re-indexing” hints to the specified services (there are no default services defined).</p>
+<p>To reindex, you need to make a POST to the defined re-indexing endpoint, and it will begin to traverse the Fedora
+repository at that point, sending “re-indexing” hints to the specified services (there are no default services
+defined). Currently, there is no way to target specific Fedora resources with this method.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:9080/reindexing/<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;[&quot;broker:queue:solr.reindex&quot;,&quot;broker:queue:triplestore.reindex&quot;]&#39;</span>
 </pre></div>
 </div>
-<p>Before you do this, you may need to remove the healthcheck. The settings should look something like this:</p>
+<p>Note, running the command above should reindex Solr and Fuseki.  You can remove the Fuseki command if unneeded.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:9080/reindexing/<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;[&quot;broker:queue:solr.reindex&quot;]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="redeploying-and-removing-health-check">
+<h2>Redeploying and Removing Health Check<a class="headerlink" href="#redeploying-and-removing-health-check" title="Link to this heading">¶</a></h2>
+<p>Before you do this, you may need to remove the healthcheck and redeploy pods.</p>
+<p>The settings for the healthcheck should look something like this:</p>
 <img alt="../../_images/health-check.png" src="../../_images/health-check.png" />
 <p>You can access this page from <code class="code docutils literal notranslate"><span class="pre">Workloads</span> <span class="pre">-&gt;</span> <span class="pre">Pod</span> <span class="pre">Name</span> <span class="pre">(fedora)</span> <span class="pre">-&gt;</span> <span class="pre">Config</span> <span class="pre">-&gt;</span> <span class="pre">Health</span> <span class="pre">Check</span></code></p>
+</section>
+<section id="monitoring">
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">¶</a></h2>
 <p>After running the reindex, you can then watch the logs to make sure every thing is running well like so:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># karaf log:</span>
 tail<span class="w"> </span>-f<span class="w"> </span>/usr/local/karaf/data/log/karaf.log
 ls<span class="w"> </span>-al<span class="w"> </span>/usr/local/karaf/data/log/
 </pre></div>
 </div>
-<p>It’s still unclear exactly what needs to happen for this to work. We have also see where adding the liveliness check back seems to make things start working again.</p>
-<p>You can also generate a Collection manifest like so:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w">  </span>https://api-pre.library.tamu.edu/iiif-service/fedora/collection/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/london-maps-batch-2-jamess-test
-</pre></div>
-</div>
+<p>If nothing happens, you need to redploy or remove the health check.  I recommend first trying a redeploy of
+<code class="code docutils literal notranslate"><span class="pre">fedora</span></code> and <code class="code docutils literal notranslate"><span class="pre">fedora-solr</span></code>.  If that doesn’t work, remove the health check.</p>
+<p>It is still unclear exactly what needs to happen for this to work. We have also seen where adding the liveliness
+check back seems to make things start working again.</p>
+</section>
 </section>
 
         </article>
@@ -316,12 +345,12 @@ ls<span class="w"> </span>-al<span class="w"> </span>/usr/local/karaf/data/log/
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../workflows/generating_service_files.html">
+          <a class="next-page" href="../../workflows/generating_iiif_collections.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Generating Service Files and Derivatives</div>
+                <div class="title">IIIF: Generating IIIF and IIIF Collections</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -332,7 +361,7 @@ ls<span class="w"> </span>-al<span class="w"> </span>/usr/local/karaf/data/log/
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Fedora Workflows</div>
+                <div class="title">Fedora</div>
                 
               </div>
             </a>
@@ -354,8 +383,31 @@ ls<span class="w"> </span>-al<span class="w"> </span>/usr/local/karaf/data/log/
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Reindexing Solr</a><ul>
+<li><a class="reference internal" href="#about">About</a></li>
+<li><a class="reference internal" href="#post-ingest">Post Ingest</a></li>
+<li><a class="reference internal" href="#running">Running</a></li>
+<li><a class="reference internal" href="#redeploying-and-removing-health-check">Redeploying and Removing Health Check</a></li>
+<li><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

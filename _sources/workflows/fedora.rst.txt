@@ -1,6 +1,6 @@
-================
-Fedora Workflows
-================
+======
+Fedora
+======
 
 .. toctree::
    :maxdepth: 1
