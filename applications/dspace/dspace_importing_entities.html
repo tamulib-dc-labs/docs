@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -228,6 +228,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/sage_import.html">SAGE Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight Imports</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/whisper-transcripts.html">Making Transcripts with Whisper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workflows/whisper-transcripts-cleanup.html">Cleaning a Whisper Transcript</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Troubleshooting</span></p>
 <ul>
@@ -280,7 +281,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -288,6 +289,57 @@
         <article role="main" id="furo-main-content">
           <section id="dspace-importing-entities">
 <h1>DSPACE: Importing Entities<a class="headerlink" href="#dspace-importing-entities" title="Link to this heading">¶</a></h1>
+<p>For this, you will need python, poetry shell, and a code editor.</p>
+<section id="clone-relevant-git-repository">
+<h2>Clone relevant git repository<a class="headerlink" href="#clone-relevant-git-repository" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/markpbaggett/ojs-to-oaktrust">To move journals from OJS to OakTrust (ojs-to-oaktrust)</a></p></li>
+</ul>
+</section>
+<section id="new-yml">
+<h2>New .yml<a class="headerlink" href="#new-yml" title="Link to this heading">¶</a></h2>
+<p>Go to default-config.yml. The code should look like the following:</p>
+<p>Copy default-config.yml and rename the new copy config.yml.</p>
+<p>Then, log into OJS and get an API key. To do this, go to Edit Profile &gt; API key. Copy the key.</p>
+<p>Inside config.yml, paste the API key for <code class="code docutils literal notranslate"><span class="pre">token</span></code>.</p>
+<p>Fill in <code class="code docutils literal notranslate"><span class="pre">journal_title</span></code>, <code class="code docutils literal notranslate"><span class="pre">url</span></code>, <code class="code docutils literal notranslate"><span class="pre">oai_endpoint</span></code>, <code class="code docutils literal notranslate"><span class="pre">title</span></code>, <code class="code docutils literal notranslate"><span class="pre">default_thumbnail</span></code>, <code class="code docutils literal notranslate"><span class="pre">date</span></code>, <code class="code docutils literal notranslate"><span class="pre">description</span></code>, <code class="code docutils literal notranslate"><span class="pre">subjects</span></code>, and <code class="code docutils literal notranslate"><span class="pre">alternative</span></code>.  <code class="code docutils literal notranslate"><span class="pre">default_thumbnail</span></code> should be a link to an image. <code class="code docutils literal notranslate"><span class="pre">subjects</span></code> should come from Library of Congress subject headings. <code class="code docutils literal notranslate"><span class="pre">alternative</span></code> should only be used for an alternative title.</p>
+</section>
+<section id="creating-csv-file">
+<h2>Creating .csv file<a class="headerlink" href="#creating-csv-file" title="Link to this heading">¶</a></h2>
+<p>Under <code class="code docutils literal notranslate"><span class="pre">ojs-to-oaktrust</span></code>, create a new directory called <code class="code docutils literal notranslate"><span class="pre">output</span></code>.</p>
+<p>On the command line, write:</p>
+<p>articles.csv, issues.csv, title.csv, and volumes.csv should have saved under <code class="code docutils literal notranslate"><span class="pre">ojs-to-oaktrust/output/journal_title</span></code> folder.</p>
+</section>
+<section id="creating-simple-archive-format-saf-files">
+<h2>Creating Simple Archive Format (SAF) Files<a class="headerlink" href="#creating-simple-archive-format-saf-files" title="Link to this heading">¶</a></h2>
+<p>Run Java in terminal.</p>
+<p>This should open a dialogue box called DSpace Simple Archive Format Creator.</p>
+<p>You need a folder for the SAF output. Because there will be four folders created per journal, it is recommended you first make a folder called oaktrust-batches.
+Then create the folder for output from a single execution of SAF. An easy naming convention is “journal_name-unit”. “unit” can be articles, issues, volumes, or title.
+You will do this process four times per journal.</p>
+<p>In the dialogue box:</p>
+<ul class="simple">
+<li><p>Select one of the .csv files. The unit of the .csv file should match the unit of the folder you just created for output.</p></li>
+<li><p>Select source files directory. This can be any directory that is not involved with this transfer process (such as the <code class="code docutils literal notranslate"><span class="pre">/Desktop</span></code>). It doesn’t really matter.</p></li>
+<li><p>Select SAF output directory. Select the new folder you just created called “journal_name-unit”</p></li>
+<li><p>Click “Load specified batch now!”</p></li>
+<li><p>Go to Batch Verification across the top and click “Verify Batch.”</p></li>
+<li><p>Create SAF file (rightmost button under Batch Details).</p></li>
+</ul>
+</section>
+<section id="importing-saf-files">
+<h2>Importing SAF Files<a class="headerlink" href="#importing-saf-files" title="Link to this heading">¶</a></h2>
+<p>Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.</p>
+<p>Go to * <a class="reference external" href="https://oaktrust-pre.library.tamu.edu">Oaktrust</a> Log in with Shibboleth.
+On the sidebar, go to Import &gt; Batch Import. When asked for a collection, select “Journals”. Upload zip file.</p>
+<p>Note: Sometimes “Import” does not appear as an option in the sidebar, in which case you must wait/reload the page until it appears.</p>
+</section>
+<section id="creating-child-unit-of-parent-unit">
+<h2>Creating Child Unit of Parent Unit<a class="headerlink" href="#creating-child-unit-of-parent-unit" title="Link to this heading">¶</a></h2>
+<p>This will follow mostly the same process as before. However, once the csv files generate, you will need to go to the websites for the parent unit and copy all characters in the url after the last slash.
+Then go to the child unit’s .csv and add that string at the end of each line after the last comma (creating another column). Make sure all children with the same url are from the same parent.
+This will link the child to the parent.</p>
+</section>
 </section>
 
         </article>
@@ -333,8 +385,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">DSPACE: Importing Entities</a><ul>
+<li><a class="reference internal" href="#clone-relevant-git-repository">Clone relevant git repository</a></li>
+<li><a class="reference internal" href="#new-yml">New .yml</a></li>
+<li><a class="reference internal" href="#creating-csv-file">Creating .csv file</a></li>
+<li><a class="reference internal" href="#creating-simple-archive-format-saf-files">Creating Simple Archive Format (SAF) Files</a></li>
+<li><a class="reference internal" href="#importing-saf-files">Importing SAF Files</a></li>
+<li><a class="reference internal" href="#creating-child-unit-of-parent-unit">Creating Child Unit of Parent Unit</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
