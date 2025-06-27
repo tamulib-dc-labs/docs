@@ -19,7 +19,7 @@ How to clean a transcript
 * Remove all hallucinations. Hallucinations can be identified by blocks of red text.
 * Fill in omissions. This can be done either by listening to the audio and transcribing by hand or by splicing together multiple AI-generated transcripts. If you do the latter, document where you added text and what file you pulled your addition from.
 * Capitalize proper names and beginnings of sentences.
-* Add puntuation as needed, especially periods and punctuation used within the title of a work.
+* Add punctuation as needed, especially periods and punctuation used within the title of a work.
 * Make sure the following are spelled correctly: Names of individuals, places, organizations, events, groups, works. This includes fictional varieties of each (ie characters, fictional organizations, imaginary places).
 * Whatever else may be relevant depending on the collection, what it emphasizes, and how users are expected to interact with it.
 
