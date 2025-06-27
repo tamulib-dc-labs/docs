@@ -32,7 +32,7 @@ Things not to prioritize due to time constraints
 * Ensuring common connecting words are accurate (ie "and" versus "then" when the transcript makes sense with either).
 
 ------------------
-Things to NOT do
+Things to **NOT** do
 ------------------
 
 * Removing filler words like "uh" and "um" unless they are so often used, the transcript becomes difficult to read.
