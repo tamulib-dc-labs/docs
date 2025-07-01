@@ -360,6 +360,92 @@ check back seems to make things start working again.</p>
 </pre></div>
 </div>
 </section>
+<section id="automatically-rekicking-solr">
+<h2>Automatically Rekicking Solr<a class="headerlink" href="#automatically-rekicking-solr" title="Link to this heading">¶</a></h2>
+<p>Often times, this process above is very prone to failure.  Assuming you have set up a kubectl connection to the cluster, you can automate restarting this service like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+
+
+<span class="c1"># set a default time to wait on the log</span>
+<span class="n">timeout_seconds</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="c1"># set cluster name based on your local context</span>
+<span class="n">cluser_name</span> <span class="o">=</span> <span class="s2">&quot;pre-cluster&quot;</span>
+
+<span class="c1"># message to make sure your kube context is for the cluster above (if you have several configured)</span>
+<span class="n">switch_context</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;kubectl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;config&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;use-context&quot;</span><span class="p">,</span>
+    <span class="n">cluser_name</span>
+<span class="p">]</span>
+
+<span class="c1"># The message we will use to restart the pod (check pod name and namespace)</span>
+<span class="n">redeploy</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;kubectl&quot;</span><span class="p">,</span> <span class="s2">&quot;rollout&quot;</span><span class="p">,</span> <span class="s2">&quot;restart&quot;</span><span class="p">,</span> <span class="s2">&quot;deployment/fedora&quot;</span><span class="p">,</span> <span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;fcrepo4&quot;</span>
+<span class="p">]</span>
+
+<span class="c1"># A Function to Find the Name of Our Current Pod (It changes on redeploy)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pod_name</span><span class="p">():</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;kubectl get pods -n fcrepo4 --no-headers &quot;</span>
+        <span class="s1">&#39;-o custom-columns=&quot;:metadata.name&quot; | grep &quot;^fedora-&quot; | head -n 1&#39;</span>
+    <span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># Function to monitor log</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stream_with_timeout</span><span class="p">(</span><span class="n">proc</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+    <span class="n">last_line_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">watchdog</span><span class="p">():</span>
+        <span class="k">while</span> <span class="n">proc</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">last_line_time</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">No new log lines in </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2"> seconds. Terminating.&quot;</span><span class="p">)</span>
+                <span class="n">proc</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+                <span class="k">break</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">watcher</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">watchdog</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">watcher</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+        <span class="n">last_line_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># On start, switch to your cluster</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">switch_context</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Print the Cluster you have connected with</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># Assume things are stopped and redeploy</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">redeploy</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Redeploying&quot;</span><span class="p">)</span>
+        <span class="c1"># Wait for Pod to spin before you try to get its name</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># Find the name of the pod</span>
+        <span class="n">pod_name</span> <span class="o">=</span> <span class="n">get_pod_name</span><span class="p">()</span>
+        <span class="n">TAIL_CMD</span> <span class="o">=</span> <span class="s2">&quot;tail --follow=name --retry /usr/local/karaf/data/log/karaf.log 2&gt;/dev/null&quot;</span>
+        <span class="n">monitor</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;kubectl&quot;</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">,</span> <span class="s2">&quot;-i&quot;</span><span class="p">,</span> <span class="n">pod_name</span><span class="p">,</span> <span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;fcrepo4&quot;</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sh&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="n">TAIL_CMD</span>
+        <span class="p">]</span>
+        <span class="c1"># Monitor the log and if it rotates keep watching.  If it really stops, start back at top and restart pod.</span>
+        <span class="k">with</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">monitor</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">proc</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">stream_with_timeout</span><span class="p">(</span><span class="n">proc</span><span class="p">,</span> <span class="n">timeout_seconds</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Interrupted by user&quot;</span><span class="p">)</span>
+                <span class="n">proc</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -424,6 +510,7 @@ check back seems to make things start working again.</p>
 <li><a class="reference internal" href="#redeploying-and-removing-health-check">Redeploying and Removing Health Check</a></li>
 <li><a class="reference internal" href="#monitoring">Monitoring</a></li>
 <li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#automatically-rekicking-solr">Automatically Rekicking Solr</a></li>
 </ul>
 </li>
 </ul>
