@@ -77,3 +77,23 @@ If nothing happens, you need to redploy or remove the health check.  I recommend
 
 It is still unclear exactly what needs to happen for this to work. We have also seen where adding the liveliness
 check back seems to make things start working again.
+
+---------------
+Troubleshooting
+---------------
+
+Here are the :code:`karaf.log`` contents for an item as it's being indexed:
+
+.. code-block:: shell
+
+    tomcat@fedora-596dfc5957-55c7j:/usr/local/karaf/data/log$ grep -nri "https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28" .
+    ./karaf.log.1:12989:2025-07-01T18:15:15,660 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    ./karaf.log.1:12990:2025-07-01T18:15:15,672 | INFO  | qtp761343288-110 | AbstractHttpProvider             | 166 - wrap_file__usr_local_tomcat_.m2_repository_org_apache_marmotta_ldclient-core_3.3.0_ldclient-core-3.3.0.jar - 0.0.0 | retrieving resource data for https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28 from 'Linked Data' endpoint, request URI is <https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28>
+    ./karaf.log.1:12991:2025-07-01T18:15:16,221 | INFO  | qtp761343288-110 | AbstractHttpProvider             | 166 - wrap_file__usr_local_tomcat_.m2_repository_org_apache_marmotta_ldclient-core_3.3.0_ldclient-core-3.3.0.jar - 0.0.0 | retrieved 58 triples for resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28; expiry date: Wed Jul 02 18:15:16 UTC 2025
+    ./karaf.log.1:12992:2025-07-01T18:15:16,221 | INFO  | qtp761343288-110 | LDCache                          | 165 - wrap_file__usr_local_tomcat_.m2_repository_org_apache_marmotta_ldcache-core_3.3.0_ldcache-core-3.3.0.jar - 0.0.0 | refreshed resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    ./karaf.log.1:13455:2025-07-01T18:15:58,742 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    ./karaf.log.1:13631:2025-07-01T18:15:58,930 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    ./karaf.log.4:44792:2025-07-01T19:02:39,336 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    ./karaf.log.4:45021:2025-07-01T19:02:39,741 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    ./karaf.log.4:45197:2025-07-01T19:02:39,894 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
+    
