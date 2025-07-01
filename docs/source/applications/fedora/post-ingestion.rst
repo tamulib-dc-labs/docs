@@ -96,4 +96,93 @@ Here are the :code:`karaf.log`` contents for an item as it's being indexed:
     ./karaf.log.4:44792:2025-07-01T19:02:39,336 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
     ./karaf.log.4:45021:2025-07-01T19:02:39,741 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
     ./karaf.log.4:45197:2025-07-01T19:02:39,894 | INFO  | qtp761343288-110 | LDCacheBackend                   | 160 - org.fcrepo.camel.fcrepo-ldpath - 4.7.2 | retrieving resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/28
-    
+
+----------------------------
+Automatically Rekicking Solr
+----------------------------
+
+Often times, this process above is very prone to failure.  Assuming you have set up a kubectl connection to the cluster, you can automate restarting this service like so:
+
+.. code-block:: python
+
+
+    import subprocess
+    import time
+    import threading
+    from time import sleep
+
+
+    # set a default time to wait on the log
+    timeout_seconds = 30
+
+    # set cluster name based on your local context
+    cluser_name = "pre-cluster"
+
+    # message to make sure your kube context is for the cluster above (if you have several configured)
+    switch_context = [
+        "kubectl",
+        "config",
+        "use-context",
+        cluser_name
+    ]
+
+    # The message we will use to restart the pod (check pod name and namespace)
+    redeploy = [
+        "kubectl", "rollout", "restart", "deployment/fedora", "-n", "fcrepo4"
+    ]
+
+    # A Function to Find the Name of Our Current Pod (It changes on redeploy)
+    def get_pod_name():
+        cmd = (
+            "kubectl get pods -n fcrepo4 --no-headers "
+            '-o custom-columns=":metadata.name" | grep "^fedora-" | head -n 1'
+        )
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, check=True)
+        return result.stdout.strip()
+
+    # Function to monitor log
+    def stream_with_timeout(proc, timeout):
+        last_line_time = time.time()
+
+        def watchdog():
+            while proc.poll() is None:
+                if time.time() - last_line_time > timeout:
+                    print(f"\nNo new log lines in {timeout} seconds. Terminating.")
+                    proc.terminate()
+                    break
+                time.sleep(1)
+
+        watcher = threading.Thread(target=watchdog, daemon=True)
+        watcher.start()
+
+        for line in proc.stdout:
+            last_line_time = time.time()
+            print(line, end='')
+
+
+    if __name__ == "__main__":
+        # On start, switch to your cluster
+        result = subprocess.run(switch_context, check=True, capture_output=True, text=True)
+        # Print the Cluster you have connected with
+        print(result.stdout)
+
+        while True:
+            # Assume things are stopped and redeploy
+            subprocess.run(redeploy, check=True, capture_output=False, text=True)
+            print("Redeploying")
+            # Wait for Pod to spin before you try to get its name
+            sleep(10)
+            # Find the name of the pod
+            pod_name = get_pod_name()
+            TAIL_CMD = "tail --follow=name --retry /usr/local/karaf/data/log/karaf.log 2>/dev/null"
+            monitor = [
+                "kubectl", "exec", "-i", pod_name, "-n", "fcrepo4", "--",
+                "sh", "-c", TAIL_CMD
+            ]
+            # Monitor the log and if it rotates keep watching.  If it really stops, start back at top and restart pod.
+            with subprocess.Popen(monitor, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True) as proc:
+                try:
+                    stream_with_timeout(proc, timeout_seconds)
+                except KeyboardInterrupt:
+                    print("\nInterrupted by user")
+                    proc.terminate()
