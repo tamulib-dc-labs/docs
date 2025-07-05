@@ -109,6 +109,8 @@ Often times, this process above is very prone to failure.  Assuming you have set
     import subprocess
     import time
     import threading
+    import logging
+    import sys
     from time import sleep
 
 
@@ -117,6 +119,17 @@ Often times, this process above is very prone to failure.  Assuming you have set
 
     # set cluster name based on your local context
     cluser_name = "pre-cluster"
+
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.FileHandler("fedora_monitor.log"),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+    logger = logging.getLogger(__name__)
 
     # message to make sure your kube context is for the cluster above (if you have several configured)
     switch_context = [
@@ -147,6 +160,7 @@ Often times, this process above is very prone to failure.  Assuming you have set
         def watchdog():
             while proc.poll() is None:
                 if time.time() - last_line_time > timeout:
+                    logger.warning(f"No new log lines in {timeout} seconds. Terminating.")
                     print(f"\nNo new log lines in {timeout} seconds. Terminating.")
                     proc.terminate()
                     break
@@ -157,23 +171,24 @@ Often times, this process above is very prone to failure.  Assuming you have set
 
         for line in proc.stdout:
             last_line_time = time.time()
-            print(line, end='')
+            logger.info(line.strip())
 
 
     if __name__ == "__main__":
         # On start, switch to your cluster
         result = subprocess.run(switch_context, check=True, capture_output=True, text=True)
-        # Print the Cluster you have connected with
-        print(result.stdout)
+        # Log the Cluster you have connected with
+        logger.info(result.stdout.strip())
 
         while True:
             # Assume things are stopped and redeploy
             subprocess.run(redeploy, check=True, capture_output=False, text=True)
-            print("Redeploying")
+            logger.info("Redeploying")
             # Wait for Pod to spin before you try to get its name
             sleep(10)
             # Find the name of the pod
             pod_name = get_pod_name()
+            logger.info(f"Target pod: {pod_name}")
             TAIL_CMD = "tail --follow=name --retry /usr/local/karaf/data/log/karaf.log 2>/dev/null"
             monitor = [
                 "kubectl", "exec", "-i", pod_name, "-n", "fcrepo4", "--",
@@ -184,5 +199,11 @@ Often times, this process above is very prone to failure.  Assuming you have set
                 try:
                     stream_with_timeout(proc, timeout_seconds)
                 except KeyboardInterrupt:
-                    print("\nInterrupted by user")
+                    logger.info("Interrupted by user")
                     proc.terminate()
+
+------------------
+Refreshed Resource
+------------------
+
+2025-07-02T00:01:02,445 | INFO  | qtp544841243-111 | LDCache                          | 165 - wrap_file__usr_local_tomcat_.m2_repository_org_apache_marmotta_ldcache-core_3.3.0_ldcache-core-3.3.0.jar - 0.0.0 | refreshed resource https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee-cant-reindex_objects/88/pages
