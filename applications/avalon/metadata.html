@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -288,7 +288,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -296,6 +296,8 @@
         <article role="main" id="furo-main-content">
           <section id="avalon-metadata">
 <h1>Avalon Metadata<a class="headerlink" href="#avalon-metadata" title="Link to this heading">¶</a></h1>
+<section id="descriptive-metadata">
+<h2>Descriptive Metadata<a class="headerlink" href="#descriptive-metadata" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -494,6 +496,137 @@
 </table>
 </div>
 </section>
+<section id="batch-metadata-only-fields">
+<h2>Batch Metadata Only Fields<a class="headerlink" href="#batch-metadata-only-fields" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Repeatable</p></th>
+<th class="head"><p>Valid Values</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Publish</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>“Yes” or “No”</p></td>
+<td><p>Controls whether item is automatically published post-ingest. Default is “No”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hidden</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>“Yes” or “No”</p></td>
+<td><p>Hides item from end-user search/browse. Default is “No”. Hidden items are still visible to users with ingest privileges.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="other-fields">
+<h2>Other Fields<a class="headerlink" href="#other-fields" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field Name</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Repeatable</p></th>
+<th class="head"><p>Valid Values / Notes</p></th>
+<th class="head"><p>Additional Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>File</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Must include file extension</p></td>
+<td><p>Paths must be relative to manifest; include subdirectories if needed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Label</p></td>
+<td><p>No</p></td>
+<td><p>Only after File</p></td>
+<td><p>Free text</p></td>
+<td><p>Used for display in single-item views. Editable post-ingest.</p></td>
+</tr>
+<tr class="row-even"><td><p>Offset</p></td>
+<td><p>No</p></td>
+<td><p>Only after File</p></td>
+<td><p>00:00:00.000 to length of file</p></td>
+<td><p>Only applies to video. Excel may auto-format; prefix with <cite>‘</cite>. First offset sets poster image.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Skip Transcoding</p></td>
+<td><p>No</p></td>
+<td><p>Only after File</p></td>
+<td><p>“yes” or “no”</p></td>
+<td><p>Use when uploading pre-encoded derivatives. Required for Absolute Location.</p></td>
+</tr>
+<tr class="row-even"><td><p>Absolute Location</p></td>
+<td><p>No</p></td>
+<td><p>Only after Skip Transcoding</p></td>
+<td><p>Full URI path to master file</p></td>
+<td><p>Ignored unless Skip Transcoding is set to “yes”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Date Ingested</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>YYYY-MM-DD</p></td>
+<td><p>System will auto-set if not provided. Not shown to end users but searchable for admins.</p></td>
+</tr>
+<tr class="row-even"><td><p>Transcript File</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+<td><p>File path with extension</p></td>
+<td><p>Path must be relative to manifest.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Transcript File Label</p></td>
+<td><p>No</p></td>
+<td><p>Only after Transcript File</p></td>
+<td><p>Free text</p></td>
+<td><p>Label for the transcript file.</p></td>
+</tr>
+<tr class="row-even"><td><p>Transcript Language</p></td>
+<td><p>No</p></td>
+<td><p>Only after Transcript File</p></td>
+<td><p>MARC code or term</p></td>
+<td><p>Defaults to system setting if blank or invalid. Editable post-ingest.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Machine Generated</p></td>
+<td><p>No</p></td>
+<td><p>Only after Transcript File</p></td>
+<td><p>“yes” or “no”</p></td>
+<td><p>Indicates machine-generated transcript.</p></td>
+</tr>
+<tr class="row-even"><td><p>Caption File</p></td>
+<td><p>No</p></td>
+<td><p>Only after File</p></td>
+<td><p>File path with extension</p></td>
+<td><p>Caption Label and Language can follow in any order. Editable post-ingest.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Caption Label</p></td>
+<td><p>No</p></td>
+<td><p>Only after Caption File</p></td>
+<td><p>Free text</p></td>
+<td><p>If blank, filename is used. Editable post-ingest.</p></td>
+</tr>
+<tr class="row-even"><td><p>Caption Language</p></td>
+<td><p>No</p></td>
+<td><p>Only after Caption File</p></td>
+<td><p>MARC code or term</p></td>
+<td><p>Defaults to system setting if blank or invalid. Editable post-ingest.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Treat as Transcript</p></td>
+<td><p>No</p></td>
+<td><p>Only after Caption File</p></td>
+<td><p>“yes” or “no”</p></td>
+<td><p>Marks caption file as usable in transcript view and search.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -538,8 +671,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Avalon Metadata</a><ul>
+<li><a class="reference internal" href="#descriptive-metadata">Descriptive Metadata</a></li>
+<li><a class="reference internal" href="#batch-metadata-only-fields">Batch Metadata Only Fields</a></li>
+<li><a class="reference internal" href="#other-fields">Other Fields</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
