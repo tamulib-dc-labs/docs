@@ -53,4 +53,4 @@ To publish the items you uploaded, go to Manage > Manage Content. Click on your 
 Updating Access Control
 --------------------
 
-To change the access of some items, go to Manage > Manage Content. Click on your collection, then select "List All Items". Select all items you wish to publish. Then, go to the "Selected Items" option on the menu, and click on the "Update Access Control" button.
+To change the access of some items, go to Manage > Manage Content. Click on your collection, then select "List All Items". Select all items you wish to change access for. Then, go to the "Selected Items" option on the menu, and click on the "Update Access Control" button.
