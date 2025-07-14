@@ -42,3 +42,15 @@ Uploading through Dropbox
 2. Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn't pass the standards, fix it and upload it to the cifs drive again.
 
 3. Once you get the second email, you can import the batch in Dropbox. Select all materials from :code:`content`. Note that if you are using a older version of Avalon, you cannot upload transcripts yet.
+
+--------------------
+Publishing
+--------------------
+
+To publish the items you uploaded, go to Manage > Manage Content. Click on your collection, then select "List All Items". Select all items you wish to publish. Then, go to the "Selected Items" option on the menu, and click on the "Publish" button.
+
+--------------------
+Updating Access Control
+--------------------
+
+To change the access of some items, go to Manage > Manage Content. Click on your collection, then select "List All Items". Select all items you wish to publish. Then, go to the "Selected Items" option on the menu, and click on the "Update Access Control" button.
