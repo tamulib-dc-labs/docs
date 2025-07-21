@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="DSPACE: Importing Entities" href="dspace_importing_entities.html" /><link rel="prev" title="DSPACE &amp; Oaktrust" href="../../workflows/dspace.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Avalon Metadata" href="metadata.html" /><link rel="prev" title="Avalon" href="../../workflows/avalon.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>DSPACE: Importing Basic Items - TAMU Digital Collections Labs documentation</title>
+        <title>Importing media into Avalon - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -208,15 +208,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Workflows and Workarounds</span></p>
 <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/metadata.html">Avalon Metadata</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Importing media into Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Avalon Metadata</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">DSPACE: Importing Basic Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -275,7 +275,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/dspace/dspace_importing.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/avalon/avalon_importing_entities.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -289,14 +289,57 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="dspace-importing-basic-items">
-<h1>DSPACE: Importing Basic Items<a class="headerlink" href="#dspace-importing-basic-items" title="Link to this heading">¶</a></h1>
+          <section id="importing-media-into-avalon">
+<h1>Importing media into Avalon<a class="headerlink" href="#importing-media-into-avalon" title="Link to this heading">¶</a></h1>
+<section id="creating-a-collection">
+<h2>Creating a Collection<a class="headerlink" href="#creating-a-collection" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Log into Avalon. Go to the menu bar at the top. Click “Manage”, and from the drop down list, click “Manage Content”.</p></li>
+<li><p>Click on the “Create Collection” button at the top right.</p></li>
+</ol>
+</section>
+<section id="importing-a-batch">
+<h2>Importing a batch<a class="headerlink" href="#importing-a-batch" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Click on the “Create An Item” button. Make sure you are under “Manage files” on the menu on the left side of the screen.</p></li>
+<li><p>You will use the Dropbox to import a batch. To import a batch, make sure you have access to <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod</span></code>. A new folder should have been automatically generated with the same name as the collection you just created. Create a subfolder within that folder with a label like “Content”. Drag and drop all media files you would like to upload into the new subfolder, both audio/video and transcripts.</p></li>
+</ol>
+</section>
+<section id="creating-a-xslx-spreadsheet">
+<h2>Creating a .xslx spreadsheet<a class="headerlink" href="#creating-a-xslx-spreadsheet" title="Link to this heading">¶</a></h2>
+<p>To import a batch, you must create a metadata table.</p>
+<p>Use <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/avalon/metadata.html">this table</a> for guidance on metadata fields and column labels.</p>
+<ul class="simple">
+<li><p>You must include <strong>either</strong> “Bibliographic ID” and “Bibliographic ID Label” columns <strong>or</strong> “Other Identifier Type” and “Other Identifier” columns. If you use “Other Identifier” make sure you put “local” under the “Other Identifier Type” and then the local identifer under “Other Identifier”.</p></li>
+<li><p>The table should include a column for “File”. This should be a filepath relative to the automatically generated folder. If you used the name “Content” for the subfolder, the file path may look like <code class="code docutils literal notranslate"><span class="pre">content/file_name</span></code>.</p></li>
+<li><p>Adjacent to the right of “File” there should be a column called “Label”. This will be a label for each audio/video file.</p></li>
+<li><p>You need a “Date Issued” column. Dates should follow YYYY-MM-DD format. If the day is unknown, stop after the month. If the month is unknown, add an “X” after the year (YYYYX). If part of the year is unknown, add an X for the digits you don’t know (YYYX). If the entire date is unknown write “unknown/unknown”.</p></li>
+<li><p>Add title.</p></li>
+<li><p>If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to “File” and “Label” for the A/V file, a transcript will need adjacent “Transcript File” and “Transcript File Label” columns. “Transcript File” should be a filepath such as <code class="code docutils literal notranslate"><span class="pre">content/transcript_file_name</span></code>.</p></li>
+</ul>
+</section>
+<section id="uploading-through-dropbox">
+<h2>Uploading through Dropbox<a class="headerlink" href="#uploading-through-dropbox" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>When the .xlsx spreadsheet is complete, place it under the automatically generated folder for the collection in the <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre/collection_name</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod/collection_name</span></code> drive (not under <code class="code docutils literal notranslate"><span class="pre">cifs/avalon_pre/collection_name/content</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/prod/collection_name/content</span></code>).</p></li>
+<li><p>Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn’t pass the standards, fix it and upload it to the cifs drive again.</p></li>
+<li><p>Once you get the second email, you can import the batch in Dropbox. Select all materials from <code class="code docutils literal notranslate"><span class="pre">content</span></code>. Note that if you are using a older version of Avalon, you cannot upload transcripts yet.</p></li>
+</ol>
+</section>
+<section id="publishing">
+<h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading">¶</a></h2>
+<p>To publish the items you uploaded, go to Manage &gt; Manage Content. Click on your collection, then select “List All Items”. Select all items you wish to publish. Then, go to the “Selected Items” option on the menu, and click on the “Publish” button.</p>
+</section>
+<section id="updating-access-control">
+<h2>Updating Access Control<a class="headerlink" href="#updating-access-control" title="Link to this heading">¶</a></h2>
+<p>To change the access of some items, go to Manage &gt; Manage Content. Click on your collection, then select “List All Items”. Select all items you wish to change access for. Then, go to the “Selected Items” option on the menu, and click on the “Update Access Control” button.</p>
+</section>
 </section>
 
         </article>
@@ -304,23 +347,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="dspace_importing_entities.html">
+          <a class="next-page" href="metadata.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">DSPACE: Importing Entities</div>
+                <div class="title">Avalon Metadata</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../workflows/dspace.html">
+          <a class="prev-page" href="../../workflows/avalon.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">DSPACE &amp; Oaktrust</div>
+                <div class="title">Avalon</div>
                 
               </div>
             </a>
@@ -342,8 +385,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Importing media into Avalon</a><ul>
+<li><a class="reference internal" href="#creating-a-collection">Creating a Collection</a></li>
+<li><a class="reference internal" href="#importing-a-batch">Importing a batch</a></li>
+<li><a class="reference internal" href="#creating-a-xslx-spreadsheet">Creating a .xslx spreadsheet</a></li>
+<li><a class="reference internal" href="#uploading-through-dropbox">Uploading through Dropbox</a></li>
+<li><a class="reference internal" href="#publishing">Publishing</a></li>
+<li><a class="reference internal" href="#updating-access-control">Updating Access Control</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
