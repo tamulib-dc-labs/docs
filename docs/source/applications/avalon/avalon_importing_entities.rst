@@ -33,9 +33,9 @@ Use `this table <https://tamulib-dc-labs.github.io/docs/applications/avalon/meta
 * Add title.
 * If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to "File" and "Label" for the A/V file, a transcript will need adjacent "Transcript File" and "Transcript File Label" columns. "Transcript File" should be a filepath such as :code:`content/transcript_file_name`.
 
---------------------
+-------------------------
 Uploading through Dropbox
---------------------
+-------------------------
 
 1. When the .xlsx spreadsheet is complete, place it under the automatically generated folder for the collection in the :code:`cifs/avalon-pre/collection_name` or :code:`cifs/avalon-prod/collection_name` drive (not under :code:`cifs/avalon_pre/collection_name/content` or :code:`cifs/prod/collection_name/content`).
 
