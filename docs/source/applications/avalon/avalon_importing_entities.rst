@@ -10,9 +10,9 @@ Creating a Collection
 
 2. Click on the "Create Collection" button at the top right.
 
---------------------
+------------------
 Importing a batch
---------------------
+------------------
 
 1. Click on the "Create An Item" button. Make sure you are under "Manage files" on the menu on the left side of the screen.
 
