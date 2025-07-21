@@ -2,9 +2,9 @@
 Importing media into Avalon
 ===========================
 
---------------------
+---------------------
 Creating a Collection
---------------------
+---------------------
 
 1. Log into Avalon. Go to the menu bar at the top. Click "Manage", and from the drop down list, click "Manage Content".
 
