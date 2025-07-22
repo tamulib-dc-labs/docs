@@ -8,3 +8,4 @@ Avalon
    :caption: Avalon Workflows
 
    ../applications/avalon/*
+   
