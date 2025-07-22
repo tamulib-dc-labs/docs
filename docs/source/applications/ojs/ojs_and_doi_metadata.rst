@@ -49,3 +49,10 @@ In edit, you can add an ORCID iD and affiliation (where they are employed). Addi
 the article is found by applications used to measure the research output of the university.
 
 If you want to add ROR IDs, you need the ROR Plugin which collects and displays ROR IDs for author affiliations.
+
+----------------
+Funding Metadata
+----------------
+
+Funding metadata requires the Funding Metadata plugin.  This data allows you to add the name and identifier of any funder who funded
+the research and to add a Grant number that identifies an award of funds.
