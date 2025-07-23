@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="DSPACE &amp; Oaktrust" href="../../workflows/dspace.html" /><link rel="prev" title="Importing media into Avalon" href="avalon_importing_entities.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Whisper" href="../../workflows/whisper.html" /><link rel="prev" title="Spotlight" href="../../workflows/spotlight_import.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Avalon Metadata - TAMU Digital Collections Labs documentation</title>
+        <title>Creating and Modifying Exhibits - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -208,9 +208,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Workflows and Workarounds</span></p>
 <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="avalon_importing_entities.html">Importing media into Avalon</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Avalon Metadata</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/metadata.html">Avalon Metadata</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -236,8 +236,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/sage_import.html">SAGE Import</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Creating and Modifying Exhibits</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/whisper.html">Whisper</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Whisper</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -283,7 +283,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/avalon/metadata.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/spotlight/creating-an-exhibit.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -303,337 +303,104 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="avalon-metadata">
-<h1>Avalon Metadata<a class="headerlink" href="#avalon-metadata" title="Link to this heading">¶</a></h1>
-<section id="descriptive-metadata">
-<h2>Descriptive Metadata<a class="headerlink" href="#descriptive-metadata" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Repeatable</p></th>
-<th class="head"><p>MODS Mapping</p></th>
-<th class="head"><p>Batch Spreadsheet Column</p></th>
-<th class="head"><p>Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Title</strong></p></td>
-<td><p>Yes</p></td>
-<td><p>No</p></td>
-<td><p>titleInfo/title</p></td>
-<td><p>Title</p></td>
-<td><p>Required for Avalon 7 and below</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Publication date / Date Issued</strong></p></td>
-<td><p>Yes</p></td>
-<td><p>No</p></td>
-<td><p><a class="reference external" href="mailto:originInfo/dateIssued&#37;&#52;&#48;encoding=">originInfo/dateIssued<span>&#64;</span>encoding=</a>”edtf”</p></td>
-<td><p>Date Issued</p></td>
-<td><p>Required unless Bibliographic ID is used</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>File</strong></p></td>
-<td><p>Yes</p></td>
-<td><p>Yes</p></td>
-<td><p>N/A</p></td>
-<td><p>File</p></td>
-<td><p>Required file path for media.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Bibliographic ID</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;type=">relatedItem<span>&#64;</span>type=</a>”original”/identifier</p></td>
-<td><p>Bibliographic ID</p></td>
-<td><p>Overrides other metadata if used</p></td>
-</tr>
-<tr class="row-even"><td><p>Bibliographic ID Label</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;type=">relatedItem<span>&#64;</span>type=</a>”original”<a class="reference external" href="mailto:/identifier&#37;&#52;&#48;type">/identifier<span>&#64;</span>type</a></p></td>
-<td><p>Bibliographic ID Label</p></td>
-<td><p>Only valid with Bibliographic ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>Other Identifier</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;type=">relatedItem<span>&#64;</span>type=</a>”original”/identifier</p></td>
-<td><p>Other Identifier</p></td>
-<td><p>Must be paired with Other Identifier Type</p></td>
-</tr>
-<tr class="row-even"><td><p>Other Identifier Type</p></td>
-<td><p>No</p></td>
-<td><p>No (per ID)</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;type=">relatedItem<span>&#64;</span>type=</a>”original”<a class="reference external" href="mailto:/identifier&#37;&#52;&#48;type">/identifier<span>&#64;</span>type</a></p></td>
-<td><p>Other Identifier Type</p></td>
-<td><p>Valid types system-configured</p></td>
-</tr>
-<tr class="row-odd"><td><p>Main contributor(s) / Creator</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p><a class="reference external" href="mailto:name&#37;&#52;&#48;usage=">name<span>&#64;</span>usage=</a>”primary”/namePart</p></td>
-<td><p>Creator</p></td>
-<td><p>No support for corporate bodies</p></td>
-</tr>
-<tr class="row-even"><td><p>Contributor(s)</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>name/namePart</p></td>
-<td><p>Contributor</p></td>
-<td><p>Contributors are secondary individuals</p></td>
-</tr>
-<tr class="row-odd"><td><p>Genre</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>genre</p></td>
-<td><p>Genre</p></td>
-<td><p>Use PBCore genre terms</p></td>
-</tr>
-<tr class="row-even"><td><p>Publisher</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>originInfo/publisher</p></td>
-<td><p>Publisher</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Creation date</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p><a class="reference external" href="mailto:originInfo/dateCreated&#37;&#52;&#48;encoding=">originInfo/dateCreated<span>&#64;</span>encoding=</a>”edtf”</p></td>
-<td><p>Date Created</p></td>
-<td><p>Use if re-issued item</p></td>
-</tr>
-<tr class="row-even"><td><p>Summary / Abstract</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p>abstract</p></td>
-<td><p>Abstract</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Language(s)</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>language/languageTerm</p></td>
-<td><p>Language</p></td>
-<td><p>MARC language codes only</p></td>
-</tr>
-<tr class="row-even"><td><p>Physical Description</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;type=">relatedItem<span>&#64;</span>type=</a>”original”/physicalDescription/extent</p></td>
-<td><p>Physical Description</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Series</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;type=">relatedItem<span>&#64;</span>type=</a>”series”/titleInfo/title</p></td>
-<td><p>Series</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Related Item Label</p></td>
-<td><p>No</p></td>
-<td><p>No (per)</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;displayLabel">relatedItem<span>&#64;</span>displayLabel</a></p></td>
-<td><p>Related Item Label</p></td>
-<td><p>Paired with URL</p></td>
-</tr>
-<tr class="row-odd"><td><p>Related Item URL</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p><a class="reference external" href="mailto:relatedItem&#37;&#52;&#48;displayLabel/location/url">relatedItem<span>&#64;</span>displayLabel/location/url</a></p></td>
-<td><p>Related Item URL</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Subject(s)</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>subject/topic</p></td>
-<td><p>Topical Subject</p></td>
-<td><p>Use LCSH</p></td>
-</tr>
-<tr class="row-odd"><td><p>Location(s)</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>subject/geographic</p></td>
-<td><p>Geographic Subject</p></td>
-<td><p>Use Getty Thesaurus of Geographic Names</p></td>
-</tr>
-<tr class="row-even"><td><p>Time period(s)</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>subject/temporal</p></td>
-<td><p>Temporal Subject</p></td>
-<td><p>Use EDTF</p></td>
-</tr>
-<tr class="row-odd"><td><p>Terms of Use</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p><a class="reference external" href="mailto:accessCondition&#37;&#52;&#48;type=">accessCondition<span>&#64;</span>type=</a>”use and reproduction”</p></td>
-<td><p>Terms of Use</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Table of Contents</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>tableOfContents</p></td>
-<td><p>Table of Contents</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Statement of Responsibility</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p><a class="reference external" href="mailto:note&#37;&#52;&#48;type=">note<span>&#64;</span>type=</a>”statement of responsibility”</p></td>
-<td><p>Statement of Responsibility</p></td>
-<td><p>Also can be Note/Note Type</p></td>
-</tr>
-<tr class="row-even"><td><p>Note</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>note</p></td>
-<td><p>Note</p></td>
-<td><p>Must pair with Note Type</p></td>
-</tr>
-<tr class="row-odd"><td><p>Note Type</p></td>
-<td><p>No</p></td>
-<td><p>No (per)</p></td>
-<td><p><a class="reference external" href="mailto:note&#37;&#52;&#48;type">note<span>&#64;</span>type</a></p></td>
-<td><p>Note Type</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
+          <section id="creating-and-modifying-exhibits">
+<h1>Creating and Modifying Exhibits<a class="headerlink" href="#creating-and-modifying-exhibits" title="Link to this heading">¶</a></h1>
+<p>The Libraries currently uses Spotlight for exhibit curation.  This document will explain how to create a new exhibit
+with the features that are currently in use.</p>
+<section id="item-and-item-curation">
+<h2>Item and Item Curation<a class="headerlink" href="#item-and-item-curation" title="Link to this heading">¶</a></h2>
 </section>
-<section id="batch-metadata-only-fields">
-<h2>Batch Metadata Only Fields<a class="headerlink" href="#batch-metadata-only-fields" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Repeatable</p></th>
-<th class="head"><p>Valid Values</p></th>
-<th class="head"><p>Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Publish</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p>“Yes” or “No”</p></td>
-<td><p>Controls whether item is automatically published post-ingest. Default is “No”.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Hidden</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p>“Yes” or “No”</p></td>
-<td><p>Hides item from end-user search/browse. Default is “No”. Hidden items are still visible to users with ingest privileges.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="standard-features-and-widgets">
+<h2>Standard Features and Widgets<a class="headerlink" href="#standard-features-and-widgets" title="Link to this heading">¶</a></h2>
+<section id="heading">
+<h3>Heading<a class="headerlink" href="#heading" title="Link to this heading">¶</a></h3>
+<p>This adds an <code class="code docutils literal notranslate"><span class="pre">&lt;h2/&gt;`with</span> <span class="pre">an</span> <span class="pre">embedded</span> <span class="pre">:code:`&lt;p/&gt;</span></code> with text to the screen.</p>
 </section>
-<section id="other-fields">
-<h2>Other Fields<a class="headerlink" href="#other-fields" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field Name</p></th>
-<th class="head"><p>Required</p></th>
-<th class="head"><p>Repeatable</p></th>
-<th class="head"><p>Valid Values / Notes</p></th>
-<th class="head"><p>Additional Notes</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>File</p></td>
-<td><p>Yes</p></td>
-<td><p>Yes</p></td>
-<td><p>Must include file extension</p></td>
-<td><p>Paths must be relative to manifest; include subdirectories if needed.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Label</p></td>
-<td><p>No</p></td>
-<td><p>Only after File</p></td>
-<td><p>Free text</p></td>
-<td><p>Used for display in single-item views. Editable post-ingest.</p></td>
-</tr>
-<tr class="row-even"><td><p>Offset</p></td>
-<td><p>No</p></td>
-<td><p>Only after File</p></td>
-<td><p>00:00:00.000 to length of file</p></td>
-<td><p>Only applies to video. Excel may auto-format; prefix with <cite>‘</cite>. First offset sets poster image.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Skip Transcoding</p></td>
-<td><p>No</p></td>
-<td><p>Only after File</p></td>
-<td><p>“yes” or “no”</p></td>
-<td><p>Use when uploading pre-encoded derivatives. Required for Absolute Location.</p></td>
-</tr>
-<tr class="row-even"><td><p>Absolute Location</p></td>
-<td><p>No</p></td>
-<td><p>Only after Skip Transcoding</p></td>
-<td><p>Full URI path to master file</p></td>
-<td><p>Ignored unless Skip Transcoding is set to “yes”.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Date Ingested</p></td>
-<td><p>No</p></td>
-<td><p>No</p></td>
-<td><p>YYYY-MM-DD</p></td>
-<td><p>System will auto-set if not provided. Not shown to end users but searchable for admins.</p></td>
-</tr>
-<tr class="row-even"><td><p>Transcript File</p></td>
-<td><p>No</p></td>
-<td><p>Yes</p></td>
-<td><p>File path with extension</p></td>
-<td><p>Path must be relative to manifest.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Transcript File Label</p></td>
-<td><p>No</p></td>
-<td><p>Only after Transcript File</p></td>
-<td><p>Free text</p></td>
-<td><p>Label for the transcript file.</p></td>
-</tr>
-<tr class="row-even"><td><p>Transcript Language</p></td>
-<td><p>No</p></td>
-<td><p>Only after Transcript File</p></td>
-<td><p>MARC code or term</p></td>
-<td><p>Defaults to system setting if blank or invalid. Editable post-ingest.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Machine Generated</p></td>
-<td><p>No</p></td>
-<td><p>Only after Transcript File</p></td>
-<td><p>“yes” or “no”</p></td>
-<td><p>Indicates machine-generated transcript.</p></td>
-</tr>
-<tr class="row-even"><td><p>Caption File</p></td>
-<td><p>No</p></td>
-<td><p>Only after File</p></td>
-<td><p>File path with extension</p></td>
-<td><p>Caption Label and Language can follow in any order. Editable post-ingest.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Caption Label</p></td>
-<td><p>No</p></td>
-<td><p>Only after Caption File</p></td>
-<td><p>Free text</p></td>
-<td><p>If blank, filename is used. Editable post-ingest.</p></td>
-</tr>
-<tr class="row-even"><td><p>Caption Language</p></td>
-<td><p>No</p></td>
-<td><p>Only after Caption File</p></td>
-<td><p>MARC code or term</p></td>
-<td><p>Defaults to system setting if blank or invalid. Editable post-ingest.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Treat as Transcript</p></td>
-<td><p>No</p></td>
-<td><p>Only after Caption File</p></td>
-<td><p>“yes” or “no”</p></td>
-<td><p>Marks caption file as usable in transcript view and search.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="text">
+<h3>Text<a class="headerlink" href="#text" title="Link to this heading">¶</a></h3>
+<p>This adds a block for text in <code class="code docutils literal notranslate"><span class="pre">&lt;p/&gt;</span></code> tags.</p>
+</section>
+<section id="list">
+<h3>List<a class="headerlink" href="#list" title="Link to this heading">¶</a></h3>
+<p>This adds an unordered list.</p>
+</section>
+<section id="quote">
+<h3>Quote<a class="headerlink" href="#quote" title="Link to this heading">¶</a></h3>
+<p>This adds a block quote.</p>
+</section>
+<section id="iframe">
+<h3>IFRAME<a class="headerlink" href="#iframe" title="Link to this heading">¶</a></h3>
+<p>This allows you to embed an <code class="code docutils literal notranslate"><span class="pre">&lt;iframe/&gt;</span></code> to pull content from another website.</p>
+</section>
+<section id="video">
+<h3>Video<a class="headerlink" href="#video" title="Link to this heading">¶</a></h3>
+<p>This allows you to add a <code class="code docutils literal notranslate"><span class="pre">&lt;video/&gt;</span></code> canvas that points at a video file or a youtube video.</p>
+</section>
+<section id="embed-text">
+<h3>Embed + Text<a class="headerlink" href="#embed-text" title="Link to this heading">¶</a></h3>
+<p>This widget embeds a web resource and a text block to the left or right of it.</p>
+</section>
+<section id="horizontal-rule">
+<h3>Horizontal Rule<a class="headerlink" href="#horizontal-rule" title="Link to this heading">¶</a></h3>
+<p>Adds a horizontal divider to a page.</p>
+</section>
+<section id="uploaded-item-row">
+<h3>Uploaded Item Row<a class="headerlink" href="#uploaded-item-row" title="Link to this heading">¶</a></h3>
+<p>This widget displays uploaded items in a horizontal row. Optionally, you can add a heading and/or text to be displayed adjacent to the items.</p>
+</section>
+</section>
+<section id="exhibit-item-features-and-widgets">
+<h2>Exhibit Item Features and Widgets<a class="headerlink" href="#exhibit-item-features-and-widgets" title="Link to this heading">¶</a></h2>
+<section id="browse-categories">
+<h3>Browse Categories<a class="headerlink" href="#browse-categories" title="Link to this heading">¶</a></h3>
+<p>This widget highlights browse categories. Each highlighted category links to the corresponding browse category results page.</p>
+<p>Requires browse configuration.</p>
+</section>
+<section id="browse-group-categories">
+<h3>Browse Group Categories<a class="headerlink" href="#browse-group-categories" title="Link to this heading">¶</a></h3>
+<p>This widget displays all browse categories associated with a selected browse group as a horizontally-scrolling row. Each selected browse group is displayed as a separate row. Each displayed category in a group links to the corresponding browse category results page.</p>
+<p>Requires browse configuration.</p>
+</section>
+<section id="saved-searches">
+<h3>Saved Searches<a class="headerlink" href="#saved-searches" title="Link to this heading">¶</a></h3>
+<p>This widget highlights saved searches. Each highlighted saved search links to the search results page generated by the saved search parameters. Any saved search listed on the Curation &gt; Browse Categories page, whether published or not, can be highlighted as a saved search.</p>
+<p>Requires exhibit-specific search fields.</p>
+</section>
+<section id="pages">
+<h3>Pages<a class="headerlink" href="#pages" title="Link to this heading">¶</a></h3>
+<p>This widget highlights pages from this exhibit. Each highlighted item links to the corresponding page.</p>
+</section>
+<section id="item-row">
+<h3>Item Row<a class="headerlink" href="#item-row" title="Link to this heading">¶</a></h3>
+<p>This widget displays exhibit items in a horizontal row. Optionally, you can add a heading and/or text to be displayed adjacent to the items.</p>
+</section>
+<section id="item-carousel">
+<h3>Item Carousel<a class="headerlink" href="#item-carousel" title="Link to this heading">¶</a></h3>
+<p>This widget displays exhibit items in a carousel. You can configure the item captions, how the images are cycled, and the size of the carousel.</p>
+</section>
+<section id="item-embed">
+<h3>Item Embed<a class="headerlink" href="#item-embed" title="Link to this heading">¶</a></h3>
+<p>This widget embeds exhibit items on a page. Optionally, you can add a heading and/or text to be displayed adjacent to the items.</p>
+</section>
+<section id="item-slideshow">
+<h3>Item Slideshow<a class="headerlink" href="#item-slideshow" title="Link to this heading">¶</a></h3>
+<p>This widget displays exhibit items in a static slideshow. The user will move between items in the slideshow using the field you select as the primary caption.</p>
+</section>
+<section id="item-grid">
+<h3>Item Grid<a class="headerlink" href="#item-grid" title="Link to this heading">¶</a></h3>
+<p>This widget displays exhibit items in a multi-row grid. Optionally, you can add a heading and/or text to be displayed adjacent to the items.</p>
+</section>
+<section id="search-results">
+<h3>Search results<a class="headerlink" href="#search-results" title="Link to this heading">¶</a></h3>
+<p>This widget displays a set of search results on a page. Specify a search result set by selecting an existing browse category. You can also select the view types that are available to the user when viewing the result set.</p>
+</section>
+</section>
+<section id="tamu-widgets">
+<h2>TAMU Widgets<a class="headerlink" href="#tamu-widgets" title="Link to this heading">¶</a></h2>
+<section id="wysiwyg">
+<h3>WYSIWYG<a class="headerlink" href="#wysiwyg" title="Link to this heading">¶</a></h3>
+<p>Adds a WYSIWYG editor so you don’t need many elements listed above.</p>
+</section>
 </section>
 </section>
 
@@ -642,23 +409,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../workflows/dspace.html">
+          <a class="next-page" href="../../workflows/whisper.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">DSPACE &amp; Oaktrust</div>
+                <div class="title">Whisper</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="avalon_importing_entities.html">
+          <a class="prev-page" href="../../workflows/spotlight_import.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Importing media into Avalon</div>
+                <div class="title">Spotlight</div>
                 
               </div>
             </a>
@@ -692,10 +459,37 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Avalon Metadata</a><ul>
-<li><a class="reference internal" href="#descriptive-metadata">Descriptive Metadata</a></li>
-<li><a class="reference internal" href="#batch-metadata-only-fields">Batch Metadata Only Fields</a></li>
-<li><a class="reference internal" href="#other-fields">Other Fields</a></li>
+<li><a class="reference internal" href="#">Creating and Modifying Exhibits</a><ul>
+<li><a class="reference internal" href="#item-and-item-curation">Item and Item Curation</a></li>
+<li><a class="reference internal" href="#standard-features-and-widgets">Standard Features and Widgets</a><ul>
+<li><a class="reference internal" href="#heading">Heading</a></li>
+<li><a class="reference internal" href="#text">Text</a></li>
+<li><a class="reference internal" href="#list">List</a></li>
+<li><a class="reference internal" href="#quote">Quote</a></li>
+<li><a class="reference internal" href="#iframe">IFRAME</a></li>
+<li><a class="reference internal" href="#video">Video</a></li>
+<li><a class="reference internal" href="#embed-text">Embed + Text</a></li>
+<li><a class="reference internal" href="#horizontal-rule">Horizontal Rule</a></li>
+<li><a class="reference internal" href="#uploaded-item-row">Uploaded Item Row</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exhibit-item-features-and-widgets">Exhibit Item Features and Widgets</a><ul>
+<li><a class="reference internal" href="#browse-categories">Browse Categories</a></li>
+<li><a class="reference internal" href="#browse-group-categories">Browse Group Categories</a></li>
+<li><a class="reference internal" href="#saved-searches">Saved Searches</a></li>
+<li><a class="reference internal" href="#pages">Pages</a></li>
+<li><a class="reference internal" href="#item-row">Item Row</a></li>
+<li><a class="reference internal" href="#item-carousel">Item Carousel</a></li>
+<li><a class="reference internal" href="#item-embed">Item Embed</a></li>
+<li><a class="reference internal" href="#item-slideshow">Item Slideshow</a></li>
+<li><a class="reference internal" href="#item-grid">Item Grid</a></li>
+<li><a class="reference internal" href="#search-results">Search results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tamu-widgets">TAMU Widgets</a><ul>
+<li><a class="reference internal" href="#wysiwyg">WYSIWYG</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
