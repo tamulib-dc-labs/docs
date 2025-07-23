@@ -1,5 +1,11 @@
-=================
-Spotlight Imports
-=================
+=========
+Spotlight
+=========
 
-`Placeholder instructions <https://tamulib.atlassian.net/wiki/spaces/AAS/pages/398753793/Draft+Spotlight+Ingestion>`_
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   :caption: Avalon Workflows
+
+   ../applications/spotlight/*
+   
