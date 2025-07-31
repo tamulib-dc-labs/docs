@@ -16,7 +16,7 @@ This method requires that you have an API key and access to the access.library.t
 
 4. Enter SSH_HOSTNAME and SSH_PORT: :code:`SSH_HOSTNAME = 'access.library.tamu.edu'` and :code:`SSH_PORT = 22`.
 
-5. Enter SSH_USERNAME and SSH_PASSWORD. They are your regular NetID username and password.
+5. Enter SSH_USERNAME and SSH_PASSWORD.
 
 6. Enter AVALON_MOUNT PATH: :code:`AVALON_MOUNT_PATH = '/mnt/avalon_prod'`. This will be different if you are pulling from Avalon Pre.
 
