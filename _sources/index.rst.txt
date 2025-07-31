@@ -50,3 +50,10 @@ Libraries at Texas A&M University.
    :glob:
 
    supercomputing/*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Crosswalking
+   :glob:
+
+   crosswalking/*
