@@ -323,8 +323,7 @@
 </section>
 <section id="new-yml">
 <h2>New .yml<a class="headerlink" href="#new-yml" title="Link to this heading">¶</a></h2>
-<p>Go to default-config.yml. The code should look like the following:</p>
-<p>Copy default-config.yml and rename the new copy config.yml.</p>
+<p>Go to default-config.yml. Copy default-config.yml into a new file named config.yml.</p>
 <p>Then, log into OJS and get an API key. To do this, go to Edit Profile &gt; API key. Copy the key.</p>
 <p>Inside config.yml, paste the API key for <code class="code docutils literal notranslate"><span class="pre">token</span></code>.</p>
 <p>Fill in <code class="code docutils literal notranslate"><span class="pre">journal_title</span></code>, <code class="code docutils literal notranslate"><span class="pre">url</span></code>, <code class="code docutils literal notranslate"><span class="pre">oai_endpoint</span></code>, <code class="code docutils literal notranslate"><span class="pre">title</span></code>, <code class="code docutils literal notranslate"><span class="pre">default_thumbnail</span></code>, <code class="code docutils literal notranslate"><span class="pre">date</span></code>, <code class="code docutils literal notranslate"><span class="pre">description</span></code>, <code class="code docutils literal notranslate"><span class="pre">subjects</span></code>, and <code class="code docutils literal notranslate"><span class="pre">alternative</span></code>.  <code class="code docutils literal notranslate"><span class="pre">default_thumbnail</span></code> should be a link to an image. <code class="code docutils literal notranslate"><span class="pre">subjects</span></code> should come from Library of Congress subject headings. <code class="code docutils literal notranslate"><span class="pre">alternative</span></code> should only be used for an alternative title.</p>
@@ -332,12 +331,12 @@
 <section id="creating-csv-file">
 <h2>Creating .csv file<a class="headerlink" href="#creating-csv-file" title="Link to this heading">¶</a></h2>
 <p>Under <code class="code docutils literal notranslate"><span class="pre">ojs-to-oaktrust</span></code>, create a new directory called <code class="code docutils literal notranslate"><span class="pre">output</span></code>.</p>
-<p>On the command line, write:</p>
+<p>On the command line, write: <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">src/ojsnake.py</span> <span class="pre">-j</span> <span class="pre">journal_title</span></code></p>
 <p>articles.csv, issues.csv, title.csv, and volumes.csv should have saved under <code class="code docutils literal notranslate"><span class="pre">ojs-to-oaktrust/output/journal_title</span></code> folder.</p>
 </section>
 <section id="creating-simple-archive-format-saf-files">
 <h2>Creating Simple Archive Format (SAF) Files<a class="headerlink" href="#creating-simple-archive-format-saf-files" title="Link to this heading">¶</a></h2>
-<p>Run Java in terminal.</p>
+<p>Run Java in terminal by entering this code: <code class="code docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">~/Downloads/SAFCreator-0.0.2-SNAPSHOT.one-jar.jar</span></code></p>
 <p>This should open a dialogue box called DSpace Simple Archive Format Creator.</p>
 <p>You need a folder for the SAF output. Because there will be four folders created per journal, it is recommended you first make a folder called oaktrust-batches.
 Then create the folder for output from a single execution of SAF. An easy naming convention is “journal_name-unit”. “unit” can be articles, issues, volumes, or title.
@@ -355,6 +354,7 @@ You will do this process four times per journal.</p>
 <section id="importing-saf-files">
 <h2>Importing SAF Files<a class="headerlink" href="#importing-saf-files" title="Link to this heading">¶</a></h2>
 <p>Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.</p>
+<p>Create a zip file in terminal using this format: <code class="code docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-r</span> <span class="pre">{journal_name}-title.zip</span> <span class="pre">{journal_name}-title</span></code></p>
 <p>Go to * <a class="reference external" href="https://oaktrust-pre.library.tamu.edu">Oaktrust</a> Log in with Shibboleth.
 On the sidebar, go to Import &gt; Batch Import. When asked for a collection, select “Journals”. Upload zip file.</p>
 <p>Note: Sometimes “Import” does not appear as an option in the sidebar, in which case you must wait/reload the page until it appears.</p>

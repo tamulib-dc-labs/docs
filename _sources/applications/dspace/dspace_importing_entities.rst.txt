@@ -12,27 +12,7 @@ Clone relevant git repository
 New .yml
 ------------------------
 
-Go to default-config.yml. The code should look like the following:
-
-.. code-block::  python
-    journal_title:
-        url: https://{title}-tamu.tdl.org/{title}
-        token: "api-key"
-        oai_endpoint: https://{title}-tamu.tdl.org/{title}/oai
-        output_directory: "output"
-        title: "Journal Title"
-         default_thumbnail: "https:://{default}/{thumbnail}.{ext}"
-         date: "2008-2016"
-        description: "Description"
-        subjects:
-             - Motion pictures -- History
-             - Motion pictures
-             - Motion pictures, Mexican
-             - Motion pictures, Spanish
-        alternative: ""
-
-
-Copy default-config.yml and rename the new copy config.yml.
+Go to default-config.yml. Copy default-config.yml into a new file named config.yml.
 
 Then, log into OJS and get an API key. To do this, go to Edit Profile > API key. Copy the key.
 
@@ -46,10 +26,7 @@ Creating .csv file
 
 Under :code:`ojs-to-oaktrust`, create a new directory called :code:`output`.
 
-On the command line, write:
-
-.. code-block::  shell
-    python src/ojsnake.py -j journal_title
+On the command line, write: :code:`python src/ojsnake.py -j journal_title`
 
 articles.csv, issues.csv, title.csv, and volumes.csv should have saved under :code:`ojs-to-oaktrust/output/journal_title` folder.
 
@@ -57,10 +34,7 @@ articles.csv, issues.csv, title.csv, and volumes.csv should have saved under :co
 Creating Simple Archive Format (SAF) Files
 ------------------------
 
-Run Java in terminal.
-
-.. code-block:: shell
-    java -jar ~/Downloads/SAFCreator-0.0.2-SNAPSHOT.one-jar.jar
+Run Java in terminal by entering this code: :code:`java -jar ~/Downloads/SAFCreator-0.0.2-SNAPSHOT.one-jar.jar`
 
 This should open a dialogue box called DSpace Simple Archive Format Creator.
 
@@ -83,8 +57,7 @@ Importing SAF Files
 
 Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.
 
-.. code-block:: shell
-    zip -r {journal_name}-title.zip {journal_name}-title
+Create a zip file in terminal using this format: :code:`zip -r {journal_name}-title.zip {journal_name}-title`
 
 Go to * `Oaktrust <https://oaktrust-pre.library.tamu.edu>`_ Log in with Shibboleth. 
 On the sidebar, go to Import > Batch Import. When asked for a collection, select "Journals". Upload zip file. 
