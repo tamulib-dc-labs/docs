@@ -13,7 +13,7 @@ Use this to create an ARK for an object on Avalon.
 +-------------------+--------------------------+
 | JSON field        | Corresponding ARK field  |
 +===================+==========================+
-| hls_url           | Location (URL)           |
+| id                | Location (URL)           |
 +-------------------+--------------------------+
 | main_contributors | Who?                     |
 +-------------------+--------------------------+
@@ -22,3 +22,6 @@ Use this to create an ARK for an object on Avalon.
 | date_digitized    | When?                    |
 +-------------------+--------------------------+
 
+The Location (URL) is made using the id field, but not exclusively the id. It should follow this format:
+
+avalon.library.tamu.edu/media_objects/{'id'}
