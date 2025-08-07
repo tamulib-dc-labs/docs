@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Spotlight" href="spotlight_import.html" /><link rel="prev" title="OJS and DOI Metadata" href="../applications/ojs/ojs_and_doi_metadata.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="PDF Accessibility" href="../applications/accessibility/pdf_accessibility.html" /><link rel="prev" title="Projects" href="../about/05_projects.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>SAGE Import - TAMU Digital Collections Labs documentation</title>
+        <title>Accessibility - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -208,7 +208,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Workflows and Workarounds</span></p>
 <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="accessibility.html">Accessibility</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Accessibility</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Accessibility</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Accessibility</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../applications/accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
 </ul>
 </li>
@@ -247,7 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../applications/ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">SAGE Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sage_import.html">SAGE Import</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spotlight_import.html">Spotlight</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../applications/spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
 </ul>
@@ -300,7 +300,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/workflows/sage_import.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/workflows/accessibility.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -314,32 +314,20 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="sage-import">
-<h1>SAGE Import<a class="headerlink" href="#sage-import" title="Link to this heading">¶</a></h1>
-<p><a class="reference external" href="https://tamulib.atlassian.net/wiki/spaces/DIDP/pages/989921286/Creating+a+SAGE+Collection+from+Scratch">Placeholder instructions</a></p>
-<section id="how-to-use-the-solr-api-via-the-browser">
-<h2>How to Use the Solr API via the Browser<a class="headerlink" href="#how-to-use-the-solr-api-via-the-browser" title="Link to this heading">¶</a></h2>
-<p>In order to build a collection in SAGE, you must first start with a SOLR query that will give you all the works that
-belong to a collection in Fedora. Because our Solr index follows our Fedora models closely, this isn’t always easy to
-guess, so you often times need to experiment with a few requests to determine the string to add to your READER in SAGE.</p>
-<p>Our Solr instances aren’t publicly available, so you have two choices:</p>
-<ol class="arabic simple">
-<li><p>Find a pod in Rancher with <code class="code docutils literal notranslate"><span class="pre">curl</span></code> installed and make a request via the Solr API or</p></li>
-<li><p>Make a proxy request via Rancher to Solr in your browser.</p></li>
-</ol>
-<p>In order to do number 2, the pod in Rancher must have an additional port forwarded to <code class="code docutils literal notranslate"><span class="pre">80</span></code>, <code class="code docutils literal notranslate"><span class="pre">8080</span></code>, or
-<code class="code docutils literal notranslate"><span class="pre">443</span></code>. You can tell if this is enabled by accessing the <code class="code docutils literal notranslate"><span class="pre">Services</span></code> tab in the pod. If this has been done,
-the <code class="code docutils literal notranslate"><span class="pre">Target</span></code> tab will have an anchor.</p>
-<p>Assuming an additional port has been added to the pod, you should be able to do a request like this:</p>
-<p><a class="reference external" href="https://rancher-devpre.library.tamu.edu/k8s/clusters/c-8vksj/api/v1/namespaces/fcrepo4/services/http:fedora-solr:80/proxy/fcrepo-solr/fedora-core/select?indent=on&amp;q=hasParent:%22https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee_freedmen_objects%22&amp;wt=json&amp;&amp;rows=10000">https://rancher-devpre.library.tamu.edu/k8s/clusters/c-8vksj/api/v1/namespaces/fcrepo4/services/http:fedora-solr:80/proxy/fcrepo-solr/fedora-core/select?indent=on&amp;q=hasParent:%22https://api-pre.library.tamu.edu/fcrepo/rest/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/cherokee_freedmen_objects%22&amp;wt=json&amp;&amp;rows=10000</a></p>
-<p>This will require authenticating to Rancher first as you’ll be proxying your request through it.</p>
-</section>
+          <section id="accessibility">
+<h1>Accessibility<a class="headerlink" href="#accessibility" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Accessibility Workflows</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../applications/accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
+</ul>
+</div>
 </section>
 
         </article>
@@ -347,23 +335,23 @@ the <code class="code docutils literal notranslate"><span class="pre">Target</sp
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="spotlight_import.html">
+          <a class="next-page" href="../applications/accessibility/pdf_accessibility.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Spotlight</div>
+                <div class="title">PDF Accessibility</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../applications/ojs/ojs_and_doi_metadata.html">
+          <a class="prev-page" href="../about/05_projects.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">OJS and DOI Metadata</div>
+                <div class="title">Projects</div>
                 
               </div>
             </a>
@@ -385,27 +373,8 @@ the <code class="code docutils literal notranslate"><span class="pre">Target</sp
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">SAGE Import</a><ul>
-<li><a class="reference internal" href="#how-to-use-the-solr-api-via-the-browser">How to Use the Solr API via the Browser</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
