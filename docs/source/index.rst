@@ -57,3 +57,10 @@ Libraries at Texas A&M University.
    :glob:
 
    crosswalking/*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Statistcs
+   :glob:
+
+   statistcs/*
