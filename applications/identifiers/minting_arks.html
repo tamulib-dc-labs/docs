@@ -363,6 +363,29 @@
 </div>
 <p>EZID allows these <cite>erc:</cite> fields to be updated over time, supporting good stewardship and curation practices for digital collections.</p>
 </section>
+<section id="what-to-do-when-you-have-limited-metadata">
+<h2>What To Do When You Have Limited Metadata<a class="headerlink" href="#what-to-do-when-you-have-limited-metadata" title="Link to this heading">¶</a></h2>
+<p>Occasionally, we may have an issue where we are missing a certain <code class="code docutils literal notranslate"><span class="pre">who,</span> <span class="pre">what,</span> <span class="pre">when,</span> <span class="pre">or</span> <span class="pre">where</span></code> value.  In these cases, do the following.</p>
+<section id="who">
+<h3>Who<a class="headerlink" href="#who" title="Link to this heading">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">Who</span></code> should be similar to <code class="code docutils literal notranslate"><span class="pre">dc:creator</span></code>. When we don’t know, put <code class="code docutils literal notranslate"><span class="pre">Unknown</span></code>. If we aren’t sure but it’s done by someone at a
+specific institution, list the institution.</p>
+</section>
+<section id="what">
+<h3>What<a class="headerlink" href="#what" title="Link to this heading">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">What</span></code> should be similar to <code class="code docutils literal notranslate"><span class="pre">dc:title</span></code>. We need this value to help us identify what was originally described. This value should always
+be descriptive even if it’s not a title. For instance, it could be a filename or something else. If needed, it is also valid to concatenate multiple
+values together like <code class="code docutils literal notranslate"><span class="pre">title</span> <span class="pre">-</span> <span class="pre">filename.tif</span></code>.</p>
+</section>
+<section id="when">
+<h3>When<a class="headerlink" href="#when" title="Link to this heading">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">When</span></code> should be similar to <code class="code docutils literal notranslate"><span class="pre">dc:date</span></code>. When we don’t know, put <code class="code docutils literal notranslate"><span class="pre">Unknown</span></code> or an edtf value approximating the date.</p>
+</section>
+<section id="where">
+<h3>Where<a class="headerlink" href="#where" title="Link to this heading">¶</a></h3>
+<p><code class="code docutils literal notranslate"><span class="pre">Where</span></code> should be the url of the resource online. This will normally be a work page, but could also be another form of url.</p>
+</section>
+</section>
 <section id="generating-arks-programmatically">
 <h2>Generating ARKs Programmatically<a class="headerlink" href="#generating-arks-programmatically" title="Link to this heading">¶</a></h2>
 <p>To generate ARKs in batches, you can simply create a CSV with your standard erc fields.  Then you can run code like below that will generate each ARK and record them on
@@ -535,6 +558,13 @@ a spreadsheet:</p>
 <li><a class="reference internal" href="#ezid-and-arks">EZID and ARKs</a></li>
 <li><a class="reference internal" href="#why-arks-are-important">Why ARKs are Important</a></li>
 <li><a class="reference internal" href="#the-erc-element">The ERC Element</a></li>
+<li><a class="reference internal" href="#what-to-do-when-you-have-limited-metadata">What To Do When You Have Limited Metadata</a><ul>
+<li><a class="reference internal" href="#who">Who</a></li>
+<li><a class="reference internal" href="#what">What</a></li>
+<li><a class="reference internal" href="#when">When</a></li>
+<li><a class="reference internal" href="#where">Where</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#generating-arks-programmatically">Generating ARKs Programmatically</a></li>
 </ul>
 </li>
