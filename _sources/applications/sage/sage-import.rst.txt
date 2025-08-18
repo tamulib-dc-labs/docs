@@ -4,7 +4,7 @@ Importing media into SAGE - WITHOUT Rancher
 
 1. Ensure SAF is written for the collection. Send the SAF to be uploaded to Fedora prod.
 
-2. Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. To create a new reader, choose Production Fedora Core Source as the source and for the filter, enter :code:`hasParent:"{link to Fedora prod collection}"`
+2. Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. Choose Production Fedora Core Source as the source and for the filter, enter :code:`hasParent:"{link to Fedora prod collection}"`
 
 3. Add field mappings onto the reader.
 
@@ -96,7 +96,9 @@ Importing media into SAGE - WITHOUT Rancher
 | Title (dc.title, dcterms.title)           | title                         | 
 +-------------------------------------------+-------------------------------+
 
-4. Create a writer. Select Production SAGE Core as the Destination. Add field mappings onto the writer.
+4. Create a writer. Select Production SAGE Core as the Destination. 
+
+5. Add field mappings onto the writer.
 
 +-------------------------------------------+------------------------------+
 | Field Mapping                             | Metadata Field               | 
@@ -186,11 +188,11 @@ Importing media into SAGE - WITHOUT Rancher
 | Title (dc.title, dcterms.title)           | title                        | 
 +-------------------------------------------+------------------------------+
 
-5. Create a new job. Select relevant reader and writer. Select operators, which may include Collection Default, Application Type, ID Base 64 Encoding, Origin URL Regex Replace, Manifest Template, and Build CAP edit link. Select "yes" for Active and "On Demand" for Frequency.
+6. Create a new job. Select relevant reader and writer. Select operators, which may include Collection Default, Application Type, ID Base 64 Encoding, Origin URL Regex Replace, Manifest Template, and Build CAP edit link. Select "yes" for Active and "On Demand" for Frequency.
 
-6. Run the job. Under Discovery view, select Production SAGE Core as the source and for Filter, enter :code:`collection:"{link to Fedora prod collection}"` Create a slug.
+7. Run the job. Under Discovery view, select Production SAGE Core as the source and for Filter, enter :code:`collection:"{link to Fedora prod collection}"` Create a slug.
 
-7. Under the Facets tab, select and enter:
+8. Under the Facets tab, select and enter:
 
 +-------------------------------------------+------------------------------+
 | Facet Fields                              | Label                        | 
@@ -208,7 +210,7 @@ Importing media into SAGE - WITHOUT Rancher
 | spatial_multi                             | Place                        | 
 +-------------------------------------------+------------------------------+
 
-8. Under Results tab, enter the following under the Result Headings.
+9. Under Results tab, enter the following under the Result Headings.
 
 +-------------------------------------------+------------------------------+
 | Result Heading                            | value                        | 
@@ -226,7 +228,7 @@ Importing media into SAGE - WITHOUT Rancher
 
 Select Ascending and Published for multiple choice settings.
 
-9. Under Result Metadata, add the following:
+10. Under Result Metadata, add the following:
 
 +-------------------------------------------+------------------------------+
 | Key                                       | Label                        | 

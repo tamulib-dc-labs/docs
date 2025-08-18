@@ -328,7 +328,7 @@
 <h1>Importing media into SAGE - WITHOUT Rancher<a class="headerlink" href="#importing-media-into-sage-without-rancher" title="Link to this heading">¶</a></h1>
 <ol class="arabic simple">
 <li><p>Ensure SAF is written for the collection. Send the SAF to be uploaded to Fedora prod.</p></li>
-<li><p>Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. To create a new reader, choose Production Fedora Core Source as the source and for the filter, enter <code class="code docutils literal notranslate"><span class="pre">hasParent:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code></p></li>
+<li><p>Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. Choose Production Fedora Core Source as the source and for the filter, enter <code class="code docutils literal notranslate"><span class="pre">hasParent:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code></p></li>
 <li><p>Add field mappings onto the reader.</p></li>
 </ol>
 <div class="table-wrapper docutils container">
@@ -469,7 +469,8 @@
 </table>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Create a writer. Select Production SAGE Core as the Destination. Add field mappings onto the writer.</p></li>
+<li><p>Create a writer. Select Production SAGE Core as the Destination.</p></li>
+<li><p>Add field mappings onto the writer.</p></li>
 </ol>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -608,7 +609,7 @@
 </tbody>
 </table>
 </div>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="6">
 <li><p>Create a new job. Select relevant reader and writer. Select operators, which may include Collection Default, Application Type, ID Base 64 Encoding, Origin URL Regex Replace, Manifest Template, and Build CAP edit link. Select “yes” for Active and “On Demand” for Frequency.</p></li>
 <li><p>Run the job. Under Discovery view, select Production SAGE Core as the source and for Filter, enter <code class="code docutils literal notranslate"><span class="pre">collection:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code> Create a slug.</p></li>
 <li><p>Under the Facets tab, select and enter:</p></li>
@@ -642,7 +643,7 @@
 </tbody>
 </table>
 </div>
-<ol class="arabic simple" start="8">
+<ol class="arabic simple" start="9">
 <li><p>Under Results tab, enter the following under the Result Headings.</p></li>
 </ol>
 <div class="table-wrapper docutils container">
@@ -672,7 +673,7 @@
 </table>
 </div>
 <p>Select Ascending and Published for multiple choice settings.</p>
-<ol class="arabic simple" start="9">
+<ol class="arabic simple" start="10">
 <li><p>Under Result Metadata, add the following:</p></li>
 </ol>
 <div class="table-wrapper docutils container">
