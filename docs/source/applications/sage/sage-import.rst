@@ -1,5 +1,5 @@
 ===========================
-Importing media into SAGE
+Importing media into SAGE - WITHOUT Rancher
 ===========================
 
 1. Ensure SAF is written for the collection. Send the SAF to be uploaded to Fedora prod.
@@ -169,7 +169,7 @@ Importing media into SAGE
 +-------------------------------------------+------------------------------+
 | Source Collection                         | source_collection            | 
 +-------------------------------------------+------------------------------+
-| Spatial (dcterms.spatial)                 | spatial                      | 
+| Spatial (dcterms.spatial)                 | spatial_multi                | 
 +-------------------------------------------+------------------------------+
 | Sponsor (dc.contributor, dc.description)  | sponsor                      | 
 +-------------------------------------------+------------------------------+
@@ -177,7 +177,7 @@ Importing media into SAGE
 +-------------------------------------------+------------------------------+
 | Subject                                   | subject                      | 
 +-------------------------------------------+------------------------------+
-| Summary/Abstract (dc.description, etc.)   | summary                      | 
+| Summary/Abstract (dc.description, etc.)   | summary_abstract_multi       | 
 +-------------------------------------------+------------------------------+
 | Table Of Contents                         | table_of_contents            | 
 +-------------------------------------------+------------------------------+
