@@ -1,27 +1,25 @@
 ===========================
-Crosswalking: Avalon to ARK
+Creating ARKs
 ===========================
 
-Use this to create an ARK for an object on Avalon.
+Use this to create an ARK for an object. ARKs are created with `this site <https://ezid.cdlib.org>`_
 
-1. Create a json using the code avalon.py
-
-2. Go to `this site <https://ezid.cdlib.org>`_
-
-3. For each media object you will need the following metadata fields:
+Create a .csv. For each media object you will need the following metadata fields:
 
 +-------------------+--------------------------+
-| JSON field        | Corresponding ARK field  |
+| .csv metadata     | Corresponding ARK field  |
 +===================+==========================+
 | id                | Location (URL)           |
 +-------------------+--------------------------+
-| main_contributors | Who?                     |
+| creator           | Who?                     |
 +-------------------+--------------------------+
 | title             | What?                    |
 +-------------------+--------------------------+
-| date_digitized    | When?                    |
+| date of creation  | When?                    |
 +-------------------+--------------------------+
 
 The Location (URL) is made using the id field, but not exclusively the id. It should follow this format:
 
 avalon.library.tamu.edu/media_objects/{'id'}
+
+Use the script ark-creator.py. Change the input_csv to the .csv you created with the who, what, and when.
