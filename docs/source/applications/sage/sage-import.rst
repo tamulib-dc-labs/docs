@@ -4,7 +4,7 @@ Importing media into SAGE - WITHOUT Rancher
 
 1. Ensure SAF is written for the collection. Send the SAF to be uploaded to Fedora prod.
 
-2. Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. To create a new reader, choose Production Fedora Core Source as the source and for the filter follow :code:`hasParent:"{link to Fedora prod collection}"`
+2. Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. To create a new reader, choose Production Fedora Core Source as the source and for the filter, enter :code:`hasParent:"{link to Fedora prod collection}"`
 
 3. Add field mappings onto the reader.
 
@@ -205,7 +205,7 @@ Importing media into SAGE - WITHOUT Rancher
 +-------------------------------------------+------------------------------+
 | content_type                              | Material Type                | 
 +-------------------------------------------+------------------------------+
-| spatial                                   | Place                        | 
+| spatial_multi                             | Place                        | 
 +-------------------------------------------+------------------------------+
 
 8. Under Results tab, enter the following under the Result Headings.
@@ -245,7 +245,7 @@ Select Ascending and Published for multiple choice settings.
 +-------------------------------------------+------------------------------+
 | manifest                                  | IIIF Manifest                | 
 +-------------------------------------------+------------------------------+
-| summary_abstract                          | Abstract                     | 
+| summary_abstract_multi                    | Abstract                     | 
 +-------------------------------------------+------------------------------+
 | related_resource                          | Folder                       | 
 +-------------------------------------------+------------------------------+
