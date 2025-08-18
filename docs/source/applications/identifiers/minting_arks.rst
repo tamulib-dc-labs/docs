@@ -43,6 +43,38 @@ Example::
 
 EZID allows these `erc:` fields to be updated over time, supporting good stewardship and curation practices for digital collections.
 
+What To Do When You Have Limited Metadata
+=========================================
+
+Occasionally, we may have an issue where we are missing a certain :code:`who, what, when, or where` value.  In these cases, do the following.
+
+---
+Who
+---
+
+:code:`Who` should be similar to :code:`dc:creator`. When we don't know, put :code:`Unknown`. If we aren't sure but it's done by someone at a 
+specific institution, list the institution.
+
+----
+What
+----
+
+:code:`What` should be similar to :code:`dc:title`. We need this value to help us identify what was originally described. This value should always
+be descriptive even if it's not a title. For instance, it could be a filename or something else. If needed, it is also valid to concatenate multiple
+values together like :code:`title - filename.tif`.
+
+----
+When
+----
+
+:code:`When` should be similar to :code:`dc:date`. When we don't know, put :code:`Unknown` or an edtf value approximating the date.
+
+-----
+Where
+-----
+
+:code:`Where` should be the url of the resource online. This will normally be a work page, but could also be another form of url.
+
 Generating ARKs Programmatically
 ================================
 
