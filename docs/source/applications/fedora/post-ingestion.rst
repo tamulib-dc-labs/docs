@@ -57,6 +57,7 @@ Before you do this, you may need to remove the healthcheck and redeploy pods.
 The settings for the healthcheck should look something like this:
 
 .. image:: ../../_static/images/health-check.png
+    :alt: An Image of the Health Check in Rancher
 
 You can access this page from :code:`Workloads -> Pod Name (fedora) -> Config -> Health Check`
 

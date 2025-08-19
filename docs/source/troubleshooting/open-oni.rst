@@ -11,7 +11,7 @@ pod failing to gracefully terminate and restart.  When the new pod is scheduled 
 :code:`write.lock` error and refuses to start.  To understand the problem better, see the Arguments and WorkingDir of
 the exec in Rancher:
 
-.. image:: ../_static/images/oni-exec.png
+.. image:: ../../_static/images/oni-exec.png
     :alt: Open Oni Exec
 
 To fix:

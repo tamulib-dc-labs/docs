@@ -22,7 +22,7 @@ Configuring Kubectl is very easy but needs to be done for each Rancher cluster e
 
 Login to Rancher and click the Cluster you want.  Then, download the config for Kubectl by clicking **Download KubeConfig**:
 
-.. image:: ../_static/images/kubeconfig.png
+.. image:: ../../_static/images/kubeconfig.png
     :alt: Downloading KubeConfig
 
 Once you've downloaded your various configs, but them somewhere like :code:`~/.configs` and add them to path.  I do this
