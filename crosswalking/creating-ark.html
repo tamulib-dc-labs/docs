@@ -336,7 +336,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>id</p></td>
+<tr class="row-even"><td><p>id/url</p></td>
 <td><p>Location (URL)</p></td>
 </tr>
 <tr class="row-odd"><td><p>creator</p></td>
@@ -351,8 +351,9 @@
 </tbody>
 </table>
 </div>
-<p>The Location (URL) is made using the id field, but not exclusively the id. It should follow this format:</p>
+<p>When working with items in Avalon that don’t yet have a url, the Location (URL) is made using the id field, but not exclusively the id. It should follow this format:</p>
 <p>avalon.library.tamu.edu/media_objects/{‘id’}</p>
+<p>If an item already has a url (such as one on Fedora), use that for the url (the where).</p>
 <p>Use the script ark-creator.py. Change the input_csv to the .csv you created with the who, what, and when.</p>
 </section>
 
