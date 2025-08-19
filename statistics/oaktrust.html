@@ -244,6 +244,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../workflows/ojs.html">OJS</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../applications/ojs/applying_for_issns.html">Applying for an ISSN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/ojs/minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../applications/ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
 </ul>
 </li>
@@ -357,12 +358,40 @@
 <p>Based on the document, you can see a number of strategies for getting data about a community, collection, or specific item.  The section below will cover reproduceable ways of creating reports for this.</p>
 <section id="getting-time-based-stats">
 <h3>Getting Time Based Stats<a class="headerlink" href="#getting-time-based-stats" title="Link to this heading">¶</a></h3>
-<p>Let’s pretend we want to get all traffic between <code class="code docutils literal notranslate"><span class="pre">2025-08-01</span></code> and <code class="code docutils literal notranslate"><span class="pre">2025-08-10</span></code>.  We can perform a search on the <code class="code docutils literal notranslate"><span class="pre">time</span></code> field like <code class="code docutils literal notranslate"><span class="pre">time:[2025-08-01T00:00:00Z</span> <span class="pre">TO</span> <span class="pre">2025-08-10T23:59:59Z]</span></code>.
-Doing a search only for this string will search traffic across all communities and return <code class="code docutils literal notranslate"><span class="pre">174282</span></code> documents.</p>
+<p>Let’s pretend we want to get all traffic between <code class="code docutils literal notranslate"><span class="pre">2025-08-01</span></code> and <code class="code docutils literal notranslate"><span class="pre">2025-08-10</span></code> in OAKTrust.  We can perform a search on the <code class="code docutils literal notranslate"><span class="pre">time</span></code> field like <code class="code docutils literal notranslate"><span class="pre">time:[2025-08-01T00:00:00Z</span> <span class="pre">TO</span> <span class="pre">2025-08-10T23:59:59Z]</span></code>.
+Doing a search only for this string will search traffic across all communities and return <code class="code docutils literal notranslate"><span class="pre">174282</span></code> documents as formatted like:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="s2">&quot;162.158.155.223&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;referrer&quot;</span><span class="p">:</span><span class="s2">&quot;https://oaktrust.library.tamu.edu/bitstreams/ab61984f-c44a-4b78-bfd9-661a1c6557c4/download&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dns&quot;</span><span class="p">:</span><span class="s2">&quot;162.158.155.223&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userAgent&quot;</span><span class="p">:</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isBot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;continent&quot;</span><span class="p">:</span><span class="s2">&quot;NA&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;countryCode&quot;</span><span class="p">:</span><span class="s2">&quot;US&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;Newark&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="mf">40.7357</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="mf">-74.1724</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ab61984f-c44a-4b78-bfd9-661a1c6557c4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;owningItem&quot;</span><span class="p">:[</span><span class="s2">&quot;8cdd8f6a-dbb3-4a91-96f5-c8a3c81549b1&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;owningColl&quot;</span><span class="p">:[</span><span class="s2">&quot;a213b1c3-40ff-49a8-a954-38b802e1aa1f&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;f1fab458-eb4f-4acd-aba9-9c7b08f26730&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;owningComm&quot;</span><span class="p">:[</span><span class="s2">&quot;5396a3df-85e9-4aef-ae08-13e1e164e55c&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;9d351faf-09e6-469f-9a26-24bca6d907f6&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;af0dfacd-b0f2-4f51-b2dd-e63f17519b4f&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;ed9a1370-076a-4cc0-bf87-25ae04053a36&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="s2">&quot;2025-08-01T00:00:50.557Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bundleName&quot;</span><span class="p">:[</span><span class="s2">&quot;ORIGINAL&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;statistics_type&quot;</span><span class="p">:</span><span class="s2">&quot;view&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uid&quot;</span><span class="p">:</span><span class="s2">&quot;4b4d537c-a48c-4486-9a2d-852de113f330&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="eliminating-bots">
 <h3>Eliminating Bots<a class="headerlink" href="#eliminating-bots" title="Link to this heading">¶</a></h3>
-<p><code class="code docutils literal notranslate"><span class="pre">time:[2025-08-01T00:00:00Z</span> <span class="pre">TO</span> <span class="pre">2025-08-10T23:59:59Z]</span> <span class="pre">AND</span> <span class="pre">isBot:false</span></code></p>
+<p>You can remove bot traffic by expanding your query to include <code class="code docutils literal notranslate"><span class="pre">time:[2025-08-01T00:00:00Z</span> <span class="pre">TO</span> <span class="pre">2025-08-10T23:59:59Z]</span> <span class="pre">AND</span> <span class="pre">isBot:false</span></code>. This reduces things to <code class="code docutils literal notranslate"><span class="pre">110246</span></code>.</p>
+<p>If you want to avoid the Solr interface entirely, you can do this like so:</p>
 <p><a class="reference external" href="https://rancher.library.tamu.edu/k8s/clusters/c-kd2s7/api/v1/namespaces/oaktrust/services/http:dspace-solr:80/proxy/solr/statistics/select?indent=true&amp;q.op=OR&amp;q=time%3A%5B2025-08-01T00%3A00%3A00Z%20TO%202025-08-10T23%3A59%3A59Z%5D%20AND%20isBot%3Afalse">https://rancher.library.tamu.edu/k8s/clusters/c-kd2s7/api/v1/namespaces/oaktrust/services/http:dspace-solr:80/proxy/solr/statistics/select?indent=true&amp;q.op=OR&amp;q=time%3A%5B2025-08-01T00%3A00%3A00Z%20TO%202025-08-10T23%3A59%3A59Z%5D%20AND%20isBot%3Afalse</a></p>
 </section>
 <section id="getting-item-based-stats">

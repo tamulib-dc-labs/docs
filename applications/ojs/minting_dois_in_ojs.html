@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Reindexing Solr" href="post-ingestion.html" /><link rel="prev" title="Fedora" href="../../workflows/fedora.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="OJS and DOI Metadata" href="ojs_and_doi_metadata.html" /><link rel="prev" title="Applying for an ISSN" href="applying_for_issns.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Creating IIIF Collections and Manifests - TAMU Digital Collections Labs documentation</title>
+        <title>Minting DOIs in OJS - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -224,10 +224,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Creating IIIF Collections and Manifests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="post-ingestion.html">Reindexing Solr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-karaf.html">Using Karaf</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/creating-iiif-manifests.html">Creating IIIF Collections and Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/post-ingestion.html">Reindexing Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/using-karaf.html">Using Karaf</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../workflows/generating_iiif_collections.html">IIIF: Generating IIIF and IIIF Collections</a></li>
@@ -242,10 +242,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/ojs.html">OJS</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ojs/applying_for_issns.html">Applying for an ISSN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ojs/minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/ojs.html">OJS</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="applying_for_issns.html">Applying for an ISSN</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Minting DOIs in OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -305,7 +305,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/fedora/creating-iiif-manifests.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/ojs/minting_dois_in_ojs.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -319,18 +319,39 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="creating-iiif-collections-and-manifests">
-<h1>Creating IIIF Collections and Manifests<a class="headerlink" href="#creating-iiif-collections-and-manifests" title="Link to this heading">¶</a></h1>
-<p>You can also generate a Collection manifest like so:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w">  </span>https://api-pre.library.tamu.edu/iiif-service/fedora/collection/bb/97/f2/3e/bb97f23e-803a-4bd6-8406-06802623554c/london-maps-batch-2-jamess-test
-</pre></div>
-</div>
+          <section id="minting-dois-in-ojs">
+<h1>Minting DOIs in OJS<a class="headerlink" href="#minting-dois-in-ojs" title="Link to this heading">¶</a></h1>
+<section id="about">
+<h2>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
+<p>This document describes how to mint DOIs in OJS. If you are looking for information about
+minting DOIs in Crossref in a another application, see <a class="reference internal" href="../identifiers/minting_a_doi.html"><span class="doc">Minting DOIs in Crossref</span></a>.</p>
+</section>
+<section id="requesting-an-issn">
+<h2>Requesting an ISSN<a class="headerlink" href="#requesting-an-issn" title="Link to this heading">¶</a></h2>
+<p>Before you setup DOI mintning, you should have acquired an ISSN. To request an ISSN, see
+<a class="reference internal" href="applying_for_issns.html"><span class="doc">Applying for an ISSN</span></a>.</p>
+<p>Once you have been provisionally awarded an ISSN, add it to Publishing Details.</p>
+<img alt="An Image Showing OJS Publishing Details" src="applications/_static/images/publishing-details.png" />
+</section>
+<section id="initial-doi-setup">
+<h2>Initial DOI Setup<a class="headerlink" href="#initial-doi-setup" title="Link to this heading">¶</a></h2>
+<p>To setup DOIs intially, go to <code class="code docutils literal notranslate"><span class="pre">Distribution</span> <span class="pre">-</span> <span class="pre">DOIS</span> <span class="pre">-</span> <span class="pre">Setup</span></code>. From here, check allow. For the DOI Prefix, always use <code class="code docutils literal notranslate"><span class="pre">10.21423</span></code>.
+Consult with the journal team about <code class="code docutils literal notranslate"><span class="pre">Automatic</span> <span class="pre">DOI</span> <span class="pre">Assignment</span></code>. If they intend to add the DOI to the PDF, <code class="code docutils literal notranslate"><span class="pre">Upon</span> <span class="pre">reaching</span> <span class="pre">the</span> <span class="pre">copyediting</span> <span class="pre">stage</span></code>
+should be chosen.  The DOI Format should always be <code class="code docutils literal notranslate"><span class="pre">Default</span></code>.</p>
+<img alt="An Image Showing OJS DOI Setup" src="applications/_static/images/doi-setup.png" />
+</section>
+<section id="doi-registration">
+<h2>DOI Registration<a class="headerlink" href="#doi-registration" title="Link to this heading">¶</a></h2>
+<p>To setup DOI registration, you need to install the <code class="code docutils literal notranslate"><span class="pre">Crossref</span> <span class="pre">Manager</span> <span class="pre">Plugin</span></code>. This will make the
+<code class="code docutils literal notranslate"><span class="pre">DOIs</span> <span class="pre">Registration</span></code> page appear. Set up details with you email address, a name for the registrant, and Crossref Account Details.</p>
+<img alt="An Image Showing OJS DOI Registration" src="applications/_static/images/doi-registration.png" />
+</section>
 </section>
 
         </article>
@@ -338,23 +359,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="post-ingestion.html">
+          <a class="next-page" href="ojs_and_doi_metadata.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Reindexing Solr</div>
+                <div class="title">OJS and DOI Metadata</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../workflows/fedora.html">
+          <a class="prev-page" href="applying_for_issns.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Fedora</div>
+                <div class="title">Applying for an ISSN</div>
                 
               </div>
             </a>
@@ -376,8 +397,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Minting DOIs in OJS</a><ul>
+<li><a class="reference internal" href="#about">About</a></li>
+<li><a class="reference internal" href="#requesting-an-issn">Requesting an ISSN</a></li>
+<li><a class="reference internal" href="#initial-doi-setup">Initial DOI Setup</a></li>
+<li><a class="reference internal" href="#doi-registration">DOI Registration</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
