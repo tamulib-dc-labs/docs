@@ -18,10 +18,17 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Workflows and Workarounds
+   :caption: Applications and Workflows
    :glob:
 
    workflows/*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Other Services and Topics
+   :glob:
+
+   other_services/*
 
 .. toctree::
    :maxdepth: 1

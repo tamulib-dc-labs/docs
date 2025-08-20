@@ -7,5 +7,5 @@ Accessibility
    :glob:
    :caption: Accessibility Workflows
 
-   ../applications/accessibility/*
+    ../topics_and_services/accessibility/*
    

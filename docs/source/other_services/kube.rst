@@ -7,4 +7,4 @@ Kubernetes and Docker
    :glob:
    :caption: Avalon Workflows
 
-   ../applications/kube-and-docker/*
+   ../topics_and_services/kube-and-docker/*

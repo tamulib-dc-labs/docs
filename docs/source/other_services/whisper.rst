@@ -7,4 +7,4 @@ Whisper
    :glob:
    :caption: Workflows Related to Whisper
 
-   ../applications/whisper/*
+    ../topics_and_services/whisper/*

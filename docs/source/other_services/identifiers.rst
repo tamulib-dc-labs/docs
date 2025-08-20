@@ -7,4 +7,4 @@ Identifiers
    :glob:
    :caption: Workflows Related to Minting Identifiers
 
-   ../applications/identifiers/*
+   ../topics_and_services/identifiers/*
