@@ -24,25 +24,11 @@ Libraries at Texas A&M University.
    workflows/*
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Troubleshooting
-   :glob:
-
-   troubleshooting/*
-
-.. toctree::
    :maxdepth: 1
    :caption: Configurations and Mappings
    :glob:
 
    config/*
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Planning and Conceptual Documents
-   :glob:
-
-   planning/*
 
 .. toctree::
    :maxdepth: 1
@@ -57,10 +43,3 @@ Libraries at Texas A&M University.
    :glob:
 
    crosswalking/*
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Statistcs
-   :glob:
-
-   statistcs/*
