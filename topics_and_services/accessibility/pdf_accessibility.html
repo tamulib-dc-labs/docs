@@ -329,81 +329,188 @@
 according to their standards.</p>
 <section id="acrobat-pro-tests">
 <h2>Acrobat Pro Tests<a class="headerlink" href="#acrobat-pro-tests" title="Link to this heading">¶</a></h2>
+<section id="pdf-accessibility-tests">
+<h3>PDF Accessibility Tests<a class="headerlink" href="#pdf-accessibility-tests" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Test</p></th>
 <th class="head"><p>Definition</p></th>
+<th class="head"><p>Not ADA Title 2</p></th>
+<th class="head"><p>If not ADA Title 2, Why?</p></th>
+<th class="head"><p>If ADA Title 2, Why?</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Title</p></td>
 <td><p>A title is in the title bar.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 2.4.2 requires a descriptive title.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Figures alternate text</p></td>
-<td><p>Images in the document either have alternate text or are marked as artifacts.</p></td>
+<td><p>Images in the document either have alternate text or are marked as
+artifacts.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.1.1 requires alt text for non-text content.</p></td>
 </tr>
 <tr class="row-even"><td><p>Other elements alternate
 text</p></td>
-<td><p>Content other than figures have required alternate text (such as multimedia, annotation, or 3D model)</p></td>
+<td><p>Content other than figures have required alternate text (such as
+multimedia, annotation, or 3D model)</p></td>
+<td></td>
+<td></td>
+<td><p>Also part of WCAG 1.1.1.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Image-only PDF</p></td>
-<td><p>The document contains non-text content that is not accessible. If the document appears to contain text, but doesn’t contain fonts, it could be an image-only PDF file.</p></td>
+<td><p>The document contains non-text content that is not accessible. If
+the document appears to contain text, but doesn’t contain fonts,
+it could be an image-only PDF file.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.1.1 requires a text alternative for all content.</p></td>
 </tr>
 <tr class="row-even"><td><p>Tagged PDF</p></td>
 <td><p>Document is tagged to specify the correct reading order</p></td>
+<td></td>
+<td></td>
+<td><p>Needed for programmatic structure (1.3.1, 1.3.2).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Tab order</p></td>
 <td><p>The tab order parallels the document structure.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 2.4.3 requires logical navigation order.</p></td>
 </tr>
 <tr class="row-even"><td><p>Nested alternate text</p></td>
-<td><p>Screen readers don’t read the alternate text for nested elements. Therefore, don’t apply alternate text to nested elements.</p></td>
+<td><p>Screen readers don’t read the alternate text for nested elements.
+Therefore, don’t apply alternate text to nested elements.</p></td>
+<td><p>X</p></td>
+<td><p>PDF/UA-specific; WCAG only cares that alt text is present and
+meaningful.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Associated with Context</p></td>
-<td><p>Make sure that alternate text is always an alternate representation of content on the page. If an element has alternate text but does not contain any page content, there is no way to determine which page it is on. If
-the Screen Reader Option in the Reading preferences is not set to read the entire document, then screen readers never read the alternate text.</p></td>
+<td><p>Make sure that alternate text is always an alternate representation
+of content on the page. If an element has alternate text but does
+not contain any page content, there is no way to determine which
+page it is on. If the Screen Reader Option in the Reading
+preferences is not set to read the entire document, then screen
+readers never read the alternate text.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.1.1 requires alt text be correctly tied to the object.</p></td>
 </tr>
 <tr class="row-even"><td><p>Hides annotation</p></td>
-<td><p>Alternate text can’t hide an annotation. If an annotation is nested under a parent element with alternate text, then screen readers don’t see it.</p></td>
+<td><p>Alternate text can’t hide an annotation. If an annotation is nested
+under a parent element with alternate text, then screen readers
+don’t see it.</p></td>
+<td><p>X</p></td>
+<td><p>Only an issue for WCAG if it hides meaningful content from assistive
+tech.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Rows</p></td>
-<td><p>This rule checks whether each TR in a table is a child of Table, THead, TBody, or TFoot.</p></td>
+<td><p>This rule checks whether each TR in a table is a child of Table,
+THead, TBody, or TFoot.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.3.1 requires table structure.</p></td>
 </tr>
 <tr class="row-even"><td><p>TH and TD</p></td>
 <td><p>In a proper table structure, TH and TD are children of TR.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.3.1 requires header and data cell association.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Headers</p></td>
-<td><p>For accessibility, it’s necessary that all tables in the PDF have a header.</p></td>
+<td><p>For accessibility, it’s necessary that all tables in the PDF have
+a header.</p></td>
+<td></td>
+<td></td>
+<td><p>Applies to both table headers (1.3.1) and document headings
+(2.4.6).</p></td>
 </tr>
 <tr class="row-even"><td><p>Regularity</p></td>
-<td><p>To be accessible, tables must contain the same number of columns in each row, and rows in each column.</p></td>
+<td><p>To be accessible, tables must contain the same number of columns in
+each row, and rows in each column.</p></td>
+<td><p>X</p></td>
+<td><p>A PDF/UA check for consistent table column widths; WCAG doesn’t
+require this.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>List items</p></td>
-<td><p>The check reports whether each List Item (LI) is a child of List (L). When this rule check fails, the structure of this list is incorrect. Lists must have the following structure: A List element must contain List
-Item Elements. And, List Item Elements can only contain Label Elements and List Item Body Elements.</p></td>
+<td><p>The check reports whether each List Item (LI) is a child of List
+(L). When this rule check fails, the structure of this list is
+incorrect. Lists must have the following structure: A List element
+must contain List Item Elements. And, List Item Elements can only
+contain Label Elements and List Item Body Elements.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.3.1 requires lists to be programmatically determined.</p></td>
 </tr>
 <tr class="row-even"><td><p>Lbl and LBody</p></td>
-<td><p>Lists must have the following structure: A List element must contain List Item Elements. And, List Item Elements can only contain Label Elements and List Item Body Elements. When this rule check fails, the structure
-of this list is incorrect.</p></td>
+<td><p>Lists must have the following structure: A List element must contain
+List Item Elements. And, List Item Elements can only contain Label
+Elements and List Item Body Elements. When this rule check fails,
+the structure of this list is incorrect.</p></td>
+<td></td>
+<td></td>
+<td><p>Part of proper list semantics (1.3.1).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Appropriate nesting</p></td>
-<td><p>This rule checks nested headings. When this check fails, headings are not nested properly.</p></td>
+<td><p>This rule checks nested headings. When this check fails, headings
+are not nested properly.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.3.1 requires correct hierarchy.</p></td>
 </tr>
 <tr class="row-even"><td><p>Primary Language</p></td>
-<td><p>Setting the document language in a PDF enables some screen readers to switch to the appropriate language. This check determines whether the primary text language for the PDF is specified.</p></td>
+<td><p>Setting the document language in a PDF enables some screen readers
+to switch to the appropriate language. This check determines whether
+the primary text language for the PDF is specified.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 3.1.1 requires language to be specified.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Bookmarks</p></td>
-<td><p>This check fails when the document has 21 or more pages, but doesn’t have bookmarks that parallel the document structure.</p></td>
+<td><p>This check fails when the document has 21 or more pages, but doesn’t
+have bookmarks that parallel the document structure.</p></td>
+<td><p>X</p></td>
+<td><p>Helpful for navigation but not required by WCAG.</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Tagged Content</p></td>
-<td><p>This check reports whether all content in the document is tagged. Ensure that all content in the document is either included in the Tags tree, or marked as an artifact.</p></td>
+<td><p>This check reports whether all content in the document is tagged.
+Ensure that all content in the document is either included in the
+Tags tree, or marked as an artifact.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.3.1 requires semantic structure.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Tagged Annotations</p></td>
-<td><p>This rule checks whether all annotations are tagged. Ensure that annotations such as comments and editorial marks (insert and highlight) are either included in the Tags tree or marked as artifacts.</p></td>
+<td><p>This rule checks whether all annotations are tagged. Ensure that
+annotations such as comments and editorial marks (insert and
+highlight) are either included in the Tags tree or marked as
+artifacts.</p></td>
+<td></td>
+<td></td>
+<td><p>WCAG 1.3.1 requires annotations be available to assistive tech.</p></td>
+</tr>
+<tr class="row-even"><td><p>Character encoding</p></td>
+<td><p>Specifying the encoding helps PDF viewers’ present users with
+readable text. However, some character-encoding issues aren’t
+repairable within Acrobat.</p></td>
+<td></td>
+<td></td>
+<td><p>Needed so text can be programmatically determined and read
+correctly (affects 3.1.1, 4.1.2).</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+</section>
 </section>
 </section>
 
@@ -463,7 +570,10 @@ of this list is incorrect.</p></td>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">PDF Accessibility</a><ul>
-<li><a class="reference internal" href="#acrobat-pro-tests">Acrobat Pro Tests</a></li>
+<li><a class="reference internal" href="#acrobat-pro-tests">Acrobat Pro Tests</a><ul>
+<li><a class="reference internal" href="#pdf-accessibility-tests">PDF Accessibility Tests</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
