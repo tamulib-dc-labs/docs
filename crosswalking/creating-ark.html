@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Crosswalking: Avalon to PDF" href="avalon-to-pdf.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Creating ARKs - TAMU Digital Collections Labs documentation</title>
+        <title>Creating ARKs with TAMU ID Minter - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -282,7 +282,7 @@
 <p class="caption" role="heading"><span class="caption-text">Crosswalking</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="avalon-to-pdf.html">Crosswalking: Avalon to PDF</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Creating ARKs</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Creating ARKs with TAMU ID Minter</a></li>
 </ul>
 
 </div>
@@ -317,16 +317,16 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="creating-arks">
-<h1>Creating ARKs<a class="headerlink" href="#creating-arks" title="Link to this heading">¶</a></h1>
+          <section id="creating-arks-with-tamu-id-minter">
+<h1>Creating ARKs with TAMU ID Minter<a class="headerlink" href="#creating-arks-with-tamu-id-minter" title="Link to this heading">¶</a></h1>
 <p>Use this to create an ARK for an object. ARKs are created with <a class="reference external" href="https://ezid.cdlib.org">this site</a></p>
-<p>Create a .csv. For each media object you will need the following metadata fields:</p>
+<p>Create an input.csv. For each media object you will need the following metadata fields:</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -339,13 +339,13 @@
 <td><p>Location (URL)</p></td>
 </tr>
 <tr class="row-odd"><td><p>creator</p></td>
-<td><p>Who?</p></td>
+<td><p>Who</p></td>
 </tr>
 <tr class="row-even"><td><p>title</p></td>
-<td><p>What?</p></td>
+<td><p>What</p></td>
 </tr>
 <tr class="row-odd"><td><p>date of creation</p></td>
-<td><p>When?</p></td>
+<td><p>When</p></td>
 </tr>
 </tbody>
 </table>
@@ -353,7 +353,14 @@
 <p>When working with items in Avalon that don’t yet have a url, the Location (URL) is made using the id field, but not exclusively the id. It should follow this format:</p>
 <p>avalon.library.tamu.edu/media_objects/{‘id’}</p>
 <p>If an item already has a url (such as one on Fedora), use that for the url (the where).</p>
-<p>Use the script ark-creator.py. Change the input_csv to the .csv you created with the who, what, and when.</p>
+<p>Use <a class="reference external" href="https://github.com/tamulib-dc-labs/tamu-id-minter">tamu-id-minter</a> to create the ARKs.</p>
+<p>In the terminal enter <code class="code docutils literal notranslate"><span class="pre">tamu_mint</span> <span class="pre">create_arks</span> <span class="pre">-i</span> <span class="pre">input.csv</span></code>.</p>
+<section id="editing-the-status-of-an-ark">
+<h2>Editing the Status of an ARK<a class="headerlink" href="#editing-the-status-of-an-ark" title="Link to this heading">¶</a></h2>
+<p>ARKs can be public for items that are already online or they can be reserved for items that will later be made public. To change the status of an ARK:</p>
+<p>Make sure input.csv includes a column labeled “ark”.</p>
+<p>In the terminal enter <code class="code docutils literal notranslate"><span class="pre">tamu_mint</span> <span class="pre">switch_statuses</span> <span class="pre">-s</span> <span class="pre">{public,</span> <span class="pre">reserved,</span> <span class="pre">or</span> <span class="pre">unavailable}</span> <span class="pre">-i</span> <span class="pre">input.csv</span></code>.</p>
+</section>
 </section>
 
         </article>
@@ -391,8 +398,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Creating ARKs with TAMU ID Minter</a><ul>
+<li><a class="reference internal" href="#editing-the-status-of-an-ark">Editing the Status of an ARK</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
