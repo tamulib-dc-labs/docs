@@ -327,7 +327,7 @@
 <h1>Crosswalking: Avalon to PDF<a class="headerlink" href="#crosswalking-avalon-to-pdf" title="Link to this heading">¶</a></h1>
 <p>When making pdfs of transcripts of Avalon media, use this to create the metadata that goes in the header of the pdf.</p>
 <ol class="arabic simple">
-<li><p>Create a json using the code avalon.py</p></li>
+<li><p>Use the script <code class="code docutils literal notranslate"><span class="pre">mark_get_avalon_files.py</span></code> to bring down metadata on Avalon. You may need to change some lines of <code class="code docutils literal notranslate"><span class="pre">def</span> <span class="pre">write_csv</span></code> depending on the structure of that collection’s metadata on Avalon. For example, if multiple audio/video files are under the same digital object in Avalon, you will use “label” instead of “title”.</p></li>
 <li><p>For each media object you will need the following metadata fields. Those fields will be added to the pdf using a csv file.</p></li>
 </ol>
 <div class="table-wrapper docutils container">
@@ -341,16 +341,22 @@
 <tr class="row-even"><td><p>title</p></td>
 <td><p>Title</p></td>
 </tr>
-<tr class="row-odd"><td><p>main_contributors</p></td>
+<tr class="row-odd"><td><p>label</p></td>
+<td><p>Title</p></td>
+</tr>
+<tr class="row-even"><td><p>main_contributors</p></td>
 <td><p>Main Contributors</p></td>
 </tr>
-<tr class="row-even"><td><p>contributor</p></td>
+<tr class="row-odd"><td><p>contributor</p></td>
 <td><p>Contributors</p></td>
+</tr>
+<tr class="row-even"><td><p>date_issued</p></td>
+<td><p>Date of Creation</p></td>
 </tr>
 <tr class="row-odd"><td></td>
 <td><p>Link to resource</p></td>
 </tr>
-<tr class="row-even"><td><p>published_by</p></td>
+<tr class="row-even"><td><p>publisher</p></td>
 <td><p>Publisher</p></td>
 </tr>
 <tr class="row-odd"><td><p>genre</p></td>
@@ -359,16 +365,25 @@
 <tr class="row-even"><td><p>subject</p></td>
 <td><p>Subjects</p></td>
 </tr>
-<tr class="row-odd"><td><p>terms_of_use</p></td>
+<tr class="row-odd"><td><p>temporal_subject</p></td>
+<td><p>Subjects</p></td>
+</tr>
+<tr class="row-even"><td><p>geographic_subject</p></td>
+<td><p>Subjects</p></td>
+</tr>
+<tr class="row-odd"><td><p>topical_subject</p></td>
+<td><p>Subjects</p></td>
+</tr>
+<tr class="row-even"><td><p>terms_of_use</p></td>
 <td><p>Rights information</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul class="simple">
-<li><p>Note that the Subjects column will merge two different fields in the json.</p></li>
+<li><p>Note that the Subjects column will merge five different fields in the json.</p></li>
 <li><p>“Main contributors” is occasionally called “creators” in Avalon documentation/formating.</p></li>
-<li><p>Link to resource is the ARK.</p></li>
+<li><p>Link to resource is the ARK, which cannot be acquired from this process.</p></li>
 </ul>
 </section>
 
