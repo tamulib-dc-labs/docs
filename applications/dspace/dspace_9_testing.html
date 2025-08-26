@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="RDFizing DSPACE Works to Generate Manifests" href="rdfizing.html" /><link rel="prev" title="DSPACE: Importing Entities" href="dspace_importing_entities.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="DSPACE Entity Configuration" href="dspace_entities.html" /><link rel="prev" title="Understanding Our DSPACE Entities" href="dspace-entities.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>OAKTrust and DSPACE Statistcs - TAMU Digital Collections Labs documentation</title>
+        <title>Features and Tests for DSPACE 9 - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -216,11 +216,11 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dspace-entities.html">Understanding Our DSPACE Entities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Features and Tests for DSPACE 9</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dspace_entities.html">DSPACE Entity Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dspace_importing.html">DSPACE: Importing Basic Items</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">OAKTrust and DSPACE Statistcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 </ul>
 </li>
@@ -304,7 +304,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/dspace/oaktrust.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/dspace/dspace_9_testing.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -324,78 +324,139 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="oaktrust-and-dspace-statistcs">
-<h1>OAKTrust and DSPACE Statistcs<a class="headerlink" href="#oaktrust-and-dspace-statistcs" title="Link to this heading">¶</a></h1>
-<section id="accessing-statistics-via-solr">
-<h2>Accessing Statistics via Solr<a class="headerlink" href="#accessing-statistics-via-solr" title="Link to this heading">¶</a></h2>
-<p>DSPACE traffic is written to a solr core called <code class="code docutils literal notranslate"><span class="pre">statistcs</span></code>.  Each document looks like:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="s2">&quot;162.158.174.218&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;referrer&quot;</span><span class="p">:</span><span class="s2">&quot;https://oaktrust.library.tamu.edu/collections/5375f882-869a-418f-b40e-0191ba379fa3&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;dns&quot;</span><span class="p">:</span><span class="s2">&quot;162.158.174.218&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;userAgent&quot;</span><span class="p">:</span><span class="s2">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;isBot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;continent&quot;</span><span class="p">:</span><span class="s2">&quot;NA&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;countryCode&quot;</span><span class="p">:</span><span class="s2">&quot;US&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;Dallas&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="mf">32.7767</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="mf">-96.797</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;22ab66ce-cfcc-4a8e-ac3f-3ce2238d1da3&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;owningItem&quot;</span><span class="p">:[</span><span class="s2">&quot;7ed85e6e-21f9-4373-ac88-758ba0d579b2&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;owningColl&quot;</span><span class="p">:[</span><span class="s2">&quot;5375f882-869a-418f-b40e-0191ba379fa3&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;owningComm&quot;</span><span class="p">:[</span><span class="s2">&quot;ee1165a9-f6b9-4b93-8471-9e4bbee03d04&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;e55ccac8-4d31-431f-9320-058cc3a708ab&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ed9a1370-076a-4cc0-bf87-25ae04053a36&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="s2">&quot;2025-08-01T20:58:28.617Z&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;bundleName&quot;</span><span class="p">:[</span><span class="s2">&quot;THUMBNAIL&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;statistics_type&quot;</span><span class="p">:</span><span class="s2">&quot;view&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;uid&quot;</span><span class="p">:</span><span class="s2">&quot;8db5cc7c-1cb6-47c0-8bdd-06b86fac8d42&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Based on the document, you can see a number of strategies for getting data about a community, collection, or specific item.  The section below will cover reproduceable ways of creating reports for this.</p>
-<section id="getting-time-based-stats">
-<h3>Getting Time Based Stats<a class="headerlink" href="#getting-time-based-stats" title="Link to this heading">¶</a></h3>
-<p>Let’s pretend we want to get all traffic between <code class="code docutils literal notranslate"><span class="pre">2025-08-01</span></code> and <code class="code docutils literal notranslate"><span class="pre">2025-08-10</span></code> in OAKTrust.  We can perform a search on the <code class="code docutils literal notranslate"><span class="pre">time</span></code> field like <code class="code docutils literal notranslate"><span class="pre">time:[2025-08-01T00:00:00Z</span> <span class="pre">TO</span> <span class="pre">2025-08-10T23:59:59Z]</span></code>.
-Doing a search only for this string will search traffic across all communities and return <code class="code docutils literal notranslate"><span class="pre">174282</span></code> documents as formatted like:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="s2">&quot;162.158.155.223&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;referrer&quot;</span><span class="p">:</span><span class="s2">&quot;https://oaktrust.library.tamu.edu/bitstreams/ab61984f-c44a-4b78-bfd9-661a1c6557c4/download&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;dns&quot;</span><span class="p">:</span><span class="s2">&quot;162.158.155.223&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;userAgent&quot;</span><span class="p">:</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;isBot&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;continent&quot;</span><span class="p">:</span><span class="s2">&quot;NA&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;countryCode&quot;</span><span class="p">:</span><span class="s2">&quot;US&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="s2">&quot;Newark&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="mf">40.7357</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="mf">-74.1724</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;ab61984f-c44a-4b78-bfd9-661a1c6557c4&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;owningItem&quot;</span><span class="p">:[</span><span class="s2">&quot;8cdd8f6a-dbb3-4a91-96f5-c8a3c81549b1&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;owningColl&quot;</span><span class="p">:[</span><span class="s2">&quot;a213b1c3-40ff-49a8-a954-38b802e1aa1f&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;f1fab458-eb4f-4acd-aba9-9c7b08f26730&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;owningComm&quot;</span><span class="p">:[</span><span class="s2">&quot;5396a3df-85e9-4aef-ae08-13e1e164e55c&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;9d351faf-09e6-469f-9a26-24bca6d907f6&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;af0dfacd-b0f2-4f51-b2dd-e63f17519b4f&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ed9a1370-076a-4cc0-bf87-25ae04053a36&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="s2">&quot;2025-08-01T00:00:50.557Z&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;bundleName&quot;</span><span class="p">:[</span><span class="s2">&quot;ORIGINAL&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;statistics_type&quot;</span><span class="p">:</span><span class="s2">&quot;view&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;uid&quot;</span><span class="p">:</span><span class="s2">&quot;4b4d537c-a48c-4486-9a2d-852de113f330&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+          <section id="features-and-tests-for-dspace-9">
+<h1>Features and Tests for DSPACE 9<a class="headerlink" href="#features-and-tests-for-dspace-9" title="Link to this heading">¶</a></h1>
+<section id="journal-tests">
+<h2>Journal Tests<a class="headerlink" href="#journal-tests" title="Link to this heading">¶</a></h2>
+<section id="import-journal-volume-and-issue-with-relationships">
+<h3>Import Journal, Volume, and Issue with Relationships<a class="headerlink" href="#import-journal-volume-and-issue-with-relationships" title="Link to this heading">¶</a></h3>
+<p>Journal Entities are currently used for several collections in OakTrust.  We need to test import:</p>
+<ol class="arabic simple">
+<li><p>Import Title with no relationships.</p></li>
+<li><p>Import Volume adding relationships to Title.</p></li>
+<li><p>Import Issue adding relationships to Volume.</p></li>
+<li><p>Import Article adding relationships to Issue.</p></li>
+</ol>
+<p>According to Nick at TDL, sorting of Articles should be better than in 7.</p>
+<ol class="arabic simple">
+<li><p>Test sort order of articles in an issue.</p></li>
+</ol>
 </section>
-<section id="eliminating-bots">
-<h3>Eliminating Bots<a class="headerlink" href="#eliminating-bots" title="Link to this heading">¶</a></h3>
-<p>You can remove bot traffic by expanding your query to include <code class="code docutils literal notranslate"><span class="pre">time:[2025-08-01T00:00:00Z</span> <span class="pre">TO</span> <span class="pre">2025-08-10T23:59:59Z]</span> <span class="pre">AND</span> <span class="pre">isBot:false</span></code>. This reduces things to <code class="code docutils literal notranslate"><span class="pre">110246</span></code>.</p>
-<p>If you want to avoid the Solr interface entirely, you can do this like so:</p>
-<p><a class="reference external" href="https://rancher.library.tamu.edu/k8s/clusters/c-kd2s7/api/v1/namespaces/oaktrust/services/http:dspace-solr:80/proxy/solr/statistics/select?indent=true&amp;q.op=OR&amp;q=time%3A%5B2025-08-01T00%3A00%3A00Z%20TO%202025-08-10T23%3A59%3A59Z%5D%20AND%20isBot%3Afalse">https://rancher.library.tamu.edu/k8s/clusters/c-kd2s7/api/v1/namespaces/oaktrust/services/http:dspace-solr:80/proxy/solr/statistics/select?indent=true&amp;q.op=OR&amp;q=time%3A%5B2025-08-01T00%3A00%3A00Z%20TO%202025-08-10T23%3A59%3A59Z%5D%20AND%20isBot%3Afalse</a></p>
 </section>
-<section id="getting-item-based-stats">
-<h3>Getting Item Based Stats<a class="headerlink" href="#getting-item-based-stats" title="Link to this heading">¶</a></h3>
-<p>Let’s pretend we want to get all traffic</p>
+<section id="feature-tests">
+<h2>Feature Tests<a class="headerlink" href="#feature-tests" title="Link to this heading">¶</a></h2>
+<p>Feature tests are influnenced by the <a class="reference external" href="https://docs.google.com/document/d/19oJ0MKoztPneoW9SWUDz8E8PVwW1ltfXyda-MY5sAOc/edit?tab=t.0">feature and tests document</a> we created earlier this summer.</p>
+<section id="integration-metadata-enrichment">
+<h3>Integration &amp; Metadata Enrichment<a class="headerlink" href="#integration-metadata-enrichment" title="Link to this heading">¶</a></h3>
+<section id="openaire-data-correction">
+<h4>OpenAIRE Data Correction<a class="headerlink" href="#openaire-data-correction" title="Link to this heading">¶</a></h4>
+<p><cite>OpenAIRE Data Correction &lt;https://wiki.lyrasis.org/display/DSDOC8x/OpenAIRE+Integration&gt;`_</cite>: this feature provides a basic integration with the OpenAIRE Content Provider Dashboard via the <a class="reference external" href="https://catalogue.openaire.eu/service/openaire.broker/overview">Notification Broker</a>.  It allows repositories who have subscribed to the OpenAIRE Notification Broker to import JSON data from OpenAIRE in order to enhance or correct the metadata of Items in the repository. (Made possible thanks to the OpenAIRE Call Innovation funded project “Enrich local data via the OpenAIRE Graph” awarded to 4Science.)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Test subscription to the OpenAIRE Notification Broker.</p></li>
+<li><p>Import JSON data and confirm metadata corrections appear in the repository.</p></li>
+<li><p>Validate that corrections don’t overwrite local edits unexpectedly.</p></li>
+</ol>
+</section>
+<section id="openaire-publication-claim">
+<h4>OpenAIRE Publication Claim<a class="headerlink" href="#openaire-publication-claim" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Publication+Claim">OpenAIRE Publication Claim</a>: OpenAIRE Publication Claim: this feature provides a closer integration between DSpace and the OpenAIRE Publication REST API.  It allows DSpace to import possible publications from OpenAIRE for users having a Researcher Profile in DSpace. (Made possible thanks to the OpenAIRE Call Innovation funded project “Enrich local data via the OpenAIRE Graph” awarded to 4Science.</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Log in with a Researcher Profile.</p></li>
+<li><p>Trigger publication import from OpenAIRE.</p></li>
+<li><p>Verify correct association of publications to user profile.</p></li>
+</ol>
+</section>
+<section id="openalex-integration-dspace-9">
+<h4>OpenAlex Integration (DSpace 9)<a class="headerlink" href="#openalex-integration-dspace-9" title="Link to this heading">¶</a></h4>
+<p>OpenAlex integration: DSpace now supports <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/Live+Import+from+external+sources#LiveImportfromexternalsources-OpenAlexIntegration">importing content (via MyDSpace)</a> from OpenAlex.org. The DSpace Publication Claim feature also now supports importing Publications related to a Researcher Profiles, provided that the profile has an OpenAlex ID. (Donated by 4Science and University of Cambridge with additional funding from the Vietsch Foundation)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Import content into MyDSpace from OpenAlex.</p></li>
+<li><p>Verify integration of OpenAlex IDs with Researcher Profiles.</p></li>
+</ol>
+</section>
+<section id="doi-import-crossref-or-datacite">
+<h4>DOI Import (Crossref or DataCite)<a class="headerlink" href="#doi-import-crossref-or-datacite" title="Link to this heading">¶</a></h4>
+<p>Import via DOI searches multiple sources at once (CrossRef, DataCite) (Donated by University of Bamberg)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Perform DOI-based import.</p></li>
+<li><p>Confirm metadata from both sources is retrieved and merged correctly.</p></li>
+</ol>
+</section>
+<section id="external-source-lookup-relationships-tab">
+<h4>External Source Lookup (Relationships tab)<a class="headerlink" href="#external-source-lookup-relationships-tab" title="Link to this heading">¶</a></h4>
+<p>Lookup via external sources from the Edit Item page (Relationship tab): When editing an Entity, on the “Relationships” tab you can now click the “+Add” button to lookup and import related entities from <a class="reference external" href="https://wiki.lyrasis.org/pages/viewpage.action?pageId=315720684#ImportingItemsviabasicbibliographicformats(Endnote,BibTex,RIS,CSV,etc)andonlineservices(arXiv,PubMed,CrossRef,CiNii,etc)-SupportedExternalSources">supported external sources</a>. (Donated by Atmire)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Use “+Add” to find and import related entities.</p></li>
+<li><p>Confirm correct linking and metadata import.</p></li>
+</ol>
+</section>
+</section>
+<section id="submission-and-item-management">
+<h3>Submission and Item Management<a class="headerlink" href="#submission-and-item-management" title="Link to this heading">¶</a></h3>
+<section id="duplicate-detection-in-submission-workflow">
+<h4>Duplicate Detection in Submission/Workflow<a class="headerlink" href="#duplicate-detection-in-submission-workflow" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/pages/viewpage.action?pageId=328958055">Basic Duplicate Detection in submission and workflow</a>: this feature introduces basic duplicate detection into DSpace submission and workflow, using Solr’s ability to search by levenshtein distance (Developed by The Library Code with support of TU Berlin, FHNW and ZHAW.)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Submit an Item with metadata close to an existing one.</p></li>
+<li><p>Verify duplicate warning appears.</p></li>
+</ol>
+</section>
+<section id="primary-bitstream-management">
+<h4>Primary Bitstream Management<a class="headerlink" href="#primary-bitstream-management" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Set+a+bitstream+as+primary">Improved “Primary Bitstream” management</a>: Submitters can now define if a bitstream is a “primary” bitstream directly on the submission page after a file has been uploaded.  On the Item page, the primary bitstream now has a badge. (Developed by 4Science, funded by the University of California - California Digital Library)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Upload multiple files during submission.</p></li>
+<li><p>Mark one as primary and check for badge on Item page.</p></li>
+</ol>
+</section>
+<section id="withdraw-reinstate-request">
+<h4>Withdraw/Reinstate Request<a class="headerlink" href="#withdraw-reinstate-request" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Request+Withdrawn+and+Reinstate+of+an+item">Request Withdrawal or Reinstatement</a>: Optionally, all logged-in users are able to request that a specific Item be withdrawn or reinstated using the new DSpace <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Quality+Assurance">Quality Assurance tool</a>  (Donated by 4Science, partially funded by University of California - California Digital Liberary)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Logged-in user requests withdrawal.</p></li>
+<li><p>Admin reviews/approves request.</p></li>
+<li><p>Same test for reinstatement.</p></li>
+</ol>
+</section>
+<section id="edit-metadata-with-authority-control">
+<h4>Edit Metadata with Authority Control<a class="headerlink" href="#edit-metadata-with-authority-control" title="Link to this heading">¶</a></h4>
+<p>Edit Metadata using Authority Control lookup: Users are now able to <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Edit+Metadata#EditMetadata-Addoreditauthoritycontrolledmetadatafields">edit metadata controlled by vocabularies in item’s metadata edit form</a> in the same way that is done in submission form. (Donated by Toni Prieto)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Edit controlled fields in item metadata form.</p></li>
+<li><p>Verify authority-controlled vocabularies work as expected.</p></li>
+</ol>
+</section>
+<section id="embargo-badge-display-dspace-9">
+<h4>Embargo Badge Display (DSPACE 9)<a class="headerlink" href="#embargo-badge-display-dspace-9" title="Link to this heading">¶</a></h4>
+<p>Embargo release dates for embargoed files are now displayed on the Item page. The user interface includes a new <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/User+Interface+Configuration#UserInterfaceConfiguration-ItemPageSettings">“showAccessStatuses” configuration for bitstreams</a> on the Item page. When enabled, all embargoed files will display a badge (on the Item page) which contains the date the embargo expires. (Donated by Université Laval)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Add embargoed file.</p></li>
+<li><p>Check that Item page displays embargo expiry badge.</p></li>
+</ol>
+</section>
+</section>
+<section id="notifications-and-interoperability">
+<h3>Notifications and Interoperability<a class="headerlink" href="#notifications-and-interoperability" title="Link to this heading">¶</a></h3>
+<section id="coar-notify-protocol">
+<h4>COAR Notify Protocol<a class="headerlink" href="#coar-notify-protocol" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/COAR+Notify">COAR Notify Protocol</a>: DSpace now supports the COAR Notify Protocol for sending &amp; receiving Linked Data Notifications (LDN) messages from external systems.  DSpace is able to register external LDN services to send or receive messages from.  This allows users to request review/endorsement from an external service (supporting COAR Notify) during the Item submission process. It also allows these external services to send event notifications into DSpace’s <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Quality+Assurance">Quality Assurance tool</a>.  (Donated by COAR and 4Science)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Register external LDN service.</p></li>
+<li><p>Send review request during submission.</p></li>
+<li><p>Receive inbound notification into QA tool.</p></li>
+</ol>
+</section>
 </section>
 </section>
 </section>
@@ -405,23 +466,23 @@ Doing a search only for this string will search traffic across all communities a
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="rdfizing.html">
+          <a class="next-page" href="dspace_entities.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">RDFizing DSPACE Works to Generate Manifests</div>
+                <div class="title">DSPACE Entity Configuration</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="dspace_importing_entities.html">
+          <a class="prev-page" href="dspace-entities.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">DSPACE: Importing Entities</div>
+                <div class="title">Understanding Our DSPACE Entities</div>
                 
               </div>
             </a>
@@ -455,11 +516,32 @@ Doing a search only for this string will search traffic across all communities a
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">OAKTrust and DSPACE Statistcs</a><ul>
-<li><a class="reference internal" href="#accessing-statistics-via-solr">Accessing Statistics via Solr</a><ul>
-<li><a class="reference internal" href="#getting-time-based-stats">Getting Time Based Stats</a></li>
-<li><a class="reference internal" href="#eliminating-bots">Eliminating Bots</a></li>
-<li><a class="reference internal" href="#getting-item-based-stats">Getting Item Based Stats</a></li>
+<li><a class="reference internal" href="#">Features and Tests for DSPACE 9</a><ul>
+<li><a class="reference internal" href="#journal-tests">Journal Tests</a><ul>
+<li><a class="reference internal" href="#import-journal-volume-and-issue-with-relationships">Import Journal, Volume, and Issue with Relationships</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#feature-tests">Feature Tests</a><ul>
+<li><a class="reference internal" href="#integration-metadata-enrichment">Integration &amp; Metadata Enrichment</a><ul>
+<li><a class="reference internal" href="#openaire-data-correction">OpenAIRE Data Correction</a></li>
+<li><a class="reference internal" href="#openaire-publication-claim">OpenAIRE Publication Claim</a></li>
+<li><a class="reference internal" href="#openalex-integration-dspace-9">OpenAlex Integration (DSpace 9)</a></li>
+<li><a class="reference internal" href="#doi-import-crossref-or-datacite">DOI Import (Crossref or DataCite)</a></li>
+<li><a class="reference internal" href="#external-source-lookup-relationships-tab">External Source Lookup (Relationships tab)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#submission-and-item-management">Submission and Item Management</a><ul>
+<li><a class="reference internal" href="#duplicate-detection-in-submission-workflow">Duplicate Detection in Submission/Workflow</a></li>
+<li><a class="reference internal" href="#primary-bitstream-management">Primary Bitstream Management</a></li>
+<li><a class="reference internal" href="#withdraw-reinstate-request">Withdraw/Reinstate Request</a></li>
+<li><a class="reference internal" href="#edit-metadata-with-authority-control">Edit Metadata with Authority Control</a></li>
+<li><a class="reference internal" href="#embargo-badge-display-dspace-9">Embargo Badge Display (DSPACE 9)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notifications-and-interoperability">Notifications and Interoperability</a><ul>
+<li><a class="reference internal" href="#coar-notify-protocol">COAR Notify Protocol</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
