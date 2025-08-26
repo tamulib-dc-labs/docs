@@ -328,6 +328,9 @@
           <section id="importing-media-into-avalon-via-api-key">
 <h1>Importing media into Avalon via API Key<a class="headerlink" href="#importing-media-into-avalon-via-api-key" title="Link to this heading">¶</a></h1>
 <p>How to upload transcripts and pdfs of media already hosted on Avalon.</p>
+<section id="use-the-following-code-batch-upload-captions-py">
+<h2>Use the following code - <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code><a class="headerlink" href="#use-the-following-code-batch-upload-captions-py" title="Link to this heading">¶</a></h2>
+</section>
 <section id="create-a-input-csv">
 <h2>Create a input.csv<a class="headerlink" href="#create-a-input-csv" title="Link to this heading">¶</a></h2>
 <p>You only need two columns, media_id and caption_file. media_id can be found in the URL for a particular item using the structure <code class="code docutils literal notranslate"><span class="pre">https://avalon-pre.library.tamu.edu/media_objects/{API_TOKEN}</span></code>. Note that if you are uploading to Avalon Pre, this will be different from “parent object” that may exist on items uploaded to Avalon Prod.</p>
@@ -403,6 +406,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Importing media into Avalon via API Key</a><ul>
+<li><a class="reference internal" href="#use-the-following-code-batch-upload-captions-py">Use the following code - <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code></a></li>
 <li><a class="reference internal" href="#create-a-input-csv">Create a input.csv</a></li>
 <li><a class="reference internal" href="#enter-information-into-batch-upload-captions-py">Enter information into <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code>.</a></li>
 <li><a class="reference internal" href="#run-the-code">Run the code</a></li>
