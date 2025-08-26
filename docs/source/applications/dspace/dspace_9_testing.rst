@@ -136,6 +136,47 @@ Embargo release dates for embargoed files are now displayed on the Item page. Th
 2. Check that Item page displays embargo expiry badge.
 
 
+Search & Navigation
+===================
+
+Search Tab on Community/Collection pages
+----------------------------------------
+
+Search Tab on Community/Collection pages: All Community and Collection pages now include a "Search" tab. (Donated by Atmire)
+
+**Tests**
+
+1. Verify “Search” tab exists and functions.
+
+Search Facets on Homepage & Collections
+---------------------------------------
+
+Search Facets on Homepage, Community/Collection pages: Optionally, search facets/filters can now be displayed on home page and all Community, and Collection pages. (Donated by DSquare Technologies and Atmire)
+
+**Tests**
+
+1. Test filtering on Homepage and Community/Collection pages.
+
+Advanced Search Options
+-----------------------
+
+Advanced Search options: Optionally, a new "Advanced Search" filter can be enabled on the Search page to provide advanced search capabilities. (Donated by DSquare Technologies)
+
+**Tests**
+
+1. Enable advanced filters and verify additional options appear.
+
+Geospatial Maps (DSpace 9)
+--------------------------
+
+`Support for Geospatial maps, including browsing and searching <https://wiki.lyrasis.org/display/DSDOC9x/User+Interface+Configuration#UserInterfaceConfiguration-Geospatialmapviewersettings>`_. Items or Entities including geospatial data can now (optionally) embed a map of the location on their Item page, and be searchable and browsable via a new geospatial map viewer. (Donated by The Library Code)
+
+**Tests**
+
+1. Upload Item with geospatial metadata.
+2. Verify interactive map and geospatial search work.
+
+
 Notifications and Interoperability
 ==================================
 
