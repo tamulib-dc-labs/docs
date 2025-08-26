@@ -268,3 +268,100 @@ Health page now includes an "SEO" validation check. A basic check of your DSpace
 
 1. Visit :code:`/health`.
 2. Check sitemap, robots.txt, SSR status validation.
+
+Performance & Stability (8.1)
+=============================
+
+SSR Behavior
+------------
+
+Angular Server Side Rendering (SSR) has been updated to attempt to reduce the CPU/memory necessary for managing bot traffic
+
+SSR is now only performed for paths in the sitemap by default. (Donated by Vitor Silverio and Alan Orth)
+
+SSR is no longer performed for the search and browse components. This ensures that embedded searches/browses on Community, Collection, or Item (Entity) pages are not triggered by search engine crawlers or bots. (Donated by 4Science)
+
+Optionally, sites may configure SSR to occur via a separate, private/localhost REST API URL. This may provide performance benefits as it allows SSR processing to bypass DNS lookup. (Donated by 4Science)
+
+**Tests**
+
+1. Confirm SSR runs only for sitemap paths.
+2. Verify no SSR on search/browse components.
+
+Large Dataset Handling
+----------------------
+
+Ensure components are not sending requests for large sets of data (Donated by 4Science)
+
+**Tests**
+
+1. Browse/search large sets.
+2. Ensure no unnecessary requests or slowdowns.
+
+Group Caching
+-------------
+
+Improve performance of Group caching to better support sites with many Groups. (Donated by Alfeu U. Tavares)
+
+**Tests**
+
+1. Load workflows with many groups.
+2. Measure load time improvement.
+
+Reindex OAI-PMH
+---------------
+
+Reduced memory usage OAI-PMH full reindex (Donated by Toni Prieto)
+
+**Tests**
+
+2. Run full reindex and check memory usage.
+
+Accessibility & Usability
+=========================
+
+Keyboard Navigation (8.1)
+-------------------------
+
+"All of DSpace" browse menu has improved keyboard navigation (Donated by Atmire)
+
+Controlled Vocabulary tree-view has improved support for keyboard navigation and screen readers (Donated by Neki-it)
+
+Edit Item, Bitstreams tab was refactored to enhance keyboard control (Donated by Atmire)
+
+Submission interface now supports keyboard reordering of multi-valued fields: (Donated by 4Science)
+
+**Tests**
+
+1. Navigate Submission & Edit Item forms with keyboard.
+2. Test reordering multi-value fields.
+
+Screen Reader Support
+---------------------
+
+An invisible ARIA "live region" now exists which can communicate notifications and page changes to screen readers (Donated by Atmire)
+
+All disabled buttons in DSpace are now accessible to users using a screen reader. (Donated by Atmire)
+
+Controlled Vocabulary tree-view has improved support for keyboard navigation and screen readers (Donated by Neki-it)
+
+Accessibility fixes/improvements were made to improve keyboard navigation, screen reader access, small screen display, etc.
+
+**Tests**
+
+1. Verify ARIA live region announcements.
+2. Check disabled buttons and controlled vocab tree navigation.
+
+Accessibility Settings (DSpace 9)
+---------------------------------
+
+Accessibility settings customizable by users: notification timeouts, ARIA live region durations
+
+Accessibility Settings can be customized by users. Basic accessibility settings like Notification (popup) timeouts and ARIA Live Region timeouts can now be customized by each user of your site via the "Accessibility Settings" link in the footer.  This allows users more control over how long confirmation and error messages are displayed. (Donated by Atmire)
+
+Accessibility fixes/improvements were made to improve keyboard navigation, screen reader access, small screen display, etc.
+
+**Tests**
+
+1. Adjust notification/ARIA timeouts in user preferences.
+2. Verify changes persist across sessions.
