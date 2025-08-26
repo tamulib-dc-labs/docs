@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Downloading media from Avalon" href="downloading_from_avalon.html" /><link rel="prev" title="Avalon" href="../../workflows/avalon.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Downloading media from Avalon" href="downloading_from_avalon.html" /><link rel="prev" title="Importing media into Avalon via API Key" href="api-batch-upload.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Importing media into Avalon - TAMU Digital Collections Labs documentation</title>
@@ -209,6 +209,7 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-batch-upload.html">Importing media into Avalon via API Key</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Importing media into Avalon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="downloading_from_avalon.html">Downloading media from Avalon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Avalon Metadata</a></li>
@@ -326,6 +327,7 @@
         <article role="main" id="furo-main-content">
           <section id="importing-media-into-avalon">
 <h1>Importing media into Avalon<a class="headerlink" href="#importing-media-into-avalon" title="Link to this heading">¶</a></h1>
+<p>How to batch upload media into Avalon when uploading audio/video, transcripts, and pdfs at once. This will not work if you are uploading supplementary files separately.</p>
 <section id="creating-a-collection">
 <h2>Creating a Collection<a class="headerlink" href="#creating-a-collection" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
@@ -337,7 +339,7 @@
 <h2>Importing a batch<a class="headerlink" href="#importing-a-batch" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Click on the “Create An Item” button. Make sure you are under “Manage files” on the menu on the left side of the screen.</p></li>
-<li><p>You will use the Dropbox to import a batch. To import a batch, make sure you have access to <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod</span></code>. A new folder should have been automatically generated with the same name as the collection you just created. Create a subfolder within that folder with a label like “Content”. Drag and drop all media files you would like to upload into the new subfolder, both audio/video and transcripts.</p></li>
+<li><p>You will use the Dropbox to import a batch. To import a batch, make sure you have access to <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod</span></code>. A new folder should have been automatically generated with the same name as the collection you just created. Create a subfolder within that folder called “Content”. Drag and drop all media files you would like to upload into the new subfolder, both audio/video and transcripts.</p></li>
 </ol>
 </section>
 <section id="creating-a-xslx-spreadsheet">
@@ -350,7 +352,7 @@
 <li><p>Adjacent to the right of “File” there should be a column called “Label”. This will be a label for each audio/video file.</p></li>
 <li><p>You need a “Date Issued” column. Dates should follow YYYY-MM-DD format. If the day is unknown, stop after the month. If the month is unknown, add an “X” after the year (YYYYX). If part of the year is unknown, add an X for the digits you don’t know (YYYX). If the entire date is unknown write “unknown/unknown”.</p></li>
 <li><p>Add title.</p></li>
-<li><p>If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to “File” and “Label” for the A/V file, a transcript will need adjacent “Transcript File” and “Transcript File Label” columns. “Transcript File” should be a filepath such as <code class="code docutils literal notranslate"><span class="pre">content/transcript_file_name</span></code>.</p></li>
+<li><p>If you have transcripts or PDFs, they should go under the same row as their corresponding audio/video file. Similar to “File” and “Label” for the A/V file, a transcript will need adjacent “Transcript File” and “Label” columns. If you are uploading PDFs, name the columns “Caption File” and “Label”. “Transcript File” and “Caption File” should be filepaths.</p></li>
 </ul>
 </section>
 <section id="uploading-through-dropbox">
@@ -358,7 +360,7 @@
 <ol class="arabic simple">
 <li><p>When the .xlsx spreadsheet is complete, place it under the automatically generated folder for the collection in the <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre/collection_name</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod/collection_name</span></code> drive (not under <code class="code docutils literal notranslate"><span class="pre">cifs/avalon_pre/collection_name/content</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/prod/collection_name/content</span></code>).</p></li>
 <li><p>Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn’t pass the standards, fix it and upload it to the cifs drive again.</p></li>
-<li><p>Once you get the second email, you can import the batch in Dropbox. Select all materials from <code class="code docutils literal notranslate"><span class="pre">content</span></code>. Note that if you are using a older version of Avalon, you cannot upload transcripts yet.</p></li>
+<li><p>Once you get the second email, if the items didn’t automatically load in your collection, you can import the batch in Dropbox. Select all materials from <code class="code docutils literal notranslate"><span class="pre">content</span></code>. Note that if you are using a older version of Avalon, you cannot upload transcripts.</p></li>
 </ol>
 </section>
 <section id="publishing">
@@ -385,14 +387,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../workflows/avalon.html">
+          <a class="prev-page" href="api-batch-upload.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Avalon</div>
+                <div class="title">Importing media into Avalon via API Key</div>
                 
               </div>
             </a>
