@@ -565,6 +565,85 @@
 </ol>
 </section>
 </section>
+<section id="performance-stability-8-1">
+<h3>Performance &amp; Stability (8.1)<a class="headerlink" href="#performance-stability-8-1" title="Link to this heading">¶</a></h3>
+<section id="ssr-behavior">
+<h4>SSR Behavior<a class="headerlink" href="#ssr-behavior" title="Link to this heading">¶</a></h4>
+<p>Angular Server Side Rendering (SSR) has been updated to attempt to reduce the CPU/memory necessary for managing bot traffic</p>
+<p>SSR is now only performed for paths in the sitemap by default. (Donated by Vitor Silverio and Alan Orth)</p>
+<p>SSR is no longer performed for the search and browse components. This ensures that embedded searches/browses on Community, Collection, or Item (Entity) pages are not triggered by search engine crawlers or bots. (Donated by 4Science)</p>
+<p>Optionally, sites may configure SSR to occur via a separate, private/localhost REST API URL. This may provide performance benefits as it allows SSR processing to bypass DNS lookup. (Donated by 4Science)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Confirm SSR runs only for sitemap paths.</p></li>
+<li><p>Verify no SSR on search/browse components.</p></li>
+</ol>
+</section>
+<section id="large-dataset-handling">
+<h4>Large Dataset Handling<a class="headerlink" href="#large-dataset-handling" title="Link to this heading">¶</a></h4>
+<p>Ensure components are not sending requests for large sets of data (Donated by 4Science)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Browse/search large sets.</p></li>
+<li><p>Ensure no unnecessary requests or slowdowns.</p></li>
+</ol>
+</section>
+<section id="group-caching">
+<h4>Group Caching<a class="headerlink" href="#group-caching" title="Link to this heading">¶</a></h4>
+<p>Improve performance of Group caching to better support sites with many Groups. (Donated by Alfeu U. Tavares)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Load workflows with many groups.</p></li>
+<li><p>Measure load time improvement.</p></li>
+</ol>
+</section>
+<section id="reindex-oai-pmh">
+<h4>Reindex OAI-PMH<a class="headerlink" href="#reindex-oai-pmh" title="Link to this heading">¶</a></h4>
+<p>Reduced memory usage OAI-PMH full reindex (Donated by Toni Prieto)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple" start="2">
+<li><p>Run full reindex and check memory usage.</p></li>
+</ol>
+</section>
+</section>
+<section id="accessibility-usability">
+<h3>Accessibility &amp; Usability<a class="headerlink" href="#accessibility-usability" title="Link to this heading">¶</a></h3>
+<section id="keyboard-navigation-8-1">
+<h4>Keyboard Navigation (8.1)<a class="headerlink" href="#keyboard-navigation-8-1" title="Link to this heading">¶</a></h4>
+<p>“All of DSpace” browse menu has improved keyboard navigation (Donated by Atmire)</p>
+<p>Controlled Vocabulary tree-view has improved support for keyboard navigation and screen readers (Donated by Neki-it)</p>
+<p>Edit Item, Bitstreams tab was refactored to enhance keyboard control (Donated by Atmire)</p>
+<p>Submission interface now supports keyboard reordering of multi-valued fields: (Donated by 4Science)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Navigate Submission &amp; Edit Item forms with keyboard.</p></li>
+<li><p>Test reordering multi-value fields.</p></li>
+</ol>
+</section>
+<section id="screen-reader-support">
+<h4>Screen Reader Support<a class="headerlink" href="#screen-reader-support" title="Link to this heading">¶</a></h4>
+<p>An invisible ARIA “live region” now exists which can communicate notifications and page changes to screen readers (Donated by Atmire)</p>
+<p>All disabled buttons in DSpace are now accessible to users using a screen reader. (Donated by Atmire)</p>
+<p>Controlled Vocabulary tree-view has improved support for keyboard navigation and screen readers (Donated by Neki-it)</p>
+<p>Accessibility fixes/improvements were made to improve keyboard navigation, screen reader access, small screen display, etc.</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Verify ARIA live region announcements.</p></li>
+<li><p>Check disabled buttons and controlled vocab tree navigation.</p></li>
+</ol>
+</section>
+<section id="accessibility-settings-dspace-9">
+<h4>Accessibility Settings (DSpace 9)<a class="headerlink" href="#accessibility-settings-dspace-9" title="Link to this heading">¶</a></h4>
+<p>Accessibility settings customizable by users: notification timeouts, ARIA live region durations</p>
+<p>Accessibility Settings can be customized by users. Basic accessibility settings like Notification (popup) timeouts and ARIA Live Region timeouts can now be customized by each user of your site via the “Accessibility Settings” link in the footer.  This allows users more control over how long confirmation and error messages are displayed. (Donated by Atmire)</p>
+<p>Accessibility fixes/improvements were made to improve keyboard navigation, screen reader access, small screen display, etc.</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Adjust notification/ARIA timeouts in user preferences.</p></li>
+<li><p>Verify changes persist across sessions.</p></li>
+</ol>
+</section>
+</section>
 </section>
 </section>
 
@@ -667,6 +746,19 @@
 <li><a class="reference internal" href="#processes-page-organization">Processes Page Organization</a></li>
 <li><a class="reference internal" href="#administrator-reports-beta">Administrator Reports (beta)</a></li>
 <li><a class="reference internal" href="#health-page-seo-report-dspace-9">Health Page SEO Report (DSpace 9)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#performance-stability-8-1">Performance &amp; Stability (8.1)</a><ul>
+<li><a class="reference internal" href="#ssr-behavior">SSR Behavior</a></li>
+<li><a class="reference internal" href="#large-dataset-handling">Large Dataset Handling</a></li>
+<li><a class="reference internal" href="#group-caching">Group Caching</a></li>
+<li><a class="reference internal" href="#reindex-oai-pmh">Reindex OAI-PMH</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#accessibility-usability">Accessibility &amp; Usability</a><ul>
+<li><a class="reference internal" href="#keyboard-navigation-8-1">Keyboard Navigation (8.1)</a></li>
+<li><a class="reference internal" href="#screen-reader-support">Screen Reader Support</a></li>
+<li><a class="reference internal" href="#accessibility-settings-dspace-9">Accessibility Settings (DSpace 9)</a></li>
 </ul>
 </li>
 </ul>
