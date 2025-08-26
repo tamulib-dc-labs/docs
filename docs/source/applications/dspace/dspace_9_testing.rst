@@ -176,9 +176,42 @@ Geospatial Maps (DSpace 9)
 1. Upload Item with geospatial metadata.
 2. Verify interactive map and geospatial search work.
 
+Configurable Default Tab (DSpace 9)
+-----------------------------------
 
-Notifications and Interoperability
-==================================
+The default tab on Community/Collection pages is now configurable. By default it will still be the "Search" tab, but it can be modified using the `new "defaultBrowseTab" setting <https://wiki.lyrasis.org/display/DSDOC9x/User+Interface+Configuration#UserInterfaceConfiguration-CommunityPageSettings>`_ under the "community" or "collection" configurations in your config.*.yml. (Donated by Abel Gomez)
+
+**Tests**
+
+* Change defaultBrowseTab setting.
+* Verify Community/Collection pages load with new default tab.
+
+User Accounts & Authentication
+==============================
+
+ORCID Login Flow (DSpace 9)
+---------------------------
+
+ORCID Login flow is improved. Users `logging in via ORCID <https://wiki.lyrasis.org/display/DSDOC9x/ORCID+Integration#ORCIDIntegration-LoginviaORCID>`_ can now `merge their ORCID login with an existing DSpace login <https://wiki.lyrasis.org/display/DSDOC9x/ORCID+Login%3A+Guide+to+Repository+access+and+Account+linking>`_.  Users can also login via ORCID without sharing their email from their ORCID account to DSpace. (Donated by 4Science and Lyrasis with additional funding from ORCID's Global Participation Fund)
+
+**Tests**
+
+1. Login with ORCID and merge with existing account.
+2. Test login without sharing email.
+3. Notifications and Interoperability
+
+ORCID Sync & Revoke (8.1 fixes)
+-------------------------------
+
+ORCID integration fixes that were funded by the ORCID Global Participation Fund and built by 4Science. These include ORCID synchronization fixes, revoking of ORCID tokens, and display of ORCID icons next to authors.
+
+**Tests**
+
+1. Sync publications with ORCID.
+2. Revoke ORCID token and check behavior.
+
+Notifications & Interoperability
+================================
 
 COAR Notify Protocol
 --------------------
@@ -190,3 +223,48 @@ COAR Notify Protocol
 1. Register external LDN service.
 2. Send review request during submission.
 3. Receive inbound notification into QA tool.
+
+Request a Copy (DSpace 9)
+-------------------------
+
+`Request a Copy <https://wiki.lyrasis.org/display/DSDOC9x/Request+a+Copy>`_ now supports sending a secure download link for larger files.  Files under a (configurable) size threshold are still attached in requests. But, larger files now send a secure (auto-expiring) link to allow the requester to download the file. `ALTCHA <https://altcha.org/>`_ captcha protection is also now supported for Request a Copy. (Built by The Library Code, funded by Technische Universität Berlin)
+
+**Tests**
+
+1. Request file under size threshold → confirm attachment.
+2. Request larger file → confirm secure download link.
+3. Validate ALTCHA captcha protection.
+
+Administration & Reporting
+==========================
+
+Processes Page Organization
+---------------------------
+
+"Processes" page has been reorganized: To simplify process management through the Administrator UI, the "Processes Overview" page has been restructured to group processes into separate sections for "running", "scheduled", "completed" and "failed". These sections update automatically. (Donated by Atmire)
+
+**Tests**
+
+1. Run/schedule/complete/fail processes.
+2. Verify automatic grouping and refresh.
+
+
+Administrator Reports (beta)
+----------------------------
+
+`Administrator Reports <https://wiki.lyrasis.org/pages/viewpage.action?pageId=325255348>`_ (beta): The beta release of the Administrator Reports provides the ability to run the reports and display the results in the User Interface (similar to the "DSpace REST Quality Control Reports" from version 6.x). (Donated by Université Laval)
+
+**Tests**
+
+1. Run reports from Admin UI.
+2. Confirm correct data display.
+
+Health Page SEO Report (DSpace 9)
+---------------------------------
+
+Health page now includes an "SEO" validation check. A basic check of your DSpace site's `Search Engine Optimization <https://wiki.lyrasis.org/display/DSDOC9x/Search+Engine+Optimization>`_ is now available on your Health page (/health) in the Admin sidebar.  This SEO report checks that your sitemap is visible, your robots.txt is visible and that you have SSR (Server Side Rendering) enabled. (Donated by Atmire)
+
+**Tests**
+
+1. Visit :code:`/health`.
+2. Check sitemap, robots.txt, SSR status validation.
