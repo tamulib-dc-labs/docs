@@ -480,9 +480,40 @@
 <li><p>Verify interactive map and geospatial search work.</p></li>
 </ol>
 </section>
+<section id="configurable-default-tab-dspace-9">
+<h4>Configurable Default Tab (DSpace 9)<a class="headerlink" href="#configurable-default-tab-dspace-9" title="Link to this heading">¶</a></h4>
+<p>The default tab on Community/Collection pages is now configurable. By default it will still be the “Search” tab, but it can be modified using the <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/User+Interface+Configuration#UserInterfaceConfiguration-CommunityPageSettings">new “defaultBrowseTab” setting</a> under the “community” or “collection” configurations in your config.*.yml. (Donated by Abel Gomez)</p>
+<p><strong>Tests</strong></p>
+<ul class="simple">
+<li><p>Change defaultBrowseTab setting.</p></li>
+<li><p>Verify Community/Collection pages load with new default tab.</p></li>
+</ul>
 </section>
-<section id="notifications-and-interoperability">
-<h3>Notifications and Interoperability<a class="headerlink" href="#notifications-and-interoperability" title="Link to this heading">¶</a></h3>
+</section>
+<section id="user-accounts-authentication">
+<h3>User Accounts &amp; Authentication<a class="headerlink" href="#user-accounts-authentication" title="Link to this heading">¶</a></h3>
+<section id="orcid-login-flow-dspace-9">
+<h4>ORCID Login Flow (DSpace 9)<a class="headerlink" href="#orcid-login-flow-dspace-9" title="Link to this heading">¶</a></h4>
+<p>ORCID Login flow is improved. Users <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/ORCID+Integration#ORCIDIntegration-LoginviaORCID">logging in via ORCID</a> can now <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/ORCID+Login%3A+Guide+to+Repository+access+and+Account+linking">merge their ORCID login with an existing DSpace login</a>.  Users can also login via ORCID without sharing their email from their ORCID account to DSpace. (Donated by 4Science and Lyrasis with additional funding from ORCID’s Global Participation Fund)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Login with ORCID and merge with existing account.</p></li>
+<li><p>Test login without sharing email.</p></li>
+<li><p>Notifications and Interoperability</p></li>
+</ol>
+</section>
+<section id="orcid-sync-revoke-8-1-fixes">
+<h4>ORCID Sync &amp; Revoke (8.1 fixes)<a class="headerlink" href="#orcid-sync-revoke-8-1-fixes" title="Link to this heading">¶</a></h4>
+<p>ORCID integration fixes that were funded by the ORCID Global Participation Fund and built by 4Science. These include ORCID synchronization fixes, revoking of ORCID tokens, and display of ORCID icons next to authors.</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Sync publications with ORCID.</p></li>
+<li><p>Revoke ORCID token and check behavior.</p></li>
+</ol>
+</section>
+</section>
+<section id="notifications-interoperability">
+<h3>Notifications &amp; Interoperability<a class="headerlink" href="#notifications-interoperability" title="Link to this heading">¶</a></h3>
 <section id="coar-notify-protocol">
 <h4>COAR Notify Protocol<a class="headerlink" href="#coar-notify-protocol" title="Link to this heading">¶</a></h4>
 <p><a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/COAR+Notify">COAR Notify Protocol</a>: DSpace now supports the COAR Notify Protocol for sending &amp; receiving Linked Data Notifications (LDN) messages from external systems.  DSpace is able to register external LDN services to send or receive messages from.  This allows users to request review/endorsement from an external service (supporting COAR Notify) during the Item submission process. It also allows these external services to send event notifications into DSpace’s <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC8x/Quality+Assurance">Quality Assurance tool</a>.  (Donated by COAR and 4Science)</p>
@@ -491,6 +522,46 @@
 <li><p>Register external LDN service.</p></li>
 <li><p>Send review request during submission.</p></li>
 <li><p>Receive inbound notification into QA tool.</p></li>
+</ol>
+</section>
+<section id="request-a-copy-dspace-9">
+<h4>Request a Copy (DSpace 9)<a class="headerlink" href="#request-a-copy-dspace-9" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/Request+a+Copy">Request a Copy</a> now supports sending a secure download link for larger files.  Files under a (configurable) size threshold are still attached in requests. But, larger files now send a secure (auto-expiring) link to allow the requester to download the file. <a class="reference external" href="https://altcha.org/">ALTCHA</a> captcha protection is also now supported for Request a Copy. (Built by The Library Code, funded by Technische Universität Berlin)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Request file under size threshold → confirm attachment.</p></li>
+<li><p>Request larger file → confirm secure download link.</p></li>
+<li><p>Validate ALTCHA captcha protection.</p></li>
+</ol>
+</section>
+</section>
+<section id="administration-reporting">
+<h3>Administration &amp; Reporting<a class="headerlink" href="#administration-reporting" title="Link to this heading">¶</a></h3>
+<section id="processes-page-organization">
+<h4>Processes Page Organization<a class="headerlink" href="#processes-page-organization" title="Link to this heading">¶</a></h4>
+<p>“Processes” page has been reorganized: To simplify process management through the Administrator UI, the “Processes Overview” page has been restructured to group processes into separate sections for “running”, “scheduled”, “completed” and “failed”. These sections update automatically. (Donated by Atmire)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Run/schedule/complete/fail processes.</p></li>
+<li><p>Verify automatic grouping and refresh.</p></li>
+</ol>
+</section>
+<section id="administrator-reports-beta">
+<h4>Administrator Reports (beta)<a class="headerlink" href="#administrator-reports-beta" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://wiki.lyrasis.org/pages/viewpage.action?pageId=325255348">Administrator Reports</a> (beta): The beta release of the Administrator Reports provides the ability to run the reports and display the results in the User Interface (similar to the “DSpace REST Quality Control Reports” from version 6.x). (Donated by Université Laval)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Run reports from Admin UI.</p></li>
+<li><p>Confirm correct data display.</p></li>
+</ol>
+</section>
+<section id="health-page-seo-report-dspace-9">
+<h4>Health Page SEO Report (DSpace 9)<a class="headerlink" href="#health-page-seo-report-dspace-9" title="Link to this heading">¶</a></h4>
+<p>Health page now includes an “SEO” validation check. A basic check of your DSpace site’s <a class="reference external" href="https://wiki.lyrasis.org/display/DSDOC9x/Search+Engine+Optimization">Search Engine Optimization</a> is now available on your Health page (/health) in the Admin sidebar.  This SEO report checks that your sitemap is visible, your robots.txt is visible and that you have SSR (Server Side Rendering) enabled. (Donated by Atmire)</p>
+<p><strong>Tests</strong></p>
+<ol class="arabic simple">
+<li><p>Visit <code class="code docutils literal notranslate"><span class="pre">/health</span></code>.</p></li>
+<li><p>Check sitemap, robots.txt, SSR status validation.</p></li>
 </ol>
 </section>
 </section>
@@ -579,10 +650,23 @@
 <li><a class="reference internal" href="#search-facets-on-homepage-collections">Search Facets on Homepage &amp; Collections</a></li>
 <li><a class="reference internal" href="#advanced-search-options">Advanced Search Options</a></li>
 <li><a class="reference internal" href="#geospatial-maps-dspace-9">Geospatial Maps (DSpace 9)</a></li>
+<li><a class="reference internal" href="#configurable-default-tab-dspace-9">Configurable Default Tab (DSpace 9)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#notifications-and-interoperability">Notifications and Interoperability</a><ul>
+<li><a class="reference internal" href="#user-accounts-authentication">User Accounts &amp; Authentication</a><ul>
+<li><a class="reference internal" href="#orcid-login-flow-dspace-9">ORCID Login Flow (DSpace 9)</a></li>
+<li><a class="reference internal" href="#orcid-sync-revoke-8-1-fixes">ORCID Sync &amp; Revoke (8.1 fixes)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notifications-interoperability">Notifications &amp; Interoperability</a><ul>
 <li><a class="reference internal" href="#coar-notify-protocol">COAR Notify Protocol</a></li>
+<li><a class="reference internal" href="#request-a-copy-dspace-9">Request a Copy (DSpace 9)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#administration-reporting">Administration &amp; Reporting</a><ul>
+<li><a class="reference internal" href="#processes-page-organization">Processes Page Organization</a></li>
+<li><a class="reference internal" href="#administrator-reports-beta">Administrator Reports (beta)</a></li>
+<li><a class="reference internal" href="#health-page-seo-report-dspace-9">Health Page SEO Report (DSpace 9)</a></li>
 </ul>
 </li>
 </ul>
