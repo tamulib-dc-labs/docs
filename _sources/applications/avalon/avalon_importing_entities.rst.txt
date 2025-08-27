@@ -30,9 +30,11 @@ Use `this table <https://tamulib-dc-labs.github.io/docs/applications/avalon/meta
 * You must include **either** "Bibliographic ID" and "Bibliographic ID Label" columns **or** "Other Identifier Type" and "Other Identifier" columns. If you use "Other Identifier" make sure you put "local" under the "Other Identifier Type" and then the local identifer under "Other Identifier".
 * The table should include a column for "File". This should be a filepath relative to the automatically generated folder. If you used the name "Content" for the subfolder, the file path may look like :code:`content/file_name`.
 * Adjacent to the right of "File" there should be a column called "Label". This will be a label for each audio/video file.
-* You need a "Date Issued" column. Dates should follow YYYY-MM-DD format. If the day is unknown, stop after the month. If the month is unknown, add an "X" after the year (YYYYX). If part of the year is unknown, add an X for the digits you don't know (YYYX). If the entire date is unknown write "unknown/unknown".
-* Add title.
-* If you have transcripts or PDFs, they should go under the same row as their corresponding audio/video file. Similar to "File" and "Label" for the A/V file, a transcript will need adjacent "Transcript File" and "Label" columns. If you are uploading PDFs, name the columns "Caption File" and "Label". "Transcript File" and "Caption File" should be filepaths.
+* You need a "Date Issued" column (non negotiable). Dates should follow YYYY-MM-DD format. If the day is unknown, stop after the month. If the month is unknown, add an "X" after the year (YYYYX). If part of the year is unknown, add an X for the digits you don't know (YYYX). If the entire date is unknown write "unknown/unknown".
+* You need a "Title" column (non negotiable).
+* Do not use a "Duration" column with Avalon 7.8. It will cause an error.
+* If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to "File" and "Label" for the A/V file, a transcript will need adjacent "Transcript File" and "Label" columns. "Transcript File" should be a filepath.
+* If you have PDFs, they cannot be uploaded under a batch upload. They can only be ingested using an API key.
 
 -------------------------
 Uploading through Dropbox
@@ -40,9 +42,11 @@ Uploading through Dropbox
 
 1. When the .xlsx spreadsheet is complete, place it under the automatically generated folder for the collection in the :code:`cifs/avalon-pre/collection_name` or :code:`cifs/avalon-prod/collection_name` drive (not under :code:`cifs/avalon_pre/collection_name/content` or :code:`cifs/prod/collection_name/content`).
 
-2. Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn't pass the standards, fix it and upload it to the cifs drive again.
+2. Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. 
 
-3. Once you get the second email, if the items didn't automatically load in your collection, you can import the batch in Dropbox. Select all materials from :code:`content`. Note that if you are using a older version of Avalon, you cannot upload transcripts.
+3. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn't pass the standards, fix it and upload it to the cifs drive again. Note that you do not need to change the excel file name as directed on the email, but if you don't, all items will be uploaded a second time on the next upload attempt.
+
+4. All items should be uploaded directly into Avalon.
 
 ----------
 Publishing
