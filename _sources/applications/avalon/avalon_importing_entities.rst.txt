@@ -1,7 +1,7 @@
 ===========================
 Importing media into Avalon
 ===========================
-How to batch upload media into Avalon when uploading audio/video, transcripts, and pdfs at once. This will not work if you are uploading supplementary files separately.
+How to batch upload media into Avalon when uploading audio/video and transcripts/captions at once. This will not work if you are uploading supplementary files separately, such as pdfs.
 
 ---------------------
 Creating a Collection

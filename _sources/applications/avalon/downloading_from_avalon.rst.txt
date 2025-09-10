@@ -1,6 +1,7 @@
 =============================
 Downloading media from Avalon
 =============================
+Use if you are trying to download video/audio files or if you need to pull down metadata stored on Avalon.
 
 -------------
 First method
@@ -39,5 +40,7 @@ This method requires that you have an API key.
 
 4. Create a folder where you would like the files downloaded to. Enter the file path under :code:`example.download_best_files`.
 
-5. Run the program by typing :code:`python mark_get_avalon_files.py` into the terminal.
+5. If you only want a spreadsheet with metadata taken from Avalon, comment out the lines related to downloading files.
+
+6. Run the program by typing :code:`python mark_get_avalon_files.py` into the terminal.
 

@@ -327,6 +327,7 @@
         <article role="main" id="furo-main-content">
           <section id="downloading-media-from-avalon">
 <h1>Downloading media from Avalon<a class="headerlink" href="#downloading-media-from-avalon" title="Link to this heading">¶</a></h1>
+<p>Use if you are trying to download video/audio files or if you need to pull down metadata stored on Avalon.</p>
 <section id="first-method">
 <h2>First method<a class="headerlink" href="#first-method" title="Link to this heading">¶</a></h2>
 <p>This method requires that you have an API key and access to the access.library.tamu.edu server. It is faster than the second method.</p>
@@ -349,6 +350,7 @@
 <li><p>Go to the collection and copy the string after <a class="reference external" href="https://avalon.library.tamu.edu">https://avalon.library.tamu.edu</a>.</p></li>
 <li><p>Scroll to the bottom of the code, to the last paragraph. Paste the string for the variable <code class="code docutils literal notranslate"><span class="pre">collection</span></code>. Under <code class="code docutils literal notranslate"><span class="pre">example</span></code>, specify whether it is prod or pre.</p></li>
 <li><p>Create a folder where you would like the files downloaded to. Enter the file path under <code class="code docutils literal notranslate"><span class="pre">example.download_best_files</span></code>.</p></li>
+<li><p>If you only want a spreadsheet with metadata taken from Avalon, comment out the lines related to downloading files.</p></li>
 <li><p>Run the program by typing <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">mark_get_avalon_files.py</span></code> into the terminal.</p></li>
 </ol>
 </section>
