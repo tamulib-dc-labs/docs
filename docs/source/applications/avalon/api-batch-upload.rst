@@ -27,4 +27,4 @@ Create an input.csv with four columns: id, filename, label, and type.
 ---------------------
 Push into Avalon
 ---------------------
-In the terminal, enter :code:`pyavalon upload-supplemental-files -i {pre or prod} -c {path to .csv file}`.
+In the terminal, enter :code:`pyavalon upload-supplemental-files -i {pre or prod} -c "{path to .csv file}"`.
