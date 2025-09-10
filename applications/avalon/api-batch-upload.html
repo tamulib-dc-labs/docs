@@ -328,25 +328,30 @@
           <section id="importing-media-into-avalon-via-api-key">
 <h1>Importing media into Avalon via API Key<a class="headerlink" href="#importing-media-into-avalon-via-api-key" title="Link to this heading">¶</a></h1>
 <p>How to upload transcripts and pdfs of media already hosted on Avalon.</p>
-<section id="use-the-following-code-batch-upload-captions-py">
-<h2>Use the following code - <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code><a class="headerlink" href="#use-the-following-code-batch-upload-captions-py" title="Link to this heading">¶</a></h2>
+<section id="download-relevant-repository">
+<h2>Download relevant repository<a class="headerlink" href="#download-relevant-repository" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/tamulib-dc-labs/pyavalon">pyavalon</a>.</p>
 </section>
-<section id="create-a-input-csv">
-<h2>Create a input.csv<a class="headerlink" href="#create-a-input-csv" title="Link to this heading">¶</a></h2>
-<p>You only need two columns, media_id and caption_file. media_id can be found in the URL for a particular item using the structure <code class="code docutils literal notranslate"><span class="pre">https://avalon-pre.library.tamu.edu/media_objects/{API_TOKEN}</span></code>. Note that if you are uploading to Avalon Pre, this will be different from “parent object” that may exist on items uploaded to Avalon Prod.</p>
+<section id="download-relevant-avalon-metadata">
+<h2>Download relevant Avalon metadata<a class="headerlink" href="#download-relevant-avalon-metadata" title="Link to this heading">¶</a></h2>
+<p>In the terminal, enter <code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{id</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">collection}&quot;</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span></code>.</p>
+<p>This will generate an output .csv with the following columns: “id”, “label”, “parent label”, and “derivative”.</p>
 </section>
-<section id="enter-information-into-batch-upload-captions-py">
-<h2>Enter information into <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code>.<a class="headerlink" href="#enter-information-into-batch-upload-captions-py" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>For <code class="code docutils literal notranslate"><span class="pre">BASE_URL</span></code>, enter the URL for the Avalon server. For TAMU, it will either be <code class="code docutils literal notranslate"><span class="pre">https://avalon-pre.library.tamu.edu</span></code> or <code class="code docutils literal notranslate"><span class="pre">https://avalon.library.tamu.edu</span></code>.</p></li>
-<li><p>For <code class="code docutils literal notranslate"><span class="pre">API_TOKEN</span></code>, enter <code class="code docutils literal notranslate"><span class="pre">os.getenv(&quot;AVALON_PRE&quot;)</span></code>. Make sure you have an API key stored as an environmental variable for this to work.</p></li>
-<li><p>For <code class="code docutils literal notranslate"><span class="pre">CSV_file</span></code>, enter <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code>.</p></li>
-<li><p>For <code class="code docutils literal notranslate"><span class="pre">CAPTION_FOLDER</span></code>, enter the location of the vtts, such as <code class="code docutils literal notranslate"><span class="pre">./vtts</span></code>.</p></li>
+<section id="create-input-csv">
+<h2>Create input.csv<a class="headerlink" href="#create-input-csv" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>Create an input.csv with four columns: id, filename, label, and type.</dt><dd><ul class="simple">
+<li><p>id should be the same as the id in the previous output.csv</p></li>
+<li><p>filename should be a filepath starting with /Users.</p></li>
+<li><p>label is the name you want the file to appear with when it’s online. It is recommended for the label to be “Captions in English” or “Transcript in English”.</p></li>
+<li><p>type can only be captions, transcript, or pdf.</p></li>
 </ul>
+</dd>
+</dl>
 </section>
-<section id="run-the-code">
-<h2>Run the code<a class="headerlink" href="#run-the-code" title="Link to this heading">¶</a></h2>
-<p>Type <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">batch_upload_captions.py</span></code> into the Terminal.</p>
+<section id="push-into-avalon">
+<h2>Push into Avalon<a class="headerlink" href="#push-into-avalon" title="Link to this heading">¶</a></h2>
+<p>In the terminal, enter <code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">upload-supplemental-files</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span> <span class="pre">-c</span> <span class="pre">{path</span> <span class="pre">to</span> <span class="pre">.csv</span> <span class="pre">file}</span></code>.</p>
 </section>
 </section>
 
@@ -406,10 +411,10 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Importing media into Avalon via API Key</a><ul>
-<li><a class="reference internal" href="#use-the-following-code-batch-upload-captions-py">Use the following code - <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code></a></li>
-<li><a class="reference internal" href="#create-a-input-csv">Create a input.csv</a></li>
-<li><a class="reference internal" href="#enter-information-into-batch-upload-captions-py">Enter information into <code class="code docutils literal notranslate"><span class="pre">batch_upload_captions.py</span></code>.</a></li>
-<li><a class="reference internal" href="#run-the-code">Run the code</a></li>
+<li><a class="reference internal" href="#download-relevant-repository">Download relevant repository</a></li>
+<li><a class="reference internal" href="#download-relevant-avalon-metadata">Download relevant Avalon metadata</a></li>
+<li><a class="reference internal" href="#create-input-csv">Create input.csv</a></li>
+<li><a class="reference internal" href="#push-into-avalon">Push into Avalon</a></li>
 </ul>
 </li>
 </ul>
