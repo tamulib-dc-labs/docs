@@ -20,7 +20,96 @@ Guiding Principles
 2. **Pragmatism**: AI-generated captions and transcripts will contain errors, but they represent an important first step toward accessibility and compliance.
 3. **Transparency**: Users should be aware that captions and transcripts are auto-generated and may contain inaccuracies.
 4. **Risk Mitigation**: Even imperfect captions and transcripts reduce institutional risk by demonstrating a proactive commitment to accessibility.
-5. **Collection Context**: Different types of collections may receive different levels of captioning and transcript cleanup, depending on their significance, use, and other political factors
+5. **Collection Context**: Different types of collections may receive different levels of captioning and transcript cleanup, depending on their significance, use, and other political factors.
+6. **Perfection Can Be the Enemy of Good**: The priority is to provide timely, usable captions and transcripts, even if imperfect. Delaying release in pursuit of complete accuracy undermines accessibility and runs counter to the goal of reducing barriers. Errors can be refined later as resources allow.
 
 Accessibility First
 ===================
+
+The primary goal of our work in making A/V materials accessible is to increase access for our community of users while
+supporting compliance with ADA Title II requirements and WCAG 2.1 AA standards. Additional steps may be taken depending
+on the nature of the collection and the resources available, but the central driver of this work will always be
+improving accessibility.
+
+Pragmatism
+==========
+
+Our approach to closed captions, transcripts, and other supplemental files will be pragmatic and guided by the resources
+available. We will prioritize solutions that balance accessibility with feasibility, seeking innovative tools and
+workflows that reliably generate usable initial files.
+
+Minimal requirements for works and collections may differ based on several factors, including:
+
+1. Work type / content model (video vs. audio, etc.)
+2. Significance of the collection (high-use, high-visibility, or unique value)
+3. Access restrictions (internal, limited, or private vs. public)
+4. Language of the work
+5. Intended audience and anticipated use
+
+These requirements will evolve over time as technology improves, community expectations shift, and institutional
+resources change.
+
+Transparency
+============
+
+Users must be able to understand when a closed caption file or transcript has been machine-generated and may contain errors. Transparency builds trust and ensures that access is not mistaken for perfection.
+
+To support this principle:
+
+1. **Labeling**: All captions and transcripts that have not been reviewed or corrected should be clearly marked as *machine-generated*.
+2. **Disclaimers**: Supplemental files (e.g., downloadable PDF transcripts) should include disclaimers noting that errors may be present.
+3. **Contextual Limits**: Transparency is especially important for works in languages where we lack expertise or for content that includes proper nouns, technical terms, or specialized subject matter that may be transcribed inaccurately.
+4. **Metadata Tracking**: Where possible, administrative metadata should document the status of a file (machine-generated, partially remediated, fully reviewed) to track its evolution over time.
+
+By being transparent, we provide meaningful access while setting realistic expectations about the limitations of machine-generated assets.
+
+Risk Mitigation
+===============
+
+Our work with captions and transcripts also serves to mitigate legal, ethical, and reputational risks associated with
+inaccessible A/V content. While AI-generated files are imperfect, providing them demonstrates a good-faith effort to
+reduce barriers to access and comply with accessibility standards.
+
+To support this principle:
+
+1. **Baseline Coverage**: All A/V works should have at least a machine-generated caption or transcript, even if errors are present.
+2. **Prioritization**: High-use, high-visibility, or significant collections should be prioritized for remediation and improvement to reduce exposure to risk.
+3. **Documentation**: Exceptions and limitations should be documented to show deliberate, reasoned decision-making rather than omission.
+4. **Continuous Improvement**: As resources allow, captions and transcripts should be incrementally improved, recognizing that partial progress reduces risk more than inaction.
+5. **Demonstrable Effort**: Maintaining records of workflows, disclaimers, and metadata demonstrates institutional commitment to accessibility, even when perfection is not achievable.
+
+By applying these practices, we acknowledge the limits of our resources while taking proactive steps to meet
+accessibility expectations and reduce potential risks.
+
+Collection Context
+==================
+
+Different types of collections may receive different levels of captioning and transcript cleanup, depending on their
+importance and use:
+
+1. **Legacy Collections**: Older collections will be prioritized for bulk AI processing with minimal manual correction, unless identified as significant.
+2. **New Collections**: New works should follow the full procedure outlined in this policy at the time of ingest, ensuring accessibility from the outset.
+3. **Significant Collections**: High-use, high-visibility, or strategically important collections may receive additional human review and editing to improve accuracy.
+
+The significance of a collection and the need for enhanced remediation should be determined before or during the kickoff
+meeting for new collections. This evaluation helps determine whether the collection can be published within available
+resources and whether additional support—such as grant funding or donor contributions—might be pursued to cover
+labor-intensive tasks required to improve accuracy.
+
+By tailoring our approach to the context of each collection, we balance pragmatism with risk mitigation, ensuring that
+resources are applied where they have the greatest impact on accessibility and institutional compliance.
+
+Perfection Can Be the Enemy of Good
+===================================
+
+While accuracy and completeness are important, striving for perfection in captions, transcripts, and supplemental files
+can unintentionally hinder broader accessibility goals. Spending excessive time correcting minor errors or chasing
+complete remediation may:
+
+1. **Delay Access**: Over-investing in perfection can slow the publication of new collections, delaying access to materials for our users.
+2. **Limit Scope**: Resources devoted to perfecting a few works may prevent us from processing larger volumes, leaving many collections without any accessibility support.
+3. **Create Risk of Inaction**: Excessive focus on perfection can result in collections never being released or, in extreme cases, needing to be taken down due to incomplete accessibility work.
+
+Our goal is to provide meaningful access as quickly as possible. AI-generated captions and transcripts, even with errors,
+represent a significant step toward accessibility. By accepting a level of imperfection, we can balance quality with
+productivity, ensuring that more users benefit from a broader range of collections.
