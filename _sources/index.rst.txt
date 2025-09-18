@@ -18,6 +18,13 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Policies and Procedures
+   :glob:
+
+   policies/*
+
+.. toctree::
+   :maxdepth: 1
    :caption: Applications and Workflows
    :glob:
 
