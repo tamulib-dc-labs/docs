@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="SAGE Import" href="sage_import.html" /><link rel="prev" title="SAGE" href="../../workflows/sage.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Cantloupe Configuration" href="../../config/cantaloupe_config.html" /><link rel="prev" title="Cleaning a Whisper Transcript" href="whisper-transcripts-cleanup.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Importing media into SAGE - WITHOUT Rancher - TAMU Digital Collections Labs documentation</title>
+        <title>Making Transcripts with WhisperX - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -209,75 +209,75 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies/captions_and_transcripts.html">Policy and Guiding Principles for Captioning and Transcription of A/V Works</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/api-batch-upload.html">Importing media into Avalon via API Key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/downloading_from_avalon.html">Downloading media from Avalon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/metadata.html">Avalon Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../avalon/pdf-creation.html">How to make a PDF transcript to upload to Avalon.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/api-batch-upload.html">Importing media into Avalon via API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/downloading_from_avalon.html">Downloading media from Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/metadata.html">Avalon Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/pdf-creation.html">How to make a PDF transcript to upload to Avalon.</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_entities.html">DSPACE Entity Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_entities.html">DSPACE Entity Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../fedora/creating-iiif-manifests.html">Creating IIIF Collections and Manifests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fedora/fedora_solr.html">Understanding Solr Config in Fedora</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fedora/post-ingestion.html">Reindexing Solr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fedora/using-karaf.html">Using Karaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/creating-iiif-manifests.html">Creating IIIF Collections and Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/fedora_solr.html">Understanding Solr Config in Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/post-ingestion.html">Reindexing Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/using-karaf.html">Using Karaf</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/ojs.html">OJS</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ojs/applying_for_issns.html">Applying for an ISSN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ojs/minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/applying_for_issns.html">Applying for an ISSN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/open-oni.html">Open ONI</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Open ONI</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../open-oni/open-oni-problems.html">Solving Open Oni Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/open-oni/open-oni-problems.html">Solving Open Oni Issues</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Importing media into SAGE - WITHOUT Rancher</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sage_import.html">SAGE Import</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/sage/sage-import.html">Importing media into SAGE - WITHOUT Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/sage/sage_import.html">SAGE Import</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other Services and Topics</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/accessibility.html">Accessibility</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Accessibility</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../other_services/generating_iiif_collections.html">IIIF: Generating IIIF and IIIF Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../other_services/generating_service_files.html">Generating Service Files and Derivatives</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/identifiers.html">Identifiers</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Identifiers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/minting_a_doi.html">Minting DOIs in Crossref</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/minting_arks.html">Minting ARKs with EZID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/minting_a_doi.html">Minting DOIs in Crossref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/minting_arks.html">Minting ARKs with EZID</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/kube.html">Kubernetes and Docker</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Kubernetes and Docker</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kube-and-docker/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../other_services/using_super_computer_for_gpu_needs.html">Using the Super Computer when we Need GPU</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/whisper.html">Whisper</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Whisper</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisper-transcripts.html">Making Transcripts with Whisper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisper-transcripts-cleanup.html">Cleaning a Whisper Transcript</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisperx-transcripts.html">Making Transcripts with WhisperX</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../other_services/whisper.html">Whisper</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Whisper</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="whisper-transcripts.html">Making Transcripts with Whisper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whisper-transcripts-cleanup.html">Cleaning a Whisper Transcript</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Making Transcripts with WhisperX</a></li>
 </ul>
 </li>
 </ul>
@@ -309,7 +309,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/sage/sage-import.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/topics_and_services/whisper/whisperx-transcripts.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -323,408 +323,90 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="importing-media-into-sage-without-rancher">
-<h1>Importing media into SAGE - WITHOUT Rancher<a class="headerlink" href="#importing-media-into-sage-without-rancher" title="Link to this heading">¶</a></h1>
+          <section id="making-transcripts-with-whisperx">
+<h1>Making Transcripts with WhisperX<a class="headerlink" href="#making-transcripts-with-whisperx" title="Link to this heading">¶</a></h1>
 <ol class="arabic simple">
-<li><p>Ensure SAF is written for the collection. Send the SAF to be uploaded to Fedora prod.</p></li>
-<li><p>Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. Choose Production Fedora Core Source as the source and for the filter, enter <code class="code docutils literal notranslate"><span class="pre">hasParent:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code></p></li>
-<li><p>Add field mappings onto the reader.</p></li>
+<li><p>Enter the following code into the terminal: <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">whisperx</span></code>.</p></li>
+<li><p>In that same respository, add a folder of your source files.</p></li>
+<li><p>Enter the following prompt into the terminal:</p></li>
 </ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field Mapping</p></th>
-<th class="head"><p>Metadata Field</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Alternative Title (dcterms.alternative)</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Application Type</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Audience Level</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Classification (dc.description)</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Collection</p></td>
-<td><p>hasParent</p></td>
-</tr>
-<tr class="row-odd"><td><p>Content Type (dc.type)</p></td>
-<td><p>content_type_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Contributor</p></td>
-<td><p>contributor_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Creator (dc.creator, dcterms.creator)</p></td>
-<td><p>creator_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Date Created (dc.date, dcterms.created)</p></td>
-<td><p>created_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Date Published (dcterms.dateAccepted)</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Details (local.details)</p></td>
-<td><p>details_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Digital Publisher</p></td>
-<td><p>digital_publisher_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Edit Link</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Edition/Revision Information</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Format</p></td>
-<td><p>reformatting_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Genre (dc.type, dcterms.type)</p></td>
-<td><p>content_type_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Id</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Identifier</p></td>
-<td><p>standard_digital_identifier_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>IIIF Manifest</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Language (dc.language, dcterms.language)</p></td>
-<td><p>language_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Local Digital Identifier (dc.identifier)</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Medium (dcterms.medium)</p></td>
-<td><p>medium_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Notes (dc.description, dc.provenance)</p></td>
-<td><p>notes_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Original Place of Publication</p></td>
-<td><p>origin_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Original Resource</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Part Of</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Physical Extent (dcterms.extent)</p></td>
-<td><p>physical_extent_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Physical Item Identifier (dc.identifier)</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Physical Item Location</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Publisher</p></td>
-<td><p>original_publisher_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Related Resource (dcterms.isPartOf)</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Resource</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Rights/Access</p></td>
-<td><p>rights_access_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Source Collection</p></td>
-<td><p>source_collection_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Spatial (dcterms.spatial)</p></td>
-<td><p>spatial_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Sponsor (dc.contributor, dc.description)</p></td>
-<td><p>sponsor_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Standard Digital Identifier</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Subject</p></td>
-<td><p>subject_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Summary/Abstract (dc.description, etc.)</p></td>
-<td><p>summary_abstract_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Table Of Contents</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Thumbnail</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Title (dc.title, dcterms.title)</p></td>
-<td><p>title</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ol class="arabic simple" start="4">
-<li><p>Create a writer. Select Production SAGE Core as the Destination.</p></li>
-<li><p>Add field mappings onto the writer.</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field Mapping</p></th>
-<th class="head"><p>Metadata Field</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Alternative Title (dcterms.alternative)</p></td>
-<td><p>alternative_title</p></td>
-</tr>
-<tr class="row-odd"><td><p>Application Type</p></td>
-<td><p>application_type</p></td>
-</tr>
-<tr class="row-even"><td><p>Audience Level</p></td>
-<td><p>audience_level</p></td>
-</tr>
-<tr class="row-odd"><td><p>Classification (dc.description)</p></td>
-<td><p>classification</p></td>
-</tr>
-<tr class="row-even"><td><p>Collection</p></td>
-<td><p>collection</p></td>
-</tr>
-<tr class="row-odd"><td><p>Content Type (dc.type)</p></td>
-<td><p>content_type</p></td>
-</tr>
-<tr class="row-even"><td><p>Contributor</p></td>
-<td><p>contributor</p></td>
-</tr>
-<tr class="row-odd"><td><p>Creator (dc.creator, dcterms.creator)</p></td>
-<td><p>creator</p></td>
-</tr>
-<tr class="row-even"><td><p>Date Created (dc.date, dcterms.created)</p></td>
-<td><p>date_created</p></td>
-</tr>
-<tr class="row-odd"><td><p>Date Published (dcterms.dateAccepted)</p></td>
-<td><p>date_published</p></td>
-</tr>
-<tr class="row-even"><td><p>Details (local.details)</p></td>
-<td><p>details</p></td>
-</tr>
-<tr class="row-odd"><td><p>Digital Publisher</p></td>
-<td><p>digital_publisher</p></td>
-</tr>
-<tr class="row-even"><td><p>Edit Link</p></td>
-<td><p>editLink</p></td>
-</tr>
-<tr class="row-odd"><td><p>Edition/Revision Information</p></td>
-<td><p>edition_revision_information</p></td>
-</tr>
-<tr class="row-even"><td><p>Format</p></td>
-<td><p>reformatting</p></td>
-</tr>
-<tr class="row-odd"><td><p>Genre (dc.type, dcterms.type)</p></td>
-<td><p>genre</p></td>
-</tr>
-<tr class="row-even"><td><p>Id</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Identifier</p></td>
-<td><p>local_digital_identifier</p></td>
-</tr>
-<tr class="row-even"><td><p>IIIF Manifest</p></td>
-<td><p>manifest</p></td>
-</tr>
-<tr class="row-odd"><td><p>Language (dc.language, dcterms.language)</p></td>
-<td><p>language</p></td>
-</tr>
-<tr class="row-even"><td><p>Local Digital Identifier (dc.identifier)</p></td>
-<td><p>local_digital_identifier</p></td>
-</tr>
-<tr class="row-odd"><td><p>Medium (dcterms.medium)</p></td>
-<td><p>medium</p></td>
-</tr>
-<tr class="row-even"><td><p>Notes (dc.description, dc.provenance)</p></td>
-<td><p>notes</p></td>
-</tr>
-<tr class="row-odd"><td><p>Original Place of Publication</p></td>
-<td><p>origin</p></td>
-</tr>
-<tr class="row-even"><td><p>Original Resource</p></td>
-<td><p>original_resource</p></td>
-</tr>
-<tr class="row-odd"><td><p>Part Of</p></td>
-<td><p>related_resource</p></td>
-</tr>
-<tr class="row-even"><td><p>Physical Extent (dcterms.extent)</p></td>
-<td><p>physical_extent</p></td>
-</tr>
-<tr class="row-odd"><td><p>Physical Item Identifier (dc.identifier)</p></td>
-<td><p>physical_item_identifier</p></td>
-</tr>
-<tr class="row-even"><td><p>Physical Item Location</p></td>
-<td><p>physical_item_location</p></td>
-</tr>
-<tr class="row-odd"><td><p>Publisher</p></td>
-<td><p>original_publisher</p></td>
-</tr>
-<tr class="row-even"><td><p>Related Resource (dcterms.isPartOf)</p></td>
-<td><p>related_resource</p></td>
-</tr>
-<tr class="row-odd"><td><p>Resource</p></td>
-<td><p>resource</p></td>
-</tr>
-<tr class="row-even"><td><p>Rights/Access</p></td>
-<td><p>rights_access</p></td>
-</tr>
-<tr class="row-odd"><td><p>Source Collection</p></td>
-<td><p>source_collection</p></td>
-</tr>
-<tr class="row-even"><td><p>Spatial (dcterms.spatial)</p></td>
-<td><p>spatial_multi</p></td>
-</tr>
-<tr class="row-odd"><td><p>Sponsor (dc.contributor, dc.description)</p></td>
-<td><p>sponsor</p></td>
-</tr>
-<tr class="row-even"><td><p>Standard Digital Identifier</p></td>
-<td><p>standard_digital_identifier</p></td>
-</tr>
-<tr class="row-odd"><td><p>Subject</p></td>
-<td><p>subject</p></td>
-</tr>
-<tr class="row-even"><td><p>Summary/Abstract (dc.description, etc.)</p></td>
-<td><p>summary_abstract_multi</p></td>
-</tr>
-<tr class="row-odd"><td><p>Table Of Contents</p></td>
-<td><p>table_of_contents</p></td>
-</tr>
-<tr class="row-even"><td><p>Thumbnail</p></td>
-<td><p>thumbnail</p></td>
-</tr>
-<tr class="row-odd"><td><p>Title (dc.title, dcterms.title)</p></td>
-<td><p>title</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ol class="arabic simple" start="6">
-<li><p>Create a new job. Select relevant reader and writer. Select operators, which may include Collection Default, Application Type, ID Base 64 Encoding, Origin URL Regex Replace, Manifest Template, and Build CAP edit link. Select “yes” for Active and “On Demand” for Frequency.</p></li>
-<li><p>Run the job. Under Discovery view, select Production SAGE Core as the source and for Filter, enter <code class="code docutils literal notranslate"><span class="pre">collection:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code> Create a slug.</p></li>
-<li><p>Under the Facets tab, select and enter:</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Facet Fields</p></th>
-<th class="head"><p>Label</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>subject</p></td>
-<td><p>Subject</p></td>
-</tr>
-<tr class="row-odd"><td><p>creator</p></td>
-<td><p>Authors</p></td>
-</tr>
-<tr class="row-even"><td><p>contributor</p></td>
-<td><p>Contributors</p></td>
-</tr>
-<tr class="row-odd"><td><p>date_created</p></td>
-<td><p>Date</p></td>
-</tr>
-<tr class="row-even"><td><p>content_type</p></td>
-<td><p>Material Type</p></td>
-</tr>
-<tr class="row-odd"><td><p>spatial_multi</p></td>
-<td><p>Place</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ol class="arabic simple" start="9">
-<li><p>Under Results tab, enter the following under the Result Headings.</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Result Heading</p></th>
-<th class="head"><p>value</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Unique Identifier Key</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Title Key</p></td>
-<td><p>{{title}}</p></td>
-</tr>
-<tr class="row-even"><td><p>Thumbnail URI Key</p></td>
-<td><p>{{thumbnail}}</p></td>
-</tr>
-<tr class="row-odd"><td><p>Resource URI Key</p></td>
-<td><p>{{resource}}</p></td>
-</tr>
-<tr class="row-even"><td><p>Manifest URI Key</p></td>
-<td><p>{{manifest}}</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Select Ascending and Published for multiple choice settings.</p>
-<ol class="arabic simple" start="10">
-<li><p>Under Result Metadata, add the following:</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Key</p></th>
-<th class="head"><p>Label</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>creator</p></td>
-<td><p>Creator</p></td>
-</tr>
-<tr class="row-odd"><td><p>subject</p></td>
-<td><p>Subject</p></td>
-</tr>
-<tr class="row-even"><td><p>date_created</p></td>
-<td><p>Date</p></td>
-</tr>
-<tr class="row-odd"><td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="row-even"><td><p>physical_extent</p></td>
-<td><p>Extent</p></td>
-</tr>
-<tr class="row-odd"><td><p>rights_access</p></td>
-<td><p>Rights</p></td>
-</tr>
-<tr class="row-even"><td><p>manifest</p></td>
-<td><p>IIIF Manifest</p></td>
-</tr>
-<tr class="row-odd"><td><p>summary_abstract_multi</p></td>
-<td><p>Abstract</p></td>
-</tr>
-<tr class="row-even"><td><p>related_resource</p></td>
-<td><p>Folder</p></td>
-</tr>
-<tr class="row-odd"><td><p>contributor</p></td>
-<td><p>Contributors</p></td>
-</tr>
-<tr class="row-even"><td><p>classification</p></td>
-<td><p>Description</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="special-prompts">
+<h2>Special prompts:<a class="headerlink" href="#special-prompts" title="Link to this heading">¶</a></h2>
+<p>If the audio is in a language other than English, append the following code to your command prompt:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">--language</span> <span class="pre">{Language_Name}</span></code></p>
+<p>To add diarization, append the following code:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">--diarize</span></code></p>
+<p>To help diarization, append the following code:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">--min_speakers</span> <span class="pre">{Number}</span> <span class="pre">--max_speakers</span> <span class="pre">{Number}</span></code></p>
+</section>
+<section id="whisperx-output">
+<h2>WhisperX output<a class="headerlink" href="#whisperx-output" title="Link to this heading">¶</a></h2>
+<p>As output, five files will be generated: .json, .srt, .tsv, .txt, and .vtt</p>
+<p>To move the json and vtt to <a class="reference external" href="https://github.com/tamulib-dc-labs/whisper-reviewer">whisper-editor</a>, make sure you have the following add-to-json.py downloaded.</p>
+<p>import os
+import json
+import shutil</p>
+<p>json_file_data = “/Users/{Username}/whisper-reviewer/public/test_for_whisper_transcript_online.json”
+all_data = []</p>
+<dl>
+<dt>with open(json_file_data, “r”) as my_json:</dt><dd><p>audio_file_data = json.load(my_json)</p>
+</dd>
+<dt>with open(“mycsv.csv”, “r”) as my_file:</dt><dd><p>reader = DictReader(my_file)
+for row in reader:</p>
+<blockquote>
+<div><dl>
+<dt>if row[‘Title’] != “”:</dt><dd><dl>
+<dt>all_data.append(</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>“uin”: row[‘UIN’],
+“title”: row[‘Title’],
+“audio”: row[‘Audio’]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>)</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>for path, directories, files in os.walk(“output”):</dt><dd><dl>
+<dt>for file in files:</dt><dd><dl>
+<dt>if “.json” in file:</dt><dd><p>identifier = file.split(‘.json’)[0]
+name = [item[“title”] for item in all_data if item[‘uin’] == identifier][0]
+full_name = f”{name} whisperx”
+audio_file_location = [item[“audio”] for item in all_data if item[‘uin’] == identifier][0]
+audio_file_data.append(</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“audio”: audio_file_location,
+“url”: f”./transcripts/{file}”,
+“name”: full_name</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>)
+shutil.move(f”{path}/{file}”, “/Users/{Username}/whisper-reviewer/public/transcripts”)
+with open(json_file_data, “w”) as f:</p>
+<blockquote>
+<div><p>json.dump(audio_file_data, f, indent=4)</p>
+</div></blockquote>
+</dd>
+<dt>elif ‘.vtt’ in file:</dt><dd><p>shutil.move(f”{path}/{file}”, “/Users/{Username}/whisper-reviewer/vtts/{output-folder}”)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
 </section>
 
         </article>
@@ -732,23 +414,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="sage_import.html">
+          <a class="next-page" href="../../config/cantaloupe_config.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">SAGE Import</div>
+                <div class="title">Cantloupe Configuration</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../workflows/sage.html">
+          <a class="prev-page" href="whisper-transcripts-cleanup.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">SAGE</div>
+                <div class="title">Cleaning a Whisper Transcript</div>
                 
               </div>
             </a>
@@ -770,8 +452,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Making Transcripts with WhisperX</a><ul>
+<li><a class="reference internal" href="#special-prompts">Special prompts:</a></li>
+<li><a class="reference internal" href="#whisperx-output">WhisperX output</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
