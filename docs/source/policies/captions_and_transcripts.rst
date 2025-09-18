@@ -113,3 +113,12 @@ complete remediation may:
 Our goal is to provide meaningful access as quickly as possible. AI-generated captions and transcripts, even with errors,
 represent a significant step toward accessibility. By accepting a level of imperfection, we can balance quality with
 productivity, ensuring that more users benefit from a broader range of collections.
+
+-----------
+Terminology
+-----------
+
+* **Audio Description**: A service that provides an additional audio track of narration, describing the key visual elements of a program to make it accessible for people who are blind or visually impaired. The narration is inserted into the natural pauses in the program's dialogue, conveying information like character movements, settings, and expressions that would otherwise be missed. This process helps to create a more complete and equitable viewing experience for everyone. Currently, we do not support audio description.
+* **Closed-Caption File**: A closed caption file is a synchronized text transcript of a video's audio. Its contents appear in the media player and can be turned on or off by clicking its corresponding label or language code. It **should** include non-speech information and speaker identification. There are many formats of closed caption files but we have adopted WebVTT.
+* **PDF Transcript**: A PDF transcript is a supplemental file that may be associated with a work or file.  It is meant to act as a different rendering of the resource appearing in the player.
+* **Transcript**: A transcript is a synchronized transcript of an audio or video file that is used primarily for search and navigation.  As a result, it may not include non-speech information or speaker identification. There are many formats of transcript files but we have adopted WebVTT.
