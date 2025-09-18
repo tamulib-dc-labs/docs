@@ -1,6 +1,6 @@
-==================================================================
-Policy and Procedure for Captioning and Transcription of A/V Works
-==================================================================
+===========================================================================
+Policy and Guiding Principles for Captioning and Transcription of A/V Works
+===========================================================================
 
 -------
 Purpose
@@ -115,10 +115,71 @@ represent a significant step toward accessibility. By accepting a level of imper
 productivity, ensuring that more users benefit from a broader range of collections.
 
 -----------
+Video Works
+-----------
+
+A video work is any resource that includes a video file that can be viewed in a media player.
+
+Lowest / MVP File
+=================
+
+1. A machine-generated closed caption file that is clearly marked as machine-generated.
+
+Minimal Enhancement
+===================
+
+1. All elements of the MVP file.
+2. Spot-checked captions and transcript for obvious errors, with minimal corrections applied to improve readability and accuracy and eliminate hallucinations.
+3. A downloadable transcript (PDF) generated from the captions, with a disclaimer about possible errors.
+4. A navigable transcript based on the closed caption file.
+5. Metadata updated to reflect remediation status (e.g., *Partially Reviewed* or *Minimally Reviewed*).
+
+Intermediate Enhancement
+========================
+
+1. All elements of Minimal Enhancement.
+2. Initialized, but potentially error prone, diarization and speaker identification.
+3. Minimal non-speech markers initialized for things like music and songs.
+4. Metadata updated to reflect remediation status (e.g., *Partially Reviewed with Machine Generated Speaker Identification*).
+
+Advanced Enhancement
+====================
+
+1. All elements of Intermediate Enhancement.
+2. Diarization reviewed and corrected for major speaker errors.
+3. Metadata updated to reflect remediation status (e.g., *Partially Reviewed with Machine Generated Speaker Identification and Major Speaker Errors Corrected*).
+
+Highest / Fully Remediated
+==========================
+
+1. All elements of the Advanced Enhancement.
+2. Full human review and correction of captions and transcript.
+3. Diarization fully corrected.
+4. Proper names, technical terms, and specialized content verified.
+5. Interactive transcript fully functional and synced.
+6. Metadata reflects Fully Reviewed status, with version history documented.
+7. Subtitles in English (if the Video was originally in another language).
+8. Subtitles in Another Language (if the Video was originally in English).
+9. Optional: additional accessibility enhancements such as audio descriptions or visual summaries if feasible.
+
+À La Carte Enhancement
+======================
+
+It will be extremely rare for items to get the highest level of treatment. Because some collections may require some
+aspects of higher levels of remediation, this category is defined.
+
+1. All Elements of Minimal Enhancement.
+2. If possible: all elements of Intermediate Enhancement.
+3. Any elements from other levels but justified by the curator with resources considered.
+4. Metadata reflecting every additional task beyond minimal or intermediate enhancement.
+5. Documentations explaining what was done and why.
+
+-----------
 Terminology
 -----------
 
 * **Audio Description**: A service that provides an additional audio track of narration, describing the key visual elements of a program to make it accessible for people who are blind or visually impaired. The narration is inserted into the natural pauses in the program's dialogue, conveying information like character movements, settings, and expressions that would otherwise be missed. This process helps to create a more complete and equitable viewing experience for everyone. Currently, we do not support audio description.
 * **Closed-Caption File**: A closed caption file is a synchronized text transcript of a video's audio. Its contents appear in the media player and can be turned on or off by clicking its corresponding label or language code. It **should** include non-speech information and speaker identification. There are many formats of closed caption files but we have adopted WebVTT.
 * **PDF Transcript**: A PDF transcript is a supplemental file that may be associated with a work or file.  It is meant to act as a different rendering of the resource appearing in the player.
+* **Subtitle File**: A subtitle file is a synchronized text transcript of a video's audio in a language different from what it was originally recorded in. Like closed caption files, subtitle files are shown in the media player. It is not required by WCAG 2.1 AA.  It **may** include speaker identification and other non-speech information. There are many formats of subtitle files but we have adopted WebVTT.
 * **Transcript**: A transcript is a synchronized transcript of an audio or video file that is used primarily for search and navigation.  As a result, it may not include non-speech information or speaker identification. There are many formats of transcript files but we have adopted WebVTT.
