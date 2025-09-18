@@ -2,8 +2,6 @@
 Making Transcripts with Whisper
 ==========================
 
-For this, you will need python, poetry, and a code editor.
-
 ------------------------
 Clone relevant git repositories.
 ------------------------
@@ -115,20 +113,3 @@ The :code:`test_for_whisper_transcript_online.json` file should have items added
 The code will appear as a series of three data within a bracket: the :code:`"audio"` (link to url for a specific file), :code:`"url"` (path to get to corresponding json file), and :code:`"name"` (title given to audio file). 
 
 In whisper-reviewer, open :code:`vtts/` folder and select a newly changed file. In VSCode, the most recently added files will be green. Edit the file.
-
---------
-Uploading Transcript
---------
-
-Once you are done uploading transcripts, you will need to push it onto github.
-Do this series of commands:
-
-.. code-block:: shell
-
-    git checkout -b new_branch_name
-    git add vtts/
-    git add public/
-    git commit -m 'changes you made'
-    git push origin new_branch_name
-
-

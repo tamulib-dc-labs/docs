@@ -331,7 +331,6 @@
         <article role="main" id="furo-main-content">
           <section id="making-transcripts-with-whisper">
 <h1>Making Transcripts with Whisper<a class="headerlink" href="#making-transcripts-with-whisper" title="Link to this heading">¶</a></h1>
-<p>For this, you will need python, poetry, and a code editor.</p>
 <section id="clone-relevant-git-repositories">
 <h2>Clone relevant git repositories.<a class="headerlink" href="#clone-relevant-git-repositories" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -425,18 +424,6 @@ The <code class="code docutils literal notranslate"><span class="pre">test_for_w
 The code will appear as a series of three data within a bracket: the <code class="code docutils literal notranslate"><span class="pre">&quot;audio&quot;</span></code> (link to url for a specific file), <code class="code docutils literal notranslate"><span class="pre">&quot;url&quot;</span></code> (path to get to corresponding json file), and <code class="code docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> (title given to audio file).</p>
 <p>In whisper-reviewer, open <code class="code docutils literal notranslate"><span class="pre">vtts/</span></code> folder and select a newly changed file. In VSCode, the most recently added files will be green. Edit the file.</p>
 </section>
-<section id="uploading-transcript">
-<h2>Uploading Transcript<a class="headerlink" href="#uploading-transcript" title="Link to this heading">¶</a></h2>
-<p>Once you are done uploading transcripts, you will need to push it onto github.
-Do this series of commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>new_branch_name
-git<span class="w"> </span>add<span class="w"> </span>vtts/
-git<span class="w"> </span>add<span class="w"> </span>public/
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;changes you made&#39;</span>
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>new_branch_name
-</pre></div>
-</div>
-</section>
 </section>
 
         </article>
@@ -499,7 +486,6 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li><a class="reference internal" href="#import-files">Import files.</a></li>
 <li><a class="reference internal" href="#transcribing">Transcribing</a></li>
 <li><a class="reference internal" href="#editing-vtts">Editing vtts</a></li>
-<li><a class="reference internal" href="#uploading-transcript">Uploading Transcript</a></li>
 </ul>
 </li>
 </ul>
