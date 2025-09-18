@@ -1,7 +1,6 @@
 ==========================
 DSPACE: Importing Entities
 ==========================
-For this, you will need python, poetry shell, and a code editor.
 
 ------------------------
 Clone relevant git repository
