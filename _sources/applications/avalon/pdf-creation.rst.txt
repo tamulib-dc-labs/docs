@@ -34,8 +34,8 @@ This page explains how to generate pdfs for a collection of objects using existi
 | VTT                                   | Use the Parent work and File id fields following format: "{Parent work}_{File id}_access.caption.vtt"     |
 +---------------------------------------+-----------------------------------------------------------------------------------------------------------+
 
-5. Use the function pdf-build. Change the :code:`collection_title` and the line below it to have the name of your collection and csv you just created. Make sure you have a folder for your pdfs to save and change the :code:`output_filename` and the vtt location.
+5. Use the function pdf-build.py. Change the :code:`collection_title` and the line below it to have the name of your collection and csv you just created. Make sure you have a folder for your pdfs to save and change the :code:`output_filename` and the vtt location.
 
-6. Run :code:`python pdf-build`. 
+6. Run :code:`python pdf-build.py`. 
 
 7. To upload to Avalon, look at the documentation titled "Importing media into Avalon via API Key". PDFs can only be imported through the API key, never through spreadsheets.

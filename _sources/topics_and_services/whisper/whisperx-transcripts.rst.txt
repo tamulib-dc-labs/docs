@@ -8,6 +8,10 @@ Making Transcripts with WhisperX
 
 3. Enter the following prompt into the terminal: 
 
+:code:`whisperx {filepath} --model turbo --output_dir output`
+
+You may need more commands depending on what you want from WhisperX.
+
 ------------------
 Special prompts:
 ------------------
@@ -34,17 +38,15 @@ To move the json and vtt to `whisper-editor <https://github.com/tamulib-dc-labs/
 
 .. code:: python
     from csv import DictReader
-import os
-import json
-import shutil
-
-json_file_data = "/Users/{Username}/whisper-reviewer/public/test_for_whisper_transcript_online.json"
-all_data = []
-
-with open(json_file_data, "r") as my_json:
+    import os
+    import json
+    import shutil
+    json_file_data = "/Users/{Username}/whisper-reviewer/public/test_for_whisper_transcript_online.json"
+    all_data = []
+    
+    with open(json_file_data, "r") as my_json:
     audio_file_data = json.load(my_json)
-
-with open("mycsv.csv", "r") as my_file:
+    with open("mycsv.csv", "r") as my_file:
     reader = DictReader(my_file)
     for row in reader:
         if row['Title'] != "":
@@ -55,22 +57,22 @@ with open("mycsv.csv", "r") as my_file:
                     "audio": row['Audio']
                 }
             )
-for path, directories, files in os.walk("output"):
-    for file in files:
-        if ".json" in file:
-            identifier = file.split('.json')[0]
-            name = [item["title"] for item in all_data if item['uin'] == identifier][0]
-            full_name = f"{name} whisperx"
-            audio_file_location = [item["audio"] for item in all_data if item['uin'] == identifier][0]
-            audio_file_data.append(
-                {
-                    "audio": audio_file_location,
-                    "url": f"./transcripts/{file}",
-                    "name": full_name
-                }
-            )
-            shutil.move(f"{path}/{file}", "/Users/{Username}/whisper-reviewer/public/transcripts")
-            with open(json_file_data, "w") as f:
-                json.dump(audio_file_data, f, indent=4)
-        elif '.vtt' in file:
+    for path, directories, files in os.walk("output"):
+        for file in files:
+            if ".json" in file:
+                identifier = file.split('.json')[0]
+                name = [item["title"] for item in all_data if item['uin'] == identifier][0]
+                full_name = f"{name} whisperx"
+                audio_file_location = [item["audio"] for item in all_data if item['uin'] == identifier][0]
+                audio_file_data.append(
+                    {
+                        "audio": audio_file_location,
+                        "url": f"./transcripts/{file}",
+                        "name": full_name
+                    }
+                )
+                shutil.move(f"{path}/{file}", "/Users/{Username}/whisper-reviewer/public/transcripts")
+                with open(json_file_data, "w") as f:
+                    json.dump(audio_file_data, f, indent=4)
+            elif '.vtt' in file:
                 shutil.move(f"{path}/{file}", "/Users/{Username}/whisper-reviewer/vtts/{output-folder}")

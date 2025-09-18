@@ -336,6 +336,8 @@
 <li><p>In that same respository, add a folder of your source files.</p></li>
 <li><p>Enter the following prompt into the terminal:</p></li>
 </ol>
+<p><code class="code docutils literal notranslate"><span class="pre">whisperx</span> <span class="pre">{filepath}</span> <span class="pre">--model</span> <span class="pre">turbo</span> <span class="pre">--output_dir</span> <span class="pre">output</span></code></p>
+<p>You may need more commands depending on what you want from WhisperX.</p>
 <section id="special-prompts">
 <h2>Special prompts:<a class="headerlink" href="#special-prompts" title="Link to this heading">¶</a></h2>
 <p>If the audio is in a language other than English, append the following code to your command prompt:</p>
@@ -349,63 +351,6 @@
 <h2>WhisperX output<a class="headerlink" href="#whisperx-output" title="Link to this heading">¶</a></h2>
 <p>As output, five files will be generated: .json, .srt, .tsv, .txt, and .vtt</p>
 <p>To move the json and vtt to <a class="reference external" href="https://github.com/tamulib-dc-labs/whisper-reviewer">whisper-editor</a>, make sure you have the following add-to-json.py downloaded.</p>
-<p>import os
-import json
-import shutil</p>
-<p>json_file_data = “/Users/{Username}/whisper-reviewer/public/test_for_whisper_transcript_online.json”
-all_data = []</p>
-<dl>
-<dt>with open(json_file_data, “r”) as my_json:</dt><dd><p>audio_file_data = json.load(my_json)</p>
-</dd>
-<dt>with open(“mycsv.csv”, “r”) as my_file:</dt><dd><p>reader = DictReader(my_file)
-for row in reader:</p>
-<blockquote>
-<div><dl>
-<dt>if row[‘Title’] != “”:</dt><dd><dl>
-<dt>all_data.append(</dt><dd><dl class="simple">
-<dt>{</dt><dd><p>“uin”: row[‘UIN’],
-“title”: row[‘Title’],
-“audio”: row[‘Audio’]</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>)</p>
-</dd>
-</dl>
-</div></blockquote>
-</dd>
-<dt>for path, directories, files in os.walk(“output”):</dt><dd><dl>
-<dt>for file in files:</dt><dd><dl>
-<dt>if “.json” in file:</dt><dd><p>identifier = file.split(‘.json’)[0]
-name = [item[“title”] for item in all_data if item[‘uin’] == identifier][0]
-full_name = f”{name} whisperx”
-audio_file_location = [item[“audio”] for item in all_data if item[‘uin’] == identifier][0]
-audio_file_data.append(</p>
-<blockquote>
-<div><dl class="simple">
-<dt>{</dt><dd><p>“audio”: audio_file_location,
-“url”: f”./transcripts/{file}”,
-“name”: full_name</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>)
-shutil.move(f”{path}/{file}”, “/Users/{Username}/whisper-reviewer/public/transcripts”)
-with open(json_file_data, “w”) as f:</p>
-<blockquote>
-<div><p>json.dump(audio_file_data, f, indent=4)</p>
-</div></blockquote>
-</dd>
-<dt>elif ‘.vtt’ in file:</dt><dd><p>shutil.move(f”{path}/{file}”, “/Users/{Username}/whisper-reviewer/vtts/{output-folder}”)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
 </section>
 </section>
 
