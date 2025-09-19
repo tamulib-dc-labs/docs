@@ -28,6 +28,8 @@ To help diarization, append the following code:
 
 :code:`--min_speakers {Number} --max_speakers {Number}`
 
+Keep in mind that commercials, announcements, and narrators are also considered speakers.
+
 ---------------
 WhisperX output
 ---------------
