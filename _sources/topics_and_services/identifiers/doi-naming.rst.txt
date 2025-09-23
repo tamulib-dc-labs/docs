@@ -42,3 +42,19 @@ For example:
 
 This convention ensures a consistent mapping between DOIs and OAKTrust handles.
 
+--------------------------
+DOIs for Pressbooks Titles
+--------------------------
+
+Pressbooks DOIs follow a **randomized suffix pattern**.
+The format uses the ``10.21423/odp.`` prefix, followed by a random string.
+Each DOI resolves directly to a Pressbooks-hosted publication.
+
+- Example DOI:
+  ``https://doi.org/10.21423/odp.vmfn5541``
+
+- Resolves to:
+  `https://odp.library.tamu.edu/odp-guidelines/ <https://odp.library.tamu.edu/odp-guidelines/>`_
+
+In order to ensure uniqueness, the :code:`opd.` namespace is reserved for Pressbooks and other applications in use by
+the Open Publishing unit.
