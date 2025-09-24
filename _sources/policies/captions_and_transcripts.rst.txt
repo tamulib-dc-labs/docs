@@ -209,8 +209,8 @@ Highest / Fully Remediated
 3. Proper names, technical terms, and specialized content verified.
 4. Interactive transcript fully functional and synced.
 5. Metadata reflects Fully Reviewed status, with version history documented.
-6. Translation to English (if the Video was originally in another language).
-7. Translation to Another Language (if the Video was originally in English).
+6. Translation to English (if the audio was originally in another language).
+7. Translation to Another Language (if the audio was originally in English).
 
 À La Carte Enhancement
 ======================
@@ -267,9 +267,9 @@ Some factors include:
 
 1. All elements of Minimal Enhancement.
 2. Metadata updated to reflect remediation status (e.g., *Partially Reviewed*).
-3. For songs in English, timestamps removed to show lyrics as they were sung (ie in verses and stanzas).
+3. For songs in English or other language known by library staff, timestamps removed to show lyrics as they were sung (ie in verses and stanzas).
 4. For instrumental songs, all timestamps removed and replaced with the text "🎵 Instrumental Song 🎵".
-5. For songs in languages other than English, all timestamps removed and replaced with the text "🎵 Song with lyrics in [Language] 🎵".
+5. For songs in languages not known by library staff, all timestamps removed and replaced with the text "🎵 Song with lyrics in [Language] 🎵".
 
 **Highest / Fully Remediated**
 
@@ -278,8 +278,6 @@ Some factors include:
 3. Proper names, technical terms, and specialized content verified.
 4. Interactive transcript fully functional and synced.
 5. Metadata reflects Fully Reviewed status, with version history documented.
-6. Translation to English (if the Video was originally in another language).
-7. Translation to Another Language (if the Video was originally in English).
 
 **À La Carte Enhancement**
 
