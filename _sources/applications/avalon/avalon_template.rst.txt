@@ -2,7 +2,7 @@
 Template for Avalon Batch Imports
 ===========================
 
-Here is a template used for Avalon Batch Imports.
+Here is a template used for Avalon Batch Imports. All columns are verified to be compatible with Avalon 7.8.
 
 .. raw:: html
 
