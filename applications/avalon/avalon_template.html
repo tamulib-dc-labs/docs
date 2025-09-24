@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Template for Avalon Batch Imports" href="avalon_template.html" /><link rel="prev" title="Importing media into Avalon via API Key" href="api-batch-upload.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Downloading media from Avalon" href="downloading_from_avalon.html" /><link rel="prev" title="Importing media into Avalon" href="avalon_importing_entities.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Importing media into Avalon - TAMU Digital Collections Labs documentation</title>
+        <title>Template for Avalon Batch Imports - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -212,8 +212,8 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api-batch-upload.html">Importing media into Avalon via API Key</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Importing media into Avalon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="avalon_template.html">Template for Avalon Batch Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avalon_importing_entities.html">Importing media into Avalon</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Template for Avalon Batch Imports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="downloading_from_avalon.html">Downloading media from Avalon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata.html">Avalon Metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-creation.html">How to make a PDF transcript to upload to Avalon.</a></li>
@@ -312,7 +312,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/avalon/avalon_importing_entities.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/avalon/avalon_template.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -326,61 +326,37 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="importing-media-into-avalon">
-<h1>Importing media into Avalon<a class="headerlink" href="#importing-media-into-avalon" title="Link to this heading">¶</a></h1>
-<p>How to batch upload media into Avalon when uploading audio/video and transcripts/captions at once. This will not work if you are uploading supplementary files separately, such as pdfs.</p>
-<section id="creating-a-collection">
-<h2>Creating a Collection<a class="headerlink" href="#creating-a-collection" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Log into Avalon. Go to the menu bar at the top. Click “Manage”, and from the drop down list, click “Manage Content”.</p></li>
-<li><p>Click on the “Create Collection” button at the top right.</p></li>
-</ol>
-</section>
-<section id="importing-a-batch">
-<h2>Importing a batch<a class="headerlink" href="#importing-a-batch" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Click on the “Create An Item” button. Make sure you are under “Manage files” on the menu on the left side of the screen.</p></li>
-<li><p>You will use the Dropbox to import a batch. To import a batch, make sure you have access to <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod</span></code>. A new folder should have been automatically generated with the same name as the collection you just created. Create a subfolder within that folder called “Content”. Drag and drop all media files you would like to upload into the new subfolder, both audio/video and transcripts.</p></li>
-</ol>
-</section>
-<section id="creating-a-xslx-spreadsheet">
-<h2>Creating a .xslx spreadsheet<a class="headerlink" href="#creating-a-xslx-spreadsheet" title="Link to this heading">¶</a></h2>
-<p>To import a batch, you must create a metadata table.</p>
-<p>Use <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/avalon/metadata.html">this table</a> for guidance on metadata fields and column labels.</p>
+          <section id="template-for-avalon-batch-imports">
+<h1>Template for Avalon Batch Imports<a class="headerlink" href="#template-for-avalon-batch-imports" title="Link to this heading">¶</a></h1>
+<p>Here is a template used for Avalon Batch Imports.</p>
+<iframe src="https://docs.google.com/spreadsheets/d/1QcxBWxmplvGvT3OgbTsCV0Fc9dHSRHgMwp9CYABo4aE/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe><p><strong>Things to consider</strong></p>
 <ul class="simple">
-<li><p>You must include <strong>either</strong> “Bibliographic ID” and “Bibliographic ID Label” columns <strong>or</strong> “Other Identifier Type” and “Other Identifier” columns. If you use “Other Identifier” make sure you put “local” under the “Other Identifier Type” and then the local identifer under “Other Identifier”.</p></li>
-<li><p>The table should include a column for “File”. This should be a filepath relative to the automatically generated folder. If you used the name “Content” for the subfolder, the file path may look like <code class="code docutils literal notranslate"><span class="pre">content/file_name</span></code>.</p></li>
-<li><p>Adjacent to the right of “File” there should be a column called “Label”. This will be a label for each audio/video file.</p></li>
-<li><p>You need a “Date Issued” column (non negotiable). Dates should follow YYYY-MM-DD format. If the day is unknown, stop after the month. If the month is unknown, add an “X” after the year (YYYYX). If part of the year is unknown, add an X for the digits you don’t know (YYYX). If the entire date is unknown write “unknown/unknown”.</p></li>
-<li><p>You need a “Title” column (non negotiable).</p></li>
-<li><p>Do not use a “Duration” column with Avalon 7.8. It will cause an error.</p></li>
-<li><p>If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to “File” and “Label” for the A/V file, a transcript will need adjacent “Transcript File” and “Label” columns. “Transcript File” should be a filepath.</p></li>
-<li><p>If you have PDFs, they cannot be uploaded under a batch upload. They can only be ingested using an API key.</p></li>
+<li><p>Technically this works with a xlsx spreadsheet, but a csv helps prevent numerical fields from autocorrecting.</p></li>
+<li><p>Creator, Contributor, Genre, Subject, Geographic Subject, Temporal Subject, Note Type, and Note are all repeatable.</p></li>
+<li><p>Note Type must be immediately followed by Note.</p></li>
+<li><p>Caption File must be immediate followed by Caption Label.</p></li>
+<li><p>Transcript File must be immediate followed by Transcript Label.</p></li>
+<li><p>Language and Caption Language should be two-letter codes (ie “en” not “eng” or “English”).</p></li>
+<li><p>Offset must follow HH:MM:SS.sss format. Make sure it is in plain text.</p></li>
+<li><dl class="simple">
+<dt>Date must follow this format:</dt><dd><ul>
+<li><p>YYYY-MM-DD</p></li>
+<li><p>YYYY-MM</p></li>
+<li><p>YYYY</p></li>
+<li><p>YYYX (if decade is known but year is not)</p></li>
+<li><p>YYYY-MM-DD/YYYY-MM-DD (if range)</p></li>
+<li><p>unknown/unknown</p></li>
 </ul>
-</section>
-<section id="uploading-through-dropbox">
-<h2>Uploading through Dropbox<a class="headerlink" href="#uploading-through-dropbox" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>When the .xlsx spreadsheet is complete, place it under the automatically generated folder for the collection in the <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-pre/collection_name</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/avalon-prod/collection_name</span></code> drive (not under <code class="code docutils literal notranslate"><span class="pre">cifs/avalon_pre/collection_name/content</span></code> or <code class="code docutils literal notranslate"><span class="pre">cifs/prod/collection_name/content</span></code>).</p></li>
-<li><p>Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements.</p></li>
-<li><p>Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn’t pass the standards, fix it and upload it to the cifs drive again. Note that you do not need to change the excel file name as directed on the email, but if you don’t, all items will be uploaded a second time on the next upload attempt.</p></li>
-<li><p>All items should be uploaded directly into Avalon.</p></li>
-</ol>
-</section>
-<section id="publishing">
-<h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading">¶</a></h2>
-<p>To publish the items you uploaded, go to Manage &gt; Manage Content. Click on your collection, then select “List All Items”. Select all items you wish to publish. Then, go to the “Selected Items” option on the menu, and click on the “Publish” button.</p>
-</section>
-<section id="updating-access-control">
-<h2>Updating Access Control<a class="headerlink" href="#updating-access-control" title="Link to this heading">¶</a></h2>
-<p>To change the access of some items, go to Manage &gt; Manage Content. Click on your collection, then select “List All Items”. Select all items you wish to change access for. Then, go to the “Selected Items” option on the menu, and click on the “Update Access Control” button.</p>
-</section>
+</dd>
+</dl>
+</li>
+</ul>
 </section>
 
         </article>
@@ -388,23 +364,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="avalon_template.html">
+          <a class="next-page" href="downloading_from_avalon.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Template for Avalon Batch Imports</div>
+                <div class="title">Downloading media from Avalon</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="api-batch-upload.html">
+          <a class="prev-page" href="avalon_importing_entities.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Importing media into Avalon via API Key</div>
+                <div class="title">Importing media into Avalon</div>
                 
               </div>
             </a>
@@ -426,32 +402,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Importing media into Avalon</a><ul>
-<li><a class="reference internal" href="#creating-a-collection">Creating a Collection</a></li>
-<li><a class="reference internal" href="#importing-a-batch">Importing a batch</a></li>
-<li><a class="reference internal" href="#creating-a-xslx-spreadsheet">Creating a .xslx spreadsheet</a></li>
-<li><a class="reference internal" href="#uploading-through-dropbox">Uploading through Dropbox</a></li>
-<li><a class="reference internal" href="#publishing">Publishing</a></li>
-<li><a class="reference internal" href="#updating-access-control">Updating Access Control</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
