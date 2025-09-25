@@ -23,9 +23,9 @@ Importing a batch
 Creating a .xslx spreadsheet
 ----------------------------
 
-To import a batch, you must create a metadata table.
+To import a batch, you must create a metadata table. Use csv instead of xlsx because xlsx will autocorrect numerical values into a format not compatible with Avalon 7.8.
 
-Use `this table <https://tamulib-dc-labs.github.io/docs/applications/avalon/metadata.html>`_ for guidance on metadata fields and column labels. 
+Use `this table <https://tamulib-dc-labs.github.io/docs/applications/avalon/avalon_template.html>`_ for guidance on metadata fields and column labels. 
 
 * You must include **either** "Bibliographic ID" and "Bibliographic ID Label" columns **or** "Other Identifier Type" and "Other Identifier" columns. If you use "Other Identifier" make sure you put "local" under the "Other Identifier Type" and then the local identifer under "Other Identifier".
 * The table should include a column for "File". This should be a filepath relative to the automatically generated folder. If you used the name "Content" for the subfolder, the file path may look like :code:`content/file_name`.
@@ -33,18 +33,18 @@ Use `this table <https://tamulib-dc-labs.github.io/docs/applications/avalon/meta
 * You need a "Date Issued" column (non negotiable). Dates should follow YYYY-MM-DD format. If the day is unknown, stop after the month. If the month is unknown, add an "X" after the year (YYYYX). If part of the year is unknown, add an X for the digits you don't know (YYYX). If the entire date is unknown write "unknown/unknown".
 * You need a "Title" column (non negotiable).
 * Do not use a "Duration" column with Avalon 7.8. It will cause an error.
-* If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to "File" and "Label" for the A/V file, a transcript will need adjacent "Transcript File" and "Label" columns. "Transcript File" should be a filepath.
+* If you have transcripts, they should go under the same row as their corresponding audio/video file. Similar to "File" and "Label" for the A/V file, a transcript will need adjacent "Transcript File" and "Transcript Label" columns. These should be filepaths.
 * If you have PDFs, they cannot be uploaded under a batch upload. They can only be ingested using an API key.
 
 -------------------------
 Uploading through Dropbox
 -------------------------
 
-1. When the .xlsx spreadsheet is complete, place it under the automatically generated folder for the collection in the :code:`cifs/avalon-pre/collection_name` or :code:`cifs/avalon-prod/collection_name` drive (not under :code:`cifs/avalon_pre/collection_name/content` or :code:`cifs/prod/collection_name/content`).
+1. When the spreadsheet is complete, place it under the automatically generated folder for the collection in the :code:`cifs/avalon-pre/collection_name` or :code:`cifs/avalon-prod/collection_name` drive (not under :code:`cifs/avalon_pre/collection_name/content` or :code:`cifs/prod/collection_name/content`).
 
-2. Drag and drop the .xlsx spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. 
+2. Drag and drop the spreadsheet into the cifs drive. It should automatically disappear. Eventually, you will get an automatically generated email saying the metadata table passed the requirements. 
 
-3. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn't pass the standards, fix it and upload it to the cifs drive again. Note that you do not need to change the excel file name as directed on the email, but if you don't, all items will be uploaded a second time on the next upload attempt.
+3. Later, you will receive a second automatically generated email telling you the metadata on the table passed standards. If your table didn't pass the standards, fix it and upload it to the cifs drive again. The email will direct you to change the file name and reupload. Do not do this or else it will upload everything again. Make a new spreadsheet with only the rows that failed to upload to make it "start over".
 
 4. All items should be uploaded directly into Avalon.
 

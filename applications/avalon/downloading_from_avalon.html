@@ -353,12 +353,8 @@
 <h2>Second method<a class="headerlink" href="#second-method" title="Link to this heading">¶</a></h2>
 <p>This method requires that you have an API key.</p>
 <ol class="arabic simple">
-<li><p>Open mark_get_avalon_files.py. Make sure your API key is connected on Line 14.</p></li>
-<li><p>Go to the collection and copy the string after <a class="reference external" href="https://avalon.library.tamu.edu">https://avalon.library.tamu.edu</a>.</p></li>
-<li><p>Scroll to the bottom of the code, to the last paragraph. Paste the string for the variable <code class="code docutils literal notranslate"><span class="pre">collection</span></code>. Under <code class="code docutils literal notranslate"><span class="pre">example</span></code>, specify whether it is prod or pre.</p></li>
-<li><p>Create a folder where you would like the files downloaded to. Enter the file path under <code class="code docutils literal notranslate"><span class="pre">example.download_best_files</span></code>.</p></li>
-<li><p>If you only want a spreadsheet with metadata taken from Avalon, comment out the lines related to downloading files.</p></li>
-<li><p>Run the program by typing <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">mark_get_avalon_files.py</span></code> into the terminal.</p></li>
+<li><p>Download <a class="reference external" href="https://github.com/tamulib-dc-labs/pyavalon">pyavalon</a>.</p></li>
+<li><p>In the terminal, type <code class="code docutils literal notranslate"><span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{collection</span> <span class="pre">id}</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span> <span class="pre">--download</span> <span class="pre">-f</span> <span class="pre">{file</span> <span class="pre">output</span> <span class="pre">directory}</span> <span class="pre">-o</span> <span class="pre">{output.csv}</span></code></p></li>
 </ol>
 </section>
 </section>

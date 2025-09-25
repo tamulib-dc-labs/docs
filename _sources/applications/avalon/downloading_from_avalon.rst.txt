@@ -32,15 +32,7 @@ Second method
 
 This method requires that you have an API key.
 
-1. Open mark_get_avalon_files.py. Make sure your API key is connected on Line 14. 
+1. Download `pyavalon <https://github.com/tamulib-dc-labs/pyavalon>`_.
 
-2. Go to the collection and copy the string after https://avalon.library.tamu.edu.
-
-3. Scroll to the bottom of the code, to the last paragraph. Paste the string for the variable :code:`collection`. Under :code:`example`, specify whether it is prod or pre.
-
-4. Create a folder where you would like the files downloaded to. Enter the file path under :code:`example.download_best_files`.
-
-5. If you only want a spreadsheet with metadata taken from Avalon, comment out the lines related to downloading files.
-
-6. Run the program by typing :code:`python mark_get_avalon_files.py` into the terminal.
+2. In the terminal, type :code:`get_file_ids_from_a_collection -c "{collection id} -i {pre or prod} --download -f {file output directory} -o {output.csv}`
 

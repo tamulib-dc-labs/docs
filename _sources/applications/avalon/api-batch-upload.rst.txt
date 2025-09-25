@@ -13,16 +13,16 @@ Download relevant Avalon metadata
 ---------------------
 In the terminal, enter :code:`pyavalon get_file_ids_from_a_collection -c "{id of the collection}" -i {pre or prod}`.
 
-This will generate an output .csv with the following columns: "id", "label", "parent label", and "derivative".
+This will generate an output.csv with the following columns: "Parent work", "Creator", "Contributor", "File id", "File title", "Work title", "Subject", "Rights", "Identifier", "Publisher", and "derivative".
 
 ---------------------
 Create input.csv 
 ---------------------
 Create an input.csv with four columns: id, filename, label, and type. 
- * id should be the same as the id in the previous output.csv
- * filename should be a filepath starting with /Users.
+ * id should be the same as the File id in the previous output.csv
+ * filename should be a filepath. If importing pdfs, the filename must start with /Users.
  * label is the name you want the file to appear with when it's online. It is recommended for the label to be "Captions in English" or "Transcript in English".
- * type can only be captions, transcript, or pdf.
+ * type can only be caption, transcript, or pdf.
 
 ---------------------
 Push into Avalon

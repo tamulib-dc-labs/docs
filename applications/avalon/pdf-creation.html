@@ -339,50 +339,12 @@
 <li><p>Download existing metadata by using <a class="reference external" href="https://github.com/tamulib-dc-labs/pyavalon">pyavalon</a>.</p></li>
 <li><p>In the terminal enter <code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{collection</span> <span class="pre">id}&quot;</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span></code>.</p></li>
 <li><p>A .csv will generate with metadata for the title, creator, contributor, date, rights information, publisher, subjects, derivative file, a parent work file id, a file id, a file title, and a work title.</p></li>
-<li><p>Create your own <code class="code docutils literal notranslate"><span class="pre">{collection-name}-pdf.csv</span></code>. Include the following columns:</p></li>
+<li><p>Create your own <code class="code docutils literal notranslate"><span class="pre">{collection-name}-pdfs.csv</span></code>. Include the following columns:</p></li>
 </ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Column in {collection-name}-pdf.csv</p></th>
-<th class="head"><p>How to create using output.csv</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Title</p></td>
-<td><p>Use work title if that is the only title available. If not use file title.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Main Contributor(s)</p></td>
-<td><p>Use Creator field.</p></td>
-</tr>
-<tr class="row-even"><td><p>Constributor(s)</p></td>
-<td><p>Use Contributor field.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Date of Creation</p></td>
-<td><p>Use Date field.</p></td>
-</tr>
-<tr class="row-even"><td><p>Link to resource</p></td>
-<td><p>Use Parent work field in following format: “<a class="reference external" href="https://avalon.library.tamu.edu/media_objects">https://avalon.library.tamu.edu/media_objects</a>/{Parent work}”`</p></td>
-</tr>
-<tr class="row-odd"><td><p>Publisher</p></td>
-<td><p>Use Publisher field.</p></td>
-</tr>
-<tr class="row-even"><td><p>Subject(s)</p></td>
-<td><p>Use Subjects field.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Rights Information</p></td>
-<td><p>Use Rights information field.</p></td>
-</tr>
-<tr class="row-even"><td><p>VTT</p></td>
-<td><p>Use the Parent work and File id fields following format: “{Parent work}_{File id}_access.caption.vtt”</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ol class="arabic simple" start="5">
+<iframe src="https://docs.google.com/spreadsheets/d/1gSdG4xnoWT_RWQCOsYCdpVVmXSixpUW6ufwTPSAN8l0/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe><ol class="arabic simple" start="5">
 <li><p>Use the function pdf-build.py. Change the <code class="code docutils literal notranslate"><span class="pre">collection_title</span></code> and the line below it to have the name of your collection and csv you just created. Make sure you have a folder for your pdfs to save and change the <code class="code docutils literal notranslate"><span class="pre">output_filename</span></code> and the vtt location.</p></li>
 <li><p>Run <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">pdf-build.py</span></code>.</p></li>
-<li><p>To upload to Avalon, look at the documentation titled “Importing media into Avalon via API Key”. PDFs can only be imported through the API key, never through spreadsheets.</p></li>
+<li><p>To upload to Avalon, look at the documentation <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/avalon/api-batch-upload.html">Importing media into Avalon via API Key</a>. PDFs can only be imported through the API key, never through spreadsheets.</p></li>
 </ol>
 </section>
 

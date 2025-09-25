@@ -342,16 +342,16 @@
 <section id="download-relevant-avalon-metadata">
 <h2>Download relevant Avalon metadata<a class="headerlink" href="#download-relevant-avalon-metadata" title="Link to this heading">¶</a></h2>
 <p>In the terminal, enter <code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{id</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">collection}&quot;</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span></code>.</p>
-<p>This will generate an output .csv with the following columns: “id”, “label”, “parent label”, and “derivative”.</p>
+<p>This will generate an output.csv with the following columns: “Parent work”, “Creator”, “Contributor”, “File id”, “File title”, “Work title”, “Subject”, “Rights”, “Identifier”, “Publisher”, and “derivative”.</p>
 </section>
 <section id="create-input-csv">
 <h2>Create input.csv<a class="headerlink" href="#create-input-csv" title="Link to this heading">¶</a></h2>
 <dl class="simple">
 <dt>Create an input.csv with four columns: id, filename, label, and type.</dt><dd><ul class="simple">
-<li><p>id should be the same as the id in the previous output.csv</p></li>
-<li><p>filename should be a filepath starting with /Users.</p></li>
+<li><p>id should be the same as the File id in the previous output.csv</p></li>
+<li><p>filename should be a filepath. If importing pdfs, the filename must start with /Users.</p></li>
 <li><p>label is the name you want the file to appear with when it’s online. It is recommended for the label to be “Captions in English” or “Transcript in English”.</p></li>
-<li><p>type can only be captions, transcript, or pdf.</p></li>
+<li><p>type can only be caption, transcript, or pdf.</p></li>
 </ul>
 </dd>
 </dl>
