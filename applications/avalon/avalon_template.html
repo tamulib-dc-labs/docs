@@ -340,8 +340,8 @@
 <li><p>If you are uploading videos, go to the “captions” page. If you are uploading audio only, go to the “transcript” page.</p></li>
 <li><p>Technically this works with a xlsx spreadsheet, but a csv prevents numerical fields from autocorrecting.</p></li>
 <li><p>Title and File are the only required fields.</p></li>
-<li><p>Creator, Contributor, Genre, Language, Subject, Geographic Subject, Temporal Subject, Note, and Note Type are all repeatable.</p></li>
-<li><p>Note must be immediately followed by Note Type.</p></li>
+<li><p>Creator, Contributor, Genre, Language, Subject, Geographic Subject, Temporal Subject, Note Type, and Note are all repeatable.</p></li>
+<li><p>Note Type must be immediately followed by Note.</p></li>
 <li><p>Caption File must be immediate followed by Caption Label.</p></li>
 <li><p>Transcript File must be immediate followed by Transcript Label.</p></li>
 <li><p>Language should be a three-letter code (ie “eng”).</p></li>
@@ -359,6 +359,14 @@
 </dl>
 </li>
 </ul>
+<p><strong>Ways this differs from official documentation</strong>
+* Unknown if Date Created works
+* “Topical Subject” does not work. Use “Subject” instead.
+* Do not use the term “Main Contributor”. The field is “Creator”.
+* “Statement of Responsibility” seems to not do anything.
+* Do not use “Transcript File Label”. The field is “Transcript Label”.
+* You do not need to select files to upload from a Dropbox. You do not need Filezilla or any other Secure File Transfer Protocol (SFTP) client. Putting them on the cifs drive is enough.
+* If there is an error during ingest, do not reupload the spreadsheet after making changes. It will reupload all files, giving you duplicates. Create a new spreadsheet for only the files that failed.</p>
 </section>
 
         </article>
