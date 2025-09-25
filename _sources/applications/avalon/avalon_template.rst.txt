@@ -11,16 +11,16 @@ Here is a template used for Avalon Batch Imports. All columns are verified to be
 
 **Things to consider**
 
-* Technically this works with a xlsx spreadsheet, but a csv helps prevent numerical fields from autocorrecting.
-* Creator, Contributor, Genre, Subject, Geographic Subject, Temporal Subject, Note Type, and Note are all repeatable.
-* Note Type must be immediately followed by Note.
-* Caption and Transcript should not both be used. If you are uploading videos, go to the "captions" page. If you are uploading audio only, go to the "transcript" page.
+* If you are uploading videos, go to the "captions" page. If you are uploading audio only, go to the "transcript" page.
+* Technically this works with a xlsx spreadsheet, but a csv prevents numerical fields from autocorrecting.
+* Title and File are the only required fields.
+* Creator, Contributor, Genre, Language, Subject, Geographic Subject, Temporal Subject, Note, and Note Type are all repeatable.
+* Note must be immediately followed by Note Type.
 * Caption File must be immediate followed by Caption Label.
 * Transcript File must be immediate followed by Transcript Label.
 * Language should be a three-letter code (ie "eng").
-* Caption Language should be a two-letter code (ie "en").
 * Offset must follow HH:MM:SS.sss format. Make sure it is in plain text.
-* Date must follow this format:
+* Date Issued must follow this format:
     * YYYY-MM-DD
     * YYYY-MM
     * YYYY
