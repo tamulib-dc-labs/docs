@@ -374,30 +374,19 @@
 </ul>
 <img alt="Screenshot of numbering and bullet format" src="../_static/images/numbers-bullets.png" />
 </section>
-<section id="adding-a-hyperlink">
-<h2>Adding a hyperlink<a class="headerlink" href="#adding-a-hyperlink" title="Link to this heading">¶</a></h2>
+<section id="hyperlinks">
+<h2>Hyperlinks<a class="headerlink" href="#hyperlinks" title="Link to this heading">¶</a></h2>
 <p>To add a link, use the following format:</p>
 <p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/index.html">Home page for TAMU Digital Collections Labs</a></p>
 <img alt="Screenshot of hyperlink format" src="../_static/images/link.png" />
 <p>Do not forget the underscore (_) at the end.</p>
 </section>
-<section id="adding-a-line-of-code">
-<h2>Adding a line of code<a class="headerlink" href="#adding-a-line-of-code" title="Link to this heading">¶</a></h2>
-<p>To add a line of code, type “:code:” followed by two backticks. Backtick looks like this: `</p>
-<p>The backtick may be found in the upper left corner of the keyboard, sharing a key with the tilde (~).</p>
-<p>Type the code between the two backticks.</p>
-<p><code class="code docutils literal notranslate"><span class="pre">This</span> <span class="pre">text</span> <span class="pre">is</span> <span class="pre">formatted</span> <span class="pre">as</span> <span class="pre">code.</span></code></p>
-<img alt="Screenshot of code format" src="../_static/images/code.png" />
-</section>
-<section id="adding-a-block-of-code">
-<h2>Adding a block of code<a class="headerlink" href="#adding-a-block-of-code" title="Link to this heading">¶</a></h2>
-<p>To add a block of code, type <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">code::</span> <span class="pre">{coding</span> <span class="pre">language</span> <span class="pre">here}</span></code>. Then copy and paste the code. Make sure indentation of each row is correct. The text in the code block will appear in different colors for readability.</p>
-<img alt="Screenshot of code block format" src="../_static/images/code-block.png" />
-</section>
-<section id="adding-a-file-from-google-workspace">
-<h2>Adding a file from Google Workspace<a class="headerlink" href="#adding-a-file-from-google-workspace" title="Link to this heading">¶</a></h2>
-<p>Similar to a code block, you will write the line <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">raw::</span> <span class="pre">html&quot;</span></code>. In the next line, with a single indentation, type <code class="code docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;{link</span> <span class="pre">to</span> <span class="pre">document</span> <span class="pre">or</span> <span class="pre">spreadsheet}&quot;</span> <span class="pre">height=&quot;{height}&quot;</span> <span class="pre">width=&quot;{width}&quot;</span> <span class="pre">frameborder=&quot;0&quot;</span> <span class="pre">allowfullscreen&gt;&lt;/iframe&gt;</span></code>.</p>
-<iframe src="https://docs.google.com/document/d/1bRT2R4hQJ_ZaYumq_TRGQtc0dUDIA_2CK8FM2Hp7Xqg/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><img alt="Screenshot of code to add a google doc" src="../_static/images/google-doc.png" />
+<section id="images">
+<h2>Images<a class="headerlink" href="#images" title="Link to this heading">¶</a></h2>
+<p>To add an image, the image must first be added to the docs/source/_static/images/ folder. Then enter <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">image::</span> <span class="pre">{filepath}</span></code>.</p>
+<p>Press return and on the next line, after adding an indentation enter <code class="code docutils literal notranslate"><span class="pre">:alt:</span> <span class="pre">{Alt</span> <span class="pre">text}</span></code>.</p>
+<img alt="Texas A&amp;M Logo" src="../_static/images/TAM-MaroonBox.png" />
+<img alt="Screenshot of code to add an image of Texas A&amp;M Logo." src="../_static/images/image.png" />
 </section>
 <section id="creating-a-table">
 <h2>Creating a Table<a class="headerlink" href="#creating-a-table" title="Link to this heading">¶</a></h2>
@@ -424,12 +413,23 @@
 </div>
 <img alt="Screenshot of code to add a table." src="../_static/images/table.png" />
 </section>
-<section id="adding-an-image">
-<h2>Adding an Image<a class="headerlink" href="#adding-an-image" title="Link to this heading">¶</a></h2>
-<p>To add an image, the image must first be added to the docs/source/_static/images/ folder. Then enter <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">image::</span> <span class="pre">{filepath}</span></code>.</p>
-<p>Press return and on the next line, after adding an indentation enter <code class="code docutils literal notranslate"><span class="pre">:alt:</span> <span class="pre">{Alt</span> <span class="pre">text}</span></code>.</p>
-<img alt="Texas A&amp;M Logo" src="../_static/images/TAM-MaroonBox.png" />
-<img alt="Screenshot of code to add an image of Texas A&amp;M Logo." src="../_static/images/image.png" />
+<section id="adding-a-line-of-code">
+<h2>Adding a line of code<a class="headerlink" href="#adding-a-line-of-code" title="Link to this heading">¶</a></h2>
+<p>To add a line of code, type “:code:” followed by two backticks. Backtick looks like this: `</p>
+<p>The backtick may be found in the upper left corner of the keyboard, sharing a key with the tilde (~).</p>
+<p>Type the code between the two backticks.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">This</span> <span class="pre">text</span> <span class="pre">is</span> <span class="pre">formatted</span> <span class="pre">as</span> <span class="pre">code.</span></code></p>
+<img alt="Screenshot of code format" src="../_static/images/code.png" />
+</section>
+<section id="adding-a-block-of-code">
+<h2>Adding a block of code<a class="headerlink" href="#adding-a-block-of-code" title="Link to this heading">¶</a></h2>
+<p>To add a block of code, type <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">code::</span> <span class="pre">{coding</span> <span class="pre">language</span> <span class="pre">here}</span></code>. Then copy and paste the code. Make sure indentation of each row is correct. The text in the code block will appear in different colors for readability.</p>
+<img alt="Screenshot of code block format" src="../_static/images/code-block.png" />
+</section>
+<section id="adding-a-file-from-google-workspace">
+<h2>Adding a file from Google Workspace<a class="headerlink" href="#adding-a-file-from-google-workspace" title="Link to this heading">¶</a></h2>
+<p>Similar to a code block, you will write the line <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">raw::</span> <span class="pre">html&quot;</span></code>. In the next line, with a single indentation, type <code class="code docutils literal notranslate"><span class="pre">&lt;iframe</span> <span class="pre">src=&quot;{link</span> <span class="pre">to</span> <span class="pre">document</span> <span class="pre">or</span> <span class="pre">spreadsheet}&quot;</span> <span class="pre">height=&quot;{height}&quot;</span> <span class="pre">width=&quot;{width}&quot;</span> <span class="pre">frameborder=&quot;0&quot;</span> <span class="pre">allowfullscreen&gt;&lt;/iframe&gt;</span></code>.</p>
+<iframe src="https://docs.google.com/document/d/1bRT2R4hQJ_ZaYumq_TRGQtc0dUDIA_2CK8FM2Hp7Xqg/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><img alt="Screenshot of code to add a google doc" src="../_static/images/google-doc.png" />
 </section>
 </section>
 
@@ -493,12 +493,12 @@
 <li><a class="reference internal" href="#body-text">Body Text</a></li>
 <li><a class="reference internal" href="#bold-text">Bold Text</a></li>
 <li><a class="reference internal" href="#bullets-and-numbering">Bullets and Numbering</a></li>
-<li><a class="reference internal" href="#adding-a-hyperlink">Adding a hyperlink</a></li>
+<li><a class="reference internal" href="#hyperlinks">Hyperlinks</a></li>
+<li><a class="reference internal" href="#images">Images</a></li>
+<li><a class="reference internal" href="#creating-a-table">Creating a Table</a></li>
 <li><a class="reference internal" href="#adding-a-line-of-code">Adding a line of code</a></li>
 <li><a class="reference internal" href="#adding-a-block-of-code">Adding a block of code</a></li>
 <li><a class="reference internal" href="#adding-a-file-from-google-workspace">Adding a file from Google Workspace</a></li>
-<li><a class="reference internal" href="#creating-a-table">Creating a Table</a></li>
-<li><a class="reference internal" href="#adding-an-image">Adding an Image</a></li>
 </ul>
 </li>
 </ul>

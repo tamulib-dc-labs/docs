@@ -59,7 +59,7 @@ Bullets and Numbering
 
 
 -----------------
-Adding a hyperlink
+Hyperlinks
 -----------------
 
 To add a link, use the following format: 
@@ -71,6 +71,37 @@ To add a link, use the following format:
 
 Do not forget the underscore (_) at the end.
 
+-----------------
+Images
+-----------------
+
+To add an image, the image must first be added to the docs/source/_static/images/ folder. Then enter :code:`.. image:: {filepath}`. 
+
+Press return and on the next line, after adding an indentation enter :code:`:alt: {Alt text}`.
+
+.. image:: ../../_static/images/TAM-MaroonBox.png
+    :alt: Texas A&M Logo
+
+.. image:: ../../_static/images/image.png
+    :alt: Screenshot of code to add an image of Texas A&M Logo.
+
+-----------------
+Creating a Table
+-----------------
+
+Use the following format. Make sure everything is aligned exactly.
+
+
++---------------------------+-----------------------------------------------------------------------+------------------+
+| Column A                  | Column B                                                              | Column C         |
++===========================+=======================================================================+==================+
+| Row 2                     | Cell 2B                                                               |     cell 2C      |                      
++---------------------------+-----------------------------------------------------------------------+------------------+
+| Row 3                     | Cell 3B                                                               |     cell 3C      |                                                
++---------------------------+-----------------------------------------------------------------------+------------------+
+
+.. image:: ../../_static/images/table.png
+    :alt: Screenshot of code to add a table.
 
 -----------------
 Adding a line of code
@@ -116,37 +147,4 @@ Similar to a code block, you will write the line :code:`.. raw:: html"`. In the 
 
 .. image:: ../../_static/images/google-doc.png
     :alt: Screenshot of code to add a google doc
-
-
------------------
-Creating a Table
------------------
-
-Use the following format. Make sure everything is aligned exactly.
-
-
-+---------------------------+-----------------------------------------------------------------------+------------------+
-| Column A                  | Column B                                                              | Column C         |
-+===========================+=======================================================================+==================+
-| Row 2                     | Cell 2B                                                               |     cell 2C      |                      
-+---------------------------+-----------------------------------------------------------------------+------------------+
-| Row 3                     | Cell 3B                                                               |     cell 3C      |                                                
-+---------------------------+-----------------------------------------------------------------------+------------------+
-
-.. image:: ../../_static/images/table.png
-    :alt: Screenshot of code to add a table.
-
-
------------------
-Adding an Image
------------------
-
-To add an image, the image must first be added to the docs/source/_static/images/ folder. Then enter :code:`.. image:: {filepath}`. 
-
-Press return and on the next line, after adding an indentation enter :code:`:alt: {Alt text}`.
-
-.. image:: ../../_static/images/TAM-MaroonBox.png
-    :alt: Texas A&M Logo
-
-.. image:: ../../_static/images/image.png
-    :alt: Screenshot of code to add an image of Texas A&M Logo.
+    
