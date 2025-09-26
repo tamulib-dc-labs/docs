@@ -18,18 +18,6 @@ Your document must begin with a heading. The heading will appear as the page's n
 * Subheadings appear with hyphens (-) in the rows immediately above and below the text of the subheading. Both rows of hyphens must be the same length.
 * Third-level headings appear with equal signs (=) in the row immediately below the text of the third-level heading.
 
-=================
-This is the format for a heading.
-=================
-
------------------
-This is the format for a subheading.
------------------
-
-
-This is the format for a third-level heading.
-=========================
-
 .. image:: ../../_static/images/headings.png
     :alt: Screenshot of heading formatting
 
@@ -126,7 +114,7 @@ Similar to a code block, you will write the line :code:`.. raw:: html"`. In the 
 
 
 
-.. image:: ../../_static/images/code-block.png
+.. image:: ../../_static/images/google-doc.png
     :alt: Screenshot of code to add a google doc
 
 
@@ -140,10 +128,9 @@ Use the following format. Make sure everything is aligned exactly.
 +---------------------------+-----------------------------------------------------------------------+------------------+
 | Column A                  | Column B                                                              | Column C         |
 +===========================+=======================================================================+==================+
-| Row 2                     | Cell 2B                                                               |     cell 3C      |                      
+| Row 2                     | Cell 2B                                                               |     cell 2C      |                      
 +---------------------------+-----------------------------------------------------------------------+------------------+
-| Row 3                     | Cells can be two lines tall but you have to press enter and start a   |                  |                                   
-|                           | new line. Text will not wrap automatically.                           |       cell 3C    |              
+| Row 3                     | Cell 3B                                                               |     cell 3C      |                                                
 +---------------------------+-----------------------------------------------------------------------+------------------+
 
 .. image:: ../../_static/images/table.png
