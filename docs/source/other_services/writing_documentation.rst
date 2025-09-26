@@ -5,7 +5,7 @@ How to Write Documentation on this website
 
 Make sure you name your file something that makes the topic clear to yourself and others. Keep in mind that all pages will be arranged alphabetically by filename in the side menu.
 
-The proper extension for a file on this website is .rst. (example.rst)
+The proper extension for a file on this website is .rst. This file is named writing_documentation.rst
 
 Feel free to copy and paste any of the formatting on this file.
 
@@ -17,8 +17,6 @@ Your document must begin with a heading. The heading will appear as the page's n
 * Headings appear with equal signs (=) in the rows immediately above and below the text of the heading. Both rows of equal signs must be the same length.
 * Subheadings appear with hyphens (-) in the rows immediately above and below the text of the subheading. Both rows of hyphens must be the same length.
 * Third-level headings appear with equal signs (=) in the row immediately below the text of the third-level heading.
-
-Below are the three heading styles:
 
 =================
 This is the format for a heading.
@@ -113,7 +111,6 @@ To add a block of code, type :code:`.. code:: {coding language here}`. Then copy
     import json
     import shutil
 
-
 .. image:: ../../_static/images/code-block.png
     :alt: Screenshot of code block format
 
@@ -121,11 +118,13 @@ To add a block of code, type :code:`.. code:: {coding language here}`. Then copy
 Adding a file from Google Workspace
 -----------------
 
-Similar to a code block, you will write the line :code:`.. raw:: html"`. In the next line, with a single indentation, type :code:`<iframe src="{link to document or spreadsheet}" height="400" width="1200" frameborder="0" allowfullscreen></iframe>`. 
+Similar to a code block, you will write the line :code:`.. raw:: html"`. In the next line, with a single indentation, type :code:`<iframe src="{link to document or spreadsheet}" height="{height}" width="{width}" frameborder="0" allowfullscreen></iframe>`. 
 
 .. raw:: html
 
-    <iframe src="https://docs.google.com/document/d/1bRT2R4hQJ_ZaYumq_TRGQtc0dUDIA_2CK8FM2Hp7Xqg/edit?usp=sharing" height="400" width="1200" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://docs.google.com/document/d/1bRT2R4hQJ_ZaYumq_TRGQtc0dUDIA_2CK8FM2Hp7Xqg/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
+
+
 
 .. image:: ../../_static/images/code-block.png
     :alt: Screenshot of code to add a google doc
@@ -135,7 +134,7 @@ Similar to a code block, you will write the line :code:`.. raw:: html"`. In the 
 Creating a Table
 -----------------
 
-Copy and paste the following format. Make sure everything is aligned exactly.
+Use the following format. Make sure everything is aligned exactly.
 
 
 +---------------------------+-----------------------------------------------------------------------+------------------+
