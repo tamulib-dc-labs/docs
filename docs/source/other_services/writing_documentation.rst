@@ -103,6 +103,19 @@ Use the following format. Make sure everything is aligned exactly.
 .. image:: ../../_static/images/table.png
     :alt: Screenshot of code to add a table.
 
+
+-----------------
+Adding a note
+-----------------
+
+To add a note, use the following format:
+
+.. note::
+   This is a note.
+
+.. image:: ../../_static/images/note.png
+    :alt: Screenshot of code to add a note.
+
 -----------------
 Adding a line of code
 -----------------
