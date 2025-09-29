@@ -27,6 +27,7 @@ Edit get_data.py
 :code:`get_data.py` will be altered every time you wish to use it.
 
 .. code-block:: python
+
     import os
     from csv import DictReader, DictWriter
     # Batch Information
@@ -95,16 +96,22 @@ You may have to change other parts of the code depending on the structure of the
 * If the folders on cifs do not follow the YYYY-MM-DD naming convention, you will need to edit the code to accomodate the naming convention. 
     * For example, a naming convention consisting of YYYYMMDD01 may require the creation of another column in the original spreadsheet. Name this new column :code:`date2` and use Excel functions to make all values follow the YYYYMMDD convention.
         * Add another line under :code:`date = row.get('Date published')`
+
         .. code-block:: python
+
             date = row.get('dc.date')
             date2 = row.get('date2')
         
         * Edit the :code:`dir_path` variable to include the other naming convention.
+
         .. code-block:: python
+
             dir_path = f"/Volumes/digital_project_management/Texas Aggie/{batch_folder}/{date2}01"
         
         * If some folders on cifs follow one convention and others follow the other, check to see if a directory exists before pulling from it.
+        
         .. code-block:: python
+            
             dir_path = f"/Volumes/digital_project_management/Texas Aggie/{batch_folder}/{current_id}"
             if os.path.isdir(dir_path):
                 dir_path = dir_path
@@ -116,4 +123,3 @@ You may have to change other parts of the code depending on the structure of the
 * If the original spreadsheet does include volume and issue metadata, but the field is not separated by semicolons, replace the :code:`split(;)` with whatever punctuation was actually used.
 * If the original spreadsheet does include volume and issue metadata but does not use the column name "Enumeration", either change the code to the column name used in the spreadsheet, or change the spreadsheet column name to "Enumeration".
     * If the volume and issue metadata are in a column with a name that is repeated (such as dc.description), you may want to change the spreadsheet, not the code, to avoid confusion.
-    
