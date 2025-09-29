@@ -8,21 +8,21 @@ There will also be one metadata spreadsheet per batch **or** one metadata spread
 
 The job of Digital Collections is to create a metadata spreadsheet from the previous spreadsheet(s) that includes the information needed for OpenONI ingest.
 
-----------------------
+-------------------------------------
 Acquire program for batch processing
-----------------------
+-------------------------------------
 
 Download `texas-aggie-batch-processing <https://github.com/tamulib-dc-labs/texas_aggie_batch_processing>`_. Texas Aggie is one of the newspapers processed by Digital Collections, but not the only one.
 
-----------------------
+------------------------------
 Download metadata spreadsheet
-----------------------
+------------------------------
 
 Go to the cifs drive and download the metadata spreadsheet for the batch you wish to work on. Drag the spreadsheet into the texas-aggie-batch-processing repository.
 
-----------
+-----------------
 Edit get_data.py
-----------
+-----------------
 
 :code:`get_data.py` will be altered every time you wish to use it.
 
@@ -111,7 +111,7 @@ You may have to change other parts of the code depending on the structure of the
         * If some folders on cifs follow one convention and others follow the other, check to see if a directory exists before pulling from it.
         
         .. code-block:: python
-            
+
             dir_path = f"/Volumes/digital_project_management/Texas Aggie/{batch_folder}/{current_id}"
             if os.path.isdir(dir_path):
                 dir_path = dir_path
@@ -123,3 +123,9 @@ You may have to change other parts of the code depending on the structure of the
 * If the original spreadsheet does include volume and issue metadata, but the field is not separated by semicolons, replace the :code:`split(;)` with whatever punctuation was actually used.
 * If the original spreadsheet does include volume and issue metadata but does not use the column name "Enumeration", either change the code to the column name used in the spreadsheet, or change the spreadsheet column name to "Enumeration".
     * If the volume and issue metadata are in a column with a name that is repeated (such as dc.description), you may want to change the spreadsheet, not the code, to avoid confusion.
+
+-----------------------
+Finishing the Process
+-----------------------
+
+Once you generate the output csv, upload it to the cifs drive. Then, fill out a Help Desk ticket so Applications can upload it to OpenONI.
