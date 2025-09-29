@@ -351,6 +351,58 @@
 <section id="edit-get-data-py">
 <h2>Edit get_data.py<a class="headerlink" href="#edit-get-data-py" title="Link to this heading">¶</a></h2>
 <p><code class="code docutils literal notranslate"><span class="pre">get_data.py</span></code> will be altered every time you wish to use it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">csv</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictReader</span><span class="p">,</span> <span class="n">DictWriter</span>
+<span class="c1"># Batch Information</span>
+<span class="n">path_to_texas_aggie_files</span> <span class="o">=</span> <span class="s2">&quot;/Volumes/digital_project_management/Texas Aggie&quot;</span>
+<span class="n">batch_folder</span> <span class="o">=</span> <span class="s2">&quot;Batch 3 Scans&quot;</span>
+<span class="n">final_csv_name</span> <span class="o">=</span> <span class="s2">&quot;texas_aggie_batch_data_new_3.csv&quot;</span>
+<span class="n">batch_title</span> <span class="o">=</span> <span class="s2">&quot;texas_aggie_batch_3&quot;</span>
+
+<span class="n">all_directories</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">path</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_to_texas_aggie_files</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">batch_folder</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">):</span>
+<span class="k">for</span> <span class="nb">dir</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+    <span class="n">all_directories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="n">new_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;texas_aggie_batch_data.csv&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">og_data</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">DictReader</span><span class="p">(</span><span class="n">og_data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Date published&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">-01&quot;</span>
+        <span class="n">current_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;texasaggie_</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">current_id</span> <span class="ow">in</span> <span class="n">all_directories</span><span class="p">:</span>
+            <span class="n">volume</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Enumeration&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">issue</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Enumeration&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">dir_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/Volumes/digital_project_management/Texas Aggie/</span><span class="si">{</span><span class="n">batch_folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">current_id</span><span class="si">}</span><span class="s2">/&quot;</span>
+            <span class="n">pages</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;texasaggie_</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Texas Aggie. Vol. </span><span class="si">{</span><span class="n">volume</span><span class="si">}</span><span class="s2">, No.</span><span class="si">{</span><span class="n">issue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2"> issue (Vol. </span><span class="si">{</span><span class="n">volume</span><span class="si">}</span><span class="s2">, No. </span><span class="si">{</span><span class="n">issue</span><span class="si">}</span><span class="s2">) of the Texas Aggie.; </span><span class="si">{</span><span class="n">pages</span><span class="si">}</span><span class="s2"> pages&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span>
+                <span class="s2">&quot;volume&quot;</span><span class="p">:</span> <span class="n">volume</span><span class="p">,</span>
+                <span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="n">issue</span><span class="p">,</span>
+                <span class="s2">&quot;edition&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pages&quot;</span><span class="p">:</span> <span class="n">pages</span><span class="p">,</span>
+                <span class="s2">&quot;ONI-ChronAm_Batch&quot;</span><span class="p">:</span> <span class="n">batch_title</span>
+            <span class="p">}</span>
+            <span class="n">new_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="n">all_directories</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">current_id</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">final_csv_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">new_sheet</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">DictWriter</span><span class="p">(</span><span class="n">new_sheet</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">new_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_directories</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;These directories were missing and not added to the batch:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">all_directories</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;* </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Checklist of Changes</strong></p>
 <ul class="simple">
 <li><p>Change the <code class="code docutils literal notranslate"><span class="pre">path_to_texas_aggie_files</span></code> to the path to the newspaper you are working on. Get this folder name from the cifs drive. Even though the name “texas_aggie” is included in this variable, it will not affect the code if you are working with a different newspaper.</p></li>
@@ -370,12 +422,26 @@
 <dt>For example, a naming convention consisting of YYYYMMDD01 may require the creation of another column in the original spreadsheet. Name this new column <code class="code docutils literal notranslate"><span class="pre">date2</span></code> and use Excel functions to make all values follow the YYYYMMDD convention.</dt><dd><ul class="simple">
 <li><p>Add another line under <code class="code docutils literal notranslate"><span class="pre">date</span> <span class="pre">=</span> <span class="pre">row.get('Date</span> <span class="pre">published')</span></code></p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dc.date&#39;</span><span class="p">)</span>
+<span class="n">date2</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;date2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Edit the <code class="code docutils literal notranslate"><span class="pre">dir_path</span></code> variable to include the other naming convention.</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/Volumes/digital_project_management/Texas Aggie/</span><span class="si">{</span><span class="n">batch_folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">date2</span><span class="si">}</span><span class="s2">01&quot;</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>If some folders on cifs follow one convention and others follow the other, check to see if a directory exists before pulling from it.</p></li>
 </ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dir_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/Volumes/digital_project_management/Texas Aggie/</span><span class="si">{</span><span class="n">batch_folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">current_id</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">dir_path</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/Volumes/digital_project_management/Texas Aggie/</span><span class="si">{</span><span class="n">batch_folder</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">date2</span><span class="si">}</span><span class="s2">01&quot;</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </li>

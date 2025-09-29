@@ -137,7 +137,8 @@ Adding a block of code
 
 To add a block of code, type :code:`.. code:: {coding language here}`. Then copy and paste the code. Make sure indentation of each row is correct. The text in the code block will appear in different colors for readability.
 
-.. code:: python
+.. code-block:: python
+
     from csv import DictReader
     import os
     import json
