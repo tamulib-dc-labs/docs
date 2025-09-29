@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -328,7 +328,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -337,7 +337,8 @@
           <section id="template-for-avalon-batch-imports">
 <h1>Template for Avalon Batch Imports<a class="headerlink" href="#template-for-avalon-batch-imports" title="Link to this heading">¶</a></h1>
 <p>Here is a template used for Avalon Batch Imports. All columns are verified to be compatible with Avalon 7.8.</p>
-<iframe src="https://docs.google.com/spreadsheets/d/1QcxBWxmplvGvT3OgbTsCV0Fc9dHSRHgMwp9CYABo4aE/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe><p><strong>Things to consider</strong></p>
+<iframe src="https://docs.google.com/spreadsheets/d/1QcxBWxmplvGvT3OgbTsCV0Fc9dHSRHgMwp9CYABo4aE/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe><section id="things-to-consider">
+<h2>Things to consider<a class="headerlink" href="#things-to-consider" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>If you are uploading videos, go to the “captions” page. If you are uploading audio only, go to the “transcript” page.</p></li>
 <li><p>Technically this works with a xlsx spreadsheet, but a csv prevents numerical fields from autocorrecting.</p></li>
@@ -361,14 +362,19 @@
 </dl>
 </li>
 </ul>
-<p><strong>Ways this differs from official documentation</strong>
-* Unknown if Date Created works
-* “Topical Subject” does not work. Use “Subject” instead.
-* Do not use the term “Main Contributor”. The field is “Creator”.
-* “Statement of Responsibility” seems to not do anything.
-* Do not use “Transcript File Label”. The field is “Transcript Label”.
-* You do not need to select files to upload from a Dropbox. You do not need Filezilla or any other Secure File Transfer Protocol (SFTP) client. Putting them on the cifs drive is enough.
-* If there is an error during ingest, do not reupload the spreadsheet after making changes. It will reupload all files, giving you duplicates. Create a new spreadsheet for only the files that failed.</p>
+</section>
+<section id="ways-this-differs-from-official-documentation">
+<h2>Ways this differs from official documentation**<a class="headerlink" href="#ways-this-differs-from-official-documentation" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Unknown if Date Created works</p></li>
+<li><p>“Topical Subject” does not work. Use “Subject” instead.</p></li>
+<li><p>Do not use the term “Main Contributor”. The field is “Creator”.</p></li>
+<li><p>“Statement of Responsibility” seems to not do anything.</p></li>
+<li><p>Do not use “Transcript File Label”. The field is “Transcript Label”.</p></li>
+<li><p>You do not need to select files to upload from a Dropbox. You do not need Filezilla or any other Secure File Transfer Protocol (SFTP) client. Putting them on the cifs drive is enough.</p></li>
+<li><p>If there is an error during ingest, do not reupload the spreadsheet after making changes. It will reupload all files, giving you duplicates. Create a new spreadsheet for only the files that failed.</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -414,8 +420,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Template for Avalon Batch Imports</a><ul>
+<li><a class="reference internal" href="#things-to-consider">Things to consider</a></li>
+<li><a class="reference internal" href="#ways-this-differs-from-official-documentation">Ways this differs from official documentation**</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
