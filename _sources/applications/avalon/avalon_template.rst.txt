@@ -31,7 +31,7 @@ Things to consider
     * unknown/unknown
 
 ---------------------
-Ways this differs from official documentation**
+Ways this differs from official documentation
 ---------------------
 
 * Unknown if Date Created works
