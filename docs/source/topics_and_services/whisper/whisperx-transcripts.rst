@@ -39,6 +39,7 @@ As output, five files will be generated: .json, .srt, .tsv, .txt, and .vtt
 To move the json and vtt to `whisper-editor <https://github.com/tamulib-dc-labs/whisper-reviewer>`_, make sure you have the following add-to-json.py downloaded.
 
 .. code:: python
+    
     from csv import DictReader
     import os
     import json
