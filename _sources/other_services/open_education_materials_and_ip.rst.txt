@@ -7,7 +7,7 @@ When developing curricula, who owns the intellectual property?
 The flowchart below was developed based on policy `17.01.01 Ownership of Intellectual Property and Tangible Research Property <https://policies.tamus.edu/17-01-01.pdf>`_.
 
 
-.. code-block:: mermaid
+.. mermaid::
 
     flowchart TD
         A[Start: Faculty wants to release curriculum] --> B{Created as part of normal teaching duties?}

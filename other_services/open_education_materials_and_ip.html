@@ -340,7 +340,8 @@
 <h1>Open Education Materials and IP<a class="headerlink" href="#open-education-materials-and-ip" title="Link to this heading">¶</a></h1>
 <p>When developing curricula, who owns the intellectual property?</p>
 <p>The flowchart below was developed based on policy <a class="reference external" href="https://policies.tamus.edu/17-01-01.pdf">17.01.01 Ownership of Intellectual Property and Tangible Research Property</a>.</p>
-<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>flowchart TD
+<pre  class="mermaid">
+        flowchart TD
     A[Start: Faculty wants to release curriculum] --&gt; B{Created as part of normal teaching duties?}
     B -- No --&gt; C{Commissioned or work-for-hire?}
     B -- Yes --&gt; D{Created using significant University resources?}
@@ -356,9 +357,7 @@
 
     G -- Yes --&gt; H[All co-creators must agree before release]
     G -- No --&gt; I[Faculty owns copyright and can release to public domain]
-</pre></div>
-</div>
-</section>
+    </pre></section>
 
         </article>
       </div>
@@ -413,5 +412,13 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     </body>
 </html>
