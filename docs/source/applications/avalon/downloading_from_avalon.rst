@@ -34,5 +34,16 @@ This method requires that you have an API key.
 
 1. Download `pyavalon <https://github.com/tamulib-dc-labs/pyavalon>`_.
 
-2. In the terminal, type :code:`get_file_ids_from_a_collection -c "{collection id} -i {pre or prod} --download -f {file output directory} -o {output.csv}`
+2. In the terminal, type :code:`get_file_ids_from_a_collection -c "{collection id}" -i {pre or prod} --download -f {file output directory} -o {output.csv}`
 
+-----------------------------
+Downloading Large Collections
+-----------------------------
+
+Sometimes, a collection will be so large, any attempt to download it will result in an error. To work around this issue, you must download only part of the collection at a time.
+
+In the terminal type:
+
+:code:`pyavalon get_file_ids_from_a_collection -c "{collection id}" -i prod --download -u {Your_Username} -f output-folder --get_range --start 1 --end 1`
+
+It is advised you go page by page to avoid crashes. To do this, make sure the start and end of the range are the same.
