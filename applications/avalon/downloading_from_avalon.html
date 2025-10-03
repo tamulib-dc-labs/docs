@@ -358,8 +358,15 @@
 <p>This method requires that you have an API key.</p>
 <ol class="arabic simple">
 <li><p>Download <a class="reference external" href="https://github.com/tamulib-dc-labs/pyavalon">pyavalon</a>.</p></li>
-<li><p>In the terminal, type <code class="code docutils literal notranslate"><span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{collection</span> <span class="pre">id}</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span> <span class="pre">--download</span> <span class="pre">-f</span> <span class="pre">{file</span> <span class="pre">output</span> <span class="pre">directory}</span> <span class="pre">-o</span> <span class="pre">{output.csv}</span></code></p></li>
+<li><p>In the terminal, type <code class="code docutils literal notranslate"><span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{collection</span> <span class="pre">id}&quot;</span> <span class="pre">-i</span> <span class="pre">{pre</span> <span class="pre">or</span> <span class="pre">prod}</span> <span class="pre">--download</span> <span class="pre">-f</span> <span class="pre">{file</span> <span class="pre">output</span> <span class="pre">directory}</span> <span class="pre">-o</span> <span class="pre">{output.csv}</span></code></p></li>
 </ol>
+</section>
+<section id="downloading-large-collections">
+<h2>Downloading Large Collections<a class="headerlink" href="#downloading-large-collections" title="Link to this heading">¶</a></h2>
+<p>Sometimes, a collection will be so large, any attempt to download it will result in an error. To work around this issue, you must download only part of the collection at a time.</p>
+<p>In the terminal type:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{collection</span> <span class="pre">id}&quot;</span> <span class="pre">-i</span> <span class="pre">prod</span> <span class="pre">--download</span> <span class="pre">-u</span> <span class="pre">{Your_Username}</span> <span class="pre">-f</span> <span class="pre">output-folder</span> <span class="pre">--get_range</span> <span class="pre">--start</span> <span class="pre">1</span> <span class="pre">--end</span> <span class="pre">1</span></code></p>
+<p>It is advised you go page by page to avoid crashes. To do this, make sure the start and end of the range are the same.</p>
 </section>
 </section>
 
@@ -421,6 +428,7 @@
 <li><a class="reference internal" href="#">Downloading media from Avalon</a><ul>
 <li><a class="reference internal" href="#first-method">First method</a></li>
 <li><a class="reference internal" href="#second-method">Second method</a></li>
+<li><a class="reference internal" href="#downloading-large-collections">Downloading Large Collections</a></li>
 </ul>
 </li>
 </ul>
