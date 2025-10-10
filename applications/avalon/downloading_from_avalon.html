@@ -368,6 +368,78 @@
 <p><code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">get_file_ids_from_a_collection</span> <span class="pre">-c</span> <span class="pre">&quot;{collection</span> <span class="pre">id}&quot;</span> <span class="pre">-i</span> <span class="pre">prod</span> <span class="pre">--download</span> <span class="pre">-u</span> <span class="pre">{Your_Username}</span> <span class="pre">-f</span> <span class="pre">output-folder</span> <span class="pre">--get_range</span> <span class="pre">--start</span> <span class="pre">1</span> <span class="pre">--end</span> <span class="pre">1</span></code></p>
 <p>It is advised you go page by page to avoid crashes. To do this, make sure the start and end of the range are the same.</p>
 </section>
+<section id="downloading-large-collections-with-less-steps">
+<h2>Downloading Large Collections With Less Steps<a class="headerlink" href="#downloading-large-collections-with-less-steps" title="Link to this heading">¶</a></h2>
+<p>To make a collection download without having to run pyavalon dozens of times, you can use code to automatically repeat pyavalon.</p>
+<p>Use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s2">&quot;Batch Avalon&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--collection&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specify Collection&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--instance&quot;</span><span class="p">,</span> <span class="s2">&quot;-i&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Pre or Prod&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;folder where audio/video files will be saved&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--start&quot;</span><span class="p">,</span> <span class="s2">&quot;-s&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--end&quot;</span><span class="p">,</span> <span class="s2">&quot;-e&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--output&quot;</span><span class="p">,</span> <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;output csv filename&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="n">current</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">current</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading Page </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;pyavalon&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_file_ids_from_a_collection&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-c&quot;</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">collection</span><span class="p">,</span>
+        <span class="s2">&quot;-i&quot;</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">instance</span><span class="p">,</span>
+        <span class="s2">&quot;--download&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-u&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cbarr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-f&quot;</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">file</span><span class="p">,</span>
+        <span class="s2">&quot;--get_range&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--start&quot;</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">current</span><span class="p">),</span>
+        <span class="s2">&quot;--end&quot;</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">current</span><span class="p">),</span>
+        <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;temp_</span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+    <span class="p">]</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+    <span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Taking a quick nap!&quot;</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will result in downloading the entire collection to a folder. Furthermore, an output.csv will be created for each page that has been downloaded.</p>
+<p>To combine all the csvs, use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Path to your folder containing the CSV files</span>
+<span class="n">folder_path</span> <span class="o">=</span> <span class="s2">&quot;temp&quot;</span>
+
+<span class="c1"># List all CSV files in the folder</span>
+<span class="n">csv_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">)]</span>
+
+<span class="c1"># Read and combine them into one DataFrame</span>
+<span class="n">combined_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">csv_files</span><span class="p">],</span>
+    <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Save the combined file</span>
+<span class="n">combined_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="s2">&quot;combined.csv&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Combined </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">csv_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> files into &#39;combined.csv&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -429,6 +501,7 @@
 <li><a class="reference internal" href="#first-method">First method</a></li>
 <li><a class="reference internal" href="#second-method">Second method</a></li>
 <li><a class="reference internal" href="#downloading-large-collections">Downloading Large Collections</a></li>
+<li><a class="reference internal" href="#downloading-large-collections-with-less-steps">Downloading Large Collections With Less Steps</a></li>
 </ul>
 </li>
 </ul>
