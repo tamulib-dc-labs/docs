@@ -103,27 +103,3 @@ Use the following code:
         sleep(10)
 
 This will result in downloading the entire collection to a folder. Furthermore, an output.csv will be created for each page that has been downloaded.
-
-To combine all the csvs, use the following code:
-
-.. code-block:: python
-
-    import os
-    import pandas as pd
-
-    # Path to your folder containing the CSV files
-    folder_path = "temp"
-
-    # List all CSV files in the folder
-    csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
-
-    # Read and combine them into one DataFrame
-    combined_df = pd.concat(
-        [pd.read_csv(os.path.join(folder_path, f)) for f in csv_files],
-        ignore_index=True
-    )
-
-    # Save the combined file
-    combined_df.to_csv(os.path.join(folder_path, "combined.csv"), index=False)
-
-    print(f"Combined {len(csv_files)} files into 'combined.csv'")
