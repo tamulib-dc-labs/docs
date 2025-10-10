@@ -47,3 +47,83 @@ In the terminal type:
 :code:`pyavalon get_file_ids_from_a_collection -c "{collection id}" -i prod --download -u {Your_Username} -f output-folder --get_range --start 1 --end 1`
 
 It is advised you go page by page to avoid crashes. To do this, make sure the start and end of the range are the same.
+
+
+---------------------------------------------
+Downloading Large Collections With Less Steps
+---------------------------------------------
+
+To make a collection download without having to run pyavalon dozens of times, you can use code to automatically repeat pyavalon.
+
+Use the following code: 
+
+.. code-block:: python
+
+    from time import sleep
+    import subprocess
+    import argparse
+
+    parser = argparse.ArgumentParser(prog="Batch Avalon")
+    parser.add_argument("--collection", "-c", help="Specify Collection")
+    parser.add_argument("--instance", "-i", help="Pre or Prod")
+    parser.add_argument("--file", "-f", help="folder where audio/video files will be saved")
+    parser.add_argument("--start", "-s")
+    parser.add_argument("--end", "-e")
+    parser.add_argument("--output", "-o", help="output csv filename")
+    args = parser.parse_args()
+
+    current = int(args.start)
+    end = int(args.end)
+
+    while current <= end:
+        print(f"Downloading Page {current}")
+        command = [
+            "pyavalon",
+            "get_file_ids_from_a_collection",
+            "-c", 
+            args.collection,
+            "-i", 
+            args.instance,
+            "--download",
+            "-u",
+            "cbarr",
+            "-f",
+            args.file,
+            "--get_range",
+            "--start",
+            str(current),
+            "--end",
+            str(current),
+            "-o",
+            f"temp_{current}.csv"
+        ]
+        subprocess.run(command)
+        current += 1
+        print("Taking a quick nap!")
+        sleep(10)
+
+This will result in downloading the entire collection to a folder. Furthermore, an output.csv will be created for each page that has been downloaded.
+
+To combine all the csvs, use the following code:
+
+.. code-block:: python
+
+    import os
+    import pandas as pd
+
+    # Path to your folder containing the CSV files
+    folder_path = "temp"
+
+    # List all CSV files in the folder
+    csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
+
+    # Read and combine them into one DataFrame
+    combined_df = pd.concat(
+        [pd.read_csv(os.path.join(folder_path, f)) for f in csv_files],
+        ignore_index=True
+    )
+
+    # Save the combined file
+    combined_df.to_csv(os.path.join(folder_path, "combined.csv"), index=False)
+
+    print(f"Combined {len(csv_files)} files into 'combined.csv'")
