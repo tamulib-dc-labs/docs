@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="OAKTrust and DSPACE Statistcs" href="oaktrust.html" /><link rel="prev" title="DSPACE: Importing Basic Items" href="dspace_importing.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="DSPACE: Importing Entities from OJS" href="dspace_importing_entities_ojs.html" /><link rel="prev" title="DSPACE: Importing Basic Items" href="dspace_importing.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>DSPACE: Importing Entities - TAMU Digital Collections Labs documentation</title>
@@ -226,6 +226,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dspace_entities.html">DSPACE Entity Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dspace_importing.html">DSPACE: Importing Basic Items</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dspace_importing_entities_ojs.html">DSPACE: Importing Entities from OJS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reporting_500_errors.html">Reporting 500 Errors</a></li>
@@ -338,36 +339,32 @@
         <article role="main" id="furo-main-content">
           <section id="dspace-importing-entities">
 <h1>DSPACE: Importing Entities<a class="headerlink" href="#dspace-importing-entities" title="Link to this heading">¶</a></h1>
+<p>How to do batch imports into OAKTrust</p>
 <section id="clone-relevant-git-repository">
 <h2>Clone relevant git repository<a class="headerlink" href="#clone-relevant-git-repository" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/markpbaggett/ojs-to-oaktrust">To move journals from OJS to OakTrust (ojs-to-oaktrust)</a></p></li>
+<p>Download <a class="reference external" href="https://github.com/markpbaggett/ojs-to-oaktrust">ojs-to-oaktrust</a></p>
+</section>
+<section id="create-csv-file">
+<h2>Create .csv file<a class="headerlink" href="#create-csv-file" title="Link to this heading">¶</a></h2>
+<p>Create a csv file with metadata. You may receive one already made by someone else.</p>
+<p>Example csv:</p>
+<iframe src="https://docs.google.com/spreadsheets/d/1QMv0_PxooY3H9_pQotWBztOftrJAgidfa7CQOGYpf6E/edit?usp=sharing" height="400" width="1200" frameborder="0" allowfullscreen></iframe><ul class="simple">
+<li><p>If you are importing a title, volumes, or issues, do not use the bundle:ORIGINAL column. This is only used to attach specific files for individual articles or other digital items.</p></li>
+<li><p>bundle:THUMBNAIL can be a filepath or a link on the web.</p></li>
+<li><p>Only use one of the following (or none): relation.isJournalIssueofPublication, relation.isJournalVolumeofIssue, relation.isJournalofVolume. This is how you link back to the parent.</p></li>
 </ul>
-</section>
-<section id="new-yml">
-<h2>New .yml<a class="headerlink" href="#new-yml" title="Link to this heading">¶</a></h2>
-<p>Go to default-config.yml. Copy default-config.yml into a new file named config.yml.</p>
-<p>Then, log into OJS and get an API key. To do this, go to Edit Profile &gt; API key. Copy the key.</p>
-<p>Inside config.yml, paste the API key for <code class="code docutils literal notranslate"><span class="pre">token</span></code>.</p>
-<p>Fill in <code class="code docutils literal notranslate"><span class="pre">journal_title</span></code>, <code class="code docutils literal notranslate"><span class="pre">url</span></code>, <code class="code docutils literal notranslate"><span class="pre">oai_endpoint</span></code>, <code class="code docutils literal notranslate"><span class="pre">title</span></code>, <code class="code docutils literal notranslate"><span class="pre">default_thumbnail</span></code>, <code class="code docutils literal notranslate"><span class="pre">date</span></code>, <code class="code docutils literal notranslate"><span class="pre">description</span></code>, <code class="code docutils literal notranslate"><span class="pre">subjects</span></code>, and <code class="code docutils literal notranslate"><span class="pre">alternative</span></code>.  <code class="code docutils literal notranslate"><span class="pre">default_thumbnail</span></code> should be a link to an image. <code class="code docutils literal notranslate"><span class="pre">subjects</span></code> should come from Library of Congress subject headings. <code class="code docutils literal notranslate"><span class="pre">alternative</span></code> should only be used for an alternative title.</p>
-</section>
-<section id="creating-csv-file">
-<h2>Creating .csv file<a class="headerlink" href="#creating-csv-file" title="Link to this heading">¶</a></h2>
-<p>Under <code class="code docutils literal notranslate"><span class="pre">ojs-to-oaktrust</span></code>, create a new directory called <code class="code docutils literal notranslate"><span class="pre">output</span></code>.</p>
-<p>On the command line, write: <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">src/ojsnake.py</span> <span class="pre">-j</span> <span class="pre">journal_title</span></code></p>
-<p>articles.csv, issues.csv, title.csv, and volumes.csv should have saved under <code class="code docutils literal notranslate"><span class="pre">ojs-to-oaktrust/output/journal_title</span></code> folder.</p>
 </section>
 <section id="creating-simple-archive-format-saf-files">
 <h2>Creating Simple Archive Format (SAF) Files<a class="headerlink" href="#creating-simple-archive-format-saf-files" title="Link to this heading">¶</a></h2>
 <p>Run Java in terminal by entering this code: <code class="code docutils literal notranslate"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">~/Downloads/SAFCreator-0.0.2-SNAPSHOT.one-jar.jar</span></code></p>
 <p>This should open a dialogue box called DSpace Simple Archive Format Creator.</p>
-<p>You need a folder for the SAF output. Because there will be four folders created per journal, it is recommended you first make a folder called oaktrust-batches.
+<p>You need a folder for the SAF output. Because there will be multiple folders created per journal, it is recommended you first make a folder called oaktrust-batches.
 Then create the folder for output from a single execution of SAF. An easy naming convention is “journal_name-unit”. “unit” can be articles, issues, volumes, or title.
-You will do this process four times per journal.</p>
+You will do this process at least four times per journal. You may need to do it more (divide articles into smaller batches) if the journal has a lot of articles.</p>
 <p>In the dialogue box:</p>
 <ul class="simple">
 <li><p>Select one of the .csv files. The unit of the .csv file should match the unit of the folder you just created for output.</p></li>
-<li><p>Select source files directory. This can be any directory that is not involved with this transfer process (such as the <code class="code docutils literal notranslate"><span class="pre">/Desktop</span></code>). It doesn’t really matter.</p></li>
+<li><p>Select source files directory. The bundle:ORIGINAL and bundle:THUMBNAIL filepaths are relative to the source files directory.</p></li>
 <li><p>Select SAF output directory. Select the new folder you just created called “journal_name-unit”</p></li>
 <li><p>Click “Load specified batch now!”</p></li>
 <li><p>Go to Batch Verification across the top and click “Verify Batch.”</p></li>
@@ -395,12 +392,12 @@ This will link the child to the parent.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="oaktrust.html">
+          <a class="next-page" href="dspace_importing_entities_ojs.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">OAKTrust and DSPACE Statistcs</div>
+                <div class="title">DSPACE: Importing Entities from OJS</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -447,8 +444,7 @@ This will link the child to the parent.</p>
             <ul>
 <li><a class="reference internal" href="#">DSPACE: Importing Entities</a><ul>
 <li><a class="reference internal" href="#clone-relevant-git-repository">Clone relevant git repository</a></li>
-<li><a class="reference internal" href="#new-yml">New .yml</a></li>
-<li><a class="reference internal" href="#creating-csv-file">Creating .csv file</a></li>
+<li><a class="reference internal" href="#create-csv-file">Create .csv file</a></li>
 <li><a class="reference internal" href="#creating-simple-archive-format-saf-files">Creating Simple Archive Format (SAF) Files</a></li>
 <li><a class="reference internal" href="#importing-saf-files">Importing SAF Files</a></li>
 <li><a class="reference internal" href="#creating-child-unit-of-parent-unit">Creating Child Unit of Parent Unit</a></li>
