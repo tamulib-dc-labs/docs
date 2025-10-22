@@ -1,31 +1,34 @@
 ==========================
-DSPACE: Importing Entities
+DSPACE: Importing Entities from OJS
 ==========================
-
-How to do batch imports into OAKTrust
+This process is similar to general batch importing, except with a few more steps at the beginning and an automated csv creation.
 
 ------------------------
 Clone relevant git repository
 ------------------------
-
-Download `ojs-to-oaktrust <https://github.com/markpbaggett/ojs-to-oaktrust>`_
+* `To move journals from OJS to OakTrust (ojs-to-oaktrust) <https://github.com/markpbaggett/ojs-to-oaktrust>`_
 
 ------------------------
-Create .csv file
+New .yml
 ------------------------
 
-Create a csv file with metadata. You may receive one already made by someone else.
+Go to default-config.yml. Copy default-config.yml into a new file named config.yml.
 
-Example csv:
+Then, log into OJS and get an API key. To do this, go to Edit Profile > API key. Copy the key.
 
-.. raw:: html
+Inside config.yml, paste the API key for :code:`token`.
 
-    <iframe src="https://docs.google.com/spreadsheets/d/1QMv0_PxooY3H9_pQotWBztOftrJAgidfa7CQOGYpf6E/edit?usp=sharing" height="400" width="1200" frameborder="0" allowfullscreen></iframe>
+Fill in :code:`journal_title`, :code:`url`, :code:`oai_endpoint`, :code:`title`, :code:`default_thumbnail`, :code:`date`, :code:`description`, :code:`subjects`, and :code:`alternative`.  :code:`default_thumbnail` should be a link to an image. :code:`subjects` should come from Library of Congress subject headings. :code:`alternative` should only be used for an alternative title.
 
+------------------------
+Creating .csv file
+------------------------
 
-* If you are importing a title, volumes, or issues, do not use the bundle:ORIGINAL column. This is only used to attach specific files for individual articles or other digital items.
-* bundle:THUMBNAIL can be a filepath or a link on the web.
-* Only use one of the following (or none): relation.isJournalIssueofPublication, relation.isJournalVolumeofIssue, relation.isJournalofVolume. This is how you link back to the parent.
+Under :code:`ojs-to-oaktrust`, create a new directory called :code:`output`.
+
+On the command line, write: :code:`python src/ojsnake.py -j journal_title`
+
+articles.csv, issues.csv, title.csv, and volumes.csv should have saved under :code:`ojs-to-oaktrust/output/journal_title` folder.
 
 ------------------------
 Creating Simple Archive Format (SAF) Files
@@ -35,14 +38,14 @@ Run Java in terminal by entering this code: :code:`java -jar ~/Downloads/SAFCrea
 
 This should open a dialogue box called DSpace Simple Archive Format Creator.
 
-You need a folder for the SAF output. Because there will be multiple folders created per journal, it is recommended you first make a folder called oaktrust-batches. 
+You need a folder for the SAF output. Because there will be four folders created per journal, it is recommended you first make a folder called oaktrust-batches. 
 Then create the folder for output from a single execution of SAF. An easy naming convention is "journal_name-unit". "unit" can be articles, issues, volumes, or title. 
-You will do this process at least four times per journal. You may need to do it more (divide articles into smaller batches) if the journal has a lot of articles.
+You will do this process four times per journal.
 
 In the dialogue box:
 
 * Select one of the .csv files. The unit of the .csv file should match the unit of the folder you just created for output.
-* Select source files directory. The bundle:ORIGINAL and bundle:THUMBNAIL filepaths are relative to the source files directory.
+* Select source files directory. This can be any directory that is not involved with this transfer process (such as the :code:`/Desktop`). It doesn't really matter.
 * Select SAF output directory. Select the new folder you just created called "journal_name-unit"
 * Click "Load specified batch now!"
 * Go to Batch Verification across the top and click "Verify Batch."
