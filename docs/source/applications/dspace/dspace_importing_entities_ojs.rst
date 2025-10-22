@@ -45,8 +45,8 @@ You will do this process four times per journal.
 In the dialogue box:
 
 * Select one of the .csv files. The unit of the .csv file should match the unit of the folder you just created for output.
-* Select source files directory. This can be any directory that is not involved with this transfer process (such as the :code:`/Desktop`). It doesn't really matter.
-* Select SAF output directory. Select the new folder you just created called "journal_name-unit"
+* Select source files directory. When pulling from OJS, this can be any directory that is not involved with this transfer process (such as the :code:`/Desktop`). It doesn't really matter.
+* Select SAF output directory. Select the folder under "oaktrust-batches" you just created.
 * Click "Load specified batch now!"
 * Go to Batch Verification across the top and click "Verify Batch."
 * Create SAF file (rightmost button under Batch Details).
@@ -57,10 +57,9 @@ Importing SAF Files
 
 Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.
 
-Create a zip file in terminal using this format: :code:`zip -r {journal_name}-title.zip {journal_name}-title`
+Create a zip file in terminal using this format: :code:`zip -r {folder}.zip {folder}`
 
-Go to * `Oaktrust <https://oaktrust-pre.library.tamu.edu>`_ Log in with Shibboleth. 
-On the sidebar, go to Import > Batch Import. When asked for a collection, select "Journals". Upload zip file. 
+Go to * `Oaktrust <https://oaktrust-pre.library.tamu.edu>`_ Create a collection for the journal. On the sidebar, go to Import > Batch Import. Select the collection you just created and upload the zip file. 
 
 Note: Sometimes "Import" does not appear as an option in the sidebar, in which case you must wait/reload the page until it appears.
 

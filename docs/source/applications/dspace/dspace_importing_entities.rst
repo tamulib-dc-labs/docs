@@ -2,7 +2,7 @@
 DSPACE: Importing Entities
 ==========================
 
-How to do batch imports into OAKTrust
+How to do batch imports in OAKTrust
 
 ------------------------
 Clone relevant git repository
@@ -43,7 +43,7 @@ In the dialogue box:
 
 * Select one of the .csv files. The unit of the .csv file should match the unit of the folder you just created for output.
 * Select source files directory. The bundle:ORIGINAL and bundle:THUMBNAIL filepaths are relative to the source files directory.
-* Select SAF output directory. Select the new folder you just created called "journal_name-unit"
+* Select SAF output directory. Select the folder you just created under "oaktrust-batches".
 * Click "Load specified batch now!"
 * Go to Batch Verification across the top and click "Verify Batch."
 * Create SAF file (rightmost button under Batch Details).
@@ -54,10 +54,9 @@ Importing SAF Files
 
 Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.
 
-Create a zip file in terminal using this format: :code:`zip -r {journal_name}-title.zip {journal_name}-title`
+Create a zip file in terminal using this format: :code:`zip -r {folder}.zip {folder}`
 
-Go to * `Oaktrust <https://oaktrust-pre.library.tamu.edu>`_ Log in with Shibboleth. 
-On the sidebar, go to Import > Batch Import. When asked for a collection, select "Journals". Upload zip file. 
+Go to * `Oaktrust <https://oaktrust-pre.library.tamu.edu>`_ Create a collection for the journal. On the sidebar, go to Import > Batch Import. Select the collection you just created and upload the zip file. 
 
 Note: Sometimes "Import" does not appear as an option in the sidebar, in which case you must wait/reload the page until it appears.
 
@@ -65,5 +64,5 @@ Note: Sometimes "Import" does not appear as an option in the sidebar, in which c
 Creating Child Unit of Parent Unit
 ------------------------
 
-This will follow mostly the same process as before. However, you will need to go to the website for the parent unit and put the end of the url into one of the relation columns. 
+This will follow the same process. However, you will need to go to the site for the parent unit and put the end of the url into one of the relation columns. 
 This will link the child to the parent.
