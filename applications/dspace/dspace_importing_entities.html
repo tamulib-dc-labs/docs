@@ -339,7 +339,7 @@
         <article role="main" id="furo-main-content">
           <section id="dspace-importing-entities">
 <h1>DSPACE: Importing Entities<a class="headerlink" href="#dspace-importing-entities" title="Link to this heading">¶</a></h1>
-<p>How to do batch imports into OAKTrust</p>
+<p>How to do batch imports in OAKTrust</p>
 <section id="clone-relevant-git-repository">
 <h2>Clone relevant git repository<a class="headerlink" href="#clone-relevant-git-repository" title="Link to this heading">¶</a></h2>
 <p>Download <a class="reference external" href="https://github.com/markpbaggett/ojs-to-oaktrust">ojs-to-oaktrust</a></p>
@@ -365,7 +365,7 @@ You will do this process at least four times per journal. You may need to do it 
 <ul class="simple">
 <li><p>Select one of the .csv files. The unit of the .csv file should match the unit of the folder you just created for output.</p></li>
 <li><p>Select source files directory. The bundle:ORIGINAL and bundle:THUMBNAIL filepaths are relative to the source files directory.</p></li>
-<li><p>Select SAF output directory. Select the new folder you just created called “journal_name-unit”</p></li>
+<li><p>Select SAF output directory. Select the folder you just created under “oaktrust-batches”.</p></li>
 <li><p>Click “Load specified batch now!”</p></li>
 <li><p>Go to Batch Verification across the top and click “Verify Batch.”</p></li>
 <li><p>Create SAF file (rightmost button under Batch Details).</p></li>
@@ -374,14 +374,13 @@ You will do this process at least four times per journal. You may need to do it 
 <section id="importing-saf-files">
 <h2>Importing SAF Files<a class="headerlink" href="#importing-saf-files" title="Link to this heading">¶</a></h2>
 <p>Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.</p>
-<p>Create a zip file in terminal using this format: <code class="code docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-r</span> <span class="pre">{journal_name}-title.zip</span> <span class="pre">{journal_name}-title</span></code></p>
-<p>Go to * <a class="reference external" href="https://oaktrust-pre.library.tamu.edu">Oaktrust</a> Log in with Shibboleth.
-On the sidebar, go to Import &gt; Batch Import. When asked for a collection, select “Journals”. Upload zip file.</p>
+<p>Create a zip file in terminal using this format: <code class="code docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-r</span> <span class="pre">{folder}.zip</span> <span class="pre">{folder}</span></code></p>
+<p>Go to * <a class="reference external" href="https://oaktrust-pre.library.tamu.edu">Oaktrust</a> Create a collection for the journal. On the sidebar, go to Import &gt; Batch Import. Select the collection you just created and upload the zip file.</p>
 <p>Note: Sometimes “Import” does not appear as an option in the sidebar, in which case you must wait/reload the page until it appears.</p>
 </section>
 <section id="creating-child-unit-of-parent-unit">
 <h2>Creating Child Unit of Parent Unit<a class="headerlink" href="#creating-child-unit-of-parent-unit" title="Link to this heading">¶</a></h2>
-<p>This will follow mostly the same process as before. However, you will need to go to the website for the parent unit and put the end of the url into one of the relation columns.
+<p>This will follow the same process. However, you will need to go to the site for the parent unit and put the end of the url into one of the relation columns.
 This will link the child to the parent.</p>
 </section>
 </section>
