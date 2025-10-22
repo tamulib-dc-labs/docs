@@ -65,6 +65,5 @@ Note: Sometimes "Import" does not appear as an option in the sidebar, in which c
 Creating Child Unit of Parent Unit
 ------------------------
 
-This will follow mostly the same process as before. However, once the csv files generate, you will need to go to the websites for the parent unit and copy all characters in the url after the last slash. 
-Then go to the child unit's .csv and add that string at the end of each line after the last comma (creating another column). Make sure all children with the same url are from the same parent. 
+This will follow mostly the same process as before. However, you will need to go to the website for the parent unit and put the end of the url into one of the relation columns. 
 This will link the child to the parent.
