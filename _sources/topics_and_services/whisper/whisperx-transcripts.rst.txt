@@ -79,3 +79,40 @@ To move the json and vtt to `whisper-editor <https://github.com/tamulib-dc-labs/
                     json.dump(audio_file_data, f, indent=4)
             elif '.vtt' in file:
                 shutil.move(f"{path}/{file}", "/Users/{Username}/whisper-reviewer/vtts/{output-folder}")
+
+---------------
+Automate Transcription 
+---------------
+
+Instead of running a command for every item you wish to transcribe with WhisperX, use a script that transcribes all items in a directory.
+
+.. code:: python
+    import subprocess
+    import os
+
+
+    def process_dropbox(input_directory, output):
+        for path, directories, files in os.walk(input_directory):
+            for filename in files:
+                if ".sha256" not in filename:
+                    subprocess.run([
+                        "whisperx",
+                        f"{path}/{filename}",
+                        "--model",
+                        "turbo",
+                        "--output_dir",
+                        output,
+                        "--compute_type",
+                        "float32",
+                        "--language",
+                        "en",
+                    ])
+
+
+    if __name__ == "__main__":
+        directories_to_process = (
+            "/Users/username/path/to/directory",
+        )
+        output_directory = "output"
+        for input_dir in directories_to_process:
+            process_dropbox(input_dir, output_directory)
