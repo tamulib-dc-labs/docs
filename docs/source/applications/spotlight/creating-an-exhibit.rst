@@ -21,12 +21,15 @@ Item and Item Curation
 To import an item, you must use IIIF. While on the dashboard, go to the sidebar where it says "Items". Go to "Add items", then "IIIF URL". The IIIF manifest should come from either OAKTrust or Fedora. Do not try to directly upload from the desktop, not even for the thumbnail and banner. It will not work.
 
 A link from Fedora will look like this:
+
 * https://api.library.tamu.edu/iiif-service/fedora/presentation/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/graydiary-saf_objects/2
 
 A link from OAKTrust will look like this: 
+
 * https://api-pre.library.tamu.edu/iiif-service/dspace/presentation/1969.1/1591357
 
 You may also edit one of these manifests and upload to `custom-iiif-manifests <https://github.com/tamulib-dc-labs/custom-iiif-manifests>`_. This hosts the edited manifest on GitHub. The link will look like this:
+
 * https://tamulib-dc-labs.github.io/custom-iiif-manifests/manifests/gray-diary/graydiary.json
 
 ----------------------
@@ -34,6 +37,7 @@ Manifest Editing
 ----------------------
 
 To ensure that a multi-page item embedded in the Spotlight exhibit has its pages appear in pairs like a book or magazine, add the following code under the :code:`sequences` element.
+
 * :code:`"viewingHint": "paged"`.
 
 -----------------------------
