@@ -87,6 +87,7 @@ Automate Transcription
 Instead of running a command for every item you wish to transcribe with WhisperX, use a script that transcribes all items in a directory.
 
 .. code:: python
+    
     import subprocess
     import os
 
