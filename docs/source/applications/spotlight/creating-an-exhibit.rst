@@ -5,11 +5,18 @@ Creating and Modifying Exhibits
 The Libraries currently uses Spotlight for exhibit curation.  This document will explain how to create a new exhibit
 with the features that are currently in use.
 
+----------------------
+Navigation
+----------------------
+On Spotlight and Spotlight Pre it is easiest to move between editing the homepage and the exhibit settings through changing the URL.
 
+For example: `https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/home <https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/home>`_ will get you to the homepage. But `https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/dashboard <https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/dashboard>`_ will get you to the dashboard.
 
 ----------------------
 Item and Item Curation
 ----------------------
+
+To import an item, you must use IIIF. While in the dashboard, go to the sidebar where it says "Items". Go to "Add items", then "IIIF URL". The URL should come from either OAKTrust or Fedora. Do not try to directly upload from the desktop. It will not work.
 
 -----------------------------
 Standard Features and Widgets
