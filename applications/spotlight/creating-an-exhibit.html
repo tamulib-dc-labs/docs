@@ -347,10 +347,22 @@ with the features that are currently in use.</p>
 <h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading">¶</a></h2>
 <p>On Spotlight and Spotlight Pre it is easiest to move between editing the homepage and the exhibit settings through changing the URL.</p>
 <p>For example: <a class="reference external" href="https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/home">https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/home</a> will get you to the homepage. But <a class="reference external" href="https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/dashboard">https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/dashboard</a> will get you to the dashboard.</p>
+<p>Use this “home” and “dashboard” pattern for all exhibits.</p>
 </section>
 <section id="item-and-item-curation">
 <h2>Item and Item Curation<a class="headerlink" href="#item-and-item-curation" title="Link to this heading">¶</a></h2>
-<p>To import an item, you must use IIIF. While in the dashboard, go to the sidebar where it says “Items”. Go to “Add items”, then “IIIF URL”. The URL should come from either OAKTrust or Fedora. Do not try to directly upload from the desktop. It will not work.</p>
+<p>To import an item, you must use IIIF. While on the dashboard, go to the sidebar where it says “Items”. Go to “Add items”, then “IIIF URL”. The IIIF manifest should come from either OAKTrust or Fedora. Do not try to directly upload from the desktop, not even for the thumbnail and banner. It will not work.</p>
+<p>A link from Fedora will look like this:
+* <a class="reference external" href="https://api.library.tamu.edu/iiif-service/fedora/presentation/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/graydiary-saf_objects/2">https://api.library.tamu.edu/iiif-service/fedora/presentation/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/graydiary-saf_objects/2</a></p>
+<p>A link from OAKTrust will look like this:
+* <a class="reference external" href="https://api-pre.library.tamu.edu/iiif-service/dspace/presentation/1969.1/1591357">https://api-pre.library.tamu.edu/iiif-service/dspace/presentation/1969.1/1591357</a></p>
+<p>You may also edit one of these manifests and upload to <a class="reference external" href="https://github.com/tamulib-dc-labs/custom-iiif-manifests">custom-iiif-manifests</a>. This hosts the edited manifest on GitHub. The link will look like this:
+* <a class="reference external" href="https://tamulib-dc-labs.github.io/custom-iiif-manifests/manifests/gray-diary/graydiary.json">https://tamulib-dc-labs.github.io/custom-iiif-manifests/manifests/gray-diary/graydiary.json</a></p>
+</section>
+<section id="manifest-editing">
+<h2>Manifest Editing<a class="headerlink" href="#manifest-editing" title="Link to this heading">¶</a></h2>
+<p>To ensure that a multi-page item embedded in the Spotlight exhibit has its pages appear in pairs like a book or magazine, add the following code under the <code class="code docutils literal notranslate"><span class="pre">sequences</span></code> element.
+* <code class="code docutils literal notranslate"><span class="pre">&quot;viewingHint&quot;:</span> <span class="pre">&quot;paged&quot;</span></code>.</p>
 </section>
 <section id="standard-features-and-widgets">
 <h2>Standard Features and Widgets<a class="headerlink" href="#standard-features-and-widgets" title="Link to this heading">¶</a></h2>
@@ -504,6 +516,7 @@ with the features that are currently in use.</p>
 <li><a class="reference internal" href="#">Creating and Modifying Exhibits</a><ul>
 <li><a class="reference internal" href="#navigation">Navigation</a></li>
 <li><a class="reference internal" href="#item-and-item-curation">Item and Item Curation</a></li>
+<li><a class="reference internal" href="#manifest-editing">Manifest Editing</a></li>
 <li><a class="reference internal" href="#standard-features-and-widgets">Standard Features and Widgets</a><ul>
 <li><a class="reference internal" href="#heading">Heading</a></li>
 <li><a class="reference internal" href="#text">Text</a></li>
