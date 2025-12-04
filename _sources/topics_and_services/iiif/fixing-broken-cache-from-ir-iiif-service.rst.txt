@@ -12,7 +12,7 @@ The following Canvas record from *Houston Oil Minutes* illustrates the problem.
 Notice the Cantaloupe-generated URLs highlighted below:
 
 .. code-block:: json
-    :emphasize-lines: 10, 14, 21
+    :emphasize-lines: 9, 13, 20
 
     {
       "@id": "https://api.library.tamu.edu/iiif-service/fedora/canvas/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/houston_oil_company_minutes_objects/2/pages/page_0",
