@@ -115,3 +115,16 @@ the results to ``batch_3_import_prod_yo.txt``:
 After running the command, review the output log to confirm the handles assigned
 to each imported item and check for any warnings or errors.
 
+Advanced Using nohup
+--------------------
+
+If you are like me, you'll hate dealing with Rancher.  Luckily, we can use :code:`kubectl` so we don't have to even touch
+Rancher after you get comfortable.
+
+With :code:`kubectl` and :code:`nohup` you can do everything above from the comforts of your machine like:
+
+.. code-block:: bash
+
+    nohup /dspace/bin/dspace import -a -e "mark.baggett@tamu.edu" -c a0621c24-2e7c-4b33-a893-8b7798e0a4ad -s batch_3_with_rights -m batch_3_import_prod.txt > mark_batch_3_prod.log 2>&1 &
+
+For more information about using kubectl and nohup, see `Running Detached Processes in a Docker Container <https://tamulib-dc-labs.github.io/docs/topics_and_services/kube-and-docker/running_detached_processes_in_docker.html>`_ .
