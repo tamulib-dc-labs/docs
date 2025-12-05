@@ -442,6 +442,16 @@ the results to <code class="docutils literal notranslate"><span class="pre">batc
 <p>After running the command, review the output log to confirm the handles assigned
 to each imported item and check for any warnings or errors.</p>
 </section>
+<section id="advanced-using-nohup">
+<h2>Advanced Using nohup<a class="headerlink" href="#advanced-using-nohup" title="Link to this heading">¶</a></h2>
+<p>If you are like me, you’ll hate dealing with Rancher.  Luckily, we can use <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code> so we don’t have to even touch
+Rancher after you get comfortable.</p>
+<p>With <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code> and <code class="code docutils literal notranslate"><span class="pre">nohup</span></code> you can do everything above from the comforts of your machine like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nohup<span class="w"> </span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span>-a<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span><span class="w"> </span>-c<span class="w"> </span>a0621c24-2e7c-4b33-a893-8b7798e0a4ad<span class="w"> </span>-s<span class="w"> </span>batch_3_with_rights<span class="w"> </span>-m<span class="w"> </span>batch_3_import_prod.txt<span class="w"> </span>&gt;<span class="w"> </span>mark_batch_3_prod.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>For more information about using kubectl and nohup, see <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/topics_and_services/kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a> .</p>
+</section>
 </section>
 
         </article>
@@ -510,6 +520,7 @@ to each imported item and check for any warnings or errors.</p>
 <li><a class="reference internal" href="#basic-command-structure">Basic Command Structure</a></li>
 <li><a class="reference internal" href="#parameter-breakdown">Parameter Breakdown</a></li>
 <li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#advanced-using-nohup">Advanced Using nohup</a></li>
 </ul>
 </li>
 </ul>
