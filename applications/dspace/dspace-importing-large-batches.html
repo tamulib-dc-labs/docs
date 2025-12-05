@@ -361,7 +361,42 @@ of prepared SAFs and deposits each item into the specified collection.</p>
 <li><p>Your user account has permissions to submit to the target collection.</p></li>
 <li><p>Your SAF packages follow the required DSpace directory structure.</p></li>
 <li><p>You know the UUID of the collection you are importing into.</p></li>
+<li><p>You have scp’d or rsync’d your files to the server via access.library.tamu.edu.</p></li>
 </ul>
+</section>
+<section id="copying-a-saf-import-to-the-access-server">
+<h2>Copying a SAF Import to the Access Server<a class="headerlink" href="#copying-a-saf-import-to-the-access-server" title="Link to this heading">¶</a></h2>
+<p>The access server is what the Libraries uses as its jump / mount point for most running containers.</p>
+<p>To get write access to the server, you must <a class="reference external" href="https://helpdesk.library.tamu.edu/default_kace.php">submit a help desk request</a>
+and choose <em>Submit a Computer or Software Problem</em>.  If you don’t do this, you can’t get your files to the remote server.</p>
+<p>Once you have write access, you can save your files to <code class="code docutils literal notranslate"><span class="pre">access.library.tamu.edu:/mnt/nfstmp/oaktrust-saf-import</span></code>.</p>
+<p>Most people create their own areas on the server to hold files.  For instance, I use <code class="code docutils literal notranslate"><span class="pre">/mnt/nfstmp/oaktrust-saf-import/mark_imports</span></code>.</p>
+<p>You need to be sure that you on the access server and the default user on the container running in Rancher can read, write,
+and execute. If you don’t do this, your import will fail.  To make this easiest you can just use <strong>777</strong> on your files.</p>
+<p>Now that you have background information, you can follow these steps:</p>
+<section id="create-your-file-area">
+<h3>1. Create your file area<a class="headerlink" href="#create-your-file-area" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Connect to Server</span>
+ssh<span class="w"> </span>netid@access.library.tamu.edu
+<span class="c1"># Make a Directory at the Mount Point</span>
+mkdir<span class="w"> </span>/mnt/nfstmp/oaktrust-saf-import/mark_imports
+<span class="c1"># Make sure you can write</span>
+chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>-R<span class="w"> </span>/mnt/nfstmp/oaktrust-saf-import/mark_imports
+</pre></div>
+</div>
+</section>
+<section id="copy-files-to-the-server">
+<h3>2. Copy Files to the Server<a class="headerlink" href="#copy-files-to-the-server" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-r<span class="w"> </span>my-saf-import-on-my-computer<span class="w"> </span>netid@access.library.tamu.edu:/mnt/nfstmp/oaktrust-saf-import/mark_imports
+</pre></div>
+</div>
+</section>
+<section id="double-check-permissions">
+<h3>3. Double Check Permissions<a class="headerlink" href="#double-check-permissions" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>-R<span class="w"> </span>/mnt/nfstmp/oaktrust-saf-import/mark_imports/my-saf-import-on-my-computer
+</pre></div>
+</div>
+</section>
 </section>
 <section id="basic-command-structure">
 <h2>Basic Command Structure<a class="headerlink" href="#basic-command-structure" title="Link to this heading">¶</a></h2>
@@ -466,6 +501,12 @@ to each imported item and check for any warnings or errors.</p>
             <ul>
 <li><a class="reference internal" href="#">Batch Importing SAFs Using the DSpace Command Line</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#copying-a-saf-import-to-the-access-server">Copying a SAF Import to the Access Server</a><ul>
+<li><a class="reference internal" href="#create-your-file-area">1. Create your file area</a></li>
+<li><a class="reference internal" href="#copy-files-to-the-server">2. Copy Files to the Server</a></li>
+<li><a class="reference internal" href="#double-check-permissions">3. Double Check Permissions</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#basic-command-structure">Basic Command Structure</a></li>
 <li><a class="reference internal" href="#parameter-breakdown">Parameter Breakdown</a></li>
 <li><a class="reference internal" href="#example">Example</a></li>

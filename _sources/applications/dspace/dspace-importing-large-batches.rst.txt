@@ -15,6 +15,53 @@ Before running a batch import, ensure that:
 - Your user account has permissions to submit to the target collection.
 - Your SAF packages follow the required DSpace directory structure.
 - You know the UUID of the collection you are importing into.
+- You have scp'd or rsync'd your files to the server via access.library.tamu.edu.
+
+Copying a SAF Import to the Access Server
+-----------------------------------------
+
+The access server is what the Libraries uses as its jump / mount point for most running containers.
+
+To get write access to the server, you must `submit a help desk request <https://helpdesk.library.tamu.edu/default_kace.php>`_
+and choose *Submit a Computer or Software Problem*.  If you don't do this, you can't get your files to the remote server.
+
+Once you have write access, you can save your files to :code:`access.library.tamu.edu:/mnt/nfstmp/oaktrust-saf-import`.
+
+Most people create their own areas on the server to hold files.  For instance, I use :code:`/mnt/nfstmp/oaktrust-saf-import/mark_imports`.
+
+You need to be sure that you on the access server and the default user on the container running in Rancher can read, write,
+and execute. If you don't do this, your import will fail.  To make this easiest you can just use **777** on your files.
+
+Now that you have background information, you can follow these steps:
+
+========================
+1. Create your file area
+========================
+
+.. code-block:: bash
+
+    # Connect to Server
+    ssh netid@access.library.tamu.edu
+    # Make a Directory at the Mount Point
+    mkdir /mnt/nfstmp/oaktrust-saf-import/mark_imports
+    # Make sure you can write
+    chmod 777 -R /mnt/nfstmp/oaktrust-saf-import/mark_imports
+
+===========================
+2. Copy Files to the Server
+===========================
+
+.. code-block:: bash
+
+    scp -r my-saf-import-on-my-computer netid@access.library.tamu.edu:/mnt/nfstmp/oaktrust-saf-import/mark_imports
+
+===========================
+3. Double Check Permissions
+===========================
+
+.. code-block:: bash
+
+    chmod 777 -R /mnt/nfstmp/oaktrust-saf-import/mark_imports/my-saf-import-on-my-computer
 
 Basic Command Structure
 -----------------------
