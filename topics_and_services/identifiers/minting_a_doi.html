@@ -440,6 +440,64 @@ Even if you redeposit metadata, the record will continue to display:</p>
 <section id="sample-pending-publication">
 <h3>Sample Pending Publication<a class="headerlink" href="#sample-pending-publication" title="Link to this heading">¶</a></h3>
 <p>A sample XML document will look like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;doi_batch</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;5.3.1&quot;</span>
+<span class="w">           </span><span class="na">xmlns=</span><span class="s">&quot;http://www.crossref.org/schema/5.3.1&quot;</span>
+<span class="w">           </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">           </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.crossref.org/schema/5.3.1</span>
+<span class="s">           http://www.crossref.org/schema/deposit/crossref5.3.1.xsd&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;head&gt;</span>
+<span class="w">    </span><span class="nt">&lt;doi_batch_id&gt;</span>pending-pub-example-001<span class="nt">&lt;/doi_batch_id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;timestamp&gt;</span>20250101000000<span class="nt">&lt;/timestamp&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;depositor&gt;</span>
+<span class="w">      </span><span class="nt">&lt;depositor_name&gt;</span>Your<span class="w"> </span>Organization<span class="w"> </span>Name<span class="nt">&lt;/depositor_name&gt;</span>
+<span class="w">      </span><span class="nt">&lt;email_address&gt;</span>contact@example.org<span class="nt">&lt;/email_address&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/depositor&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;registrant&gt;</span>Your<span class="w"> </span>Organization<span class="w"> </span>Name<span class="nt">&lt;/registrant&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/head&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;body&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pending_publication&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;titles&gt;</span>
+<span class="w">        </span><span class="nt">&lt;title&gt;</span>Example<span class="w"> </span>Title<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>Pending<span class="w"> </span>Publication<span class="nt">&lt;/title&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/titles&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;contributors&gt;</span>
+<span class="w">        </span><span class="nt">&lt;person_name</span><span class="w"> </span><span class="na">sequence=</span><span class="s">&quot;first&quot;</span><span class="w"> </span><span class="na">contributor_role=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;given_name&gt;</span>Alice<span class="nt">&lt;/given_name&gt;</span>
+<span class="w">          </span><span class="nt">&lt;surname&gt;</span>Smith<span class="nt">&lt;/surname&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/person_name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;person_name</span><span class="w"> </span><span class="na">sequence=</span><span class="s">&quot;additional&quot;</span><span class="w"> </span><span class="na">contributor_role=</span><span class="s">&quot;author&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;given_name&gt;</span>Bob<span class="nt">&lt;/given_name&gt;</span>
+<span class="w">          </span><span class="nt">&lt;surname&gt;</span>Johnson<span class="nt">&lt;/surname&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/person_name&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/contributors&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;acceptance_date&gt;</span>
+<span class="w">        </span><span class="nt">&lt;month&gt;</span>01<span class="nt">&lt;/month&gt;</span>
+<span class="w">        </span><span class="nt">&lt;day&gt;</span>10<span class="nt">&lt;/day&gt;</span>
+<span class="w">        </span><span class="nt">&lt;year&gt;</span>2025<span class="nt">&lt;/year&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/acceptance_date&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;intent_to_publish&gt;</span>
+<span class="w">        </span>This<span class="w"> </span>manuscript<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>accepted<span class="w"> </span>and<span class="w"> </span>is<span class="w"> </span>awaiting<span class="w"> </span>publication.
+<span class="w">      </span><span class="nt">&lt;/intent_to_publish&gt;</span>
+
+<span class="w">      </span><span class="nt">&lt;doi_data&gt;</span>
+<span class="w">        </span><span class="nt">&lt;doi&gt;</span>10.1234/example.pendingpub.001<span class="nt">&lt;/doi&gt;</span>
+<span class="w">        </span><span class="nt">&lt;resource&gt;</span>https://example.org/pending/example.pendingpub.001<span class="nt">&lt;/resource&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/doi_data&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;/pending_publication&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/doi_batch&gt;</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>

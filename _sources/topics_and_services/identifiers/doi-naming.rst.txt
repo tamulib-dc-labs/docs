@@ -58,3 +58,13 @@ Each DOI resolves directly to a Pressbooks-hosted publication.
 
 In order to ensure uniqueness, the :code:`opd.` namespace is reserved for Pressbooks and other applications in use by
 the Open Publishing unit.
+
+---------------------------------------------------
+DOIs for Pending Publications or External Resources
+---------------------------------------------------
+
+Sometimes we will get a request for a DOI for a pending publication or where it is unclear where it will ultimately live.
+In these situations, even if it will live in OAKTrust, we need a reserved pattern. For these, always lead with :code:`ppub-ext-`
+
+For instance, we will use the pattern ``https://doi.org/10.21423/ppub-ext-swhrc-fG7kQ2`` with the last six being randomly generated.
+**swhrc** is a slug for the requestor.
