@@ -110,7 +110,7 @@ Sample Pending Publication
 
 A sample XML document will look like this:
 
-.. code-block: sphinx
+.. code-block:: xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <doi_batch version="5.3.1"
