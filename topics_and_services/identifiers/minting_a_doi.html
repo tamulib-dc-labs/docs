@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -341,7 +341,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -349,6 +349,99 @@
         <article role="main" id="furo-main-content">
           <section id="minting-dois-in-crossref">
 <h1>Minting DOIs in Crossref<a class="headerlink" href="#minting-dois-in-crossref" title="Link to this heading">¶</a></h1>
+<section id="pending-publications">
+<h2>Pending Publications<a class="headerlink" href="#pending-publications" title="Link to this heading">¶</a></h2>
+<p>In some cases, our stakeholders need a DOI <strong>before</strong> the item is formally published or available online.
+Crossref supports this through a special record type called a
+<a class="reference external" href="https://www.crossref.org/documentation/schema-library/markup-guide-record-types/pending-publications/">Pending Publication</a>.
+A Pending Publication is a temporary Crossref record that allows us to register a DOI early, with minimal metadata,
+while signaling to readers that a final version is forthcoming.</p>
+<p>Pending Publications appear in Crossref with a green banner reading:</p>
+<blockquote>
+<div><p><strong>“Manuscript has been accepted.”</strong></p>
+</div></blockquote>
+<p>This banner communicates that the content is not yet fully published but has been accepted by the publisher.</p>
+<section id="why-use-a-pending-publication">
+<h3>Why use a Pending Publication?<a class="headerlink" href="#why-use-a-pending-publication" title="Link to this heading">¶</a></h3>
+<p>Use a Pending Publication when:</p>
+<ul class="simple">
+<li><p>A DOI is needed in advance for grant reporting, early citation, or repository workflows.</p></li>
+<li><p>The item has been accepted but is not yet publicly available.</p></li>
+<li><p>Metadata is incomplete (e.g., volume, issue, page numbers, final URL).</p></li>
+</ul>
+<p>Crossref allows you to register the DOI immediately and update the metadata later once the final version is ready.</p>
+</section>
+<section id="creating-a-pending-publication">
+<h3>Creating a Pending Publication<a class="headerlink" href="#creating-a-pending-publication" title="Link to this heading">¶</a></h3>
+<p>To create a Pending Publication, you:</p>
+<ol class="arabic simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">pending_publication</span></code> work type in your Crossref deposit.</p></li>
+<li><p>Supply the minimum required metadata:
+- Title
+- Authors
+- Acceptance date
+- Intent-to-publish statement
+- DOI you are minting</p></li>
+<li><p>Deposit via your normal Crossref workflow (XML upload, API deposit, or system integration).</p></li>
+</ol>
+<p>Once deposited, the DOI resolves to a basic record with the green “accepted” banner.</p>
+</section>
+<section id="updating-a-pending-publication-after-formal-publication">
+<h3>Updating a Pending Publication After Formal Publication<a class="headerlink" href="#updating-a-pending-publication-after-formal-publication" title="Link to this heading">¶</a></h3>
+<p><strong>Crossref does not have a special “update” operation.</strong>
+When the work is finally published, you simply <strong>deposit new metadata to the exact same DOI</strong>.
+Crossref will then replace or expand the metadata accordingly.</p>
+<p>Typical metadata added at this stage includes:</p>
+<ul class="simple">
+<li><p>Publication date</p></li>
+<li><p>Final title (if changed)</p></li>
+<li><p>Journal, volume, issue, and pages</p></li>
+<li><p>Final landing page URL</p></li>
+<li><p>Abstract</p></li>
+<li><p>License</p></li>
+<li><p>Funding and affiliation details</p></li>
+<li><p>References</p></li>
+</ul>
+<p>This update creates the official published version of the DOI.</p>
+</section>
+<section id="withdrawals-and-corrections">
+<h3>Withdrawals and Corrections<a class="headerlink" href="#withdrawals-and-corrections" title="Link to this heading">¶</a></h3>
+<p>The behavior differs depending on whether your organization uses <strong>Crossmark</strong>.</p>
+<section id="for-crossmark-users">
+<h4>For Crossmark users<a class="headerlink" href="#for-crossmark-users" title="Link to this heading">¶</a></h4>
+<p>If the Pending Publication needs to be <strong>withdrawn</strong>, you may include a
+<strong>Crossmark scholarly update assertion</strong>, such as <code class="docutils literal notranslate"><span class="pre">withdrawal</span></code>.</p>
+<p>This tells Crossref to automatically:</p>
+<ul class="simple">
+<li><p>Change the green banner to a <strong>red “Accepted manuscript has been withdrawn”</strong> banner</p></li>
+<li><p>Record the update in Crossmark metadata</p></li>
+<li><p>(Optionally) link to a new DOI representing the update/notice</p></li>
+</ul>
+<p>This is the recommended approach if your workflow includes Crossmark.</p>
+</section>
+<section id="for-organizations-not-using-crossmark">
+<h4>For organizations <em>not</em> using Crossmark<a class="headerlink" href="#for-organizations-not-using-crossmark" title="Link to this heading">¶</a></h4>
+<p>Without Crossmark, Crossref cannot automatically change the green Pending Publication banner.
+Even if you redeposit metadata, the record will continue to display:</p>
+<blockquote>
+<div><p><strong>“Manuscript has been accepted.”</strong></p>
+</div></blockquote>
+<p>Therefore, if you withdraw a Pending Publication you <strong>must</strong> communicate this manually in the
+<code class="docutils literal notranslate"><span class="pre">&lt;intent_to_publish&gt;</span></code> field.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">intent_to_publish</span><span class="o">&gt;</span>
+    <span class="n">This</span> <span class="n">item</span> <span class="n">has</span> <span class="n">been</span> <span class="n">withdrawn</span> <span class="n">by</span> <span class="n">the</span> <span class="n">authors</span> <span class="ow">and</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">published</span><span class="o">.</span>
+<span class="o">&lt;/</span><span class="n">intent_to_publish</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>This ensures that downstream users and metadata consumers understand the withdrawal even though the banner will not change.</p>
+</section>
+</section>
+<section id="sample-pending-publication">
+<h3>Sample Pending Publication<a class="headerlink" href="#sample-pending-publication" title="Link to this heading">¶</a></h3>
+<p>A sample XML document will look like this:</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -394,8 +487,38 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Minting DOIs in Crossref</a><ul>
+<li><a class="reference internal" href="#pending-publications">Pending Publications</a><ul>
+<li><a class="reference internal" href="#why-use-a-pending-publication">Why use a Pending Publication?</a></li>
+<li><a class="reference internal" href="#creating-a-pending-publication">Creating a Pending Publication</a></li>
+<li><a class="reference internal" href="#updating-a-pending-publication-after-formal-publication">Updating a Pending Publication After Formal Publication</a></li>
+<li><a class="reference internal" href="#withdrawals-and-corrections">Withdrawals and Corrections</a><ul>
+<li><a class="reference internal" href="#for-crossmark-users">For Crossmark users</a></li>
+<li><a class="reference internal" href="#for-organizations-not-using-crossmark">For organizations <em>not</em> using Crossmark</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sample-pending-publication">Sample Pending Publication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

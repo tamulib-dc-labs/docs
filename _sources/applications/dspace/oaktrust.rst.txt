@@ -40,8 +40,10 @@ Based on the document, you can see a number of strategies for getting data about
 Getting Time Based Stats
 ========================
 
-Let's pretend we want to get all traffic between :code:`2025-08-01` and :code:`2025-08-10` in OAKTrust.  We can perform a search on the :code:`time` field like :code:`time:[2025-08-01T00:00:00Z TO 2025-08-10T23:59:59Z]`.
-Doing a search only for this string will search traffic across all communities and return :code:`174282` documents as formatted like:
+Let's pretend we want to get all traffic between :code:`2025-08-01` and :code:`2025-08-10` in OAKTrust.  We can perform
+a search on the :code:`time` field like :code:`time:[2025-08-01T00:00:00Z TO 2025-08-10T23:59:59Z]`.
+Doing a search only for this string will search traffic across all communities and return
+:code:`174282` documents as formatted like:
 
 .. code-block:: json
 
@@ -75,7 +77,8 @@ Doing a search only for this string will search traffic across all communities a
 Eliminating Bots
 ================
 
-You can remove bot traffic by expanding your query to include :code:`time:[2025-08-01T00:00:00Z TO 2025-08-10T23:59:59Z] AND isBot:false`. This reduces things to :code:`110246`.
+You can remove bot traffic by expanding your query to include
+:code:`time:[2025-08-01T00:00:00Z TO 2025-08-10T23:59:59Z] AND isBot:false`. This reduces documents to :code:`110246`.
 
 If you want to avoid the Solr interface entirely, you can do this like so:
 
@@ -84,4 +87,5 @@ https://rancher.library.tamu.edu/k8s/clusters/c-kd2s7/api/v1/namespaces/oaktrust
 Getting Item Based Stats
 ========================
 
-Let's pretend we want to get all traffic
+Let's pretend we want to find out which collections have gotten the most traffic in the month of October 2025. By
+collections, we mean we want to find the owning collections of the most popular items over the past month.
