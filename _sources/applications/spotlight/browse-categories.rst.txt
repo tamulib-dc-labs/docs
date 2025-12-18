@@ -8,7 +8,7 @@ You may want to to organize a large collection on Spotlight by dividing it into 
 Make Browse Categories Visible
 ----------------------
 
-First you must make sure browse categories show up as a menu option for viewers. To do this, go to the dashboard (can be located by going to the homepage and replacing "home" "dashboard" in the url). 
+First you must make sure browse categories show up as a menu option for users. To do this, go to the dashboard (can be located by going to the homepage and replacing "home" with "dashboard" in the url). 
 
 Under "Configuration", click on "Appearance" and go to the "Main Menu" tab. Make sure the "Browse" box is checked.
 
@@ -16,7 +16,7 @@ Under "Configuration", click on "Appearance" and go to the "Main Menu" tab. Make
 Add tags to digital objects
 ----------------------
 
-You will need to first add tags to items you want to include in a category. To add a tag, edit the item and scroll down to the "exhibit tags" metadata field. Type whatever you want the tag to be. Keep in mind that tag will be visible to users. If you have already assigned that tag to another item, it should autocomplete. Also note that an item can have multiple tags.
+You will need to add tags to items you want to include in a category. To add a tag, edit the item and scroll down to the "exhibit tags" metadata field. Type whatever you want the tag to be. Keep in mind that the tag will be visible to users. If you have already assigned that tag to another item, it should autocomplete. Also note that an item can have multiple tags.
 
 Add the same tag to every item you want to have in a certain browse category.
 
