@@ -24,9 +24,9 @@ Step-by-step: Extending an existing embargo in OAKTrust 10
 .. image:: ../../_static/images/dspace-searching-a-document.png
     :alt: Searching an item in the repository
 
-3. **Open the item for editing** (commonly: “Edit Item” or similar in the UI).
+3. **Open the item for editing** 
 
-.. image:: ../../_static/images/dspace-edit-item.png
+.. image:: ../../_static/images/dspace-edit-this-item.png
     :alt: Edit item option in DSpace
 
 4. **Go to the “Status -> Authorizations” section** - From status tab, click on Authorizations button.
@@ -35,11 +35,11 @@ Step-by-step: Extending an existing embargo in OAKTrust 10
     :alt: Navigate to Authorizations tab   
 
 5. **Identify the relevant policy**
-   * If the embargo is at the item level — edit the Item’s policy.
-   * If the embargo is at the bitstream level (i.e. specific files) — find the policy for the bitstream(s) you want to change. 
-   * Edit bitstream policies by clicking the “Edit Bitstreams” button, then selecting the ORIGINAL, TEXT, and THUMBNAIL bitstreams one at a time to edit their policies.
+    * If the embargo is at the item level — edit the Item’s policy.
+    * If the embargo is at the bitstream level (i.e. specific files) — find the policy for the bitstream(s) you want to change.
+    * Edit bitstream policies by clicking the “Edit Bitstreams” button, then selecting the ORIGINAL, TEXT, and THUMBNAIL bitstreams one at a time to edit their policies.
 
-.. image:: ../../_static/images/dspace-edit-bitsteams.png
+.. image:: ../../_static/images/dspace-edit-bitstreams.png
     :alt: Edit bitstreams option in DSpace
 
 6. **Edit the “Start date” of the policy** — set it to the new embargo-lift date (i.e. the date when you now want access to begin). 
@@ -47,7 +47,7 @@ Step-by-step: Extending an existing embargo in OAKTrust 10
 .. image:: ../../_static/images/dspace-change-start-date.png
     :alt: Change start date option in DSpace
 
-7.  **Save/Apply changes.** The new embargo date should take effect immediately. Because your current session may still have admin privileges, you might need to log out and log in as a non-admin to verify that the embargo is actually enforced until the new date. 
+7.  **Save/Apply changes.** The new embargo date should take effect immediately. Because your current session may still have admin privileges, you might need to log out and log in as a non-admin to verify that the embargo is actually enforced until the new date. Or you can just open the link in a private/incognito browser window.
 
 ---------------------------------------------------------
 Known caveats & troubleshooting (things to watch out for)
