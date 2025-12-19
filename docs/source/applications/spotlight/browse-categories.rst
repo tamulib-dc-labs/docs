@@ -1,5 +1,5 @@
 ===============================
-Creating a Browse Category in Spotlight
+Creating a Browse Category
 ===============================
 
 You may want to to organize a large collection on Spotlight by dividing it into smaller categories people can browse. Browse categories allow for users to browse through only a specific segment of the collection determined by the curator.
@@ -10,7 +10,7 @@ Make Browse Categories Visible
 
 First you must make sure browse categories show up as a menu option for users. To do this, go to the dashboard (can be located by going to the homepage and replacing "home" with "dashboard" in the url). 
 
-Under "Configuration", click on "Appearance" and go to the "Main Menu" tab. Make sure the "Browse" box is checked.
+Under "Curation", click on "Browse" and go to the "Main Menu" tab. Make sure the "All exhibit items" box is checked.
 
 ----------------------
 Add tags to digital objects
