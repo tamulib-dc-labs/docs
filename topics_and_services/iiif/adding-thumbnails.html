@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -345,7 +345,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -371,6 +371,108 @@
 <p>Note that <code class="code docutils literal notranslate"><span class="pre">&#64;id</span></code> under <code class="code docutils literal notranslate"><span class="pre">service</span></code> should be nearly identical to <code class="code docutils literal notranslate"><span class="pre">&#64;id</span></code> one level under <code class="code docutils literal notranslate"><span class="pre">thumbnail</span></code>, except without the sizing, rotation, scale, and cropping features and the <code class="code docutils literal notranslate"><span class="pre">.jpg</span></code> extension.</p>
 <p>You can acquire this <code class="code docutils literal notranslate"><span class="pre">&#64;id</span></code> by going to the first canvas under <code class="code docutils literal notranslate"><span class="pre">sequences</span></code>.</p>
 <p><code class="code docutils literal notranslate"><span class="pre">,200</span></code> is a good size for the Spotlight search results.</p>
+<section id="adding-thumbnails-to-a-directory-of-manifests">
+<h2>Adding Thumbnails to a directory of manifests<a class="headerlink" href="#adding-thumbnails-to-a-directory-of-manifests" title="Link to this heading">¶</a></h2>
+<p>Here is a script that adds a thumbnail section to each json in a directory of IIIF manifests.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">MANIFEST_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;manifest&quot;</span><span class="p">)</span>
+<span class="n">THUMBNAIL_SUFFIX</span> <span class="o">=</span> <span class="s2">&quot;/full/,200/0/default.jpg&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_manifest</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;@type&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;sc:Manifest&quot;</span>
+        <span class="ow">or</span> <span class="s2">&quot;sequences&quot;</span> <span class="ow">in</span> <span class="n">data</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_first_canvas</span><span class="p">(</span><span class="n">manifest</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;sequences&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;canvases&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_image_service</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Look for an Image API service on the first canvas,</span>
+<span class="sd">    regardless of where it lives.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Typical v2 location</span>
+    <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resource&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">service</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;service&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;@id&quot;</span> <span class="ow">in</span> <span class="n">service</span><span class="p">:</span>
+            <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">service</span><span class="p">[</span><span class="s2">&quot;@id&quot;</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">service</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;@id&quot;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+                    <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s2">&quot;@id&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">candidates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">candidates</span> <span class="k">else</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_thumbnail</span><span class="p">(</span><span class="n">manifest</span><span class="p">):</span>
+    <span class="n">canvas</span> <span class="o">=</span> <span class="n">find_first_canvas</span><span class="p">(</span><span class="n">manifest</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">canvas</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ⚠️  No canvas found&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">service_id</span> <span class="o">=</span> <span class="n">extract_image_service</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">service_id</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ⚠️  No image service found on canvas&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;thumbnail&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">service_id</span><span class="si">}{</span><span class="n">THUMBNAIL_SUFFIX</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;@type&quot;</span><span class="p">:</span> <span class="s2">&quot;dctypes:Image&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;thumbnail image&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;service&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;@id&quot;</span><span class="p">:</span> <span class="n">service_id</span><span class="p">,</span>
+            <span class="s2">&quot;@context&quot;</span><span class="p">:</span> <span class="s2">&quot;http://iiif.io/api/image/2/context.json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;profile&quot;</span><span class="p">:</span> <span class="s2">&quot;http://iiif.io/api/image/2/level2.json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;IIIF Image Service&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">json_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">MANIFEST_DIR</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.json&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">json_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> JSON files&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">json_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Processing </span><span class="si">{</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_manifest</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ❌ Not recognized as a manifest — skipped&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">add_thumbnail</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ✅ Thumbnail added&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ❌ Thumbnail not added&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Done.&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -416,8 +518,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Adding a Thumbnail to a IIIF Manifest</a><ul>
+<li><a class="reference internal" href="#adding-thumbnails-to-a-directory-of-manifests">Adding Thumbnails to a directory of manifests</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
