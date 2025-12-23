@@ -1,8 +1,11 @@
-================================================
+=====================================
 Adding a Thumbnail to a IIIF Manifest
-================================================
+=====================================
 
-When building exhibits with Spotlight, it may be useful to add a thumbnail to a IIIF manifest. The thumbnail is its own section in the manifest, on the top level. (For example, it should be aligned with :code:`metadata` and :code:`sequences`.)
+When building exhibits with Spotlight, it may be useful to add a thumbnail to a IIIF manifest if one is missing.
+
+The thumbnail is its own section in the manifest, on the top level. (For example, it should be aligned with
+:code:`metadata` and :code:`sequences`.)
 
 The thumbnail will have this format:
 
@@ -20,7 +23,8 @@ The thumbnail will have this format:
         }
     }
 
-Note that :code:`@id` under :code:`service` should be nearly identical to :code:`@id` one level under :code:`thumbnail`, except without the sizing, rotation, scale, and cropping features and the :code:`.jpg` extension.
+Note that :code:`@id` under :code:`service` should be nearly identical to :code:`@id` one level under
+:code:`thumbnail`, except without the sizing, rotation, scale, and cropping features and the :code:`.jpg` extension.
 
 You can acquire this :code:`@id` by going to the first canvas under :code:`sequences`.
 
