@@ -30,6 +30,18 @@ In Solr, the text file will look like:
           "tm_X3b_und_title_2":["Letter from Thomas S. Sutton to Colonel J.R. Cole"],
           "_root_":"3doz0r-default_solr_index-strawberryfield_flavor_datasource/33:1:en:93113851-f4b7-4105-88cd-7b0bab3b5b90:text",
 
+Upload Your ADO
+===============
+
+When you upload your ADO, add your images.
+
+.. image:: ../../_static/images/archipelago-add-images.png
+    :alt: Adding Images to Archipelago
+
+And add associated text files containing the HTR:
+
+.. image::  ../../_static/images/archipelago-add-text-files.png
+    :alt: Adding Text Files to Archipelago
 
 Triggering the Indexing
 =======================
