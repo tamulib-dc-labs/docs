@@ -369,6 +369,228 @@
 <section id="conversion">
 <h2>Conversion<a class="headerlink" href="#conversion" title="Link to this heading">¶</a></h2>
 <p>Once you have the input csv, you can run this script to convert it to a csv compatible with Archipelago AMI batch import.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">INPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;input.csv&quot;</span>
+<span class="n">OUTPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;intermediate.csv&quot;</span>
+
+<span class="c1"># --------------------</span>
+<span class="c1"># Helpers</span>
+<span class="c1"># --------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">non_empty</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_indexes</span><span class="p">(</span><span class="n">fieldnames</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">suffix</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds all numeric indexes for columns like:</span>
+<span class="sd">    prefix{i}suffix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span><span class="si">}</span><span class="s2">(\d+)</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+    <span class="n">indexes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">fieldnames</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="n">indexes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">build_lcnaf_array</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">fieldnames</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+    <span class="n">indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">fieldnames</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">_&quot;</span><span class="p">,</span> <span class="s2">&quot;_label&quot;</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indexes</span><span class="p">:</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_label&quot;</span><span class="p">)</span>
+        <span class="n">uri</span>   <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_uri&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+                <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="n">uri</span>
+            <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">build_date_created_edtf</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">date_obj</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;date_type&quot;</span><span class="p">,</span> <span class="s2">&quot;date_from&quot;</span><span class="p">,</span> <span class="s2">&quot;date_to&quot;</span><span class="p">,</span> <span class="s2">&quot;date_free&quot;</span><span class="p">]:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+            <span class="n">date_obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">date_obj</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">if</span> <span class="n">date_obj</span> <span class="k">else</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span>
+
+<span class="c1"># --------------------</span>
+<span class="c1"># Main</span>
+<span class="c1"># --------------------</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">INPUT_CSV</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">,</span> \
+    <span class="nb">open</span><span class="p">(</span><span class="n">OUTPUT_CSV</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+
+    <span class="c1"># Normalize headers</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">]</span>
+
+    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;creators&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;creator_lod&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;subject_loc&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject_lcnaf_personal_names&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject_lcnaf_corporate_names&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject_lcnaf_geographic_names&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject_lcgft_terms&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;subjects_local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;date_created&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;date_created_edtf&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ismemberof&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;owner&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rights&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rights_statements&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;resource_type&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;digital_origin&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rights_statement_label&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;physical_description_extent&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;image&quot;</span>
+    <span class="p">]</span>
+
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+
+        <span class="c1"># ---- Creators ----</span>
+        <span class="n">creator_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;creator_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">creators</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;creator_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">creator_indexes</span>
+            <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;creator_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="p">]</span>
+
+        <span class="c1"># ---- Creator LOD ----</span>
+        <span class="n">lod_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;creator_lod_&quot;</span><span class="p">,</span> <span class="s2">&quot;_name_label&quot;</span><span class="p">)</span>
+        <span class="n">creator_lod</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lod_indexes</span><span class="p">:</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;creator_lod_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_&quot;</span>
+            <span class="n">fields</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;agent_type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;agent_type&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;name_label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;name_label&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;name_uri&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;name_uri&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;role_label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;role_label&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;role_uri&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="s2">&quot;role_uri&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">non_empty</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+                <span class="n">creator_lod</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+
+        <span class="c1"># ---- Subject LOC ----</span>
+        <span class="n">loc_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subject_loc_&quot;</span><span class="p">,</span> <span class="s2">&quot;_label&quot;</span><span class="p">)</span>
+        <span class="n">subject_loc</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">loc_indexes</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subject_loc_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_label&quot;</span><span class="p">)</span>
+            <span class="n">uri</span>   <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subject_loc_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_uri&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+                <span class="n">subject_loc</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+                    <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="n">uri</span>
+                <span class="p">})</span>
+
+        <span class="c1"># ---- LCNAF ----</span>
+        <span class="n">lcnaf_personal</span>   <span class="o">=</span> <span class="n">build_lcnaf_array</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subject_lcnaf_personal&quot;</span><span class="p">)</span>
+        <span class="n">lcnaf_corporate</span>  <span class="o">=</span> <span class="n">build_lcnaf_array</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subject_lcnaf_corporate&quot;</span><span class="p">)</span>
+        <span class="n">lcnaf_geographic</span> <span class="o">=</span> <span class="n">build_lcnaf_array</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subject_lcnaf_geographic&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ---- LCGFT ----</span>
+        <span class="n">lcgft_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subject_lcgft_terms_&quot;</span><span class="p">,</span> <span class="s2">&quot;_label&quot;</span><span class="p">)</span>
+        <span class="n">subject_lcgft</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lcgft_indexes</span><span class="p">:</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subject_lcgft_terms_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_label&quot;</span><span class="p">)</span>
+            <span class="n">uri</span>   <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subject_lcgft_terms_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">_uri&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+                <span class="n">subject_lcgft</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+                    <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="n">uri</span>
+                <span class="p">})</span>
+
+        <span class="c1"># ---- Subjects local ----</span>
+        <span class="n">local_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subjects_local_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">subjects_local</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subjects_local_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">local_indexes</span>
+            <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subjects_local_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="p">]</span>
+
+        <span class="c1"># ---- Subjects local personal names ----</span>
+        <span class="n">local_personal_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span>
+            <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span>
+            <span class="s2">&quot;subjects_local_personal_names_&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span>
+        <span class="p">)</span>
+
+        <span class="n">subjects_local_personal</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subjects_local_personal_names_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">local_personal_indexes</span>
+            <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subjects_local_personal_names_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+        <span class="p">]</span>
+
+        <span class="c1"># ---- Dates ----</span>
+        <span class="n">date_created_edtf</span> <span class="o">=</span> <span class="n">build_date_created_edtf</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+        <span class="c1"># ---- Write row ----</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">),</span>
+
+            <span class="s2">&quot;creators&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creators</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;creator_lod&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creator_lod</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+
+            <span class="s2">&quot;subject_loc&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subject_loc</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;subject_lcnaf_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">lcnaf_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;subject_lcnaf_corporate_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">lcnaf_corporate</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;subject_lcnaf_geographic_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">lcnaf_geographic</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;subject_lcgft_terms&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subject_lcgft</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+
+            <span class="s2">&quot;subjects_local&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+
+            <span class="s2">&quot;date_created&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date_created&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;date_created_edtf&quot;</span><span class="p">:</span> <span class="n">date_created_edtf</span><span class="p">,</span>
+
+            <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;ismemberof&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ismemberof&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;owner&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;rights_statements&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statements&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;resource_type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resource_type&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;digital_origin&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;digital_origin&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;rights&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_label&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;rights_statement_label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_label&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;physical_description_extent&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;physical_description_extent&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+</pre></div>
+</div>
 </section>
 </section>
 

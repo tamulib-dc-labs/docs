@@ -29,6 +29,7 @@ Conversion
 Once you have the input csv, you can run this script to convert it to a csv compatible with Archipelago AMI batch import.
 
 .. code:: python
+    
     import csv
     import json
     import re
@@ -249,6 +250,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "physical_description_extent": row.get("physical_description_extent"),
                 "image": row.get("image")
             })
+
 
 
 
