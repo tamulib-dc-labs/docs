@@ -2,11 +2,11 @@
 How to make a flat csv compatible with AMI batch import
 ================================
 
-The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example:
+The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example all of this should go under the creator_lod field when doing a batch import in a single cell:
 
 :code:`[{"name_uri":"http://id.loc.gov/authorities/names/n2001078880","role_uri":"http://id.loc.gov/vocabulary/relators/cre","agent_type":"personal","name_label":"Hogg, James Stephen, 1851-1906.","role_label":"Creator"},{"name_uri":"https://id.loc.gov/authorities/names/n82158463","role_uri":"http://id.loc.gov/vocabulary/relators/rcp","agent_type":"personal","name_label":"Ross, Lawrence Sullivan, 1838-1898","role_label":"Addressee"}]`
 
-This is time-consuming and may lead to mistakes, so here is a script that converts a spreadsheet that is easier to work with to the spreadsheet required for AMI imports.
+This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a script that converts a spreadsheet that is easier to work with to the spreadsheet required for AMI imports.
 
 ----------------------------------
 Input csv
@@ -29,7 +29,7 @@ Conversion
 Once you have the input csv, you can run this script to convert it to a csv compatible with Archipelago AMI batch import.
 
 .. code:: python
-    
+
     import csv
     import json
     import re

@@ -358,9 +358,9 @@
         <article role="main" id="furo-main-content">
           <section id="how-to-make-a-flat-csv-compatible-with-ami-batch-import">
 <h1>How to make a flat csv compatible with AMI batch import<a class="headerlink" href="#how-to-make-a-flat-csv-compatible-with-ami-batch-import" title="Link to this heading">¶</a></h1>
-<p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example:</p>
+<p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example all of this should go under the creator_lod field when doing a batch import in a single cell:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
-<p>This is time-consuming and may lead to mistakes, so here is a script that converts a spreadsheet that is easier to work with to the spreadsheet required for AMI imports.</p>
+<p>This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a script that converts a spreadsheet that is easier to work with to the spreadsheet required for AMI imports.</p>
 <section id="input-csv">
 <h2>Input csv<a class="headerlink" href="#input-csv" title="Link to this heading">¶</a></h2>
 <p>Enter your metadata into this csv.</p>
