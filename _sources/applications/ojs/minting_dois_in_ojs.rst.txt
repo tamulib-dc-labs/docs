@@ -32,6 +32,15 @@ should be chosen.  The DOI Format should always be :code:`Default`.
 .. image:: ../../_static/images/doi-setup.png
     :alt: An Image Showing OJS DOI Setup
 
+Since we use Crossref and personal email accounts for authentication, you must set your user name like so: :code:`email@example.com/role`.:align:
+
+You can find your role in the Crossref Admin portal.
+
+.. image:: ../../_static/images/crossref-role.png
+    :alt: An Image Showing How Roles are Displayed in the Crossref Admin Portal
+
+Following this pattern, I would set my username to :code:`mark.baggett@tamu.edu/texu`.
+
 ----------------
 DOI Registration
 ----------------
@@ -41,3 +50,10 @@ To setup DOI registration, you need to install the :code:`Crossref Manager Plugi
 
 .. image:: ../../_static/images/doi-registration.png
     :alt: An Image Showing OJS DOI Registration
+
+-----------------
+Addressing Errors
+-----------------
+
+If an article appears with an error on the DOI page, you can click it and resubmit the request to Crossref. If it fails,
+the :code:`View Error` screen will explain why.
