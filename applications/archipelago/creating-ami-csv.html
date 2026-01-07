@@ -441,7 +441,7 @@
         <span class="s2">&quot;type&quot;</span><span class="p">,</span>
         <span class="s2">&quot;description&quot;</span><span class="p">,</span>
 
-        <span class="s2">&quot;creators&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;creator&quot;</span><span class="p">,</span>
         <span class="s2">&quot;creator_lod&quot;</span><span class="p">,</span>
 
         <span class="s2">&quot;subject_loc&quot;</span><span class="p">,</span>
@@ -449,6 +449,7 @@
         <span class="s2">&quot;subject_lcnaf_corporate_names&quot;</span><span class="p">,</span>
         <span class="s2">&quot;subject_lcnaf_geographic_names&quot;</span><span class="p">,</span>
         <span class="s2">&quot;subject_lcgft_terms&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">,</span>
 
         <span class="s2">&quot;subjects_local&quot;</span><span class="p">,</span>
         <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">,</span>
@@ -531,6 +532,8 @@
                     <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
                     <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="n">uri</span>
                 <span class="p">})</span>
+        <span class="c1"># ---- Wikidata ----</span>
+        <span class="n">wikidata</span> <span class="o">=</span> <span class="n">build_lcnaf_array</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">)</span>
 
         <span class="c1"># ---- Subjects local ----</span>
         <span class="n">local_indexes</span> <span class="o">=</span> <span class="n">find_indexes</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">,</span> <span class="s2">&quot;subjects_local_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -562,7 +565,7 @@
             <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">),</span>
             <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">),</span>
 
-            <span class="s2">&quot;creators&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creators</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creators</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
             <span class="s2">&quot;creator_lod&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creator_lod</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
 
             <span class="s2">&quot;subject_loc&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subject_loc</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
@@ -570,6 +573,7 @@
             <span class="s2">&quot;subject_lcnaf_corporate_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">lcnaf_corporate</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
             <span class="s2">&quot;subject_lcnaf_geographic_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">lcnaf_geographic</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
             <span class="s2">&quot;subject_lcgft_terms&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subject_lcgft</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">wikidata</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
 
             <span class="s2">&quot;subjects_local&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
             <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
@@ -580,15 +584,15 @@
             <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">),</span>
             <span class="s2">&quot;ismemberof&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ismemberof&quot;</span><span class="p">),</span>
             <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;owner&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;rights&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights&quot;</span><span class="p">),</span>
             <span class="s2">&quot;rights_statements&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statements&quot;</span><span class="p">),</span>
             <span class="s2">&quot;resource_type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resource_type&quot;</span><span class="p">),</span>
             <span class="s2">&quot;digital_origin&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;digital_origin&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;rights&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_label&quot;</span><span class="p">),</span>
             <span class="s2">&quot;rights_statement_label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_label&quot;</span><span class="p">),</span>
             <span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">),</span>
             <span class="s2">&quot;physical_description_extent&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;physical_description_extent&quot;</span><span class="p">),</span>
             <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
-        <span class="p">})</span>
+    <span class="p">})</span>
 </pre></div>
 </div>
 </section>
