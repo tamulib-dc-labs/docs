@@ -102,7 +102,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             "type",
             "description",
 
-            "creators",
+            "creator",
             "creator_lod",
 
             "subject_loc",
@@ -110,6 +110,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             "subject_lcnaf_corporate_names",
             "subject_lcnaf_geographic_names",
             "subject_lcgft_terms",
+            "subject_wikidata",
 
             "subjects_local",
             "subjects_local_personal_names",
@@ -192,6 +193,8 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                         "label": label,
                         "uri": uri
                     })
+            # ---- Wikidata ----
+            wikidata = build_lcnaf_array(row, reader.fieldnames, "subject_wikidata")
 
             # ---- Subjects local ----
             local_indexes = find_indexes(reader.fieldnames, "subjects_local_", "")
@@ -223,7 +226,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "type": row.get("type"),
                 "description": row.get("description"),
 
-                "creators": json.dumps(creators, ensure_ascii=False),
+                "creator": json.dumps(creators, ensure_ascii=False),
                 "creator_lod": json.dumps(creator_lod, ensure_ascii=False),
 
                 "subject_loc": json.dumps(subject_loc, ensure_ascii=False),
@@ -231,6 +234,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "subject_lcnaf_corporate_names": json.dumps(lcnaf_corporate, ensure_ascii=False),
                 "subject_lcnaf_geographic_names": json.dumps(lcnaf_geographic, ensure_ascii=False),
                 "subject_lcgft_terms": json.dumps(subject_lcgft, ensure_ascii=False),
+                "subject_wikidata": json.dumps(wikidata, ensure_ascii=False),
 
                 "subjects_local": json.dumps(subjects_local, ensure_ascii=False),
                 "subjects_local_personal_names": json.dumps(subjects_local_personal, ensure_ascii=False),
@@ -241,15 +245,16 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "language": row.get("language"),
                 "ismemberof": row.get("ismemberof"),
                 "owner": row.get("owner"),
+                "rights": row.get("rights"),
                 "rights_statements": row.get("rights_statements"),
                 "resource_type": row.get("resource_type"),
                 "digital_origin": row.get("digital_origin"),
-                "rights": row.get("rights_statement_label"),
                 "rights_statement_label": row.get("rights_statement_label"),
                 "rights_statement_uri": row.get("rights_statement_uri"),
                 "physical_description_extent": row.get("physical_description_extent"),
                 "image": row.get("image")
-            })
+        })
+
 
 
 
