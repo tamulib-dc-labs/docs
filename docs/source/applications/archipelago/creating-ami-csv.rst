@@ -98,6 +98,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
         reader.fieldnames = [h.strip() for h in reader.fieldnames]
 
         fieldnames = [
+            "node_uuid"
             "label",
             "type",
             "description",
@@ -222,6 +223,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
 
             # ---- Write row ----
             writer.writerow({
+                "node_uuid": row.get("node_uuid"),
                 "label": row.get("label"),
                 "type": row.get("type"),
                 "description": row.get("description"),
