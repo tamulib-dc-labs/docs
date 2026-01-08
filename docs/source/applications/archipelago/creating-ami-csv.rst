@@ -129,7 +129,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             "rights_statement_label",
             "rights_statement_uri",
             "physical_description_extent",
-            "image"
+            "images"
         ]
 
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
@@ -254,7 +254,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "rights_statement_label": row.get("rights_statement_label"),
                 "rights_statement_uri": row.get("rights_statement_uri"),
                 "physical_description_extent": row.get("physical_description_extent"),
-                "image": row.get("image")
+                "images": row.get("images")
         })
 
 
