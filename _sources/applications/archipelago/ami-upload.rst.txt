@@ -62,7 +62,7 @@ Now that you have your csv...
 
 3. Select "Spreadsheet Importer" for your plugin.
 
-4. Select "Create New ADOs" for Operation. Upload the file in the dialog box.
+4. Select "Create New ADOs" for Operation. Upload the csv in the dialog box.
 
 5. Select "Direct" for data transformation approach. Select the columns where you added filenames or URLs (example: images, documents, etc.). You can select multiple.
 
