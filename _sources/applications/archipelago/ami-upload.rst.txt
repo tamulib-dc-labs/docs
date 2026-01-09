@@ -12,13 +12,15 @@ Here is the template for every spreadsheet uploaded into Archipelago.
 
     <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
-Be sure to look at the second sheet (Machine Friendly).
+Be sure to look at the second sheet (Machine Friendly). Enter your data here.
 
 If there are multiple values for any column, cells will have json strings such as:
 
 :code:`[{"name_uri":"http://id.loc.gov/authorities/names/n2001078880","role_uri":"http://id.loc.gov/vocabulary/relators/cre","agent_type":"personal","name_label":"Hogg, James Stephen, 1851-1906.","role_label":"Creator"},{"name_uri":"https://id.loc.gov/authorities/names/n82158463","role_uri":"http://id.loc.gov/vocabulary/relators/rcp","agent_type":"personal","name_label":"Ross, Lawrence Sullivan, 1838-1898","role_label":"Addressee"}]`
 
-This is an creator_lod example for an item with 2 creators. To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
+This is an creator_lod example for an item with 2 creators. 
+
+To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
 
 ----------------------------------
 Where to get your files?
@@ -53,8 +55,6 @@ If there are multiple media files (ie multiple images to make up the object), th
 ----------------------------------
 Now that you have your csv...
 ----------------------------------
-
-Time to ingest.
 
 1. Go to :code:`/admin/content`.
 

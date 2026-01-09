@@ -362,10 +362,11 @@
 <section id="create-an-csv-compatible-with-ami">
 <h2>Create an csv compatible with AMI<a class="headerlink" href="#create-an-csv-compatible-with-ami" title="Link to this heading">¶</a></h2>
 <p>Here is the template for every spreadsheet uploaded into Archipelago.</p>
-<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (Machine Friendly).</p>
+<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (Machine Friendly). Enter your data here.</p>
 <p>If there are multiple values for any column, cells will have json strings such as:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
-<p>This is an creator_lod example for an item with 2 creators. To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>.</p>
+<p>This is an creator_lod example for an item with 2 creators.</p>
+<p>To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>.</p>
 </section>
 <section id="where-to-get-your-files">
 <h2>Where to get your files?<a class="headerlink" href="#where-to-get-your-files" title="Link to this heading">¶</a></h2>
@@ -395,7 +396,6 @@
 </section>
 <section id="now-that-you-have-your-csv">
 <h2>Now that you have your csv…<a class="headerlink" href="#now-that-you-have-your-csv" title="Link to this heading">¶</a></h2>
-<p>Time to ingest.</p>
 <ol class="arabic simple">
 <li><p>Go to <code class="code docutils literal notranslate"><span class="pre">/admin/content</span></code>.</p></li>
 <li><p>Click “Start an AMI set”.</p></li>
