@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Features and Tests for DSPACE 9" href="dspace_9_testing.html" /><link rel="prev" title="Understanding Our DSPACE Entities" href="dspace-entities.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="How to make a flat csv compatible with AMI batch import" href="creating-ami-csv.html" /><link rel="prev" title="Archipelago" href="../../workflows/archipelago.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>Batch Importing SAFs Using the DSpace Command Line - TAMU Digital Collections Labs documentation</title>
+        <title>How to do an AMI batch upload in Archipelago - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -211,10 +211,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../archipelago/ami-upload.html">How to do an AMI batch upload in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../archipelago/creating-ami-csv.html">How to make a flat csv compatible with AMI batch import</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../archipelago/indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">How to do an AMI batch upload in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">How to make a flat csv compatible with AMI batch import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -229,18 +229,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../avalon/troubleshooting.html">Troubleshooting Various Avalon Wonky-ness</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dspace-entities.html">Understanding Our DSPACE Entities</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Batch Importing SAFs Using the DSpace Command Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_entities.html">DSPACE Entity Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_extending_embargos.html">DSPACE: Extending Embargos in DSpace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_importing.html">DSPACE: Importing Basic Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dspace_importing_entities_ojs.html">DSPACE: Importing Entities from OJS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reporting_500_errors.html">Reporting 500 Errors</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-importing-large-batches.html">Batch Importing SAFs Using the DSpace Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_entities.html">DSPACE Entity Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_extending_embargos.html">DSPACE: Extending Embargos in DSpace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities_ojs.html">DSPACE: Importing Entities from OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/reporting_500_errors.html">Reporting 500 Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -337,7 +337,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/dspace/dspace-importing-large-batches.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/ami-upload.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -357,110 +357,55 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="batch-importing-safs-using-the-dspace-command-line">
-<h1>Batch Importing SAFs Using the DSpace Command Line<a class="headerlink" href="#batch-importing-safs-using-the-dspace-command-line" title="Link to this heading">¶</a></h1>
-<p>This section describes how to batch-import Simple Archive Format (SAF) packages
-into DSpace using the command-line importer. The importer processes a directory
-of prepared SAFs and deposits each item into the specified collection.</p>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
-<p>Before running a batch import, ensure that:</p>
+          <section id="how-to-do-an-ami-batch-upload-in-archipelago">
+<h1>How to do an AMI batch upload in Archipelago<a class="headerlink" href="#how-to-do-an-ami-batch-upload-in-archipelago" title="Link to this heading">¶</a></h1>
+<section id="create-an-csv-compatible-with-ami">
+<h2>Create an csv compatible with AMI<a class="headerlink" href="#create-an-csv-compatible-with-ami" title="Link to this heading">¶</a></h2>
+<p>Here is the template for every spreadsheet uploaded into Archipelago.</p>
+<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (Machine Friendly).</p>
+<p>If there are multiple values for any column, cells will have json strings such as:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
+<p>This is an creator_lod example for an item with 2 creators. To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>.</p>
+</section>
+<section id="where-to-get-your-files">
+<h2>Where to get your files?<a class="headerlink" href="#where-to-get-your-files" title="Link to this heading">¶</a></h2>
+<p>There are two ways to attach files to your AMI upload.</p>
 <ul class="simple">
-<li><p>You have access to Rancher and the proper clustion (dev, pre, prod).</p></li>
-<li><p>You have shell access to the DSpace workload (dspace-cli-saf-import).</p></li>
-<li><p>Your user account has permissions to submit to the target collection.</p></li>
-<li><p>Your SAF packages follow the required DSpace directory structure.</p></li>
-<li><p>You know the UUID of the collection you are importing into.</p></li>
-<li><p>You have scp’d or rsync’d your files to the server via access.library.tamu.edu.</p></li>
+<li><p>zip archive</p></li>
+<li><p>link (can be IIIF but does not need to be)</p></li>
 </ul>
+<section id="zip-archive">
+<h3>Zip archive<a class="headerlink" href="#zip-archive" title="Link to this heading">¶</a></h3>
+<p>Create a zip archive with all images that will be uploaded in the batch. However, keep in mind:</p>
+<ul class="simple">
+<li><p>Zip files have a limit of 500 MB</p></li>
+<li><p>Zip files cannot have subfolders. For example, if you are trying to upload multiple items at once but each one follows the same naming pattern of <code class="code docutils literal notranslate"><span class="pre">0001.tif</span></code>, <code class="code docutils literal notranslate"><span class="pre">0002.tif</span></code>, <code class="code docutils literal notranslate"><span class="pre">0003.tif</span></code>, and so on, you will need to rename them to clearly differentiate them.</p></li>
+</ul>
+<p>To attach images in a zip file to an item, enter the filename in the relevant column depending on what type of media it is (for example, the <code class="code docutils literal notranslate"><span class="pre">images</span></code> column). If you have multiple files for the same item, list them all, but separate them with a semicolon (example: <code class="code docutils literal notranslate"><span class="pre">0001.tif;0002.tif;0003.tif</span></code>).</p>
 </section>
-<section id="copying-a-saf-import-to-the-access-server">
-<h2>Copying a SAF Import to the Access Server<a class="headerlink" href="#copying-a-saf-import-to-the-access-server" title="Link to this heading">¶</a></h2>
-<p>The access server is what the Libraries uses as its jump / mount point for most running containers.</p>
-<p>To get write access to the server, you must <a class="reference external" href="https://helpdesk.library.tamu.edu/default_kace.php">submit a help desk request</a>
-and choose <em>Submit a Computer or Software Problem</em>.  If you don’t do this, you can’t get your files to the remote server.</p>
-<p>Once you have write access, you can save your files to <code class="code docutils literal notranslate"><span class="pre">access.library.tamu.edu:/mnt/nfstmp/oaktrust-saf-import</span></code>.</p>
-<p>Most people create their own areas on the server to hold files.  For instance, I use <code class="code docutils literal notranslate"><span class="pre">/mnt/nfstmp/oaktrust-saf-import/mark_imports</span></code>.</p>
-<p>You need to be sure that you on the access server and the default user on the container running in Rancher can read, write,
-and execute. If you don’t do this, your import will fail.  To make this easiest you can just use <strong>777</strong> on your files.</p>
-<p>Now that you have background information, you can follow these steps:</p>
-<section id="create-your-file-area">
-<h3>1. Create your file area<a class="headerlink" href="#create-your-file-area" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Connect to Server</span>
-ssh<span class="w"> </span>netid@access.library.tamu.edu
-<span class="c1"># Make a Directory at the Mount Point</span>
-mkdir<span class="w"> </span>/mnt/nfstmp/oaktrust-saf-import/mark_imports
-<span class="c1"># Make sure you can write</span>
-chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>-R<span class="w"> </span>/mnt/nfstmp/oaktrust-saf-import/mark_imports
-</pre></div>
-</div>
-</section>
-<section id="copy-files-to-the-server">
-<h3>2. Copy Files to the Server<a class="headerlink" href="#copy-files-to-the-server" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>-r<span class="w"> </span>my-saf-import-on-my-computer<span class="w"> </span>netid@access.library.tamu.edu:/mnt/nfstmp/oaktrust-saf-import/mark_imports
-</pre></div>
-</div>
-</section>
-<section id="double-check-permissions">
-<h3>3. Double Check Permissions<a class="headerlink" href="#double-check-permissions" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>-R<span class="w"> </span>/mnt/nfstmp/oaktrust-saf-import/mark_imports/my-saf-import-on-my-computer
-</pre></div>
+<section id="link">
+<h3>Link<a class="headerlink" href="#link" title="Link to this heading">¶</a></h3>
+<p>You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with <code class="code docutils literal notranslate"><span class="pre">/full/full/0/default.jpg</span></code> will work as will any :code:<a href="#id1"><span class="problematic" id="id2">`</span></a>jp2`s). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.</p>
+<p>If there are multiple media files (ie multiple images to make up the object), then separate them with semicolons.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Regardless of whether you use the zip archive or a link, this step can be done using either of the spreadsheets (the AMI-compatible one or the initial human friendly one).</p>
 </div>
 </section>
 </section>
-<section id="basic-command-structure">
-<h2>Basic Command Structure<a class="headerlink" href="#basic-command-structure" title="Link to this heading">¶</a></h2>
-<p>The DSpace CLI import tool is typically invoked as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-a<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-c<span class="w"> </span>COLLECTION-UUID<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-s<span class="w"> </span>PATH-TO-SAF-DIRECTORY<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-m<span class="w"> </span>PATH-TO-METADATA-REPORT-FILE.txt
-</pre></div>
-</div>
-</section>
-<section id="parameter-breakdown">
-<h2>Parameter Breakdown<a class="headerlink" href="#parameter-breakdown" title="Link to this heading">¶</a></h2>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">-a</span></code></dt><dd><p>Add items (as opposed to replacing or deleting).</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-e</span></code></dt><dd><p>Email address of the DSpace user who will be recorded as the submitter.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-c</span></code></dt><dd><p>UUID of the target collection.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-s</span></code></dt><dd><p>Path to the directory that contains your SAF packages.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-m</span></code></dt><dd><p>Path to the metadata results log that will be generated after the import.
-This file keeps a record of imported item handles and any errors.</p>
-</dd>
-</dl>
-</section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
-<p>The following example imports a directory of SAF packages (<code class="docutils literal notranslate"><span class="pre">batch_3_with_rights</span></code>)
-into a collection with UUID <code class="docutils literal notranslate"><span class="pre">57726e26-c609-4d10-a717-4f5292bc7c24</span></code> while logging
-the results to <code class="docutils literal notranslate"><span class="pre">batch_3_import_prod_yo.txt</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-a<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-c<span class="w"> </span>57726e26-c609-4d10-a717-4f5292bc7c24<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-s<span class="w"> </span>batch_3_with_rights<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-m<span class="w"> </span>batch_3_import_prod_yo.txt
-</pre></div>
-</div>
-<p>After running the command, review the output log to confirm the handles assigned
-to each imported item and check for any warnings or errors.</p>
-</section>
-<section id="advanced-using-nohup">
-<h2>Advanced Using nohup<a class="headerlink" href="#advanced-using-nohup" title="Link to this heading">¶</a></h2>
-<p>If you are like me, you’ll hate dealing with Rancher.  Luckily, we can use <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code> so we don’t have to even touch
-Rancher after you get comfortable.</p>
-<p>With <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code> and <code class="code docutils literal notranslate"><span class="pre">nohup</span></code> you can do everything above from the comforts of your machine like:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nohup<span class="w"> </span>/dspace/bin/dspace<span class="w"> </span>import<span class="w"> </span>-a<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;mark.baggett@tamu.edu&quot;</span><span class="w"> </span>-c<span class="w"> </span>a0621c24-2e7c-4b33-a893-8b7798e0a4ad<span class="w"> </span>-s<span class="w"> </span>batch_3_with_rights<span class="w"> </span>-m<span class="w"> </span>batch_3_import_prod.txt<span class="w"> </span>&gt;<span class="w"> </span>mark_batch_3_prod.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
-</pre></div>
-</div>
-<p>For more information about using kubectl and nohup, see <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/topics_and_services/kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a> .</p>
+<section id="now-that-you-have-your-csv">
+<h2>Now that you have your csv…<a class="headerlink" href="#now-that-you-have-your-csv" title="Link to this heading">¶</a></h2>
+<p>Time to ingest.</p>
+<ol class="arabic simple">
+<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">/admin/content</span></code>.</p></li>
+<li><p>Click “Start an AMI set”.</p></li>
+<li><p>Select “Spreadsheet Importer” for your plugin.</p></li>
+<li><p>Select “Create New ADOs” for Operation. Upload the file in the dialog box.</p></li>
+<li><p>Select “Direct” for data transformation approach. Select the columns where you added filenames or URLs (example: images, documents, etc.). You can select multiple.</p></li>
+<li><p>When selecting Global ADO mappings, choose “ismemberof”. For “Ado label”, choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be “type”).</p></li>
+<li><p>If you are using a zip file to upload content, upload the zip to the dialog box. If not, leave it blank. Then click to create the AMI set.</p></li>
+<li><p>Once the set has been created, go to the “Process” tab and click “Confirm”.</p></li>
+</ol>
 </section>
 </section>
 
@@ -469,23 +414,23 @@ Rancher after you get comfortable.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="dspace_9_testing.html">
+          <a class="next-page" href="creating-ami-csv.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Features and Tests for DSPACE 9</div>
+                <div class="title">How to make a flat csv compatible with AMI batch import</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="dspace-entities.html">
+          <a class="prev-page" href="../../workflows/archipelago.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Understanding Our DSPACE Entities</div>
+                <div class="title">Archipelago</div>
                 
               </div>
             </a>
@@ -519,18 +464,14 @@ Rancher after you get comfortable.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Batch Importing SAFs Using the DSpace Command Line</a><ul>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li><a class="reference internal" href="#copying-a-saf-import-to-the-access-server">Copying a SAF Import to the Access Server</a><ul>
-<li><a class="reference internal" href="#create-your-file-area">1. Create your file area</a></li>
-<li><a class="reference internal" href="#copy-files-to-the-server">2. Copy Files to the Server</a></li>
-<li><a class="reference internal" href="#double-check-permissions">3. Double Check Permissions</a></li>
+<li><a class="reference internal" href="#">How to do an AMI batch upload in Archipelago</a><ul>
+<li><a class="reference internal" href="#create-an-csv-compatible-with-ami">Create an csv compatible with AMI</a></li>
+<li><a class="reference internal" href="#where-to-get-your-files">Where to get your files?</a><ul>
+<li><a class="reference internal" href="#zip-archive">Zip archive</a></li>
+<li><a class="reference internal" href="#link">Link</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#basic-command-structure">Basic Command Structure</a></li>
-<li><a class="reference internal" href="#parameter-breakdown">Parameter Breakdown</a></li>
-<li><a class="reference internal" href="#example">Example</a></li>
-<li><a class="reference internal" href="#advanced-using-nohup">Advanced Using nohup</a></li>
+<li><a class="reference internal" href="#now-that-you-have-your-csv">Now that you have your csv…</a></li>
 </ul>
 </li>
 </ul>

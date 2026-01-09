@@ -19,6 +19,8 @@ Enter your metadata into this csv.
     <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
 
+Be sure to look at the first sheet (Human Friendly).
+
 Add more columns if there need to be more metadata values per field (such as if you need to add more local subjects). However, the creator_lod fields need to be added in sets of 5 (agent_type, name_label, name_uri, role_label, and role_uri). All other fields with _uri and _label appear in pairs.
 
 
