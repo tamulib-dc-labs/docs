@@ -21,17 +21,17 @@ Workflow Overview
 Project Intake & Proposal
 =========================
 
-1. Stakeholder submits an IDEA Document to DPMT
-2. Mark adds the project to the Pre-Project Checklist
-3. Stakeholder reviews the collection, selects items, and submits an Inventory
-4. Stakeholder submits an Access Rights Review
+1. Stakeholder submits an `IDEA Document <https://docs.google.com/document/d/1YZszCwbYvEnoJjc22-ruklMgG_jdiZEV6gE0FBfEoYc/edit?usp=sharing>`_ to DPMT
+2. Mark adds the project to the `Pre-Project Checklist <https://docs.google.com/spreadsheets/d/1hp5zOrvEr2zFYAkSb-pVWuoRiC8Ps0pNYHYEgWVjRSc/edit?gid=0#gid=0>`_
+3. Stakeholder reviews the collection, selects items, and submits an `Inventory <https://docs.google.com/spreadsheets/d/1_ny0kemXFwD79OXVa5FSqMnoMPt1iJfl01RID9B4wr4/edit?gid=0#gid=0>`_
+4. Stakeholder submits an `Access Rights Review <https://docs.google.com/document/d/18D61Y5MoZDRsYlRf27Fr6yqVoiXWCEE85xRIlSK5Z-o/edit?usp=sharing>`_
 5. Mark schedules an IDEA review meeting
 
 Feasibility Review
 ==================
 
 1. DPMT teams review submitted content
-2. Mark creates a Feasibility Review Document
+2. Mark creates a `Feasibility Review Document <https://docs.google.com/spreadsheets/d/1wVqaBgO4dDbxTbrq75fakv6qzIFkghcTIuFFNAKFMoE/edit?gid=0#gid=0>`_
 3. Mark schedules a Project Kickoff meeting
 
 Project Planning
