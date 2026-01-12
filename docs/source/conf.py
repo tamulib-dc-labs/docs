@@ -36,7 +36,7 @@ mermaid.initialize({
     htmlLabels: true,
     nodeSpacing: 50,
     rankSpacing: 60,
-    wrappingWidth: 300
+    wrappingWidth: 500
   }
 });
 """
