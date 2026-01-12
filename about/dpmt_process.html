@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=cc924250" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1ee1510e" />
     
     
 
@@ -483,51 +483,6 @@ C5 --&gt; D1 --&gt; D2 --&gt; D3 --&gt; D4 --&gt; D5
 D5 --&gt; E1 --&gt; E2 --&gt; E3 --&gt; E4
 E4 --&gt; F1 --&gt; F2 --&gt; F3 --&gt; F4 --&gt; F5
     </pre></section>
-<section id="workflow-no-swim-lanes">
-<h2>Workflow No Swim Lanes<a class="headerlink" href="#workflow-no-swim-lanes" title="Link to this heading">¶</a></h2>
-<pre  class="mermaid">
-        flowchart TD
-
-A[IDEA Document submitted&lt;br/&gt;(Stakeholder)]
-B[Added to Pre-Project Checklist&lt;br/&gt;(Mark)]
-C[Inventory submitted&lt;br/&gt;(Stakeholder)]
-D[Access Rights Review submitted&lt;br/&gt;(Stakeholder)]
-E[IDEA review meeting scheduled&lt;br/&gt;(Mark)]
-
-F[Content reviewed by DPMT]
-G[Feasibility Review created&lt;br/&gt;(Mark)]
-H[Project Kickoff meeting scheduled&lt;br/&gt;(Mark)]
-
-I[Metadata needs defined&lt;br/&gt;(Jeannette)]
-J[Repository &amp; discovery platform selected&lt;br/&gt;(Mark)]
-K[Access restrictions defined&lt;br/&gt;(John)]
-L[Digitization needs defined&lt;br/&gt;(Phelan)]
-M[Added to Project Snapshot&lt;br/&gt;(Mark)]
-
-N[Collection processed / sent to DiSC&lt;br/&gt;(Jaq)]
-O[Items scanned to CIFS&lt;br/&gt;(Phelan)]
-P[Files processed on CIFS&lt;br/&gt;(Kaila)]
-Q[Service files generated&lt;br/&gt;(Mark)]
-R[Inventory refined from scans&lt;br/&gt;(Jeannette)]
-
-S[Metadata packaged with SAF Creator&lt;br/&gt;(Jeannette)]
-T[Ingested to pre-production repository&lt;br/&gt;(Mark)]
-U[QA review by DPMT]
-V[Ingested to production repository&lt;br/&gt;(Mark)]
-
-W[Collection or exhibit content written&lt;br/&gt;(Mark)]
-X[Thumbnail &amp; description sent to Bonnie&lt;br/&gt;(Mark)]
-Y[Catalog record created (if applicable)&lt;br/&gt;(Jeannette)]
-Z[Added to Digital Collections website&lt;br/&gt;(Bonnie)]
-AA[Collection preserved&lt;br/&gt;(Abi)]
-
-A --&gt; B --&gt; C --&gt; D --&gt; E
-E --&gt; F --&gt; G --&gt; H
-H --&gt; I --&gt; J --&gt; K --&gt; L --&gt; M
-M --&gt; N --&gt; O --&gt; P --&gt; Q --&gt; R
-R --&gt; S --&gt; T --&gt; U --&gt; V
-V --&gt; W --&gt; X --&gt; Y --&gt; Z --&gt; AA
-    </pre></section>
 <section id="original-description">
 <h2>Original Description<a class="headerlink" href="#original-description" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -629,7 +584,6 @@ V --&gt; W --&gt; X --&gt; Y --&gt; Z --&gt; AA
 </ul>
 </li>
 <li><a class="reference internal" href="#flowchart">Flowchart</a></li>
-<li><a class="reference internal" href="#workflow-no-swim-lanes">Workflow No Swim Lanes</a></li>
 <li><a class="reference internal" href="#original-description">Original Description</a></li>
 </ul>
 </li>
@@ -655,7 +609,7 @@ mermaid.initialize({
     htmlLabels: true,
     nodeSpacing: 50,
     rankSpacing: 60,
-    wrappingWidth: 300
+    wrappingWidth: 500
   }
 });
 </script>

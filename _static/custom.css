@@ -3,3 +3,16 @@
     width: auto !important;
     height: auto !important;
 }
+
+/* Make mermaid node boxes wider */
+.mermaid .node rect,
+.mermaid .node polygon {
+    min-width: 250px !important;
+}
+
+/* Prevent text from being clipped */
+.mermaid .nodeLabel {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
