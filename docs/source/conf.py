@@ -15,6 +15,8 @@ author = 'Mark Baggett'
 
 extensions = ['sphinxcontrib.mermaid']
 
+mermaid_output_format = 'raw'
+
 templates_path = ['_templates']
 exclude_patterns = []
 
@@ -25,3 +27,16 @@ exclude_patterns = []
 
 html_theme = 'furo'
 html_static_path = ['_static']
+html_css_files = ['custom.css']
+
+mermaid_init_js = """
+mermaid.initialize({
+  flowchart: {
+    useMaxWidth: false,
+    htmlLabels: true,
+    nodeSpacing: 50,
+    rankSpacing: 60,
+    wrappingWidth: 300
+  }
+});
+"""
