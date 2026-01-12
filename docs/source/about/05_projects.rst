@@ -1,6 +1,6 @@
-========
-Projects
-========
+===================
+Archived - Projects
+===================
 
 This page links to high level information regarding on going projects.
 
