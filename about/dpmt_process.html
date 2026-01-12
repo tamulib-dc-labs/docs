@@ -420,101 +420,99 @@
 </section>
 <section id="flowchart">
 <h2>Flowchart<a class="headerlink" href="#flowchart" title="Link to this heading">¶</a></h2>
-<p>flowchart TD</p>
-<p>%% Intake
-subgraph Intake[“Project Intake”]</p>
-<blockquote>
-<div><p>A1[Stakeholder submits IDEA Document]
-A2[Mark adds project to Pre-Project Checklist]
-A3[Stakeholder submits Inventory]
-A4[Stakeholder submits Access Rights Review]
-A5[Mark schedules IDEA review meeting]</p>
-</div></blockquote>
-<p>end</p>
-<p>%% Feasibility
-subgraph Feasibility[“Feasibility Review”]</p>
-<blockquote>
-<div><p>B1[DPMT reviews submitted content]
-B2[Mark creates Feasibility Review Document]
-B3[Mark schedules Kickoff meeting]</p>
-</div></blockquote>
-<p>end</p>
-<p>%% Planning
-subgraph Planning[“Project Planning”]</p>
-<blockquote>
-<div><p>C1[Jeannette determines metadata needs]
-C2[Mark selects repository &amp; discovery platform]
-C3[John determines access restrictions]
-C4[Phelan determines digitization needs]
-C5[Mark updates Project Snapshot spreadsheet]</p>
-</div></blockquote>
-<p>end</p>
-<p>%% Digitization
-subgraph Digitization[“Digitization &amp; Processing”]</p>
-<blockquote>
-<div><p>D1[Jaq processes collection / sends to DiSC]
-D2[Phelan scans and writes to CIFS]
-D3[Kaila processes files on CIFS]
-D4[Mark generates service files]
-D5[Jeannette refines inventory from scans]</p>
-</div></blockquote>
-<p>end</p>
-<p>%% Metadata &amp; Ingest
-subgraph Ingest[“Metadata &amp; Ingest”]</p>
-<blockquote>
-<div><p>E1[Jeannette packages metadata with SAF Creator]
-E2[Mark ingests to pre-production repository]
-E3[DPMT performs QA review]
-E4[Mark ingests to production repository]</p>
-</div></blockquote>
-<p>end</p>
-<p>%% Access &amp; Preservation
-subgraph Access[“Access, Discovery &amp; Preservation”]</p>
-<blockquote>
-<div><p>F1[Mark writes collection or exhibit content]
-F2[Mark submits thumbnail &amp; description to Bonnie]
-F3[Jeannette creates catalog record]
-F4[Bonnie adds collection to Digital Collections site]
-F5[Abi preserves the collection]</p>
-</div></blockquote>
-<p>end</p>
-<p>%% Flow
-A1 –&gt; A2 –&gt; A3 –&gt; A4 –&gt; A5
-A5 –&gt; B1 –&gt; B2 –&gt; B3
-B3 –&gt; C1 –&gt; C2 –&gt; C3 –&gt; C4 –&gt; C5
-C5 –&gt; D1 –&gt; D2 –&gt; D3 –&gt; D4 –&gt; D5
-D5 –&gt; E1 –&gt; E2 –&gt; E3 –&gt; E4
-E4 –&gt; F1 –&gt; F2 –&gt; F3 –&gt; F4 –&gt; F5</p>
-</section>
+<pre  class="mermaid">
+        flowchart TD
+
+%% Intake
+subgraph Intake[&quot;Project Intake&quot;]
+    A1[Stakeholder submits IDEA Document]
+    A2[Mark adds project to Pre-Project Checklist]
+    A3[Stakeholder submits Inventory]
+    A4[Stakeholder submits Access Rights Review]
+    A5[Mark schedules IDEA review meeting]
+end
+
+%% Feasibility
+subgraph Feasibility[&quot;Feasibility Review&quot;]
+    B1[DPMT reviews submitted content]
+    B2[Mark creates Feasibility Review Document]
+    B3[Mark schedules Kickoff meeting]
+end
+
+%% Planning
+subgraph Planning[&quot;Project Planning&quot;]
+    C1[Jeannette determines metadata needs]
+    C2[Mark selects repository &amp; discovery platform]
+    C3[John determines access restrictions]
+    C4[Phelan determines digitization needs]
+    C5[Mark updates Project Snapshot spreadsheet]
+end
+
+%% Digitization
+subgraph Digitization[&quot;Digitization &amp; Processing&quot;]
+    D1[Jaq processes collection / sends to DiSC]
+    D2[Phelan scans and writes to CIFS]
+    D3[Kaila processes files on CIFS]
+    D4[Mark generates service files]
+    D5[Jeannette refines inventory from scans]
+end
+
+%% Metadata &amp; Ingest
+subgraph Ingest[&quot;Metadata &amp; Ingest&quot;]
+    E1[Jeannette packages metadata with SAF Creator]
+    E2[Mark ingests to pre-production repository]
+    E3[DPMT performs QA review]
+    E4[Mark ingests to production repository]
+end
+
+%% Access &amp; Preservation
+subgraph Access[&quot;Access, Discovery &amp; Preservation&quot;]
+    F1[Mark writes collection or exhibit content]
+    F2[Mark submits thumbnail &amp; description to Bonnie]
+    F3[Jeannette creates catalog record]
+    F4[Bonnie adds collection to Digital Collections site]
+    F5[Abi preserves the collection]
+end
+
+%% Flow
+A1 --&gt; A2 --&gt; A3 --&gt; A4 --&gt; A5
+A5 --&gt; B1 --&gt; B2 --&gt; B3
+B3 --&gt; C1 --&gt; C2 --&gt; C3 --&gt; C4 --&gt; C5
+C5 --&gt; D1 --&gt; D2 --&gt; D3 --&gt; D4 --&gt; D5
+D5 --&gt; E1 --&gt; E2 --&gt; E3 --&gt; E4
+E4 --&gt; F1 --&gt; F2 --&gt; F3 --&gt; F4 --&gt; F5
+    </pre></section>
 <section id="original-description">
 <h2>Original Description<a class="headerlink" href="#original-description" title="Link to this heading">¶</a></h2>
-<p>Submits IDEA Document to DPMT (Stakeholder)
-Project is added to Pre-Project Checklist spreadsheet (Mark)
-Reviews collection, selects items appropriate for digitization, and submits inventory (Stakeholder)
-Submits Access Rights Review Document (Stakeholder)
-Schedules meeting to discuss IDEA document (Mark)
-Reviews Content Submitted by Stakeholder (DPMT Teams)
-Creates Feasibility Review Document based on DPMT Feedback (Mark)
-Schedules Kickoff meeting with stakeholder and DPMT (Mark)
-Determines Metadata needs (Jeannette)
-Determines Repository and Discovery Platform (Mark)
-Determines Access Restrictions (John)
-Determines Digitization Needs (Phelan)
-Adds to Project Snapshot spreadsheet (Mark)
-Processes collection and / or sends to DiSC analog objects with completed Inventory (Jaq)
-Scans files and writes to cifs (Phelan)
-Processes files on cifs (Kaila)
-Generates service files from items on cifs (Mark)
-Refines from initial inventory using scans on cifs (Jeannette)
-Metadata is packaged with SAF creator (Jeannette)
-Ingests into pre-production repository and discovery platform (Mark)
-Collection is reviewed for QA (DPMT)
-Ingests into production repository and discovery platform (Mark)
-Digital exhibit or digital collection page content is written (Mark)
-Thumbnail and description is created and submitted to Bonnie (Mark)
-Catalog record is created if applicable (Jeannette)
-Collection is added to the Digital Collections page on the website (Bonnie)
-Collection is preserved (Abi)</p>
+<ul class="simple">
+<li><p>Submits IDEA Document to DPMT (Stakeholder)</p></li>
+<li><p>Project is added to Pre-Project Checklist spreadsheet (Mark)</p></li>
+<li><p>Reviews collection, selects items appropriate for digitization, and submits inventory (Stakeholder)</p></li>
+<li><p>Submits Access Rights Review Document (Stakeholder)</p></li>
+<li><p>Schedules meeting to discuss IDEA document (Mark)</p></li>
+<li><p>Reviews Content Submitted by Stakeholder (DPMT Teams)</p></li>
+<li><p>Creates Feasibility Review Document based on DPMT Feedback (Mark)</p></li>
+<li><p>Schedules Kickoff meeting with stakeholder and DPMT (Mark)</p></li>
+<li><p>Determines Metadata needs (Jeannette)</p></li>
+<li><p>Determines Repository and Discovery Platform (Mark)</p></li>
+<li><p>Determines Access Restrictions (John)</p></li>
+<li><p>Determines Digitization Needs (Phelan)</p></li>
+<li><p>Adds to Project Snapshot spreadsheet (Mark)</p></li>
+<li><p>Processes collection and / or sends to DiSC analog objects with completed Inventory (Jaq)</p></li>
+<li><p>Scans files and writes to cifs (Phelan)</p></li>
+<li><p>Processes files on cifs (Kaila)</p></li>
+<li><p>Generates service files from items on cifs (Mark)</p></li>
+<li><p>Refines from initial inventory using scans on cifs (Jeannette)</p></li>
+<li><p>Metadata is packaged with SAF creator (Jeannette)</p></li>
+<li><p>Ingests into pre-production repository and discovery platform (Mark)</p></li>
+<li><p>Collection is reviewed for QA (DPMT)</p></li>
+<li><p>Ingests into production repository and discovery platform (Mark)</p></li>
+<li><p>Digital exhibit or digital collection page content is written (Mark)</p></li>
+<li><p>Thumbnail and description is created and submitted to Bonnie (Mark)</p></li>
+<li><p>Catalog record is created if applicable (Jeannette)</p></li>
+<li><p>Collection is added to the Digital Collections page on the website (Bonnie)</p></li>
+<li><p>Collection is preserved (Abi)</p></li>
+</ul>
 </section>
 </section>
 
@@ -601,5 +599,13 @@ Collection is preserved (Abi)</p>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     </body>
 </html>
