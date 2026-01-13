@@ -25,6 +25,12 @@ Add more columns if there need to be more metadata values per field (such as if 
 
 
 ----------------------------------
+What is node_uuid?
+----------------------------------
+
+This is a temporary identifier used for the processing. You will need to create your own. Go to `uuidgenerator.net <https://www.uuidgenerator.net/>`_ to generate a uuid for each row.
+
+----------------------------------
 Conversion
 ----------------------------------
 

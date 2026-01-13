@@ -44,7 +44,7 @@ To attach files in a zip file to a digital object, enter the filename in the rel
 Link
 ------------
 
-You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with :code:`/full/full/0/default.jpg` will work as will any :code:`jp2`s). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.
+You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with :code:`/full/full/0/default.jpg` will work as will any :code:`.jp2`). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.
 
 If a digital object is made up of multiple files, list them all and separate them with semicolons.
 

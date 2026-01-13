@@ -217,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ami-upload.html">How to do an AMI batch upload in Archipelago</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">How to make a flat csv compatible with AMI batch import</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">How to convert IIIF manifests into spreadsheets for AMI ingest</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -369,6 +370,10 @@
 <p>Enter your metadata into this csv.</p>
 <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the first sheet (Human Friendly).</p>
 <p>Add more columns if there need to be more metadata values per field (such as if you need to add more local subjects). However, the creator_lod fields need to be added in sets of 5 (agent_type, name_label, name_uri, role_label, and role_uri). All other fields with _uri and _label appear in pairs.</p>
+</section>
+<section id="what-is-node-uuid">
+<h2>What is node_uuid?<a class="headerlink" href="#what-is-node-uuid" title="Link to this heading">¶</a></h2>
+<p>This is a temporary identifier used for the processing. You will need to create your own. Go to <a class="reference external" href="https://www.uuidgenerator.net/">uuidgenerator.net</a> to generate a uuid for each row.</p>
 </section>
 <section id="conversion">
 <h2>Conversion<a class="headerlink" href="#conversion" title="Link to this heading">¶</a></h2>
@@ -661,6 +666,7 @@
             <ul>
 <li><a class="reference internal" href="#">How to make a flat csv compatible with AMI batch import</a><ul>
 <li><a class="reference internal" href="#input-csv">Input csv</a></li>
+<li><a class="reference internal" href="#what-is-node-uuid">What is node_uuid?</a></li>
 <li><a class="reference internal" href="#conversion">Conversion</a></li>
 </ul>
 </li>
