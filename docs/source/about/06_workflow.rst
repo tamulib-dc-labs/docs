@@ -1,6 +1,6 @@
-===================================================
-Digital Project Workflows that Require Digitization
-===================================================
+====================================================
+Digital Projects that Require Digitization Workflows
+====================================================
 
 With the addition of the Center of Digital Humanities Research (CoDHR) joining the Libraries**,
 the scope and variety of digital work supported by the Libraries has expanded. In addition
