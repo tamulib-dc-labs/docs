@@ -1,6 +1,6 @@
-=========================
-Digital Project Workflows
-=========================
+===================================================
+Digital Project Workflows that Require Digitization
+===================================================
 
 With the addition of the Center of Digital Humanities Research (CoDHR) joining the Libraries**,
 the scope and variety of digital work supported by the Libraries has expanded. In addition
@@ -25,7 +25,7 @@ have digitization needs but do not necessarily have needs for descriptive metada
 website development, preservation, or asset management.
 
 To ensure consistency, transparency, and effective use of digitization
-resources, **all proposed digital projects will be funneled through a single
+resources, **all proposed digital projects that require digitization of materials will be funneled through a single
 intake and decision framework** that lives with the Digital Collections department.
 This approach will allow the Libraries to:
 
@@ -48,7 +48,7 @@ Project Routing Decision Tree
 
    A["IDEA Document Submitted to DPMT"]
    B{"The Project was approved<br>and submitted by CoDHR?"}
-   C{"Are the resources<br>owned by the Libraries<br>(including Cushing)?"}
+   C{"Cushing Agrees to Pull Materials for Digitization"}
    D["Standard Digital Collections<br>Workflow (DPMT)"]
    E["Digital Humanities<br>Service Track"]
    F["Standard Digital Collections<br>Workflow (DPMT)"]
