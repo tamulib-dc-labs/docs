@@ -1,8 +1,8 @@
-==============================================
-How to get metadata for AMI import from Fedora
-==============================================
+===============================================
+Getting AMI-compatible spreadsheets from Fedora
+===============================================
 
-If you want to directly import a collection on Fedora into Archipelago, use the following script:
+If you want to import a collection on Fedora into Archipelago, use the following script:
 
 .. code:: python
 
@@ -90,18 +90,18 @@ Things to keep in mind
 
 * :code:`collection_url` should be in this format :code:`https://api.library.tamu.edu/iiif-service/fedora/collection/uuid`.
 
-* This spreadsheet is not automatically compatible with AMI. Some metadata columns need to be changed depending on the labels used in the IIIF manifests. However, the format of values should be AMI-compatible.
+* This spreadsheet is not automatically compatible with AMI. Some metadata column names need to be changed depending on the labels used in the IIIF manifests.
 
 * Double check the :code:`derivatives` column. Ensure that each canvas is separated by a semicolon. Also, if semicolons are used in the canvas (ie uri is in hexadecimal and end with :code:`;1`, :code:`;2`, :code:`;3`, etc.), this will not work.  
 
-* You will need to create the collection in Archipelago so you can link the parent uuid.
+* Create the collection in Archipelago so you can link the parent uuid.
 
-* You will need to `generate your own uuids <https://www.uuidgenerator.net/>`_ for the node_uuid column.
+* `Generate your own uuids <https://www.uuidgenerator.net/>`_ for the node_uuid column.
 
-* If you want to add linked data, you will need to add some intermediate steps.
+* If you want to add linked data, you will need some intermediate steps.
 
     * Add columns depending on what values you want to link. Every linked data value will require two columns: a label and a uri.
 
-    * `To turn your flat csv back into an AMI-compatible csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_
+    * `How to make a flat csv and convert it back into an AMI-compatible csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_
 
-* This is the only way to get metadata and derivatives if you don't have the IIIF manifests available.
+* This is the only way to get metadata and derivatives for a Fedora collection if you don't have the IIIF manifests downloaded to your device.

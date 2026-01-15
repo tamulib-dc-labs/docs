@@ -1,6 +1,6 @@
-============================================
-How to do an AMI batch upload in Archipelago
-============================================
+==============================
+Creating new items through AMI
+==============================
 
 ---------------------------------
 Create an csv compatible with AMI

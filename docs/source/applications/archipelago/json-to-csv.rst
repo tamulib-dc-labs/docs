@@ -1,8 +1,8 @@
-==============================================================
-How to convert IIIF manifests into spreadsheets for AMI ingest
-==============================================================
+======================================================================
+Getting AMI-compatible spreadsheets from a directory of IIIF manifests
+======================================================================
 
-This is how to take a directory of IIIF manifests, extract metadata and derivatives, and create a working spreadsheet that can later be converted into an AMI-compatible spreadsheet. This method works with both v2 and v3 IIIF manifests.
+This is how to take a directory of IIIF manifests and extract metadata and derivatives. This method works with both v2 and v3 IIIF manifests.
 
 --------------------------------------------------
 Use this derivative and metadata extraction script
@@ -249,7 +249,7 @@ Open the output spreadsheet in Google Sheets. You will need to make it follow th
 
 * Add a :code:`type` column with the worktype the items are. This is so Archipelago knows what template to use for your digital object.
 
-* Rename certain columns.
+* Rename columns.
 
     * :code:`rights_1` to :code:`rights`
     
@@ -269,7 +269,7 @@ Open the output spreadsheet in Google Sheets. You will need to make it follow th
 
     * :code:`derivatives` to :code:`image`
 
-* Delete certain columns
+* Delete columns
 
     * :code:`filename`
 
