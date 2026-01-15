@@ -1,12 +1,12 @@
-================================
+==============================================================
 How to convert IIIF manifests into spreadsheets for AMI ingest
-================================
+==============================================================
 
 This is how to take a directory of IIIF manifests, extract metadata and derivatives, and create a working spreadsheet that can later be converted into an AMI-compatible spreadsheet. This method works with both v2 and v3 IIIF manifests.
 
-----------------------------------
+--------------------------------------------------
 Use this derivative and metadata extraction script
-----------------------------------
+--------------------------------------------------
 
 
 .. code:: python
@@ -215,9 +215,9 @@ Use this derivative and metadata extraction script
     if __name__ == "__main__":
         process_directory("path/to/jsons", "output.csv")
 
-----------------------------------
+------------------
 Intermediate steps
-----------------------------------
+------------------
 
 Open the output spreadsheet in Google Sheets. You will need to make it follow the format of the spreadsheet described `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_. Here are the list of things you need to edit/fix/verify:
 

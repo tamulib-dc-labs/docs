@@ -30,9 +30,9 @@ You can acquire this :code:`@id` by going to the first canvas under :code:`seque
 
 :code:`,200` is a good size for the Spotlight search results.
 
---------------------
+---------------------------------------------
 Adding Thumbnails to a directory of manifests
---------------------
+---------------------------------------------
 
 Here is a script that adds a thumbnail section to each json in a directory of IIIF manifests.
 

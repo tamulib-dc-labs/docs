@@ -5,9 +5,9 @@ Creating and Modifying Exhibits
 The Libraries currently uses Spotlight for exhibit curation.  This document will explain how to create a new exhibit
 with the features that are currently in use.
 
-----------------------
+----------
 Navigation
-----------------------
+----------
 On Spotlight and Spotlight Pre it is easiest to move between editing the homepage and the exhibit settings through changing the URL.
 
 For example: `https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/home <https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/home>`_ will get you to the homepage. But `https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/dashboard <https://spotlight-pre.library.tamu.edu/spotlight/william-fairfax-gray-diary/dashboard>`_ will get you to the dashboard.
@@ -32,9 +32,9 @@ You may also edit one of these manifests and upload to `custom-iiif-manifests <h
 
 * https://tamulib-dc-labs.github.io/custom-iiif-manifests/manifests/gray-diary/graydiary.json
 
-----------------------
+----------------
 Manifest Editing
-----------------------
+----------------
 
 To ensure that a multi-page item embedded in the Spotlight exhibit has its pages appear in pairs like a book or magazine, add the following code under the :code:`sequences` element.
 

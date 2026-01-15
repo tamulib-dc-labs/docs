@@ -174,9 +174,9 @@ aspects of higher levels of remediation, this category is defined.
 4. Metadata reflecting every additional task beyond minimal or intermediate enhancement.
 5. Documentations explaining what was done and why.
 
------------
+-----------------------
 Non-Musical Audio Works
------------
+-----------------------
 
 An audio work is any resource that includes a audio file that can be listened to in a media player.
 
@@ -224,9 +224,9 @@ aspects of higher levels of remediation, this category is defined.
 4. Metadata reflecting every additional task beyond minimal or intermediate enhancement.
 5. Documentations explaining what was done and why.
 
-----------
+-----------
 Music Audio
-----------
+-----------
 
 This section of the policy is for audio files of a song. Videos with music are not covered here.
 

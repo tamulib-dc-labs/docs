@@ -1,10 +1,10 @@
-================================
+===========================
 How to bulk update metadata
-================================
+===========================
 
-----------------------------------
+------------------------------
 Download the existing metadata
-----------------------------------
+------------------------------
 
 First, you need to know the metadata you already have and the :code:`node_uuid`s of each item you wish to update. The easiest way to get this information is by downloading the metadata as a csv.
 
@@ -14,9 +14,9 @@ First, you need to know the metadata you already have and the :code:`node_uuid`s
 
 3. Scroll to the bottom of the page. Make sure you select "Export Archipelago Digital Objects to CSV content item". Then click "Apply to selected items".
 
-----------------------------------
+-----------------
 Edit the metadata
-----------------------------------
+-----------------
 
 Change the metadata you want in the spreadsheet.
 
@@ -30,9 +30,9 @@ Delete any columns you are not changing. However you must keep:
 
 * :code:`type`
 
-----------------------------------
+--------------------------------------
 Uploading the spreadsheet with changes
-----------------------------------
+--------------------------------------
 
 1. Go to :code:`/admin/content`.
 
