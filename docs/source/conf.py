@@ -20,6 +20,9 @@ mermaid_output_format = 'raw'
 templates_path = ['_templates']
 exclude_patterns = []
 
+warningiserror = True
+keep_going = True
+
 
 
 # -- Options for HTML output -------------------------------------------------
