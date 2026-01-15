@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="How to get metadata for AMI import from Fedora" href="fedora-to-ami.html" /><link rel="prev" title="How to do an AMI batch upload in Archipelago" href="ami-upload.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Getting AMI-compatible spreadsheets from Fedora" href="fedora-to-ami.html" /><link rel="prev" title="Creating new items through AMI" href="ami-upload.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>How to make a flat csv compatible with AMI batch import - TAMU Digital Collections Labs documentation</title>
+        <title>Getting AMI-compatible spreadsheets from a flat csv - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,12 +215,12 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">How to do an AMI batch upload in Archipelago</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">How to make a flat csv compatible with AMI batch import</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">How to get metadata for AMI import from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">Creating new items through AMI</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Getting AMI-compatible spreadsheets from a flat csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">Getting AMI-compatible spreadsheets from Fedora</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">How to convert IIIF manifests into spreadsheets for AMI ingest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">How to bulk update metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">Bulk updating metadata through AMI</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -363,11 +363,11 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="how-to-make-a-flat-csv-compatible-with-ami-batch-import">
-<h1>How to make a flat csv compatible with AMI batch import<a class="headerlink" href="#how-to-make-a-flat-csv-compatible-with-ami-batch-import" title="Link to this heading">¶</a></h1>
+          <section id="getting-ami-compatible-spreadsheets-from-a-flat-csv">
+<h1>Getting AMI-compatible spreadsheets from a flat csv<a class="headerlink" href="#getting-ami-compatible-spreadsheets-from-a-flat-csv" title="Link to this heading">¶</a></h1>
 <p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example all of this should go under the creator_lod field when doing a batch import in a single cell:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
-<p>This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a script that converts a spreadsheet that is easier to work with to the spreadsheet required for AMI imports.</p>
+<p>This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.</p>
 <section id="input-csv">
 <h2>Input csv<a class="headerlink" href="#input-csv" title="Link to this heading">¶</a></h2>
 <p>Enter your metadata into this csv.</p>
@@ -622,7 +622,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">How to get metadata for AMI import from Fedora</div>
+                <div class="title">Getting AMI-compatible spreadsheets from Fedora</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -633,7 +633,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">How to do an AMI batch upload in Archipelago</div>
+                <div class="title">Creating new items through AMI</div>
                 
               </div>
             </a>
@@ -667,7 +667,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">How to make a flat csv compatible with AMI batch import</a><ul>
+<li><a class="reference internal" href="#">Getting AMI-compatible spreadsheets from a flat csv</a><ul>
 <li><a class="reference internal" href="#input-csv">Input csv</a></li>
 <li><a class="reference internal" href="#what-is-node-uuid">What is node_uuid?</a></li>
 <li><a class="reference internal" href="#conversion">Conversion</a></li>

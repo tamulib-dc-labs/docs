@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="How to bulk update metadata" href="updating-metadata.html" /><link rel="prev" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bulk updating metadata through AMI" href="updating-metadata.html" /><link rel="prev" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>How to convert IIIF manifests into spreadsheets for AMI ingest - TAMU Digital Collections Labs documentation</title>
+        <title>Getting AMI-compatible spreadsheets from a directory of IIIF manifests - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,12 +215,12 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">How to do an AMI batch upload in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">How to make a flat csv compatible with AMI batch import</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">How to get metadata for AMI import from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">Creating new items through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">Getting AMI-compatible spreadsheets from a flat csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">Getting AMI-compatible spreadsheets from Fedora</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">How to convert IIIF manifests into spreadsheets for AMI ingest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">How to bulk update metadata</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">Bulk updating metadata through AMI</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -363,9 +363,9 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="how-to-convert-iiif-manifests-into-spreadsheets-for-ami-ingest">
-<h1>How to convert IIIF manifests into spreadsheets for AMI ingest<a class="headerlink" href="#how-to-convert-iiif-manifests-into-spreadsheets-for-ami-ingest" title="Link to this heading">¶</a></h1>
-<p>This is how to take a directory of IIIF manifests, extract metadata and derivatives, and create a working spreadsheet that can later be converted into an AMI-compatible spreadsheet. This method works with both v2 and v3 IIIF manifests.</p>
+          <section id="getting-ami-compatible-spreadsheets-from-a-directory-of-iiif-manifests">
+<h1>Getting AMI-compatible spreadsheets from a directory of IIIF manifests<a class="headerlink" href="#getting-ami-compatible-spreadsheets-from-a-directory-of-iiif-manifests" title="Link to this heading">¶</a></h1>
+<p>This is how to take a directory of IIIF manifests and extract metadata and derivatives. This method works with both v2 and v3 IIIF manifests.</p>
 <section id="use-this-derivative-and-metadata-extraction-script">
 <h2>Use this derivative and metadata extraction script<a class="headerlink" href="#use-this-derivative-and-metadata-extraction-script" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -607,7 +607,7 @@
 </div></blockquote>
 </li>
 <li><p>Add a <code class="code docutils literal notranslate"><span class="pre">type</span></code> column with the worktype the items are. This is so Archipelago knows what template to use for your digital object.</p></li>
-<li><p>Rename certain columns.</p>
+<li><p>Rename columns.</p>
 <blockquote>
 <div><ul>
 <li><p><code class="code docutils literal notranslate"><span class="pre">rights_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">rights</span></code></p>
@@ -632,7 +632,7 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p>Delete certain columns</p>
+<li><p>Delete columns</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">filename</span></code></p></li>
@@ -657,7 +657,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">How to bulk update metadata</div>
+                <div class="title">Bulk updating metadata through AMI</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -702,7 +702,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">How to convert IIIF manifests into spreadsheets for AMI ingest</a><ul>
+<li><a class="reference internal" href="#">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a><ul>
 <li><a class="reference internal" href="#use-this-derivative-and-metadata-extraction-script">Use this derivative and metadata extraction script</a></li>
 <li><a class="reference internal" href="#intermediate-steps">Intermediate steps</a></li>
 </ul>

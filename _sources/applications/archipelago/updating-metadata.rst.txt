@@ -1,6 +1,6 @@
-===========================
-How to bulk update metadata
-===========================
+==================================
+Bulk updating metadata through AMI
+==================================
 
 ------------------------------
 Download the existing metadata

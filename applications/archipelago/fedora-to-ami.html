@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" /><link rel="prev" title="How to make a flat csv compatible with AMI batch import" href="creating-ami-csv.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" /><link rel="prev" title="Getting AMI-compatible spreadsheets from a flat csv" href="creating-ami-csv.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>How to get metadata for AMI import from Fedora - TAMU Digital Collections Labs documentation</title>
+        <title>Getting AMI-compatible spreadsheets from Fedora - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,12 +215,12 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">How to do an AMI batch upload in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">How to make a flat csv compatible with AMI batch import</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">How to get metadata for AMI import from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">Creating new items through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">Getting AMI-compatible spreadsheets from a flat csv</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Getting AMI-compatible spreadsheets from Fedora</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">How to convert IIIF manifests into spreadsheets for AMI ingest</a></li>
-<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">How to bulk update metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">Bulk updating metadata through AMI</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -363,9 +363,9 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="how-to-get-metadata-for-ami-import-from-fedora">
-<h1>How to get metadata for AMI import from Fedora<a class="headerlink" href="#how-to-get-metadata-for-ami-import-from-fedora" title="Link to this heading">¶</a></h1>
-<p>If you want to directly import a collection on Fedora into Archipelago, use the following script:</p>
+          <section id="getting-ami-compatible-spreadsheets-from-fedora">
+<h1>Getting AMI-compatible spreadsheets from Fedora<a class="headerlink" href="#getting-ami-compatible-spreadsheets-from-fedora" title="Link to this heading">¶</a></h1>
+<p>If you want to import a collection on Fedora into Archipelago, use the following script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">csv</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictWriter</span>
@@ -448,19 +448,19 @@
 <h2>Things to keep in mind<a class="headerlink" href="#things-to-keep-in-mind" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p><code class="code docutils literal notranslate"><span class="pre">collection_url</span></code> should be in this format <code class="code docutils literal notranslate"><span class="pre">https://api.library.tamu.edu/iiif-service/fedora/collection/uuid</span></code>.</p></li>
-<li><p>This spreadsheet is not automatically compatible with AMI. Some metadata columns need to be changed depending on the labels used in the IIIF manifests. However, the format of values should be AMI-compatible.</p></li>
+<li><p>This spreadsheet is not automatically compatible with AMI. Some metadata column names need to be changed depending on the labels used in the IIIF manifests.</p></li>
 <li><p>Double check the <code class="code docutils literal notranslate"><span class="pre">derivatives</span></code> column. Ensure that each canvas is separated by a semicolon. Also, if semicolons are used in the canvas (ie uri is in hexadecimal and end with <code class="code docutils literal notranslate"><span class="pre">;1</span></code>, <code class="code docutils literal notranslate"><span class="pre">;2</span></code>, <code class="code docutils literal notranslate"><span class="pre">;3</span></code>, etc.), this will not work.</p></li>
-<li><p>You will need to create the collection in Archipelago so you can link the parent uuid.</p></li>
-<li><p>You will need to <a class="reference external" href="https://www.uuidgenerator.net/">generate your own uuids</a> for the node_uuid column.</p></li>
-<li><p>If you want to add linked data, you will need to add some intermediate steps.</p>
+<li><p>Create the collection in Archipelago so you can link the parent uuid.</p></li>
+<li><p><a class="reference external" href="https://www.uuidgenerator.net/">Generate your own uuids</a> for the node_uuid column.</p></li>
+<li><p>If you want to add linked data, you will need some intermediate steps.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Add columns depending on what values you want to link. Every linked data value will require two columns: a label and a uri.</p></li>
-<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">To turn your flat csv back into an AMI-compatible csv</a></p></li>
+<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">How to make a flat csv and convert it back into an AMI-compatible csv</a></p></li>
 </ul>
 </div></blockquote>
 </li>
-<li><p>This is the only way to get metadata and derivatives if you don’t have the IIIF manifests available.</p></li>
+<li><p>This is the only way to get metadata and derivatives for a Fedora collection if you don’t have the IIIF manifests downloaded to your device.</p></li>
 </ul>
 </section>
 </section>
@@ -486,7 +486,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">How to make a flat csv compatible with AMI batch import</div>
+                <div class="title">Getting AMI-compatible spreadsheets from a flat csv</div>
                 
               </div>
             </a>
@@ -520,7 +520,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">How to get metadata for AMI import from Fedora</a><ul>
+<li><a class="reference internal" href="#">Getting AMI-compatible spreadsheets from Fedora</a><ul>
 <li><a class="reference internal" href="#things-to-keep-in-mind">Things to keep in mind</a></li>
 </ul>
 </li>
