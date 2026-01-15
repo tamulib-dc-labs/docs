@@ -1,16 +1,17 @@
-==========================
+===================================
 DSPACE: Importing Entities from OJS
-==========================
+===================================
+
 This process is similar to general batch importing, except with a few more steps at the beginning and an automated csv creation.
 
-------------------------
+-----------------------------
 Clone relevant git repository
-------------------------
+-----------------------------
 * `To move journals from OJS to OakTrust (ojs-to-oaktrust) <https://github.com/markpbaggett/ojs-to-oaktrust>`_
 
-------------------------
+--------
 New .yml
-------------------------
+--------
 
 Go to default-config.yml. Copy default-config.yml into a new file named config.yml.
 
@@ -20,9 +21,9 @@ Inside config.yml, paste the API key for :code:`token`.
 
 Fill in :code:`journal_title`, :code:`url`, :code:`oai_endpoint`, :code:`title`, :code:`default_thumbnail`, :code:`date`, :code:`description`, :code:`subjects`, and :code:`alternative`.  :code:`default_thumbnail` should be a link to an image. :code:`subjects` should come from Library of Congress subject headings. :code:`alternative` should only be used for an alternative title.
 
-------------------------
+------------------
 Creating .csv file
-------------------------
+------------------
 
 Under :code:`ojs-to-oaktrust`, create a new directory called :code:`output`.
 
@@ -30,9 +31,9 @@ On the command line, write: :code:`python src/ojsnake.py -j journal_title`
 
 articles.csv, issues.csv, title.csv, and volumes.csv should have saved under :code:`ojs-to-oaktrust/output/journal_title` folder.
 
-------------------------
+------------------------------------------
 Creating Simple Archive Format (SAF) Files
-------------------------
+------------------------------------------
 
 Run Java in terminal by entering this code: :code:`java -jar ~/Downloads/SAFCreator-0.0.2-SNAPSHOT.one-jar.jar`
 
@@ -51,9 +52,9 @@ In the dialogue box:
 * Go to Batch Verification across the top and click "Verify Batch."
 * Create SAF file (rightmost button under Batch Details).
 
-------------------------
+-------------------
 Importing SAF Files
-------------------------
+-------------------
 
 Create a zip file. When using a Mac, this must be done through command line or else it will give errors later.
 
@@ -63,9 +64,9 @@ Go to * `Oaktrust <https://oaktrust-pre.library.tamu.edu>`_ Create a collection 
 
 Note: Sometimes "Import" does not appear as an option in the sidebar, in which case you must wait/reload the page until it appears.
 
-------------------------
+----------------------------------
 Creating Child Unit of Parent Unit
-------------------------
+----------------------------------
 
 This will follow mostly the same process as before. However, once the csv files generate, you will need to go to the websites for the parent unit and copy all characters in the url after the last slash. 
 Then go to the child unit's .csv and add that string at the end of each line after the last comma (creating another column). Make sure all children with the same url are from the same parent. 

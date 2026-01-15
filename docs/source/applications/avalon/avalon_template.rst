@@ -1,6 +1,6 @@
-===========================
+=================================
 Template for Avalon Batch Imports
-===========================
+=================================
 
 Here is a template used for Avalon Batch Imports. All columns are verified to be compatible with Avalon 7.8.
 
@@ -9,9 +9,9 @@ Here is a template used for Avalon Batch Imports. All columns are verified to be
     <iframe src="https://docs.google.com/spreadsheets/d/1QcxBWxmplvGvT3OgbTsCV0Fc9dHSRHgMwp9CYABo4aE/edit?gid=0#gid=0" height="400" width="1200" frameborder="0" allowfullscreen></iframe>
 
 
--------------------
+------------------
 Things to consider
--------------------
+------------------
 
 * If you are uploading videos, go to the "captions" page. If you are uploading audio only, go to the "transcript" page.
 * Technically this works with a xlsx spreadsheet, but a csv prevents numerical fields from autocorrecting.
@@ -30,9 +30,9 @@ Things to consider
     * YYYY-MM-DD/YYYY-MM-DD (if range)
     * unknown/unknown
 
----------------------
+---------------------------------------------
 Ways this differs from official documentation
----------------------
+---------------------------------------------
 
 * Unknown if Date Created works
 * "Topical Subject" does not work. Use "Subject" instead.

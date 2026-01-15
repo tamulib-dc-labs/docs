@@ -1,10 +1,10 @@
-================================
+============================================
 How to do an AMI batch upload in Archipelago
-================================
+============================================
 
-----------------------------------
+---------------------------------
 Create an csv compatible with AMI
-----------------------------------
+---------------------------------
 
 Here is the template for every spreadsheet uploaded into Archipelago.
 
@@ -22,9 +22,9 @@ This is an creator_lod example for an item with 2 creators.
 
 To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
 
-----------------------------------
+------------------------
 Where to get your files?
-----------------------------------
+------------------------
 
 There are two ways to attach files to your AMI upload. 
 
@@ -42,7 +42,7 @@ Create a zip archive with all files that will be uploaded in the batch. However,
 To attach files in a zip file to a digital object, enter the filename in the relevant column depending on what type of media it is (for example, the :code:`images` column). If you have multiple files for the same item, list them all, but separate them with a semicolon (example: :code:`0001.tif;0002.tif;0003.tif`).
 
 Link
-------------
+----
 
 You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with :code:`/full/full/0/default.jpg` will work as will any :code:`.jp2`). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.
 
@@ -52,9 +52,9 @@ If a digital object is made up of multiple files, list them all and separate the
     Regardless of whether you use the zip archive or a link, this step can be done using either of the spreadsheets (the AMI-compatible one or the initial human friendly one).
 
 
-----------------------------------
+-----------------------------
 Now that you have your csv...
-----------------------------------
+-----------------------------
 
 1. Go to :code:`/admin/content`.
 

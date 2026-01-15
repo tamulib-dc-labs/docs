@@ -1,6 +1,6 @@
-=============================
-How to make a PDF transcript to upload to Avalon.
-=============================
+================================================
+How to make a PDF transcript to upload to Avalon
+================================================
 
 This page explains how to generate pdfs for a collection of objects using existing metadata already on Avalon and a folder of .vtts with the transcripts.
 

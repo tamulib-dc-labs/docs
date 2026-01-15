@@ -1,6 +1,6 @@
-==========================
+================================
 Making Transcripts with WhisperX 
-==========================
+================================
 
 1. Enter the following code into the terminal: :code:`pip install whisperx`.
 
@@ -12,9 +12,9 @@ Making Transcripts with WhisperX
 
 You may need more commands depending on what you want from WhisperX.
 
-------------------
-Special prompts:
-------------------
+---------------
+Special prompts
+---------------
 
 If the audio is in a language other than English, append the following code to your command prompt:
 
@@ -80,9 +80,9 @@ To move the json and vtt to `whisper-editor <https://github.com/tamulib-dc-labs/
             elif '.vtt' in file:
                 shutil.move(f"{path}/{file}", "/Users/{Username}/whisper-reviewer/vtts/{output-folder}")
 
----------------
+----------------------
 Automate Transcription 
----------------
+----------------------
 
 Instead of running a command for every item you wish to transcribe with WhisperX, use a script that transcribes all items in a directory.
 

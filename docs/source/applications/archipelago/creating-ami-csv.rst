@@ -1,6 +1,6 @@
-================================
+=======================================================
 How to make a flat csv compatible with AMI batch import
-================================
+=======================================================
 
 The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example all of this should go under the creator_lod field when doing a batch import in a single cell:
 
@@ -8,9 +8,9 @@ The spreadsheet template for Archipelago AMI batch import includes fields that r
 
 This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a script that converts a spreadsheet that is easier to work with to the spreadsheet required for AMI imports.
 
-----------------------------------
+---------
 Input csv
-----------------------------------
+---------
 
 Enter your metadata into this csv.
 
@@ -24,15 +24,15 @@ Be sure to look at the first sheet (Human Friendly).
 Add more columns if there need to be more metadata values per field (such as if you need to add more local subjects). However, the creator_lod fields need to be added in sets of 5 (agent_type, name_label, name_uri, role_label, and role_uri). All other fields with _uri and _label appear in pairs.
 
 
-----------------------------------
+------------------
 What is node_uuid?
-----------------------------------
+------------------
 
 This is a temporary identifier used for the processing. You will need to create your own. Go to `uuidgenerator.net <https://www.uuidgenerator.net/>`_ to generate a uuid for each row.
 
-----------------------------------
+----------
 Conversion
-----------------------------------
+----------
 
 Once you have the input csv, you can run this script to convert it to a csv compatible with Archipelago AMI batch import.
 

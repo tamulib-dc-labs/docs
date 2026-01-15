@@ -2,24 +2,24 @@
 Making Transcripts with Whisper
 ==========================
 
-------------------------
+--------------------------------
 Clone relevant git repositories.
-------------------------
+--------------------------------
 
 * `To transcribe audio with Whisper (tamu-whisper) <https://github.com/tamulib-dc-labs/tamu-whisper.git>`_
 * `To edit captions (whisper-reviewer) <https://github.com/tamulib-dc-labs/whisper-reviewer.git>`_
 
----------------
-Import files.
----------------
+------------
+Import files
+------------
 
 Open tamu-whisper. Create a new folder called :code:`all_source_files`.
 Using the code editor, open the folder where you keep the audio files you will be working with. 
 In the case of VSCode, go to File > Open Folder to import them. Imported files should save to :code:`all_source_files` folder.
 
--------------
+------------
 Transcribing
--------------
+------------
 
 Each transcription through Whisper will create 2 files: a vtt file with the captions and timestamps and a json file that provides estimates for the accuracy of each word.
 
@@ -37,9 +37,9 @@ To transcribe, enter the following in the command line:
 
 When this is complete, all jsons and vtts should appear under the :code:`output/` folder in :code:`tamu-whisper`.
 
----------
+------------
 Editing vtts
----------
+------------
 
 To edit the vtts, first they must be moved to :code:`whisper-reviewer`. In :code:`tamu-whisper`, create a new :code:`.py`` file called :code:`move_files_to_reviewer`. 
 

@@ -1,6 +1,6 @@
-===========================
+=================================
 Creating ARKs with TAMU ID Minter
-===========================
+=================================
 
 Use this to create an ARK for an object. ARKs are created with `this site <https://ezid.cdlib.org>`_
 
