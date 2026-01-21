@@ -46,18 +46,26 @@ Project Routing Decision Tree
 
    flowchart TD
 
+   Z{"Are the Materials Owned by Cushing Memorial Library?"}
+   Y{"Has Robin Hutchinson and the Curator Approved?"}
+   X["Requestor Sets Up Meeting for Approval"]
+   W{"Approved?"}
+   V["Project Canceled"]
    A["IDEA Document Submitted to DPMT"]
    B{"The Project was approved<br>and submitted by CoDHR?"}
-   C{"Cushing Agrees to Pull Materials for Digitization"}
    D["Standard Digital Collections<br>Workflow (DPMT)"]
    E["Digital Humanities<br>Service Track"]
-   F["Standard Digital Collections<br>Workflow (DPMT)"]
 
+   Z -- Yes --> Y
+   Y -- Yes --> A
+   Z -- No --> A
+   Y -- No --> X
+   X --> W
+   W -- Yes --> A
+   W -- No --> V
    A --> B
-   B -- No --> F
-   B -- Yes --> C
-   C -- Yes --> D
-   C -- No --> E
+   B -- Yes --> D
+   B -- No --> E
 
 --------------------------------
 Digital Humanities Service Track
