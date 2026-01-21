@@ -403,18 +403,26 @@ Service Track</strong>.</p>
 <pre  class="mermaid">
         flowchart TD
 
+Z{&quot;Are the Materials Owned by Cushing Memorial Library?&quot;}
+Y{&quot;Has Robin Hutchinson and the Curator Approved?&quot;}
+X[&quot;Requestor Sets Up Meeting for Approval&quot;]
+W{&quot;Approved?&quot;}
+V[&quot;Project Canceled&quot;]
 A[&quot;IDEA Document Submitted to DPMT&quot;]
 B{&quot;The Project was approved&lt;br&gt;and submitted by CoDHR?&quot;}
-C{&quot;Cushing Agrees to Pull Materials for Digitization&quot;}
 D[&quot;Standard Digital Collections&lt;br&gt;Workflow (DPMT)&quot;]
 E[&quot;Digital Humanities&lt;br&gt;Service Track&quot;]
-F[&quot;Standard Digital Collections&lt;br&gt;Workflow (DPMT)&quot;]
 
+Z -- Yes --&gt; Y
+Y -- Yes --&gt; A
+Z -- No --&gt; A
+Y -- No --&gt; X
+X --&gt; W
+W -- Yes --&gt; A
+W -- No --&gt; V
 A --&gt; B
-B -- No --&gt; F
-B -- Yes --&gt; C
-C -- Yes --&gt; D
-C -- No --&gt; E
+B -- Yes --&gt; D
+B -- No --&gt; E
     </pre></section>
 <section id="digital-humanities-service-track">
 <h2>Digital Humanities Service Track<a class="headerlink" href="#digital-humanities-service-track" title="Link to this heading">¶</a></h2>
