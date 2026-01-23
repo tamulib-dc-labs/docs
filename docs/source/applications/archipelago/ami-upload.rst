@@ -12,7 +12,7 @@ Here is the template for every spreadsheet uploaded into Archipelago.
 
     <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
-Be sure to look at the second sheet (Machine Friendly). Enter your data here.
+Be sure to look at the second sheet (AMI template). Enter your data here.
 
 If there are multiple values for any column, cells will have json strings such as:
 
@@ -20,7 +20,46 @@ If there are multiple values for any column, cells will have json strings such a
 
 This is an creator_lod example for an item with 2 creators. 
 
-To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
+To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
+
+------------------
+Mandatory fields
+------------------
+
+There are three mandatory fields for an AMI upload.
+
+* node_uuid
+
+* type
+
+* label
+
+What is node_uuid?
+------------------
+
+This is a temporary identifier used for the processing. You will need to create your own. Go to `uuidgenerator.net <https://www.uuidgenerator.net/>`_ to generate a uuid for each row.
+
+
+What is type?
+-------------
+
+This tells Archipelago what type of item you are working with so it knows what template to use. For each item, you will likely select one from the following: Photograph, Postcard, AudioObject, VideoObject, Book, Manuscript, Map, VisualArtwork. 
+
+
+What is label?
+--------------
+
+Label will usually be the title of the digital object.
+
+
+-----------------------
+Other fields (optional)
+-----------------------
+
+What is ismemberof?
+-------------------
+
+Before uploading an AMI spreadsheet, you will need to create a collection on Archipelago. Add the Archipelago UUID for the parent item (ie the collection) in this column.
 
 ------------------------
 Where to get your files?
