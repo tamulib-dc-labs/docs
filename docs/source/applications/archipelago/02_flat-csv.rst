@@ -91,30 +91,50 @@ Add more columns if there need to be more metadata values per field. Remember th
 What do these column headers mean?
 ----------------------------------
 
+* If Column label starts with
 
-+-------------------------------------------+-----------------------------+
-| Column label starts with                  | type of metadata field      |                                                                                                                     |
-+===========================================+=============================+
-| creator_lod_{i}_name_                     | LCNAF creator               |
-+-------------------------------------------+-----------------------------+
-| subject_loc_{i}_                          | LCSH subject heading        |
-+-------------------------------------------+-----------------------------+
-| subject_lcnaf_personal_{i}_               | LCNAF subject (personal)    |
-+-------------------------------------------+-----------------------------+
-| subject_lcnaf_corporate_{i}_              | LCNAF subject (corporate)   |
-+-------------------------------------------+-----------------------------+
-| subject_lcnaf_geographic_{i}_             | LCNAF geographic subject    |
-+-------------------------------------------+-----------------------------+
-| subject_lcgft_terms_{i}                   | LCGFT (genre/form) term     |
-+-------------------------------------------+-----------------------------+
-| creator_{i}                               | Local creator               |
-+-------------------------------------------+-----------------------------+
-| subjects_local_{i}                        | Local subject               |
-+-------------------------------------------+-----------------------------+
-| subjects_local_personal_names_{i}         | Local subject personal name |
-+-------------------------------------------+-----------------------------+
-| subject_wikidata_{i}_                     | Wikidata                    |
-+-------------------------------------------+-----------------------------+
+    * this is the type of metadata field it is
+
+* :code:`creator_lod_{i}_name_`
+
+    * LCNAF creator  
+
+* :code:`subject_loc_{i}_ `
+
+    * LCSH subject heading 
+
+* :code:`subject_lcnaf_personal_{i}_ `
+
+    * LCNAF subject (personal) 
+
+* :code:`subject_lcnaf_corporate_{i}_ `
+
+    * LCNAF subject (corporate) 
+
+* :code:`subject_lcnaf_geographic_{i}_ `
+
+    * LCNAF geographic subject
+
+* :code:`subject_lcgft_terms_{i}_`
+
+    * LCGFT (genre/form) term 
+
+* :code:`creator_{i}`
+
+    * Local creator
+
+* :code:`subjects_local_{i}`
+
+    * Local subject
+
+* :code:`subjects_local_personal_names_{i}`
+
+    * Local subject - personal name
+
+* :code:`subjects_wikidata_{i}_`
+
+    * Wikidata
+
 
 
 ----------
