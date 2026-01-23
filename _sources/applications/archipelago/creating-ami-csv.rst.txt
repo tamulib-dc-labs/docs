@@ -2,11 +2,69 @@
 Getting AMI-compatible spreadsheets from a flat csv
 ===================================================
 
-The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example all of this should go under the creator_lod field when doing a batch import in a single cell:
+The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. 
+
+Here is an example of a subjects_local field:
+
+:code:`["American Civil War (United States : 1861-1865)", "Migration, Internal--Southern States", "Cherokee Indians--Tribal citizenship", "Oklahoma--Fort Gibson (Indian Territory)", "Oklahoma--Sequoyah District (Indian Territory)"]`.
+
+Each heading is surrounded by quotation marks and separated from the next heading with a comma and a space. The entire string is in brackets.
+
+This bracketing becomes even more complicated when using linked data. For example, all of this should go under the creator_lod field when doing a batch import in a single cell:
 
 :code:`[{"name_uri":"http://id.loc.gov/authorities/names/n2001078880","role_uri":"http://id.loc.gov/vocabulary/relators/cre","agent_type":"personal","name_label":"Hogg, James Stephen, 1851-1906.","role_label":"Creator"},{"name_uri":"https://id.loc.gov/authorities/names/n82158463","role_uri":"http://id.loc.gov/vocabulary/relators/rcp","agent_type":"personal","name_label":"Ross, Lawrence Sullivan, 1838-1898","role_label":"Addressee"}]`
 
-This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.
+This is two headings, each with 5 properties, and should all go in the same cell. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.
+
+-----------------------------
+What does this csv format do?
+-----------------------------
+
+Instead of typing long strings into a single small cell, this "flat" template allows the librarian to spread values across multiple columns for better readability and usability. 
+
+This is similar to an Avalon spreadsheet upload, where the librarian can add as many columns as needed, except a few things differ.
+
+* Creators and subjects will be separated between local and linked data. In Avalon, all creators/subjects are treated the same.
+
+* Creators and contributors are both classified as "creators". The librarian can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled "Creator" or "Contributor".
+
+    * The role property is only usable if the librarian is using linked data for the creator. Local creators do not have a role property.
+
+* Every linked data value requires at least two columns, not one. To add an extra subject on Avalon, a single column needs to be created. To add an extra subject here, two columns must be created, one for the label and the other for the uri.
+
+* Most linked data fields will require two columns per entry except creator/contributor fields, which require five: personal/corporate, label, uri, role, and role uri.
+
+* Local creators, local subjects, and local subjects - personal names can be added with a single column that contains the label. This is similar to Avalon.
+
+* Avalon column names are repeatable. Here, the columns require a number so the script knows which label to match with which uri.
+
+    * For example, LCSH subjects follow this format: :code:`subject_loc_{i}_label` and :code:`subject_loc_{i}_uri` where :code:`i` represents a number. :code:`i` **must** match for a label and uri pair.
+
+* An Avalon spreadsheet is the final product that is uploaded. This template creates an **intermediate** spreadsheet that must be converted into an AMI-compatible spreadsheet.
+
+Not all Archipelago values require multiple "parts" to be strung together. This spreadsheet template is only used for adding the following repeatable fields:
+
+* LCNAF creators
+
+* LCSH subject headings
+
+* LCNAF subjects (personal)
+
+* LCNAF subjects (corporate)
+
+* LCNAF geographic subjects
+
+* LCGFT terms
+
+* Local creators
+
+* Local subjects
+
+* Local subjects - personal names
+
+* Wikidata
+
+Other fields, like description or date_created should be added directly to the final AMI-compatible spreadsheet.
 
 ---------
 Input csv
@@ -19,16 +77,43 @@ Enter your metadata into this csv.
     <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
 
-Be sure to look at the first sheet (Human Friendly).
+Be sure to look at the first sheet (Flat).
 
-Add more columns if there need to be more metadata values per field (such as if you need to add more local subjects). However, the creator_lod fields need to be added in sets of 5 (agent_type, name_label, name_uri, role_label, and role_uri). All other fields with _uri and _label appear in pairs.
+Add more columns if there need to be more metadata values per field. Remember that:
 
+* LCNAF creator fields are added in sets of 5.
 
-------------------
-What is node_uuid?
-------------------
+* LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.
 
-This is a temporary identifier used for the processing. You will need to create your own. Go to `uuidgenerator.net <https://www.uuidgenerator.net/>`_ to generate a uuid for each row.
+* Local creators, local subjects, and local subjects - personal names are added individually.
+
+----------------------------------
+What do these column headers mean?
+----------------------------------
+
++-------------------------------------------+-----------------------------+
+| Column label starts with                  | type of metadata field      |                                                                                                                     |
++===========================================+=============================+
+| creator_lod_{i}_name_                     | LCNAF creator               |
++-------------------------------------------+-----------------------------+
+| subject_loc_{i}_                          | LCSH subject heading        |
++-------------------------------------------+-----------------------------+
+| subject_lcnaf_personal_{i}_               | LCNAF subject (personal)    |
++-------------------------------------------+-----------------------------+
+| subject_lcnaf_corporate_{i}_              | LCNAF subject (corporate)   |
++-------------------------------------------+-----------------------------+
+| subject_lcnaf_geographic_{i}_             | LCNAF geographic subject    |
++-------------------------------------------+-----------------------------+
+| subject_lcgft_terms_{i}                   | LCGFT (genre/form) term     |
++-------------------------------------------+-----------------------------+
+| creator_{i}                               | Local creator               |
++-------------------------------------------+-----------------------------+
+| subjects_local_{i}                        | Local subject               |
++-------------------------------------------+-----------------------------+
+| subjects_local_personal_names_{i}         | Local subject personal name |
++-------------------------------------------+-----------------------------+
+| subject_wikidata_{i}_                     | Wikidata                    |
++-------------------------------------------+-----------------------------+
 
 ----------
 Conversion
@@ -42,8 +127,8 @@ Once you have the input csv, you can run this script to convert it to a csv comp
     import json
     import re
 
-    INPUT_CSV = "input.csv"
-    OUTPUT_CSV = "intermediate.csv"
+    INPUT_CSV = "input_flat.csv"
+    OUTPUT_CSV = "output.csv"
 
     # --------------------
     # Helpers
@@ -106,10 +191,6 @@ Once you have the input csv, you can run this script to convert it to a csv comp
         reader.fieldnames = [h.strip() for h in reader.fieldnames]
 
         fieldnames = [
-            "node_uuid"
-            "label",
-            "type",
-            "description",
 
             "creator",
             "creator_lod",
@@ -122,22 +203,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             "subject_wikidata",
 
             "subjects_local",
-            "subjects_local_personal_names",
-
-            "date_created",
-            "date_created_edtf",
-
-            "language",
-            "ismemberof",
-            "owner",
-            "rights",
-            "rights_statements",
-            "resource_type",
-            "digital_origin",
-            "rights_statement_label",
-            "rights_statement_uri",
-            "physical_description_extent",
-            "images"
+            "subjects_local_personal_names"
         ]
 
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
@@ -231,11 +297,7 @@ Once you have the input csv, you can run this script to convert it to a csv comp
 
             # ---- Write row ----
             writer.writerow({
-                "node_uuid": row.get("node_uuid"),
-                "label": row.get("label"),
-                "type": row.get("type"),
-                "description": row.get("description"),
-
+            
                 "creator": json.dumps(creators, ensure_ascii=False),
                 "creator_lod": json.dumps(creator_lod, ensure_ascii=False),
 
@@ -247,25 +309,12 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "subject_wikidata": json.dumps(wikidata, ensure_ascii=False),
 
                 "subjects_local": json.dumps(subjects_local, ensure_ascii=False),
-                "subjects_local_personal_names": json.dumps(subjects_local_personal, ensure_ascii=False),
-
-                "date_created": row.get("date_created"),
-                "date_created_edtf": date_created_edtf,
-
-                "language": row.get("language"),
-                "ismemberof": row.get("ismemberof"),
-                "owner": row.get("owner"),
-                "rights": row.get("rights"),
-                "rights_statements": row.get("rights_statements"),
-                "resource_type": row.get("resource_type"),
-                "digital_origin": row.get("digital_origin"),
-                "rights_statement_label": row.get("rights_statement_label"),
-                "rights_statement_uri": row.get("rights_statement_uri"),
-                "physical_description_extent": row.get("physical_description_extent"),
-                "images": row.get("images")
-        })
+                "subjects_local_personal_names": json.dumps(subjects_local_personal, ensure_ascii=False)
+            })
 
 
+--------------------------
+Putting your csvs together
+--------------------------
 
-
-
+Now that you have your output.csv, you can copy and paste these columns into your AMI-compatible spreadsheet.

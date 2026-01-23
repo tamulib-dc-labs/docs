@@ -365,18 +365,66 @@
         <article role="main" id="furo-main-content">
           <section id="getting-ami-compatible-spreadsheets-from-a-flat-csv">
 <h1>Getting AMI-compatible spreadsheets from a flat csv<a class="headerlink" href="#getting-ami-compatible-spreadsheets-from-a-flat-csv" title="Link to this heading">¶</a></h1>
-<p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. For example all of this should go under the creator_lod field when doing a batch import in a single cell:</p>
+<p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell.</p>
+<p>Here is an example of a subjects_local field:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">[&quot;American</span> <span class="pre">Civil</span> <span class="pre">War</span> <span class="pre">(United</span> <span class="pre">States</span> <span class="pre">:</span> <span class="pre">1861-1865)&quot;,</span> <span class="pre">&quot;Migration,</span> <span class="pre">Internal--Southern</span> <span class="pre">States&quot;,</span> <span class="pre">&quot;Cherokee</span> <span class="pre">Indians--Tribal</span> <span class="pre">citizenship&quot;,</span> <span class="pre">&quot;Oklahoma--Fort</span> <span class="pre">Gibson</span> <span class="pre">(Indian</span> <span class="pre">Territory)&quot;,</span> <span class="pre">&quot;Oklahoma--Sequoyah</span> <span class="pre">District</span> <span class="pre">(Indian</span> <span class="pre">Territory)&quot;]</span></code>.</p>
+<p>Each heading is surrounded by quotation marks and separated from the next heading with a comma and a space. The entire string is in brackets.</p>
+<p>This bracketing becomes even more complicated when using linked data. For example, all of this should go under the creator_lod field when doing a batch import in a single cell:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
-<p>This is two items, each with 5 properties, all under the same field. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.</p>
+<p>This is two headings, each with 5 properties, and should all go in the same cell. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.</p>
+<section id="what-does-this-csv-format-do">
+<h2>What does this csv format do?<a class="headerlink" href="#what-does-this-csv-format-do" title="Link to this heading">¶</a></h2>
+<p>Instead of typing long strings into a single small cell, this “flat” template allows the librarian to spread values across multiple columns for better readability and usability.</p>
+<p>This is similar to an Avalon spreadsheet upload, where the librarian can add as many columns as needed, except a few things differ.</p>
+<ul>
+<li><p>Creators and subjects will be separated between local and linked data. In Avalon, all creators/subjects are treated the same.</p></li>
+<li><p>Creators and contributors are both classified as “creators”. The librarian can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled “Creator” or “Contributor”.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The role property is only usable if the librarian is using linked data for the creator. Local creators do not have a role property.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Every linked data value requires at least two columns, not one. To add an extra subject on Avalon, a single column needs to be created. To add an extra subject here, two columns must be created, one for the label and the other for the uri.</p></li>
+<li><p>Most linked data fields will require two columns per entry except creator/contributor fields, which require five: personal/corporate, label, uri, role, and role uri.</p></li>
+<li><p>Local creators, local subjects, and local subjects - personal names can be added with a single column that contains the label. This is similar to Avalon.</p></li>
+<li><p>Avalon column names are repeatable. Here, the columns require a number so the script knows which label to match with which uri.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For example, LCSH subjects follow this format: <code class="code docutils literal notranslate"><span class="pre">subject_loc_{i}_label</span></code> and <code class="code docutils literal notranslate"><span class="pre">subject_loc_{i}_uri</span></code> where <code class="code docutils literal notranslate"><span class="pre">i</span></code> represents a number. <code class="code docutils literal notranslate"><span class="pre">i</span></code> <strong>must</strong> match for a label and uri pair.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>An Avalon spreadsheet is the final product that is uploaded. This template creates an <strong>intermediate</strong> spreadsheet that must be converted into an AMI-compatible spreadsheet.</p></li>
+</ul>
+<p>Not all Archipelago values require multiple “parts” to be strung together. This spreadsheet template is only used for adding the following repeatable fields:</p>
+<ul class="simple">
+<li><p>LCNAF creators</p></li>
+<li><p>LCSH subject headings</p></li>
+<li><p>LCNAF subjects (personal)</p></li>
+<li><p>LCNAF subjects (corporate)</p></li>
+<li><p>LCNAF geographic subjects</p></li>
+<li><p>LCGFT terms</p></li>
+<li><p>Local creators</p></li>
+<li><p>Local subjects</p></li>
+<li><p>Local subjects - personal names</p></li>
+<li><p>Wikidata</p></li>
+</ul>
+<p>Other fields, like description or date_created should be added directly to the final AMI-compatible spreadsheet.</p>
+</section>
 <section id="input-csv">
 <h2>Input csv<a class="headerlink" href="#input-csv" title="Link to this heading">¶</a></h2>
 <p>Enter your metadata into this csv.</p>
-<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the first sheet (Human Friendly).</p>
-<p>Add more columns if there need to be more metadata values per field (such as if you need to add more local subjects). However, the creator_lod fields need to be added in sets of 5 (agent_type, name_label, name_uri, role_label, and role_uri). All other fields with _uri and _label appear in pairs.</p>
+<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the first sheet (Flat).</p>
+<p>Add more columns if there need to be more metadata values per field. Remember that:</p>
+<ul class="simple">
+<li><p>LCNAF creator fields are added in sets of 5.</p></li>
+<li><p>LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.</p></li>
+<li><p>Local creators, local subjects, and local subjects - personal names are added individually.</p></li>
+</ul>
 </section>
-<section id="what-is-node-uuid">
-<h2>What is node_uuid?<a class="headerlink" href="#what-is-node-uuid" title="Link to this heading">¶</a></h2>
-<p>This is a temporary identifier used for the processing. You will need to create your own. Go to <a class="reference external" href="https://www.uuidgenerator.net/">uuidgenerator.net</a> to generate a uuid for each row.</p>
+<section id="what-do-these-column-headers-mean">
+<h2>What do these column headers mean?<a class="headerlink" href="#what-do-these-column-headers-mean" title="Link to this heading">¶</a></h2>
 </section>
 <section id="conversion">
 <h2>Conversion<a class="headerlink" href="#conversion" title="Link to this heading">¶</a></h2>
@@ -385,8 +433,8 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="n">INPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;input.csv&quot;</span>
-<span class="n">OUTPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;intermediate.csv&quot;</span>
+<span class="n">INPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;input_flat.csv&quot;</span>
+<span class="n">OUTPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;output.csv&quot;</span>
 
 <span class="c1"># --------------------</span>
 <span class="c1"># Helpers</span>
@@ -449,10 +497,6 @@
     <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">]</span>
 
     <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;node_uuid&quot;</span>
-        <span class="s2">&quot;label&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;description&quot;</span><span class="p">,</span>
 
         <span class="s2">&quot;creator&quot;</span><span class="p">,</span>
         <span class="s2">&quot;creator_lod&quot;</span><span class="p">,</span>
@@ -465,22 +509,7 @@
         <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">,</span>
 
         <span class="s2">&quot;subjects_local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">,</span>
-
-        <span class="s2">&quot;date_created&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;date_created_edtf&quot;</span><span class="p">,</span>
-
-        <span class="s2">&quot;language&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ismemberof&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;owner&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;rights&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;rights_statements&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;resource_type&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;digital_origin&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;rights_statement_label&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;physical_description_extent&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;images&quot;</span>
+        <span class="s2">&quot;subjects_local_personal_names&quot;</span>
     <span class="p">]</span>
 
     <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
@@ -574,10 +603,6 @@
 
         <span class="c1"># ---- Write row ----</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span>
-            <span class="s2">&quot;node_uuid&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;node_uuid&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">),</span>
 
             <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creators</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
             <span class="s2">&quot;creator_lod&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">creator_lod</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
@@ -590,25 +615,14 @@
             <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">wikidata</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
 
             <span class="s2">&quot;subjects_local&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-            <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-
-            <span class="s2">&quot;date_created&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date_created&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;date_created_edtf&quot;</span><span class="p">:</span> <span class="n">date_created_edtf</span><span class="p">,</span>
-
-            <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;ismemberof&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ismemberof&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;owner&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;rights&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;rights_statements&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statements&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;resource_type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resource_type&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;digital_origin&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;digital_origin&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;rights_statement_label&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_label&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rights_statement_uri&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;physical_description_extent&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;physical_description_extent&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
-    <span class="p">})</span>
+            <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="p">})</span>
 </pre></div>
 </div>
+</section>
+<section id="putting-your-csvs-together">
+<h2>Putting your csvs together<a class="headerlink" href="#putting-your-csvs-together" title="Link to this heading">¶</a></h2>
+<p>Now that you have your output.csv, you can copy and paste these columns into your AMI-compatible spreadsheet.</p>
 </section>
 </section>
 
@@ -668,9 +682,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Getting AMI-compatible spreadsheets from a flat csv</a><ul>
+<li><a class="reference internal" href="#what-does-this-csv-format-do">What does this csv format do?</a></li>
 <li><a class="reference internal" href="#input-csv">Input csv</a></li>
-<li><a class="reference internal" href="#what-is-node-uuid">What is node_uuid?</a></li>
+<li><a class="reference internal" href="#what-do-these-column-headers-mean">What do these column headers mean?</a></li>
 <li><a class="reference internal" href="#conversion">Conversion</a></li>
+<li><a class="reference internal" href="#putting-your-csvs-together">Putting your csvs together</a></li>
 </ul>
 </li>
 </ul>

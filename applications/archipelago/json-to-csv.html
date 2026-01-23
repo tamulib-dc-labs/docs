@@ -576,74 +576,8 @@
 </section>
 <section id="intermediate-steps">
 <h2>Intermediate steps<a class="headerlink" href="#intermediate-steps" title="Link to this heading">¶</a></h2>
-<p>Open the output spreadsheet in Google Sheets. You will need to make it follow the format of the spreadsheet described <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>. Here are the list of things you need to edit/fix/verify:</p>
-<ul>
-<li><p>Add a <code class="code docutils literal notranslate"><span class="pre">node_uuid</span></code> column and generate uuids with <a class="reference external" href="https://www.uuidgenerator.net/">uuidgenerator.net</a>.</p></li>
-<li><p>Add a <code class="code docutils literal notranslate"><span class="pre">ismemberof</span></code> column. The value for each row should be the node_uuid for the parent collection.</p></li>
-<li><p>To add linked data, you will need to divide your creators and contributors into different types of columns. Note that creator and contributor are not distinguished except in the <code class="code docutils literal notranslate"><span class="pre">creator_lod</span></code> columms, which ask for a role.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">creator_lod_{i}_agent_type</span></code>, <code class="code docutils literal notranslate"><span class="pre">creator_lod_{i}_name_label</span></code>, <code class="code docutils literal notranslate"><span class="pre">creator_lod_{i}_name_uri</span></code>, <code class="code docutils literal notranslate"><span class="pre">creator_lod_{i}_role_label</span></code>, and <code class="code docutils literal notranslate"><span class="pre">creator_lod_{i}_role_uri</span></code> for creators/contributors that have authority files.</p></li>
-<li><p>For local names use, <code class="code docutils literal notranslate"><span class="pre">creator_{i}</span></code> fields.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>To add linked data, you will need to divide your subjects into different types of columns.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">subject_lcnaf_personal_{i}_label</span></code> and <code class="code docutils literal notranslate"><span class="pre">subject_lcnaf_personal_{i}_uri</span></code> when the subject is a person.</p></li>
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">subject_lcnaf_corporate_{i}_label</span></code> and <code class="code docutils literal notranslate"><span class="pre">subject_lcnaf_corporate_{i}_uri</span></code> when the subject is a corporate entity.</p></li>
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">subject_loc_{i}_label</span></code> and <code class="code docutils literal notranslate"><span class="pre">subject_loc_{i}_uri</span></code> for other subjects.</p></li>
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">subjects_local_personal_names_{i}</span></code> when the subject is a person and not in LCNAF.</p></li>
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">subjects_local_{i}</span></code> when the subject is not a person and not in LCSH.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>To add linked data, you will need to convert the <code class="code docutils literal notranslate"><span class="pre">spatial</span></code> field into geographic LCNAF headings.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Use <code class="code docutils literal notranslate"><span class="pre">subject_lcnaf_geographic_{i}_label</span></code> and <code class="code docutils literal notranslate"><span class="pre">subject_lcnaf_geographic_{i}_uri</span></code> for each spatial term.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Add a <code class="code docutils literal notranslate"><span class="pre">type</span></code> column with the worktype the items are. This is so Archipelago knows what template to use for your digital object.</p></li>
-<li><p>Rename columns.</p>
-<blockquote>
-<div><ul>
-<li><p><code class="code docutils literal notranslate"><span class="pre">rights_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">rights</span></code></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Add an adjacent column called <code class="code docutils literal notranslate"><span class="pre">rights_statements</span></code>. The values should be the <strong>text</strong> for that rights statement. <code class="code docutils literal notranslate"><span class="pre">rights</span></code> should be the url.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">format_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">digital_origin</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">language_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">language</span></code></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>To ensure compatibility with Archipelago, make sure the values are the full name(s) of the language(s). For example, use <code class="code docutils literal notranslate"><span class="pre">English</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">eng</span></code>.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">extent_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">physical_description_extent</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">created_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">date_created</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">abstract_1</span></code> to <code class="code docutils literal notranslate"><span class="pre">description</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">derivatives</span></code> to <code class="code docutils literal notranslate"><span class="pre">image</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Delete columns</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="code docutils literal notranslate"><span class="pre">filename</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">title_1</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Description_1</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">Created_On</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">In_Scope</span></code></p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
+<p>Open the output spreadsheet in Google Sheets. You will need to make it follow the format of the spreadsheet described <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>.</p>
+<p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">Read this page if you wish to add linked data before uploading to Archipelago</a>.</p>
 </section>
 </section>
 

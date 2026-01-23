@@ -368,11 +368,39 @@
 <section id="create-an-csv-compatible-with-ami">
 <h2>Create an csv compatible with AMI<a class="headerlink" href="#create-an-csv-compatible-with-ami" title="Link to this heading">¶</a></h2>
 <p>Here is the template for every spreadsheet uploaded into Archipelago.</p>
-<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (Machine Friendly). Enter your data here.</p>
+<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (AMI template). Enter your data here.</p>
 <p>If there are multiple values for any column, cells will have json strings such as:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
 <p>This is an creator_lod example for an item with 2 creators.</p>
-<p>To avoid having to write complex json strings, look at the documentation on making a more human friendly spreadsheet that can be converted into the AMI-compatible format <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>.</p>
+<p>To avoid having to write complex json strings for linked data, <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">read this page on creating a more human-readable csv</a>.</p>
+</section>
+<section id="mandatory-fields">
+<h2>Mandatory fields<a class="headerlink" href="#mandatory-fields" title="Link to this heading">¶</a></h2>
+<p>There are three mandatory fields for an AMI upload.</p>
+<ul class="simple">
+<li><p>node_uuid</p></li>
+<li><p>type</p></li>
+<li><p>label</p></li>
+</ul>
+<section id="what-is-node-uuid">
+<h3>What is node_uuid?<a class="headerlink" href="#what-is-node-uuid" title="Link to this heading">¶</a></h3>
+<p>This is a temporary identifier used for the processing. You will need to create your own. Go to <a class="reference external" href="https://www.uuidgenerator.net/">uuidgenerator.net</a> to generate a uuid for each row.</p>
+</section>
+<section id="what-is-type">
+<h3>What is type?<a class="headerlink" href="#what-is-type" title="Link to this heading">¶</a></h3>
+<p>This tells Archipelago what type of item you are working with so it knows what template to use. For each item, you will likely select one from the following: Photograph, Postcard, AudioObject, VideoObject, Book, Manuscript, Map, VisualArtwork.</p>
+</section>
+<section id="what-is-label">
+<h3>What is label?<a class="headerlink" href="#what-is-label" title="Link to this heading">¶</a></h3>
+<p>Label will usually be the title of the digital object.</p>
+</section>
+</section>
+<section id="other-fields-optional">
+<h2>Other fields (optional)<a class="headerlink" href="#other-fields-optional" title="Link to this heading">¶</a></h2>
+<section id="what-is-ismemberof">
+<h3>What is ismemberof?<a class="headerlink" href="#what-is-ismemberof" title="Link to this heading">¶</a></h3>
+<p>Before uploading an AMI spreadsheet, you will need to create a collection on Archipelago. Add the Archipelago UUID for the parent item (ie the collection) in this column.</p>
+</section>
 </section>
 <section id="where-to-get-your-files">
 <h2>Where to get your files?<a class="headerlink" href="#where-to-get-your-files" title="Link to this heading">¶</a></h2>
@@ -472,6 +500,16 @@
             <ul>
 <li><a class="reference internal" href="#">Creating new items through AMI</a><ul>
 <li><a class="reference internal" href="#create-an-csv-compatible-with-ami">Create an csv compatible with AMI</a></li>
+<li><a class="reference internal" href="#mandatory-fields">Mandatory fields</a><ul>
+<li><a class="reference internal" href="#what-is-node-uuid">What is node_uuid?</a></li>
+<li><a class="reference internal" href="#what-is-type">What is type?</a></li>
+<li><a class="reference internal" href="#what-is-label">What is label?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-fields-optional">Other fields (optional)</a><ul>
+<li><a class="reference internal" href="#what-is-ismemberof">What is ismemberof?</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#where-to-get-your-files">Where to get your files?</a><ul>
 <li><a class="reference internal" href="#zip-archive">Zip archive</a></li>
 <li><a class="reference internal" href="#link">Link</a></li>

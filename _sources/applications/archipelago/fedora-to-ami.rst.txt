@@ -82,7 +82,13 @@ If you want to import a collection on Fedora into Archipelago, use the following
         for row in final_data:
             writer.writerow(row)
 
-The script reads all IIIF manifests in a Fedora collection, extracts the metadata labels and values and puts them in a spreadsheet.
+The script reads all IIIF manifests in a Fedora collection, extracts the metadata labels and values and puts them in a spreadsheet. 
+
+* `Read this page to upload the output directly to Archipelago. <https://tamulib-dc-labs.github.io/docs/applications/archipelago/ami-upload.html>`_.
+
+    * Keep in mind you will need to add certain columns like node_uuid, rename other columns, and delete columns that are redundant or irrelevant before creating an AMI set. 
+
+* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
 
 ----------------------
 Things to keep in mind
@@ -90,18 +96,6 @@ Things to keep in mind
 
 * :code:`collection_url` should be in this format :code:`https://api.library.tamu.edu/iiif-service/fedora/collection/uuid`.
 
-* This spreadsheet is not automatically compatible with AMI. Some metadata column names need to be changed depending on the labels used in the IIIF manifests.
-
-* Double check the :code:`derivatives` column. Ensure that each canvas is separated by a semicolon. Also, if semicolons are used in the canvas (ie uri is in hexadecimal and end with :code:`;1`, :code:`;2`, :code:`;3`, etc.), this will not work.  
-
-* Create the collection in Archipelago so you can link the parent uuid.
-
-* `Generate your own uuids <https://www.uuidgenerator.net/>`_ for the node_uuid column.
-
-* If you want to add linked data, you will need some intermediate steps.
-
-    * Add columns depending on what values you want to link. Every linked data value will require two columns: a label and a uri.
-
-    * `How to make a flat csv and convert it back into an AMI-compatible csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_
+* Make sure :code:`collection_url` is not one with :code:`_objects` at the end. Use the other structure.
 
 * This is the only way to get metadata and derivatives for a Fedora collection if you don't have the IIIF manifests downloaded to your device.

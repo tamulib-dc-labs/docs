@@ -444,22 +444,21 @@
 </pre></div>
 </div>
 <p>The script reads all IIIF manifests in a Fedora collection, extracts the metadata labels and values and puts them in a spreadsheet.</p>
-<section id="things-to-keep-in-mind">
-<h2>Things to keep in mind<a class="headerlink" href="#things-to-keep-in-mind" title="Link to this heading">¶</a></h2>
 <ul>
-<li><p><code class="code docutils literal notranslate"><span class="pre">collection_url</span></code> should be in this format <code class="code docutils literal notranslate"><span class="pre">https://api.library.tamu.edu/iiif-service/fedora/collection/uuid</span></code>.</p></li>
-<li><p>This spreadsheet is not automatically compatible with AMI. Some metadata column names need to be changed depending on the labels used in the IIIF manifests.</p></li>
-<li><p>Double check the <code class="code docutils literal notranslate"><span class="pre">derivatives</span></code> column. Ensure that each canvas is separated by a semicolon. Also, if semicolons are used in the canvas (ie uri is in hexadecimal and end with <code class="code docutils literal notranslate"><span class="pre">;1</span></code>, <code class="code docutils literal notranslate"><span class="pre">;2</span></code>, <code class="code docutils literal notranslate"><span class="pre">;3</span></code>, etc.), this will not work.</p></li>
-<li><p>Create the collection in Archipelago so you can link the parent uuid.</p></li>
-<li><p><a class="reference external" href="https://www.uuidgenerator.net/">Generate your own uuids</a> for the node_uuid column.</p></li>
-<li><p>If you want to add linked data, you will need some intermediate steps.</p>
+<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/ami-upload.html">Read this page to upload the output directly to Archipelago.</a>.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Add columns depending on what values you want to link. Every linked data value will require two columns: a label and a uri.</p></li>
-<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">How to make a flat csv and convert it back into an AMI-compatible csv</a></p></li>
+<li><p>Keep in mind you will need to add certain columns like node_uuid, rename other columns, and delete columns that are redundant or irrelevant before creating an AMI set.</p></li>
 </ul>
 </div></blockquote>
 </li>
+<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">Read this page if you wish to add linked data before uploading to Archipelago</a>.</p></li>
+</ul>
+<section id="things-to-keep-in-mind">
+<h2>Things to keep in mind<a class="headerlink" href="#things-to-keep-in-mind" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">collection_url</span></code> should be in this format <code class="code docutils literal notranslate"><span class="pre">https://api.library.tamu.edu/iiif-service/fedora/collection/uuid</span></code>.</p></li>
+<li><p>Make sure <code class="code docutils literal notranslate"><span class="pre">collection_url</span></code> is not one with <code class="code docutils literal notranslate"><span class="pre">_objects</span></code> at the end. Use the other structure.</p></li>
 <li><p>This is the only way to get metadata and derivatives for a Fedora collection if you don’t have the IIIF manifests downloaded to your device.</p></li>
 </ul>
 </section>
