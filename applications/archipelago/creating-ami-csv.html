@@ -220,6 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">Getting AMI-compatible spreadsheets from Fedora</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oaktrust-to-ami.html">Getting AMI-compatible spreadsheets from OAKTrust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">Bulk updating metadata through AMI</a></li>
 </ul>
 </li>
@@ -374,14 +375,14 @@
 <p>This is two headings, each with 5 properties, and should all go in the same cell. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.</p>
 <section id="what-does-this-csv-format-do">
 <h2>What does this csv format do?<a class="headerlink" href="#what-does-this-csv-format-do" title="Link to this heading">¶</a></h2>
-<p>Instead of typing long strings into a single small cell, this “flat” template allows the librarian to spread values across multiple columns for better readability and usability.</p>
-<p>This is similar to an Avalon spreadsheet upload, where the librarian can add as many columns as needed, except a few things differ.</p>
+<p>Instead of typing long strings into a single small cell, this “flat” template allows you to spread values across multiple columns for better readability and usability.</p>
+<p>This is similar to an Avalon spreadsheet upload, where you can add as many columns as needed, except a few things differ.</p>
 <ul>
 <li><p>Creators and subjects will be separated between local and linked data. In Avalon, all creators/subjects are treated the same.</p></li>
-<li><p>Creators and contributors are both classified as “creators”. The librarian can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled “Creator” or “Contributor”.</p>
+<li><p>Creators and contributors are both classified as “creators”. You can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled “Creator” or “Contributor”.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>The role property is only usable if the librarian is using linked data for the creator. Local creators do not have a role property.</p></li>
+<li><p>The role property is only usable if you is using linked data for the creator. Local creators do not have a role property.</p></li>
 </ul>
 </div></blockquote>
 </li>

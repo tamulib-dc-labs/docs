@@ -36,19 +36,16 @@ There are three mandatory fields for an AMI upload.
 
 What is node_uuid?
 ------------------
-
 This is a temporary identifier used for the processing. You will need to create your own. Go to `uuidgenerator.net <https://www.uuidgenerator.net/>`_ to generate a uuid for each row.
 
 
 What is type?
 -------------
-
 This tells Archipelago what type of item you are working with so it knows what template to use. For each item, you will likely select one from the following: Photograph, Postcard, AudioObject, VideoObject, Book, Manuscript, Map, VisualArtwork. 
 
 
 What is label?
 --------------
-
 Label will usually be the title of the digital object.
 
 
