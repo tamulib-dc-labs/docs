@@ -6,7 +6,7 @@ Creating new items through AMI
 Create an csv compatible with AMI
 ---------------------------------
 
-Here is the template for every spreadsheet uploaded into Archipelago.
+Here is the template to upload a spreadsheet to Archipelago.
 
 .. raw:: html
 

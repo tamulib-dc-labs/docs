@@ -1,6 +1,6 @@
-===================================================
-Getting AMI-compatible spreadsheets from a flat csv
-===================================================
+=================================
+Using an intermediate, "flat" csv
+=================================
 
 The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. 
 
