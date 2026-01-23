@@ -20,15 +20,15 @@ This is two headings, each with 5 properties, and should all go in the same cell
 What does this csv format do?
 -----------------------------
 
-Instead of typing long strings into a single small cell, this "flat" template allows the librarian to spread values across multiple columns for better readability and usability. 
+Instead of typing long strings into a single small cell, this "flat" template allows you to spread values across multiple columns for better readability and usability. 
 
-This is similar to an Avalon spreadsheet upload, where the librarian can add as many columns as needed, except a few things differ.
+This is similar to an Avalon spreadsheet upload, where you can add as many columns as needed, except a few things differ.
 
 * Creators and subjects will be separated between local and linked data. In Avalon, all creators/subjects are treated the same.
 
-* Creators and contributors are both classified as "creators". The librarian can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled "Creator" or "Contributor".
+* Creators and contributors are both classified as "creators". You can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled "Creator" or "Contributor".
 
-    * The role property is only usable if the librarian is using linked data for the creator. Local creators do not have a role property.
+    * The role property is only usable if you is using linked data for the creator. Local creators do not have a role property.
 
 * Every linked data value requires at least two columns, not one. To add an extra subject on Avalon, a single column needs to be created. To add an extra subject here, two columns must be created, one for the label and the other for the uri.
 
@@ -91,6 +91,7 @@ Add more columns if there need to be more metadata values per field. Remember th
 What do these column headers mean?
 ----------------------------------
 
+
 +-------------------------------------------+-----------------------------+
 | Column label starts with                  | type of metadata field      |                                                                                                                     |
 +===========================================+=============================+
@@ -114,6 +115,7 @@ What do these column headers mean?
 +-------------------------------------------+-----------------------------+
 | subject_wikidata_{i}_                     | Wikidata                    |
 +-------------------------------------------+-----------------------------+
+
 
 ----------
 Conversion
