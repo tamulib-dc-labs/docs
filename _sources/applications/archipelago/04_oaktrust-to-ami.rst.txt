@@ -6,7 +6,7 @@ If you want to import a collection on OAKTrust into Archipelago, first you must 
 
 Go to OAKTrust > Export > Metadata and OAKTrust > Export > Batch Export (ZIP).
 
-You will get a csv and a zip drive.
+You will get a csv and a zip.
 
 -------------------------------
 Preparing the csv for migration
