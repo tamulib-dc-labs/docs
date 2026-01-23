@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Getting AMI-compatible spreadsheets from a flat csv" href="creating-ami-csv.html" /><link rel="prev" title="Archipelago" href="../../workflows/archipelago.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Migrating from OAKTrust" href="04_oaktrust-to-ami.html" /><link rel="prev" title="Getting AMI-compatible spreadsheets from a flat csv" href="02_creating-ami-csv.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Creating new items through AMI - TAMU Digital Collections Labs documentation</title>
+        <title>Migrating from Fedora - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,13 +215,13 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Creating new items through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">Getting AMI-compatible spreadsheets from a flat csv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">Getting AMI-compatible spreadsheets from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new items through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_creating-ami-csv.html">Getting AMI-compatible spreadsheets from a flat csv</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Migrating from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_json-to-ami.html">Migrating from a directory of jsons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oaktrust-to-ami.html">Getting AMI-compatible spreadsheets from OAKTrust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">Bulk updating metadata through AMI</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -344,7 +344,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/archipelago/ami-upload.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/03_fedora-to-ami.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -364,83 +364,104 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="creating-new-items-through-ami">
-<h1>Creating new items through AMI<a class="headerlink" href="#creating-new-items-through-ami" title="Link to this heading">¶</a></h1>
-<section id="create-an-csv-compatible-with-ami">
-<h2>Create an csv compatible with AMI<a class="headerlink" href="#create-an-csv-compatible-with-ami" title="Link to this heading">¶</a></h2>
-<p>Here is the template for every spreadsheet uploaded into Archipelago.</p>
-<iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (AMI template). Enter your data here.</p>
-<p>If there are multiple values for any column, cells will have json strings such as:</p>
-<p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
-<p>This is an creator_lod example for an item with 2 creators.</p>
-<p>To avoid having to write complex json strings for linked data, <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">read this page on creating a more human-readable csv</a>.</p>
-</section>
-<section id="mandatory-fields">
-<h2>Mandatory fields<a class="headerlink" href="#mandatory-fields" title="Link to this heading">¶</a></h2>
-<p>There are three mandatory fields for an AMI upload.</p>
-<ul class="simple">
-<li><p>node_uuid</p></li>
-<li><p>type</p></li>
-<li><p>label</p></li>
-</ul>
-<section id="what-is-node-uuid">
-<h3>What is node_uuid?<a class="headerlink" href="#what-is-node-uuid" title="Link to this heading">¶</a></h3>
-<p>This is a temporary identifier used for the processing. You will need to create your own. Go to <a class="reference external" href="https://www.uuidgenerator.net/">uuidgenerator.net</a> to generate a uuid for each row.</p>
-</section>
-<section id="what-is-type">
-<h3>What is type?<a class="headerlink" href="#what-is-type" title="Link to this heading">¶</a></h3>
-<p>This tells Archipelago what type of item you are working with so it knows what template to use. For each item, you will likely select one from the following: Photograph, Postcard, AudioObject, VideoObject, Book, Manuscript, Map, VisualArtwork.</p>
-</section>
-<section id="what-is-label">
-<h3>What is label?<a class="headerlink" href="#what-is-label" title="Link to this heading">¶</a></h3>
-<p>Label will usually be the title of the digital object.</p>
-</section>
-</section>
-<section id="other-fields-optional">
-<h2>Other fields (optional)<a class="headerlink" href="#other-fields-optional" title="Link to this heading">¶</a></h2>
-<section id="what-is-ismemberof">
-<h3>What is ismemberof?<a class="headerlink" href="#what-is-ismemberof" title="Link to this heading">¶</a></h3>
-<p>Before uploading an AMI spreadsheet, you will need to create a collection on Archipelago. Add the Archipelago UUID for the parent item (ie the collection) in this column.</p>
-</section>
-</section>
-<section id="where-to-get-your-files">
-<h2>Where to get your files?<a class="headerlink" href="#where-to-get-your-files" title="Link to this heading">¶</a></h2>
-<p>There are two ways to attach files to your AMI upload.</p>
-<ul class="simple">
-<li><p>zip archive</p></li>
-<li><p>link (can be IIIF but does not need to be)</p></li>
-</ul>
-<section id="zip-archive">
-<h3>Zip archive<a class="headerlink" href="#zip-archive" title="Link to this heading">¶</a></h3>
-<p>Create a zip archive with all files that will be uploaded in the batch. However, keep in mind:</p>
-<ul class="simple">
-<li><p>Zip files have a limit of 500 MB</p></li>
-<li><p>Zip files cannot have subfolders. For example, if you are trying to upload multiple digital objects at once but the files that make up each one follow the same naming pattern of <code class="code docutils literal notranslate"><span class="pre">0001.tif</span></code>, <code class="code docutils literal notranslate"><span class="pre">0002.tif</span></code>, <code class="code docutils literal notranslate"><span class="pre">0003.tif</span></code>, and so on, you will need to rename them to clearly differentiate them.</p></li>
-</ul>
-<p>To attach files in a zip file to a digital object, enter the filename in the relevant column depending on what type of media it is (for example, the <code class="code docutils literal notranslate"><span class="pre">images</span></code> column). If you have multiple files for the same item, list them all, but separate them with a semicolon (example: <code class="code docutils literal notranslate"><span class="pre">0001.tif;0002.tif;0003.tif</span></code>).</p>
-</section>
-<section id="link">
-<h3>Link<a class="headerlink" href="#link" title="Link to this heading">¶</a></h3>
-<p>You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with <code class="code docutils literal notranslate"><span class="pre">/full/full/0/default.jpg</span></code> will work as will any <code class="code docutils literal notranslate"><span class="pre">.jp2</span></code>). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.</p>
-<p>If a digital object is made up of multiple files, list them all and separate them with semicolons.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Regardless of whether you use the zip archive or a link, this step can be done using either of the spreadsheets (the AMI-compatible one or the initial human friendly one).</p>
+          <section id="migrating-from-fedora">
+<h1>Migrating from Fedora<a class="headerlink" href="#migrating-from-fedora" title="Link to this heading">¶</a></h1>
+<p>If you want to import a collection on Fedora into Archipelago, use the following script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">csv</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictWriter</span>
+
+<span class="n">csv_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">unique_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">final_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">collection_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.library.tamu.edu/iiif-service/fedora/collection/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/brazos-maps&quot;</span>
+<span class="n">collection_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">collection_url</span><span class="p">)</span>
+<span class="n">collection_json</span> <span class="o">=</span> <span class="n">collection_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Safely get manifests</span>
+<span class="n">manifests</span> <span class="o">=</span> <span class="n">collection_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;manifests&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">manifests</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No manifests found at collection URL&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">manifest</span> <span class="ow">in</span> <span class="n">manifests</span><span class="p">:</span>
+    <span class="n">manifest_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">manifest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;@id&#39;</span><span class="p">))</span>
+    <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">manifest_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">item</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">manifest_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">manifest_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c1"># --- Metadata (IIIF v2) ---</span>
+    <span class="k">for</span> <span class="n">metadata</span> <span class="ow">in</span> <span class="n">manifest_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Keep lists as JSON; scalars as-is</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">item</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">item</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_values</span><span class="p">:</span>
+            <span class="n">unique_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="c1"># --- Files from canvases ---</span>
+    <span class="k">for</span> <span class="n">canvas</span> <span class="ow">in</span> <span class="n">manifest_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sequences&#39;</span><span class="p">,</span> <span class="p">[])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;canvases&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">canvas</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;resource&#39;</span><span class="p">][</span><span class="s1">&#39;@id&#39;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;files&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+    <span class="n">csv_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="c1"># --- Normalize rows so all columns exist ---</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">unique_values</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+            <span class="n">row</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">final_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">final_data</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;No data collected — final_data is empty&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- Build CSV headers safely ---</span>
+<span class="n">fieldnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">final_data</span><span class="p">:</span>
+    <span class="n">fieldnames</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">fieldnames</span><span class="p">))</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">final_data</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
 </div>
-</section>
-</section>
-<section id="now-that-you-have-your-csv">
-<h2>Now that you have your csv…<a class="headerlink" href="#now-that-you-have-your-csv" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">/admin/content</span></code>.</p></li>
-<li><p>Click “Start an AMI set”.</p></li>
-<li><p>Select “Spreadsheet Importer” for your plugin.</p></li>
-<li><p>Select “Create New ADOs” for Operation. Upload the csv in the dialog box.</p></li>
-<li><p>Select “Direct” for data transformation approach. Select the columns where you added filenames or URLs (example: images, documents, etc.). You can select multiple.</p></li>
-<li><p>When selecting Global ADO mappings, choose “ismemberof”. For “Ado label”, choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be “type”).</p></li>
-<li><p>If you are using a zip file to upload content, upload the zip to the dialog box. If not, leave it blank. Then click to create the AMI set.</p></li>
-<li><p>Once the set has been created, go to the “Process” tab and click “Confirm”.</p></li>
-</ol>
+<p>The script reads all IIIF manifests in a Fedora collection, extracts the metadata labels and values and puts them in a spreadsheet.</p>
+<ul>
+<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/ami-upload.html">Read this page to upload the output directly to Archipelago</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Keep in mind you will need to add certain columns like node_uuid, rename other columns, and delete columns that are redundant or irrelevant before creating an AMI set.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">Read this page if you wish to add linked data before uploading to Archipelago</a>.</p></li>
+</ul>
+<section id="things-to-keep-in-mind">
+<h2>Things to keep in mind<a class="headerlink" href="#things-to-keep-in-mind" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">collection_url</span></code> should be in this format <code class="code docutils literal notranslate"><span class="pre">https://api.library.tamu.edu/iiif-service/fedora/collection/uuid</span></code>.</p></li>
+<li><p>Make sure <code class="code docutils literal notranslate"><span class="pre">collection_url</span></code> is not one with <code class="code docutils literal notranslate"><span class="pre">_objects</span></code> at the end. Use the other structure.</p></li>
+<li><p>This is the only way to get metadata and derivatives for a Fedora collection if you don’t have the IIIF manifests downloaded to your device.</p></li>
+</ul>
 </section>
 </section>
 
@@ -449,23 +470,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="creating-ami-csv.html">
+          <a class="next-page" href="04_oaktrust-to-ami.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Getting AMI-compatible spreadsheets from a flat csv</div>
+                <div class="title">Migrating from OAKTrust</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../workflows/archipelago.html">
+          <a class="prev-page" href="02_creating-ami-csv.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Archipelago</div>
+                <div class="title">Getting AMI-compatible spreadsheets from a flat csv</div>
                 
               </div>
             </a>
@@ -499,24 +520,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Creating new items through AMI</a><ul>
-<li><a class="reference internal" href="#create-an-csv-compatible-with-ami">Create an csv compatible with AMI</a></li>
-<li><a class="reference internal" href="#mandatory-fields">Mandatory fields</a><ul>
-<li><a class="reference internal" href="#what-is-node-uuid">What is node_uuid?</a></li>
-<li><a class="reference internal" href="#what-is-type">What is type?</a></li>
-<li><a class="reference internal" href="#what-is-label">What is label?</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#other-fields-optional">Other fields (optional)</a><ul>
-<li><a class="reference internal" href="#what-is-ismemberof">What is ismemberof?</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#where-to-get-your-files">Where to get your files?</a><ul>
-<li><a class="reference internal" href="#zip-archive">Zip archive</a></li>
-<li><a class="reference internal" href="#link">Link</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#now-that-you-have-your-csv">Now that you have your csv…</a></li>
+<li><a class="reference internal" href="#">Migrating from Fedora</a><ul>
+<li><a class="reference internal" href="#things-to-keep-in-mind">Things to keep in mind</a></li>
 </ul>
 </li>
 </ul>

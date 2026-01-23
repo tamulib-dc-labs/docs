@@ -1,5 +1,5 @@
 ===============================================
-Getting AMI-compatible spreadsheets from Fedora
+Migrating from Fedora
 ===============================================
 
 If you want to import a collection on Fedora into Archipelago, use the following script:

@@ -1,5 +1,5 @@
 =================================================
-Getting AMI-compatible spreadsheets from OAKTrust
+Migrating from OAKTrust
 =================================================
 
 If you want to import a collection on OAKTrust into Archipelago, first you must download the collection and its metadata.

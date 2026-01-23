@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bulk updating metadata through AMI" href="updating-metadata.html" /><link rel="prev" title="Getting AMI-compatible spreadsheets from a directory of IIIF manifests" href="json-to-csv.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Migrating from a directory of jsons" href="05_json-to-ami.html" /><link rel="prev" title="Migrating from Fedora" href="03_fedora-to-ami.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Getting AMI-compatible spreadsheets from OAKTrust - TAMU Digital Collections Labs documentation</title>
+        <title>Migrating from OAKTrust - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,13 +215,13 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ami-upload.html">Creating new items through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creating-ami-csv.html">Getting AMI-compatible spreadsheets from a flat csv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fedora-to-ami.html">Getting AMI-compatible spreadsheets from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new items through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_creating-ami-csv.html">Getting AMI-compatible spreadsheets from a flat csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_fedora-to-ami.html">Migrating from Fedora</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Migrating from OAKTrust</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_json-to-ami.html">Migrating from a directory of jsons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json-to-csv.html">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Getting AMI-compatible spreadsheets from OAKTrust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="updating-metadata.html">Bulk updating metadata through AMI</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -344,7 +344,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/archipelago/oaktrust-to-ami.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/04_oaktrust-to-ami.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -364,8 +364,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="getting-ami-compatible-spreadsheets-from-oaktrust">
-<h1>Getting AMI-compatible spreadsheets from OAKTrust<a class="headerlink" href="#getting-ami-compatible-spreadsheets-from-oaktrust" title="Link to this heading">¶</a></h1>
+          <section id="migrating-from-oaktrust">
+<h1>Migrating from OAKTrust<a class="headerlink" href="#migrating-from-oaktrust" title="Link to this heading">¶</a></h1>
 <p>If you want to import a collection on OAKTrust into Archipelago, first you must download the collection and its metadata.</p>
 <p>Go to OAKTrust &gt; Export &gt; Metadata and OAKTrust &gt; Export &gt; Batch Export (ZIP).</p>
 <p>You will get a csv and a zip drive.</p>
@@ -454,23 +454,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="updating-metadata.html">
+          <a class="next-page" href="05_json-to-ami.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Bulk updating metadata through AMI</div>
+                <div class="title">Migrating from a directory of jsons</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="json-to-csv.html">
+          <a class="prev-page" href="03_fedora-to-ami.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Getting AMI-compatible spreadsheets from a directory of IIIF manifests</div>
+                <div class="title">Migrating from Fedora</div>
                 
               </div>
             </a>
@@ -504,7 +504,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Getting AMI-compatible spreadsheets from OAKTrust</a><ul>
+<li><a class="reference internal" href="#">Migrating from OAKTrust</a><ul>
 <li><a class="reference internal" href="#preparing-the-csv-for-migration">Preparing the csv for migration</a></li>
 <li><a class="reference internal" href="#how-to-get-your-files">How to get your files?</a></li>
 <li><a class="reference internal" href="#how-to-upload-these-files">How to upload these files?</a></li>
