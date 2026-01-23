@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Migrating from Fedora" href="03_fedora-to-ami.html" /><link rel="prev" title="Creating new items through AMI" href="01_ami-upload.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Getting AMI-compatible spreadsheets from a flat csv - TAMU Digital Collections Labs documentation</title>
+        <title>Using an intermediate, “flat” csv - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -216,7 +216,7 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new items through AMI</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Getting AMI-compatible spreadsheets from a flat csv</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Using an intermediate, “flat” csv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_fedora-to-ami.html">Migrating from Fedora</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_json-to-ami.html">Migrating from a directory of jsons</a></li>
@@ -344,7 +344,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/archipelago/02_creating-ami-csv.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/02_flat-csv.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -364,8 +364,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="getting-ami-compatible-spreadsheets-from-a-flat-csv">
-<h1>Getting AMI-compatible spreadsheets from a flat csv<a class="headerlink" href="#getting-ami-compatible-spreadsheets-from-a-flat-csv" title="Link to this heading">¶</a></h1>
+          <section id="using-an-intermediate-flat-csv">
+<h1>Using an intermediate, “flat” csv<a class="headerlink" href="#using-an-intermediate-flat-csv" title="Link to this heading">¶</a></h1>
 <p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell.</p>
 <p>Here is an example of a subjects_local field:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[&quot;American</span> <span class="pre">Civil</span> <span class="pre">War</span> <span class="pre">(United</span> <span class="pre">States</span> <span class="pre">:</span> <span class="pre">1861-1865)&quot;,</span> <span class="pre">&quot;Migration,</span> <span class="pre">Internal--Southern</span> <span class="pre">States&quot;,</span> <span class="pre">&quot;Cherokee</span> <span class="pre">Indians--Tribal</span> <span class="pre">citizenship&quot;,</span> <span class="pre">&quot;Oklahoma--Fort</span> <span class="pre">Gibson</span> <span class="pre">(Indian</span> <span class="pre">Territory)&quot;,</span> <span class="pre">&quot;Oklahoma--Sequoyah</span> <span class="pre">District</span> <span class="pre">(Indian</span> <span class="pre">Territory)&quot;]</span></code>.</p>
@@ -682,7 +682,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Getting AMI-compatible spreadsheets from a flat csv</a><ul>
+<li><a class="reference internal" href="#">Using an intermediate, “flat” csv</a><ul>
 <li><a class="reference internal" href="#what-does-this-csv-format-do">What does this csv format do?</a></li>
 <li><a class="reference internal" href="#input-csv">Input csv</a></li>
 <li><a class="reference internal" href="#what-do-these-column-headers-mean">What do these column headers mean?</a></li>

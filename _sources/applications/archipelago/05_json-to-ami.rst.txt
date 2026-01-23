@@ -1,6 +1,6 @@
-======================================================================
+===================================
 Migrating from a directory of jsons
-======================================================================
+===================================
 
 This is how to take a directory of IIIF manifests and extract metadata and derivatives. This method works with both v2 and v3 IIIF manifests.
 
