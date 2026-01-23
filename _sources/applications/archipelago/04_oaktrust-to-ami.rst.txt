@@ -97,3 +97,5 @@ The files downloaded from OAKTrust utilize a lot of directories, but you only wa
     print("Done.")
 
 Your new folder will include all items in alphabetical order. However, it is likely the csv you downloaded (and the resulting :code:`image` column) are not sorted alphabetically. Use the sort function on Google Sheets to sort the entire spreadsheet by the values in the image column. This will make splitting your files into batches easier.
+
+When making a zip with these files, make sure you select the files you want and right click to compress them. Do not compress the folder or else there may be an error when you try to ingest them.
