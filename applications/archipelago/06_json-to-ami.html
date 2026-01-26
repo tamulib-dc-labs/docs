@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" /><link rel="prev" title="Migrating from a directory of jsons" href="05_json-to-ami.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bulk updating metadata through AMI" href="07_updating-metadata.html" /><link rel="prev" title="Migrating from Avalon" href="05_avalon-to-ami.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Bulk updating metadata through AMI - TAMU Digital Collections Labs documentation</title>
+        <title>Migrating from a directory of jsons - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -219,8 +219,9 @@
 <li class="toctree-l2"><a class="reference internal" href="02_flat-csv.html">Using an intermediate, “flat” csv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_fedora-to-ami.html">Migrating from Fedora</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_json-to-ami.html">Migrating from a directory of jsons</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Bulk updating metadata through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_avalon-to-ami.html">Migrating from Avalon</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Migrating from a directory of jsons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 </ul>
 </li>
@@ -344,7 +345,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/archipelago/06_updating-metadata.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/06_json-to-ami.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -364,57 +365,221 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="bulk-updating-metadata-through-ami">
-<h1>Bulk updating metadata through AMI<a class="headerlink" href="#bulk-updating-metadata-through-ami" title="Link to this heading">¶</a></h1>
-<section id="download-the-existing-metadata">
-<h2>Download the existing metadata<a class="headerlink" href="#download-the-existing-metadata" title="Link to this heading">¶</a></h2>
-<p>First, you need to know the metadata you already have and the :code:<a href="#id1"><span class="problematic" id="id2">`</span></a>node_uuid`s of each item you wish to update. The easiest way to get this information is by downloading the metadata as a csv.</p>
-<ol class="arabic simple">
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">/admin/content</span></code>.</p></li>
-<li><p>Select all items you wish to update.</p></li>
-<li><p>Scroll to the bottom of the page. Make sure you select “Export Archipelago Digital Objects to CSV content item”. Then click “Apply to selected items”.</p></li>
-</ol>
-</section>
-<section id="edit-the-metadata">
-<h2>Edit the metadata<a class="headerlink" href="#edit-the-metadata" title="Link to this heading">¶</a></h2>
-<p>Change the metadata you want in the spreadsheet.</p>
-<p>Delete any columns you are not changing. However you must keep:</p>
-<ul class="simple">
-<li><p>Any columns where the data was changed.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">node_uuid</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">label</span></code></p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">type</span></code></p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You cannot add media files through an update. They need to be included in the original upload.</p>
+          <section id="migrating-from-a-directory-of-jsons">
+<h1>Migrating from a directory of jsons<a class="headerlink" href="#migrating-from-a-directory-of-jsons" title="Link to this heading">¶</a></h1>
+<p>This is how to take a directory of IIIF manifests and extract metadata and derivatives. This method works with both v2 and v3 IIIF manifests.</p>
+<section id="use-this-derivative-and-metadata-extraction-script">
+<h2>Use this derivative and metadata extraction script<a class="headerlink" href="#use-this-derivative-and-metadata-extraction-script" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">SUFFIX</span> <span class="o">=</span> <span class="s2">&quot;/full/full/0/default.jpg&quot;</span>
+
+<span class="c1"># Canonical CSV fields</span>
+<span class="n">METADATA_FIELDS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;dc.source&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;creator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contributor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rights&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;abstract&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spatial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Created On&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;In Scope&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Normalized lookup map (lowercase → canonical)</span>
+<span class="n">FIELD_LOOKUP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;dc.source&quot;</span><span class="p">:</span> <span class="s2">&quot;dc.source&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="s2">&quot;creator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contributor&quot;</span><span class="p">:</span> <span class="s2">&quot;contributor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;subject&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rights&quot;</span><span class="p">:</span> <span class="s2">&quot;rights&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;language&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extent&quot;</span><span class="p">:</span> <span class="s2">&quot;extent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span>          <span class="c1"># common IIIF variant</span>
+    <span class="s2">&quot;abstract&quot;</span><span class="p">:</span> <span class="s2">&quot;abstract&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spatial&quot;</span><span class="p">:</span> <span class="s2">&quot;spatial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created on&quot;</span><span class="p">:</span> <span class="s2">&quot;Created On&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;in scope&quot;</span><span class="p">:</span> <span class="s2">&quot;In Scope&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_matching_strings</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matches</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">matches</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">find_matching_strings</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">matches</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">find_matching_strings</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">matches</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">SUFFIX</span><span class="p">):</span>
+            <span class="n">matches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">matches</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_langmap_text</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract text from IIIF language maps:</span>
+<span class="sd">    { &quot;none&quot;: [&quot;text&quot;] }, { &quot;en&quot;: [&quot;text&quot;] }, etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">v</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_label</span><span class="p">(</span><span class="n">label_raw</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Normalize label to canonical METADATA_FIELDS entry.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label_raw</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">label_raw</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label_raw</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">texts</span> <span class="o">=</span> <span class="n">extract_langmap_text</span><span class="p">(</span><span class="n">label_raw</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">texts</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">FIELD_LOOKUP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize_metadata</span><span class="p">(</span><span class="n">metadata</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Normalize IIIF metadata into:</span>
+<span class="sd">    { canonical_label: [value1, value2, ...] }</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">normalized</span>
+
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">canonical_label</span> <span class="o">=</span> <span class="n">normalize_label</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">canonical_label</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">value_raw</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_raw</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value_raw</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value_raw</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">extract_langmap_text</span><span class="p">(</span><span class="n">value_raw</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">value_raw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">value_raw</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="n">normalized</span><span class="p">[</span><span class="n">canonical_label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">normalized</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_directory</span><span class="p">(</span><span class="n">json_dir</span><span class="p">,</span> <span class="n">output_csv</span><span class="p">):</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">json_dir</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">json_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">json_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">label_raw</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">label_value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label_raw</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">label_value</span> <span class="o">=</span> <span class="n">label_raw</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label_raw</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">texts</span> <span class="o">=</span> <span class="n">extract_langmap_text</span><span class="p">(</span><span class="n">label_raw</span><span class="p">)</span>
+            <span class="n">label_value</span> <span class="o">=</span> <span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">texts</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">label_value</span>
+        <span class="p">}</span>
+
+
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">normalize_metadata</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">METADATA_FIELDS</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="p">[])</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">row</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="n">max_counts</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_counts</span><span class="p">[</span><span class="n">field</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
+
+        <span class="n">derivatives</span> <span class="o">=</span> <span class="n">find_matching_strings</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;derivatives&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">derivatives</span><span class="p">)</span>
+
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+    <span class="c1"># Build CSV header</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">METADATA_FIELDS</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_counts</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;derivatives&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_csv</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_ALL</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">header</span><span class="p">])</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">process_directory</span><span class="p">(</span><span class="s2">&quot;path/to/jsons&quot;</span><span class="p">,</span> <span class="s2">&quot;output.csv&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </section>
-<section id="uploading-the-spreadsheet-with-changes">
-<h2>Uploading the spreadsheet with changes<a class="headerlink" href="#uploading-the-spreadsheet-with-changes" title="Link to this heading">¶</a></h2>
-<ol class="arabic">
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">/admin/content</span></code>.</p></li>
-<li><p>Click “Start an AMI set”.</p></li>
-<li><p>Select “Spreadsheet Importer” for your plugin.</p></li>
-<li><p>Select “Update Existing ADOs” for Operation. Upload the csv in the dialog box.</p></li>
-<li><p>Select “Direct” for data transformation approach. Select the columns where you added filenames or URLs (example: images, documents, etc.). You can select multiple.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>If you are not changing any files, do not select anything.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>When selecting Global ADO mappings, choose “ismemberof”. For “Ado label”, choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be “type”).</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>If you are not changing any parent-child relationships, <strong>do not select anything</strong>.</p></li>
-<li><p>Under ADO mappings, ADO UUID, select <code class="code docutils literal notranslate"><span class="pre">node_uuid</span></code>.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>Click to create the AMI set.</p></li>
-<li><p>Once the set has been created, go to the “Process” tab and make sure you have the option checked that will not alter your existing files. Click “Confirm”.</p></li>
-</ol>
+<section id="intermediate-steps">
+<h2>Intermediate steps<a class="headerlink" href="#intermediate-steps" title="Link to this heading">¶</a></h2>
+<p>Open the output spreadsheet in Google Sheets. You will need to make it follow the format of the spreadsheet described <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">here</a>.</p>
+<p><a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html">Read this page if you wish to add linked data before uploading to Archipelago</a>.</p>
 </section>
 </section>
 
@@ -423,23 +588,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="indexing-hand-written-text.html">
+          <a class="next-page" href="07_updating-metadata.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Associating HTR with Image Files</div>
+                <div class="title">Bulk updating metadata through AMI</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="05_json-to-ami.html">
+          <a class="prev-page" href="05_avalon-to-ami.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Migrating from a directory of jsons</div>
+                <div class="title">Migrating from Avalon</div>
                 
               </div>
             </a>
@@ -473,10 +638,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Bulk updating metadata through AMI</a><ul>
-<li><a class="reference internal" href="#download-the-existing-metadata">Download the existing metadata</a></li>
-<li><a class="reference internal" href="#edit-the-metadata">Edit the metadata</a></li>
-<li><a class="reference internal" href="#uploading-the-spreadsheet-with-changes">Uploading the spreadsheet with changes</a></li>
+<li><a class="reference internal" href="#">Migrating from a directory of jsons</a><ul>
+<li><a class="reference internal" href="#use-this-derivative-and-metadata-extraction-script">Use this derivative and metadata extraction script</a></li>
+<li><a class="reference internal" href="#intermediate-steps">Intermediate steps</a></li>
 </ul>
 </li>
 </ul>
