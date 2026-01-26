@@ -84,11 +84,11 @@ If you want to import a collection on Fedora into Archipelago, use the following
 
 The script reads all IIIF manifests in a Fedora collection, extracts the metadata labels and values and puts them in a spreadsheet. 
 
-* `Read this page to upload the output directly to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/ami-upload.html>`_.
+* `Read this page to upload the output directly to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/01_ami-upload.html>`_.
 
     * Keep in mind you will need to add certain columns like node_uuid, rename other columns, and delete columns that are redundant or irrelevant before creating an AMI set. 
 
-* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
+* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat_csv.html>`_.
 
 ----------------------
 Things to keep in mind
