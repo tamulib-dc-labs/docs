@@ -99,19 +99,19 @@ What do these column headers mean?
 
     * LCNAF creator  
 
-* :code:`subject_loc_{i}_ `
+* :code:`subject_loc_{i}_`
 
     * LCSH subject heading 
 
-* :code:`subject_lcnaf_personal_{i}_ `
+* :code:`subject_lcnaf_personal_{i}_`
 
     * LCNAF subject (personal) 
 
-* :code:`subject_lcnaf_corporate_{i}_ `
+* :code:`subject_lcnaf_corporate_{i}_`
 
     * LCNAF subject (corporate) 
 
-* :code:`subject_lcnaf_geographic_{i}_ `
+* :code:`subject_lcnaf_geographic_{i}_`
 
     * LCNAF geographic subject
 
