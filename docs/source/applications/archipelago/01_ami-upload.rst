@@ -72,7 +72,7 @@ Zip archive
 
 Create a zip archive with all files that will be uploaded in the batch. However, keep in mind:
 
-* Zip files have a limit of 500 MB
+* Zip files have a limit of 512 MB
 * Zip files cannot have subfolders. For example, if you are trying to upload multiple digital objects at once but the files that make up each one follow the same naming pattern of :code:`0001.tif`, :code:`0002.tif`, :code:`0003.tif`, and so on, you will need to rename them to clearly differentiate them.
 
 To attach files in a zip file to a digital object, enter the filename in the relevant column depending on what type of media it is (for example, the :code:`images` column). If you have multiple files for the same item, list them all, but separate them with a semicolon (example: :code:`0001.tif;0002.tif;0003.tif`).
@@ -83,9 +83,6 @@ Link
 You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with :code:`/full/full/0/default.jpg` will work as will any :code:`.jp2`). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.
 
 If a digital object is made up of multiple files, list them all and separate them with semicolons.
-
-.. note::
-    Regardless of whether you use the zip archive or a link, this step can be done using either of the spreadsheets (the AMI-compatible one or the initial human friendly one).
 
 
 -----------------------------

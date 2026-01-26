@@ -63,7 +63,7 @@ Replace :code:`dc.description.provenance[en]` on your original spreadsheet with 
 How to upload these files?
 --------------------------
 
-Because these values are being downloaded to your device, you will use a zip file to upload. Remember that zip files have a maximum size of 500MB, so you will likely need to split your migration into batches.
+Because these values are being downloaded to your device, you will use a zip file to upload. Remember that zip files have a maximum size of 512MB, so you will likely need to split your migration into batches.
 
 The files downloaded from OAKTrust utilize a lot of directories, but you only want the jp2s that you want to upload. Here is a script to take all jp2s from a folder and add them to a new folder.
 
