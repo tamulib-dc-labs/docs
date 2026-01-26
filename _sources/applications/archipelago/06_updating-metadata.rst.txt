@@ -30,6 +30,9 @@ Delete any columns you are not changing. However you must keep:
 
 * :code:`type`
 
+.. note::
+    You cannot add media files through an update. They need to be included in the original upload.
+
 --------------------------------------
 Uploading the spreadsheet with changes
 --------------------------------------
