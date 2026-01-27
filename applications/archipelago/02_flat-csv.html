@@ -367,6 +367,9 @@
         <article role="main" id="furo-main-content">
           <section id="using-an-intermediate-flat-csv">
 <h1>Using an intermediate, “flat” csv<a class="headerlink" href="#using-an-intermediate-flat-csv" title="Link to this heading">¶</a></h1>
+<p>This is a guide that makes linked data easier to work with.</p>
+<section id="why-is-this-needed">
+<h2>Why is this needed?<a class="headerlink" href="#why-is-this-needed" title="Link to this heading">¶</a></h2>
 <p>The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell.</p>
 <p>Here is an example of a subjects_local field:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[&quot;American</span> <span class="pre">Civil</span> <span class="pre">War</span> <span class="pre">(United</span> <span class="pre">States</span> <span class="pre">:</span> <span class="pre">1861-1865)&quot;,</span> <span class="pre">&quot;Migration,</span> <span class="pre">Internal--Southern</span> <span class="pre">States&quot;,</span> <span class="pre">&quot;Cherokee</span> <span class="pre">Indians--Tribal</span> <span class="pre">citizenship&quot;,</span> <span class="pre">&quot;Oklahoma--Fort</span> <span class="pre">Gibson</span> <span class="pre">(Indian</span> <span class="pre">Territory)&quot;,</span> <span class="pre">&quot;Oklahoma--Sequoyah</span> <span class="pre">District</span> <span class="pre">(Indian</span> <span class="pre">Territory)&quot;]</span></code>.</p>
@@ -374,6 +377,7 @@
 <p>This bracketing becomes even more complicated when using linked data. For example, all of this should go under the creator_lod field when doing a batch import in a single cell:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
 <p>This is two headings, each with 5 properties, and should all go in the same cell. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.</p>
+</section>
 <section id="what-does-this-csv-format-do">
 <h2>What does this csv format do?<a class="headerlink" href="#what-does-this-csv-format-do" title="Link to this heading">¶</a></h2>
 <p>Instead of typing long strings into a single small cell, this “flat” template allows you to spread values across multiple columns for better readability and usability.</p>
@@ -554,16 +558,6 @@
             <span class="p">})</span>
 
     <span class="k">return</span> <span class="n">results</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">build_date_created_edtf</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-    <span class="n">date_obj</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;date_type&quot;</span><span class="p">,</span> <span class="s2">&quot;date_from&quot;</span><span class="p">,</span> <span class="s2">&quot;date_to&quot;</span><span class="p">,</span> <span class="s2">&quot;date_free&quot;</span><span class="p">]:</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-            <span class="n">date_obj</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">date_obj</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">if</span> <span class="n">date_obj</span> <span class="k">else</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span>
 
 <span class="c1"># --------------------</span>
 <span class="c1"># Main</span>
@@ -763,6 +757,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Using an intermediate, “flat” csv</a><ul>
+<li><a class="reference internal" href="#why-is-this-needed">Why is this needed?</a></li>
 <li><a class="reference internal" href="#what-does-this-csv-format-do">What does this csv format do?</a></li>
 <li><a class="reference internal" href="#input-csv">Input csv</a></li>
 <li><a class="reference internal" href="#what-do-these-column-headers-mean">What do these column headers mean?</a></li>

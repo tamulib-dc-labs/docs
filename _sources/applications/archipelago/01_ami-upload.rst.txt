@@ -85,9 +85,9 @@ You can also link to media that is hosted online. This can be a IIIF link (any d
 If a digital object is made up of multiple files, list them all and separate them with semicolons.
 
 
------------------------------
-Now that you have your csv...
------------------------------
+---------------------
+Importing through AMI
+---------------------
 
 1. Go to :code:`/admin/content`.
 
