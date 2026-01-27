@@ -2,6 +2,12 @@
 Using an intermediate, "flat" csv
 =================================
 
+This is a guide that makes linked data easier to work with.
+
+-------------------
+Why is this needed?
+-------------------
+
 The spreadsheet template for Archipelago AMI batch import includes fields that require json strings/objects to be included in a single cell. 
 
 Here is an example of a subjects_local field:
@@ -189,16 +195,6 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 })
 
         return results
-
-    def build_date_created_edtf(row):
-        date_obj = {}
-
-        for key in ["date_type", "date_from", "date_to", "date_free"]:
-            val = row.get(key)
-            if non_empty(val):
-                date_obj[key] = val.strip()
-
-        return json.dumps(date_obj, ensure_ascii=False) if date_obj else "{}"
 
     # --------------------
     # Main
