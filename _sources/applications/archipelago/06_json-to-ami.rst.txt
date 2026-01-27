@@ -219,6 +219,6 @@ Use this derivative and metadata extraction script
 Intermediate steps
 ------------------
 
-Open the output spreadsheet in Google Sheets. You will need to make it follow the format of the spreadsheet described `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
+Open the output spreadsheet in Google Sheets. You will need to make it follow the format of the spreadsheet described `here <https://tamulib-dc-labs.github.io/docs/applications/archipelago/01_ami-upload.html>`_.
 
-`Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/creating-ami-csv.html>`_.
+`Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat-csv.html>`_.

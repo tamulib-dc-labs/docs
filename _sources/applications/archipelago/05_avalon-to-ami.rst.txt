@@ -14,7 +14,7 @@ Preparing the csv for migration
 
     * Be sure you set :code:`type` to :code:`AudioObject` or :code:`VideoObject`.
 
-* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat_csv.html>`_.
+* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat-csv.html>`_.
 
 -----------------
 Linking to Avalon

@@ -14,7 +14,7 @@ Preparing the csv for migration
 
 * `Read this page to upload the output directly to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/01_ami-upload.html>`_.
 
-* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat_csv.html>`_.
+* `Read this page if you wish to add linked data before uploading to Archipelago <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat-csv.html>`_.
 
 ----------------------
 How to get your files?
