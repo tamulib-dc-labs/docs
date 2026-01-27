@@ -20,7 +20,7 @@ If there are multiple values for any column, cells will have json strings such a
 
 This is an creator_lod example for an item with 2 creators. 
 
-To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat_csv.html>`_.
+To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable, "flat" csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat-csv.html>`_.
 
 ------------------
 Mandatory fields
