@@ -310,9 +310,6 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 if non_empty(row.get(f"subjects_local_personal_names_{i}"))
             ]
 
-            # ---- Dates ----
-            date_created_edtf = build_date_created_edtf(row)
-
             # ---- Write row ----
             writer.writerow({
             
