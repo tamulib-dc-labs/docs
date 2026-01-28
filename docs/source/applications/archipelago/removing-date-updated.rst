@@ -12,6 +12,8 @@ Removing Date Updated from Search Results
 
 5. Drag "Title" to "Top".
 
+    a. Be sure the "link" box is checked.
+
 6. Drag "Dah woozh" to "First". For Format, select "Strawberry Field Formatter for Custom Metadata Templates". Click the gear. 
 
     a. For "Choose your metadata template", select "Multiple Thumbnails via IIIF and FontAwesome (10)".
