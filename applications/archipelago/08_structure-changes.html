@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -224,6 +224,7 @@
 <li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="removing-date-updated.html">Removing Date Updated from Search Results</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -360,7 +361,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -369,67 +370,9 @@
           <section id="changing-structures-on-archipelago">
 <h1>Changing Structures on Archipelago<a class="headerlink" href="#changing-structures-on-archipelago" title="Link to this heading">¶</a></h1>
 <p>List of things to change from default Archipelago and how to change them.</p>
-<section id="removing-date-updated-from-search-results">
-<h2>Removing Date Updated from Search Results<a class="headerlink" href="#removing-date-updated-from-search-results" title="Link to this heading">¶</a></h2>
-<ol class="arabic">
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">admin/structure/display-modes/view</span></code>.</p></li>
-<li><p>Select “Add view mode for Content”. Name it “Digital Object with Creator and Date” and enable the view for Digital Object and Digital Object Collection. Click save.</p></li>
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">admin/structure/types/manage/digital_object/display</span></code>.</p></li>
-<li><p>Select “Digital Object with Creator and Date”. Scroll to the bottom of the page and change “One column layout” to “Two column”. Click save to reload the page with updated layout options.</p></li>
-<li><p>Drag “Title” to “Top”.</p></li>
-<li><p>Drag “Dah woozh” to “First”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>For “Choose your metadata template”, select “Multiple Thumbnails via IIIF and FontAwesome (10)”.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Thumbnail”.</p></li>
-<li><p>Uncheck the box. Click update.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>Drag “Search result excerpt” to “First” underneath “Dah woozh”.</p></li>
-<li><p>Drag “Strawberry (Descriptive Metadata Source)” to “Second”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>Choose “Object Metadata Abstract for Search Results (8)” for metadata template.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Descriptive Metadata”.</p></li>
-<li><p>Uncheck the box. Click update. Scroll to the bottom of the page and click save.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">admin/structure/types/manage/digital_object_collection/display</span></code>.</p></li>
-<li><p>Select “Digital Object with Creator and Date”. Scroll to the bottom of the page and change “One column layout” to “Two column”. Click save to reload the page with updated layout options.</p></li>
-<li><p>Drag “Title” to “Top”. Click the gear.</p>
-<ol class="loweralpha simple">
-<li><p>Check the box.</p></li>
-<li><p>For class, type “fas fa-archive”.</p></li>
-</ol>
-</li>
-<li><p>Drag “Strawberry (Descriptive metadata source)” to “First”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<ol class="loweralpha simple">
-<li><p>For “Choose your metadata template”, select “Multiple Thumbnails via IIIF and FontAwesome (10)”.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Thumbnail”.</p></li>
-<li><p>Uncheck the box. Click update.</p></li>
-</ol>
-</li>
-<li><p>Drag “Links” to “First”, under “Strawberry (Descriptive metadata source)”.</p></li>
-<li><p>Drag “Frutilla (Descriptive Metadata Source)” to “Second”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<ol class="loweralpha simple">
-<li><p>Choose “Object Metadata Abstract for Search Results (8)” for metadata template.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Descriptive Metadata”.</p></li>
-<li><p>Uncheck the box. Click update. Scroll to the bottom of the page and click save.</p></li>
-</ol>
-</li>
-<li><p>Go to “Browse Digital Objects”. Click “edit view” on the search results.</p></li>
-<li><p>Under Format &gt; Show, click “Settings.”</p></li>
-<li><p>Change view mode for datasource Content, bundle Digital Object from “Digital Object with thumbnail and abstract” to “Digital Object with Creator and Date”.</p></li>
-<li><p>Change view mode for datasource Content, bundle Digital Object Collection from “Digital Object with thumbnail and abstract” to “Digital Object with Creator and Date”.</p></li>
-<li><p>Click Apply. Then click save.</p></li>
-</ol>
-</section>
+<ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">`Removing Date Updated from Search Results &lt;&lt;https://tamulib-dc-labs.github.io/docs/applications/archipelago/removing-date-updated.html&gt;`_</span></a></p></li>
+</ul>
 </section>
 
         </article>
@@ -475,27 +418,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Changing Structures on Archipelago</a><ul>
-<li><a class="reference internal" href="#removing-date-updated-from-search-results">Removing Date Updated from Search Results</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
