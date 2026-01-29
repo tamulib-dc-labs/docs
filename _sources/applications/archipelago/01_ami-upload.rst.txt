@@ -48,15 +48,14 @@ What is label?
 --------------
 Label will usually be the title of the digital object.
 
+-------------------------------------------
+What about my images/documents/audio/video?
+-------------------------------------------
 
------------------------
-Other fields (optional)
------------------------
+For each row, you will add the files under the corresponding column (images, documents, audio, video, etc). This can be either a filename (if uploading from your computer) or a link (if your image is already hosted elsewhere). If you have multiple files that should go under the same column, separate them with a semicolon.
 
-What is ismemberof?
--------------------
-
-Before uploading an AMI spreadsheet, you will need to create a collection on Archipelago. Add the Archipelago UUID for the parent item (ie the collection) in this column.
+.. note::
+    You must add your files upon import. You can add metadata later through an AMI update. You cannot upload metadata first and add files later unless you upload files individually through the digital object's webform.
 
 ------------------------
 Where to get your files?
@@ -75,7 +74,10 @@ Create a zip archive with all files that will be uploaded in the batch. However,
 * Zip files have a limit of 512 MB
 * Zip files cannot have subfolders. For example, if you are trying to upload multiple digital objects at once but the files that make up each one follow the same naming pattern of :code:`0001.tif`, :code:`0002.tif`, :code:`0003.tif`, and so on, you will need to rename them to clearly differentiate them.
 
-To attach files in a zip file to a digital object, enter the filename in the relevant column depending on what type of media it is (for example, the :code:`images` column). If you have multiple files for the same item, list them all, but separate them with a semicolon (example: :code:`0001.tif;0002.tif;0003.tif`).
+To attach files in a zip file to a digital object, enter the filename in the relevant column depending on what type of media it is (for example, the :code:`images` column). 
+
+.. note::
+    If you are using MacOS, your zip file can only have one level (so you cannot have something like :code:`item-1/0001.tif`).
 
 Link
 ----
@@ -84,6 +86,31 @@ You can also link to media that is hosted online. This can be a IIIF link (any d
 
 If a digital object is made up of multiple files, list them all and separate them with semicolons.
 
+-----------------------
+Other fields (optional)
+-----------------------
+
+What is ismemberof?
+-------------------
+
+Before uploading an AMI spreadsheet, you will need to create a collection on Archipelago. Add the Archipelago UUID for the parent item (ie the collection) in this column.
+
+What is ispartof?
+-------------------
+
+This works similarly to :code:`ismemberof`, except for parts of a Creative Work Series, not a Collection.
+
+What is sequence_id?
+-------------------
+
+:code:`sequence_id` tells Archipelago what order to show objects in a Creative Work Series. Only use this column if the item is part of a Creative Work Series.
+
+rights vs. rights_statements
+----------------------------
+
+:code:`rights` is the creative commons uri.
+
+:code:`rights_statements` is the creative commons label.
 
 ---------------------
 Importing through AMI
