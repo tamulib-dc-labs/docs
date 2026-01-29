@@ -69,6 +69,9 @@ Launching SAFCreator
 
 Once Java is installed, you can launch SAFCreator.
 
+You may double-click the JAR file to launch the application.
+
+Alternatively,
 1. Open a command prompt in the directory containing the SAFCreator JAR file.
 2. Run the following command:
 
@@ -76,16 +79,17 @@ Once Java is installed, you can launch SAFCreator.
 
       java -jar -Dfile.encoding=UTF-8 SAFCreator-0.0.2-SNAPSHOT.one-jar.jar
 
-Alternatively, you may double-click the JAR file to launch the application.
-
 Configuring the SAF Batch
 -------------------------
 
 After launching SAFCreator, you will be prompted to fill in three fields:
 
-1. **CSV File**
+1. **Path to the metadata CSV file**
 2. **Source Directory**
 3. **Destination Directory**
+   
+.. image:: ../../_static/images/dspace_batch_import/safcreator.png
+    :alt: SAFCreator
 
 Source Directory
 ^^^^^^^^^^^^^^^^
@@ -111,6 +115,9 @@ Loading the Batch
 3. Select the destination directory where the SAF output will be written.
 4. Click **Load Specified Batch Now**.
 
+.. image:: ../../_static/images/dspace_batch_import/safcreator_2.png
+    :alt: Load specified batch
+
 Verifying the Batch
 -------------------
 
@@ -121,6 +128,9 @@ Once the batch is loaded:
 3. Review the verification results
 4. Fix any reported errors before proceeding
 
+.. image:: ../../_static/images/dspace_batch_import/safcreator_1.png
+    :alt: Verify Batch
+
 Writing SAF Data
 ----------------
 
@@ -130,6 +140,15 @@ After successful verification:
 2. Click the button to export the SAF package to the destination directory.
 3. Navigate to the destination directory.
 4. Zip the contents of the SAF output directory.
+
+.. image:: ../../_static/images/dspace_batch_import/safcreator_3.png
+    :alt: SAFCreator Write
+
+.. image:: ../../_static/images/dspace_batch_import/safcreator_4.png
+    :alt: SAFCreator Finish Screen
+
+.. image:: ../../_static/images/dspace_batch_import/compress_zip.png
+    :alt: Compress files
 
 Importing the SAF Package into DSpace
 -------------------------------------
@@ -145,6 +164,9 @@ Importing the SAF Package into DSpace
    If checked, DSpace will only validate the batch and will not import the items.
 
 5. Click **Proceed** to start the batch import process.
+
+.. image:: ../../_static/images/dspace_batch_import/dspace_1.png
+    :alt: SAFCreator
 
 Reviewing Import Results
 ------------------------
@@ -169,6 +191,9 @@ After items are successfully imported, thumbnails can be generated using a DSpac
 2. Create a new process.
 3. Select the script: **Filter Media**
 
+.. image:: ../../_static/images/dspace_batch_import/dspace_2.png
+    :alt: SAFCreator
+
 Process Parameters
 ^^^^^^^^^^^^^^^^^^
 
@@ -179,6 +204,12 @@ Add the following parameters:
 - ``-force``:  
   Forces regeneration of thumbnails.
 
+.. image:: ../../_static/images/dspace_batch_import/dspace_3.png
+    :alt: SAFCreator
+
+.. image:: ../../_static/images/dspace_batch_import/dspace_4.png
+    :alt: SAFCreator
+
 Starting the Process
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -188,6 +219,7 @@ Starting the Process
 
 Once finished, thumbnails should be visible on the imported items.
 
----
+.. image:: ../../_static/images/dspace_batch_import/dspace_5.png
+    :alt: SAFCreator
 
-End of Document
+---
