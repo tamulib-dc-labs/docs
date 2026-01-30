@@ -70,6 +70,8 @@ Not all Archipelago values require multiple "parts" to be strung together. This 
 
 * Wikidata
 
+* EDTF
+
 Other fields, like description or date_created should be added directly to the final AMI-compatible spreadsheet.
 
 ---------
@@ -92,6 +94,8 @@ Add more columns if there need to be more metadata values per field. Remember th
 * LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.
 
 * Local creators, local subjects, and local subjects - personal names are added individually.
+
+* EDTF fields are added as a group of four. This group can only be added once.
 
 ----------------------------------
 What do these column headers mean?
@@ -141,6 +145,14 @@ What do these column headers mean?
 
     * Wikidata
 
+* :code:`date_`
+
+    * edtf date
+
+.. note::
+
+    :code:`date_type` will be :code:`date_range` if you are using date_to and date_from. :code:`date_type` will be :code:`date_edtf` if you are using the date_free field. Although it is labeled date_free, it must be written in `Extended Date Time Format <https://www.loc.gov/standards/datetime/>`_.
+
 
 
 ----------
@@ -155,8 +167,8 @@ Once you have the input csv, you can run this script to convert it to a csv comp
     import json
     import re
 
-    INPUT_CSV = "input_flat.csv"
-    OUTPUT_CSV = "output.csv"
+    INPUT_CSV = "flat.csv"
+    OUTPUT_CSV = "compressed.csv"
 
     # --------------------
     # Helpers
@@ -221,7 +233,10 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             "subject_wikidata",
 
             "subjects_local",
-            "subjects_local_personal_names"
+            "subjects_local_personal_names",
+
+            "date_created_edtf"
+
         ]
 
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
@@ -310,6 +325,28 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 if non_empty(row.get(f"subjects_local_personal_names_{i}"))
             ]
 
+            # ---- Date created (EDTF) ----
+            raw_date_created = {
+                "date_to": row.get("date_to"),
+                "date_free": row.get("date_free"),
+                "date_from": row.get("date_from"),
+                "date_type": row.get("date_type")
+            }
+
+            # Remove empty values entirely
+            date_created = {
+                k: v for k, v in raw_date_created.items()
+                if non_empty(v)
+            }
+
+            if not date_created:
+                date_created = None
+
+            # Only keep if at least one value is present
+            if not any(non_empty(v) for v in date_created.values()):
+                date_created = None
+
+
             # ---- Write row ----
             writer.writerow({
             
@@ -324,8 +361,15 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "subject_wikidata": json.dumps(wikidata, ensure_ascii=False),
 
                 "subjects_local": json.dumps(subjects_local, ensure_ascii=False),
-                "subjects_local_personal_names": json.dumps(subjects_local_personal, ensure_ascii=False)
+                "subjects_local_personal_names": json.dumps(subjects_local_personal, ensure_ascii=False), 
+
+                "date_created_edtf": (
+                    json.dumps(date_created, ensure_ascii=False)
+                    if date_created else ""
+                )
+
             })
+
 
 
 --------------------------
