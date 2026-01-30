@@ -112,6 +112,12 @@ rights vs. rights_statements
 
 :code:`rights_statements` is the creative commons label.
 
+date_created vs. date_created_edtf
+----------------------------------
+
+:code:`date_created` will automatically be turned into a Month nth, YYYY format upon import. However, you can enter it in most standard date formats. :code:`date_created_edtf` will allow you to put a range or a date in `Extended Date Time Format <https://www.loc.gov/standards/datetime/>`_.
+
+
 ---------------------
 Importing through AMI
 ---------------------

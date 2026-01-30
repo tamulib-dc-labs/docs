@@ -419,6 +419,7 @@
 <li><p>Local subjects</p></li>
 <li><p>Local subjects - personal names</p></li>
 <li><p>Wikidata</p></li>
+<li><p>EDTF</p></li>
 </ul>
 <p>Other fields, like description or date_created should be added directly to the final AMI-compatible spreadsheet.</p>
 </section>
@@ -431,6 +432,7 @@
 <li><p>LCNAF creator fields are added in sets of 5.</p></li>
 <li><p>LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.</p></li>
 <li><p>Local creators, local subjects, and local subjects - personal names are added individually.</p></li>
+<li><p>EDTF fields are added as a group of four. This group can only be added once.</p></li>
 </ul>
 </section>
 <section id="what-do-these-column-headers-mean">
@@ -513,7 +515,18 @@
 </ul>
 </div></blockquote>
 </li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">date_</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>edtf date</p></li>
 </ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="code docutils literal notranslate"><span class="pre">date_type</span></code> will be <code class="code docutils literal notranslate"><span class="pre">date_range</span></code> if you are using date_to and date_from. <code class="code docutils literal notranslate"><span class="pre">date_type</span></code> will be <code class="code docutils literal notranslate"><span class="pre">date_edtf</span></code> if you are using the date_free field. Although it is labeled date_free, it must be written in <a class="reference external" href="https://www.loc.gov/standards/datetime/">Extended Date Time Format</a>.</p>
+</div>
 </section>
 <section id="conversion">
 <h2>Conversion<a class="headerlink" href="#conversion" title="Link to this heading">¶</a></h2>
@@ -522,8 +535,8 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="n">INPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;input_flat.csv&quot;</span>
-<span class="n">OUTPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;output.csv&quot;</span>
+<span class="n">INPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;flat.csv&quot;</span>
+<span class="n">OUTPUT_CSV</span> <span class="o">=</span> <span class="s2">&quot;compressed.csv&quot;</span>
 
 <span class="c1"># --------------------</span>
 <span class="c1"># Helpers</span>
@@ -588,7 +601,10 @@
         <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">,</span>
 
         <span class="s2">&quot;subjects_local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;subjects_local_personal_names&quot;</span>
+        <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;date_created_edtf&quot;</span>
+
     <span class="p">]</span>
 
     <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
@@ -677,6 +693,28 @@
             <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;subjects_local_personal_names_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
         <span class="p">]</span>
 
+        <span class="c1"># ---- Date created (EDTF) ----</span>
+        <span class="n">raw_date_created</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;date_to&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date_to&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;date_free&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date_free&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;date_from&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date_from&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;date_type&quot;</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;date_type&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Remove empty values entirely</span>
+        <span class="n">date_created</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">raw_date_created</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">non_empty</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">date_created</span><span class="p">:</span>
+            <span class="n">date_created</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Only keep if at least one value is present</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">non_empty</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">date_created</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="n">date_created</span> <span class="o">=</span> <span class="kc">None</span>
+
+
         <span class="c1"># ---- Write row ----</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span>
 
@@ -691,7 +729,13 @@
             <span class="s2">&quot;subject_wikidata&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">wikidata</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
 
             <span class="s2">&quot;subjects_local&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-            <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="s2">&quot;subjects_local_personal_names&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">subjects_local_personal</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+
+            <span class="s2">&quot;date_created_edtf&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">date_created</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">date_created</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">)</span>
+
         <span class="p">})</span>
 </pre></div>
 </div>
