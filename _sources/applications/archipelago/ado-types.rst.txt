@@ -22,6 +22,8 @@ Collection
 
 * No viewer
 
+* Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
+
 --------------------
 Creative Work Series
 --------------------
@@ -33,6 +35,8 @@ Creative Work Series
 * Child objects open in Mirador in a prescribed order
 
 * Examples: Building History Collection, Bulletin/Committee on South Asian Women Collection
+
+* Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
 
 ----
 Book
@@ -50,6 +54,8 @@ Book
 
 * Examples: Yearbooks, Yellbooks
 
+* Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
+
 -----
 Image
 -----
@@ -62,6 +68,8 @@ Image
 
 * Examples: Wheelan, Berger-Cloonan
 
+* Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
+
 -----------
 Web Archive
 -----------
@@ -73,6 +81,8 @@ Web Archive
 * File type: wacz, warc
 
 * Example: AAVPT Biennial Symposia
+
+* Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
 
 ----------
 Manuscript
@@ -104,6 +114,7 @@ Map
 
 * Example: Brazos Maps, London Maps
 
+* Example item: `Bryan-College Station Bicycle Plan <https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1>`_
 
 -----------
 AudioObject
@@ -117,7 +128,7 @@ AudioObject
 
 * File types: mp3
 
-* Examples: Science Fiction Radio Show, Owens Folk Music
+* Examples: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
 
 -----------
 VideoObject
@@ -153,6 +164,18 @@ Metadata Only
 
 * No image/audio/video/document
 
-* File types: none
+* File types: may have a vtt or pdf if the metadata is for audio/video
 
-* Example: Amazing, Fascinating, Weird: Science Fiction in Texas, Dallas Women's Gallery
+* Example: Dallas Women's Gallery
+
+-----------------
+Downloadable File
+-----------------
+
+* No viewer
+
+* User is expected to download the file from the dropdown
+
+* Clear direction on the site so the user knows how to view the file
+
+* Example: Amazing, Fascinating, Weird: Science Fiction in Texas

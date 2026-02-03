@@ -69,12 +69,20 @@ You can fix this at scale like:
     import json
     import requests
     import os
+    from tqdm import tqdm
 
-    for path, directories, files in os.walk("manifests/houston-oil-minutes"):
+    for path, directories, files in os.walk("/Users/mark.baggett/code/from-the-page-manifests/manifests/cherokee-freedmen-corrected_objects/"):
         for filename in files:
             if filename.endswith(".json"):
+
                 with open(os.path.join(path, filename), "r") as f:
                     data = json.load(f)
-                for sequence in data['sequences']:
-                    for canvas in sequence['canvases']:
-                        r = requests.get(canvas['@id'])
+                if 'items' in data:
+                    for item in tqdm(data['items']):
+                        r = requests.get(item['id'])
+                elif 'sequences' in data:
+                    for sequence in data['sequences']:
+                        for canvas in tqdm(sequence['canvases']):
+                            r = requests.get(canvas['@id'])
+                else:
+                    print(f"Not a manifest! {filename}")
