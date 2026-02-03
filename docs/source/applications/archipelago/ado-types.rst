@@ -22,6 +22,7 @@ Collection
 
 * No viewer
 
+
 * Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
 
 --------------------
@@ -112,11 +113,11 @@ AudioObject
 
 * Opens in audio player
 
-* Includes synced vtt transcript
+* Includes synced transcript
 
-* Metadata: url from Avalon object
+* Needs a metadata field for the link to the original Avalon page
 
-* File types: mp3
+* File types: mp3, vtt
 
 * Example item: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
 
@@ -128,9 +129,9 @@ VideoObject
 
 * Includes synced captions
 
-* Metadata: url from Avalon object
+* Needs a metadata field for the link to the original Avalon page
 
-* File types: mp4
+* File types: mp4, vtt
 
 * Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
 
@@ -152,6 +153,8 @@ Metadata Only
 -------------
 
 * No image/audio/video/document
+
+* Needs a metadata field for the link to the original page
 
 * File types: may have a vtt or pdf if the metadata is for audio/video
 
