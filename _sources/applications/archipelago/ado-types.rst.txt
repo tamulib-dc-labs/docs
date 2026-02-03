@@ -34,8 +34,6 @@ Creative Work Series
 
 * Child objects open in Mirador in a prescribed order
 
-* Examples: Building History Collection, Bulletin/Committee on South Asian Women Collection
-
 * Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
 
 ----
@@ -52,8 +50,6 @@ Book
 
 * File types: pdf, jpg, jp2
 
-* Examples: Yearbooks, Yellbooks
-
 * Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
 
 -----
@@ -66,8 +62,6 @@ Image
 
 * File types: jpg, jp2
 
-* Examples: Wheelan, Berger-Cloonan
-
 * Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
 
 -----------
@@ -79,8 +73,6 @@ Web Archive
 * User can navigate the site inside the viewer
 
 * File type: wacz, warc
-
-* Example: AAVPT Biennial Symposia
 
 * Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
 
@@ -98,7 +90,7 @@ Manuscript
 
 * File types: jpg, jp2
 
-* Example: AMC Early Presidents
+* Example item: `Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887 <https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1>`_
 
 ---
 Map
@@ -111,8 +103,6 @@ Map
 * Opens in Mirador
 
 * File types: jpg, jp2
-
-* Example: Brazos Maps, London Maps
 
 * Example item: `Bryan-College Station Bicycle Plan <https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1>`_
 
@@ -128,7 +118,7 @@ AudioObject
 
 * File types: mp3
 
-* Examples: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
+* Example item: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
 
 -----------
 VideoObject
@@ -142,7 +132,7 @@ VideoObject
 
 * File types: mp4
 
-* Example: Veterans of the Valley
+* Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
 
 -----------------
 Annotatable Image
@@ -156,8 +146,7 @@ Annotatable Image
 
 * File types: jpg, jp2, must be imported through IIIF
 
-* Example: Building History, WWII Service Maps
-
+* Example item: `Downs Natatorium in 1980 <https://archipelago-dev.library.tamu.edu/do/f4edce17-70fe-4ad3-8866-fff14c4af653>`_
 -------------
 Metadata Only
 -------------
@@ -166,7 +155,7 @@ Metadata Only
 
 * File types: may have a vtt or pdf if the metadata is for audio/video
 
-* Example: Dallas Women's Gallery
+* Example item: `Interview with Ann Stautberg <https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57>`_
 
 -----------------
 Downloadable File
@@ -178,4 +167,4 @@ Downloadable File
 
 * Clear direction on the site so the user knows how to view the file
 
-* Example: Amazing, Fascinating, Weird: Science Fiction in Texas
+* Example item: `Race in Fandom: Experiences from the Margins <https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e>`_
