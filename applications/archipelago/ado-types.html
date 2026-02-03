@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Removing Date Updated from Search Results" href="removing-date-updated.html" /><link rel="prev" title="Changing the template for a worktype" href="change-viewer.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Changing the template for a worktype" href="change-viewer.html" /><link rel="prev" title="Changing Structures on Archipelago" href="08_structure-changes.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Associating HTR with Image Files - TAMU Digital Collections Labs documentation</title>
+        <title>ADO Types in Archipelago - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -223,9 +223,9 @@
 <li class="toctree-l2"><a class="reference internal" href="06_json-to-ami.html">Migrating from a directory of jsons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="removing-date-updated.html">Removing Date Updated from Search Results</a></li>
 </ul>
 </li>
@@ -350,7 +350,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/archipelago/indexing-hand-written-text.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/ado-types.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -370,124 +370,117 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="associating-htr-with-image-files">
-<h1>Associating HTR with Image Files<a class="headerlink" href="#associating-htr-with-image-files" title="Link to this heading">¶</a></h1>
-<p>This document outlines the process for associating extracted text transcripts (HTR) with Image files within Archipelago
-to enable the <strong>IIIF Content Search API</strong>.</p>
-<p>In Archipelago, IIIF manifests are dynamic. To make text searchable within viewers like Mirador, the backend must parse
-the relationship between an “extraction” (text file) and the parent image ADO (or Creative Works Series) via Solr and
-custom Twig templates.</p>
-<section id="strawberry-runner-configuration">
-<h2>1. Strawberry Runner Configuration<a class="headerlink" href="#strawberry-runner-configuration" title="Link to this heading">¶</a></h2>
-<p>Before the text can be used in the IIIF manifest, it must be indexed in Solr via a Strawberry Runner.</p>
-<section id="ensure-ado-types-are-configured">
-<h3>Ensure ADO Types are Configured<a class="headerlink" href="#ensure-ado-types-are-configured" title="Link to this heading">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Navigate to: <cite>admin/config/archipelago/strawberry_runner_postprocessor/text/edit</cite>.</p></li>
-<li><p>Ensure that your specific <strong>ADO types</strong> (e.g., Manuscript, Poster, Scrapbook) and the <strong>mimetype</strong> (<cite>text/plain</cite>) is included in the runner settings.</p></li>
-<li><p>If your ADO type is missing, the runner will ignore the text files, and they will not be indexed in Solr.</p></li>
-</ol>
-<p>In Solr, the text file will look like:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;tm_X3b_und_sbf_plaintext&quot;:[&quot;\&quot;State A. &amp; M. College of Texas.\nPRESIDENT&#39;S OFFICE.\nCollege Station, Brazos Co.,                                        18 7\n    \nIf the legislature will give us the appropriations to keep up this College and other Colleges, and equip this College as it should be, I have no doubt that two would be our standing number. You must be on the alert, when we are enlarged. All the Faculty are your friends now, and that we will be a very decided favor in your favor.\n\nGen. Lewis has arrived, and is on the ground. He is very affable, and promises to be a very agreeable associate.\n\nThat Circulation business is a good thing on paper but is rather wishcome in practice. The people are so slow to call a body out, that there is\&quot;&quot;],
-      &quot;tm_X3b_und_title_2&quot;:[&quot;Letter from Thomas S. Sutton to Colonel J.R. Cole&quot;],
-      &quot;_root_&quot;:&quot;3doz0r-default_solr_index-strawberryfield_flavor_datasource/33:1:en:93113851-f4b7-4105-88cd-7b0bab3b5b90:text&quot;,
-</pre></div>
-</div>
-</section>
-<section id="upload-your-ado">
-<h3>Upload Your ADO<a class="headerlink" href="#upload-your-ado" title="Link to this heading">¶</a></h3>
-<p>When you upload your ADO, add your images.</p>
-<img alt="Adding Images to Archipelago" src="../../_images/archipelago-add-images.png" />
-<p>And add associated text files containing the HTR:</p>
-<img alt="Adding Text Files to Archipelago" src="../../_images/archipelago-add-text-files.png" />
-</section>
-<section id="triggering-the-indexing">
-<h3>Triggering the Indexing<a class="headerlink" href="#triggering-the-indexing" title="Link to this heading">¶</a></h3>
-<p>If you have existing items that need their text files indexed:</p>
-<ol class="arabic simple">
-<li><p>Go to the <strong>Search and Replace</strong> tool: <cite>/search-and-replace</cite>.</p></li>
-<li><p>Select the target items.</p></li>
-<li><p>Choose the action: <strong>“Trigger Strawberry Runners Process / Reprocess…”</strong>.</p></li>
-<li><p>Force the <strong>Text</strong> post-processor.</p></li>
-<li><p>You can monitor the progress in the Queue UI or check the “Reports” admin page for log entries.</p></li>
-</ol>
-</section>
-</section>
-<section id="twig-template-implementation">
-<h2>2. Twig Template Implementation<a class="headerlink" href="#twig-template-implementation" title="Link to this heading">¶</a></h2>
-<p>To expose the text as a <cite>supplementing</cite> annotation in your IIIF Manifest (v3), you need to modify the Images section of
-your Twig template.</p>
-<section id="association-logic">
-<h3>Association Logic<a class="headerlink" href="#association-logic" title="Link to this heading">¶</a></h3>
-<p>The logic typically checks if a Text file and an Image file were uploaded under the same key/sequence or if the ADO
-contains a single image.</p>
-</section>
-<section id="mark-s-initial-twig-snippet">
-<h3>Mark’s Initial Twig Snippet<a class="headerlink" href="#mark-s-initial-twig-snippet" title="Link to this heading">¶</a></h3>
-<p>Replace the matching Images section of your manifest template with the following logic:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{#- starts Pure Text annotation and direct Image annotations -#}</span>
-<span class="cp">{%</span> <span class="k">set</span> <span class="nv">texts</span> <span class="o">=</span> <span class="o">[]</span> <span class="cp">%}</span>
-<span class="cp">{%</span>- <span class="k">for</span> <span class="nv">text_uuid</span><span class="o">,</span> <span class="nv">text_file</span> <span class="k">in</span> <span class="nv">data</span><span class="o">[</span><span class="s2">&quot;as:text&quot;</span><span class="o">]</span> <span class="cp">%}</span>
-<span class="x">      </span><span class="c">{# only generate an annotation if text and image have the same sequence OR</span>
-<span class="c">   there is exactly a single Image #}</span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="o">(</span><span class="nv">text_file.sequence</span> <span class="o">==</span> <span class="nv">page.sequence</span> <span class="k">or</span> <span class="nv">data</span><span class="o">[</span><span class="s2">&quot;as:image&quot;</span><span class="o">]|</span><span class="nf">length</span> <span class="o">==</span> <span class="m">1</span><span class="o">)</span> <span class="k">and</span> <span class="nv">text_file</span><span class="o">[</span><span class="s2">&quot;dr:mimetype&quot;</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&quot;text\/plain&quot;</span> <span class="cp">%}</span>
-<span class="x">    </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">texts</span> <span class="o">=</span> <span class="nv">texts</span><span class="o">|</span><span class="nf">merge</span><span class="o">([{</span><span class="s1">&#39;dr:uuid&#39;</span><span class="o">:</span> <span class="nv">text_file</span><span class="o">[</span><span class="s1">&#39;dr:uuid&#39;</span><span class="o">],</span> <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="nv">text_file</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">]}])</span> <span class="cp">%}</span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
-<span class="cp">{%</span>- <span class="k">endfor</span> <span class="cp">%}</span>
-
-<span class="cp">{%</span> <span class="k">if</span> <span class="nv">texts</span><span class="o">|</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="cp">%}</span>
-<span class="x">,</span>
-<span class="x">&quot;annotations&quot;: [</span>
-<span class="x">    {</span>
-<span class="x">    &quot;id&quot;: &quot;</span><span class="cp">{{</span> <span class="nv">nodeurl</span> <span class="cp">}}</span><span class="x">/iiif/subtitles/s</span><span class="cp">{{</span> <span class="nv">itemCount</span> <span class="cp">}}</span><span class="x">&quot;,</span>
-<span class="x">    &quot;type&quot;: &quot;AnnotationPage&quot;,</span>
-<span class="x">    &quot;items&quot;: [</span>
-<span class="x">    </span><span class="cp">{%</span>- <span class="k">for</span> <span class="nv">text_file</span> <span class="k">in</span> <span class="nv">texts</span> <span class="cp">%}</span>
-<span class="x">        {</span>
-<span class="x">            &quot;id&quot;: &quot;</span><span class="cp">{{</span> <span class="nv">nodeurl</span> <span class="cp">}}</span><span class="x">/iiif/text/p</span><span class="cp">{{</span> <span class="nv">itemCount</span> <span class="cp">}}</span><span class="x">/</span><span class="cp">{{</span> <span class="nv">text_file</span><span class="o">[</span><span class="s1">&#39;dr:uuid&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x">&quot;,</span>
-<span class="x">            &quot;type&quot;: &quot;Annotation&quot;,</span>
-<span class="x">            &quot;motivation&quot;: &quot;supplementing&quot;,</span>
-<span class="x">            &quot;body&quot;: {</span>
-<span class="x">            &quot;id&quot;: &quot;</span><span class="cp">{{</span> <span class="err">W</span><span class="nv">ebserverurl</span> <span class="cp">}}</span><span class="x">do/</span><span class="cp">{{</span> <span class="nv">node.uuid.value</span> <span class="cp">}}</span><span class="x">/file/</span><span class="cp">{{</span> <span class="nv">text_file</span><span class="o">[</span><span class="s1">&#39;dr:uuid&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x">/download/</span><span class="cp">{{</span> <span class="nv">text_file</span><span class="o">[</span><span class="s2">&quot;name&quot;</span><span class="o">]</span> <span class="cp">}}</span><span class="x">&quot;,</span>
-<span class="x">            &quot;type&quot;: &quot;Text&quot;,</span>
-<span class="x">            &quot;format&quot;: &quot;text/plain&quot;,</span>
-<span class="x">            &quot;label&quot;: { &quot;en&quot;: [&quot;</span><span class="cp">{{</span> <span class="nv">text_file.name</span> <span class="cp">}}</span><span class="x">&quot;] },</span>
-<span class="x">            &quot;language&quot;: &quot;en&quot;</span>
-<span class="x">            },</span>
-<span class="x">            &quot;target&quot;: &quot;</span><span class="cp">{{</span> <span class="nv">nodeurl</span> <span class="cp">}}</span><span class="x">/iiif/canvas/p</span><span class="cp">{{</span> <span class="nv">itemCount</span> <span class="cp">}}</span><span class="x">#xywh=0,0,</span><span class="cp">{{</span><span class="nv">width</span><span class="cp">}}</span><span class="x">,</span><span class="cp">{{</span><span class="nv">height</span><span class="cp">}}</span><span class="x">&quot;</span>
-<span class="x">        }</span><span class="cp">{{</span> <span class="k">not</span> <span class="nb">loop</span><span class="nv">.last</span> <span class="o">?</span> <span class="s1">&#39;,&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="cp">}}</span>
-<span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> -<span class="cp">%}</span>
-<span class="x">    ]</span>
-<span class="x">    }</span>
-<span class="x">]</span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
-<span class="c">{#- ends Pure text annotation -#}</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="verification-and-debugging">
-<h2>3. Verification and Debugging<a class="headerlink" href="#verification-and-debugging" title="Link to this heading">¶</a></h2>
-<section id="check-solr-directly">
-<h3>Check Solr Directly<a class="headerlink" href="#check-solr-directly" title="Link to this heading">¶</a></h3>
-<p>To confirm the text is correctly indexed, query your Solr core for the ADO’s UUID. Look for the following field:</p>
+          <section id="ado-types-in-archipelago">
+<h1>ADO Types in Archipelago<a class="headerlink" href="#ado-types-in-archipelago" title="Link to this heading">¶</a></h1>
+<p>Archipelago Digital Objects (ADOs) require a <code class="code docutils literal notranslate"><span class="pre">type</span></code> value upon ingest. This tells Archipelago what kind of template to create for that specific object.</p>
+<p>Below is a list of TAMU Archipelago worktypes:</p>
+<section id="collection">
+<h2>Collection<a class="headerlink" href="#collection" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><cite>tm_X3b_und_sbf_plaintext</cite>: This should contain the raw extracted text.</p></li>
+<li><p>Parent object, has child ADOs.</p></li>
+<li><p>Has description that applies to all child objects</p></li>
+<li><p>Has a summary that only appears on Collection page</p></li>
+<li><p>May be part of another collection</p></li>
+<li><p>Thumbnail</p></li>
+<li><p>No viewer</p></li>
 </ul>
 </section>
-<section id="archipelago-ui-checks">
-<h3>Archipelago UI Checks<a class="headerlink" href="#archipelago-ui-checks" title="Link to this heading">¶</a></h3>
+<section id="creative-work-series">
+<h2>Creative Work Series<a class="headerlink" href="#creative-work-series" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><strong>Extracted Text Tab:</strong> Check the “Extracted Text” tab on the ADO display page. This tab is a View and can be customized to show <cite>text/plain</cite> extractions.</p></li>
-<li><p><strong>Search API Index:</strong> Check the status of your index at <cite>/admin/config/search/search-api/index/default_solr_index</cite> to ensure there are no pending items or errors.</p></li>
+<li><p>Parent object, has child ADOs.</p></li>
+<li><p>May be part of a collection</p></li>
+<li><p>Child objects open in Mirador in a prescribed order</p></li>
+<li><p>Examples: Building History Collection, Bulletin/Committee on South Asian Women Collection</p></li>
 </ul>
 </section>
-<section id="manifest-preview">
-<h3>Manifest Preview<a class="headerlink" href="#manifest-preview" title="Link to this heading">¶</a></h3>
-<p>Always use the “Preview” function on your Twig template. Test it against a target ADO that contains both an image and a text file to ensure the output is valid JSON and the <cite>annotations</cite> block appears correctly within the Canvas.</p>
-<p>&gt; <strong>Note:</strong> Archipelago’s dynamic manifests allow for complex grouping. If you are using multi-page documents (CWS), ensure your <cite>sequence</cite> mapping in the Twig template correctly aligns the <cite>as:text</cite> files with the corresponding <cite>as:image</cite> canvases.</p>
-<p>Would you like me to help you refine the Twig logic for a specific metadata schema, or perhaps assist in drafting the Solr configuration steps?</p>
+<section id="book">
+<h2>Book<a class="headerlink" href="#book" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>OCR/HOCR</p></li>
+<li><p>1-n canvases</p></li>
+<li><p>Typed</p></li>
+<li><p>Opens in Mirador</p></li>
+<li><p>File types: pdf, jpg, jp2</p></li>
+<li><p>Examples: Yearbooks, Yellbooks</p></li>
+</ul>
 </section>
+<section id="image">
+<h2>Image<a class="headerlink" href="#image" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>1-n canvases</p></li>
+<li><p>Opens in Mirador</p></li>
+<li><p>File types: jpg, jp2</p></li>
+<li><p>Examples: Wheelan, Berger-Cloonan</p></li>
+</ul>
+</section>
+<section id="web-archive">
+<h2>Web Archive<a class="headerlink" href="#web-archive" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Metadata: url from original site.</p></li>
+<li><p>User can navigate the site inside the viewer</p></li>
+<li><p>File type: wacz, warc</p></li>
+<li><p>Example: AAVPT Biennial Symposia</p></li>
+</ul>
+</section>
+<section id="manuscript">
+<h2>Manuscript<a class="headerlink" href="#manuscript" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Transcribed text</p></li>
+<li><p>1-n canvases</p></li>
+<li><p>Handwritten</p></li>
+<li><p>Opens in Mirador</p></li>
+<li><p>File types: jpg, jp2</p></li>
+<li><p>Example: AMC Early Presidents</p></li>
+</ul>
+</section>
+<section id="map">
+<h2>Map<a class="headerlink" href="#map" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>1-n canvases</p></li>
+<li><p>May be very large files</p></li>
+<li><p>Opens in Mirador</p></li>
+<li><p>File types: jpg, jp2</p></li>
+<li><p>Example: Brazos Maps, London Maps</p></li>
+</ul>
+</section>
+<section id="audioobject">
+<h2>AudioObject<a class="headerlink" href="#audioobject" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Opens in audio player</p></li>
+<li><p>Includes synced vtt transcript</p></li>
+<li><p>Metadata: url from Avalon object</p></li>
+<li><p>File types: mp3</p></li>
+<li><p>Examples: Science Fiction Radio Show, Owens Folk Music</p></li>
+</ul>
+</section>
+<section id="videoobject">
+<h2>VideoObject<a class="headerlink" href="#videoobject" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Opens in video player</p></li>
+<li><p>Includes synced captions</p></li>
+<li><p>Metadata: url from Avalon object</p></li>
+<li><p>File types: mp4</p></li>
+<li><p>Example: Veterans of the Valley</p></li>
+</ul>
+</section>
+<section id="annotatable-image">
+<h2>Annotatable Image<a class="headerlink" href="#annotatable-image" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Opens in default viewer</p></li>
+<li><p>1-n canvases</p></li>
+<li><p>IIIF manifest has annotations</p></li>
+<li><p>File types: jpg, jp2, must be imported through IIIF</p></li>
+<li><p>Example: Building History, WWII Service Maps</p></li>
+</ul>
+</section>
+<section id="metadata-only">
+<h2>Metadata Only<a class="headerlink" href="#metadata-only" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>No image/audio/video/document</p></li>
+<li><p>File types: none</p></li>
+<li><p>Example: Amazing, Fascinating, Weird: Science Fiction in Texas, Dallas Women’s Gallery</p></li>
+</ul>
 </section>
 </section>
 
@@ -496,23 +489,23 @@ contains a single image.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="removing-date-updated.html">
+          <a class="next-page" href="change-viewer.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Removing Date Updated from Search Results</div>
+                <div class="title">Changing the template for a worktype</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="change-viewer.html">
+          <a class="prev-page" href="08_structure-changes.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Changing the template for a worktype</div>
+                <div class="title">Changing Structures on Archipelago</div>
                 
               </div>
             </a>
@@ -546,24 +539,18 @@ contains a single image.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Associating HTR with Image Files</a><ul>
-<li><a class="reference internal" href="#strawberry-runner-configuration">1. Strawberry Runner Configuration</a><ul>
-<li><a class="reference internal" href="#ensure-ado-types-are-configured">Ensure ADO Types are Configured</a></li>
-<li><a class="reference internal" href="#upload-your-ado">Upload Your ADO</a></li>
-<li><a class="reference internal" href="#triggering-the-indexing">Triggering the Indexing</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#twig-template-implementation">2. Twig Template Implementation</a><ul>
-<li><a class="reference internal" href="#association-logic">Association Logic</a></li>
-<li><a class="reference internal" href="#mark-s-initial-twig-snippet">Mark’s Initial Twig Snippet</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#verification-and-debugging">3. Verification and Debugging</a><ul>
-<li><a class="reference internal" href="#check-solr-directly">Check Solr Directly</a></li>
-<li><a class="reference internal" href="#archipelago-ui-checks">Archipelago UI Checks</a></li>
-<li><a class="reference internal" href="#manifest-preview">Manifest Preview</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">ADO Types in Archipelago</a><ul>
+<li><a class="reference internal" href="#collection">Collection</a></li>
+<li><a class="reference internal" href="#creative-work-series">Creative Work Series</a></li>
+<li><a class="reference internal" href="#book">Book</a></li>
+<li><a class="reference internal" href="#image">Image</a></li>
+<li><a class="reference internal" href="#web-archive">Web Archive</a></li>
+<li><a class="reference internal" href="#manuscript">Manuscript</a></li>
+<li><a class="reference internal" href="#map">Map</a></li>
+<li><a class="reference internal" href="#audioobject">AudioObject</a></li>
+<li><a class="reference internal" href="#videoobject">VideoObject</a></li>
+<li><a class="reference internal" href="#annotatable-image">Annotatable Image</a></li>
+<li><a class="reference internal" href="#metadata-only">Metadata Only</a></li>
 </ul>
 </li>
 </ul>
