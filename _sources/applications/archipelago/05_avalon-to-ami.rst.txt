@@ -2,6 +2,11 @@
 Migrating from Avalon
 =====================
 
+.. warning::
+   This guide should only be followed for testing and local development.
+
+   This does not describe how to actually migrate something from Avalon.
+
 If you want to import a collection on Avalon into Archipelago, first you must download the collection and its metadata using `pyavalon <https://github.com/tamulib-dc-labs/pyavalon>`_.
 
 `Here is a guide on downloading entire collections from Avalon <https://tamulib-dc-labs.github.io/docs/applications/avalon/downloading_from_avalon.html>`_.

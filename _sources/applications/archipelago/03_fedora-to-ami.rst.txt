@@ -2,6 +2,12 @@
 Migrating from Fedora
 =====================
 
+.. warning::
+   This guide should only be followed for testing and local development.
+
+   This does not describe how to actually migrate something from Fedora.
+
+
 If you want to import a collection on Fedora into Archipelago, use the following script:
 
 .. code:: python
