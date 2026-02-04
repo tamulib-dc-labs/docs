@@ -225,6 +225,7 @@
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="removing-date-updated.html">Removing Date Updated from Search Results</a></li>
 </ul>
@@ -378,16 +379,15 @@
 <h2>Collection<a class="headerlink" href="#collection" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Parent object, has child ADOs.</p></li>
-<li><p>Has description that applies to all child objects</p></li>
-<li><p>Has a summary that only appears on Collection page</p></li>
+<li><p>Has metadata that only appears on Collection page</p></li>
 <li><p>May be part of another collection</p></li>
 <li><p>Thumbnail</p></li>
 <li><p>No viewer</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec">Brazos Maps</a></p></li>
 </ul>
 </section>
-<section id="creative-work-series">
-<h2>Creative Work Series<a class="headerlink" href="#creative-work-series" title="Link to this heading">¶</a></h2>
+<section id="creativeworkseries">
+<h2>CreativeWorkSeries<a class="headerlink" href="#creativeworkseries" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Parent object, has child ADOs.</p></li>
 <li><p>May be part of a collection</p></li>
@@ -415,8 +415,8 @@
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450">Military Parade 1</a></p></li>
 </ul>
 </section>
-<section id="web-archive">
-<h2>Web Archive<a class="headerlink" href="#web-archive" title="Link to this heading">¶</a></h2>
+<section id="webpage">
+<h2>WebPage<a class="headerlink" href="#webpage" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Metadata: url from original site.</p></li>
 <li><p>User can navigate the site inside the viewer</p></li>
@@ -427,9 +427,8 @@
 <section id="manuscript">
 <h2>Manuscript<a class="headerlink" href="#manuscript" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Transcribed text</p></li>
+<li><p>HTR on handwritten text</p></li>
 <li><p>1-n canvases</p></li>
-<li><p>Handwritten</p></li>
 <li><p>Opens in Mirador</p></li>
 <li><p>File types: jpg, jp2</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1">Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887</a></p></li>
@@ -552,10 +551,10 @@
             <ul>
 <li><a class="reference internal" href="#">ADO Types in Archipelago</a><ul>
 <li><a class="reference internal" href="#collection">Collection</a></li>
-<li><a class="reference internal" href="#creative-work-series">Creative Work Series</a></li>
+<li><a class="reference internal" href="#creativeworkseries">CreativeWorkSeries</a></li>
 <li><a class="reference internal" href="#book">Book</a></li>
 <li><a class="reference internal" href="#image">Image</a></li>
-<li><a class="reference internal" href="#web-archive">Web Archive</a></li>
+<li><a class="reference internal" href="#webpage">WebPage</a></li>
 <li><a class="reference internal" href="#manuscript">Manuscript</a></li>
 <li><a class="reference internal" href="#map">Map</a></li>
 <li><a class="reference internal" href="#audioobject">AudioObject</a></li>

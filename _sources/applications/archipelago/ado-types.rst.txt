@@ -12,9 +12,7 @@ Collection
 
 * Parent object, has child ADOs.
 
-* Has description that applies to all child objects
-
-* Has a summary that only appears on Collection page
+* Has metadata that only appears on Collection page
 
 * May be part of another collection
 
@@ -22,12 +20,11 @@ Collection
 
 * No viewer
 
-
 * Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
 
---------------------
-Creative Work Series
---------------------
+------------------
+CreativeWorkSeries
+------------------
 
 * Parent object, has child ADOs.
 
@@ -65,9 +62,9 @@ Image
 
 * Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
 
------------
-Web Archive
------------
+-------
+WebPage
+-------
 
 * Metadata: url from original site.
 
@@ -81,11 +78,9 @@ Web Archive
 Manuscript
 ----------
 
-* Transcribed text
+* HTR on handwritten text
 
 * 1-n canvases
-
-* Handwritten
 
 * Opens in Mirador
 
