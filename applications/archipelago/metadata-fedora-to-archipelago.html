@@ -376,11 +376,209 @@
         <article role="main" id="furo-main-content">
           <section id="crosswalking-metadata-from-saf-to-archipelago">
 <h1>Crosswalking Metadata from SAF to Archipelago<a class="headerlink" href="#crosswalking-metadata-from-saf-to-archipelago" title="Link to this heading">¶</a></h1>
-<p>This is how to convert each metadata field in the <a class="reference external" href="https://oaktrust.library.tamu.edu/server/api/core/bitstreams/efa9caf8-76bf-44f3-a07f-15a5bd68dc2f/content">Metadata Guidelines</a> from DSpace to out-of-the-box Archipelago metadata fields.</p>
+<p>This is how to convert each metadata field in the <a class="reference external" href="https://oaktrust.library.tamu.edu/server/api/core/bitstreams/efa9caf8-76bf-44f3-a07f-15a5bd68dc2f/content">Metadata Guidelines</a> from Fedora to out-of-the-box Archipelago metadata fields.</p>
 <p>For more information on metadata conversions across more repositories, look at the documentation on <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/crosswalking.html">Crosswalking</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago takes from a different controlled vocabulary.</p>
+</div>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mandatory</p></th>
+<th class="head"><p>Metadata field name</p></th>
+<th class="head"><p>Fedora</p></th>
+<th class="head"><p>Archipelago</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Title</p></td>
+<td><p>dc:title</p></td>
+<td><p>label</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Content Type</p></td>
+<td><p>dcterms.type</p></td>
+<td><p>type</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Digital Publisher</p></td>
+<td></td>
+<td><p>publisher</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Rights/Access</p></td>
+<td><p>dc:rights</p></td>
+<td><p>rights, rights_statements</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Reformatting</p></td>
+<td><p>dc:format</p></td>
+<td><p>digital_origin</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Filename</p></td>
+<td></td>
+<td><p>image, audio, video, document,
+transcript, captions,
+upload_associated_warcs</p></td>
+</tr>
+<tr class="row-even"><td><p>If applicable</p></td>
+<td><p>Subject</p></td>
+<td><p>dc:subject,
+dcterms:spatial,
+dcterms:temporal</p></td>
+<td><p>subjects_local,
+subjects_local_personal_names,
+subjects_loc.{X}.label,
+subjects_lcnaf_personal.{X}.label,
+subjects_lcnaf_corporate.{X}.label,
+subjects_lcnaf_geographic.{X}.label,
+subjects_lcgft_terms.{X}.label</p></td>
+</tr>
+<tr class="row-odd"><td><p>If applicable</p></td>
+<td><p>Creator</p></td>
+<td><p>dc:creator</p></td>
+<td><p>creator_lod.{X}.label,
+creator.{X}</p></td>
+</tr>
+<tr class="row-even"><td><p>If applicable</p></td>
+<td><p>Date Published</p></td>
+<td><p>dcterms:issued</p></td>
+<td><p>date_published</p></td>
+</tr>
+<tr class="row-odd"><td><p>If applicable</p></td>
+<td><p>Date Created</p></td>
+<td><p>dcterms:created</p></td>
+<td><p>date_created,
+date_created_edtf</p></td>
+</tr>
+<tr class="row-even"><td><p>If applicable</p></td>
+<td><p>Summary/Abstract</p></td>
+<td><p>dc:description,
+dc:abstract</p></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-odd"><td><p>If applicable</p></td>
+<td><p>Language</p></td>
+<td><p>dc:language</p></td>
+<td><p>language</p></td>
+</tr>
+<tr class="row-even"><td><p>If applicable</p></td>
+<td><p>Institution/Department</p></td>
+<td><p>dc:contributor, dc:note</p></td>
+<td><p>creator_lod.{X}.label,
+creator.{X}, note</p></td>
+</tr>
+<tr class="row-odd"><td><p>If applicable</p></td>
+<td><p>Standard Digital Identifier</p></td>
+<td><p>dc:identifier
+dc:URL</p></td>
+<td><p>website_url</p></td>
+</tr>
+<tr class="row-even"><td><p>If applicable</p></td>
+<td><p>Local Digital Identifier</p></td>
+<td><p>dc:identifer</p></td>
+<td><p>node_uuid</p></td>
+</tr>
+<tr class="row-odd"><td><p>If applicable</p></td>
+<td><p>Edition/Revision Info</p></td>
+<td><p>dc.description</p></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-even"><td><p>Recommended</p></td>
+<td><p>Alternative Title</p></td>
+<td><p>dcterms:alternative</p></td>
+<td><p>note</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recommended</p></td>
+<td><p>Genre</p></td>
+<td><p>dcterms.type</p></td>
+<td><p>subjects_lcgft_terms.{X}.label,
+subjects_local</p></td>
+</tr>
+<tr class="row-even"><td><p>Recommended</p></td>
+<td><p>Table of Contents</p></td>
+<td></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recommended</p></td>
+<td><p>Contributor</p></td>
+<td><p>dc:contributor</p></td>
+<td><p>creator_lod.{X}.label,
+creator.{X}</p></td>
+</tr>
+<tr class="row-even"><td><p>Recommended</p></td>
+<td><p>Related Resource</p></td>
+<td><p>dcterms:IsPartOf</p></td>
+<td><p>ismemberof, ispartof</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recommended</p></td>
+<td><p>Original Publisher</p></td>
+<td><p>dc:publisher</p></td>
+<td><p>publisher</p></td>
+</tr>
+<tr class="row-even"><td><p>Recommended</p></td>
+<td><p>Extent</p></td>
+<td><p>dcterms:extent</p></td>
+<td><p>physical_description_extent</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recommended</p></td>
+<td><p>Sponsor</p></td>
+<td><p>dc:contributor</p></td>
+<td><p>creator_lod.{X}.label,
+creator.{X}</p></td>
+</tr>
+<tr class="row-even"><td><p>Optional</p></td>
+<td><p>Source Collection</p></td>
+<td></td>
+<td><p>note</p></td>
+</tr>
+<tr class="row-odd"><td><p>Optional</p></td>
+<td><p>Original Resource</p></td>
+<td></td>
+<td><p>website_url</p></td>
+</tr>
+<tr class="row-even"><td><p>Optional</p></td>
+<td><p>Notes</p></td>
+<td></td>
+<td><p>note</p></td>
+</tr>
+<tr class="row-odd"><td><p>Optional</p></td>
+<td><p>Original Place of
+Publication, Production
+or Manufacture</p></td>
+<td><p>dc:description</p></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-even"><td><p>Optional</p></td>
+<td><p>Audience level</p></td>
+<td></td>
+<td><p>note</p></td>
+</tr>
+<tr class="row-odd"><td><p>Optional</p></td>
+<td><p>Classification</p></td>
+<td><p>dcterms:lcc</p></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-even"><td><p>Optional</p></td>
+<td><p>Physical item identifier</p></td>
+<td></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-odd"><td><p>Proposed</p></td>
+<td><p>Citation</p></td>
+<td><p>dc:citation</p></td>
+<td><p>note</p></td>
+</tr>
+<tr class="row-even"><td><p>Proposed</p></td>
+<td><p>DCMI Type</p></td>
+<td><p>dcterms.type</p></td>
+<td><p>note</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 
