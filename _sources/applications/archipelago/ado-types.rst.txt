@@ -110,8 +110,6 @@ AudioObject
 
 * Includes synced transcript
 
-* Needs a metadata field for the link to the original Avalon page
-
 * File types: mp3, vtt
 
 * Example item: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
@@ -124,15 +122,13 @@ VideoObject
 
 * Includes synced captions
 
-* Needs a metadata field for the link to the original Avalon page
-
 * File types: mp4, vtt
 
 * Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
 
------------------
-Annotatable Image
------------------
+--------------
+AnnotatedImage
+--------------
 
 * Opens in default viewer
 
@@ -144,22 +140,24 @@ Annotatable Image
 
 * Example item: `Downs Natatorium in 1980 <https://archipelago-dev.library.tamu.edu/do/f4edce17-70fe-4ad3-8866-fff14c4af653>`_
 -------------
-Metadata Only
+MetadataOnly
 -------------
 
-* No image/audio/video/document
+* No viewer
 
-* Needs a metadata field for the link to the original page
+* File types: vtt if this is audio/video hosted on Avalon
 
-* File types: may have a vtt or pdf if the metadata is for audio/video
+* If there is a transcript/caption, it is not intended for users to download but is only included for discoverability
 
 * Example item: `Interview with Ann Stautberg <https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57>`_
 
 -----------------
-Downloadable File
+DownloadableFile
 -----------------
 
 * No viewer
+
+* File types: ppt, pptx
 
 * User is expected to download the file from the dropdown
 

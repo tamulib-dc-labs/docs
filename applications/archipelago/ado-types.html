@@ -449,7 +449,6 @@
 <ul class="simple">
 <li><p>Opens in audio player</p></li>
 <li><p>Includes synced transcript</p></li>
-<li><p>Needs a metadata field for the link to the original Avalon page</p></li>
 <li><p>File types: mp3, vtt</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f">Bill Scott, Forest Ranger: “Forest Aflame”</a></p></li>
 </ul>
@@ -459,13 +458,12 @@
 <ul class="simple">
 <li><p>Opens in video player</p></li>
 <li><p>Includes synced captions</p></li>
-<li><p>Needs a metadata field for the link to the original Avalon page</p></li>
 <li><p>File types: mp4, vtt</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652">Jeff Bailey - part 1 interview</a></p></li>
 </ul>
 </section>
-<section id="annotatable-image">
-<h2>Annotatable Image<a class="headerlink" href="#annotatable-image" title="Link to this heading">¶</a></h2>
+<section id="annotatedimage">
+<h2>AnnotatedImage<a class="headerlink" href="#annotatedimage" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Opens in default viewer</p></li>
 <li><p>1-n canvases</p></li>
@@ -474,19 +472,20 @@
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/f4edce17-70fe-4ad3-8866-fff14c4af653">Downs Natatorium in 1980</a></p></li>
 </ul>
 </section>
-<section id="metadata-only">
-<h2>Metadata Only<a class="headerlink" href="#metadata-only" title="Link to this heading">¶</a></h2>
+<section id="metadataonly">
+<h2>MetadataOnly<a class="headerlink" href="#metadataonly" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>No image/audio/video/document</p></li>
-<li><p>Needs a metadata field for the link to the original page</p></li>
-<li><p>File types: may have a vtt or pdf if the metadata is for audio/video</p></li>
+<li><p>No viewer</p></li>
+<li><p>File types: vtt if this is audio/video hosted on Avalon</p></li>
+<li><p>If there is a transcript/caption, it is not intended for users to download but is only included for discoverability</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57">Interview with Ann Stautberg</a></p></li>
 </ul>
 </section>
-<section id="downloadable-file">
-<h2>Downloadable File<a class="headerlink" href="#downloadable-file" title="Link to this heading">¶</a></h2>
+<section id="downloadablefile">
+<h2>DownloadableFile<a class="headerlink" href="#downloadablefile" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>No viewer</p></li>
+<li><p>File types: ppt, pptx</p></li>
 <li><p>User is expected to download the file from the dropdown</p></li>
 <li><p>Clear direction on the site so the user knows how to view the file</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e">Race in Fandom: Experiences from the Margins</a></p></li>
@@ -559,9 +558,9 @@
 <li><a class="reference internal" href="#map">Map</a></li>
 <li><a class="reference internal" href="#audioobject">AudioObject</a></li>
 <li><a class="reference internal" href="#videoobject">VideoObject</a></li>
-<li><a class="reference internal" href="#annotatable-image">Annotatable Image</a></li>
-<li><a class="reference internal" href="#metadata-only">Metadata Only</a></li>
-<li><a class="reference internal" href="#downloadable-file">Downloadable File</a></li>
+<li><a class="reference internal" href="#annotatedimage">AnnotatedImage</a></li>
+<li><a class="reference internal" href="#metadataonly">MetadataOnly</a></li>
+<li><a class="reference internal" href="#downloadablefile">DownloadableFile</a></li>
 </ul>
 </li>
 </ul>
