@@ -2,7 +2,7 @@
 Crosswalking Metadata from SAF to Archipelago
 =============================================
 
-This is how to convert each metadata field in the `Metadata Guidelines <https://oaktrust.library.tamu.edu/server/api/core/bitstreams/efa9caf8-76bf-44f3-a07f-15a5bd68dc2f/content>`_ from DSpace to out-of-the-box Archipelago metadata fields.
+This is how to convert each metadata field in the `Metadata Guidelines <https://oaktrust.library.tamu.edu/server/api/core/bitstreams/efa9caf8-76bf-44f3-a07f-15a5bd68dc2f/content>`_ from Avalon to out-of-the-box Archipelago metadata fields.
 
 For more information on metadata conversions across more repositories, look at the documentation on `Crosswalking <https://tamulib-dc-labs.github.io/docs/applications/archipelago/crosswalking.html>`_.
 
@@ -60,7 +60,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | If applicable | Edition/Revision Info       | Description                 | description                          | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Alternative Title           |                             | note                                  | 
+| Recommended   | Alternative Title           |                             | note                                 | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Recommended   | Genre                       | Genre                       | subjects_lcgft_terms.{X}.label,      |
 |               |                             |                             | subjects_local                       |

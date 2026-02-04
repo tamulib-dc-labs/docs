@@ -13,7 +13,7 @@ For more information on metadata conversions across more repositories, look at t
 .. note::
 
     All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago takes from a different controlled vocabulary.
-    
+
 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Mandatory     | Metadata field name         | OAKTrust                    | Archipelago                          | 
@@ -63,7 +63,7 @@ For more information on metadata conversions across more repositories, look at t
 | If applicable | Edition/Revision Info       | dc.description              | description                          | 
 |               |                             | dc.description.provenance   |                                      | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Alternative Title           | dcterms.alternative         | note                                  | 
+| Recommended   | Alternative Title           | dcterms.alternative         | note                                 | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Recommended   | Genre                       | dc.type, dc.subject         | subjects_lcgft_terms.{X}.label,      |
 |               |                             |                             | subjects_local                       |
