@@ -8,12 +8,8 @@ For more information on metadata conversions across more repositories, look at t
 
 .. note::
 
-    Some OAKTrust fields may include [en] at the end of the metadata field.
-
-.. note::
-
     All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago takes from a different controlled vocabulary.
-    
+
 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Mandatory     | Metadata field name         | OAKTrust                    | Archipelago                          | 
