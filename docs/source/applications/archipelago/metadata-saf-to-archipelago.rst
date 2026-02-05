@@ -12,99 +12,95 @@ For more information on metadata conversions across more repositories, look at t
 
 .. note::
 
-    All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago uses a different controlled vocabulary.
+    "Mandatory" refers to whether the field is required according to the Metadata Guidelines. All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago uses a different controlled vocabulary.
 
 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Mandatory     | Metadata field name         | OAKTrust                    | Archipelago                          | 
-+===============+=============================+=============================+======================================+
-| Yes           | Title                       | dc.title                    | label                                | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Yes           | Content Type                | dc.type                     | type                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Yes           | Digital Publisher           | dc.publisher                | publisher                            | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Yes           | Rights/Access               | dc.rights                   | rights, rights_statements            | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Yes           | Reformatting                | dc.format.medium            | digital_origin                       | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Yes           | Filename                    | dc.identifier               | image, audio, video, document,       |
-|               |                             |                             | transcript, captions,                |
-|               |                             |                             | upload_associated_warcs              |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Subject                     | dc.subject                  | subjects_local,                      | 
-|               |                             |                             | subjects_local_personal_names,       |
-|               |                             |                             | subjects_loc.{X}.label,              |
-|               |                             |                             | subjects_lcnaf_personal.{X}.label,   |
-|               |                             |                             | subjects_lcnaf_corporate.{X}.label,  |
-|               |                             |                             | subjects_lcnaf_geographic.{X}.label, |
-|               |                             |                             | subjects_lcgft_terms.{X}.label       |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Creator                     | dc.creator                  | creator_lod.{X}.label,               |
-|               |                             |                             | creator.{X}                          |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Date Published              | dc.date.issued              | date_published                       | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Date Created                | dc.date.created             | date_created,                        |
-|               |                             |                             | date_created_edtf                    |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Summary/Abstract            | dc.description              | description                          | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Language                    | dc.language                 | language                             | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Institution/Department      | dc.contributor, dc.note     | creator_lod.{X}.label,               |
-|               |                             |                             | creator.{X}, note                    |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Standard Digital Identifier | dc.identifier.other         | website_url                          | 
-|               |                             | dc.identifier.uri           |                                      |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Local Digital Identifier    | dc.identifier, id           | node_uuid                            | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| If applicable | Edition/Revision Info       | dc.description              | description                          | 
-|               |                             | dc.description.provenance   |                                      | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Alternative Title           | dcterms.alternative         | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Genre                       | dc.type, dc.subject         | subjects_lcgft_terms.{X}.label,      |
-|               |                             |                             | subjects_local                       |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Table of Contents           | dcterms.description         | description                          | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Contributor                 | dc.contributor.photographer | creator_lod.{X}.label,               |
-|               |                             | dc.contributor.illustrator  | creator.{X}                          |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Related Resource            | dc.relation.ispartof        | ismemberof, ispartof                 | 
-|               |                             | dc.relation.uri             |                                      | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+ 
-| Recommended   | Original Publisher          | dc.publisher                | publisher                            | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+ 
-| Recommended   | Extent                      | dc.format.extent            | physical_description_extent          | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Recommended   | Sponsor                     | dc.contributor.sponsor      | creator_lod.{X}.label,               |
-|               |                             |                             | creator.{X}                          |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Source Collection           |                             | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Original Resource           | dc.identifier.uri           | website_url                          | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Notes                       | dc.description              | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Original Place of           | dc.description              | description                          | 
-|               | Publication, Production     |                             |                                      |
-|               | or Manufacture              |                             |                                      |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Audience level              |                             | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Classification              | dc.classification.lcc       | description                          |
-|               |                             | dc.subject.classification   |                                      |  
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Physical item identifier    | dc.identifer,               | local_identifier                     |
-|               |                             | dc.identifier.other         |                                      |  
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Proposed      | Date Accessioned            | dc.date.accessioned         | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Proposed      | Date Available              | dc.date.available           | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Proposed      | DCMI Type                   | dc.type                     | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Mandatory     | Metadata field name         | OAKTrust                    | Archipelago                          | Explanation                                   |
++===============+=============================+=============================+======================================+===============================================+
+| Yes           | Title                       | dc.title                    | label                                |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Yes           | Content Type                | dc.type                     | note                                 |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Yes           | Digital Publisher           | dc.publisher                | publisher                            |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Yes           | Rights/Access               | dc.rights                   | rights, rights_statements            | rights = uri, rights_statements = free text   |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Yes           | Reformatting                | dc.format.medium            | digital_origin                       |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Yes           | Filename                    | dc.identifier               | image, document,                     | Use the columns that match the type of        |
+|               |                             | bundle:Original             | upload_associated_warcs              | media you are uploading.                      |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Subject                     | dc.subject                  | subjects_local,                      | Divide subjects according to the type of      |  
+|               |                             |                             | subjects_local_personal_names,       | subject heading it is (personal, corporate,   |
+|               |                             |                             | subjects_loc.{X}.label,              | geographic, genre/form, generic) and whether  |
+|               |                             |                             | subjects_lcnaf_personal.{X}.label,   | it is local or not. More fields will be       |
+|               |                             |                             | subjects_lcnaf_corporate.{X}.label,  | added as we add more controlled vocabularies  |
+|               |                             |                             | subjects_lcnaf_geographic.{X}.label, | to Archipelago.                               |
+|               |                             |                             | subjects_lcgft_terms.{X}.label       |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Creator                     | dc.creator                  | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
+|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Date Published              | dc.date.issued              | date_published                       |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Date Created                | dc.date.created             | date_created,                        | Use date_created if you have an exact date.   |
+|               |                             |                             | date_created_edtf                    | Use date_created_edtf if you have a range.    |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Summary/Abstract            | dc.description              | description                          |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Language                    | dc.language                 | language                             |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Institution/Department      | dc.contributor, dc.note     | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
+|               |                             |                             | creator.{X}, note                    | creator.{X} is for local names                |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Standard Digital Identifier | dc.identifier.other         | website_url                          | If dc.identifier is not a URL, a new field    |
+|               |                             | dc.identifier.uri           |                                      | may need to be created.                       |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Local Digital Identifier    | dc.identifier, id           | local_identifier                     |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| If applicable | Edition/Revision Info       | dc.description              | description                          |                                               | 
+|               |                             | dc.description.provenance   |                                      |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Recommended   | Alternative Title           | dcterms.alternative         | note                                 |                                               | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Recommended   | Genre                       | dc.type, dc.subject         | subjects_lcgft_terms.{X}.label,      | subjects_lcgft_terms.{X}.label is for contro- |
+|               |                             |                             | subjects_local                       | lled vocab. subjects_local is for local vocab |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Recommended   | Table of Contents           | dcterms.description         | description                          |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Recommended   | Contributor                 | dc.contributor.photographer | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
+|               |                             | dc.contributor.illustrator  | creator.{X}                          | creator.{X} is for local names                |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Recommended   | Related Resource            | dc.relation.ispartof        | ismemberof,                          | ismemberof is for member of Collection        |
+|               |                             | dc.relation.uri             | ispartof                             | ispartof is for member of CreativeWorkSeries  | 
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
+| Recommended   | Original Publisher          | dc.publisher                | publisher                            |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
+| Recommended   | Extent                      | dc.format.extent            | physical_description_extent          |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Recommended   | Sponsor                     | dc.contributor.sponsor      | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
+|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Source Collection           |                             | note                                 |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Original Resource           | dc.identifier.uri           | website_url                          |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Notes                       | dc.description              | note                                 |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Original Place of           | dc.description              | description                          |                                               |   
+|               | Publication, Production     |                             |                                      |                                               |  
+|               | or Manufacture              |                             |                                      |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Audience level              |                             | note                                 |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Classification              | dc.classification.lcc       | description                          |                                               |  
+|               |                             | dc.subject.classification   |                                      |                                               |    
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Physical item identifier    | dc.identifer,               | local_identifier                     |                                               |  
+|               |                             | dc.identifier.other         |                                      |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Proposed      | Date Accessioned            | dc.date.accessioned         | note                                 |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Proposed      | Date Available              | dc.date.available           | note                                 |                                               |   
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
