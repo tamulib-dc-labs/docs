@@ -76,7 +76,7 @@ Image
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
-    * Entire work can be downloaded as a PDF
+    * Entire work can be downloaded
     * Not paged
 * Display/viewer
     * Mirador
