@@ -24,6 +24,8 @@ Collection
 * File types: None, except maybe a jpg thumbnail
 * Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
 
+Note that at the bottom, the user can see all child ADOs.
+
 .. image:: ../_static/images/exemplar-collection.png
 
     :alt: Screenshot of a Digital Object Collection ADO.
@@ -44,6 +46,18 @@ CreativeWorkSeries
     * Mirador - user can scroll through child ADOs
 * File types: None
 * Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
+
+Note that at the bottom, the user can see all child ADOs.
+
+.. image:: ../_static/images/exemplar-cws.png
+
+    :alt: Screenshot of a CreativeWorkSeries ADO.
+
+Up close, the user can see the Mirador viewer with all ADOs in order.
+
+.. image:: ../_static/images/exemplar-cws-mirador.png
+
+    :alt: Screenshot of the Mirador viewer of a CreativeWorkSeries ADO.
 
 ----
 Book
@@ -67,6 +81,16 @@ Book
     * Mirador
 * File types: pdf, jpg, jp2
 * Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
+
+.. image:: ../_static/images/exemplar-book.png
+
+    :alt: Screenshot of a Book ADO.
+
+Here is the extracted text tab on the book:
+
+.. image:: ../_static/images/exemplar-book-ocr.png
+
+    :alt: Screenshot of the extracted text tab of a Book ADO.
 
 -----
 Image
