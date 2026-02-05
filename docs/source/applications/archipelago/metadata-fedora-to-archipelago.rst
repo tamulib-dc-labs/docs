@@ -8,7 +8,7 @@ For more information on metadata conversions across more repositories, look at t
 
 .. note::
 
-    All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago takes from a different controlled vocabulary.
+    All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago uses a different controlled vocabulary.
 
 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
