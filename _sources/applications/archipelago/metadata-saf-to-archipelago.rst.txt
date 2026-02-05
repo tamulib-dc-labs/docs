@@ -31,7 +31,7 @@ For more information on metadata conversions across more repositories, look at t
 | Yes           | Filename                    | dc.identifier               | image, document,                     | Use the columns that match the type of        |
 |               |                             | bundle:Original             | upload_associated_warcs              | media you are uploading.                      |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Subject                     | dc.subject                  | subjects_local,                      | Divide subjects according to the type of      |  
+| If applicable | Subject                     | dc.subject                  | subjects_local,                      | Map subjects according to the type of         |  
 |               |                             |                             | subjects_local_personal_names,       | subject heading it is (personal, corporate,   |
 |               |                             |                             | subjects_loc.{X}.label,              | geographic, genre/form, generic) and whether  |
 |               |                             |                             | subjects_lcnaf_personal.{X}.label,   | it is local or not. More fields will be       |

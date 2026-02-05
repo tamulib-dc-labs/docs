@@ -153,6 +153,7 @@ AudioObject
         * No unique fields
 * Structure:
     * 1 - n audio files
+    * File and transcript can be downloaded
     * Searchable transcript
 * Display/viewer
     * Audio player
@@ -170,6 +171,7 @@ VideoObject
         * No unique fields
 * Structure:
     * 1 - n video files
+    * File and transcript can be downloaded
     * Searchable captions
 * Display/viewer
     * Video player
