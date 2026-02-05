@@ -40,7 +40,7 @@ This is similar to an Avalon spreadsheet upload, where you can add as many colum
 
 * Most linked data fields will require two columns per entry except creator/contributor fields, which require five: personal/corporate, label, uri, role, and role uri.
 
-* Local creators, local subjects, and local subjects - personal names can be added with a single column that contains the label. This is similar to Avalon.
+* Local creators, local subjects, local subjects - personal names, languages, publishers, descriptions, notes, physical_description_extents can be added with a single column that contains the label. This is similar to Avalon.
 
 * Avalon column names are repeatable. Here, the columns require a number so the script knows which label to match with which uri.
 
@@ -51,28 +51,23 @@ This is similar to an Avalon spreadsheet upload, where you can add as many colum
 Not all Archipelago values require multiple "parts" to be strung together. This spreadsheet template is only used for adding the following repeatable fields:
 
 * LCNAF creators
-
 * LCSH subject headings
-
 * LCNAF subjects (personal)
-
 * LCNAF subjects (corporate)
-
 * LCNAF geographic subjects
-
 * LCGFT terms
-
 * Local creators
-
 * Local subjects
-
 * Local subjects - personal names
-
 * Wikidata
-
 * EDTF
+* Language
+* Publisher
+* Description
+* Note
+* Physical_description_extent
 
-Other fields, like description or date_created should be added directly to the final AMI-compatible spreadsheet.
+Other fields, like label or date_created should be added directly to the final AMI-compatible spreadsheet.
 
 ---------
 Input csv
@@ -93,9 +88,9 @@ Add more columns if there need to be more metadata values per field. Remember th
 
 * LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.
 
-* Local creators, local subjects, and local subjects - personal names are added individually.
-
 * EDTF fields are added as a group of four. This group can only be added once.
+
+* All other fields must be added individually.
 
 ----------------------------------
 What do these column headers mean?

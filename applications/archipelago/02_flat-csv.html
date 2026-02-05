@@ -402,7 +402,7 @@
 </li>
 <li><p>Every linked data value requires at least two columns, not one. To add an extra subject on Avalon, a single column needs to be created. To add an extra subject here, two columns must be created, one for the label and the other for the uri.</p></li>
 <li><p>Most linked data fields will require two columns per entry except creator/contributor fields, which require five: personal/corporate, label, uri, role, and role uri.</p></li>
-<li><p>Local creators, local subjects, and local subjects - personal names can be added with a single column that contains the label. This is similar to Avalon.</p></li>
+<li><p>Local creators, local subjects, local subjects - personal names, languages, publishers, descriptions, notes, physical_description_extents can be added with a single column that contains the label. This is similar to Avalon.</p></li>
 <li><p>Avalon column names are repeatable. Here, the columns require a number so the script knows which label to match with which uri.</p>
 <blockquote>
 <div><ul class="simple">
@@ -425,8 +425,13 @@
 <li><p>Local subjects - personal names</p></li>
 <li><p>Wikidata</p></li>
 <li><p>EDTF</p></li>
+<li><p>Language</p></li>
+<li><p>Publisher</p></li>
+<li><p>Description</p></li>
+<li><p>Note</p></li>
+<li><p>Physical_description_extent</p></li>
 </ul>
-<p>Other fields, like description or date_created should be added directly to the final AMI-compatible spreadsheet.</p>
+<p>Other fields, like label or date_created should be added directly to the final AMI-compatible spreadsheet.</p>
 </section>
 <section id="input-csv">
 <h2>Input csv<a class="headerlink" href="#input-csv" title="Link to this heading">¶</a></h2>
@@ -436,8 +441,8 @@
 <ul class="simple">
 <li><p>LCNAF creator fields are added in sets of 5.</p></li>
 <li><p>LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.</p></li>
-<li><p>Local creators, local subjects, and local subjects - personal names are added individually.</p></li>
 <li><p>EDTF fields are added as a group of four. This group can only be added once.</p></li>
+<li><p>All other fields must be added individually.</p></li>
 </ul>
 </section>
 <section id="what-do-these-column-headers-mean">
