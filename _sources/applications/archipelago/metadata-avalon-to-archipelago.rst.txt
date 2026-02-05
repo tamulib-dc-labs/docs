@@ -6,11 +6,6 @@ This is how to convert each metadata field in the `Metadata Guidelines <https://
 
 For more information on metadata conversions across more repositories, look at the documentation on `Crosswalking <https://tamulib-dc-labs.github.io/docs/applications/archipelago/crosswalking.html>`_.
 
-.. note::
-
-    All fields labeled proposed are not addressed in Metadata Guidelines.
-
-
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Mandatory     | Metadata field name         | Avalon                      | Archipelago                          | 
 +===============+=============================+=============================+======================================+
@@ -94,10 +89,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Optional      | Classification              |                             | description                          |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Physical item identifier    | Other Identifier,           | description                          |
-|               |                             | Other Identifier Type       |                                      |
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Proposed      | Local identifier            | Other Identifier,           | local_identifier                     |
+| Optional      | Physical item identifier    | Other Identifier,           | local_identifier                     |
 |               |                             | Other Identifier Type       |                                      |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 
