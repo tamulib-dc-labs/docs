@@ -98,14 +98,12 @@ For more information on metadata conversions across more repositories, look at t
 | Optional      | Classification              | dc.classification.lcc       | description                          |
 |               |                             | dc.subject.classification   |                                      |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Optional      | Physical item identifier    |                             | description                          | 
+| Optional      | Physical item identifier    | dc.identifer,               | local_identifier                     |
+|               |                             | dc.identifier.other         |                                      |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Proposed      | Date Accessioned            | dc.date.accessioned         | note                                 | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Proposed      | Date Available              | dc.date.available           | note                                 | 
-+---------------+-----------------------------+-----------------------------+--------------------------------------+
-| Proposed      | Local identifier            | dc.identifer,               | local_identifier                     |
-|               |                             | dc.identifier.other         |                                      |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
 | Proposed      | DCMI Type                   | dc.type                     | note                                 | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+
