@@ -24,6 +24,10 @@ Collection
 * File types: None, except maybe a jpg thumbnail
 * Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
 
+.. image:: ../_static/images/exemplar-collection.png
+
+    :alt: Screenshot of a Digital Object Collection ADO.
+
 ------------------
 CreativeWorkSeries
 ------------------

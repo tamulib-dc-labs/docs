@@ -69,6 +69,10 @@ Not all Archipelago values require multiple "parts" to be strung together. This 
 
 Other fields, like label or date_created should be added directly to the final AMI-compatible spreadsheet.
 
+.. note::
+
+    AMI spreadsheets are the **ONLY** way to add repeatable descriptions, notes, publishers, and physical_description_extents. If you try to add this data through the webform **it will not work**.
+
 ---------
 Input csv
 ---------
