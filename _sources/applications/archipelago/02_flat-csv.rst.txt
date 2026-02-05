@@ -101,58 +101,45 @@ Add more columns if there need to be more metadata values per field. Remember th
 What do these column headers mean?
 ----------------------------------
 
-* If Column label starts with
-
-    * this is the type of metadata field it is
-
-* :code:`creator_lod_{i}_name_`
-
-    * LCNAF creator  
-
-* :code:`subject_loc_{i}_`
-
-    * LCSH subject heading 
-
-* :code:`subject_lcnaf_personal_{i}_`
-
-    * LCNAF subject (personal) 
-
-* :code:`subject_lcnaf_corporate_{i}_`
-
-    * LCNAF subject (corporate) 
-
-* :code:`subject_lcnaf_geographic_{i}_`
-
-    * LCNAF geographic subject
-
-* :code:`subject_lcgft_terms_{i}_`
-
-    * LCGFT (genre/form) term 
-
-* :code:`creator_{i}`
-
-    * Local creator
-
-* :code:`subjects_local_{i}`
-
-    * Local subject
-
-* :code:`subjects_local_personal_names_{i}`
-
-    * Local subject - personal name
-
-* :code:`subjects_wikidata_{i}_`
-
-    * Wikidata
-
-* :code:`date_`
-
-    * edtf date
++---------------------------------+------------------------------------+
+| Metadata field                  | Use this column label              |
++=================================+====================================+
+| LCNAF creator                   | creator_lod_{i}_name_              |                            
++---------------------------------+------------------------------------+
+| LCSH subject heading            | subject_loc_{i}_                   |
++---------------------------------+------------------------------------+
+| LCNAF subject (personal)        | subject_lcnaf_personal_{i}_        |
++---------------------------------+------------------------------------+
+| LCNAF subject (corporate)       | subject_lcnaf_corporate_{i}_       |
++---------------------------------+------------------------------------+
+| LCNAF subject (geographic)      | subject_lcnaf_geographic_{i}_      |
++---------------------------------+------------------------------------+
+| LCGFT (genre/form) term         | subject_lcgft_terms_{i}_           |
++---------------------------------+------------------------------------+
+| Local creator                   | creator_{i}                        |
++---------------------------------+------------------------------------+
+| Local subject                   | subjects_local_{i}                 |
++---------------------------------+------------------------------------+
+| Local subject personal name     | subjects_local_personal_names_{i}  |
++---------------------------------+------------------------------------+
+| Wikidata                        | subjects_wikidata_{i}_             |
++---------------------------------+------------------------------------+
+| Date Created EDTF               | date_                              |
++---------------------------------+------------------------------------+
+| Language                        | language_{i}                       |
++---------------------------------+------------------------------------+
+| Publisher                       | publisher_{i}                      |
++---------------------------------+------------------------------------+
+| Description                     | description_{i}                    |
++---------------------------------+------------------------------------+
+| Note                            | note_{i}                           |
++---------------------------------+------------------------------------+
+| physical_description_extent     | physical_description_extent_{i}    |
++---------------------------------+------------------------------------+
 
 .. note::
 
     :code:`date_type` will be :code:`date_range` if you are using date_to and date_from. :code:`date_type` will be :code:`date_edtf` if you are using the date_free field. Although it is labeled date_free, it must be written in `Extended Date Time Format <https://www.loc.gov/standards/datetime/>`_.
-
 
 
 ----------
@@ -167,8 +154,8 @@ Once you have the input csv, you can run this script to convert it to a csv comp
     import json
     import re
 
-    INPUT_CSV = "flat.csv"
-    OUTPUT_CSV = "compressed.csv"
+    INPUT_CSV = "test-flat.csv"
+    OUTPUT_CSV = "test-compressed.csv"
 
     # --------------------
     # Helpers
@@ -235,7 +222,12 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             "subjects_local",
             "subjects_local_personal_names",
 
-            "date_created_edtf"
+            "date_created_edtf",
+            "language",
+            "publisher",
+            "description",
+            "note",
+            "physical_description_extent"
 
         ]
 
@@ -346,6 +338,45 @@ Once you have the input csv, you can run this script to convert it to a csv comp
             if not any(non_empty(v) for v in date_created.values()):
                 date_created = None
 
+            # ---- Languages ----
+            language_indexes = find_indexes(reader.fieldnames, "language_", "")
+            languages = [
+                row.get(f"language_{i}")
+                for i in language_indexes
+                if non_empty(row.get(f"language_{i}"))
+            ]
+
+            # ---- Publishers ----
+            publisher_indexes = find_indexes(reader.fieldnames, "publisher_", "")
+            publishers = [
+                row.get(f"publisher_{i}")
+                for i in publisher_indexes
+                if non_empty(row.get(f"publisher_{i}"))
+            ]
+
+            # ---- Descriptions ----
+            description_indexes = find_indexes(reader.fieldnames, "description_", "")
+            descriptions = [
+                row.get(f"description_{i}")
+                for i in description_indexes
+                if non_empty(row.get(f"description_{i}"))
+            ]
+
+            # ---- Notes ----
+            note_indexes = find_indexes(reader.fieldnames, "note_", "")
+            notes = [
+                row.get(f"note_{i}")
+                for i in note_indexes
+                if non_empty(row.get(f"note_{i}"))
+            ]
+
+            # ---- physical_description_extent ----
+            physical_description_extent_indexes = find_indexes(reader.fieldnames, "physical_description_extent_", "")
+            physical_description_extents = [
+                row.get(f"physical_description_extent_{i}")
+                for i in physical_description_extent_indexes
+                if non_empty(row.get(f"physical_description_extent_{i}"))
+            ]
 
             # ---- Write row ----
             writer.writerow({
@@ -366,9 +397,15 @@ Once you have the input csv, you can run this script to convert it to a csv comp
                 "date_created_edtf": (
                     json.dumps(date_created, ensure_ascii=False)
                     if date_created else ""
-                )
+                ),
 
+                "language": json.dumps(languages, ensure_ascii=False),
+                "publisher": json.dumps(publishers, ensure_ascii=False),
+                "description": json.dumps(descriptions, ensure_ascii=False),
+                "note": json.dumps(notes, ensure_ascii=False),
+                "physical_description_extent": json.dumps(physical_description_extents, ensure_ascii=False)
             })
+
 
 
 
