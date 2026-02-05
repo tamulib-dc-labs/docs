@@ -384,7 +384,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago uses a different controlled vocabulary.</p>
+<p>“Mandatory” refers to whether the field is required according to the Metadata Guidelines. All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago uses a different controlled vocabulary.</p>
 </div>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -393,6 +393,7 @@
 <th class="head"><p>Metadata field name</p></th>
 <th class="head"><p>OAKTrust</p></th>
 <th class="head"><p>Archipelago</p></th>
+<th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
 <tbody>
@@ -400,33 +401,40 @@
 <td><p>Title</p></td>
 <td><p>dc.title</p></td>
 <td><p>label</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Content Type</p></td>
 <td><p>dc.type</p></td>
-<td><p>type</p></td>
+<td><p>note</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Yes</p></td>
 <td><p>Digital Publisher</p></td>
 <td><p>dc.publisher</p></td>
 <td><p>publisher</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Rights/Access</p></td>
 <td><p>dc.rights</p></td>
 <td><p>rights, rights_statements</p></td>
+<td><p>rights = uri, rights_statements = free text</p></td>
 </tr>
 <tr class="row-even"><td><p>Yes</p></td>
 <td><p>Reformatting</p></td>
 <td><p>dc.format.medium</p></td>
 <td><p>digital_origin</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Filename</p></td>
-<td><p>dc.identifier</p></td>
-<td><p>image, audio, video, document,
-transcript, captions,
+<td><p>dc.identifier
+bundle:Original</p></td>
+<td><p>image, document,
 upload_associated_warcs</p></td>
+<td><p>Use the columns that match the type of
+media you are uploading.</p></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Subject</p></td>
@@ -438,72 +446,95 @@ subjects_lcnaf_personal.{X}.label,
 subjects_lcnaf_corporate.{X}.label,
 subjects_lcnaf_geographic.{X}.label,
 subjects_lcgft_terms.{X}.label</p></td>
+<td><p>Divide subjects according to the type of
+subject heading it is (personal, corporate,
+geographic, genre/form, generic) and whether
+it is local or not. More fields will be
+added as we add more controlled vocabularies
+to Archipelago.</p></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Creator</p></td>
 <td><p>dc.creator</p></td>
 <td><p>creator_lod.{X}.label,
 creator.{X}</p></td>
+<td><p>creator_lod is for controlled vocab,
+creator.{X} is for local names</p></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Date Published</p></td>
 <td><p>dc.date.issued</p></td>
 <td><p>date_published</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Date Created</p></td>
 <td><p>dc.date.created</p></td>
 <td><p>date_created,
 date_created_edtf</p></td>
+<td><p>Use date_created if you have an exact date.
+Use date_created_edtf if you have a range.</p></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Summary/Abstract</p></td>
 <td><p>dc.description</p></td>
 <td><p>description</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Language</p></td>
 <td><p>dc.language</p></td>
 <td><p>language</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Institution/Department</p></td>
 <td><p>dc.contributor, dc.note</p></td>
 <td><p>creator_lod.{X}.label,
 creator.{X}, note</p></td>
+<td><p>creator_lod is for controlled vocab,
+creator.{X} is for local names</p></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Standard Digital Identifier</p></td>
 <td><p>dc.identifier.other
 dc.identifier.uri</p></td>
 <td><p>website_url</p></td>
+<td><p>If dc.identifier is not a URL, a new field
+may need to be created.</p></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Local Digital Identifier</p></td>
 <td><p>dc.identifier, id</p></td>
-<td><p>node_uuid</p></td>
+<td><p>local_identifier</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Edition/Revision Info</p></td>
 <td><p>dc.description
 dc.description.provenance</p></td>
 <td><p>description</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Alternative Title</p></td>
 <td><p>dcterms.alternative</p></td>
 <td><p>note</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Genre</p></td>
 <td><p>dc.type, dc.subject</p></td>
 <td><p>subjects_lcgft_terms.{X}.label,
 subjects_local</p></td>
+<td><p>subjects_lcgft_terms.{X}.label is for contro-
+lled vocab. subjects_local is for local vocab</p></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Table of Contents</p></td>
 <td><p>dcterms.description</p></td>
 <td><p>description</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Contributor</p></td>
@@ -511,43 +542,55 @@ subjects_local</p></td>
 dc.contributor.illustrator</p></td>
 <td><p>creator_lod.{X}.label,
 creator.{X}</p></td>
+<td><p>creator_lod is for controlled vocab,
+creator.{X} is for local names</p></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Related Resource</p></td>
 <td><p>dc.relation.ispartof
 dc.relation.uri</p></td>
-<td><p>ismemberof, ispartof</p></td>
+<td><p>ismemberof,
+ispartof</p></td>
+<td><p>ismemberof is for member of Collection
+ispartof is for member of CreativeWorkSeries</p></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Original Publisher</p></td>
 <td><p>dc.publisher</p></td>
 <td><p>publisher</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Extent</p></td>
 <td><p>dc.format.extent</p></td>
 <td><p>physical_description_extent</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Sponsor</p></td>
 <td><p>dc.contributor.sponsor</p></td>
 <td><p>creator_lod.{X}.label,
 creator.{X}</p></td>
+<td><p>creator_lod is for controlled vocab,
+creator.{X} is for local names</p></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Source Collection</p></td>
 <td></td>
 <td><p>note</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Resource</p></td>
 <td><p>dc.identifier.uri</p></td>
 <td><p>website_url</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Notes</p></td>
 <td><p>dc.description</p></td>
 <td><p>note</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Place of
@@ -555,38 +598,39 @@ Publication, Production
 or Manufacture</p></td>
 <td><p>dc.description</p></td>
 <td><p>description</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Audience level</p></td>
 <td></td>
 <td><p>note</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Classification</p></td>
 <td><p>dc.classification.lcc
 dc.subject.classification</p></td>
 <td><p>description</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Physical item identifier</p></td>
 <td><p>dc.identifer,
 dc.identifier.other</p></td>
 <td><p>local_identifier</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>Proposed</p></td>
 <td><p>Date Accessioned</p></td>
 <td><p>dc.date.accessioned</p></td>
 <td><p>note</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>Proposed</p></td>
 <td><p>Date Available</p></td>
 <td><p>dc.date.available</p></td>
 <td><p>note</p></td>
-</tr>
-<tr class="row-odd"><td><p>Proposed</p></td>
-<td><p>DCMI Type</p></td>
-<td><p>dc.type</p></td>
-<td><p>note</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>

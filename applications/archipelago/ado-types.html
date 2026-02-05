@@ -381,30 +381,132 @@
 <section id="collection">
 <h2>Collection<a class="headerlink" href="#collection" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Parent object, has child ADOs.</p></li>
-<li><p>Has metadata that only appears on Collection page</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Has child ADOs</p></li>
 <li><p>May be part of another collection</p></li>
-<li><p>Thumbnail</p></li>
-<li><p>No viewer</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Should have its associated files set up for “collections as data”</p></li>
+<li><p>May have a thumbnail</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>None</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: None, except maybe a jpg thumbnail</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec">Brazos Maps</a></p></li>
 </ul>
 </section>
 <section id="creativeworkseries">
 <h2>CreativeWorkSeries<a class="headerlink" href="#creativeworkseries" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Parent object, has child ADOs.</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Has child ADOs in a prescribed order</p></li>
 <li><p>May be part of a collection</p></li>
-<li><p>Child objects open in Mirador in a prescribed order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Should have its associated files set up for “collections as data”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador - user can scroll through child ADOs</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: None</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1">Bachelor Hall and Buggy House</a></p></li>
 </ul>
 </section>
 <section id="book">
 <h2>Book<a class="headerlink" href="#book" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>OCR/HOCR</p></li>
-<li><p>1-n canvases</p></li>
-<li><p>Typed</p></li>
-<li><p>Opens in Mirador</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Structures and Ranges</p></li>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>Author, Illustrator, Editor (can be added using creator roles)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>OCR and HOCR or AltoXML for each canvases</p></li>
+<li><p>Entire work can be downloaded as a PDF with OCR embedded</p></li>
+<li><p>Should have its text and associated files set up for “collections as data”</p></li>
+<li><p>Not paged</p></li>
+<li><p>Searchable</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: pdf, jpg, jp2</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up">The Olio</a></p></li>
 </ul>
@@ -412,8 +514,43 @@
 <section id="image">
 <h2>Image<a class="headerlink" href="#image" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>1-n canvases</p></li>
-<li><p>Opens in Mirador</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>Entire work can be downloaded as a PDF</p></li>
+<li><p>Not paged</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: jpg, jp2</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450">Military Parade 1</a></p></li>
 </ul>
@@ -421,28 +558,128 @@
 <section id="webpage">
 <h2>WebPage<a class="headerlink" href="#webpage" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Metadata: url from original site.</p></li>
-<li><p>User can navigate the site inside the viewer</p></li>
-<li><p>File type: wacz, warc</p></li>
+<li><p>Includes archived exhibits</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><p>Technical/Structural:</p></li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>url from orginal site</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Searchable</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>WARC Replay.web Widget</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: wacz, warc</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&amp;ts=20251205202838">AAVPT Biennial Symposia</a></p></li>
 </ul>
 </section>
 <section id="manuscript">
 <h2>Manuscript<a class="headerlink" href="#manuscript" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>HTR on handwritten text</p></li>
-<li><p>1-n canvases</p></li>
-<li><p>Opens in Mirador</p></li>
-<li><p>File types: jpg, jp2</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>HTR for each canvases</p></li>
+<li><p>Entire work can be downloaded as a PDF with OCR embedded</p></li>
+<li><p>Should have its text and associated files set up for “collections as data”</p></li>
+<li><p>Not paged</p></li>
+<li><p>Searchable</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: pdf, jpg, jp2</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1">Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887</a></p></li>
 </ul>
 </section>
 <section id="map">
 <h2>Map<a class="headerlink" href="#map" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>1-n canvases</p></li>
-<li><p>May be very large files</p></li>
-<li><p>Opens in Mirador</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>Projection</p></li>
+<li><p>Edition of the map / state of the map</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>Not paged</p></li>
+<li><p>May have a watermark</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador</p></li>
+<li><p>x, y, w, h of the watermark to the original canvas</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: jpg, jp2</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1">Bryan-College Station Bicycle Plan</a></p></li>
 </ul>
@@ -450,8 +687,41 @@
 <section id="audioobject">
 <h2>AudioObject<a class="headerlink" href="#audioobject" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Opens in audio player</p></li>
-<li><p>Includes synced transcript</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>1 - n audio files</p></li>
+<li><p>Searchable transcript</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Audio player</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: mp3, vtt</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f">Bill Scott, Forest Ranger: “Forest Aflame”</a></p></li>
 </ul>
@@ -459,18 +729,85 @@
 <section id="videoobject">
 <h2>VideoObject<a class="headerlink" href="#videoobject" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Opens in video player</p></li>
-<li><p>Includes synced captions</p></li>
-<li><p>File types: mp4, vtt</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>1 - n video files</p></li>
+<li><p>Searchable captions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Video player</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652">Jeff Bailey - part 1 interview</a></p></li>
 </ul>
 </section>
 <section id="annotatedimage">
 <h2>AnnotatedImage<a class="headerlink" href="#annotatedimage" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Opens in default viewer</p></li>
-<li><p>1-n canvases</p></li>
-<li><p>IIIF manifest has annotations</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>Entire work can be downloaded as a PDF</p></li>
+<li><p>Not paged</p></li>
+<li><p>Annotated manifest</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Full view</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: jpg, jp2, must be imported through IIIF</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/f4edce17-70fe-4ad3-8866-fff14c4af653">Downs Natatorium in 1980</a></p></li>
 </ul>
@@ -478,19 +815,78 @@
 <section id="metadataonly">
 <h2>MetadataOnly<a class="headerlink" href="#metadataonly" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>No viewer</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><p>Technical/Structural:</p></li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>url to item</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Searchable transcript/captions (or nothing)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>None</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: vtt if this is audio/video hosted on Avalon</p></li>
-<li><p>If there is a transcript/caption, it is not intended for users to download but is only included for discoverability</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57">Interview with Ann Stautberg</a></p></li>
 </ul>
 </section>
 <section id="downloadablefile">
 <h2>DownloadableFile<a class="headerlink" href="#downloadablefile" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>No viewer</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>1 - n files</p></li>
+<li><p>Searchable</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>None</p></li>
+<li><p>Clear instructions to download the file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>File types: ppt, pptx</p></li>
-<li><p>User is expected to download the file from the dropdown</p></li>
-<li><p>Clear direction on the site so the user knows how to view the file</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e">Race in Fandom: Experiences from the Margins</a></p></li>
 </ul>
 </section>
