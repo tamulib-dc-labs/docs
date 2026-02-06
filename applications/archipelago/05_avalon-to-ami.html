@@ -404,67 +404,14 @@
 <section id="how-to-upload-these-files">
 <h2>How to upload these files?<a class="headerlink" href="#how-to-upload-these-files" title="Link to this heading">¶</a></h2>
 <p>Because these values are being downloaded to your device, you will use a zip file to upload. Remember that zip files have a maximum size of 512MB, so you will likely need to split your migration into batches.</p>
-</section>
-<section id="adding-transcripts-captions">
-<h2>Adding Transcripts/Captions<a class="headerlink" href="#adding-transcripts-captions" title="Link to this heading">¶</a></h2>
-<p>You can add transcripts and captions to an item by using the “transcripts” and “captions” columns on the template. However, after you create the AMI set but before you process it, go to the “Edit” tab. Scroll down to the “Edit Config and associated data” box.</p>
-<p>It should look like this:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;AudioObject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;direct&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;metadata_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;bundle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;digital_object:field_descriptive_metadata&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Or like this:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;VideoObject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;direct&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;metadata_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;bundle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;digital_object:field_descriptive_metadata&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Replace the empty <code class="code docutils literal notranslate"><span class="pre">files[]</span></code> with the following:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audio&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;original&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transcript&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transcript&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;mimetype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text/vtt&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English transcript&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-<p>Or with this:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;video&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;original&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;captions&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;caption&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;mimetype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text/vtt&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;English captions&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-<p>This lets Archipelago connect the transcript to audio or caption to video.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>AudioObject must be a mp3. If you upload mp4s, Archipelago thinks you have a video, even though you set the type as AudioObject. Your “video” won’t show up in the audio player, but it appears under the Download dropdown menu. If you change the object type to VideoObject, the file will show up in the video player, but it will not be in sync with the transcript.</p>
 </div>
+</section>
+<section id="adding-transcripts-captions">
+<h2>Adding Transcripts/Captions<a class="headerlink" href="#adding-transcripts-captions" title="Link to this heading">¶</a></h2>
+<p>You can add transcripts and captions to an item by using the “transcripts” and “captions” columns on the template.</p>
 </section>
 </section>
 
