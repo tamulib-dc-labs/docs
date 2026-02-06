@@ -115,7 +115,7 @@ rights vs. rights_statements
 date_created vs. date_created_edtf
 ----------------------------------
 
-:code:`date_created` will automatically be turned into a Month nth, YYYY format upon import. However, you can enter it in most standard date formats. :code:`date_created_edtf` will allow you to put a range or a date in `Extended Date Time Format <https://www.loc.gov/standards/datetime/>`_.
+:code:`date_created` must be written in YYYY-MM-DD format. :code:`date_created_edtf` will allow you to put a range or a date in `Extended Date Time Format <https://www.loc.gov/standards/datetime/>`_.
 
 
 ---------------------
