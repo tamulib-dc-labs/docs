@@ -170,7 +170,7 @@ Manuscript
     * Mirador
 * File types: pdf, jpg, jp2
 * Book vs. Manuscript
-    * A Manuscript does not have OCR or Extracted Text (because Archipelago does not do OCR for handwritten text)
+    * A Manuscript does not have OCR or Extracted Text
     * A Manuscript has HTR instead
 
 * Example item: `Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887 <https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1>`_
@@ -335,7 +335,7 @@ DownloadableFile
 
 The user must use the Download menu to download the file. It does not show up in the media viewer.
 
-.. image:: ../_static/images/exemplar-downloadable.png
+.. image:: ../_static/images/exemplar-downloadable-file.png
     :alt: Screenshot of a DownloadableFile ADO menu allowing the user to download a powerpoint.
 
 Things missing from this exemplar
