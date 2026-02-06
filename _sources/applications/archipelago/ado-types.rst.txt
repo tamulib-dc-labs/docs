@@ -47,6 +47,8 @@ CreativeWorkSeries
 * Display/viewer
     * Mirador - user can scroll through child ADOs
 * File types: None
+* Example collections:
+    * Building History Collection
 * Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
 * Collection vs. CreativeWorkSeries
     * Like a collection, a CreativeWorkSeries will display all ADOs at the bottom of the ADO page.
@@ -76,6 +78,10 @@ Image
 * Display/viewer
     * Mirador
 * File types: jpg, jp2
+* Example collections:
+    * WWI Postcards
+    * Wheelan Collection
+    * Berger Cloonan
 * Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
 
 ---
@@ -97,6 +103,9 @@ Map
     * Mirador
     * x, y, w, h of the watermark to the original canvas
 * File types: jpg, jp2
+* Example collections:
+    * Brazos Maps
+    * WWII Service Maps
 * Example item: `Bryan-College Station Bicycle Plan <https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1>`_
 * Image vs. Map
     * A Map will be annotated with a watermark, but an Image will not
@@ -118,7 +127,7 @@ Book
         * Structures and Ranges
         * Checksums for files
     * Descriptive  
-        * Author, Illustrator, Editor (can be added using creator roles)
+        * No unique fields
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
@@ -134,7 +143,10 @@ Book
     * A Book has OCR, an Image does not
     * A Book is searchable, an Image is not
     * Users can download an entire Book as a pdf, but Images must be downloaded individually as their original filetype (jpg or jp2).
-
+* Example collections:
+    * Yearbooks
+    * Committee on South Asian Women
+    * Cherokee Freedmen
 * Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
 
 .. image:: ../_static/images/exemplar-book-search.png
@@ -155,14 +167,15 @@ Manuscript
 
 * Metadata:
     * Technical/Structural:
+        * Structures and ranges
         * Checksums for files
     * Descriptive  
         * HTR
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
-    * HTR for each canvases
-    * Entire work can be downloaded as a PDF with OCR embedded
+    * HTR for each canvas
+    * Entire work can be downloaded as a PDF with HTR embedded
     * Should have its text and associated files set up for "collections as data"
     * Not paged
     * Searchable
@@ -172,7 +185,9 @@ Manuscript
 * Book vs. Manuscript
     * A Manuscript does not have OCR or Extracted Text
     * A Manuscript has HTR instead
-
+* Example collections
+    * AMC Early Presidents
+    * Houston Oil Minutes
 * Example item: `Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887 <https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1>`_
 
 .. image:: ../_static/images/exemplar-manuscript.png
@@ -199,6 +214,9 @@ AudioObject
 * Display/viewer
     * Audio player
 * File types: mp3, vtt
+* Example collections:
+    * Science Fiction Radio Show Collection
+    * Owens Folk Music
 * Example item: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
 
 In the example, the audio and transcript are synced and there is a button where the user can download the vtt.
@@ -226,6 +244,8 @@ VideoObject
     * Searchable captions
 * Display/viewer
     * Video player
+* Example collections:
+    * Veterans of the Valley
 * Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
 
 .. image:: ../_static/images/exemplar-video.png
@@ -255,6 +275,9 @@ AnnotatedImage
 * Display/viewer
     * Full view
 * File types: jpg, jp2, must be imported through IIIF
+* AnnotatedImage vs. Image
+    * Image opens in Mirador, AnnotatedImage opens in Full view
+    * AnnotatedImage is part of a CreativeWorkSeries
 * Example item: `Downs Natatorium in 1980 <https://archipelago-dev.library.tamu.edu/do/f4edce17-70fe-4ad3-8866-fff14c4af653>`_
 
 -------------
@@ -270,6 +293,8 @@ MetadataOnly
 * Display/viewer
     * None
 * File types: vtt if this is audio/video hosted on Avalon
+* Example collections:
+    * Dallas Women's Gallery
 * Example item: `Interview with Ann Stautberg <https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57>`_
 
 The user can download supplemental files but not the file the metadata is about.
@@ -286,7 +311,6 @@ In this exemplar, the vtts are used to create extracted text, similar to that of
 WebPage
 -------
 
-* Includes archived exhibits
 * Metadata:
     * Technical/Structural:
     * Descriptive  
@@ -296,6 +320,9 @@ WebPage
 * Display/viewer
     * WARC Replay.web Widget
 * File types: wacz, warc
+* Example collections:
+    * OJS Journals
+    * Archived exhibits
 * Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
 * MetadataOnly vs. WebPage 
     * While both MetadataOnly and WebPage require a link to another site, WebPage is intended for archived sites and MetadataOnly is more of a tool for discoverability
@@ -328,6 +355,8 @@ DownloadableFile
     * None
     * Clear instructions to download the file
 * File types: ppt, pptx
+* Example exhibit:
+    * Amazing, Fantastic, Weird: Science Fiction Studies in Texas
 * Example item: `Race in Fandom: Experiences from the Margins <https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e>`_
 * DownloadableFile vs. MetadataOnly
     * MetadataOnly may have a supplemental file, but not the media file. DownloadableFile includes the media file; there is just no viewer for it.
