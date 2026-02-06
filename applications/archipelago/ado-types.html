@@ -420,7 +420,7 @@
 <li><p>File types: None, except maybe a jpg thumbnail</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec">Brazos Maps</a></p></li>
 </ul>
-<p>At the bottom, the user can see all child ADOs.</p>
+<p>All child ADOs are displayed at the bottom of the page.</p>
 <img alt="Screenshot of a Digital Object Collection ADO." src="applications/archipelago/docs/source/_static/images/exemplar-collection.png" />
 <dl class="simple">
 <dt>Things missing from this ADO</dt><dd><ul class="simple">
@@ -469,14 +469,126 @@
 </li>
 <li><p>File types: None</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1">Bachelor Hall and Buggy House</a></p></li>
+<li><dl class="simple">
+<dt>Collection vs. CreativeWorkSeries</dt><dd><ul>
+<li><p>Like a collection, a CreativeWorkSeries will display all ADOs at the bottom of the ADO page.</p></li>
+<li><p>Unlike a Collection, a CreativeWorkSeries includes a Mirador viewer with all ADOs in order.</p></li>
+<li><p>Unlike a Collection, a CreativeWorkSeries has no thumbnail.</p></li>
 </ul>
-<p>At the bottom, the user can see all child ADOs.</p>
-<img alt="Screenshot of a CreativeWorkSeries ADO." src="applications/_static/images/exemplar-cws.png" />
-<p>Up close, the user can see the Mirador viewer with all ADOs in order.</p>
+</dd>
+</dl>
+</li>
+</ul>
 <img alt="Screenshot of the Mirador viewer of a CreativeWorkSeries ADO." src="applications/_static/images/exemplar-cws-mirador.png" />
 <dl class="simple">
 <dt>Things missing from this ADO</dt><dd><ul class="simple">
 <li><p>Collections as data</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="image">
+<h2>Image<a class="headerlink" href="#image" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>No unique fields</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>Individual canvases can be downloaded</p></li>
+<li><p>Not paged</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: jpg, jp2</p></li>
+<li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450">Military Parade 1</a></p></li>
+</ul>
+</section>
+<section id="map">
+<h2>Map<a class="headerlink" href="#map" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Technical/Structural:</dt><dd><ul>
+<li><p>Checksums for files</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>Projection</p></li>
+<li><p>Edition of the map / state of the map</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Multiple High Resolution Images as Canvases</p></li>
+<li><p>1 to n canvases</p></li>
+<li><p>Not paged</p></li>
+<li><p>May have a watermark</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>Mirador</p></li>
+<li><p>x, y, w, h of the watermark to the original canvas</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: jpg, jp2</p></li>
+<li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1">Bryan-College Station Bicycle Plan</a></p></li>
+<li><dl class="simple">
+<dt>Image vs. Map</dt><dd><ul>
+<li><p>A Map will be annotated with a watermark, but an Image will not</p></li>
+<li><p>A Map contains unique metadata not included in any other worktype</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="Screenshot of a Map ADO." src="applications/_static/images/exemplar-map.png" />
+<dl class="simple">
+<dt>Things missing from this exemplar</dt><dd><ul class="simple">
+<li><p>Projection and edition metadata</p></li>
+<li><p>No watermark on this exemplar</p></li>
 </ul>
 </dd>
 </dl>
@@ -526,9 +638,18 @@
 </dl>
 </li>
 <li><p>File types: pdf, jpg, jp2</p></li>
+<li><dl class="simple">
+<dt>Image vs. Book</dt><dd><ul>
+<li><p>A Book has OCR, an Image does not</p></li>
+<li><p>A Book is searchable, an Image is not</p></li>
+<li><p>Users can download an entire Book as a pdf, but Images must be downloaded individually as their original filetype (jpg or jp2).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up">The Olio</a></p></li>
 </ul>
-<img alt="Screenshot of a Book ADO." src="applications/_static/images/exemplar-book.png" />
+<img alt="Screenshot of the search function on a Book ADO." src="applications/_static/images/exemplar-book-search.png" />
 <p>Here is the extracted text tab on the book:</p>
 <img alt="Screenshot of the extracted text tab of a Book ADO." src="applications/_static/images/exemplar-book-ocr.png" />
 <dl class="simple">
@@ -538,95 +659,6 @@
 </ul>
 </dd>
 </dl>
-</section>
-<section id="image">
-<h2>Image<a class="headerlink" href="#image" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Metadata:</dt><dd><ul>
-<li><dl class="simple">
-<dt>Technical/Structural:</dt><dd><ul>
-<li><p>Checksums for files</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Descriptive</dt><dd><ul>
-<li><p>No unique fields</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Structure:</dt><dd><ul>
-<li><p>Multiple High Resolution Images as Canvases</p></li>
-<li><p>1 to n canvases</p></li>
-<li><p>Individual canvases can be downloaded</p></li>
-<li><p>Not paged</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Display/viewer</dt><dd><ul>
-<li><p>Mirador</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>File types: jpg, jp2</p></li>
-<li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450">Military Parade 1</a></p></li>
-</ul>
-<img alt="Screenshot of an Image ADO." src="applications/_static/images/exemplar-image.png" />
-<p>Here is the metadata, showing repeatable fields:</p>
-<img alt="Screenshot of the metadata of an Image ADO." src="applications/_static/images/exemplar-image-metadata.png" />
-<p>Here is the linked data:</p>
-<img alt="Screenshot of the linked data of an Image ADO." src="applications/_static/images/exemplar-image-linkeddata.png" />
-</section>
-<section id="webpage">
-<h2>WebPage<a class="headerlink" href="#webpage" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Includes archived exhibits</p></li>
-<li><dl class="simple">
-<dt>Metadata:</dt><dd><ul>
-<li><p>Technical/Structural:</p></li>
-<li><dl class="simple">
-<dt>Descriptive</dt><dd><ul>
-<li><p>url from orginal site</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Structure:</dt><dd><ul>
-<li><p>Searchable</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Display/viewer</dt><dd><ul>
-<li><p>WARC Replay.web Widget</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>File types: wacz, warc</p></li>
-<li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&amp;ts=20251205202838">AAVPT Biennial Symposia</a></p></li>
-</ul>
-<p>The user can navigate the site in the viewer as if it was the original website</p>
-<img alt="Screenshot of a WebPage ADO." src="applications/_static/images/exemplar-webpage.png" />
-<p>In the metadata, the URL of the original site must be included:</p>
-<img alt="Screenshot of the metadata of a WebPage ADO." src="applications/_static/images/exemplar-webpage-metadata.png" />
 </section>
 <section id="manuscript">
 <h2>Manuscript<a class="headerlink" href="#manuscript" title="Link to this heading">¶</a></h2>
@@ -642,7 +674,7 @@
 </li>
 <li><dl class="simple">
 <dt>Descriptive</dt><dd><ul>
-<li><p>No unique fields</p></li>
+<li><p>HTR</p></li>
 </ul>
 </dd>
 </dl>
@@ -672,6 +704,14 @@
 </dl>
 </li>
 <li><p>File types: pdf, jpg, jp2</p></li>
+<li><dl class="simple">
+<dt>Book vs. Manuscript</dt><dd><ul>
+<li><p>A Manuscript does not have OCR or Extracted Text (because Archipelago does not do OCR for handwritten text)</p></li>
+<li><p>A Manuscript has HTR instead</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1">Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887</a></p></li>
 </ul>
 <img alt="Screenshot of a Manuscript ADO." src="applications/_static/images/exemplar-manuscript.png" />
@@ -680,60 +720,6 @@
 <li><p>HTR</p></li>
 <li><p>Collections as data</p></li>
 <li><p>PDF for users to download</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="map">
-<h2>Map<a class="headerlink" href="#map" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Metadata:</dt><dd><ul>
-<li><dl class="simple">
-<dt>Technical/Structural:</dt><dd><ul>
-<li><p>Checksums for files</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Descriptive</dt><dd><ul>
-<li><p>Projection</p></li>
-<li><p>Edition of the map / state of the map</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Structure:</dt><dd><ul>
-<li><p>Multiple High Resolution Images as Canvases</p></li>
-<li><p>1 to n canvases</p></li>
-<li><p>Not paged</p></li>
-<li><p>May have a watermark</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Display/viewer</dt><dd><ul>
-<li><p>Mirador</p></li>
-<li><p>x, y, w, h of the watermark to the original canvas</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>File types: jpg, jp2</p></li>
-<li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1">Bryan-College Station Bicycle Plan</a></p></li>
-</ul>
-<img alt="Screenshot of a Map ADO." src="applications/_static/images/exemplar-map.png" />
-<dl class="simple">
-<dt>Things missing from this exemplar</dt><dd><ul class="simple">
-<li><p>Projection and edition metadata</p></li>
-<li><p>No watermark on this exemplar</p></li>
 </ul>
 </dd>
 </dl>
@@ -909,12 +895,58 @@
 <li><p>File types: vtt if this is audio/video hosted on Avalon</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57">Interview with Ann Stautberg</a></p></li>
 </ul>
-<p>In this MetadataOnly ADO, the URL points to the item hosted on Avalon.</p>
-<img alt="Screenshot of a MetadataOnly ADO." src="applications/_static/images/exemplar-metadataonly.png" />
-<p>The user can download both vtts but not the video file itself.</p>
+<p>The user can download supplemental files but not the file the metadata is about.</p>
 <img alt="Screenshot of a MetadataOnly ADO menu allowing the user to download two vtts." src="applications/_static/images/exemplar-metadataonly-vtts.png" />
-<p>These vtts are used to create extracted text, similar to that of a VideoObject or AudioObject.</p>
+<p>In this exemplar, the vtts are used to create extracted text, similar to that of a VideoObject or AudioObject.</p>
 <img alt="Screenshot of the extracted text of a MetadataOnly ADO." src="applications/_static/images/exemplar-metadataonly-text.png" />
+</section>
+<section id="webpage">
+<h2>WebPage<a class="headerlink" href="#webpage" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Includes archived exhibits</p></li>
+<li><dl class="simple">
+<dt>Metadata:</dt><dd><ul>
+<li><p>Technical/Structural:</p></li>
+<li><dl class="simple">
+<dt>Descriptive</dt><dd><ul>
+<li><p>url from orginal site</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Structure:</dt><dd><ul>
+<li><p>Searchable</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Display/viewer</dt><dd><ul>
+<li><p>WARC Replay.web Widget</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>File types: wacz, warc</p></li>
+<li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&amp;ts=20251205202838">AAVPT Biennial Symposia</a></p></li>
+<li><dl class="simple">
+<dt>MetadataOnly vs. WebPage</dt><dd><ul>
+<li><p>While both MetadataOnly and WebPage require a link to another site, WebPage is intended for archived sites and MetadataOnly is more of a tool for discoverability</p></li>
+<li><p>WebPage opens a viewer so the user can navigate the site inside Archipelago</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The user can navigate the site in the viewer as if it was the original website</p>
+<img alt="Screenshot of a WebPage ADO." src="applications/_static/images/exemplar-webpage.png" />
+<p>In the metadata, the URL of the original site must be included:</p>
+<img alt="Screenshot of the metadata of a WebPage ADO." src="applications/_static/images/exemplar-webpage-metadata.png" />
 </section>
 <section id="downloadablefile">
 <h2>DownloadableFile<a class="headerlink" href="#downloadablefile" title="Link to this heading">¶</a></h2>
@@ -957,10 +989,16 @@
 </li>
 <li><p>File types: ppt, pptx</p></li>
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e">Race in Fandom: Experiences from the Margins</a></p></li>
+<li><dl class="simple">
+<dt>DownloadableFile vs. MetadataOnly</dt><dd><ul>
+<li><p>MetadataOnly may have a supplemental file, but not the media file. DownloadableFile includes the media file; there is just no viewer for it.</p></li>
+<li><p>DownloadableFile includes instructions on how to download the file.</p></li>
 </ul>
-<p>Powerpoints are not compatible with any Archipelago media viewer. Therefore, this powerpoint needs to be downloaded by the user.</p>
-<img alt="Screenshot of a DownloadableFile ADO." src="applications/_static/images/exemplar-downloadable.png" />
-<p>The user must use the Download menu to download the file. It does not show up in the player.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The user must use the Download menu to download the file. It does not show up in the media viewer.</p>
 <img alt="Screenshot of a DownloadableFile ADO menu allowing the user to download a powerpoint." src="applications/_static/images/exemplar-downloadable.png" />
 <dl class="simple">
 <dt>Things missing from this exemplar</dt><dd><ul class="simple">
@@ -1029,15 +1067,15 @@
 <li><a class="reference internal" href="#">ADO Types in Archipelago</a><ul>
 <li><a class="reference internal" href="#collection">Collection</a></li>
 <li><a class="reference internal" href="#creativeworkseries">CreativeWorkSeries</a></li>
-<li><a class="reference internal" href="#book">Book</a></li>
 <li><a class="reference internal" href="#image">Image</a></li>
-<li><a class="reference internal" href="#webpage">WebPage</a></li>
-<li><a class="reference internal" href="#manuscript">Manuscript</a></li>
 <li><a class="reference internal" href="#map">Map</a></li>
+<li><a class="reference internal" href="#book">Book</a></li>
+<li><a class="reference internal" href="#manuscript">Manuscript</a></li>
 <li><a class="reference internal" href="#audioobject">AudioObject</a></li>
 <li><a class="reference internal" href="#videoobject">VideoObject</a></li>
 <li><a class="reference internal" href="#annotatedimage">AnnotatedImage</a></li>
 <li><a class="reference internal" href="#metadataonly">MetadataOnly</a></li>
+<li><a class="reference internal" href="#webpage">WebPage</a></li>
 <li><a class="reference internal" href="#downloadablefile">DownloadableFile</a></li>
 </ul>
 </li>

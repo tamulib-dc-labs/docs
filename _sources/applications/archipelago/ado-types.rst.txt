@@ -24,7 +24,7 @@ Collection
 * File types: None, except maybe a jpg thumbnail
 * Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
 
-At the bottom, the user can see all child ADOs.
+All child ADOs are displayed at the bottom of the page.
 
 .. image:: docs/source/_static/images/exemplar-collection.png
     :alt: Screenshot of a Digital Object Collection ADO.
@@ -41,26 +41,73 @@ CreativeWorkSeries
         * Has child ADOs in a prescribed order
         * May be part of a collection
     * Descriptive  
-        * No unique fields
+        *  No unique fields
 * Structure:
     * Should have its associated files set up for "collections as data"
 * Display/viewer
     * Mirador - user can scroll through child ADOs
 * File types: None
 * Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
-
-At the bottom, the user can see all child ADOs.
-
-.. image:: ../_static/images/exemplar-cws.png
-    :alt: Screenshot of a CreativeWorkSeries ADO.
-
-Up close, the user can see the Mirador viewer with all ADOs in order.
+* Collection vs. CreativeWorkSeries
+    * Like a collection, a CreativeWorkSeries will display all ADOs at the bottom of the ADO page.
+    * Unlike a Collection, a CreativeWorkSeries includes a Mirador viewer with all ADOs in order.
+    * Unlike a Collection, a CreativeWorkSeries has no thumbnail.
 
 .. image:: ../_static/images/exemplar-cws-mirador.png
     :alt: Screenshot of the Mirador viewer of a CreativeWorkSeries ADO.
 
 Things missing from this ADO
     * Collections as data
+
+-----
+Image
+-----
+
+* Metadata:
+    * Technical/Structural:
+        * Checksums for files
+    * Descriptive  
+        * No unique fields
+* Structure:
+    * Multiple High Resolution Images as Canvases
+    * 1 to n canvases
+    * Individual canvases can be downloaded
+    * Not paged
+* Display/viewer
+    * Mirador
+* File types: jpg, jp2
+* Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
+
+---
+Map
+---
+
+* Metadata:
+    * Technical/Structural:
+        * Checksums for files
+    * Descriptive  
+        * Projection
+        * Edition of the map / state of the map
+* Structure:
+    * Multiple High Resolution Images as Canvases
+    * 1 to n canvases
+    * Not paged
+    * May have a watermark
+* Display/viewer 
+    * Mirador
+    * x, y, w, h of the watermark to the original canvas
+* File types: jpg, jp2
+* Example item: `Bryan-College Station Bicycle Plan <https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1>`_
+* Image vs. Map
+    * A Map will be annotated with a watermark, but an Image will not
+    * A Map contains unique metadata not included in any other worktype
+
+.. image:: ../_static/images/exemplar-map.png
+    :alt: Screenshot of a Map ADO.
+
+Things missing from this exemplar
+    * Projection and edition metadata
+    * No watermark on this exemplar
 
 ----
 Book
@@ -83,10 +130,15 @@ Book
 * Display/viewer
     * Mirador
 * File types: pdf, jpg, jp2
+* Image vs. Book
+    * A Book has OCR, an Image does not
+    * A Book is searchable, an Image is not
+    * Users can download an entire Book as a pdf, but Images must be downloaded individually as their original filetype (jpg or jp2).
+
 * Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
 
-.. image:: ../_static/images/exemplar-book.png
-    :alt: Screenshot of a Book ADO.
+.. image:: ../_static/images/exemplar-book-search.png
+    :alt: Screenshot of the search function on a Book ADO.
 
 Here is the extracted text tab on the book:
 
@@ -97,64 +149,6 @@ Things missing from this ADO
     * Collections as data
     * PDF for users to download
 
------
-Image
------
-
-* Metadata:
-    * Technical/Structural:
-        * Checksums for files
-    * Descriptive  
-        * No unique fields
-* Structure:
-    * Multiple High Resolution Images as Canvases
-    * 1 to n canvases
-    * Individual canvases can be downloaded
-    * Not paged
-* Display/viewer
-    * Mirador
-* File types: jpg, jp2
-* Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
-
-.. image:: ../_static/images/exemplar-image.png
-    :alt: Screenshot of an Image ADO.
-
-Here is the metadata, showing repeatable fields: 
-
-.. image:: ../_static/images/exemplar-image-metadata.png
-    :alt: Screenshot of the metadata of an Image ADO.
-
-Here is the linked data: 
-
-.. image:: ../_static/images/exemplar-image-linkeddata.png
-    :alt: Screenshot of the linked data of an Image ADO.
-
--------
-WebPage
--------
-
-* Includes archived exhibits
-* Metadata:
-    * Technical/Structural:
-    * Descriptive  
-        * url from orginal site
-* Structure:
-    * Searchable
-* Display/viewer
-    * WARC Replay.web Widget
-* File types: wacz, warc
-* Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
-
-The user can navigate the site in the viewer as if it was the original website
-
-.. image:: ../_static/images/exemplar-webpage.png
-    :alt: Screenshot of a WebPage ADO.
-
-In the metadata, the URL of the original site must be included: 
-
-.. image:: ../_static/images/exemplar-webpage-metadata.png
-    :alt: Screenshot of the metadata of a WebPage ADO.
-
 ----------
 Manuscript
 ----------
@@ -163,7 +157,7 @@ Manuscript
     * Technical/Structural:
         * Checksums for files
     * Descriptive  
-        * No unique fields
+        * HTR
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
@@ -175,6 +169,10 @@ Manuscript
 * Display/viewer
     * Mirador
 * File types: pdf, jpg, jp2
+* Book vs. Manuscript
+    * A Manuscript does not have OCR or Extracted Text (because Archipelago does not do OCR for handwritten text)
+    * A Manuscript has HTR instead
+
 * Example item: `Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887 <https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1>`_
 
 .. image:: ../_static/images/exemplar-manuscript.png
@@ -184,34 +182,6 @@ Things missing from this ADO
     * HTR
     * Collections as data
     * PDF for users to download
-
----
-Map
----
-
-* Metadata:
-    * Technical/Structural:
-        * Checksums for files
-    * Descriptive  
-        * Projection
-        * Edition of the map / state of the map
-* Structure:
-    * Multiple High Resolution Images as Canvases
-    * 1 to n canvases
-    * Not paged
-    * May have a watermark
-* Display/viewer 
-    * Mirador
-    * x, y, w, h of the watermark to the original canvas
-* File types: jpg, jp2
-* Example item: `Bryan-College Station Bicycle Plan <https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1>`_
-
-.. image:: ../_static/images/exemplar-map.png
-    :alt: Screenshot of a Map ADO.
-
-Things missing from this exemplar
-    * Projection and edition metadata
-    * No watermark on this exemplar
 
 -----------
 AudioObject
@@ -302,20 +272,45 @@ MetadataOnly
 * File types: vtt if this is audio/video hosted on Avalon
 * Example item: `Interview with Ann Stautberg <https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57>`_
 
-In this MetadataOnly ADO, the URL points to the item hosted on Avalon.
-
-.. image:: ../_static/images/exemplar-metadataonly.png
-    :alt: Screenshot of a MetadataOnly ADO.
-
-The user can download both vtts but not the video file itself.
+The user can download supplemental files but not the file the metadata is about.
 
 .. image:: ../_static/images/exemplar-metadataonly-vtts.png
     :alt: Screenshot of a MetadataOnly ADO menu allowing the user to download two vtts.
 
-These vtts are used to create extracted text, similar to that of a VideoObject or AudioObject.
+In this exemplar, the vtts are used to create extracted text, similar to that of a VideoObject or AudioObject.
 
 .. image:: ../_static/images/exemplar-metadataonly-text.png
     :alt: Screenshot of the extracted text of a MetadataOnly ADO.
+
+-------
+WebPage
+-------
+
+* Includes archived exhibits
+* Metadata:
+    * Technical/Structural:
+    * Descriptive  
+        * url from orginal site
+* Structure:
+    * Searchable
+* Display/viewer
+    * WARC Replay.web Widget
+* File types: wacz, warc
+* Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
+* MetadataOnly vs. WebPage 
+    * While both MetadataOnly and WebPage require a link to another site, WebPage is intended for archived sites and MetadataOnly is more of a tool for discoverability
+    * WebPage opens a viewer so the user can navigate the site inside Archipelago
+
+The user can navigate the site in the viewer as if it was the original website
+
+.. image:: ../_static/images/exemplar-webpage.png
+    :alt: Screenshot of a WebPage ADO.
+
+In the metadata, the URL of the original site must be included: 
+
+.. image:: ../_static/images/exemplar-webpage-metadata.png
+    :alt: Screenshot of the metadata of a WebPage ADO.
+
 
 -----------------
 DownloadableFile
@@ -334,13 +329,11 @@ DownloadableFile
     * Clear instructions to download the file
 * File types: ppt, pptx
 * Example item: `Race in Fandom: Experiences from the Margins <https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e>`_
+* DownloadableFile vs. MetadataOnly
+    * MetadataOnly may have a supplemental file, but not the media file. DownloadableFile includes the media file; there is just no viewer for it.
+    * DownloadableFile includes instructions on how to download the file.
 
-Powerpoints are not compatible with any Archipelago media viewer. Therefore, this powerpoint needs to be downloaded by the user.
-
-.. image:: ../_static/images/exemplar-downloadable.png
-    :alt: Screenshot of a DownloadableFile ADO.
-
-The user must use the Download menu to download the file. It does not show up in the player.
+The user must use the Download menu to download the file. It does not show up in the media viewer.
 
 .. image:: ../_static/images/exemplar-downloadable.png
     :alt: Screenshot of a DownloadableFile ADO menu allowing the user to download a powerpoint.
