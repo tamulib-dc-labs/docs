@@ -27,7 +27,6 @@ Collection
 Note that at the bottom, the user can see all child ADOs.
 
 .. image:: ../_static/images/exemplar-collection.png
-
     :alt: Screenshot of a Digital Object Collection ADO.
 
 ------------------
@@ -50,13 +49,11 @@ CreativeWorkSeries
 Note that at the bottom, the user can see all child ADOs.
 
 .. image:: ../_static/images/exemplar-cws.png
-
     :alt: Screenshot of a CreativeWorkSeries ADO.
 
 Up close, the user can see the Mirador viewer with all ADOs in order.
 
 .. image:: ../_static/images/exemplar-cws-mirador.png
-
     :alt: Screenshot of the Mirador viewer of a CreativeWorkSeries ADO.
 
 ----
@@ -83,13 +80,11 @@ Book
 * Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
 
 .. image:: ../_static/images/exemplar-book.png
-
     :alt: Screenshot of a Book ADO.
 
 Here is the extracted text tab on the book:
 
 .. image:: ../_static/images/exemplar-book-ocr.png
-
     :alt: Screenshot of the extracted text tab of a Book ADO.
 
 -----
