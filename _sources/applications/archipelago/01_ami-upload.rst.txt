@@ -132,7 +132,7 @@ Importing through AMI
 
 5. Select "Direct" for data transformation approach. Select the columns where you added filenames or URLs (example: images, documents, etc.). You can select multiple.
 
-6. When selecting Global ADO mappings, choose "ismemberof". For "Ado label", choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be "type").
+6. When selecting Global ADO mappings, choose "ismemberof" and/or "ispartof". For "Ado label", choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be "type").
 
 7. If you are using a zip file to upload content, upload the zip to the dialog box. If not, leave it blank. Then click to create the AMI set.
 

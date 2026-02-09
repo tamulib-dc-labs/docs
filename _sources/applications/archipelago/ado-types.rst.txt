@@ -21,7 +21,7 @@ Collection
     * May have a thumbnail
 * Display/viewer
     * None
-* File types: None, except maybe a jpg thumbnail
+* File types: jpg (thumbnail)
 * Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
 
 All child ADOs are displayed at the bottom of the page.
@@ -51,8 +51,8 @@ CreativeWorkSeries
     * Building History Collection
 * Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
 * Collection vs. CreativeWorkSeries
-    * Like a collection, a CreativeWorkSeries will display all ADOs at the bottom of the ADO page.
-    * Unlike a Collection, a CreativeWorkSeries includes a Mirador viewer with all ADOs in order.
+    * Like a collection, a CreativeWorkSeries displays all ADOs at the bottom of the ADO page.
+    * Unlike a Collection, a CreativeWorkSeries includes a Mirador viewer with all ADOs in order. The user can scroll through enlarged ADOs without clicking off the page.
     * Unlike a Collection, a CreativeWorkSeries has no thumbnail.
 
 .. image:: ../_static/images/exemplar-cws-mirador.png
@@ -187,7 +187,7 @@ Manuscript
     * A Manuscript has HTR instead
 * Example collections
     * AMC Early Presidents
-    * Houston Oil Minutes
+    * Houston Oil Company Minutes
 * Example item: `Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887 <https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1>`_
 
 .. image:: ../_static/images/exemplar-manuscript.png
@@ -206,7 +206,7 @@ AudioObject
     * Technical/Structural:
         * Checksums for files
     * Descriptive  
-        * No unique fields
+        * Link to Avalon
 * Structure:
     * 1 - n audio files
     * File and transcript can be downloaded
@@ -217,6 +217,7 @@ AudioObject
 * Example collections:
     * Science Fiction Radio Show Collection
     * Owens Folk Music
+    * Edge Grant Oral Histories
 * Example item: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
 
 In the example, the audio and transcript are synced and there is a button where the user can download the vtt.
@@ -237,15 +238,16 @@ VideoObject
     * Technical/Structural:
         * Checksums for files
     * Descriptive  
-        * No unique fields
+        * Link to Avalon
 * Structure:
     * 1 - n video files
     * File and transcript can be downloaded
     * Searchable captions
 * Display/viewer
     * Video player
-* Example collections:
+* Example collection:
     * Veterans of the Valley
+    * NASA A/V Recordings
 * Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
 
 .. image:: ../_static/images/exemplar-video.png
@@ -293,7 +295,7 @@ MetadataOnly
 * Display/viewer
     * None
 * File types: vtt if this is audio/video hosted on Avalon
-* Example collections:
+* Example collection:
     * Dallas Women's Gallery
 * Example item: `Interview with Ann Stautberg <https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57>`_
 
@@ -320,15 +322,16 @@ WebPage
 * Display/viewer
     * WARC Replay.web Widget
 * File types: wacz, warc
-* Example collections:
+* Example collection:
     * OJS Journals
     * Archived exhibits
 * Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
 * MetadataOnly vs. WebPage 
     * While both MetadataOnly and WebPage require a link to another site, WebPage is intended for archived sites and MetadataOnly is more of a tool for discoverability
     * WebPage opens a viewer so the user can navigate the site inside Archipelago
+    * WebPage asks the user to upload a warc, not just entering a link.
 
-The user can navigate the site in the viewer as if it was the original website
+The user can navigate the site in the viewer as if it were the original website
 
 .. image:: ../_static/images/exemplar-webpage.png
     :alt: Screenshot of a WebPage ADO.
@@ -355,7 +358,7 @@ DownloadableFile
     * None
     * Clear instructions to download the file
 * File types: ppt, pptx
-* Example exhibit:
+* Example collection:
     * Amazing, Fantastic, Weird: Science Fiction Studies in Texas
 * Example item: `Race in Fandom: Experiences from the Margins <https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e>`_
 * DownloadableFile vs. MetadataOnly
