@@ -340,35 +340,3 @@ In the metadata, the URL of the original site must be included:
 
 .. image:: ../_static/images/exemplar-webpage-metadata.png
     :alt: Screenshot of the metadata of a WebPage ADO.
-
-
------------------
-DownloadableFile
------------------
-
-* Metadata:
-    * Technical/Structural:
-        * Checksums for files
-    * Descriptive  
-        * No unique fields
-* Structure:
-    * 1 - n files
-    * Searchable
-* Display/viewer
-    * None
-    * Clear instructions to download the file
-* File types: ppt, pptx
-* Example collection:
-    * Amazing, Fantastic, Weird: Science Fiction Studies in Texas
-* Example item: `Race in Fandom: Experiences from the Margins <https://archipelago-dev.library.tamu.edu/do/fee8fad9-8916-4ad7-aa3f-256a54024e4e>`_
-* DownloadableFile vs. MetadataOnly
-    * MetadataOnly may have a supplemental file, but not the media file. DownloadableFile includes the media file; there is just no viewer for it.
-    * DownloadableFile includes instructions on how to download the file.
-
-The user must use the Download menu to download the file. It does not show up in the media viewer.
-
-.. image:: ../_static/images/exemplar-downloadable-file.png
-    :alt: Screenshot of a DownloadableFile ADO menu allowing the user to download a powerpoint.
-
-Things missing from this exemplar
-    * Message explaining how to download
