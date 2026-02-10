@@ -8,3 +8,5 @@ List of things to change from default Archipelago and how to change them.
 
 * `Changing the template for a work type <https://tamulib-dc-labs.github.io/docs/applications/archipelago/change-viewer.html>`_
 
+* `Modifying the Webforms <https://tamulib-dc-labs.github.io/docs/applications/archipelago/webform.html>`_
+
