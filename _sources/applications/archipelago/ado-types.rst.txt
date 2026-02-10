@@ -258,30 +258,6 @@ The vtt shows up as extracted text.
 .. image:: ../_static/images/exemplar-video-text.png
     :alt: Screenshot of the extracted text of a Videobject ADO.
 
-
---------------
-AnnotatedImage
---------------
-
-* Metadata:
-    * Technical/Structural:
-        * Checksums for files
-    * Descriptive  
-        * No unique fields
-* Structure:
-    * Multiple High Resolution Images as Canvases
-    * 1 to n canvases
-    * Entire work can be downloaded as a PDF
-    * Not paged
-    * Annotated manifest
-* Display/viewer
-    * Full view
-* File types: jpg, jp2, must be imported through IIIF
-* AnnotatedImage vs. Image
-    * Image opens in Mirador, AnnotatedImage opens in Full view
-    * AnnotatedImage is part of a CreativeWorkSeries
-* Example item: `Downs Natatorium in 1980 <https://archipelago-dev.library.tamu.edu/do/f4edce17-70fe-4ad3-8866-fff14c4af653>`_
-
 -------------
 MetadataOnly
 -------------
