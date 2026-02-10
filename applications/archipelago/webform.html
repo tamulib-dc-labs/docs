@@ -378,10 +378,12 @@
           <section id="modifying-the-webform">
 <h1>Modifying the Webform<a class="headerlink" href="#modifying-the-webform" title="Link to this heading">¶</a></h1>
 <p>AMI spreadsheet imports allow the admin to set whatever metadata fields they want, but this is not reflected in the default webform. If the admin wants to include a custom metadata field in an ADO upload using the webform, they can’t.</p>
-<p>This also raises issues when editing existing ADOs. There are three ways to edit an existing ADO:
-* AMI batch update
-* JSON edit
-* “Edit Descriptive Metadata” webform</p>
+<p>This also raises issues when editing existing ADOs. There are three ways to edit an existing ADO:</p>
+<ul class="simple">
+<li><p>AMI batch update</p></li>
+<li><p>JSON edit</p></li>
+<li><p>Edit Descriptive Metadata webform</p></li>
+</ul>
 <p>The webform is the most user-friendly option. However, if the ADO has metadata not in the default webform, the admin is unable to edit those fields.</p>
 <section id="how-to-start-editing">
 <h2>How to start editing<a class="headerlink" href="#how-to-start-editing" title="Link to this heading">¶</a></h2>
@@ -470,6 +472,127 @@
 <h3>Upload Document Files<a class="headerlink" href="#upload-document-files" title="Link to this heading">¶</a></h3>
 <p>Click “Visible”. Get rid of all conditionals.</p>
 </section>
+<section id="map-details">
+<h3>Map Details<a class="headerlink" href="#map-details" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>At the top beside “Basic Descriptive Metadata”, click “Add element”.</p></li>
+<li><p>Select “Fieldset” for type. Name the element “Map Details”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">MediaType</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">Map</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="projection">
+<h3>Projection<a class="headerlink" href="#projection" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>Beside “Map Details”, click “Add element”.</p></li>
+<li><p>Select “Text field” for type. Name the element “Projection”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">MediaType</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">Map</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="state-edition-of-map">
+<h3>State/Edition of Map<a class="headerlink" href="#state-edition-of-map" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>Beside “Map Details”, click “Add element”.</p></li>
+<li><p>Select “Fieldset” for type. Name the element “State/Edition of Map”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">MediaType</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">Map</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+</section>
+<section id="changes-made-to-the-default-digital-object-collection-webform">
+<h2>Changes made to the Default Digital Object Collection webform<a class="headerlink" href="#changes-made-to-the-default-digital-object-collection-webform" title="Link to this heading">¶</a></h2>
+<p>The Default Digital Object Collection webform is used when creating/editing a Collection or CreativeWorkSeries.</p>
+<section id="id1">
+<h3>Description<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Change “allowed number of values” to “Unlimited”.</p>
+</section>
+<section id="id2">
+<h3>General Note<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Change “allowed number of values” to “Unlimited”.</p>
+</section>
+<section id="id3">
+<h3>Physical Description Extent<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>Change “allowed number of values” to “Unlimited”.</p>
+</section>
+<section id="building-information">
+<h3>Building Information<a class="headerlink" href="#building-information" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>At the top beside “Basic Descriptive Metadata”, click “Add element”.</p></li>
+<li><p>Select “Fieldset” for type. Name the element “Building Information”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Collection/Compound</span> <span class="pre">Type</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">CreativeWorkSeries</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="building-history">
+<h3>Building History<a class="headerlink" href="#building-history" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>Beside “Building Information”, click “Add element”.</p></li>
+<li><p>Select “Textarea” for type. Name the element “Building History”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Collection/Compound</span> <span class="pre">Type</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">CreativeWorkSeries</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="date-built">
+<h3>Date Built<a class="headerlink" href="#date-built" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>Beside “Building Information”, click “Add element”.</p></li>
+<li><p>Select “Text field” for type. Name the element “Date Built”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Collection/Compound</span> <span class="pre">Type</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">CreativeWorkSeries</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="date-razed">
+<h3>Date Razed<a class="headerlink" href="#date-razed" title="Link to this heading">¶</a></h3>
+<p>This is a new element.</p>
+<ol class="arabic simple">
+<li><p>Beside “Building Information”, click “Add element”.</p></li>
+<li><p>Select “Text field” for type. Name the element “Date Razed”.</p></li>
+<li><dl class="simple">
+<dt>Go to “Conditions” tab and create a conditional so that it is <code class="code docutils literal notranslate"><span class="pre">Visible</span></code> when <code class="code docutils literal notranslate"><span class="pre">All</span></code> of the following is met:</dt><dd><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">Collection/Compound</span> <span class="pre">Type</span></code> <code class="code docutils literal notranslate"><span class="pre">Value</span> <span class="pre">is</span></code> <code class="code docutils literal notranslate"><span class="pre">CreativeWorkSeries</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -542,6 +665,19 @@
 <li><a class="reference internal" href="#general-note">General Note</a></li>
 <li><a class="reference internal" href="#physical-description-extent">Physical Description Extent</a></li>
 <li><a class="reference internal" href="#upload-document-files">Upload Document Files</a></li>
+<li><a class="reference internal" href="#map-details">Map Details</a></li>
+<li><a class="reference internal" href="#projection">Projection</a></li>
+<li><a class="reference internal" href="#state-edition-of-map">State/Edition of Map</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#changes-made-to-the-default-digital-object-collection-webform">Changes made to the Default Digital Object Collection webform</a><ul>
+<li><a class="reference internal" href="#id1">Description</a></li>
+<li><a class="reference internal" href="#id2">General Note</a></li>
+<li><a class="reference internal" href="#id3">Physical Description Extent</a></li>
+<li><a class="reference internal" href="#building-information">Building Information</a></li>
+<li><a class="reference internal" href="#building-history">Building History</a></li>
+<li><a class="reference internal" href="#date-built">Date Built</a></li>
+<li><a class="reference internal" href="#date-razed">Date Razed</a></li>
 </ul>
 </li>
 </ul>
