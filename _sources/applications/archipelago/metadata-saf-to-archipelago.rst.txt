@@ -31,13 +31,8 @@ For more information on metadata conversions across more repositories, look at t
 | Yes           | Filename                    | dc.identifier               | image, document,                     | Use the columns that match the type of        |
 |               |                             | bundle:Original             | upload_associated_warcs              | media you are uploading.                      |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Subject                     | dc.subject                  | subjects_local,                      | Map subjects according to the type of         |  
-|               |                             |                             | subjects_local_personal_names,       | subject heading it is (personal, corporate,   |
-|               |                             |                             | subjects_loc.{X}.label,              | geographic, genre/form, generic) and whether  |
-|               |                             |                             | subjects_lcnaf_personal.{X}.label,   | it is local or not. More fields will be       |
-|               |                             |                             | subjects_lcnaf_corporate.{X}.label,  | added as we add more controlled vocabularies  |
-|               |                             |                             | subjects_lcnaf_geographic.{X}.label, | to Archipelago.                               |
-|               |                             |                             | subjects_lcgft_terms.{X}.label       |                                               | 
+| If applicable | Subject                     | dc.subject                  | subjects_local,                      | Map all subjects to subjects_local except     |  
+|               |                             |                             | subjects_local_personal_names,       | personal names.                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Creator                     | dc.creator                  | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
 |               |                             |                             | creator.{X}                          | creator.{X} is for local names                |

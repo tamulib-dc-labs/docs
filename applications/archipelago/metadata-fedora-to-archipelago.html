@@ -432,28 +432,17 @@ upload_associated_warcs</p></td>
 <td><p>Use the columns that match the type of
 media you are uploading.</p></td>
 </tr>
-<tr class="row-even"><td rowspan="2"><p>If applicable</p></td>
-<td rowspan="2"><p>Subject</p></td>
-<td rowspan="2"><p>dc:subject,
+<tr class="row-even"><td><p>If applicable</p></td>
+<td><p>Subject</p></td>
+<td><p>dc:subject,
 dcterms:spatial,
 dcterms:temporal</p></td>
-<td rowspan="2"><p>subjects_local,
-subjects_local_personal_names,
-subjects_loc.{X}.label,
-subjects_lcnaf_personal.{X}.label,
-subjects_lcnaf_corporate.{X}.label,
-subjects_lcnaf_geographic.{X}.label,
-subjects_lcgft_terms.{X}.label</p></td>
-<td rowspan="2"><p>Map subjects according to the type of
-subject heading it is (personal, corporate,
-geographic, genre/form, generic) and whether
-it is local or not. More fields will be
-added as we add more controlled vocabularies
-to Archipelago. Map all dc:subject.temporal
-to subjects_local or subjects_loc.{X}.label.</p></td>
+<td><p>subjects_local,
+subjects_local_personal_names</p></td>
+<td><p>Map all subjects to subjects_local except
+for personal names.</p></td>
 </tr>
-<tr class="row-odd"></tr>
-<tr class="row-even"><td><p>If applicable</p></td>
+<tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Creator</p></td>
 <td><p>dc:creator</p></td>
 <td><p>creator_lod.{X}.label,
@@ -461,13 +450,13 @@ creator.{X}</p></td>
 <td><p>creator_lod is for controlled vocab,
 creator.{X} is for local names</p></td>
 </tr>
-<tr class="row-odd"><td><p>If applicable</p></td>
+<tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Date Published</p></td>
 <td><p>dcterms:issued</p></td>
 <td><p>date_published</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>If applicable</p></td>
+<tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Date Created</p></td>
 <td><p>dcterms:created</p></td>
 <td><p>date_created,
@@ -475,20 +464,20 @@ date_created_edtf</p></td>
 <td><p>Use date_created if you have an exact date.
 Use date_created_edtf if you have a range.</p></td>
 </tr>
-<tr class="row-odd"><td><p>If applicable</p></td>
+<tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Summary/Abstract</p></td>
 <td><p>dc:description,
 dc:abstract</p></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>If applicable</p></td>
+<tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Language</p></td>
 <td><p>dc:language</p></td>
 <td><p>language</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>If applicable</p></td>
+<tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Institution/Department</p></td>
 <td><p>dc:contributor, dc:note</p></td>
 <td><p>creator_lod.{X}.label,
@@ -496,7 +485,7 @@ creator.{X}, note</p></td>
 <td><p>creator_lod is for controlled vocab,
 creator.{X} is for local names</p></td>
 </tr>
-<tr class="row-even"><td><p>If applicable</p></td>
+<tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Standard Digital Identifier</p></td>
 <td><p>dc:identifier
 dc:URL</p></td>
@@ -504,38 +493,38 @@ dc:URL</p></td>
 <td><p>If dc.identifier is not a URL, a new field
 may need to be created.</p></td>
 </tr>
-<tr class="row-odd"><td><p>If applicable</p></td>
+<tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Local Digital Identifier</p></td>
 <td><p>dc:identifer</p></td>
 <td><p>local_identifier</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>If applicable</p></td>
+<tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Edition/Revision Info</p></td>
 <td><p>dc.description</p></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Recommended</p></td>
+<tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Alternative Title</p></td>
 <td><p>dcterms:alternative</p></td>
 <td><p>note</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Recommended</p></td>
+<tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Genre</p></td>
 <td><p>dcterms.type</p></td>
 <td><p>subjects_local</p></td>
 <td><p>This will a local subject unless DCMI
 becomes part of Archipelago</p></td>
 </tr>
-<tr class="row-odd"><td><p>Recommended</p></td>
+<tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Table of Contents</p></td>
 <td></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Recommended</p></td>
+<tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Contributor</p></td>
 <td><p>dc:contributor</p></td>
 <td><p>creator_lod.{X}.label,
@@ -543,7 +532,7 @@ creator.{X}</p></td>
 <td><p>creator_lod is for controlled vocab,
 creator.{X} is for local names</p></td>
 </tr>
-<tr class="row-odd"><td><p>Recommended</p></td>
+<tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Related Resource</p></td>
 <td><p>dcterms:IsPartOf</p></td>
 <td><p>ismemberof
@@ -551,19 +540,19 @@ ispartof</p></td>
 <td><p>ismemberof is for member of Collection
 ispartof is for member of CreativeWorkSeries</p></td>
 </tr>
-<tr class="row-even"><td><p>Recommended</p></td>
+<tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Original Publisher</p></td>
 <td><p>dc:publisher</p></td>
 <td><p>publisher</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Recommended</p></td>
+<tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Extent</p></td>
 <td><p>dcterms:extent</p></td>
 <td><p>physical_description_extent</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Recommended</p></td>
+<tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Sponsor</p></td>
 <td><p>dc:contributor</p></td>
 <td><p>creator_lod.{X}.label,
@@ -571,25 +560,25 @@ creator.{X}</p></td>
 <td><p>creator_lod is for controlled vocab,
 creator.{X} is for local names</p></td>
 </tr>
-<tr class="row-odd"><td><p>Optional</p></td>
+<tr class="row-even"><td><p>Optional</p></td>
 <td><p>Source Collection</p></td>
 <td></td>
 <td><p>note</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Optional</p></td>
+<tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Resource</p></td>
 <td></td>
 <td><p>website_url</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Optional</p></td>
+<tr class="row-even"><td><p>Optional</p></td>
 <td><p>Notes</p></td>
 <td></td>
 <td><p>note</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Optional</p></td>
+<tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Place of
 Publication, Production
 or Manufacture</p></td>
@@ -597,25 +586,25 @@ or Manufacture</p></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Optional</p></td>
+<tr class="row-even"><td><p>Optional</p></td>
 <td><p>Audience level</p></td>
 <td></td>
 <td><p>note</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Optional</p></td>
+<tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Classification</p></td>
 <td><p>dcterms:lcc</p></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Optional</p></td>
+<tr class="row-even"><td><p>Optional</p></td>
 <td><p>Physical item identifier</p></td>
 <td></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Proposed</p></td>
+<tr class="row-odd"><td><p>Proposed</p></td>
 <td><p>Citation</p></td>
 <td><p>dc:citation</p></td>
 <td><p>note</p></td>
