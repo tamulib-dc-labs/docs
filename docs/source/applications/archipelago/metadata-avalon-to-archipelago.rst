@@ -19,7 +19,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Yes           | Digital Publisher           | Publisher                   | publisher                            |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Yes           | Rights/Access               | Terms of Use                | rights, rights_statements            | rights = uri, rights_statements = free text   | 
+| Yes           | Rights/Access               | Terms of Use                | rights_statements                    |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Yes           | Reformatting                | Genre                       | digital_origin                       |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -62,8 +62,8 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Contributor                 | Contributor                 | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Related Resource            | Series, Related Item Label, | ismemberof,                          | ismemberof is for member of Collection        | 
-|               |                             | Related Item URL            | ispartof                             | ispartof is for member of CreativeWorkSeries  | 
+| Recommended   | Related Resource            | Series, Related Item Label, | related_item_host_title_info_title   |                                               | 
+|               |                             | Related Item URL            |                                      |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
 | Recommended   | Original Publisher          | Publisher                   | publisher                            |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
@@ -75,7 +75,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Original Resource           |                             | website_url                          |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Optional      | Notes                       | Note type, Note             | note                                 |                                               |  
+| Optional      | Notes                       | Note                        | note                                 |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Original Place of           |                             | description                          |                                               |  
 |               | Publication, Production     |                             |                                      |                                               | 
@@ -85,7 +85,6 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Classification              |                             | description                          |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Optional      | Physical item identifier    | Other Identifier,           | local_identifier                     |                                               | 
-|               |                             | Other Identifier Type       |                                      |                                               | 
+| Optional      | Physical item identifier    | Other Identifier            | local_identifier                     |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 

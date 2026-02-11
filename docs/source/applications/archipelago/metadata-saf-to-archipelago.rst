@@ -24,7 +24,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Yes           | Digital Publisher           | dc.publisher                | publisher                            |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Yes           | Rights/Access               | dc.rights                   | rights, rights_statements            | rights = uri, rights_statements = free text   |  
+| Yes           | Rights/Access               | dc.rights                   | rights_statements                    |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Yes           | Reformatting                | dc.format.medium            | digital_origin                       |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -32,7 +32,7 @@ For more information on metadata conversions across more repositories, look at t
 |               |                             | bundle:Original             | upload_associated_warcs              | media you are uploading.                      |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Subject                     | dc.subject                  | subjects_local,                      | Map all subjects to subjects_local except     |  
-|               |                             |                             | subjects_local_personal_names,       | personal names.                               |
+|               |                             |                             | subjects_local_personal_names        | personal names.                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Creator                     | dc.creator                  | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -57,15 +57,15 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Alternative Title           | dcterms.alternative         | note                                 |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Genre                       | dc.type, dc.subject         | subjects_local                       |                                               |
+| Recommended   | Genre                       | dc.type.genre, dc.subject   | subjects_local                       |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Table of Contents           | dcterms.description         | description                          |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Contributor                 | dc.contributor.photographer | creator.{X}                          |                                               |
 |               |                             | dc.contributor.illustrator  |                                      |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Related Resource            | dc.relation.ispartof        | ismemberof,                          | ismemberof is for member of Collection        |
-|               |                             | dc.relation.uri             | ispartof                             | ispartof is for member of CreativeWorkSeries  | 
+| Recommended   | Related Resource            | dc.relation.ispartof        | related_item_host_title_info_title   |                                               |
+|               |                             | dc.relation.uri             |                                      |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
 | Recommended   | Original Publisher          | dc.publisher                | publisher                            |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
