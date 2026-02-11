@@ -34,13 +34,11 @@ This is similar to an Avalon spreadsheet upload, where you can add as many colum
 
 * Creators and contributors are both classified as "creators". You can differentiate between them using a role property. In Avalon, creators and contributors are differentiated by being placed in columns labeled "Creator" or "Contributor".
 
-    * The role property is only usable if you is using linked data for the creator. Local creators do not have a role property.
-
 * Every linked data value requires at least two columns, not one. To add an extra subject on Avalon, a single column needs to be created. To add an extra subject here, two columns must be created, one for the label and the other for the uri.
 
 * Most linked data fields will require two columns per entry except creator/contributor fields, which require five: personal/corporate, label, uri, role, and role uri.
 
-* Local creators, local subjects, local subjects - personal names, languages, publishers, descriptions, notes, physical_description_extents can be added with a single column that contains the label. This is similar to Avalon.
+* Local subjects, local subjects - personal names, languages, publishers, descriptions, notes, physical_description_extents can be added with a single column that contains the label. This is similar to Avalon.
 
 * Avalon column names are repeatable. Here, the columns require a number so the script knows which label to match with which uri.
 
@@ -90,7 +88,7 @@ Add more columns if there need to be more metadata values per field. Remember th
 
 * LCNAF creator fields are added in sets of 5.
 
-* LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.
+* Local creator, LCSH subject headings, LCNAF subjects (personal), LCNAF subjects (corporate), LCNAF geographic subjects, LCGFT terms, and Wikidata fields are added in sets of 2.
 
 * EDTF fields are added as a group of four. This group can only be added once.
 
@@ -115,7 +113,7 @@ What do these column headers mean?
 +---------------------------------+------------------------------------+
 | LCGFT (genre/form) term         | subject_lcgft_terms_{i}_           |
 +---------------------------------+------------------------------------+
-| Local creator                   | creator_{i}                        |
+| Local creator                   | creator_{i}_                        |
 +---------------------------------+------------------------------------+
 | Local subject                   | subjects_local_{i}                 |
 +---------------------------------+------------------------------------+
@@ -236,12 +234,27 @@ Once you have the input csv, you can run this script to convert it to a csv comp
         for row in reader:
 
             # ---- Creators ----
-            creator_indexes = find_indexes(reader.fieldnames, "creator_", "")
-            creators = [
-                row.get(f"creator_{i}")
-                for i in creator_indexes
-                if non_empty(row.get(f"creator_{i}"))
-            ]
+            creator_indexes = find_indexes(
+                reader.fieldnames,
+                "creator_",
+                "_name_label"
+                )
+
+            creators = []
+
+            for i in creator_indexes:
+                name_label = row.get(f"creator_{i}_name_label")
+                role_label = row.get(f"creator_{i}_role_label")
+
+                if non_empty(name_label):
+                    creator_obj = {
+                        "name_label": name_label
+                    }
+
+                    if non_empty(role_label):
+                        creator_obj["role_label"] = role_label
+
+                    creators.append(creator_obj)
 
             # ---- Creator LOD ----
             lod_indexes = find_indexes(reader.fieldnames, "creator_lod_", "_name_label")
