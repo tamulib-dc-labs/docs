@@ -32,8 +32,7 @@ For more information on metadata conversions across more repositories, look at t
 |               |                             | dcterms:spatial,            | subjects_local_personal_names        | for personal names.                           |
 |               |                             | dcterms:temporal            |                                      |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Creator                     | dc:creator                  | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
+| If applicable | Creator                     | dc:creator                  | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Date Published              | dcterms:issued              | date_published                       |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -45,8 +44,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Language                    | dc:language                 | language                             |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Institution/Department      | dc:contributor, dc:note     | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}, note                    | creator.{X} is for local names                |
+| If applicable | Institution/Department      | dc:contributor, dc:note     | creator.{X}, note                    |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Standard Digital Identifier | dc:identifier               | website_url                          | If dc.identifier is not a URL, a new field    | 
 |               |                             | dc:URL                      |                                      | may need to be created.                       |
@@ -62,8 +60,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Table of Contents           |                             | description                          |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Contributor                 | dc:contributor              | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
+| Recommended   | Contributor                 | dc:contributor              | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Related Resource            | dcterms:IsPartOf            | ismemberof                           | ismemberof is for member of Collection        |
 |               |                             |                             | ispartof                             | ispartof is for member of CreativeWorkSeries  |
@@ -72,8 +69,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
 | Recommended   | Extent                      | dcterms:extent              | physical_description_extent          |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Sponsor                     | dc:contributor              | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
+| Recommended   | Sponsor                     | dc:contributor              | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Source Collection           |                             | note                                 |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+

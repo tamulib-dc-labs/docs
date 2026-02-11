@@ -34,8 +34,7 @@ For more information on metadata conversions across more repositories, look at t
 | If applicable | Subject                     | dc.subject                  | subjects_local,                      | Map all subjects to subjects_local except     |  
 |               |                             |                             | subjects_local_personal_names,       | personal names.                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Creator                     | dc.creator                  | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
+| If applicable | Creator                     | dc.creator                  | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Date Published              | dc.date.issued              | date_published                       |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -46,8 +45,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Language                    | dc.language                 | language                             |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Institution/Department      | dc.contributor, dc.note     | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}, note                    | creator.{X} is for local names                |
+| If applicable | Institution/Department      | dc.contributor, dc.note     | creator.{X}, note                    |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Standard Digital Identifier | dc.identifier.other         | website_url                          | If dc.identifier is not a URL, a new field    |
 |               |                             | dc.identifier.uri           |                                      | may need to be created.                       |
@@ -59,13 +57,12 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Alternative Title           | dcterms.alternative         | note                                 |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Genre                       | dc.type, dc.subject         | subjects_lcgft_terms.{X}.label,      | subjects_lcgft_terms.{X}.label is for contro- |
-|               |                             |                             | subjects_local                       | lled vocab. subjects_local is for local vocab |
+| Recommended   | Genre                       | dc.type, dc.subject         | subjects_local                       |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Table of Contents           | dcterms.description         | description                          |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Contributor                 | dc.contributor.photographer | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             | dc.contributor.illustrator  | creator.{X}                          | creator.{X} is for local names                |
+| Recommended   | Contributor                 | dc.contributor.photographer | creator.{X}                          |                                               |
+|               |                             | dc.contributor.illustrator  |                                      |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Related Resource            | dc.relation.ispartof        | ismemberof,                          | ismemberof is for member of Collection        |
 |               |                             | dc.relation.uri             | ispartof                             | ispartof is for member of CreativeWorkSeries  | 
@@ -74,8 +71,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+ 
 | Recommended   | Extent                      | dc.format.extent            | physical_description_extent          |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Recommended   | Sponsor                     | dc.contributor.sponsor      | creator_lod.{X}.label,               | creator_lod is for controlled vocab,          |
-|               |                             |                             | creator.{X}                          | creator.{X} is for local names                |
+| Recommended   | Sponsor                     | dc.contributor.sponsor      | creator.{X}                          |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Source Collection           |                             | note                                 |                                               |   
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
