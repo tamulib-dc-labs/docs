@@ -631,6 +631,68 @@ dc.subject.classification</p></td>
 <section id="archipelago-only-fields">
 <h2>Archipelago-only Fields<a class="headerlink" href="#archipelago-only-fields" title="Link to this heading">¶</a></h2>
 <p>These fields are used by Archipelago and map to elements that are not used elsewhere in the TAMU Libraries repositories. Most of these fields are technical and must be added to existing records. This can be done by the administrator doing the migration. Other fields (such as Linked Data) will not be included in migration at all but may be used for future digital collections.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Proposed Archipelago Field</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>Not the same as dc.type</p></td>
+</tr>
+<tr class="row-odd"><td><p>node_uuid</p></td>
+<td><p>Internal Archipelago identifier</p></td>
+</tr>
+<tr class="row-even"><td><p>ismemberof</p></td>
+<td><p>Use for child objects of Collections, should
+be node_uuid for Collection, convert
+internal “Related Resource” url to this</p></td>
+</tr>
+<tr class="row-odd"><td><p>ispartof</p></td>
+<td><p>Use for child objects of CreativeWorkSeries,
+should be node_uuid for CreativeWorkSeries,
+convert internal “Related Resource”
+url to this</p></td>
+</tr>
+<tr class="row-even"><td><p>sequence_id</p></td>
+<td><p>Use to order child objects of
+CreativeWorkSeries</p></td>
+</tr>
+<tr class="row-odd"><td><p>owner</p></td>
+<td><p>Respository that owns the material</p></td>
+</tr>
+<tr class="row-even"><td><p>Image</p></td>
+<td><p>Link or filepath to image</p></td>
+</tr>
+<tr class="row-odd"><td><p>Document</p></td>
+<td><p>Link or filepath to document</p></td>
+</tr>
+<tr class="row-even"><td><p>Audio</p></td>
+<td><p>Link or filepath to audio</p></td>
+</tr>
+<tr class="row-odd"><td><p>Transcript</p></td>
+<td><p>Link or filepath to transcript files</p></td>
+</tr>
+<tr class="row-even"><td><p>Video</p></td>
+<td><p>Link or filepath to video</p></td>
+</tr>
+<tr class="row-odd"><td><p>Captions</p></td>
+<td><p>Link or filepath to caption files</p></td>
+</tr>
+<tr class="row-even"><td><p>upload_associated_warcs</p></td>
+<td><p>Link or filepath to warc</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linked data</p></td>
+<td><p>Upload uri with label</p></td>
+</tr>
+<tr class="row-even"><td><p>Geolocated data</p></td>
+<td><p>Upload coordinates with label</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 

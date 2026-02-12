@@ -125,7 +125,7 @@ These fields are used by Archipelago and map to elements that are not used elsew
 |                               | internal "Related Resource" url to this      |
 +-------------------------------+----------------------------------------------+
 | ispartof                      | Use for child objects of CreativeWorkSeries, |
-|                               | should be node_uuid for CreativeWorkSeries, |
+|                               | should be node_uuid for CreativeWorkSeries,  |
 |                               | convert internal "Related Resource"          |
 |                               | url to this                                  |
 +-------------------------------+----------------------------------------------+
