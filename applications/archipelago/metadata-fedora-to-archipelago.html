@@ -225,7 +225,7 @@
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
-<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata-avalon-to-archipelago.html">Crosswalking Metadata from Avalon to Archipelago</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Crosswalking Metadata from Fedora to Archipelago</a></li>
@@ -415,8 +415,8 @@
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Rights/Access</p></td>
 <td><p>dc:rights</p></td>
-<td><p>rights_statements</p></td>
-<td></td>
+<td><p>rights, rights_statements</p></td>
+<td><p>rights = uri, rights_statements = free text</p></td>
 </tr>
 <tr class="row-even"><td><p>Yes</p></td>
 <td><p>Reformatting</p></td>
@@ -477,7 +477,8 @@ dc:abstract</p></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Institution/Department</p></td>
-<td><p>dc:contributor, dc:note</p></td>
+<td><p>dc:contributor
+dc:description</p></td>
 <td><p>creator.{X}, note</p></td>
 <td></td>
 </tr>
@@ -558,7 +559,7 @@ may need to be created.</p></td>
 <tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Resource</p></td>
 <td></td>
-<td><p>website_url</p></td>
+<td><p>website_url, note</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
@@ -590,7 +591,13 @@ or Manufacture</p></td>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Physical item identifier</p></td>
 <td></td>
-<td><p>description</p></td>
+<td><p>note</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Optional</p></td>
+<td><p>Physical item location</p></td>
+<td></td>
+<td><p>note</p></td>
 <td></td>
 </tr>
 </tbody>

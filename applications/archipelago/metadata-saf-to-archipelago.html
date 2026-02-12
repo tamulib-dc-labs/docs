@@ -225,7 +225,7 @@
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
-<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata-avalon-to-archipelago.html">Crosswalking Metadata from Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata-fedora-to-archipelago.html">Crosswalking Metadata from Fedora to Archipelago</a></li>
@@ -381,11 +381,7 @@
 <p>For more information on metadata conversions across more repositories, look at the documentation on <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/crosswalking.html">Crosswalking</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some OAKTrust fields may include [en] at the end of the metadata field.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>“Mandatory” refers to whether the field is required according to the Metadata Guidelines. All fields labeled proposed are not addressed in Metadata Guidelines. DCMI type is a proposed way to keep the DCMI after crosswalking, since type in Archipelago uses a different controlled vocabulary.</p>
+<p>“Mandatory” refers to whether the field is required according to the Metadata Guidelines.</p>
 </div>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -418,13 +414,13 @@
 </tr>
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Rights/Access</p></td>
-<td><p>dc.rights</p></td>
-<td><p>rights_statements</p></td>
-<td></td>
+<td><p>dc.rights.uri</p></td>
+<td><p>rights, rights_statements</p></td>
+<td><p>rights = uri, rights_statements = free text</p></td>
 </tr>
 <tr class="row-even"><td><p>Yes</p></td>
 <td><p>Reformatting</p></td>
-<td><p>dc.format.medium</p></td>
+<td><p>dc.format.digitalOrigin</p></td>
 <td><p>digital_origin</p></td>
 <td></td>
 </tr>
@@ -473,15 +469,16 @@ Use date_created_edtf if you have a range.</p></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Language</p></td>
-<td><p>dc.language</p></td>
+<td><p>dc.language.iso</p></td>
 <td><p>language</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Institution/Department</p></td>
-<td><p>dc.contributor, dc.note</p></td>
+<td><p>dc.contributor
+dc.description</p></td>
 <td><p>creator.{X}, note</p></td>
-<td></td>
+<td><p>Can be recorded as a contributor or note</p></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Standard Digital Identifier</p></td>
@@ -499,8 +496,7 @@ may need to be created.</p></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Edition/Revision Info</p></td>
-<td><p>dc.description
-dc.description.provenance</p></td>
+<td><p>dc.description</p></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
@@ -518,41 +514,46 @@ dc.description.provenance</p></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Table of Contents</p></td>
-<td><p>dcterms.description</p></td>
+<td></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Contributor</p></td>
 <td><p>dc.contributor.photographer
-dc.contributor.illustrator</p></td>
+dc.contributor.illustrator
+dc.contributor.editor</p></td>
 <td><p>creator.{X}</p></td>
-<td></td>
+<td><p>Assign a role to the creator</p></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Related Resource</p></td>
 <td><p>dc.relation.ispartof
 dc.relation.uri</p></td>
-<td><p>related_item_host_title_info_title</p></td>
-<td></td>
+<td><p>related_item_host_title_info_title,
+website_url</p></td>
+<td><p>If using ispartof, use <a href="#id1"><span class="problematic" id="id2">related_item_</span></a>
+If using uri, use website_url</p></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Original Publisher</p></td>
 <td><p>dc.publisher</p></td>
-<td><p>publisher</p></td>
-<td></td>
+<td><p>publisher, creator.{X}</p></td>
+<td><p>If creator.{X} is used, add publisher role</p></td>
 </tr>
 <tr class="row-even"><td><p>Recommended</p></td>
 <td><p>Extent</p></td>
-<td><p>dc.format.extent</p></td>
+<td><p>dc.format, dc.format.extent</p></td>
 <td><p>physical_description_extent</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>Recommended</p></td>
 <td><p>Sponsor</p></td>
-<td><p>dc.contributor.sponsor</p></td>
-<td><p>creator.{X}</p></td>
-<td></td>
+<td><p>dc.contributor.sponsor,
+dc.description.sponsorship</p></td>
+<td><p>creator.{X}, note</p></td>
+<td><p>Use creator.{X} if using dc.contributor
+Use note if using dc.description</p></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Source Collection</p></td>
@@ -562,13 +563,14 @@ dc.relation.uri</p></td>
 </tr>
 <tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Resource</p></td>
-<td><p>dc.identifier.uri</p></td>
-<td><p>website_url</p></td>
+<td></td>
+<td><p>note</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Notes</p></td>
-<td><p>dc.description</p></td>
+<td><p>dc.description,
+dc.description.provenance</p></td>
 <td><p>note</p></td>
 <td></td>
 </tr>
@@ -577,7 +579,7 @@ dc.relation.uri</p></td>
 Publication, Production
 or Manufacture</p></td>
 <td><p>dc.description</p></td>
-<td><p>description</p></td>
+<td><p>note</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
@@ -590,14 +592,19 @@ or Manufacture</p></td>
 <td><p>Classification</p></td>
 <td><p>dc.classification.lcc
 dc.subject.classification</p></td>
-<td><p>description</p></td>
+<td><p>note</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Physical item identifier</p></td>
-<td><p>dc.identifer,
-dc.identifier.other</p></td>
-<td><p>local_identifier</p></td>
+<td></td>
+<td><p>note</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Optional</p></td>
+<td><p>Physical item location</p></td>
+<td></td>
+<td><p>note</p></td>
 <td></td>
 </tr>
 </tbody>

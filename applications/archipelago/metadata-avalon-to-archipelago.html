@@ -225,7 +225,7 @@
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
-<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Crosswalking Metadata from Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata-fedora-to-archipelago.html">Crosswalking Metadata from Fedora to Archipelago</a></li>
@@ -415,8 +415,8 @@
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Rights/Access</p></td>
 <td><p>Terms of Use</p></td>
-<td><p>rights_statements</p></td>
-<td></td>
+<td><p>rights, rights_statements</p></td>
+<td><p>rights = uri, rights_statements = free text</p></td>
 </tr>
 <tr class="row-even"><td><p>Yes</p></td>
 <td><p>Reformatting</p></td>
@@ -426,9 +426,8 @@
 </tr>
 <tr class="row-odd"><td><p>Yes</p></td>
 <td><p>Filename</p></td>
-<td><p>File, Label, Caption File,
-Caption Label, Transcript
-File, Transcript Label</p></td>
+<td><p>File, Caption File,
+Transcript File</p></td>
 <td><p>audio, video, transcript, captions</p></td>
 <td><p>Use the columns that match the type of
 media you are uploading.</p></td>
@@ -477,15 +476,13 @@ Use date_created_edtf if you have a range.</p></td>
 </tr>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Institution/Department</p></td>
-<td><p>Contributor, Note type,
-Note</p></td>
+<td><p>Contributor, Note</p></td>
 <td><p>creator.{X}, note</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Standard Digital Identifier</p></td>
-<td><p>Identifier,
-Identifier Type</p></td>
+<td><p>Identifier</p></td>
 <td><p>website_url</p></td>
 <td><p>If Identifier is not a URL, a new field may
 need to be created.</p></td>
@@ -493,14 +490,13 @@ need to be created.</p></td>
 <tr class="row-even"><td><p>If applicable</p></td>
 <td><p>Local Digital Identifier</p></td>
 <td><p>Other Identifier,
-Other Identifier Type,
 Work ID, File ID</p></td>
 <td><p>local_identifier</p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>If applicable</p></td>
 <td><p>Edition/Revision Info</p></td>
-<td><p>Description</p></td>
+<td></td>
 <td><p>description</p></td>
 <td></td>
 </tr>
@@ -562,7 +558,7 @@ Related Item URL</p></td>
 <tr class="row-odd"><td><p>Optional</p></td>
 <td><p>Original Resource</p></td>
 <td></td>
-<td><p>website_url</p></td>
+<td><p>website_url, note</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
@@ -593,8 +589,14 @@ or Manufacture</p></td>
 </tr>
 <tr class="row-even"><td><p>Optional</p></td>
 <td><p>Physical item identifier</p></td>
-<td><p>Other Identifier</p></td>
-<td><p>local_identifier</p></td>
+<td></td>
+<td><p>note</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Optional</p></td>
+<td><p>Physical item location</p></td>
+<td></td>
+<td><p>note</p></td>
 <td></td>
 </tr>
 </tbody>
