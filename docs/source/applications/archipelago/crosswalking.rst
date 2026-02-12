@@ -114,7 +114,7 @@ Archipelago-only Fields
 These fields are used by Archipelago and map to elements that are not used elsewhere in the TAMU Libraries repositories. Most of these fields are technical and must be added to existing records. This can be done by the administrator doing the migration. Other fields (such as Linked Data) will not be included in migration at all but may be used for future digital collections.
 
 +-------------------------------+----------------------------------------------+
-| Proposed Archipelago Field    | Detail                                       |
+| Archipelago Field             | Detail                                       |
 +===============================+==============================================+
 | Type                          | Not the same as dc.type                      |
 +-------------------------------+----------------------------------------------+
