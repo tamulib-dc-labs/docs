@@ -8,13 +8,13 @@ Definitions:
 
 * Field/Metadata field - the specific term used for a metadata concept in a repository (ie “dc.subject”, “dc.creator”). These are usually the names of columns in metadata spreadsheets.
 
-All elements in the `Metadata Guidelines <https://oaktrust.library.tamu.edu/server/api/core/bitstreams/efa9caf8-76bf-44f3-a07f-15a5bd68dc2f/content>`_ are listed below. Underneath each element is a list of fields that map to the element. These fields may be used in DSpace, Fedora, and Avalon. The final field is the one that will be used in Archipelago spreadsheets. The element name will be the heading displayed in the descriptive metadata.
+All elements in the `Metadata Guidelines <https://oaktrust.library.tamu.edu/server/api/core/bitstreams/efa9caf8-76bf-44f3-a07f-15a5bd68dc2f/content>`_ are in the first table below. Each row contains the fields used for that element in DSpace, Fedora, and Avalon. The final column proposes a field to use in Archipelago spreadsheets. The element name will be the heading displayed in the descriptive metadata.
 
-During migration, the administrator may need to evaluate certain columns to identify the correct element. For example, a dc.publisher could refer to a digital publisher or an original publisher.
+During migration, the administrator may need to evaluate certain columns to identify the correct element. For example, a dc.publisher could refer to a digital publisher or an original publisher. Fields that require this consideration are marked with an asterisk. 
 
-Some elements in this list have no metadata fields associated with them. Other elements may not have a complete list of all associated metadata fields. As more metadata fields are identified in existing metadata records over the migration process, they will be added to this list.
+Some elements in this table have no metadata fields associated with them. Other elements may not have a complete list of all associated metadata fields. As more metadata fields are identified in existing metadata records over the migration process, they will be added to this table.
 
-This is a list used for crosswalking existing collections. There may be future collections that require new metadata elements and fields. In that case, new fields will be added to accommodate those collections.
+This is a table used for crosswalking existing collections. There may be future collections that require new metadata elements and fields. In that case, new fields will be added to accommodate those collections.
 
 --------------
 TAMU Elements:
@@ -104,16 +104,14 @@ TAMU Elements:
 | Physical item location       |                                |                        |                        | physical_item_location        |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 
-An asterisk means the field will not always map out to the proposed Archipelago field, but the administrator should evaluate which use of the field name is in the metadata.
-
 .. note::
-    Geographic and Temporal Subjects are not in the Metadata Guidelines. They are here because the data already exists for them.
+    Geographic and Temporal Subjects are not in the Metadata Guidelines. They are in the table because the data already exists for them.
 
 -----------------------
 Archipelago-only Fields 
 -----------------------
 
-These fields are used by Archipelago and map to elements that are not used elsewhere in the TAMU Libraries repositories. Most of these fields are technical and must be added to existing records. This can be done by the administrator doing the migration. Other fields will not be included in migration at all but may be used for future digital collections.
+These fields are used by Archipelago and map to elements that are not used elsewhere in the TAMU Libraries repositories. Most of these fields are technical and must be added to existing records. This can be done by the administrator doing the migration. Other fields (such as Linked Data) will not be included in migration at all but may be used for future digital collections.
 
 +-------------------------------+----------------------------------------------+
 | Proposed Archipelago Field    | Detail                                       |
