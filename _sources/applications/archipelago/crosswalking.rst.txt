@@ -53,7 +53,7 @@ TAMU Elements:
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Language                     | dc.language.iso                | dc:language            | Language               | language                      |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Institution/Department       | dc.contributor * ,             | dc:contributor * ,     |                        | institution/department        |
+| Institution/Department       | dc.contributor * ,             | dc:contributor * ,     |                        | institution_department        |
 |                              | dc.description *               | dc:description *       |                        |                               |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Standard Digital Identifier  | dc.identifier.other,           | dc:identifier * ,      |                        | standard_digital_identifier   |
