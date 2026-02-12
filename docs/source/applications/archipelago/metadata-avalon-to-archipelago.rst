@@ -19,13 +19,12 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Yes           | Digital Publisher           | Publisher                   | publisher                            |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Yes           | Rights/Access               | Terms of Use                | rights_statements                    |                                               | 
+| Yes           | Rights/Access               | Terms of Use                | rights, rights_statements            | rights = uri, rights_statements = free text   | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Yes           | Reformatting                | Genre                       | digital_origin                       |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Yes           | Filename                    | File, Label, Caption File,  | audio, video, transcript, captions   | Use the columns that match the type of        |
-|               |                             | Caption Label, Transcript   |                                      | media you are uploading.                      |
-|               |                             | File, Transcript Label      |                                      |                                               |
+| Yes           | Filename                    | File, Caption File,         | audio, video, transcript, captions   | Use the columns that match the type of        |
+|               |                             | Transcript File             |                                      | media you are uploading.                      |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Subject                     | Subject,                    | subjects_local,                      | Map all subjects to subjects_local except     | 
 |               |                             | Geographic Subject,         | subjects_local_personal_names        | for personal names.                           |
@@ -42,17 +41,15 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Language                    | Language                    | language                             |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Institution/Department      | Contributor, Note type,     | creator.{X}, note                    |                                               |
-|               |                             | Note                        |                                      |                                               |
+| If applicable | Institution/Department      | Contributor, Note           | creator.{X}, note                    |                                               |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Standard Digital Identifier | Identifier,                 | website_url                          | If Identifier is not a URL, a new field may   |
-|               |                             | Identifier Type             |                                      | need to be created.                           |
+| If applicable | Standard Digital Identifier | Identifier                  | website_url                          | If Identifier is not a URL, a new field may   |
+|               |                             |                             |                                      | need to be created.                           |
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | If applicable | Local Digital Identifier    | Other Identifier,           | local_identifier                     |                                               |  
-|               |                             | Other Identifier Type,      |                                      |                                               | 
 |               |                             | Work ID, File ID            |                                      |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| If applicable | Edition/Revision Info       | Description                 | description                          |                                               | 
+| If applicable | Edition/Revision Info       |                             | description                          |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Recommended   | Alternative Title           |                             | note                                 |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -73,7 +70,7 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Source Collection           |                             | note                                 |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Optional      | Original Resource           |                             | website_url                          |                                               |  
+| Optional      | Original Resource           |                             | website_url, note                    |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Notes                       | Note                        | note                                 |                                               |  
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
@@ -85,6 +82,8 @@ For more information on metadata conversions across more repositories, look at t
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 | Optional      | Classification              |                             | description                          |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
-| Optional      | Physical item identifier    | Other Identifier            | local_identifier                     |                                               | 
+| Optional      | Physical item identifier    |                             | note                                 |                                               |  
++---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
+| Optional      | Physical item location      |                             | note                                 |                                               | 
 +---------------+-----------------------------+-----------------------------+--------------------------------------+-----------------------------------------------+
 
