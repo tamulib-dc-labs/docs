@@ -61,7 +61,7 @@ TAMU Elements:
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Local Digital Identifier     | dc.identifier, id              | dc:identifier *        |                        | local_digital_identifier      |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Edition/Revision Information | dc.description *               | dc:description         |                        | edition_revision              |
+| Edition/Revision Information | dc.description *               | dc:description *       |                        | edition_revision              |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Alternative Title            | dcterms.alternative            | dcterms:alternative    |                        | alternative_title             |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
@@ -82,7 +82,7 @@ TAMU Elements:
 | Extent                       | dc.extent, dc.format.extent    | dcterms:extent         | Physical Description   | extent                        |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Sponsor                      | dc.contributor.sponsor,        | dc:contributor * ,     |                        | sponsor                       |
-|                              | dc.description.sponsorship     | dc:description         |                        |                               |
+|                              | dc.description.sponsorship     | dc:description *       |                        |                               |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Source Collection            |                                |                        |                        | source_collection             |
 +------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
