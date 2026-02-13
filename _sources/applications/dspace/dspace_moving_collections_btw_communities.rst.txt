@@ -63,7 +63,7 @@ To create a new collection in the new community, follow these steps:
    :alt: Copy Handle
    :width: 600
 
-1. **Copy the Handle of the New Collection**
+6. **Copy the Handle of the New Collection**
 -------------------------------------------
 
 Once the collection is set up in the new community, copy the collection's handle. This handle will be used to update the metadata.
