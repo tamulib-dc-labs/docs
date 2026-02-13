@@ -378,20 +378,19 @@
         <article role="main" id="furo-main-content">
           <section id="moving-collections-from-one-community-to-another">
 <h1>Moving Collections from One Community to Another<a class="headerlink" href="#moving-collections-from-one-community-to-another" title="Link to this heading">¶</a></h1>
-<p>This guide explains the process of moving collections from one community to another in a straightforward way using the Batch Metadata editing tool.</p>
+<p>This guide explains the process of moving collections from one community to another in a straightforward way using the Batch Metadata Editing Tool.</p>
 <section id="why-move-collections">
-<h2><strong>Why Move Collections?</strong><a class="headerlink" href="#why-move-collections" title="Link to this heading">¶</a></h2>
-<p>There may be times when we need to reorganize our items and collections. Moving collections from one community to another can help keep everything organized. Here’s a step-by-step guide on how to do it using the Batch Metadata editing tool.</p>
+<h2>Why Move Collections?<a class="headerlink" href="#why-move-collections" title="Link to this heading">¶</a></h2>
+<p>There may be times when we need to reorganize our items and collections. Moving collections from one community to another can help keep everything organized. Here’s a step-by-step guide on how to do it using the Batch Metadata Editing Tool.</p>
 </section>
 <section id="steps-to-move-a-collection">
 <h2>Steps to Move a Collection<a class="headerlink" href="#steps-to-move-a-collection" title="Link to this heading">¶</a></h2>
-</section>
 <section id="identify-the-collection-to-move">
-<h2><strong>1. Identify the Collection to Move</strong><a class="headerlink" href="#identify-the-collection-to-move" title="Link to this heading">¶</a></h2>
+<h3>1. <strong>Identify the Collection to Move</strong><a class="headerlink" href="#identify-the-collection-to-move" title="Link to this heading">¶</a></h3>
 <p>Before we begin, locate the collection that you want to move to a new community.</p>
 </section>
 <section id="export-metadata">
-<h2><strong>2. Export Metadata</strong><a class="headerlink" href="#export-metadata" title="Link to this heading">¶</a></h2>
+<h3>2. <strong>Export Metadata</strong><a class="headerlink" href="#export-metadata" title="Link to this heading">¶</a></h3>
 <p>Use the export tool to export the metadata of the collection you want to move.</p>
 <a class="reference internal image-reference" href="../../_images/export_metadata.png"><img alt="Export Tool" src="../../_images/export_metadata.png" style="width: 600px;" />
 </a>
@@ -399,35 +398,51 @@
 </a>
 </section>
 <section id="download-the-csv-file">
-<h2><strong>3. Download the CSV File</strong><a class="headerlink" href="#download-the-csv-file" title="Link to this heading">¶</a></h2>
+<h3>3. <strong>Download the CSV File</strong><a class="headerlink" href="#download-the-csv-file" title="Link to this heading">¶</a></h3>
 <p>Once the metadata is exported, download the CSV file containing the collection details.</p>
 <a class="reference internal image-reference" href="../../_images/metadata_export.png"><img alt="Download CSV" src="../../_images/metadata_export.png" style="width: 600px;" />
 </a>
 </section>
 <section id="go-to-the-new-community">
-<h2><strong>4. Go to the New Community</strong><a class="headerlink" href="#go-to-the-new-community" title="Link to this heading">¶</a></h2>
+<h3>4. <strong>Go to the New Community</strong><a class="headerlink" href="#go-to-the-new-community" title="Link to this heading">¶</a></h3>
 <p>Navigate to the new community where you want to move the collection.</p>
 <p>If the community already has the collection created, simply copy the collection handle. If the collection doesn’t exist yet, follow the steps below to create it.</p>
 </section>
 <section id="create-or-use-existing-collection-in-the-new-community">
-<h2><strong>5. Create or Use Existing Collection in the New Community</strong><a class="headerlink" href="#create-or-use-existing-collection-in-the-new-community" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>If the collection is already created, you can copy the collection’s handle.</p></li>
-<li><p>If you need to create a new collection, follow the creation steps in the new community.</p></li>
-</ul>
+<h3>5. <strong>Create or Use Existing Collection in the New Community</strong><a class="headerlink" href="#create-or-use-existing-collection-in-the-new-community" title="Link to this heading">¶</a></h3>
+<p>To create a new collection in the new community, follow these steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Log in to the DSpace UI as an administrator.</p></li>
+<li><p>Navigate to the new community.</p></li>
+<li><p>Click on the <strong>“Collection”</strong> option.</p></li>
+<li><p>Fill out the collection’s metadata fields such as title, description, and any other required information.</p></li>
+<li><p>After creating the collection, copy the collection handle from the DSpace UI. You will use this handle to update the CSV file.</p></li>
+</ol>
+<p>If the collection already exists in the new community, simply copy the handle for that existing collection.</p>
+<img alt="../../_images/new_tool.png" src="../../_images/new_tool.png" />
+<dl class="field-list simple">
+<dt class="field-odd">alt<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Copy Handle</p>
+</dd>
+<dt class="field-even">width<span class="colon">:</span></dt>
+<dd class="field-even"><p>600</p>
+</dd>
+</dl>
+</div></blockquote>
 </section>
 <section id="copy-the-handle-of-the-new-collection">
-<h2><strong>6. Copy the Handle of the New Collection</strong><a class="headerlink" href="#copy-the-handle-of-the-new-collection" title="Link to this heading">¶</a></h2>
+<h3>1. <strong>Copy the Handle of the New Collection</strong><a class="headerlink" href="#copy-the-handle-of-the-new-collection" title="Link to this heading">¶</a></h3>
 <p>Once the collection is set up in the new community, copy the collection’s handle. This handle will be used to update the metadata.</p>
 <a class="reference internal image-reference" href="../../_images/copy_handle.png"><img alt="Copy Handle" src="../../_images/copy_handle.png" style="width: 600px;" />
 </a>
 </section>
 <section id="open-the-downloaded-csv">
-<h2><strong>7. Open the Downloaded CSV</strong><a class="headerlink" href="#open-the-downloaded-csv" title="Link to this heading">¶</a></h2>
+<h3>7. <strong>Open the Downloaded CSV</strong><a class="headerlink" href="#open-the-downloaded-csv" title="Link to this heading">¶</a></h3>
 <p>Open the CSV file you downloaded earlier. This file contains the metadata for the collection you want to move.</p>
 </section>
 <section id="keep-only-relevant-columns">
-<h2><strong>8. Keep Only Relevant Columns</strong><a class="headerlink" href="#keep-only-relevant-columns" title="Link to this heading">¶</a></h2>
+<h3>8. <strong>Keep Only Relevant Columns</strong><a class="headerlink" href="#keep-only-relevant-columns" title="Link to this heading">¶</a></h3>
 <p>In the CSV file, remove all columns except for these three:</p>
 <ul class="simple">
 <li><p><cite>id</cite></p></li>
@@ -438,16 +453,16 @@
 </a>
 </section>
 <section id="update-the-collection-handle">
-<h2><strong>9. Update the Collection Handle</strong><a class="headerlink" href="#update-the-collection-handle" title="Link to this heading">¶</a></h2>
-<p>Now, update the “collection” column in the CSV file with the new collection handle. Be careful! Some collection handles may look like this: 1969.1/94973||1969.1/172751</p>
+<h3>9. <strong>Update the Collection Handle</strong><a class="headerlink" href="#update-the-collection-handle" title="Link to this heading">¶</a></h3>
+<p>Now, update the “collection” column in the CSV file with the new collection handle. Be careful! Some collection handles may look like this: <cite>1969.1/94973||1969.1/172751</cite></p>
 <p>Only update the first handle with the new one. Leave the second one as is.</p>
 </section>
 <section id="save-the-csv-file">
-<h2><strong>10. Save the CSV File</strong><a class="headerlink" href="#save-the-csv-file" title="Link to this heading">¶</a></h2>
+<h3>10. <strong>Save the CSV File</strong><a class="headerlink" href="#save-the-csv-file" title="Link to this heading">¶</a></h3>
 <p>Once you’ve made the necessary updates, save the CSV file.</p>
 </section>
 <section id="import-metadata-into-dspace">
-<h2><strong>11. Import Metadata into DSpace</strong><a class="headerlink" href="#import-metadata-into-dspace" title="Link to this heading">¶</a></h2>
+<h3>11. <strong>Import Metadata into DSpace</strong><a class="headerlink" href="#import-metadata-into-dspace" title="Link to this heading">¶</a></h3>
 <p>Now, it’s time to upload the updated CSV file back into DSpace.</p>
 <ul class="simple">
 <li><p>Go to the DSpace UI and select the “Import Process” option.</p></li>
@@ -459,10 +474,11 @@
 </a>
 </section>
 <section id="upload-the-csv-and-complete-the-process">
-<h2><strong>12. Upload the CSV and Complete the Process</strong><a class="headerlink" href="#upload-the-csv-and-complete-the-process" title="Link to this heading">¶</a></h2>
+<h3>12. <strong>Upload the CSV and Complete the Process</strong><a class="headerlink" href="#upload-the-csv-and-complete-the-process" title="Link to this heading">¶</a></h3>
 <p>Upload your CSV file and watch as the items are automatically moved to the new collection in the new community!</p>
 <a class="reference internal image-reference" href="../../_images/final_output.png"><img alt="Final Output" src="../../_images/final_output.png" style="width: 600px;" />
 </a>
+</section>
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
@@ -526,20 +542,22 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Moving Collections from One Community to Another</a><ul>
-<li><a class="reference internal" href="#why-move-collections"><strong>Why Move Collections?</strong></a></li>
-<li><a class="reference internal" href="#steps-to-move-a-collection">Steps to Move a Collection</a></li>
-<li><a class="reference internal" href="#identify-the-collection-to-move"><strong>1. Identify the Collection to Move</strong></a></li>
-<li><a class="reference internal" href="#export-metadata"><strong>2. Export Metadata</strong></a></li>
-<li><a class="reference internal" href="#download-the-csv-file"><strong>3. Download the CSV File</strong></a></li>
-<li><a class="reference internal" href="#go-to-the-new-community"><strong>4. Go to the New Community</strong></a></li>
-<li><a class="reference internal" href="#create-or-use-existing-collection-in-the-new-community"><strong>5. Create or Use Existing Collection in the New Community</strong></a></li>
-<li><a class="reference internal" href="#copy-the-handle-of-the-new-collection"><strong>6. Copy the Handle of the New Collection</strong></a></li>
-<li><a class="reference internal" href="#open-the-downloaded-csv"><strong>7. Open the Downloaded CSV</strong></a></li>
-<li><a class="reference internal" href="#keep-only-relevant-columns"><strong>8. Keep Only Relevant Columns</strong></a></li>
-<li><a class="reference internal" href="#update-the-collection-handle"><strong>9. Update the Collection Handle</strong></a></li>
-<li><a class="reference internal" href="#save-the-csv-file"><strong>10. Save the CSV File</strong></a></li>
-<li><a class="reference internal" href="#import-metadata-into-dspace"><strong>11. Import Metadata into DSpace</strong></a></li>
-<li><a class="reference internal" href="#upload-the-csv-and-complete-the-process"><strong>12. Upload the CSV and Complete the Process</strong></a></li>
+<li><a class="reference internal" href="#why-move-collections">Why Move Collections?</a></li>
+<li><a class="reference internal" href="#steps-to-move-a-collection">Steps to Move a Collection</a><ul>
+<li><a class="reference internal" href="#identify-the-collection-to-move">1. <strong>Identify the Collection to Move</strong></a></li>
+<li><a class="reference internal" href="#export-metadata">2. <strong>Export Metadata</strong></a></li>
+<li><a class="reference internal" href="#download-the-csv-file">3. <strong>Download the CSV File</strong></a></li>
+<li><a class="reference internal" href="#go-to-the-new-community">4. <strong>Go to the New Community</strong></a></li>
+<li><a class="reference internal" href="#create-or-use-existing-collection-in-the-new-community">5. <strong>Create or Use Existing Collection in the New Community</strong></a></li>
+<li><a class="reference internal" href="#copy-the-handle-of-the-new-collection">1. <strong>Copy the Handle of the New Collection</strong></a></li>
+<li><a class="reference internal" href="#open-the-downloaded-csv">7. <strong>Open the Downloaded CSV</strong></a></li>
+<li><a class="reference internal" href="#keep-only-relevant-columns">8. <strong>Keep Only Relevant Columns</strong></a></li>
+<li><a class="reference internal" href="#update-the-collection-handle">9. <strong>Update the Collection Handle</strong></a></li>
+<li><a class="reference internal" href="#save-the-csv-file">10. <strong>Save the CSV File</strong></a></li>
+<li><a class="reference internal" href="#import-metadata-into-dspace">11. <strong>Import Metadata into DSpace</strong></a></li>
+<li><a class="reference internal" href="#upload-the-csv-and-complete-the-process">12. <strong>Upload the CSV and Complete the Process</strong></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
