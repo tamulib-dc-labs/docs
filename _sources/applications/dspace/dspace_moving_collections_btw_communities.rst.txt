@@ -59,7 +59,7 @@ To create a new collection in the new community, follow these steps:
 
    If the collection already exists in the new community, simply copy the handle for that existing collection.
 
-   .. image:: ../../_static/images/dspace_mvng_coll_btw_com/new_tool.png
+.. image:: ../../_static/images/dspace_mvng_coll_btw_com/new_tool.png
    :alt: Copy Handle
    :width: 600
 
