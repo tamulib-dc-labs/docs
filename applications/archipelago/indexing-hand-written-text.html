@@ -225,6 +225,7 @@
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="metadata-avalon-to-archipelago.html">Crosswalking Metadata from Avalon to Archipelago</a></li>
@@ -386,10 +387,17 @@ custom Twig templates.</p>
 <section id="strawberry-runner-configuration">
 <h2>1. Strawberry Runner Configuration<a class="headerlink" href="#strawberry-runner-configuration" title="Link to this heading">¶</a></h2>
 <p>Before the text can be used in the IIIF manifest, it must be indexed in Solr via a Strawberry Runner.</p>
+<ol class="arabic simple">
+<li><p>Configure the “Text” Post-Processor: The Strawberry Runner is the engine that watches your files. You must tell it which ADO (Administrative Digital Object) types are allowed to have their text “Solrized.”</p></li>
+<li><p>Navigate to: <a class="reference external" href="http://localhost:8001/admin/config/archipelago/strawberry_runner_postprocessor/text/edit">http://localhost:8001/admin/config/archipelago/strawberry_runner_postprocessor/text/edit</a></p></li>
+<li><p>Check ADO Types: Look for the “Applicable Bundles” (or ADO types) section. If you are using a custom type like <code class="code docutils literal notranslate"><span class="pre">Manuscript</span></code>, ensure it is selected.</p></li>
+<li><p>Verify Mimetype: Ensure the processor is set to listen for <code class="code docutils literal notranslate"><span class="pre">text/plain</span></code>.</p></li>
+<li><p>Field Mapping: Ensure the processor is configured to send the extracted text to a Solr field (usually something like fulltext_tesim or a dedicated OCR/transcript field).</p></li>
+</ol>
 <section id="ensure-ado-types-are-configured">
 <h3>Ensure ADO Types are Configured<a class="headerlink" href="#ensure-ado-types-are-configured" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Navigate to: <cite>admin/config/archipelago/strawberry_runner_postprocessor/text/edit</cite>.</p></li>
+<li><p>Navigate to: <code class="code docutils literal notranslate"><span class="pre">admin/config/archipelago/strawberry_runner_postprocessor/text/edit</span></code>.</p></li>
 <li><p>Ensure that your specific <strong>ADO types</strong> (e.g., Manuscript, Poster, Scrapbook) and the <strong>mimetype</strong> (<cite>text/plain</cite>) is included in the runner settings.</p></li>
 <li><p>If your ADO type is missing, the runner will ignore the text files, and they will not be indexed in Solr.</p></li>
 </ol>

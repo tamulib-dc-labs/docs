@@ -15,10 +15,16 @@ custom Twig templates.
 
 Before the text can be used in the IIIF manifest, it must be indexed in Solr via a Strawberry Runner.
 
+1. Configure the "Text" Post-Processor: The Strawberry Runner is the engine that watches your files. You must tell it which ADO (Administrative Digital Object) types are allowed to have their text "Solrized."
+2. Navigate to: http://localhost:8001/admin/config/archipelago/strawberry_runner_postprocessor/text/edit
+3. Check ADO Types: Look for the "Applicable Bundles" (or ADO types) section. If you are using a custom type like :code:`Manuscript`, ensure it is selected.
+4. Verify Mimetype: Ensure the processor is set to listen for :code:`text/plain`.
+5. Field Mapping: Ensure the processor is configured to send the extracted text to a Solr field (usually something like fulltext_tesim or a dedicated OCR/transcript field).
+
 Ensure ADO Types are Configured
 ===============================
 
-1. Navigate to: `admin/config/archipelago/strawberry_runner_postprocessor/text/edit`.
+1. Navigate to: :code:`admin/config/archipelago/strawberry_runner_postprocessor/text/edit`.
 2. Ensure that your specific **ADO types** (e.g., Manuscript, Poster, Scrapbook) and the **mimetype** (`text/plain`) is included in the runner settings.
 3. If your ADO type is missing, the runner will ignore the text files, and they will not be indexed in Solr.
 
