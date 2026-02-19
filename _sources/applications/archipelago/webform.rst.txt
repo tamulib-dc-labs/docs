@@ -67,11 +67,7 @@ Click "Visible". Change the conditionals so that it is :code:`Visible` when :cod
 URL of the original Website
 ---------------------------
 
-Click "Visible". Change the conditionals so that it is :code:`Visible` when :code:`Any` of the following is met: 
-    * :code:`MediaType` :code:`Value is` :code:`AudioObject` 
-    * :code:`MediaType` :code:`Value is` :code:`Videobject`
-    * :code:`MediaType` :code:`Value is` :code:`WebPage`
-    * :code:`MediaType` :code:`Value is` :code:`MetadataOnly`
+Click "Visible". Remove all conditionals.
 
 Description
 -----------
