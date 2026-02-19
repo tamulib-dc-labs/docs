@@ -27,7 +27,8 @@ TAMU Elements:
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Content Type                 | dc:type                        | mods:typeofResource               | dc.type, dc:type.material      | dcterms.type           | Genre *                | content_type                  |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Digital Publisher            | dc:publisher                   | publisher, mods:note              | dc.publisher *                 | dc:publisher *         | Publisher *            | digital_publisher             |
+| Digital Publisher            | dc:publisher                   | publisher, mods:note              | dc.publisher, *                | dc:publisher *         | Publisher *            | digital_publisher             |
+|                              |                                |                                   | dc.publisher.digital           |                        |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Rights/Access                | dc:rights                      | mods:accessCondition              | dc.rights, dc.rights.uri       | dc:rights              | Terms of Use           | rights_access                 |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
@@ -44,8 +45,9 @@ TAMU Elements:
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Date Created                 | dc:date.created                | mods:dateCreated                  | dc.date.created                | dcterms:created        |                        | date_created                  |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Summary/Abstract             | dc:description,                | mods:abstract                     | dc.description *               | dc:description * ,     | Abstract               | summary_abstract              |
-|                              | dc:description.abstract        |                                   |                                | dc:abstract            |                        |                               |
+| Summary/Abstract             | dc:description,                | mods:abstract                     | dc.description, *              | dc:description * ,     | Abstract               | summary_abstract              |
+|                              | dc:description.abstract        |                                   | dc.description.abstract        | dc:abstract,           |                        |                               |
+|                              | dc:description.abstract        |                                   |                                | dcterms:abstract       |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Language                     | dc:language                    | mods:languageTerm                 | dc.language.iso                | dc:language            | Language               | language                      |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
@@ -61,12 +63,13 @@ TAMU Elements:
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Alternative Title            | dc:title.alternative           | mods:titleInfo type="alternative" | dcterms.alternative            | dcterms:alternative    |                        | alternative_title             |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Genre                        | dc:type                        | mods:genre authority=""           | dc.type.genre, dc.subject *    | dcterms.type           | Genre                  | genre                         |
+| Genre                        | dc:type                        | mods:genre authority=""           | dc.type.genre, dc.subject, *   | dcterms.type           | Genre                  | genre                         |
+|                              |                                |                                   |                                | dc:genre               |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Table of Contents            | dc.description.tableOfContents | mods:tableOfContents              |                                |                        | Table of Contents      | table_of_contents             |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Contributor                  | dc:contributor                 | mods:name                         | dc.contributor.photographer,   | dc:contributor         | Contributor            | contributor                   |
-|                              |                                |                                   | dc.contributor.illustrator,    |                        |                        |                               |
+|                              |                                |                                   | dc.contributor.illustrator,    |                        | Performer              |                               |
 |                              |                                |                                   | dc.contributor.editor          |                        |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Related Resource             | dc:relation.isPartOf,          | mods:relatedItem                  | dc.relation.uri * ,            | dcterms:IsPartOf       | Series, Related Item   | related_resource              |
@@ -75,7 +78,8 @@ TAMU Elements:
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Original Publisher           | dc:publisher                   | mods:publisher, mods:originInfo   | dc.publisher *                 | dc:publisher *         | Publisher *            | original_publisher            |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Extent                       | dc:format.extent               | mods:physicalDescription          | dc.extent                      | dcterms:extent         | Physical Description   | extent                        |
+| Extent                       | dc:format.extent               | mods:physicalDescription          | dc.extent,                     | dcterms:extent         | Physical Description   | extent                        |
+|                              |                                |                                   | dc.format.extent               |                        |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Sponsor                      | dc:contributor,                | mods:name, mods:note              | dc.contributor.sponsor,        | dc:contributor * ,     |                        | sponsor                       |
 |                              | dc:description                 |                                   | dc.description.sponsorship     | dc:description *       |                        |                               |
@@ -84,13 +88,13 @@ TAMU Elements:
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Original Resource            | dc:source                      | mods:relatedItem                  |                                |                        |                        | original_resource             |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Note                         | dc:description                 | note                              | dc.description *               | dc:description *       | Note                   | note                          |
+| Note                         | dc:description                 | note                              | dc.description *               | dc:description *       | Note, Local Note       | note                          |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Original Place of            | dc:description                 | mods:placeTerm                    | dc.description *               | dc:description *       |                        | original_place                |
 | Publication, Production,     |                                |                                   |                                |                        |                        |                               |
 | or Manufacture               |                                |                                   |                                |                        |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Audience Level               | dc:audience                    | mods:targetAudience               |                                |                        |                        | audience_level                |
+| Audience Level               | dc:audience                    | mods:targetAudience               | dc.audience                    |                        |                        | audience_level                |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Classification               | dc:description                 | mods:classification               | dc:classification.lcc,         | dcterms:lcc            |                        | classification                |
 |                              |                                |                                   | dc:subject.classification      |                        |                        |                               |
@@ -99,10 +103,28 @@ TAMU Elements:
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
 | Physical item location       | dc:description                 | mods:location                     |                                |                        |                        | physical_item_location        |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Geographic Subject           | dc:subject                     | mods:subject                      | dc.subject *                   | dc:spatial             | Geographic Subject     | geographic_subject            |
+| Geographic Subject           | dc:subject                     | mods:subject                      | dc.subject, *                  | dc:spatial             | Geographic Subject     | geographic_subject            |
+|                              |                                |                                   | dc.coverage.spatial            |                        |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
-| Temporal Subject             | dc:subject                     | mods:subject                      | dc.subject *                   | dc:temporal            | Temporal Subject       | temporal_subject              |
+| Temporal Subject             | dc:subject                     | mods:subject                      | dc.subject, *                  | dc:temporal            | Temporal Subject       | temporal_subject              |
+|                              |                                |                                   | dc.coverage.temporal           |                        |                        |                               |
 +------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Medium                       |                                |                                   | dc.format.medium               | dcterms:medium         |                        | medium                        |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Citation                     |                                |                                   |                                | dc:citation            |                        | citation                      |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Date Accessioned             |                                |                                   | dc.date.accessioned            |                        |                        | date_accessioned              |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Date Available               |                                |                                   | dc.date.available              |                        |                        | date_available                |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Date Updated                 |                                |                                   | dc.date.updated                |                        |                        | date_updated                  |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Provenance                   |                                |                                   | dc.description.provenance      | dc:attribution         | Statement of           | statement_of_responsibility   |
+|                              |                                |                                   |                                |                        | Responsibility         |                               |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+| Local Sequence               |                                |                                   | local.sequence                 |                        |                        | sequence_id                   |
++------------------------------+--------------------------------+-----------------------------------+--------------------------------+------------------------+------------------------+-------------------------------+
+
 .. note::
     Geographic and Temporal Subjects are not in the Metadata Guidelines. They are in the table because the data already exists for them.
 

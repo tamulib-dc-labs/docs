@@ -224,6 +224,7 @@
 <li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change-search-facets.html">Changing fields for search facets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
@@ -419,7 +420,8 @@
 <tr class="row-even"><td><p>Digital Publisher</p></td>
 <td><p>dc:publisher</p></td>
 <td><p>publisher, mods:note</p></td>
-<td><p>dc.publisher *</p></td>
+<td><p>dc.publisher, *
+dc.publisher.digital</p></td>
 <td><p>dc:publisher *</p></td>
 <td><p>Publisher *</p></td>
 <td><p>digital_publisher</p></td>
@@ -483,11 +485,14 @@ Captions File</p></td>
 </tr>
 <tr class="row-even"><td><p>Summary/Abstract</p></td>
 <td><p>dc:description,
+dc:description.abstract
 dc:description.abstract</p></td>
 <td><p>mods:abstract</p></td>
-<td><p>dc.description *</p></td>
+<td><p>dc.description, *
+dc.description.abstract</p></td>
 <td><p>dc:description * ,
-dc:abstract</p></td>
+dc:abstract,
+dcterms:abstract</p></td>
 <td><p>Abstract</p></td>
 <td><p>summary_abstract</p></td>
 </tr>
@@ -548,8 +553,9 @@ dc:URL *</p></td>
 <tr class="row-odd"><td><p>Genre</p></td>
 <td><p>dc:type</p></td>
 <td><p>mods:genre authority=””</p></td>
-<td><p>dc.type.genre, dc.subject *</p></td>
-<td><p>dcterms.type</p></td>
+<td><p>dc.type.genre, dc.subject, *</p></td>
+<td><p>dcterms.type
+dc:genre</p></td>
 <td><p>Genre</p></td>
 <td><p>genre</p></td>
 </tr>
@@ -568,7 +574,8 @@ dc:URL *</p></td>
 dc.contributor.illustrator,
 dc.contributor.editor</p></td>
 <td><p>dc:contributor</p></td>
-<td><p>Contributor</p></td>
+<td><p>Contributor
+Performer</p></td>
 <td><p>contributor</p></td>
 </tr>
 <tr class="row-even"><td><p>Related Resource</p></td>
@@ -595,7 +602,8 @@ URL</p></td>
 <tr class="row-even"><td><p>Extent</p></td>
 <td><p>dc:format.extent</p></td>
 <td><p>mods:physicalDescription</p></td>
-<td><p>dc.extent</p></td>
+<td><p>dc.extent,
+dc.format.extent</p></td>
 <td><p>dcterms:extent</p></td>
 <td><p>Physical Description</p></td>
 <td><p>extent</p></td>
@@ -632,7 +640,7 @@ dc:description *</p></td>
 <td><p>note</p></td>
 <td><p>dc.description *</p></td>
 <td><p>dc:description *</p></td>
-<td><p>Note</p></td>
+<td><p>Note, Local Note</p></td>
 <td><p>note</p></td>
 </tr>
 <tr class="row-odd"><td><p>Original Place of
@@ -648,7 +656,7 @@ or Manufacture</p></td>
 <tr class="row-even"><td><p>Audience Level</p></td>
 <td><p>dc:audience</p></td>
 <td><p>mods:targetAudience</p></td>
-<td></td>
+<td><p>dc.audience</p></td>
 <td></td>
 <td></td>
 <td><p>audience_level</p></td>
@@ -681,7 +689,8 @@ dc:subject.classification</p></td>
 <tr class="row-even"><td><p>Geographic Subject</p></td>
 <td><p>dc:subject</p></td>
 <td><p>mods:subject</p></td>
-<td><p>dc.subject *</p></td>
+<td><p>dc.subject, *
+dc.coverage.spatial</p></td>
 <td><p>dc:spatial</p></td>
 <td><p>Geographic Subject</p></td>
 <td><p>geographic_subject</p></td>
@@ -689,10 +698,68 @@ dc:subject.classification</p></td>
 <tr class="row-odd"><td><p>Temporal Subject</p></td>
 <td><p>dc:subject</p></td>
 <td><p>mods:subject</p></td>
-<td><p>dc.subject *</p></td>
+<td><p>dc.subject, *
+dc.coverage.temporal</p></td>
 <td><p>dc:temporal</p></td>
 <td><p>Temporal Subject</p></td>
 <td><p>temporal_subject</p></td>
+</tr>
+<tr class="row-even"><td><p>Medium</p></td>
+<td></td>
+<td></td>
+<td><p>dc.format.medium</p></td>
+<td><p>dcterms:medium</p></td>
+<td></td>
+<td><p>medium</p></td>
+</tr>
+<tr class="row-odd"><td><p>Citation</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>dc:citation</p></td>
+<td></td>
+<td><p>citation</p></td>
+</tr>
+<tr class="row-even"><td><p>Date Accessioned</p></td>
+<td></td>
+<td></td>
+<td><p>dc.date.accessioned</p></td>
+<td></td>
+<td></td>
+<td><p>date_accessioned</p></td>
+</tr>
+<tr class="row-odd"><td><p>Date Available</p></td>
+<td></td>
+<td></td>
+<td><p>dc.date.available</p></td>
+<td></td>
+<td></td>
+<td><p>date_available</p></td>
+</tr>
+<tr class="row-even"><td><p>Date Updated</p></td>
+<td></td>
+<td></td>
+<td><p>dc.date.updated</p></td>
+<td></td>
+<td></td>
+<td><p>date_updated</p></td>
+</tr>
+<tr class="row-odd"><td><p>Provenance</p></td>
+<td></td>
+<td></td>
+<td><p>dc.description.provenance</p></td>
+<td><p>dc:attribution</p></td>
+<td><p>Statement of
+Responsibility</p></td>
+<td><p>statement_of_responsibility</p></td>
+</tr>
+<tr class="row-even"><td><p>Local Sequence</p></td>
+<td></td>
+<td></td>
+<td><p>local.sequence</p></td>
+<td></td>
+<td></td>
+<td><p>sequence_id</p></td>
 </tr>
 </tbody>
 </table>

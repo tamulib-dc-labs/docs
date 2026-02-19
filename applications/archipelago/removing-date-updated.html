@@ -224,6 +224,7 @@
 <li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change-search-facets.html">Changing fields for search facets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
@@ -376,69 +377,11 @@
         <article role="main" id="furo-main-content">
           <section id="removing-date-updated-from-search-results">
 <h1>Removing Date Updated from Search Results<a class="headerlink" href="#removing-date-updated-from-search-results" title="Link to this heading">¶</a></h1>
-<ol class="arabic">
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">admin/structure/display-modes/view</span></code>.</p></li>
-<li><p>Select “Add view mode for Content”. Name it “Digital Object with Creator and Date” and enable the view for Digital Object and Digital Object Collection. Click save.</p></li>
+<ol class="arabic simple">
 <li><p>Go to <code class="code docutils literal notranslate"><span class="pre">admin/structure/types/manage/digital_object/display</span></code>.</p></li>
-<li><p>Select “Digital Object with Creator and Date”. Scroll to the bottom of the page and change “One column layout” to “Two column”. Click save to reload the page with updated layout options.</p></li>
-<li><p>Drag “Title” to “Top”.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>Be sure the “link” box is checked.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>Drag “Dah woozh” to “First”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>For “Choose your metadata template”, select “Multiple Thumbnails via IIIF and FontAwesome (10)”.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Thumbnail”.</p></li>
-<li><p>Uncheck the box. Click update.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>Drag “Search result excerpt” to “First” underneath “Dah woozh”.</p></li>
-<li><p>Drag “Strawberry (Descriptive Metadata Source)” to “Second”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>Choose “Object Metadata Abstract for Search Results (8)” for metadata template.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Descriptive Metadata”.</p></li>
-<li><p>Uncheck the box. Click update. Scroll to the bottom of the page and click save.</p></li>
-</ol>
-</div></blockquote>
-</li>
-<li><p>Go to <code class="code docutils literal notranslate"><span class="pre">admin/structure/types/manage/digital_object_collection/display</span></code>.</p></li>
-<li><p>Select “Digital Object with Creator and Date”. Scroll to the bottom of the page and change “One column layout” to “Two column”. Click save to reload the page with updated layout options.</p></li>
-<li><p>Drag “Title” to “Top”. Click the gear.</p>
-<ol class="loweralpha simple">
-<li><p>Check the box.</p></li>
-<li><p>For class, type “fas fa-archive”.</p></li>
-</ol>
-</li>
-<li><p>Drag “Strawberry (Descriptive metadata source)” to “First”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<ol class="loweralpha simple">
-<li><p>For “Choose your metadata template”, select “Multiple Thumbnails via IIIF and FontAwesome (10)”.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Thumbnail”.</p></li>
-<li><p>Uncheck the box. Click update.</p></li>
-</ol>
-</li>
-<li><p>Drag “Links” to “First”, under “Strawberry (Descriptive metadata source)”.</p></li>
-<li><p>Drag “Frutilla (Descriptive Metadata Source)” to “Second”. For Format, select “Strawberry Field Formatter for Custom Metadata Templates”. Click the gear.</p>
-<ol class="loweralpha simple">
-<li><p>Choose “Object Metadata Abstract for Search Results (8)” for metadata template.</p></li>
-<li><p>For the URL, type “<a class="reference external" href="http://schema.org">http://schema.org</a>”.</p></li>
-<li><p>For the public facing label, enter “Descriptive Metadata”.</p></li>
-<li><p>Uncheck the box. Click update. Scroll to the bottom of the page and click save.</p></li>
-</ol>
-</li>
-<li><p>Go to “Browse Digital Objects”. Click “edit view” on the search results.</p></li>
-<li><p>Under Format &gt; Show, click “Settings.”</p></li>
-<li><p>Change view mode for datasource Content, bundle Digital Object from “Digital Object with thumbnail and abstract” to “Digital Object with Creator and Date”.</p></li>
-<li><p>Change view mode for datasource Content, bundle Digital Object Collection from “Digital Object with thumbnail and abstract” to “Digital Object with Creator and Date”.</p></li>
-<li><p>Click Apply. Then click save.</p></li>
+<li><p>Select “Digital Object with thumbnail and abstract”.</p></li>
+<li><p>Drag “Last modified” to “Disabled”.</p></li>
+<li><p>Click save.</p></li>
 </ol>
 </section>
 
