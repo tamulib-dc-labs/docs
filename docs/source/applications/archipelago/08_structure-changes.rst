@@ -10,5 +10,5 @@ List of things to change from default Archipelago and how to change them.
 
 * `Modifying the Webforms <https://tamulib-dc-labs.github.io/docs/applications/archipelago/webform.html>`_
 
-* `Editing creator and subject search facets <https://tamulib-dc-labs.github.io/docs/applications/archipelago/change-search-facets.html>`
+* `Editing creator and subject search facets <https://tamulib-dc-labs.github.io/docs/applications/archipelago/change-search-facets.html>`_
 
