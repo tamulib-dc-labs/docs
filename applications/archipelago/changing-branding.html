@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Crosswalking from DSpace, Fedora, and Avalon to Archipelago" href="crosswalking.html" /><link rel="prev" title="Changing the template for a worktype" href="change-viewer.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" /><link rel="prev" title="Changing Structures on Archipelago" href="06_structure-changes.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Changing Branding in Archipelago - TAMU Digital Collections Labs documentation</title>
@@ -216,21 +216,22 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new items through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_flat-csv.html">Using an intermediate, “flat” csv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_fedora-to-ami.html">Migrating from Fedora</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_avalon-to-ami.html">Migrating from Avalon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06_json-to-ami.html">Migrating from a directory of jsons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="change-search-facets.html">Changing fields for search facets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Using an intermediate, “flat” csv for linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Changing Branding in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="removing-date-updated.html">Removing Date Updated from Search Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/removing-date-updated.html">Removing Date Updated from Search Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/avalon-to-ami.html">Migrating from Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/fedora-to-ami.html">Migrating from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/json-to-ami.html">Migrating from a directory of jsons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -468,23 +469,23 @@ Archipelago subtheme documentation or a developer.</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="crosswalking.html">
+          <a class="next-page" href="indexing-hand-written-text.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</div>
+                <div class="title">Associating HTR with Image Files</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="change-viewer.html">
+          <a class="prev-page" href="06_structure-changes.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Changing the template for a worktype</div>
+                <div class="title">Changing Structures on Archipelago</div>
                 
               </div>
             </a>

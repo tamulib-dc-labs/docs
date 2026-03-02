@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Using an intermediate, “flat” csv" href="02_flat-csv.html" /><link rel="prev" title="Archipelago" href="../../workflows/archipelago.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bulk updating metadata through AMI" href="02_ami-update.html" /><link rel="prev" title="Archipelago" href="../../workflows/archipelago.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Creating new items through AMI - TAMU Digital Collections Labs documentation</title>
@@ -216,21 +216,22 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Creating new items through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_flat-csv.html">Using an intermediate, “flat” csv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_fedora-to-ami.html">Migrating from Fedora</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_avalon-to-ami.html">Migrating from Avalon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06_json-to-ami.html">Migrating from a directory of jsons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07_updating-metadata.html">Bulk updating metadata through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_structure-changes.html">Changing Structures on Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ado-types.html">ADO Types in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="change-search-facets.html">Changing fields for search facets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata through AMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Using an intermediate, “flat” csv for linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_structure-changes.html">Changing Structures on Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="removing-date-updated.html">Removing Date Updated from Search Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/removing-date-updated.html">Removing Date Updated from Search Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/avalon-to-ami.html">Migrating from Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/fedora-to-ami.html">Migrating from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/json-to-ami.html">Migrating from a directory of jsons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -385,7 +386,7 @@
 <p>If there are multiple values for any column, cells will have json strings such as:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
 <p>This is an creator_lod example for an item with 2 creators.</p>
-<p>To avoid having to write complex json strings for linked data, <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat-csv.html">read this page on creating a more human-readable, “flat” csv</a>.</p>
+<p>To avoid having to write complex json strings for linked data, <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/03_linked-data-multivalue.html">read this page on creating a more human-readable, “flat” csv</a>.</p>
 </section>
 <section id="mandatory-fields">
 <h2>Mandatory fields<a class="headerlink" href="#mandatory-fields" title="Link to this heading">¶</a></h2>
@@ -401,7 +402,7 @@
 </section>
 <section id="what-is-type">
 <h3>What is type?<a class="headerlink" href="#what-is-type" title="Link to this heading">¶</a></h3>
-<p>This tells Archipelago what type of item you are working with so it knows what template to use. For each item, you will likely select one from the following: Photograph, Postcard, AudioObject, VideoObject, Book, Manuscript, Map, VisualArtwork.</p>
+<p>This tells Archipelago what type of item you are working with so it knows what template to use. For a full list of TAMU types, read the <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago/04_ado-types.html">documentation on ADO types</a>.</p>
 </section>
 <section id="what-is-label">
 <h3>What is label?<a class="headerlink" href="#what-is-label" title="Link to this heading">¶</a></h3>
@@ -486,12 +487,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="02_flat-csv.html">
+          <a class="next-page" href="02_ami-update.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Using an intermediate, “flat” csv</div>
+                <div class="title">Bulk updating metadata through AMI</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
