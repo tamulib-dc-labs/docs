@@ -2,6 +2,9 @@
 Crosswalking from DSpace, Fedora, and Avalon to Archipelago
 ===========================================================
 
+.. note::
+    This is a hypothetical crosswalking schema created for demonstration purposes. This is not our final metadata crosswalking policy.
+
 Definitions:
 
 * Element/Metadata element - a metadata concept (ie “subject”, “creator”).

@@ -4,6 +4,8 @@ ADO Types in Archipelago
 
 Archipelago Digital Objects (ADOs) require a :code:`type` value upon ingest. This tells Archipelago what kind of template to create for that specific object.
 
+Note that this list is subject to change as we work with more collections.
+
 Below is a list of TAMU Archipelago worktypes:
 
 ----------
@@ -29,8 +31,6 @@ All child ADOs are displayed at the bottom of the page.
 .. image:: docs/source/_static/images/exemplar-collection.png
     :alt: Screenshot of a Digital Object Collection ADO.
 
-Things missing from this ADO
-    * Collections as data
 
 ------------------
 CreativeWorkSeries
@@ -57,9 +57,6 @@ CreativeWorkSeries
 
 .. image:: ../_static/images/exemplar-cws-mirador.png
     :alt: Screenshot of the Mirador viewer of a CreativeWorkSeries ADO.
-
-Things missing from this ADO
-    * Collections as data
 
 -----
 Image
@@ -114,10 +111,6 @@ Map
 .. image:: ../_static/images/exemplar-map.png
     :alt: Screenshot of a Map ADO.
 
-Things missing from this exemplar
-    * Projection and edition metadata
-    * No watermark on this exemplar
-
 ----
 Book
 ----
@@ -157,10 +150,6 @@ Here is the extracted text tab on the book:
 .. image:: ../_static/images/exemplar-book-ocr.png
     :alt: Screenshot of the extracted text tab of a Book ADO.
 
-Things missing from this ADO
-    * Collections as data
-    * PDF for users to download
-
 ----------
 Manuscript
 ----------
@@ -193,11 +182,6 @@ Manuscript
 .. image:: ../_static/images/exemplar-manuscript.png
     :alt: Screenshot of a Manuscript ADO.
 
-Things missing from this ADO
-    * HTR
-    * Collections as data
-    * PDF for users to download
-
 -----------
 AudioObject
 -----------
@@ -210,7 +194,7 @@ AudioObject
 * Structure:
     * 1 - n audio files
     * File and transcript can be downloaded
-    * Searchable transcript
+    * Searchable, synced vtt transcript
 * Display/viewer
     * Audio player
 * File types: mp3, vtt

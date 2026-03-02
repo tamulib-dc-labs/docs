@@ -1,12 +1,22 @@
-==============================
-Creating new items through AMI
-==============================
+=================
+Creating new ADOs
+=================
+
+In Archipelago, there are three ways to upload a new Archipelago Digital Object.
+
+1. Webform (Go to :code:`/node/add`)
+
+2. JSON file (Go to :code:`/node/add-list/super_admin_raw_json`)
+
+3. AMI spreadsheet batch upload
+
+This guide pertains the third of these, batch upload via spreadsheet.
 
 ---------------------------------
 Create an csv compatible with AMI
 ---------------------------------
 
-Here is the template to upload a spreadsheet to Archipelago.
+To upload with a spreadsheet, you must create a spreadsheet compatible with Archipelago. Column names vary greatly once Archipelago has been customized to the institution, but below is the template compatible with default Archipelago settings:
 
 .. raw:: html
 
