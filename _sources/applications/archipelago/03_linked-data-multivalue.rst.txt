@@ -1,8 +1,8 @@
-=======================================================================
-Using an intermediate, "flat" csv for linked data and multivalue fields
-=======================================================================
+=================================
+Linked data and multivalue fields
+=================================
 
-This is a guide that makes linked data easier to work with.
+This is a guide that makes linked data easier to work with. This page includes a script used to take a "flattened" csv template and reformat the values so that they are compatible with the Archipelago Multi-Importer (AMI).
 
 -------------------
 Why is this needed?

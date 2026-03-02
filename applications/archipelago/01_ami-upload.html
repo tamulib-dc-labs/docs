@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bulk updating metadata through AMI" href="02_ami-update.html" /><link rel="prev" title="Archipelago" href="../../workflows/archipelago.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bulk updating metadata" href="02_ami-update.html" /><link rel="prev" title="Archipelago Terminology" href="00_archipelago-terms.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Creating new items through AMI - TAMU Digital Collections Labs documentation</title>
+        <title>Creating new ADOs - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,9 +215,10 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Creating new items through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Using an intermediate, “flat” csv for linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_archipelago-terms.html">Archipelago Terminology</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Creating new ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_structure-changes.html">Changing Structures on Archipelago</a></li>
@@ -377,11 +378,18 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="creating-new-items-through-ami">
-<h1>Creating new items through AMI<a class="headerlink" href="#creating-new-items-through-ami" title="Link to this heading">¶</a></h1>
+          <section id="creating-new-ados">
+<h1>Creating new ADOs<a class="headerlink" href="#creating-new-ados" title="Link to this heading">¶</a></h1>
+<p>In Archipelago, there are three ways to upload a new Archipelago Digital Object.</p>
+<ol class="arabic simple">
+<li><p>Webform (Go to <code class="code docutils literal notranslate"><span class="pre">/node/add</span></code>)</p></li>
+<li><p>JSON file (Go to <code class="code docutils literal notranslate"><span class="pre">/node/add-list/super_admin_raw_json</span></code>)</p></li>
+<li><p>AMI spreadsheet batch upload</p></li>
+</ol>
+<p>This guide pertains the third of these, batch upload via spreadsheet.</p>
 <section id="create-an-csv-compatible-with-ami">
 <h2>Create an csv compatible with AMI<a class="headerlink" href="#create-an-csv-compatible-with-ami" title="Link to this heading">¶</a></h2>
-<p>Here is the template to upload a spreadsheet to Archipelago.</p>
+<p>To upload with a spreadsheet, you must create a spreadsheet compatible with Archipelago. Column names vary greatly once Archipelago has been customized to the institution, but below is the template compatible with default Archipelago settings:</p>
 <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe><p>Be sure to look at the second sheet (AMI template). Enter your data here.</p>
 <p>If there are multiple values for any column, cells will have json strings such as:</p>
 <p><code class="code docutils literal notranslate"><span class="pre">[{&quot;name_uri&quot;:&quot;http://id.loc.gov/authorities/names/n2001078880&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/cre&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Hogg,</span> <span class="pre">James</span> <span class="pre">Stephen,</span> <span class="pre">1851-1906.&quot;,&quot;role_label&quot;:&quot;Creator&quot;},{&quot;name_uri&quot;:&quot;https://id.loc.gov/authorities/names/n82158463&quot;,&quot;role_uri&quot;:&quot;http://id.loc.gov/vocabulary/relators/rcp&quot;,&quot;agent_type&quot;:&quot;personal&quot;,&quot;name_label&quot;:&quot;Ross,</span> <span class="pre">Lawrence</span> <span class="pre">Sullivan,</span> <span class="pre">1838-1898&quot;,&quot;role_label&quot;:&quot;Addressee&quot;}]</span></code></p>
@@ -492,18 +500,18 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Bulk updating metadata through AMI</div>
+                <div class="title">Bulk updating metadata</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../workflows/archipelago.html">
+          <a class="prev-page" href="00_archipelago-terms.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Archipelago</div>
+                <div class="title">Archipelago Terminology</div>
                 
               </div>
             </a>
@@ -537,7 +545,7 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Creating new items through AMI</a><ul>
+<li><a class="reference internal" href="#">Creating new ADOs</a><ul>
 <li><a class="reference internal" href="#create-an-csv-compatible-with-ami">Create an csv compatible with AMI</a></li>
 <li><a class="reference internal" href="#mandatory-fields">Mandatory fields</a><ul>
 <li><a class="reference internal" href="#what-is-node-uuid">What is node_uuid?</a></li>

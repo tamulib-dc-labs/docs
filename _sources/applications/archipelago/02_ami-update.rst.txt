@@ -1,6 +1,6 @@
-==================================
-Bulk updating metadata through AMI
-==================================
+======================
+Bulk updating metadata
+======================
 
 ------------------------------
 Download the existing metadata

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Crosswalking from DSpace, Fedora, and Avalon to Archipelago" href="05_crosswalking.html" /><link rel="prev" title="Using an intermediate, “flat” csv for linked data and multivalue fields" href="03_linked-data-multivalue.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Crosswalking from DSpace, Fedora, and Avalon to Archipelago" href="05_crosswalking.html" /><link rel="prev" title="Linked data and multivalue fields" href="03_linked-data-multivalue.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>ADO Types in Archipelago - TAMU Digital Collections Labs documentation</title>
@@ -215,9 +215,10 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new items through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata through AMI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Using an intermediate, “flat” csv for linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_archipelago-terms.html">Archipelago Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_structure-changes.html">Changing Structures on Archipelago</a></li>
@@ -380,6 +381,7 @@
           <section id="ado-types-in-archipelago">
 <h1>ADO Types in Archipelago<a class="headerlink" href="#ado-types-in-archipelago" title="Link to this heading">¶</a></h1>
 <p>Archipelago Digital Objects (ADOs) require a <code class="code docutils literal notranslate"><span class="pre">type</span></code> value upon ingest. This tells Archipelago what kind of template to create for that specific object.</p>
+<p>Note that this list is subject to change as we work with more collections.</p>
 <p>Below is a list of TAMU Archipelago worktypes:</p>
 <section id="collection">
 <h2>Collection<a class="headerlink" href="#collection" title="Link to this heading">¶</a></h2>
@@ -425,12 +427,6 @@
 </ul>
 <p>All child ADOs are displayed at the bottom of the page.</p>
 <img alt="Screenshot of a Digital Object Collection ADO." src="applications/archipelago/docs/source/_static/images/exemplar-collection.png" />
-<dl class="simple">
-<dt>Things missing from this ADO</dt><dd><ul class="simple">
-<li><p>Collections as data</p></li>
-</ul>
-</dd>
-</dl>
 </section>
 <section id="creativeworkseries">
 <h2>CreativeWorkSeries<a class="headerlink" href="#creativeworkseries" title="Link to this heading">¶</a></h2>
@@ -490,12 +486,6 @@
 </li>
 </ul>
 <img alt="Screenshot of the Mirador viewer of a CreativeWorkSeries ADO." src="applications/_static/images/exemplar-cws-mirador.png" />
-<dl class="simple">
-<dt>Things missing from this ADO</dt><dd><ul class="simple">
-<li><p>Collections as data</p></li>
-</ul>
-</dd>
-</dl>
 </section>
 <section id="image">
 <h2>Image<a class="headerlink" href="#image" title="Link to this heading">¶</a></h2>
@@ -612,13 +602,6 @@
 </li>
 </ul>
 <img alt="Screenshot of a Map ADO." src="applications/_static/images/exemplar-map.png" />
-<dl class="simple">
-<dt>Things missing from this exemplar</dt><dd><ul class="simple">
-<li><p>Projection and edition metadata</p></li>
-<li><p>No watermark on this exemplar</p></li>
-</ul>
-</dd>
-</dl>
 </section>
 <section id="book">
 <h2>Book<a class="headerlink" href="#book" title="Link to this heading">¶</a></h2>
@@ -688,13 +671,6 @@
 <img alt="Screenshot of the search function on a Book ADO." src="applications/_static/images/exemplar-book-search.png" />
 <p>Here is the extracted text tab on the book:</p>
 <img alt="Screenshot of the extracted text tab of a Book ADO." src="applications/_static/images/exemplar-book-ocr.png" />
-<dl class="simple">
-<dt>Things missing from this ADO</dt><dd><ul class="simple">
-<li><p>Collections as data</p></li>
-<li><p>PDF for users to download</p></li>
-</ul>
-</dd>
-</dl>
 </section>
 <section id="manuscript">
 <h2>Manuscript<a class="headerlink" href="#manuscript" title="Link to this heading">¶</a></h2>
@@ -760,14 +736,6 @@
 <li><p>Example item: <a class="reference external" href="https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1">Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887</a></p></li>
 </ul>
 <img alt="Screenshot of a Manuscript ADO." src="applications/_static/images/exemplar-manuscript.png" />
-<dl class="simple">
-<dt>Things missing from this ADO</dt><dd><ul class="simple">
-<li><p>HTR</p></li>
-<li><p>Collections as data</p></li>
-<li><p>PDF for users to download</p></li>
-</ul>
-</dd>
-</dl>
 </section>
 <section id="audioobject">
 <h2>AudioObject<a class="headerlink" href="#audioobject" title="Link to this heading">¶</a></h2>
@@ -796,7 +764,7 @@
 <dt>Structure:</dt><dd><ul>
 <li><p>1 - n audio files</p></li>
 <li><p>File and transcript can be downloaded</p></li>
-<li><p>Searchable transcript</p></li>
+<li><p>Searchable, synced vtt transcript</p></li>
 </ul>
 </dd>
 </dl>
@@ -1003,7 +971,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Using an intermediate, “flat” csv for linked data and multivalue fields</div>
+                <div class="title">Linked data and multivalue fields</div>
                 
               </div>
             </a>
