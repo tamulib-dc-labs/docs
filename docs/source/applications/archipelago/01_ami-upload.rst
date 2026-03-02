@@ -20,7 +20,7 @@ If there are multiple values for any column, cells will have json strings such a
 
 This is an creator_lod example for an item with 2 creators. 
 
-To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable, "flat" csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/02_flat-csv.html>`_.
+To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable, "flat" csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/03_linked-data-multivalue.html>`_.
 
 ------------------
 Mandatory fields
@@ -41,7 +41,7 @@ This is a temporary identifier used for the processing. You will need to create 
 
 What is type?
 -------------
-This tells Archipelago what type of item you are working with so it knows what template to use. For each item, you will likely select one from the following: Photograph, Postcard, AudioObject, VideoObject, Book, Manuscript, Map, VisualArtwork. 
+This tells Archipelago what type of item you are working with so it knows what template to use. For a full list of TAMU types, read the `documentation on ADO types <https://tamulib-dc-labs.github.io/docs/applications/archipelago/04_ado-types.html>`_.
 
 
 What is label?

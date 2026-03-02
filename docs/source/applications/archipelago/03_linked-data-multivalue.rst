@@ -1,6 +1,6 @@
-=================================
-Using an intermediate, "flat" csv
-=================================
+=======================================================================
+Using an intermediate, "flat" csv for linked data and multivalue fields
+=======================================================================
 
 This is a guide that makes linked data easier to work with.
 
