@@ -1,10 +1,14 @@
-=======================
-Archipelago Terminology
-=======================
+===========
+Terminology
+===========
 
 Archipelago Digital Object (ADO) - any digital object or digital object collection on Archipelago.
 
 Archipelago Multi-Importer (AMI) - the module used to batch ingest ADOs into Archipelago using a spreadsheet.
+
+Element/Metadata element - a metadata concept (ie “subject”, “creator”).
+
+Field/Metadata field - the specific term used for a metadata concept in a repository (ie “dc.subject”, “dc.creator”).
 
 JSON - a file format (.json) used for storing information. All Archipelago metadata is stored in JSON files.
 

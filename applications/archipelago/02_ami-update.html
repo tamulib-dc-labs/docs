@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Linked data and multivalue fields" href="03_linked-data-multivalue.html" /><link rel="prev" title="Creating new ADOs" href="01_ami-upload.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Adding OCR to ADOs" href="03_adding-ocr.html" /><link rel="prev" title="Creating new ADOs" href="01_ami-upload.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Bulk updating metadata - TAMU Digital Collections Labs documentation</title>
@@ -215,9 +215,10 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="00_archipelago-terms.html">Archipelago Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_archipelago-terms.html">Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new ADOs</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_adding-ocr.html">Adding OCR to ADOs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
@@ -231,6 +232,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/avalon-to-ami.html">Migrating from Avalon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/fedora-to-ami.html">Migrating from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/innovation-to-ami.html">Migrating Using Innovation Site</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/json-to-ami.html">Migrating from a directory of jsons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
 </ul>
@@ -418,7 +420,7 @@
 </ol>
 </div></blockquote>
 </li>
-<li><p>When selecting Global ADO mappings, choose “ismemberof”. For “Ado label”, choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be “type”).</p>
+<li><p>When selecting Global ADO mappings, choose “ismemberof”. For “Ado label”, select “label”.</p>
 <blockquote>
 <div><ol class="loweralpha simple">
 <li><p>If you are not changing any parent-child relationships, <strong>do not select anything</strong>.</p></li>
@@ -437,12 +439,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="03_linked-data-multivalue.html">
+          <a class="next-page" href="03_adding-ocr.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Linked data and multivalue fields</div>
+                <div class="title">Adding OCR to ADOs</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

@@ -49,7 +49,7 @@ Uploading the spreadsheet with changes
 
     a. If you are not changing any files, do not select anything.
 
-6. When selecting Global ADO mappings, choose "ismemberof". For "Ado label", choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be "type").
+6. When selecting Global ADO mappings, choose "ismemberof". For "Ado label", select "label".
 
     a. If you are not changing any parent-child relationships, **do not select anything**.
 

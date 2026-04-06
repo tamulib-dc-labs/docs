@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Creating new ADOs" href="01_ami-upload.html" /><link rel="prev" title="Archipelago" href="../../workflows/archipelago.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Archipelago Terminology - TAMU Digital Collections Labs documentation</title>
+        <title>Terminology - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -215,9 +215,10 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Archipelago Terminology</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new ADOs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_adding-ocr.html">Adding OCR to ADOs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
@@ -231,6 +232,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/avalon-to-ami.html">Migrating from Avalon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/fedora-to-ami.html">Migrating from Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/innovation-to-ami.html">Migrating Using Innovation Site</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/json-to-ami.html">Migrating from a directory of jsons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-migration-testing/oaktrust-to-ami.html">Migrating from OAKTrust</a></li>
 </ul>
@@ -378,10 +380,12 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="archipelago-terminology">
-<h1>Archipelago Terminology<a class="headerlink" href="#archipelago-terminology" title="Link to this heading">¶</a></h1>
+          <section id="terminology">
+<h1>Terminology<a class="headerlink" href="#terminology" title="Link to this heading">¶</a></h1>
 <p>Archipelago Digital Object (ADO) - any digital object or digital object collection on Archipelago.</p>
 <p>Archipelago Multi-Importer (AMI) - the module used to batch ingest ADOs into Archipelago using a spreadsheet.</p>
+<p>Element/Metadata element - a metadata concept (ie “subject”, “creator”).</p>
+<p>Field/Metadata field - the specific term used for a metadata concept in a repository (ie “dc.subject”, “dc.creator”).</p>
 <p>JSON - a file format (.json) used for storing information. All Archipelago metadata is stored in JSON files.</p>
 <p>Strawberry field - a descriptive metadata field comprised of many individual Archipelago fields put together. In order to add a field to the larger Strawberry Field, that metadata field and value must first go into the JSON.</p>
 <p>TWIG - the template engine used to extract metadata from JSONs and display it on the Archipelago site.</p>
