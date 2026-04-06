@@ -22,11 +22,9 @@ To upload with a spreadsheet, you must create a spreadsheet compatible with Arch
 
     <iframe src="https://docs.google.com/spreadsheets/d/1Ye87dCTkpneR-ELk_nCwPWaFMrofP9qpcEYO-ChUNqc/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
-Be sure to look at the second sheet (AMI template). Enter your data here.
-
 If there are multiple values for any column, cells will have json strings such as:
 
-:code:`[{"name_uri":"http://id.loc.gov/authorities/names/n2001078880","role_uri":"http://id.loc.gov/vocabulary/relators/cre","agent_type":"personal","name_label":"Hogg, James Stephen, 1851-1906.","role_label":"Creator"},{"name_uri":"https://id.loc.gov/authorities/names/n82158463","role_uri":"http://id.loc.gov/vocabulary/relators/rcp","agent_type":"personal","name_label":"Ross, Lawrence Sullivan, 1838-1898","role_label":"Addressee"}]`
+:code:`[{"uri": "http://id.loc.gov/authorities/names/n2001078880", "role_uri": "http://id.loc.gov/vocabulary/relators/cre", "value": "Hogg, James Stephen, 1851-1906.", "role": "Creator"},{"uri": "https://id.loc.gov/authorities/names/n82158463", "role_uri": "http://id.loc.gov/vocabulary/relators/rcp", "value": "Ross, Lawrence Sullivan, 1838-1898", "role": "Addressee"}]`
 
 This is an creator_lod example for an item with 2 creators. 
 
@@ -110,7 +108,7 @@ Importing through AMI
 
 5. Select "Direct" for data transformation approach. Select the columns where you added filenames or URLs (example: images, documents, etc.). You can select multiple.
 
-6. When selecting Global ADO mappings, choose "ismemberof" and/or "ispartof". For "Ado label", choose which column includes information that tells Archipelago what kind of media it is (most likely, this will be "type").
+6. When selecting Global ADO mappings, choose "ismemberof" and/or "ispartof". For "Ado label", choose "label".
 
 7. If you are using a zip file to upload content, upload the zip to the dialog box. If not, leave it blank. Then click to create the AMI set.
 
