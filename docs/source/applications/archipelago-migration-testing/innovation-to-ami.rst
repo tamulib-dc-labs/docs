@@ -60,4 +60,4 @@ Back in the first terminal (the innovation folder):
 
 :code:`find . -type f`
 
-This will print all the files in the directory. To get them in an Archipelago-friendly format, copy this list to a text editor and reformat it so the files are URLs and separated by semicolons.
+This will print all the files in the directory. To get them in an Archipelago-friendly format, copy this list to a text editor and reformat it so the files are structured like this :code:`https://innovation.library.tamu.edu/your_folder/yb19XX/yb19XX_jp2/yb19XX_0001.jp2` and separated by semicolons.
