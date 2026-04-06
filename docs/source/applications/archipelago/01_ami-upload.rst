@@ -20,7 +20,7 @@ To upload with a spreadsheet, you must create a spreadsheet compatible with Arch
 
 .. raw:: html
 
-    <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/1Ye87dCTkpneR-ELk_nCwPWaFMrofP9qpcEYO-ChUNqc/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
 Be sure to look at the second sheet (AMI template). Enter your data here.
 
@@ -95,38 +95,6 @@ Link
 You can also link to media that is hosted online. This can be a IIIF link (any derivative that ends with :code:`/full/full/0/default.jpg` will work as will any :code:`.jp2`). Media can also be hosted in other sites. Add all links to the relevant media column in your csv.
 
 If a digital object is made up of multiple files, list them all and separate them with semicolons.
-
------------------------
-Other fields (optional)
------------------------
-
-What is ismemberof?
--------------------
-
-Before uploading an AMI spreadsheet, you will need to create a collection on Archipelago. Add the Archipelago UUID for the parent item (ie the collection) in this column.
-
-What is ispartof?
--------------------
-
-This works similarly to :code:`ismemberof`, except for parts of a Creative Work Series, not a Collection.
-
-What is sequence_id?
--------------------
-
-:code:`sequence_id` tells Archipelago what order to show objects in a Creative Work Series. Only use this column if the item is part of a Creative Work Series.
-
-rights vs. rights_statements
-----------------------------
-
-:code:`rights` is the creative commons uri.
-
-:code:`rights_statements` is the creative commons label.
-
-date_created vs. date_created_edtf
-----------------------------------
-
-:code:`date_created` must be written in YYYY-MM-DD format. :code:`date_created_edtf` will allow you to put a range or a date in `Extended Date Time Format <https://www.loc.gov/standards/datetime/>`_.
-
 
 ---------------------
 Importing through AMI
