@@ -20,7 +20,7 @@ After uploading a book, Archipelago runs OCR in the background to create extract
 
 8. Select "Archipelago Temporary File Composter Queue Worker" again. Select "Clear" in the Action drop down menu. Then click "Apply to selected items".
 
-9. Go to `rancher-devpre<https://rancher-devpre.library.tamu.edu/dashboard/home>`_.
+9. Go to `rancher-devpre <https://rancher-devpre.library.tamu.edu/dashboard/home>`_.
 
 10. Select :code:`dev-cluster`. Under :code:`Workloads`, select :code:`esmero-php`. Click the three dots at the right side of the row. Click execute shell.
 
