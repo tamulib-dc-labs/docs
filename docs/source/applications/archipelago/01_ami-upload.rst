@@ -26,9 +26,9 @@ If there are multiple values for any column, cells will have json strings such a
 
 :code:`[{"uri": "http://id.loc.gov/authorities/names/n2001078880", "role_uri": "http://id.loc.gov/vocabulary/relators/cre", "value": "Hogg, James Stephen, 1851-1906.", "role": "Creator"},{"uri": "https://id.loc.gov/authorities/names/n82158463", "role_uri": "http://id.loc.gov/vocabulary/relators/rcp", "value": "Ross, Lawrence Sullivan, 1838-1898", "role": "Addressee"}]`
 
-This is an creator_lod example for an item with 2 creators. 
+This is an :code:`agent_linked_data` example for an item with 2 creators. 
 
-To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable, "flat" csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/03_linked-data-multivalue.html>`_.
+To avoid having to write complex json strings for linked data, `read this page on creating a more human-readable, "flat" csv <https://tamulib-dc-labs.github.io/docs/applications/archipelago/07_linked-data-multivalue.html>`_.
 
 ------------------
 Mandatory fields
