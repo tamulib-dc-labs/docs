@@ -16,9 +16,9 @@ Here is an example of a :code:`subject` field:
 
 Each heading is surrounded by quotation marks and separated from the next heading with a comma and a space. The entire string is in brackets.
 
-This bracketing becomes even more complicated when using linked data. For example, all of this should go under the :code:`agents_linked_data` field when doing a batch import in a single cell:
+This bracketing becomes even more complicated when using linked data. For example, all of this should go under the :code:`agent_linked_data` field when doing a batch import in a single cell:
 
-:code:`[{"uri": "http://id.loc.gov/authorities/names/n2001078880", "role_uri": "http://id.loc.gov/vocabulary/relators/cre", "value": "Hogg, James Stephen, 1851-1906.", "role": "Creator"},{"uri": "https://id.loc.gov/authorities/names/n82158463", "role_uri": "http://id.loc.gov/vocabulary/relators/rcp", "value": "Ross, Lawrence Sullivan, 1838-1898", "role":"Addressee"}]`
+:code:`[{"uri": "http://id.loc.gov/authorities/names/n2001078880", "role_uri": "http://id.loc.gov/vocabulary/relators/cre", "value": "Hogg, James Stephen, 1851-1906.", "role": "Creator"},{"uri": "https://id.loc.gov/authorities/names/n82158463", "role_uri": "http://id.loc.gov/vocabulary/relators/rcp", "value": "Ross, Lawrence Sullivan, 1838-1898", "role": "Addressee"}]`
 
 This is two headings, each with 4 properties, and should all go in the same cell. Typing this out may be time-consuming and lead to mistakes, so here is a template flat csv and a script that to convert it into an AMI-compatible spreadsheet.
 
@@ -26,19 +26,19 @@ This is two headings, each with 4 properties, and should all go in the same cell
 What does this csv format do?
 -----------------------------
 
-Instead of typing long strings into a single small cell, this "flat" template allows you to spread values across multiple columns for better readability and usability. You would add one value per column or one sub-value per column depending on the required structure of the metadata field.
+Instead of typing long strings into a single small cell, this "flat" template allows you to spread values across multiple columns for better readability and usability.
 
 Here are a few things to keep in mind:
 
-* To add another value for a given field, simply add another column. However, column names are not repeatable, so you will need to label new columns like this: :code:`field_1`, :code:`field_2`, :code:`field_3`, etc.
+* To add another value for a simple field, add another column. However, column names are not repeatable, so you will need to label new columns like this: :code:`field_1`, :code:`field_2`, :code:`field_3`, etc.
 
-* If a field is linked data, you will need to add multiple columns per value. You would label new columns like this: :code:`field_1_value`, :code:`field_1_uri`, :code:`field_2_value`, :code:`field_2_uri`, :code:`field_3_value`, :code:`field_3_uri`, etc. Similarly, the :code:`agent_linked_data` field will require you to add four new columns per value.
+* If a field is linked data or otherwise complex (such as :code:`identifier` or :code:`date_created_edtf`), you will need to add multiple columns per value. You would label new columns like this: :code:`field_1_value`, :code:`field_1_uri`, :code:`field_2_value`, :code:`field_2_uri`, :code:`field_3_value`, :code:`field_3_uri`, etc. Similarly, the :code:`agent_linked_data` field will require you to add four new columns per value.
 
 * Because they are structured differently, linked data metadata terms will always be in different fields from from their non-linked data counterparts.
 
 * Any creator/contributor field that uses linked data must go in the agent_linked_data field and be assigned a role there.
 
-* This template creates an **intermediate** spreadsheet. Fields that are single value (including mandatory single-value fields) are not addressed in this workflow.
+* This template creates an **intermediate** spreadsheet.
 
 * Do not use this script for fields that only take a single value. Add them directly to the final AMI-compatible spreadsheet.
 
@@ -53,7 +53,6 @@ Enter your metadata into this csv.
     <iframe src="https://docs.google.com/spreadsheets/d/1wFw1fSr6OpSeNCX7tZDRjhPIfn_pdr7WgUT217FZQbs/edit?usp=sharing" height="400" width="800" frameborder="0" allowfullscreen></iframe>
 
 
-Be sure to look at the first sheet (Flat).
 
 ----------
 Conversion
