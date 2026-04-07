@@ -423,10 +423,10 @@ Once you have the input csv, you can run this script to convert it to a csv comp
 
             # ---- Date created (EDTF) ----
             raw_date_created = {
-                "date_to": row.get("date_to"),
-                "date_free": row.get("date_free"),
-                "date_from": row.get("date_from"),
-                "date_type": row.get("date_type")
+                "date_issued_date_to": row.get("date_to"),
+                "date_issued_date_free": row.get("date_free"),
+                "date_issued_date_from": row.get("date_from"),
+                "date_issued_date_type": row.get("date_type")
             }
 
             # Remove empty values entirely
@@ -444,10 +444,10 @@ Once you have the input csv, you can run this script to convert it to a csv comp
 
             # ---- Date issued (EDTF) ----
             raw_date_issued = {
-                "date_to": row.get("date_to"),
-                "date_free": row.get("date_free"),
-                "date_from": row.get("date_from"),
-                "date_type": row.get("date_type")
+                "date_issued_date_to": row.get("date_to"),
+                "date_issued_date_free": row.get("date_free"),
+                "date_issued_date_from": row.get("date_from"),
+                "date_issued_date_type": row.get("date_type")
             }
             
             # Remove empty values entirely
