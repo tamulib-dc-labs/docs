@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="SAGE Import" href="sage_import.html" /><link rel="prev" title="Deleting Items from SAGE Solr" href="delete-sage-solr-docs.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Importing media into SAGE - WITHOUT Rancher" href="sage-import.html" /><link rel="prev" title="SAGE" href="../../workflows/sage.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Importing media into SAGE - WITHOUT Rancher - TAMU Digital Collections Labs documentation</title>
+        <title>Deleting Items from SAGE Solr - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -284,8 +284,8 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="delete-sage-solr-docs.html">Deleting Items from SAGE Solr</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Importing media into SAGE - WITHOUT Rancher</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Deleting Items from SAGE Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sage-import.html">Importing media into SAGE - WITHOUT Rancher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sage_import.html">SAGE Import</a></li>
 </ul>
 </li>
@@ -361,7 +361,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/sage/sage-import.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/sage/delete-sage-solr-docs.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -375,408 +375,245 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="importing-media-into-sage-without-rancher">
-<h1>Importing media into SAGE - WITHOUT Rancher<a class="headerlink" href="#importing-media-into-sage-without-rancher" title="Link to this heading">¶</a></h1>
-<ol class="arabic simple">
-<li><p>Ensure SAF is written for the collection. Send the SAF to be uploaded to Fedora prod.</p></li>
-<li><p>Once SAF is on Fedora prod (and by extension Fedora Solr), you must create a reader. Choose Production Fedora Core Source as the source and for the filter, enter <code class="code docutils literal notranslate"><span class="pre">hasParent:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code></p></li>
-<li><p>Add field mappings onto the reader.</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field Mapping</p></th>
-<th class="head"><p>Metadata Field</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Alternative Title (dcterms.alternative)</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Application Type</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Audience Level</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Classification (dc.description)</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Collection</p></td>
-<td><p>hasParent</p></td>
-</tr>
-<tr class="row-odd"><td><p>Content Type (dc.type)</p></td>
-<td><p>content_type_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Contributor</p></td>
-<td><p>contributor_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Creator (dc.creator, dcterms.creator)</p></td>
-<td><p>creator_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Date Created (dc.date, dcterms.created)</p></td>
-<td><p>created_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Date Published (dcterms.dateAccepted)</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Details (local.details)</p></td>
-<td><p>details_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Digital Publisher</p></td>
-<td><p>digital_publisher_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Edit Link</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Edition/Revision Information</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Format</p></td>
-<td><p>reformatting_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Genre (dc.type, dcterms.type)</p></td>
-<td><p>content_type_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Id</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Identifier</p></td>
-<td><p>standard_digital_identifier_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>IIIF Manifest</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Language (dc.language, dcterms.language)</p></td>
-<td><p>language_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Local Digital Identifier (dc.identifier)</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Medium (dcterms.medium)</p></td>
-<td><p>medium_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Notes (dc.description, dc.provenance)</p></td>
-<td><p>notes_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Original Place of Publication</p></td>
-<td><p>origin_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Original Resource</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Part Of</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Physical Extent (dcterms.extent)</p></td>
-<td><p>physical_extent_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Physical Item Identifier (dc.identifier)</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Physical Item Location</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Publisher</p></td>
-<td><p>original_publisher_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Related Resource (dcterms.isPartOf)</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Resource</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Rights/Access</p></td>
-<td><p>rights_access_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Source Collection</p></td>
-<td><p>source_collection_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Spatial (dcterms.spatial)</p></td>
-<td><p>spatial_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Sponsor (dc.contributor, dc.description)</p></td>
-<td><p>sponsor_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Standard Digital Identifier</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Subject</p></td>
-<td><p>subject_ss</p></td>
-</tr>
-<tr class="row-even"><td><p>Summary/Abstract (dc.description, etc.)</p></td>
-<td><p>summary_abstract_ss</p></td>
-</tr>
-<tr class="row-odd"><td><p>Table Of Contents</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>Thumbnail</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>Title (dc.title, dcterms.title)</p></td>
-<td><p>title</p></td>
-</tr>
-</tbody>
-</table>
+          <section id="deleting-items-from-sage-solr">
+<h1>Deleting Items from SAGE Solr<a class="headerlink" href="#deleting-items-from-sage-solr" title="Link to this heading">¶</a></h1>
+<p>SAGE stores documents based on the id set in the Reader and Writer of the application. This is often based on an id of
+the original source application. Occassionaly, that id pattern will change.  When you do an update, it will create brand
+new records.  SAGE has no mechanism on how to delete the old duplicate records. This document explains how.</p>
+<section id="a-solr-delete-script">
+<h2>A Solr Delete Script<a class="headerlink" href="#a-solr-delete-script" title="Link to this heading">¶</a></h2>
+<p>On your local machine, write a file like the one below.  It’s usually better to write locally as we cannot guarantee our pod will
+have a text editor (or one where I have all the commands memorized).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Configuration</span>
+<span class="nv">SOLR_URL</span><span class="o">=</span><span class="s2">&quot;http://localhost:8983/solr/sage-core&quot;</span>
+<span class="nv">ID_FILE</span><span class="o">=</span><span class="s2">&quot;ids.txt&quot;</span>
+
+<span class="c1"># Optional: check the file exists</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ID_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: file &#39;</span><span class="nv">$ID_FILE</span><span class="s2">&#39; not found&quot;</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">count</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">errors</span><span class="o">=</span><span class="m">0</span>
+
+<span class="k">while</span><span class="w"> </span><span class="nv">IFS</span><span class="o">=</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>id<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$id</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="c1"># Skip blank lines</span>
+<span class="w">  </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$id</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">continue</span>
+
+<span class="w">  </span><span class="nv">response</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;%{http_code}&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SOLR_URL</span><span class="si">}</span><span class="s2">/update&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data-raw<span class="w"> </span><span class="s2">&quot;{\&quot;delete\&quot;: {\&quot;id\&quot;: \&quot;</span><span class="si">${</span><span class="nv">id</span><span class="si">}</span><span class="s2">\&quot;}}&quot;</span><span class="k">)</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$response</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleted: </span><span class="nv">$id</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="o">((</span>count++<span class="o">))</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ERROR (</span><span class="nv">$response</span><span class="s2">): </span><span class="nv">$id</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="o">((</span>errors++<span class="o">))</span>
+<span class="w">  </span><span class="k">fi</span>
+
+<span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ID_FILE</span><span class="s2">&quot;</span>
+
+<span class="c1"># Commit the deletes</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Committing...&quot;</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SOLR_URL</span><span class="si">}</span><span class="s2">/update&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data-raw<span class="w"> </span><span class="s1">&#39;{&quot;commit&quot;: {}}&#39;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Done. Deleted: </span><span class="nv">$count</span><span class="s2"> | Errors: </span><span class="nv">$errors</span><span class="s2">&quot;</span>
+</pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Create a writer. Select Production SAGE Core as the Destination.</p></li>
-<li><p>Add field mappings onto the writer.</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field Mapping</p></th>
-<th class="head"><p>Metadata Field</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Alternative Title (dcterms.alternative)</p></td>
-<td><p>alternative_title</p></td>
-</tr>
-<tr class="row-odd"><td><p>Application Type</p></td>
-<td><p>application_type</p></td>
-</tr>
-<tr class="row-even"><td><p>Audience Level</p></td>
-<td><p>audience_level</p></td>
-</tr>
-<tr class="row-odd"><td><p>Classification (dc.description)</p></td>
-<td><p>classification</p></td>
-</tr>
-<tr class="row-even"><td><p>Collection</p></td>
-<td><p>collection</p></td>
-</tr>
-<tr class="row-odd"><td><p>Content Type (dc.type)</p></td>
-<td><p>content_type</p></td>
-</tr>
-<tr class="row-even"><td><p>Contributor</p></td>
-<td><p>contributor</p></td>
-</tr>
-<tr class="row-odd"><td><p>Creator (dc.creator, dcterms.creator)</p></td>
-<td><p>creator</p></td>
-</tr>
-<tr class="row-even"><td><p>Date Created (dc.date, dcterms.created)</p></td>
-<td><p>date_created</p></td>
-</tr>
-<tr class="row-odd"><td><p>Date Published (dcterms.dateAccepted)</p></td>
-<td><p>date_published</p></td>
-</tr>
-<tr class="row-even"><td><p>Details (local.details)</p></td>
-<td><p>details</p></td>
-</tr>
-<tr class="row-odd"><td><p>Digital Publisher</p></td>
-<td><p>digital_publisher</p></td>
-</tr>
-<tr class="row-even"><td><p>Edit Link</p></td>
-<td><p>editLink</p></td>
-</tr>
-<tr class="row-odd"><td><p>Edition/Revision Information</p></td>
-<td><p>edition_revision_information</p></td>
-</tr>
-<tr class="row-even"><td><p>Format</p></td>
-<td><p>reformatting</p></td>
-</tr>
-<tr class="row-odd"><td><p>Genre (dc.type, dcterms.type)</p></td>
-<td><p>genre</p></td>
-</tr>
-<tr class="row-even"><td><p>Id</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Identifier</p></td>
-<td><p>local_digital_identifier</p></td>
-</tr>
-<tr class="row-even"><td><p>IIIF Manifest</p></td>
-<td><p>manifest</p></td>
-</tr>
-<tr class="row-odd"><td><p>Language (dc.language, dcterms.language)</p></td>
-<td><p>language</p></td>
-</tr>
-<tr class="row-even"><td><p>Local Digital Identifier (dc.identifier)</p></td>
-<td><p>local_digital_identifier</p></td>
-</tr>
-<tr class="row-odd"><td><p>Medium (dcterms.medium)</p></td>
-<td><p>medium</p></td>
-</tr>
-<tr class="row-even"><td><p>Notes (dc.description, dc.provenance)</p></td>
-<td><p>notes</p></td>
-</tr>
-<tr class="row-odd"><td><p>Original Place of Publication</p></td>
-<td><p>origin</p></td>
-</tr>
-<tr class="row-even"><td><p>Original Resource</p></td>
-<td><p>original_resource</p></td>
-</tr>
-<tr class="row-odd"><td><p>Part Of</p></td>
-<td><p>related_resource</p></td>
-</tr>
-<tr class="row-even"><td><p>Physical Extent (dcterms.extent)</p></td>
-<td><p>physical_extent</p></td>
-</tr>
-<tr class="row-odd"><td><p>Physical Item Identifier (dc.identifier)</p></td>
-<td><p>physical_item_identifier</p></td>
-</tr>
-<tr class="row-even"><td><p>Physical Item Location</p></td>
-<td><p>physical_item_location</p></td>
-</tr>
-<tr class="row-odd"><td><p>Publisher</p></td>
-<td><p>original_publisher</p></td>
-</tr>
-<tr class="row-even"><td><p>Related Resource (dcterms.isPartOf)</p></td>
-<td><p>related_resource</p></td>
-</tr>
-<tr class="row-odd"><td><p>Resource</p></td>
-<td><p>resource</p></td>
-</tr>
-<tr class="row-even"><td><p>Rights/Access</p></td>
-<td><p>rights_access</p></td>
-</tr>
-<tr class="row-odd"><td><p>Source Collection</p></td>
-<td><p>source_collection</p></td>
-</tr>
-<tr class="row-even"><td><p>Spatial (dcterms.spatial)</p></td>
-<td><p>spatial_multi</p></td>
-</tr>
-<tr class="row-odd"><td><p>Sponsor (dc.contributor, dc.description)</p></td>
-<td><p>sponsor</p></td>
-</tr>
-<tr class="row-even"><td><p>Standard Digital Identifier</p></td>
-<td><p>standard_digital_identifier</p></td>
-</tr>
-<tr class="row-odd"><td><p>Subject</p></td>
-<td><p>subject</p></td>
-</tr>
-<tr class="row-even"><td><p>Summary/Abstract (dc.description, etc.)</p></td>
-<td><p>summary_abstract_multi</p></td>
-</tr>
-<tr class="row-odd"><td><p>Table Of Contents</p></td>
-<td><p>table_of_contents</p></td>
-</tr>
-<tr class="row-even"><td><p>Thumbnail</p></td>
-<td><p>thumbnail</p></td>
-</tr>
-<tr class="row-odd"><td><p>Title (dc.title, dcterms.title)</p></td>
-<td><p>title</p></td>
-</tr>
-</tbody>
-</table>
+<p>Save the file something like <code class="code docutils literal notranslate"><span class="pre">delete_docs.sh</span></code>. Then:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>delete_docs.sh
+</pre></div>
 </div>
-<ol class="arabic simple" start="6">
-<li><p>Create a new job. Select relevant reader and writer. Select operators, which may include Collection Default, Application Type, ID Base 64 Encoding, Origin URL Regex Replace, Manifest Template, and Build CAP edit link. Select “yes” for Active and “On Demand” for Frequency.</p></li>
-<li><p>Run the job. Under Discovery view, select Production SAGE Core as the source and for Filter, enter <code class="code docutils literal notranslate"><span class="pre">collection:&quot;{link</span> <span class="pre">to</span> <span class="pre">Fedora</span> <span class="pre">prod</span> <span class="pre">collection}&quot;</span></code> Create a slug.</p></li>
-<li><p>Under the Facets tab, select and enter:</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Facet Fields</p></th>
-<th class="head"><p>Label</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>subject</p></td>
-<td><p>Subject</p></td>
-</tr>
-<tr class="row-odd"><td><p>creator</p></td>
-<td><p>Authors</p></td>
-</tr>
-<tr class="row-even"><td><p>contributor</p></td>
-<td><p>Contributors</p></td>
-</tr>
-<tr class="row-odd"><td><p>date_created</p></td>
-<td><p>Date</p></td>
-</tr>
-<tr class="row-even"><td><p>content_type</p></td>
-<td><p>Material Type</p></td>
-</tr>
-<tr class="row-odd"><td><p>spatial_multi</p></td>
-<td><p>Place</p></td>
-</tr>
-</tbody>
-</table>
+<p>Notice, that the file references a text file called ids.txt.</p>
+<p>Also create a file with all the ids you want to delete on separate lines.</p>
+</section>
+<section id="copying-to-the-server">
+<h2>Copying to the Server<a class="headerlink" href="#copying-to-the-server" title="Link to this heading">¶</a></h2>
+<p>Copying with <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code> is easiest.  Assuming you have it installed and set up (see instructions elsewhere here),
+switch contexts:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>prod-apps-cluster
+</pre></div>
 </div>
-<ol class="arabic simple" start="9">
-<li><p>Under Results tab, enter the following under the Result Headings.</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Result Heading</p></th>
-<th class="head"><p>value</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Unique Identifier Key</p></td>
-<td><p>id</p></td>
-</tr>
-<tr class="row-odd"><td><p>Title Key</p></td>
-<td><p>{{title}}</p></td>
-</tr>
-<tr class="row-even"><td><p>Thumbnail URI Key</p></td>
-<td><p>{{thumbnail}}</p></td>
-</tr>
-<tr class="row-odd"><td><p>Resource URI Key</p></td>
-<td><p>{{resource}}</p></td>
-</tr>
-<tr class="row-even"><td><p>Manifest URI Key</p></td>
-<td><p>{{manifest}}</p></td>
-</tr>
-</tbody>
-</table>
+<p>Then copy files to the pod where you will run.  You’ll need to identify pod name with <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code> or via Rancher directly.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>cp<span class="w"> </span>ids.txt<span class="w"> </span>sage-solr-7fc7c9986b-tmf7k:/tmp<span class="w"> </span>-n<span class="w"> </span>sage
+kubectl<span class="w"> </span>cp<span class="w"> </span>delete_docs.sh<span class="w"> </span>sage-solr-7fc7c9986b-tmf7k:/tmp<span class="w"> </span>-n<span class="w"> </span>sage
+</pre></div>
 </div>
-<p>Select Ascending and Published for multiple choice settings.</p>
-<ol class="arabic simple" start="10">
-<li><p>Under Result Metadata, add the following:</p></li>
-</ol>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Key</p></th>
-<th class="head"><p>Label</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>creator</p></td>
-<td><p>Creator</p></td>
-</tr>
-<tr class="row-odd"><td><p>subject</p></td>
-<td><p>Subject</p></td>
-</tr>
-<tr class="row-even"><td><p>date_created</p></td>
-<td><p>Date</p></td>
-</tr>
-<tr class="row-odd"><td><p>notes</p></td>
-<td><p>Notes</p></td>
-</tr>
-<tr class="row-even"><td><p>physical_extent</p></td>
-<td><p>Extent</p></td>
-</tr>
-<tr class="row-odd"><td><p>rights_access</p></td>
-<td><p>Rights</p></td>
-</tr>
-<tr class="row-even"><td><p>manifest</p></td>
-<td><p>IIIF Manifest</p></td>
-</tr>
-<tr class="row-odd"><td><p>summary_abstract_multi</p></td>
-<td><p>Abstract</p></td>
-</tr>
-<tr class="row-even"><td><p>related_resource</p></td>
-<td><p>Folder</p></td>
-</tr>
-<tr class="row-odd"><td><p>contributor</p></td>
-<td><p>Contributors</p></td>
-</tr>
-<tr class="row-even"><td><p>classification</p></td>
-<td><p>Description</p></td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="run-script">
+<h2>Run Script<a class="headerlink" href="#run-script" title="Link to this heading">¶</a></h2>
+<p>You can run the script locally with <code class="code docutils literal notranslate"><span class="pre">kubectl</span></code>, but assuming you’ve copied like above, you can just connect to the
+pod using your method of choice and run it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./delete_docs.sh
+</pre></div>
 </div>
+<p>If successful, this will look like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>solr@sage-solr-7fc7c9986b-tmf7k:/tmp$<span class="w"> </span>./delete_docs.sh
+Deleted:<span class="w"> </span><span class="nv">Mi0yNWRkNDVmYS04NWZjLTRiYjMtODE0ZS05NDQzYzg2ZWZlM2Y</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kNzk4NjhjOS0yZDA2LTQ0M2UtYTBlYy1lM2E5NmFmZjk3ZTM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lZmZkYjMxMS1mM2VlLTQ3MTItYjNmZS01MjgyZDkxZmNkYTQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xODc1N2FlZi0wN2JkLTQ1ZWYtYWYzNS1iMjFmZjJiNDM2OTM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03OTI0ZWY0OS01ODM0LTRhNWItYTE5OS0wMWVmYWNhYjcyOTg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02N2RmZTkzNi1hNTI0LTRlMWYtYmU1Mi0yZWQzMzI2NGVjZjM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jY2Q4OGU4Mi1jNGE3LTQ3NTgtOWMzZC05OGY4NTg2MmViNDY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zNmJmODBkNC1iMTFhLTRlNWQtYmNhMi03NGE5ZmY5YmEyYzU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00YzI1MTEzMy02YmI3LTQ5YmQtOTcwMi05Njk4ZjlkMTNmOWE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01NTk4NjNhYi0wNzkzLTQxMzctYjJkOC1jZDhkZjllZjhmMjk</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi05ZmRjZTMzZS02OWIzLTRjNjMtYmViZC1lNTJlNDNiYmNkZmU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03YjBlODcxYi1kOTEzLTQ4MmYtYjkxYy0wYmQ1N2EzNzcyZDg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zZjgyNWU4NS03N2ViLTQxMDUtYTcxOC1iNTk0NGI5MmEwZTg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xNTk3OWFiMS1hMTMzLTRkZTYtOWNlMS02NGRiMjNmNWFlMzE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iYjZjZWE4Zi05YjZlLTQwZTAtOTEzMi1lNzg4MTg4MGRmYzc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi05ZjkyNzQ1ZC02YTNhLTRmOWQtYjQ2ZC0yYzVjMTE5NTI2ZGU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hOTlkNTA0ZS0zODllLTQ2ZTgtODhmNC1hMjU0YTlhMjdlYmM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xNDAwMTJlOC0zMjhkLTRjYTUtYjEwZS1lYjQzNWY1ODJkYjE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mZWRmOWI4OC1hNTU0LTQxZGItOWMwOC1hYWYwZGNjZWY3ZTY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03OWEyZWZhOS0zMTJiLTQ1ZGUtYmM2NS00ZmI0ZWU4OTA1YWY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mYTYzM2FiMy1kYzM4LTQ3ZmMtOWE4ZC05Y2FjODQxNjc1MjI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03MWMzMDBhMi0wZDIyLTQ3YWEtYWJmYS1mZWRkNDcwZjFhNWU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mMjI1MTVlNS03ZmNjLTRiNzktYWY4ZC04OWZjYmYzNmVmNTk</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04Y2MwNGNkNC1lNDNhLTRlN2EtOTEyZi1hNTA2YTkxNTlkNzE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03Mzc2M2RkNy03YzA0LTRjYzAtOGNkMS1kNDk5NjdmMWFiYjc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03NzMwMmFlZS03ZWZjLTQ2OGEtYTViYy04ZTFkNDAxOTJhMzI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xOTM3ZmE2Yi1kMzYwLTRlZjctOTA2My1mZTZiNjc3ZWFkMDk</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01MTgzMGI0MS00NzMzLTQ0OTItYjE2YS1iMDMzYmI0ODFhZjQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hNDU0NjMxZS1kYjY1LTRiNjgtYWEyMC0yZWEwMzZjZjViMDA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hNGI3MjA0MC0zZDUwLTRkZWQtODYwMi0zYzUxODA1NDhiMDc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lZjg0NzVlZi0yMDU1LTQ0OTYtOGRkYy03YzdhMDIzYjM5ZDI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00ODkwMmMwNC0zOTkzLTQwODQtOGNjZS1lMzFkZjUwNjkyMGE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kMWM0ZGE1ZS01YjZjLTRkZDYtYWEzOS04OTY0NTU1NGIzN2E</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lNjdkMWRhMS1kOWU5LTRlNTQtODQyZi0zOTIyNmE2ZWU5N2Y</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lMDJhMDEyYi1lNzBjLTRhYzQtOTEyNi02Y2UwMWVkNTIwYTA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hOTJlNjYxMy1iMDVkLTRkZjktODNkNi0zMGNjOThkZTFhYzg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01ODJhYjliZC0xMTM0LTQ1ZGYtYTA0NC00MjAxOWZhMDhlZTQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kMGQwMTQzZC0wNjUxLTQ0NDEtYjdmZC0zNDQ0NTQ0YjJmMWE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0yM2FiNmEwMy01M2NkLTRlMGItODA1Yy03ZTEyOTkwMTc2M2E</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01YjQ2ZmVhZS0xM2U3LTRhOWMtYWQ0NC0wNjA4ZTlkNGJiMWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jODk1Mjg4Mi05MGM4LTQ0OTYtYjRhOC0wMWI1MjJmNzZlNWY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jMDEwZjVkMS00OGVhLTRiOGQtOTg1Zi1kNzZjMzAxZmQzOWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zYzdkNmQzZS04NWYzLTRhZjAtYjYyOC1mZWM3ZWU0ZWY3NWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xNTJmMzEwZC1lMjIxLTQzMDktOGU2Yy0wNDJiODMxN2IwYzY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hYzdlMWQ5NS1jOTM1LTQ2OGEtOGJlYy0xNmUwOGNkOGExN2Q</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00Nzk2M2FiMi0xNWVlLTQzYTktYTk2Ni1hNTQwNDUxNDI0NDM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zMzRlNjc2NS1kOWE0LTRhZjEtOTdhYS0zMTIzMGZlNWE1MWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01OTk4MWU4OC0wMjY2LTQ1MWQtOGVhZi0xMmZlNzA2ZTY2OWM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iYWQ3OGVmNy1jZGY1LTQxMWEtOTgzMS1mNjdkN2Y3Njg2MmM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01M2FmMjQzYy02YjY3LTRhZWMtYWI0YS01NTE2MjNjOTQ0MWE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jN2MxNGViNC05MTg3LTRlYmYtYjc2OS1hOGIzZDk3YjVhNmU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01YTk3MTM2MC1mMWI5LTQ2ODQtYjJkOS04ZjEzN2Y1NDlkNzY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iZjRkNmFhNC00NjIwLTRlODQtODBmYy1lM2MzZGEwOWNmNzc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kNzBlMWQyZS04OWU0LTRhODMtYjMzOC03MjlmZjQ0NTRjYTg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04ZmQ2YWVhMC0yNGMyLTQ5MDAtODRiOS1kOTM3YjZiNWU3ODM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iOGQ3NGVkNy1kODY5LTRlMzgtOGU1MS1lMWMxNjcyZGRlNTE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hYWUzNjdhNC1iNjk0LTQxNjktYjcwMC00NzRjMDliNDc3ZDM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kNWY3YTA4OC02NjVjLTRhZDgtODg0MS00OTg3OGMzNjljM2I</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00ZGExMTc5YS0zNzc0LTRlMzUtODIxOS1kNzViZDI2ODVmNzM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hZmQ2OWI1Yy1lODdlLTQ5OTYtYmNmMC1iNjgyNGY2NDhhZGQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xZGM1NmI3Zi0xOGU2LTQ5NjQtODhmMy1mYzZiOWY1ZDA2YTQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02OTE0ZWQ4OS1hNzk2LTQ5ZDEtYjA4ZS1jYzRmY2JjYTQ5ZjA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mMmQ3Njk3YS1hMjBhLTQ5ZGMtYjAyZS02MWQ5NTEwNTcwNmU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01Njc4ZDUwNi0yZjc2LTQwZWEtYmI5Yi0zOWQ0ZGZiMTU2ZWM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01ZjE3ZGY0Yy0zYTU3LTQ2MTItOTI4Ny0wYmI1OGJmMGVmMDk</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02M2VlNzU5Yi1mNGZlLTRmZjItYWZlZC02ZTdhY2M5ZDAzYzI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi05ZGI4NmJhYy1kNGQ0LTRiOGUtODkxMy04YjUyMjIwOGZmNmY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0wM2NiZmMwYy02OGE2LTRkODItODQyNi02N2VkNGEyODk1MWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00MGUwOWM3Zi1hZGY1LTQyMTItYmM3ZC1kZjllNTA0NWM4NTY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04OWQ4ZjcwZS00ZGMzLTRjZGEtYWE3MC02MjQwMTVkM2YwYmY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mNGE4ZmZhZi00ZDY4LTQxNzUtOWE0NS1hM2VmZGQ5OTQwYzY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01NmUzZjk0MS0xYzg3LTRkZWYtOGYzZi0yYmEzZWU4ZGE0ZjQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iZDJlZTFmMC1lOThmLTQ1MjgtODU4OC03YzY4M2QzNzBjOGE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02ZDY4MmJjMy1jNzQwLTQwMTItYWJjZi00ZGMyNWNhNGNlZTU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01ZGI4NjkxMS1lZWMxLTQzYTEtYjUxZi0zZTZmODM3NWJlZDI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0yZmIyYTZkNS02M2Q4LTRiZTMtOWI4YS05NjI4ODNmZDBhMmI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00ODQyMjcwMy01M2FiLTQ2NTMtOTBlZi1kMDEzNTM2MjIxNTY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kOGY4NzhkOC0wZWJmLTQ1YWMtYmYwOC0zMDMzYTk4MTVjZTc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04MzAzZTg0Ni05ODVlLTQ4NmQtODhlOS05NDljYTY3OWZlZDY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00NDU2M2JjOC1lMjQ0LTQ2ODYtYmNiMS1iMDZjZmE3N2NiMWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jYTg5MzAxYy03ZDNlLTQ5MDYtYjlhNS00MjMzMWUzNTFlZDE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02ZGViOTk3Ni1mMDFmLTQ5OWYtOWJmNC1kYTE1NTBmNDc4NTA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0yYjFlMTU4MC05Y2I2LTQ4MDctYTUyMi1lZTNhOTZlNzdkYjU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zMWU3NWIzMS1lZGJiLTRlYzgtYTdhOS00ZTQwYzlmOTM2Y2Q</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jNjA5MTkxMi03NDg4LTRjNzYtODk3YS0zYWQyMTQ5NzE1NjI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03YmEzNGY2OS05N2ZkLTRmNjUtYjYxMS1mM2UwNTFmZDAxMDY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lYTZiOGFkZS1jZmMxLTRiNDEtYmY5ZS02MzIzMDQ1YTk3Zjc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01M2JjNmJmYi01NGQxLTQxNDQtOTAyZS05ZTM1ZjcxNWVlMDg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xZjY4OWNkZC04NTQ4LTRmNDMtOWJmMS03YjFlYjMzZmM0MzA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xMzQ4MzA0ZS1mNTAyLTQxODMtOWJiYi1kNTIwZDIxNTZmZjM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0yNGM3MWQwZC05MjE1LTQ0ZTAtYWJiZS0zZGFjZDRmMjU1MTI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04ODdmNWEzNy1kMTdjLTQyY2YtODY5Mi04NzllM2I4NGNkY2Y</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xZjg4YzFkMy1kNmYzLTQ1YTMtODgwNy05OGQ5NWVjN2Q0NWM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02ODExZTRkZi1mNTg4LTQ3NjctYWMzYy1jNWM3MmY5NDUxNzE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi00NjUxNzkxZC0zODI0LTQ4ZGQtYmZiMy1jYmM5ZjViODNjMWY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jYzljZGFjYy04NjdiLTRjMzYtODlhMy01Mjk3ZmNlYTc2ZGY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02ZmVmMWU3MS0yMjg2LTQ3OTEtODNmNC01ZTk2YjY2NTRmZTI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03ZmE2MzkyMC0zOWE4LTQwMDgtYjQ1OS02MTVjYTE2ZjUyODY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jODNjNzAzMC04NjBlLTRlMzUtYmQwNS0yMDUyMzc5ZWEyMmM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mZmE5NWNjNy03ZjAzLTQzNDQtODQzMC1hNDBjNzg3MGRiZjI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03OTRmNWEzZS1hYjllLTRlNmYtOTRkNi1jNzE4MmM1ODg2OTc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04ZDBjZjQyYS05MjFkLTQxNDMtOWRjOC00NTJiNjZhY2ZkMTE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04YTVlYzE1OC1mZTAwLTQzMGYtOTc4YS02MzE1MTNmMmIyYzI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jYzMxZTI4YS02ZjE3LTRiMDMtOTJmYS1hNWI4YmNiMDgwNGM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0yYThhZmY5My1kMDVjLTQwZDItYTZiNS0yNDczZjk1MzdhNTA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zYThmYTBlYS03NTY3LTQ3YTEtYTBjMy01Y2M2Y2E2ZDE3MGM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hMDk5OGQ3Ni0xOGIyLTRlMjItYjZmYi02ZGIzZDU3MGQwZjY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mNDg1YjMzMi1hMzAxLTQ5OGQtYmUyNS04YWYwYmMyZTExZDQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mMzNiNGI2Mi1hNmExLTQyZjQtOTEwMy0xMmUyODRkMjAyNDY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01MWQ1YWYyZi1hYjdhLTQwMzktYTM3YS05MjNiY2Y2MzcxZTc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lNzBhNzdjMi1kMDRkLTRmMGMtOWUzMy0yOGYzNWUxOTUwMWM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi03MzNlMDE1OC0zNDc5LTQ5ZmEtYTk0NS1lY2VjMGQ0ZDhhNDU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi04ZTdlNjJlNi1hYWI4LTQxNzUtODkxZC05OTZjZDlmMjE3NzU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi05OGE1OWE4MS00MTY1LTQ5YjktYjgwZi02Mjg4YzAyYzQ2NjQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lMmNmYzBkYi1mYjI2LTQ0NDUtYjVmMy0wYWJiM2E3MmFjZTY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jYzhiNzk2ZC1lMTE0LTRkNDctOGU0OS1hMGU1ZTVkZjQ5NTI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mYzM0NTEyMS05Y2ZhLTQ0MGYtOTYwOC02ODc4MjNiZDQ3ZTE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iOWI1M2Q0OC00ODc5LTRiZDYtYWY0NS01ZTk2ZmU3ZWMzZmQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iZDg5YWNlNS03MjMwLTQzMDktYjM3MC1mZGQxZTlmMzA2ZWE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hNTRjNTU2YS00YjFkLTRjZTctYjA4Yy0zYzE2MzMzZDZhNTg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iYTFhOTMxZS0yY2VkLTQ5OGYtYmUxNy1jYWRjYTY2NGY2YjM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lZjUzNGQ1OC01YzY2LTQ5MmUtYTE2MC02Yzc5N2FjMGIwMjU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1mNTVlMDY2NC1jOTA3LTRkOTYtYjMxZC0xY2FkNjBiYWIwMmU</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0yZDVhN2E3NC0xMjY2LTQ4YzEtYmE0Zi1mY2JhNDY3MGJjNjA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1kODI0ZTc5My0zM2I5LTQ0MzYtYmE4Mi0xMzU0Nzk2MTc5Zjg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zMjVhN2EzYy0yYTVjLTRlMWItOThhMy1kZDNlMjUwMGE1YzI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01NDdmOTcwMS0wYjU2LTRlZGEtODdhYy0yZDhmYzEwZjY3ZjA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0xZjllMWU5Zi1mNmUyLTQ3MTAtOTNiNy0yZWJmYWZhMTVmNmY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1iZmEwOGYzOC02MTE2LTQ2NDMtYjNjMS0yNGUwZmY1NDgzNGI</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zNTE3ODNjMC0yYmQxLTQ1YzItYTc3ZS01YjM1ZmZiNWM1YjE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02NzM2YjY0MS00OTM3LTRmZjYtYjgwMy02YWM1YTJiMDFkNWM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lNWQ3MjNkMC1jNzYyLTQ2OWEtYWYzNi0xOWY0Y2NhMjEyZDY</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zNTg1YTRhMi1iMjlmLTQ2MWUtOTYzZC0yNGE0MTdhNTc0MDc</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zNzdiMTc1NS1mNTk1LTQ2MmYtYjc3YS00ZDkzMTBhYTU1NDA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lMGU0Zjk2ZS03ODQzLTRjZWMtYTVmZi01NDQzMzg2ZjBhNzA</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1jODViYmRlZS02OTk3LTQ5ZTEtYmVkYy00ZTdhNjg3MTdiNmQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi01YTM3NWU1ZS0wNzYxLTQ1MTAtYTJlMi05YmU0NmZlZTFlZDg</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02M2I3ZjExYi1jNWIzLTRmZTItOTk2NS1mYmY2ZGQ0OWQ4MWQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1lZTQ5ODk5Yy0zMTc4LTRlYzQtYTQ2Yy1mMTgwY2FkZjQ4ZWM</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi1hOTgxYjYxYS0zMmQ3LTQ5MDEtYjdkMS0xZTBhMjhjZmNlNWE</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi0zZjk0MzdlYS0wNjdiLTQyMDUtODk5YS0zMTE3NjY4NzQ3OTQ</span><span class="o">=</span>
+Deleted:<span class="w"> </span><span class="nv">Mi02NjBjOGRiOC0wYjE2LTQ0ODEtYmU2OC04MmU0Njk1MDllNzU</span><span class="o">=</span>
+Committing...
+<span class="o">{</span><span class="s2">&quot;responseHeader&quot;</span>:<span class="o">{</span><span class="s2">&quot;status&quot;</span>:0,<span class="s2">&quot;QTime&quot;</span>:43<span class="o">}}</span>
+
+Done.<span class="w"> </span>Deleted:<span class="w"> </span><span class="m">142</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Errors:<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -784,23 +621,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="sage_import.html">
+          <a class="next-page" href="sage-import.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">SAGE Import</div>
+                <div class="title">Importing media into SAGE - WITHOUT Rancher</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="delete-sage-solr-docs.html">
+          <a class="prev-page" href="../../workflows/sage.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Deleting Items from SAGE Solr</div>
+                <div class="title">SAGE</div>
                 
               </div>
             </a>
@@ -822,8 +659,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Deleting Items from SAGE Solr</a><ul>
+<li><a class="reference internal" href="#a-solr-delete-script">A Solr Delete Script</a></li>
+<li><a class="reference internal" href="#copying-to-the-server">Copying to the Server</a></li>
+<li><a class="reference internal" href="#run-script">Run Script</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
