@@ -202,7 +202,34 @@ Migration Plans
 ===============
 
 * Archipelago
-* Image
+* Ado: Image
 * Restricted Items also come to the same collection
 * Instructions need to be added on how to access those
 
+---------------------------------------------------
+Charting Texas: A History of the State Through Maps
+---------------------------------------------------
+
+This exhibition features maps and books, documenting several centuries of exploration and political competition for one specific area of North America — Texas. With advancements in geographic knowledge, surveying techniques, and printing technology, one can begin to see Texas taking its now familiar form from the earliest depictions in the 16th Century.
+
+The collection consists of 57 items that are mostly maps.
+
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/charting-texas
+
+Current Stack
+=============
+
+* Spotlight
+* Fedora
+
+Migration Plans
+===============
+
+* Archipelago
+* ADO Types: Map, Image, Book, Manuscript (Hand written Text?)
+* Update exhibit to pull from Archipelago
+
+Before Migration
+================
+
+* Update metadata to properly identify ADO types
