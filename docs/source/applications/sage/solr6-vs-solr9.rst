@@ -2,10 +2,6 @@
 SAGE: Solr 6 versus Solr 9
 ==========================
 
-.. contents:: Contents
-   :local:
-   :depth: 2
-
 Overview
 --------
 
