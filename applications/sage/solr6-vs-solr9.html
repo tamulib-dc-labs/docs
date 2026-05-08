@@ -385,33 +385,13 @@
         <article role="main" id="furo-main-content">
           <section id="sage-solr-6-versus-solr-9">
 <h1>SAGE: Solr 6 versus Solr 9<a class="headerlink" href="#sage-solr-6-versus-solr-9" title="Link to this heading">¶</a></h1>
-<nav class="contents local" id="contents">
-<p class="topic-title">Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
-<li><p><a class="reference internal" href="#missing-documents" id="id2">Missing Documents</a></p></li>
-<li><p><a class="reference internal" href="#schema-comparison" id="id3">Schema Comparison</a></p>
-<ul>
-<li><p><a class="reference internal" href="#solr-9-document-structure" id="id4">Solr 9 Document Structure</a></p></li>
-<li><p><a class="reference internal" href="#solr-6-document-structure" id="id5">Solr 6 Document Structure</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#adding-documents-via-the-solr-api" id="id6">Adding Documents via the Solr API</a></p>
-<ul>
-<li><p><a class="reference internal" href="#using-curl" id="id7">Using <code class="docutils literal notranslate"><span class="pre">curl</span></code></a></p></li>
-<li><p><a class="reference internal" href="#using-python-requests" id="id8">Using Python (<code class="docutils literal notranslate"><span class="pre">requests</span></code>)</a></p></li>
-<li><p><a class="reference internal" href="#verifying-the-document-was-added" id="id9">Verifying the Document Was Added</a></p></li>
-</ul>
-</li>
-</ul>
-</nav>
 <section id="overview">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <p>SAGE historically used Solr 6. Several years ago, attempts were made to upgrade to Solr 9.
 In May 2026, this upgrade was finally deployed to production.</p>
 </section>
 <section id="missing-documents">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Missing Documents</a><a class="headerlink" href="#missing-documents" title="Link to this heading">¶</a></h2>
+<h2>Missing Documents<a class="headerlink" href="#missing-documents" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Eleven Solr documents are absent from the Brazos Map collection. This is caused by a bug
@@ -422,7 +402,7 @@ into the collection.</p>
 manually following the Solr 9 schema (see <a class="reference internal" href="#adding-documents"><span class="std std-ref">Adding Documents via the Solr API</span></a>).</p>
 </section>
 <section id="schema-comparison">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Schema Comparison</a><a class="headerlink" href="#schema-comparison" title="Link to this heading">¶</a></h2>
+<h2>Schema Comparison<a class="headerlink" href="#schema-comparison" title="Link to this heading">¶</a></h2>
 <p>The Solr 9 schema differs from Solr 6 in several important ways:</p>
 <ul class="simple">
 <li><p>Field names changed: <code class="docutils literal notranslate"><span class="pre">title_txt_en_split</span></code> → <code class="docutils literal notranslate"><span class="pre">title_text_si_en_split</span></code>;
@@ -435,7 +415,7 @@ manually following the Solr 9 schema (see <a class="reference internal" href="#a
 <li><p>Internal Solr fields <code class="docutils literal notranslate"><span class="pre">_version_</span></code> and <code class="docutils literal notranslate"><span class="pre">score</span></code> are not present in stored documents</p></li>
 </ul>
 <section id="solr-9-document-structure">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Solr 9 Document Structure</a><a class="headerlink" href="#solr-9-document-structure" title="Link to this heading">¶</a></h3>
+<h3>Solr 9 Document Structure<a class="headerlink" href="#solr-9-document-structure" title="Link to this heading">¶</a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;application_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fedora&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;application_type_facet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fedora&quot;</span><span class="p">],</span>
@@ -477,7 +457,7 @@ manually following the Solr 9 schema (see <a class="reference internal" href="#a
 </div>
 </section>
 <section id="solr-6-document-structure">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Solr 6 Document Structure</a><a class="headerlink" href="#solr-6-document-structure" title="Link to this heading">¶</a></h3>
+<h3>Solr 6 Document Structure<a class="headerlink" href="#solr-6-document-structure" title="Link to this heading">¶</a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aHR0cHM6Ly9hcGkubGlicmFyeS50YW11LmVkdS9mY3JlcG8vcmVzdC8zYi82Zi9jMy8yNS8zYjZmYzMyNS1mNmNhLTQxZDgtYjkxZS04YzVkYjNiZThjMTMvYnJhem9zLW1hcHNfb2JqZWN0cy84OQ==&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Official city map of the city of College Station, Texas&quot;</span><span class="p">,</span>
@@ -506,7 +486,7 @@ manually following the Solr 9 schema (see <a class="reference internal" href="#a
 </section>
 </section>
 <section id="adding-documents-via-the-solr-api">
-<span id="adding-documents"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Adding Documents via the Solr API</a><a class="headerlink" href="#adding-documents-via-the-solr-api" title="Link to this heading">¶</a></h2>
+<span id="adding-documents"></span><h2>Adding Documents via the Solr API<a class="headerlink" href="#adding-documents-via-the-solr-api" title="Link to this heading">¶</a></h2>
 <p>To manually recreate a missing document, POST it to Solr’s JSON update handler. The
 <code class="docutils literal notranslate"><span class="pre">commit=true</span></code> parameter flushes the document to the index immediately; omit it if you
 are batching multiple updates and want to commit once at the end.</p>
@@ -516,7 +496,7 @@ are batching multiple updates and want to commit once at the end.</p>
 environment. The <code class="docutils literal notranslate"><span class="pre">id</span></code> field must be unique within the collection.</p>
 </div>
 <section id="using-curl">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Using <code class="docutils literal notranslate"><span class="pre">curl</span></code></a><a class="headerlink" href="#using-curl" title="Link to this heading">¶</a></h3>
+<h3>Using <code class="docutils literal notranslate"><span class="pre">curl</span></code><a class="headerlink" href="#using-curl" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;http://&lt;solr-host&gt;:&lt;port&gt;/solr/&lt;collection&gt;/update?commit=true&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
@@ -540,7 +520,7 @@ handler accepts one or more documents in a single request.</p>
 </div>
 </section>
 <section id="using-python-requests">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Using Python (<code class="docutils literal notranslate"><span class="pre">requests</span></code>)</a><a class="headerlink" href="#using-python-requests" title="Link to this heading">¶</a></h3>
+<h3>Using Python (<code class="docutils literal notranslate"><span class="pre">requests</span></code>)<a class="headerlink" href="#using-python-requests" title="Link to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">SOLR_URL</span> <span class="o">=</span> <span class="s2">&quot;http://&lt;solr-host&gt;:&lt;port&gt;/solr/&lt;collection&gt;/update&quot;</span>
@@ -566,7 +546,7 @@ handler accepts one or more documents in a single request.</p>
 </div>
 </section>
 <section id="verifying-the-document-was-added">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Verifying the Document Was Added</a><a class="headerlink" href="#verifying-the-document-was-added" title="Link to this heading">¶</a></h3>
+<h3>Verifying the Document Was Added<a class="headerlink" href="#verifying-the-document-was-added" title="Link to this heading">¶</a></h3>
 <p>After posting, confirm the document is indexed by querying for its <code class="docutils literal notranslate"><span class="pre">id</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span><span class="s2">&quot;http://&lt;solr-host&gt;:&lt;port&gt;/solr/&lt;collection&gt;/select?q=id:&lt;unique-base64-id&gt;&amp;wt=json&quot;</span>
 </pre></div>
