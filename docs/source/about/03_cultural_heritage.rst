@@ -33,6 +33,7 @@ Migration Plans
 
 * Archipelago for Digital Asset Management
 * Exhibit Updated to Pull from Archipelago
+* ADO Model: Image
 
 Before Migration
 ================
@@ -67,6 +68,7 @@ Migration Plans
 * Archipelago for Digital Asset Management
 * Exhibit Updated to Pull from Archipelago
 * Exhibit will Include a Newly Updated Map but will use Leaflet similar to Woellhof
+* ADO Model: Map
 
 Before Migration
 ================
@@ -77,3 +79,130 @@ Before Migration
 * Images have dates.  Can get that easily with Computer Vision
 * Can also use Identifier Data in Upper right for Title
 * Since no metadata record, easiest to start with a blank AMI set in special collections
+
+-----------------------------------------------------------
+Amazing, Fantastic, Weird: Science Fiction Studies in Texas
+-----------------------------------------------------------
+
+About
+=====
+
+This is a collection of program and proceedings from the exhibit opening of: One Hundred Years Hence: Science Fiction and Fantasy at Texas A & M. It consists of PDFs, Powerpoints, etc. This is a complex collection that I need to learn more about. It doesn’t fit easily into a IIIF framework.
+
+* **Homepage**: `<https://oaktrust.library.tamu.edu/handle/1969.1/92159>`_
+* **Curator**: Jeremy Brett
+
+Current Stack
+=============
+
+* DSPACE
+
+Migration Plans
+===============
+
+* Archipelago for Digital Asset Management
+* ADO Model: Book
+
+Before Migration
+================
+
+* Convert Items (PPTX) to Web Accessible Formats
+
+---------------------------
+A.M.C. Yell Book Collection
+---------------------------
+
+About
+=====
+
+The Agricultural and Mechanical College of Texas Yell Book Online Collection consists of bound Yell Books dating from 1904-1905 through 1931-1932. Included in the booklets are yells and songs that reflect the unique experience of cadets during this period, and the businesses that supported the printing of the booklets. Most of the booklets in this collection were owned by former students, so names, doodles, and in some cases homemade yells can be seen on the covers and within the booklets’ pages.
+
+This is served with the Internet Archive Bookreader Application thus some assumptions are made about stack.
+
+* **Homepage**: https://library.tamu.edu/collections/digital-library/yell_books.php
+* Page turning via Internet Archive Bookreader
+* Search inside
+
+Current Stack
+=============
+
+* Internet Archive Bookreader
+* Pages are Bundled
+* Text is Alto
+
+Migration Plans
+===============
+
+* Archipelago for Digital Asset Management
+* ADO Model: Book or CWS with Page so we can programatically add text
+
+Before Migration
+================
+
+* Convert Alto to HOCR
+
+--------------------------
+Austin's 1830 Map of Texas
+--------------------------
+
+About
+=====
+
+This first edition of Stephen F. Austin’s 1830 Map of Texas is often described as “the first meaningful map of Texas” and was the first to accurately depict the rivers in Texas and illustrate many of the early settlements including Brazoria, Gonzales, Harrisburg, Matagorda, Victoria and Waco Village.
+
+This map was published in eight editions through 1845 and is the first map of Texas printed in the United States. The map was produced as part of a land grant agreement with the Mexican government but it was also intended to be a showcase for new settlers to Texas. Therefore, it was made to be as open and as inviting as possible.
+
+The map is split into 7 parts and each part is presented independently from the other parts.
+
+There is a Georeferenced data package that is served over HTTP from OAKTrust and thus blocked. This should minimally be switched to HTTPS.
+
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/austin-map
+
+Current Stack
+=============
+
+* DSPACE
+* Spotlight
+* OAKTrust for Georeferenced Dataset
+
+
+Migration Plans
+===============
+
+* Archipelago for Digital Asset Management
+* ADO Model: Map
+
+Before Migration
+================
+
+* Figure out what to do with georeferenced dataset.  Can we leverage work done there already?
+
+-------------------------------------------------
+The Berger-Cloonan Collection of Decorated Papers
+-------------------------------------------------
+
+The Berger-Cloonan Collection of Decorated Papers contains more than 20,000 items representing five centuries of paper production and decoration from across the globe and is one of the most extensive collections of its kind. Among its many strengths are eighteenth-century Dutch gilt papers, thousands of unique marbled and paste papers, Japanese Chiyogami and Katazome, historic watermarks, and scores of papermakers’ sample books.
+
+The collection was built by Dr. Sidney E. Berger and Dr. Michèle V. Cloonan in support of their research and teaching interests, and was acquired by Texas A&M University Libraries in 2016. This digital collection contains non-copyrighted papers in the Berger-Cloonan Collection. It is offered here as a starting point for students and researchers who wish to become acquainted with the collection. Digitization of the collection is ongoing, and high-resolution scans of papers will be uploaded as they become available.
+
+Each work is served as a single canvas with manifests.
+
+There are no context pages and only an index.
+
+* Homepage: https://library.tamu.edu/discovery/discovery-context/berger-cloonan?direction=ASC
+
+Current Stack
+=============
+
+* SAGE
+* Fedora
+* Some items are restricted
+
+Migration Plans
+===============
+
+* Archipelago
+* Image
+* Restricted Items also come to the same collection
+* Instructions need to be added on how to access those
+
