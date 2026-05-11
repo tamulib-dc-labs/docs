@@ -181,6 +181,9 @@ Before Migration
 The Berger-Cloonan Collection of Decorated Papers
 -------------------------------------------------
 
+About
+=====
+
 The Berger-Cloonan Collection of Decorated Papers contains more than 20,000 items representing five centuries of paper production and decoration from across the globe and is one of the most extensive collections of its kind. Among its many strengths are eighteenth-century Dutch gilt papers, thousands of unique marbled and paste papers, Japanese Chiyogami and Katazome, historic watermarks, and scores of papermakers’ sample books.
 
 The collection was built by Dr. Sidney E. Berger and Dr. Michèle V. Cloonan in support of their research and teaching interests, and was acquired by Texas A&M University Libraries in 2016. This digital collection contains non-copyrighted papers in the Berger-Cloonan Collection. It is offered here as a starting point for students and researchers who wish to become acquainted with the collection. Digitization of the collection is ongoing, and high-resolution scans of papers will be uploaded as they become available.
@@ -210,6 +213,9 @@ Migration Plans
 Charting Texas: A History of the State Through Maps
 ---------------------------------------------------
 
+About
+=====
+
 This exhibition features maps and books, documenting several centuries of exploration and political competition for one specific area of North America — Texas. With advancements in geographic knowledge, surveying techniques, and printing technology, one can begin to see Texas taking its now familiar form from the earliest depictions in the 16th Century.
 
 The collection consists of 57 items that are mostly maps.
@@ -233,3 +239,29 @@ Before Migration
 ================
 
 * Update metadata to properly identify ADO types
+
+----------------------------
+Cherokee Freedmen Collection
+----------------------------
+
+This collection consists of written testimonies, letters, and affidavits related to over 30 applications of African Americans and their families that were denied enrollment as Cherokee Freedmen. The hearings were mostly conducted at Fort Gibson or Muskogee, Oklahoma by the United States Department of the Interior’s Commission to the Five Civilized Tribes (a.k.a. the Dawes Commission). Images of the original envelopes are included for most of the documents, which are dated from 1901 to 1907.
+
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/cherokee-freedmen
+
+Current Stack
+=============
+
+* Spotlight
+* Fedora
+
+Migration Plans
+===============
+
+* Archipelago
+* ADO Types: Book
+* Update exhibit to pull from Archipelago
+
+Before Migration
+================
+
+* N/A
