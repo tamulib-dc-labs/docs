@@ -37,7 +37,7 @@ Archipelago
 -----------
 
 Archipelago Commons is an open-source digital repository and digital asset management (DAM) platform built on top of
-Drupal and developed by the Metropolitan New York Library Council. It’s designed primarily for the GLAM community to
+Drupal and developed by the Metropolitan New York Library Council. It's designed primarily for the GLAM community to
 manage, preserve, and provide access to digital collections. As of 2026, it is the primary solution for cultural heritage
 collections at Texas A&M University Libraries.
 
@@ -55,9 +55,26 @@ Product Owner Expectations
 Avalon Media System
 -------------------
 
+About
+=====
+
+Avalon is an open-source system for managing and providing access to large collections of
+digital audio and video.
+
+Current Product Owner: Douglas Hahn
+Development Support from Technology Services: No (Third Party — Consume)
+Campus Category: Common
+Supports: SAGE
+Supported By: Fedora
+
 ----------
 Cantaloupe
 ----------
+
+Cantaloupe is an open-source dynamic image server for on-demand generation of derivatives
+of high-resolution source images.
+
+Development Support from Technology Services: No (Not listed as a Technology Services product)
 
 ---
 CAP
@@ -71,48 +88,138 @@ The Curator's Administrative Platform provides a user interface for Fedora repos
 Current Product Owner: Mark Baggett
 Repository: https://github.com/tamulib/cap
 Development Support from Technology Services: Yes
+Campus Category: Unique
+Supports: Fedora, SAGE
+Supported By: Mirador, Tamu Library Components, Weaver
 
 Product Owner Expectations
 ==========================
 
-*
+* Listen to feedback from library stakeholders and articulate problems to dev team
 
 ------
 Fedora
 ------
 
+About
+=====
+
+Fedora is a digital repository that uses linked data (RDF).
+
+Current Product Owner: James Creel
+Development Support from Technology Services: No (Third Party — Consume)
+Campus Category: Common
+Supports: Avalon, IIIF Service, SAGE
+Supported By: CAP
+
 -------------
 IA Bookreader
 -------------
+
+IA Bookreader was developed by the Internet Archive and open source contributors to provide
+online access to scanned books.
+
+Development Support from Technology Services: No (Not listed as a Technology Services product)
 
 -------------
 IRIIIFService
 -------------
 
+About
+=====
+
+The IIIF Service provides IIIF manifest generation from DSpace RDF and/or Fedora PCDM.
+
+Current Product Owner: Douglas Hahn
+Development Support from Technology Services: Yes
+Campus Category: Unique
+Supports: From the Page, Spotlight
+Supported By: DSpace, Fedora
+
 ------
 MAGPIE
 ------
+
+About
+=====
+
+MAGPIE (Metadata Assignment GUI Providing Ingest and Export) provides a suite of features
+for curating documents for deposit to repositories.
+
+Current Product Owner: Douglas Hahn
+Development Support from Technology Services: Yes
+Campus Category: Unique
+Supported By: SAF Creator, Weaver
 
 -------
 Mirador
 -------
 
+About
+=====
+
+Mirador is an open-source, web-based, multi-window image viewing platform with the ability
+to zoom, display, compare, and annotate images.
+
+Current Product Owner: Douglas Hahn
+Development Support from Technology Services: No (Third Party — Consume)
+Campus Category: Common
+Supports: CAP, SAGE, Spotlight
+Supported By: Cantaloupe
+
 --------
 OAKTrust
 --------
+
+Development Support from Technology Services: No (Not listed as a Technology Services product)
 
 -------------------
 Open Journal System
 -------------------
 
+Development Support from Technology Services: No (Not listed as a Technology Services product)
+
 -----------
 SAF Creator
 -----------
+
+About
+=====
+
+SAF Creator is a desktop application that takes spreadsheets of metadata and documents and
+creates a DSpace SAF archive.
+
+Current Product Owner: James Creel
+Development Support from Technology Services: Yes (Third Party — Contribute)
+Campus Category: Common
+Supports: DSpace, MAGPIE
 
 ----
 SAGE
 ----
 
+About
+=====
+
+SAGE (Solr AGgregation Engine) can combine Solr indices from multiple sources and make
+their documents discoverable in user-configurable views.
+
+Current Product Owner: Bonnie Gardner
+Development Support from Technology Services: Yes
+Campus Category: Common
+Supported By: Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
+
 ---------
 Spotlight
 ---------
+
+About
+=====
+
+Spotlight is open-source software that enables librarians, curators, and other content
+experts to easily build feature-rich websites that showcase collections.
+
+Current Product Owner: Douglas Hahn
+Development Support from Technology Services: Yes (Third Party — Contribute)
+Campus Category: Common
+Supported By: IIIF Service, Mirador
