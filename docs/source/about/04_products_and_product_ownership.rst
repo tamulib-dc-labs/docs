@@ -45,9 +45,27 @@ Current Product Owner: Mark Baggett
 Repository: https://github.com/tamulib/cap
 Development Support from Technology Services: No (DevOps and Deployment only)
 
+Instances and Clusters
+======================
+
+* Dev
+* Pre
+* Prod
+
+PODS and Containers
+===================
+
+* esmero-cantaloupe: Used as image server in each cluster
+* esmero-minio: Used as storage instance in dev and pre.  Not used in prod.
+* esmero-nlp: Used for complex processing including in the OCR process
+* esmero-php: Used as Drupal, PHP, and Drush layer.
+* esmero-solr: Solr instance
+* esmero-web: Web server
+
 Product Owner Expectations
 ==========================
 
+* Serves as technical expert of platform in the Libraries
 * Monitor Archipelago community development and contribute issues and other problems as necessary
 * Listen to feedback from library stakeholders and bring problems or solutions to Archipelago community or digital collections team
 
@@ -104,9 +122,14 @@ Fedora
 About
 =====
 
-Fedora is a digital repository that uses linked data (RDF).
+Fedora is a digital repository that uses linked data (RDF). It is used as the assets management system for SAGE and Spotlight
+collections. The same instance is also used for Avalon Media System, although it functions very differently.  Specifically,
+Avalon only uses Fedora for asset management.  It does not use Fedora's Solr or Fuseki instance which can be problematic
+for SAGE collections.
 
-Current Product Owner: James Creel
+Also, TAMU has its own specific flavor of RDF based loosely around PCDM.
+
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
 Supports: Avalon, IIIF Service, SAGE
