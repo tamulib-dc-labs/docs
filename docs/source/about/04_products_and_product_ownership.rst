@@ -227,7 +227,7 @@ About
 
 The IIIF Service provides IIIF manifest generation from DSpace RDF and/or Fedora PCDM.
 
-Current Product Owner: Douglas Hahn
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Unique
 Supports: From the Page, Spotlight
@@ -243,7 +243,7 @@ About
 MAGPIE (Metadata Assignment GUI Providing Ingest and Export) provides a suite of features
 for curating documents for deposit to repositories.
 
-Current Product Owner: Douglas Hahn
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Unique
 Supported By: SAF Creator, Weaver
@@ -258,7 +258,7 @@ About
 Mirador is an open-source, web-based, multi-window image viewing platform with the ability
 to zoom, display, compare, and annotate images.
 
-Current Product Owner: Douglas Hahn
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
 Supports: CAP, SAGE, Spotlight
@@ -276,6 +276,10 @@ Open Journal System
 
 Development Support from Technology Services: No (Not listed as a Technology Services product)
 
+--------
+pyavalon
+--------
+
 -----------
 SAF Creator
 -----------
@@ -286,7 +290,7 @@ About
 SAF Creator is a desktop application that takes spreadsheets of metadata and documents and
 creates a DSpace SAF archive.
 
-Current Product Owner: James Creel
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes (Third Party — Contribute)
 Campus Category: Common
 Supports: DSpace, MAGPIE
@@ -301,7 +305,7 @@ About
 SAGE (Solr AGgregation Engine) can combine Solr indices from multiple sources and make
 their documents discoverable in user-configurable views.
 
-Current Product Owner: Bonnie Gardner
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Common
 Supported By: Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
@@ -316,7 +320,7 @@ About
 Spotlight is open-source software that enables librarians, curators, and other content
 experts to easily build feature-rich websites that showcase collections.
 
-Current Product Owner: Douglas Hahn
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes (Third Party — Contribute)
 Campus Category: Common
 Supported By: IIIF Service, Mirador
