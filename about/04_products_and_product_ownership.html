@@ -449,7 +449,9 @@ Development Support from Technology Services: No (DevOps and Deployment only)</p
 <ul class="simple">
 <li><p>Serves as technical expert of platform in the Libraries</p></li>
 <li><p>Monitor Archipelago community development and contribute issues and other problems as necessary</p></li>
+<li><p>Liaises with Archipelago community</p></li>
 <li><p>Listen to feedback from library stakeholders and bring problems or solutions to Archipelago community or digital collections team</p></li>
+<li><p>Leads troubleshooting of problems with platform</p></li>
 </ul>
 </section>
 </section>
@@ -459,23 +461,77 @@ Development Support from Technology Services: No (DevOps and Deployment only)</p
 <h3>About<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <p>Avalon is an open-source system for managing and providing access to large collections of
 digital audio and video.</p>
-<p>Current Product Owner: Douglas Hahn
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
-Supports: SAGE
-Supported By: Fedora</p>
+Supported By: Fedora
+Related servers: pyavalon</p>
+</section>
+<section id="id2">
+<h3>Instances and Clusters<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Dev</p></li>
+<li><p>Pre</p></li>
+<li><p>Prod</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>PODS and Containers<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>kaltura: streaming server</p></li>
+<li><p>avalon-db: database server</p></li>
+<li><p>avalon: application server</p></li>
+<li><p>avalon-solr: solr instance</p></li>
+<li><p>avalon-redis: caching layer</p></li>
+<li><p>avalonworker: not sure?</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Product Owner Expectations<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of platform in the Libraries</p></li>
+<li><p>Monitors Avalon Slack channel</p></li>
+<li><p>Attends monthly Avalon calls and represents TAMU Libraries</p></li>
+<li><p>Determines roadmap and next steps for Avalon migration</p></li>
+</ul>
 </section>
 </section>
 <section id="cantaloupe">
 <h2>Cantaloupe<a class="headerlink" href="#cantaloupe" title="Link to this heading">¶</a></h2>
 <p>Cantaloupe is an open-source dynamic image server for on-demand generation of derivatives
 of high-resolution source images.</p>
-<p>Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
+<p>It is currently the service behind Fedora collections only.</p>
+<p>Development Support from Technology Services: No (Not listed as a Technology Services product)
+Serves: iriiifservice
+Product owner: Mark Baggett</p>
+<section id="id5">
+<h3>Instances and Clusters<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Dev</p></li>
+<li><p>Pre</p></li>
+<li><p>Prod</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>PODS and Containers<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>cantaloupe</p>
+</section>
+<section id="id7">
+<h3>Product Owner Expectations<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of the platform, its delegates file, and the IIIF Image API</p></li>
+<li><p>Troubleshoots issues with the platform</p></li>
+</ul>
+</section>
+<section id="future-plans">
+<h3>Future Plans<a class="headerlink" href="#future-plans" title="Link to this heading">¶</a></h3>
+<p>Spin down once Fedora migration is complete.</p>
+</section>
 </section>
 <section id="cap">
 <h2>CAP<a class="headerlink" href="#cap" title="Link to this heading">¶</a></h2>
-<section id="id2">
-<h3>About<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="id8">
+<h3>About<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <p>The Curator’s Administrative Platform provides a user interface for Fedora repositories. This functionality could be extended to other repositories such as DSpace 7 with some development work. CAP ensures that curators use valid RDF predicates for triples about Fedora resources. More details are on the Lyrasis/Duraspace website at <a class="reference external" href="https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/">https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/</a> and in the code base hosted at <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>.</p>
 <p>Current Product Owner: Mark Baggett
 Repository: <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>
@@ -484,17 +540,37 @@ Campus Category: Unique
 Supports: Fedora, SAGE
 Supported By: Mirador, Tamu Library Components, Weaver</p>
 </section>
-<section id="id3">
-<h3>Product Owner Expectations<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id9">
+<h3>Product Owner Expectations<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Listen to feedback from library stakeholders and articulate problems to dev team</p></li>
+<li><p>Serve as technical expert</p></li>
+<li><p>Advocate for development</p></li>
 </ul>
+</section>
+<section id="id10">
+<h3>Instances and Clusters<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Dev</p></li>
+<li><p>Pre</p></li>
+<li><p>Prod</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>PODS and Containers<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>cap</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Future Plans<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<p>Spin down once Fedora migration is complete.</p>
 </section>
 </section>
 <section id="fedora">
 <h2>Fedora<a class="headerlink" href="#fedora" title="Link to this heading">¶</a></h2>
-<section id="id4">
-<h3>About<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="id13">
+<h3>About<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
 <p>Fedora is a digital repository that uses linked data (RDF). It is used as the assets management system for SAGE and Spotlight
 collections. The same instance is also used for Avalon Media System, although it functions very differently.  Specifically,
 Avalon only uses Fedora for asset management.  It does not use Fedora’s Solr or Fuseki instance which can be problematic
@@ -503,7 +579,7 @@ for SAGE collections.</p>
 <p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
-Supports: Avalon, IIIF Service, SAGE
+Supports: Avalon, IIIF Service, SAGE, Spotlight
 Supported By: CAP</p>
 </section>
 </section>
@@ -515,10 +591,10 @@ online access to scanned books.</p>
 </section>
 <section id="iriiifservice">
 <h2>IRIIIFService<a class="headerlink" href="#iriiifservice" title="Link to this heading">¶</a></h2>
-<section id="id5">
-<h3>About<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="id14">
+<h3>About<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
 <p>The IIIF Service provides IIIF manifest generation from DSpace RDF and/or Fedora PCDM.</p>
-<p>Current Product Owner: Douglas Hahn
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Unique
 Supports: From the Page, Spotlight
@@ -527,11 +603,11 @@ Supported By: DSpace, Fedora</p>
 </section>
 <section id="magpie">
 <h2>MAGPIE<a class="headerlink" href="#magpie" title="Link to this heading">¶</a></h2>
-<section id="id6">
-<h3>About<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<section id="id15">
+<h3>About<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
 <p>MAGPIE (Metadata Assignment GUI Providing Ingest and Export) provides a suite of features
 for curating documents for deposit to repositories.</p>
-<p>Current Product Owner: Douglas Hahn
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Unique
 Supported By: SAF Creator, Weaver</p>
@@ -539,11 +615,11 @@ Supported By: SAF Creator, Weaver</p>
 </section>
 <section id="mirador">
 <h2>Mirador<a class="headerlink" href="#mirador" title="Link to this heading">¶</a></h2>
-<section id="id7">
-<h3>About<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<section id="id16">
+<h3>About<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
 <p>Mirador is an open-source, web-based, multi-window image viewing platform with the ability
 to zoom, display, compare, and annotate images.</p>
-<p>Current Product Owner: Douglas Hahn
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
 Supports: CAP, SAGE, Spotlight
@@ -558,13 +634,16 @@ Supported By: Cantaloupe</p>
 <h2>Open Journal System<a class="headerlink" href="#open-journal-system" title="Link to this heading">¶</a></h2>
 <p>Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
 </section>
+<section id="pyavalon">
+<h2>pyavalon<a class="headerlink" href="#pyavalon" title="Link to this heading">¶</a></h2>
+</section>
 <section id="saf-creator">
 <h2>SAF Creator<a class="headerlink" href="#saf-creator" title="Link to this heading">¶</a></h2>
-<section id="id8">
-<h3>About<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<section id="id17">
+<h3>About<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
 <p>SAF Creator is a desktop application that takes spreadsheets of metadata and documents and
 creates a DSpace SAF archive.</p>
-<p>Current Product Owner: James Creel
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes (Third Party — Contribute)
 Campus Category: Common
 Supports: DSpace, MAGPIE</p>
@@ -572,11 +651,11 @@ Supports: DSpace, MAGPIE</p>
 </section>
 <section id="sage">
 <h2>SAGE<a class="headerlink" href="#sage" title="Link to this heading">¶</a></h2>
-<section id="id9">
-<h3>About<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<section id="id18">
+<h3>About<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
 <p>SAGE (Solr AGgregation Engine) can combine Solr indices from multiple sources and make
 their documents discoverable in user-configurable views.</p>
-<p>Current Product Owner: Bonnie Gardner
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Common
 Supported By: Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver</p>
@@ -584,11 +663,11 @@ Supported By: Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Wea
 </section>
 <section id="spotlight">
 <h2>Spotlight<a class="headerlink" href="#spotlight" title="Link to this heading">¶</a></h2>
-<section id="id10">
-<h3>About<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<section id="id19">
+<h3>About<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
 <p>Spotlight is open-source software that enables librarians, curators, and other content
 experts to easily build feature-rich websites that showcase collections.</p>
-<p>Current Product Owner: Douglas Hahn
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes (Third Party — Contribute)
 Campus Category: Common
 Supported By: IIIF Service, Mirador</p>
@@ -665,43 +744,56 @@ Supported By: IIIF Service, Mirador</p>
 </li>
 <li><a class="reference internal" href="#avalon-media-system">Avalon Media System</a><ul>
 <li><a class="reference internal" href="#id1">About</a></li>
+<li><a class="reference internal" href="#id2">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id3">PODS and Containers</a></li>
+<li><a class="reference internal" href="#id4">Product Owner Expectations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cantaloupe">Cantaloupe</a></li>
+<li><a class="reference internal" href="#cantaloupe">Cantaloupe</a><ul>
+<li><a class="reference internal" href="#id5">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id6">PODS and Containers</a></li>
+<li><a class="reference internal" href="#id7">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#future-plans">Future Plans</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#cap">CAP</a><ul>
-<li><a class="reference internal" href="#id2">About</a></li>
-<li><a class="reference internal" href="#id3">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id8">About</a></li>
+<li><a class="reference internal" href="#id9">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id10">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id11">PODS and Containers</a></li>
+<li><a class="reference internal" href="#id12">Future Plans</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#fedora">Fedora</a><ul>
-<li><a class="reference internal" href="#id4">About</a></li>
+<li><a class="reference internal" href="#id13">About</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ia-bookreader">IA Bookreader</a></li>
 <li><a class="reference internal" href="#iriiifservice">IRIIIFService</a><ul>
-<li><a class="reference internal" href="#id5">About</a></li>
+<li><a class="reference internal" href="#id14">About</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#magpie">MAGPIE</a><ul>
-<li><a class="reference internal" href="#id6">About</a></li>
+<li><a class="reference internal" href="#id15">About</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#mirador">Mirador</a><ul>
-<li><a class="reference internal" href="#id7">About</a></li>
+<li><a class="reference internal" href="#id16">About</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#oaktrust">OAKTrust</a></li>
 <li><a class="reference internal" href="#open-journal-system">Open Journal System</a></li>
+<li><a class="reference internal" href="#pyavalon">pyavalon</a></li>
 <li><a class="reference internal" href="#saf-creator">SAF Creator</a><ul>
-<li><a class="reference internal" href="#id8">About</a></li>
+<li><a class="reference internal" href="#id17">About</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#sage">SAGE</a><ul>
-<li><a class="reference internal" href="#id9">About</a></li>
+<li><a class="reference internal" href="#id18">About</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#spotlight">Spotlight</a><ul>
-<li><a class="reference internal" href="#id10">About</a></li>
+<li><a class="reference internal" href="#id19">About</a></li>
 </ul>
 </li>
 </ul>
