@@ -67,11 +67,14 @@ Product Owner Expectations
 
 * Serves as technical expert of platform in the Libraries
 * Monitor Archipelago community development and contribute issues and other problems as necessary
+* Liaises with Archipelago community
 * Listen to feedback from library stakeholders and bring problems or solutions to Archipelago community or digital collections team
+* Leads troubleshooting of problems with platform
 
 -------------------
 Avalon Media System
 -------------------
+
 
 About
 =====
@@ -79,11 +82,36 @@ About
 Avalon is an open-source system for managing and providing access to large collections of
 digital audio and video.
 
-Current Product Owner: Douglas Hahn
+Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
-Supports: SAGE
 Supported By: Fedora
+Related servers: pyavalon
+
+Instances and Clusters
+======================
+
+* Dev
+* Pre
+* Prod
+
+PODS and Containers
+===================
+
+* kaltura: streaming server
+* avalon-db: database server
+* avalon: application server
+* avalon-solr: solr instance
+* avalon-redis: caching layer
+* avalonworker: not sure?
+
+Product Owner Expectations
+==========================
+
+* Serves as technical expert of platform in the Libraries
+* Monitors Avalon Slack channel
+* Attends monthly Avalon calls and represents TAMU Libraries
+* Determines roadmap and next steps for Avalon migration
 
 ----------
 Cantaloupe
@@ -92,7 +120,34 @@ Cantaloupe
 Cantaloupe is an open-source dynamic image server for on-demand generation of derivatives
 of high-resolution source images.
 
+It is currently the service behind Fedora collections only.
+
 Development Support from Technology Services: No (Not listed as a Technology Services product)
+Serves: iriiifservice
+Product owner: Mark Baggett
+
+Instances and Clusters
+======================
+
+* Dev
+* Pre
+* Prod
+
+PODS and Containers
+===================
+
+cantaloupe
+
+Product Owner Expectations
+==========================
+
+* Serves as technical expert of the platform, its delegates file, and the IIIF Image API
+* Troubleshoots issues with the platform
+
+Future Plans
+============
+
+Spin down once Fedora migration is complete.
 
 ---
 CAP
@@ -114,6 +169,25 @@ Product Owner Expectations
 ==========================
 
 * Listen to feedback from library stakeholders and articulate problems to dev team
+* Serve as technical expert
+* Advocate for development
+
+Instances and Clusters
+======================
+
+* Dev
+* Pre
+* Prod
+
+PODS and Containers
+===================
+
+* cap
+
+Future Plans
+============
+
+Spin down once Fedora migration is complete.
 
 ------
 Fedora
@@ -132,7 +206,7 @@ Also, TAMU has its own specific flavor of RDF based loosely around PCDM.
 Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
-Supports: Avalon, IIIF Service, SAGE
+Supports: Avalon, IIIF Service, SAGE, Spotlight
 Supported By: CAP
 
 -------------
