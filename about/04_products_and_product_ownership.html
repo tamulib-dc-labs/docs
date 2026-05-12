@@ -425,9 +425,29 @@ collections at Texas A&amp;M University Libraries.</p>
 <p>Current Product Owner: Mark Baggett
 Repository: <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>
 Development Support from Technology Services: No (DevOps and Deployment only)</p>
+<section id="instances-and-clusters">
+<h3>Instances and Clusters<a class="headerlink" href="#instances-and-clusters" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Dev</p></li>
+<li><p>Pre</p></li>
+<li><p>Prod</p></li>
+</ul>
+</section>
+<section id="pods-and-containers">
+<h3>PODS and Containers<a class="headerlink" href="#pods-and-containers" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>esmero-cantaloupe: Used as image server in each cluster</p></li>
+<li><p>esmero-minio: Used as storage instance in dev and pre.  Not used in prod.</p></li>
+<li><p>esmero-nlp: Used for complex processing including in the OCR process</p></li>
+<li><p>esmero-php: Used as Drupal, PHP, and Drush layer.</p></li>
+<li><p>esmero-solr: Solr instance</p></li>
+<li><p>esmero-web: Web server</p></li>
+</ul>
+</section>
 <section id="product-owner-expectations">
 <h3>Product Owner Expectations<a class="headerlink" href="#product-owner-expectations" title="Link to this heading">¶</a></h3>
 <ul class="simple">
+<li><p>Serves as technical expert of platform in the Libraries</p></li>
 <li><p>Monitor Archipelago community development and contribute issues and other problems as necessary</p></li>
 <li><p>Listen to feedback from library stakeholders and bring problems or solutions to Archipelago community or digital collections team</p></li>
 </ul>
@@ -475,8 +495,12 @@ Supported By: Mirador, Tamu Library Components, Weaver</p>
 <h2>Fedora<a class="headerlink" href="#fedora" title="Link to this heading">¶</a></h2>
 <section id="id4">
 <h3>About<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
-<p>Fedora is a digital repository that uses linked data (RDF).</p>
-<p>Current Product Owner: James Creel
+<p>Fedora is a digital repository that uses linked data (RDF). It is used as the assets management system for SAGE and Spotlight
+collections. The same instance is also used for Avalon Media System, although it functions very differently.  Specifically,
+Avalon only uses Fedora for asset management.  It does not use Fedora’s Solr or Fuseki instance which can be problematic
+for SAGE collections.</p>
+<p>Also, TAMU has its own specific flavor of RDF based loosely around PCDM.</p>
+<p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: No (Third Party — Consume)
 Campus Category: Common
 Supports: Avalon, IIIF Service, SAGE
@@ -634,6 +658,8 @@ Supported By: IIIF Service, Mirador</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#archipelago">Archipelago</a><ul>
+<li><a class="reference internal" href="#instances-and-clusters">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#pods-and-containers">PODS and Containers</a></li>
 <li><a class="reference internal" href="#product-owner-expectations">Product Owner Expectations</a></li>
 </ul>
 </li>
