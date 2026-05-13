@@ -15,12 +15,10 @@ Creating a Collection
 Importing a batch
 ------------------
 
-1. Click on the "Create An Item" button. Make sure you are under "Manage files" on the menu on the left side of the screen.
-
-2. You will use the Dropbox to import a batch. To import a batch, make sure you have access to :code:`cifs/avalon-pre` or :code:`cifs/avalon-prod`. A new folder should have been automatically generated with the same name as the collection you just created. Create a subfolder within that folder called "Content". Drag and drop all media files you would like to upload into the new subfolder, both audio/video and transcripts.
+You will use the Dropbox to import a batch. To import a batch, make sure you have access to :code:`cifs/avalon-pre` or :code:`cifs/avalon-prod`. A new folder should have been automatically generated with the same name as the collection you just created. Create a subfolder within that folder called "Content". Drag and drop all media files you would like to upload into the new subfolder, both audio/video and transcripts.
 
 ----------------------------
-Creating a .xslx spreadsheet
+Creating a csv spreadsheet
 ----------------------------
 
 To import a batch, you must create a metadata table. Use csv instead of xlsx because xlsx will autocorrect numerical values into a format not compatible with Avalon 7.8.
