@@ -31,3 +31,13 @@ operations.
 **Tip:**
 Always double-check which namespace and mounts you’re working with before making permission changes, to avoid affecting
 production volumes.
+
+---------------------------
+Addressing Solr Lock Issues
+---------------------------
+
+Occasionally, Avalon's Solr will become locked and stop the application from successfully loading.  This normally manifests
+itself with a standard Rails error screen and no logs in the main pod.  When this happens, it's often that Solr is locked.
+To address, we need to delete the lock file and redeploy Solr.
+
+Solr lock files can be widely distributed, but for Avalon it should be found at :code:`/var/solr/data/index/write.lock`
