@@ -407,6 +407,13 @@ operations.</p>
 Always double-check which namespace and mounts you’re working with before making permission changes, to avoid affecting
 production volumes.</p>
 </section>
+<section id="addressing-solr-lock-issues">
+<h2>Addressing Solr Lock Issues<a class="headerlink" href="#addressing-solr-lock-issues" title="Link to this heading">¶</a></h2>
+<p>Occasionally, Avalon’s Solr will become locked and stop the application from successfully loading.  This normally manifests
+itself with a standard Rails error screen and no logs in the main pod.  When this happens, it’s often that Solr is locked.
+To address, we need to delete the lock file and redeploy Solr.</p>
+<p>Solr lock files can be widely distributed, but for Avalon it should be found at <code class="code docutils literal notranslate"><span class="pre">/var/solr/data/index/write.lock</span></code></p>
+</section>
 </section>
 
         </article>
@@ -467,6 +474,7 @@ production volumes.</p>
 <li><a class="reference internal" href="#">Troubleshooting Various Avalon Wonky-ness</a><ul>
 <li><a class="reference internal" href="#understanding-permissions-in-avalon">Understanding Permissions in Avalon</a></li>
 <li><a class="reference internal" href="#hacking-around-avalon-wonky-ness">Hacking Around Avalon Wonky-ness</a></li>
+<li><a class="reference internal" href="#addressing-solr-lock-issues">Addressing Solr Lock Issues</a></li>
 </ul>
 </li>
 </ul>
