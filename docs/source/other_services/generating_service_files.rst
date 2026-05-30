@@ -1,6 +1,6 @@
-========================================
-Generating Service Files and Derivatives
-========================================
+================================================
+Images: Generating Service Files and Derivatives
+================================================
 
 The images we serve to users in our various repositories are all handled by an image server called Cantaloupe.
 Cantaloupe takes a file from DSpace or Fedora and generates a tiled image and a thumbnail from the base asset stored in
