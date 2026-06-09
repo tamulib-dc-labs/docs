@@ -265,3 +265,155 @@ Before Migration
 ================
 
 * N/A
+
+-------------------------
+Coleccion Los Palabristas
+-------------------------
+
+Contains a collection of 650plus radio interviews with writers and artists from Mexico, South, and Central America, and Spain.
+
+* **Homepage**: http://proxy.library.tamu.edu/login?url=https://avalon.library.tamu.edu/collections/xs55mc14f
+
+Current Stack
+=============
+
+* Avalon
+* Fedora
+
+Migration Plans
+===============
+
+* Keep in Avalon
+* Would like to bring to Archipelago as a remote resource but need to figure out restricted content
+
+Before Migration
+================
+
+* N/A
+
+---------------------------
+College of Medicine Rosters
+---------------------------
+
+Made available online through a partnership between the College of Medicine and the University Libraries, these are a set
+of photos of class rosters from the college of medicine.
+
+Current Stack
+=============
+
+* Sage
+* Fedora
+
+Migration Plans
+===============
+
+* Migrate to Archipelago
+* Should include OCR
+* ADO type: Book? Image with Text? Does not need to be CWS as only 1 page
+
+Before Migration
+================
+
+* Nothing, tesseract will work fine
+
+---------------------------------------------------------------------
+College of Veterinary Medicine & Biomedical Sciences Image Collection
+---------------------------------------------------------------------
+
+Digital collection that documents the history of the College of Veterinary Medicine and Biomedical Sciences.
+
+Include 1491 photographs.
+
+* **Homepage**: https://library.tamu.edu/discovery/discovery-context/cvm-images?direction=ASC
+
+Current Stack
+=============
+
+* Sage
+* Fedora
+
+Migration Plans
+===============
+
+* Migrate to Archipelago
+* ADO type: Image
+
+Before Migration
+================
+
+* Nothing
+
+---------------------------------------
+Committee on South Asian Women Bulletin
+---------------------------------------
+
+This is a colleciton of PDFs from OAKTrust being served into Spotlight as issues.
+
+* https://spotlight.library.tamu.edu/spotlight/committee-on-south-asian-women-bulletin
+
+Current Stack
+=============
+
+* Spotlight (presentation)
+* OAKTrust (Asset Management)
+* IRIIIFService and base64 delegates for Image Serving of PDFs
+* Github Pages for wrapping base64 delegates in IIIF manifests
+
+Migration Plans
+===============
+
+* Migrate to Archipelago
+* ADO type: Book or CWS Book
+* Needs OCR (currently missing)
+* Put back in Spotlight with new manifests for provenance purposes
+
+Before Migration
+================
+
+* Compare tesseract output with new Impulse solution using DGX Spark
+
+---------------------------
+Cushing Exhibition Catalogs
+---------------------------
+
+Materials associated with physical exhibitions from Cushing Memorial Library.
+
+Current Stack
+=============
+
+* OAKTrust
+
+Migration Plans
+===============
+
+* Migrate to Archipelago
+* ADO type: Book or CWS Book
+* Needs OCR (currently missing)
+
+Before Migration
+================
+
+* Do we need to split into JPGs or JP2s for OCR?
+
+------------------------------------
+Cushing Historical Images Collection
+------------------------------------
+
+Old Flickr images that were done 2 decades ago.  Over 22000 images.  Some have metadata, some do not, some have some AI generated
+metadata.
+
+Current Stack
+=============
+
+* OAKTrust
+
+Migration Plans
+===============
+
+* Migrate to Archipelago
+* ADO type: Image
+
+Before Migration
+================
+
+* Figure out if this meets minimal standards for metadata according to our Archipelago docs.
