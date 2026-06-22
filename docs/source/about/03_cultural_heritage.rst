@@ -445,3 +445,53 @@ Before Migration
 ================
 
 * Just create new ADO type
+
+------------------------------------------
+The Frederick C. Cuny/INTERTECT Collection
+------------------------------------------
+
+Frederick C. Cuny was an American humanitarian and preeminent disaster relief specialist who worked to improve the lives of people affected by natural and man-made disasters around the world. Over his 26 year career, Cuny worked in crises in more than fifty countries, including Biafra, Guatemala, Bangladesh, Cambodia, India, Iraq, Kuwait, Somalia, Bosnia, and Chechnya. His larger than life personality, uncanny ability to “make things happen,” and his innovative ideas drove him to the forefront of the disaster response field.
+
+The collection contains the working library, office files, press clippings, slides, photographs and Beta and VHS tapes of Cuny and his team at the disaster relief/response firm, Intertect, and at the non-profit organization he co-founded in 1987, the Intertect Institute. The items currently digitized represent a small section of the collection chosen for their significance by members of the Cuny Center for the Study of Societies in Crisis.
+
+The digital Cuny Archive was made available in part through funding assistance from USAID.
+
+Current Stack
+=============
+
+* DSPACE
+
+Migration Plans
+===============
+
+* Images to Archipelago as image
+* PDFs to Archipelago as books
+* If PDF is HTR, bring as manuscript instead.
+
+Before Migration
+================
+
+* Identify ADO type for all items in collection
+
+-----------------------------------
+Geologic Atlas of the United States
+-----------------------------------
+
+A set of 227 folios published by the U.S. Geological Survey between 1894 and 1945. Each folio includes both topographic and geologic maps for each quad represented in that folio, as well as descriptions of the basic and economic geology of the area. The Geologic Atlas collection is maintained by the Maps unit.
+Contact: Maps, Texas A&M Libraries
+
+Current Stack
+=============
+
+* DSPACE
+* SAGE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Book
+
+Before Migration
+================
+
+* N/A
