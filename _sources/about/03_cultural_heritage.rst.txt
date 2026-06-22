@@ -266,6 +266,11 @@ Before Migration
 
 * N/A
 
+Post Migration Notes
+====================
+
+This haas been migrated to Archipelago but needs to be organized as a CWS so users can browse folders.
+
 -------------------------
 Coleccion Los Palabristas
 -------------------------
@@ -417,3 +422,26 @@ Before Migration
 ================
 
 * Figure out if this meets minimal standards for metadata according to our Archipelago docs.
+
+----------------------
+Dallas Women's Gallery
+----------------------
+
+The Video Oral Histories of the DWG Project celebrate a defining chapter in Texas’s cultural history. They help reconstruct the story of DW Gallery (Dallas, 1975–1988), an upstart, alternative, artist-run space that would launch the careers of some of the most prominent artists in Texas and America. Founded by eight women who struggled to have their work shown in the mainstream Dallas art scene, DW Gallery stood as a model of resilience, ingenuity, collaboration, and inclusion; within its first year, it began to show the works of emerging male artists as well. These oral histories preserve the voices and stories of the artists who shaped DW Gallery, one of the state’s most influential but under-acknowledged art spaces. The Project is a multi-year initiative of the Texas Art Project at Texas A&M and Art This Week.
+
+This is a collection created by Tiana Uchayz and delivered by the Libraries.
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* keep in Avalon but create a work type that can serve this in Archipelago as a redirect via IIIF
+
+Before Migration
+================
+
+* Just create new ADO type
