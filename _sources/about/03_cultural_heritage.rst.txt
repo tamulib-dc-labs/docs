@@ -239,6 +239,7 @@ Before Migration
 ================
 
 * Update metadata to properly identify ADO types
+* Download tifs from Fedora and convert to jp2s
 
 ----------------------------
 Cherokee Freedmen Collection
@@ -489,12 +490,8 @@ Current Stack
 Migration Plans
 ===============
 
+* Download tifs and convert to jp2s
 * Move to Archipelago as Book
-
-Before Migration
-================
-
-* N/A
 
 ---------------------
 Historic Maps of Cuba
@@ -503,29 +500,62 @@ Historic Maps of Cuba
 A set of 49 maps of Cuba containing information such as soils and population. Also includes XML files with coordinates. The Historic Maps of Cuba collection is maintained by the Maps unit.
 Contact: Maps, Texas A&M Libraries
 
+* **Homepage**: https://library.tamu.edu/discovery/discovery-context/tamu-cuba-maps?direction=ASC
+
 Current Stack
 =============
 
 * DSPACE
 * SAGE
+* 10 maps are restricted access on OAKTrust
 
 Migration Plans
 ===============
 
-* Move to Archipelago as Map
+* Move 39 open access maps to Archipelago as Map
+* Restricted Items also come to the same collection
+* Instructions need to be added on how to access those
 
 Before Migration
 ================
 
 * Extract coordinates from XML files
+* Determine rights statement for restricted items
 
+----------------------------
+Live to Build a Better World
+----------------------------
+
+Digital collection accompanying a physical Cushing exhibit in 2021. Mostly scans of over 100 book jackets and movie posters. Now hosted on Spotlight as a permanent digital exhibit.
+
+Contact: Jeremy Brett
+
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/scifi-exhibit-2021
+
+Current Stack
+=============
+
+* Fedora
+* Spotlight
+
+Migration Plans
+===============
+
+* Move to Archipelago as Image
+
+Before Migration
+================
+
+* N/A
 
 ----------------------------
 Maps of Brazos County, Texas
 ----------------------------
 
-This digital collection features maps of Brazos County, the cities of College Station and Bryan, and the campus of Texas A&M University.
+This digital collection features maps of Brazos County, the cities of College Station and Bryan, and the campus of Texas A&M University. These are all tifs.
 Contact: Maps, Texas A&M Libraries
+
+* **Homepage**: https://library.tamu.edu/discovery/discovery-context/brazos-maps?direction=ASC&sort=title
 
 Current Stack
 =============
@@ -541,7 +571,61 @@ Migration Plans
 Before Migration
 ================
 
+* Download tifs from Fedora and convert to jp2s
+
 * Determine rights statements of four items that have no URIs
+
+--------------------------------------------------------
+A Time of Resolve: Texas A&M during the Great Depression
+--------------------------------------------------------
+
+Contains 140 items from the late 1920s and 1930s.
+
+Contact: Krista Oldham
+
+* **Homepage**: https://library.tamu.edu/discovery/discovery-context/time-of-resolve?direction=ASC
+
+Current Stack
+=============
+
+* Fedora
+* SAGE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Image, Book, and Map
+
+Before Migration
+================
+
+* Determine ADO types for each item in collection
+* Ensure Books have OCR
+
+---------------------------------------------------------------------------------
+Toward a Better Living: African American Farming Communities in Mid-Century Texas
+---------------------------------------------------------------------------------
+
+Contains 100 photographs from the Agricultural Communications Office of the Texas Agricultural Extension Service. Images date from 1930s-1970s.
+
+Contact: Krista Oldham
+
+* **Homepage**: https://oaktrust.library.tamu.edu/collections/befb7166-392b-445b-b907-1f4363bb6dfb
+
+Current Stack
+=============
+
+* DSPACE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Image
+
+Before Migration
+================
+
+* N/A
 
 ------------------
 Wheelan Collection
@@ -550,6 +634,8 @@ Wheelan Collection
 Contains 686 photographs from the Mexican Revolution taken from 1910-1920.
 
 Contact: Anton duPlessis
+
+* **Homepage**: https://oaktrust.library.tamu.edu/collections/ed211f67-86ad-41ff-9696-fe0e7e17e1cb
 
 Current Stack
 =============
@@ -570,9 +656,11 @@ Before Migration
 World War I Postcards
 ---------------------
 
-Contains 142 mostly English language postcards on OAKTrust. Later augemented with over 400 more postcards taken from the German and Austrian Documents Archive.
+Contains 142 mostly English language postcards on OAKTrust. Later augemented with 415 more postcards taken from the Archive of World War I German and Austrian Documents. Initial 142 items were uploaded to DSPACE, latter 415 were uploaded to Fedora.
 
 Contact: Anton duPlessis
+
+* **Homepage**: https://library.tamu.edu/discovery/discovery-context/wwi-postcards?direction=ASC
 
 Current Stack
 =============
@@ -590,3 +678,29 @@ Before Migration
 ================
 
 * N/A
+
+--------------------------------------------------
+Who in the World am I? Ah, That's the Great Puzzle
+--------------------------------------------------
+
+Digital collection accompanying a physical Cushing exhibit. 27 illustrations depicting scenes in Alice in Wonderland and Through the Looking Glass. Some are scanned from books, others are stand-alone illustrations. Now hosted on Spotlight as a permanent digital exhibit.
+
+Contact: Jeremy Brett
+
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/alice-in-wonderland
+
+Current Stack
+=============
+
+* Fedora
+* Spotlight
+
+Migration Plans
+===============
+
+* Move to Archipelago as Image
+
+Before Migration
+================
+
+* determine reformatting values
