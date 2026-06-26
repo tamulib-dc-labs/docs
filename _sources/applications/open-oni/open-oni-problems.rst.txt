@@ -19,3 +19,13 @@ To fix:
 1. Shell into the Solr pod
 2. :code:`rm openoni/data/index/write.lock`
 3. Redeploy the pod.
+
+---------------------------------
+Unexpected Error on Web Front End
+---------------------------------
+
+Occasionally, you'll see an Unexpected Error on the web frontend for OpenOni.
+
+When this happens, you need to change the perms for ``djangocache`` to ``777``.
+
+:code:`root@web-6ffcbdbf5-m95q9:/opt/openoni# chmod -R 777 /var/tmp/django_cache`

@@ -404,6 +404,12 @@ the exec in Rancher:</p>
 <li><p>Redeploy the pod.</p></li>
 </ol>
 </section>
+<section id="unexpected-error-on-web-front-end">
+<h2>Unexpected Error on Web Front End<a class="headerlink" href="#unexpected-error-on-web-front-end" title="Link to this heading">¶</a></h2>
+<p>Occasionally, you’ll see an Unexpected Error on the web frontend for OpenOni.</p>
+<p>When this happens, you need to change the perms for <code class="docutils literal notranslate"><span class="pre">djangocache</span></code> to <code class="docutils literal notranslate"><span class="pre">777</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">root&#64;web-6ffcbdbf5-m95q9:/opt/openoni#</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">777</span> <span class="pre">/var/tmp/django_cache</span></code></p>
+</section>
 </section>
 
         </article>
@@ -463,6 +469,7 @@ the exec in Rancher:</p>
             <ul>
 <li><a class="reference internal" href="#">Solving Open Oni Issues</a><ul>
 <li><a class="reference internal" href="#solr-fails-to-spin-down-and-spin-up-graciously">Solr Fails to Spin down and Spin Up Graciously</a></li>
+<li><a class="reference internal" href="#unexpected-error-on-web-front-end">Unexpected Error on Web Front End</a></li>
 </ul>
 </li>
 </ul>
