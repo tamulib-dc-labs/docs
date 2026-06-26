@@ -495,3 +495,98 @@ Before Migration
 ================
 
 * N/A
+
+---------------------
+Historic Maps of Cuba
+---------------------
+
+A set of 49 maps of Cuba containing information such as soils and population. Also includes XML files with coordinates. The Historic Maps of Cuba collection is maintained by the Maps unit.
+Contact: Maps, Texas A&M Libraries
+
+Current Stack
+=============
+
+* DSPACE
+* SAGE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Map
+
+Before Migration
+================
+
+* Extract coordinates from XML files
+
+
+----------------------------
+Maps of Brazos County, Texas
+----------------------------
+
+This digital collection features maps of Brazos County, the cities of College Station and Bryan, and the campus of Texas A&M University.
+Contact: Maps, Texas A&M Libraries
+
+Current Stack
+=============
+
+* Fedora
+* SAGE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Maps
+
+Before Migration
+================
+
+* Determine rights statements of four items that have no URIs
+
+------------------
+Wheelan Collection
+------------------
+
+Contains 686 photographs from the Mexican Revolution taken from 1910-1920.
+
+Contact: Anton duPlessis
+
+Current Stack
+=============
+
+* DSPACE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Image
+
+Before Migration
+================
+
+* N/A
+
+---------------------
+World War I Postcards
+---------------------
+
+Contains 142 mostly English language postcards on OAKTrust. Later augemented with over 400 more postcards taken from the German and Austrian Documents Archive.
+
+Contact: Anton duPlessis
+
+Current Stack
+=============
+
+* DSPACE
+* Fedora
+* SAGE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Book
+
+Before Migration
+================
+
+* N/A
