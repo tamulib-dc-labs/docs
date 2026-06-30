@@ -102,11 +102,14 @@ Migration Plans
 
 * Archipelago for Digital Asset Management
 * ADO Model: Book
+* Some items are restricted
 
 Before Migration
 ================
 
 * Convert Items (PPTX) to Web Accessible Formats
+* Restricted Items also come to the same collection
+* Instructions need to be added on how to access those
 
 ---------------------------
 A.M.C. Yell Book Collection
@@ -572,8 +575,64 @@ Before Migration
 ================
 
 * Download tifs from Fedora and convert to jp2s
-
 * Determine rights statements of four items that have no URIs
+
+-----------------------------------
+The Raiford L. Stripling Collection
+-----------------------------------
+
+Contains 272 items, mostly architectural drawings and construction plans. Includes a few maps and newspapers.
+
+Contact: Anton duPlessis
+
+* **Homepage**: https://oaktrust.library.tamu.edu/collections/bbf93608-3983-40ec-863d-d05952c61167/search
+
+Current Stack
+=============
+
+* DSPACE
+
+Migration Plans
+===============
+
+* Move to Archipelago as Image, Book, and Map
+
+Before Migration
+================
+
+* Determine ADO types for each item in collection
+* Ensure Books have OCR
+* Determine rights statement
+
+-------------------------------------
+Stephen Powys Marks London Collection
+-------------------------------------
+
+Consists of two Spotlight exhibits, one with 10 maps, and one with 54 maps of London in the 18th-20th centuries.
+
+Contact: Maps, Texas A&M Libraries
+
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/london-collection
+* **Homepage**: https://spotlight.library.tamu.edu/spotlight/london-maps-batch-2
+
+Current Stack
+=============
+
+* Fedora
+* Spotlight
+
+Migration Plans
+===============
+
+* Move to Archipelago as Map
+* Some items have coordinates on accompanying XML files
+
+Before Migration
+================
+
+* Extract coordinates from XML files
+* Download tifs from Fedora and convert to jp2s
+
 
 --------------------------------------------------------
 A Time of Resolve: Texas A&M during the Great Depression
