@@ -1,6 +1,6 @@
-=====================================
-Infrastructure, Software, and Systems
-=====================================
+============================================
+Legacy Infrastructure, Software, and Systems
+============================================
 
 The Digital Library Program of Texas A&M University is made up of many microservices and applications. This document
 attempts to define the various applications in use by the Libraries, how they are used, and where. To keep things simple,
