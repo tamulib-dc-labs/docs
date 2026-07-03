@@ -50,3 +50,17 @@ Libraries at Texas A&M University.
    :glob:
 
    crosswalking/*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Archived
+   :glob:
+
+   dpmt/*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Archived
+   :glob:
+
+   archived/*
