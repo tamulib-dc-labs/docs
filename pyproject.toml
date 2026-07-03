@@ -12,6 +12,7 @@ furo = "^2024.8.6"
 sphinxcontrib-mermaid = "^1.0.0"
 requests = "^2.33.1"
 idna = ">=3.15"
+pygments = ">=2.20.0"
 
 
 [build-system]
