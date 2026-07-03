@@ -18,7 +18,7 @@ Digital Collections is currently organized around
 two areas of repository stewardship, with two additional positions being added to grow our technical
 and AI/ML capacity:
 
-* **Cultural Heritage Repository Administrator** - stewards the systems and workflows that manage
+* **Digital Collections Librarian** - stewards the systems and workflows that manage
   digitized and born-digital cultural heritage materials, including rare books, oral histories,
   manuscripts, correspondence, photographs, maps, and newspapers held by Special Collections.
 * **Institutional Repository Administrator** - stewards OAKTrust and the systems that manage the
