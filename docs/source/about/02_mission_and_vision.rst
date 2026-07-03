@@ -24,7 +24,7 @@ artificial intelligence and machine learning.
 What Guides Us
 --------------
 
-* **Access** — We remove barriers to discovery and use, from open access publishing to accessible,
+* **Access** — We remove barriers to discovery and (re-)use, from open access publishing to accessible,
   standards-compliant digital collections and exhibits.
 * **Stewardship** — We are long-term stewards of the University's scholarly output and cultural
   heritage materials, committed to their preservation and integrity.
