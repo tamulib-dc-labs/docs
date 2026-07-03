@@ -11,7 +11,7 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Overview of Digital Library Program
+   :caption: Overview of Digital Collections Services
    :glob:
 
    about/*
