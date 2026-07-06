@@ -67,10 +67,15 @@ This section describes where team members are physically located.
                r624["624<br/>Mark Baggett"]
                r617["617<br/>Corina Barr"]
                r648["648<br/>Jvk Chaitanya"]
+               r615["615<br/>Small DI Conference Room"]
+               r614["614<br/>Large DI Conference Room"]
            end
-           subgraph EA3["Floor 3 — Cataloging and Metadata"]
+           subgraph EA3["Floor 3 — Cataloging"]
                r325["325<br/>Charity Stokes"]
                rStu["Student Stations<br/>Shavari Mhatre"]
+           end
+           subgraph EA4["Floor 4 — Preservation"]
+               r["421<br/>Preservation Meeting Room"]
            end
        end
 
