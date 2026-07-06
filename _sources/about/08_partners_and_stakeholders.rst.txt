@@ -56,7 +56,7 @@ External Partners
 * **AllMaps**: makes it easier and more inspiring to curate, georeference and explore collections of digitized maps. We
   are a contributing institution. See `allmaps <https://allmaps.org>`_
 * **Fromthepage**:  a crowdsourcing platform for archives and libraries where volunteers transcribe, index, and
-  describe historic documents. We are a participating member. See `fromthepage <https://fromthepage.com/>_`
+  describe historic documents. We are a participating member. See `fromthepage <https://fromthepage.com/>`_
 
 ---------------------
 Working With Our Team
@@ -66,5 +66,5 @@ Working With Our Team
   Collections staff directly — see the DPMT process documentation and :doc:`07_onboarding_checklist`
   for where that fits into a new team member's first week.
 * To weigh in on the direction of a specific application or platform, reach out to that system's
-  Product Owner — see :doc:`05_products_and_product_ownership`.
+  Product Owner. See :doc:`05_products_and_product_ownership`.
 * For unfamiliar terms or system names used above, see :doc:`06_glossary`.
