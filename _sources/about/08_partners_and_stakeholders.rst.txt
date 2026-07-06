@@ -38,7 +38,8 @@ External Partners
 -----------------
 
 * **Texas Digital Library (TDL)** — a consortium we partner with to host and support open-access
-  journal publishing through Open Journal Systems (OJS). See `tdl.org <https://www.tdl.org/>`_.
+  journal publishing through Open Journal Systems (OJS). See `tdl.org <https://www.tdl.org/>`_. For questions, use
+  the `help desk form <https://www.tdl.org/support/helpdesk/>`_.
 * **Texas A&M AgriLife and the Texas Engineering Extension Service (TEEX)** — University partners whose
   scholarly output is collected and preserved in OAKTrust alongside the University's own.
 * **EZID / California Digital Library** — the persistent identifier service we use to mint and manage
