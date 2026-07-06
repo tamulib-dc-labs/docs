@@ -48,3 +48,35 @@ Roles
   Retrieval-Augmented Generation (RAG) for digital collections.
 * **Sharvari Shekhar Mhatre — Institutional Repository Student Technician.** Supports OAKTrust
   operations and day-to-day institutional repository tasks under Charity Stokes.
+
+---------
+Locations
+---------
+
+Team Locations
+===============
+
+This section describes where team members are physically located.
+
+.. mermaid::
+
+   flowchart TB
+       subgraph EA["Evans Annex"]
+           direction TB
+           subgraph EA6["Floor 6 — Digital Initiatives"]
+               r624["624<br/>Mark Baggett"]
+               r617["617<br/>Corina Barr"]
+               r648["648<br/>Jvk Chaitanya"]
+           end
+           subgraph EA3["Floor 3 — Cataloging and Metadata"]
+               r325["325<br/>Charity Stokes"]
+               rStu["Student Stations<br/>Shavari Mhatre"]
+           end
+       end
+
+       subgraph EV["Evans"]
+           direction TB
+           subgraph EV2["Floor 2"]
+               r212C["212C — Map Room<br/>Angela Colmenares"]
+           end
+       end
