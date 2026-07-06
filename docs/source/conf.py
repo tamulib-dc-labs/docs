@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'TAMU Digital Collections Labs'
-copyright = '2025, Mark Baggett'
+copyright = '2026, Texas A&M Libraries - Digital Collections Services'
 author = 'Mark Baggett'
 
 # -- General configuration ---------------------------------------------------
