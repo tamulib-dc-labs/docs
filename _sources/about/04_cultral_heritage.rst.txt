@@ -275,6 +275,7 @@ Post Migration Notes
 
 This haas been migrated to Archipelago but needs to be organized as a CWS so users can browse folders.
 
+
 -------------------------
 Coleccion Los Palabristas
 -------------------------
@@ -577,6 +578,109 @@ Before Migration
 * Download tifs from Fedora and convert to jp2s
 * Determine rights statements of four items that have no URIs
 
+
+---------------------------
+Music Activities Collection
+---------------------------
+
+Halftime performances of Fightin' Texas Aggie Band during football games.
+
+Contact: Krista Oldham
+
+* **Homepage**: https://avalon.library.tamu.edu/collections/xk81jk612
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
+* Restricted access
+
+Before Migration
+================
+
+* Set up access restrictions
+
+---------------------------------------
+Nicholas A. Basbanes - Audio Interviews
+---------------------------------------
+
+991 interviews by Nicholas Basbanes of authors.
+
+Contact: 
+
+* **Homepage**: https://avalon-library-tamu-edu.srv-proxy1.library.tamu.edu/collections/w3763676r
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
+* Restricted access
+
+Before Migration
+================
+
+* Set up access restrictions
+
+------------------------------------------------------
+Nicholas A. Basbanes - Interviews for a Gentle Madness
+------------------------------------------------------
+
+11 interview excerpts by Nicholas Basbanes of authors. Excerpts come from Basbanes Audio Interviews collection.
+
+Contact: 
+
+* **Homepage**: https://avalon.library.tamu.edu/collections/5q47rn84r
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
+
+Before Migration
+================
+
+* N/A
+
+----------------
+Owens Folk Music
+----------------
+
+Recordings of folk music performances in 1930s and 1940s as part of the research of William Owens.
+
+Contact: Anton DuPlessis
+
+* **Homepage**: https://avalon.library.tamu.edu/collections/1c18df80p
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
+
+Before Migration
+================
+
+* N/A
+
 -----------------------------------
 The Raiford L. Stripling Collection
 -----------------------------------
@@ -603,6 +707,31 @@ Before Migration
 * Determine ADO types for each item in collection
 * Ensure Books have OCR
 * Determine rights statement
+
+--------------------------
+Science Fiction Radio Show
+--------------------------
+
+Radio episodes of a show featuring interviews with science fiction and fantasy authors.
+
+Contact: Jeremy Brett
+
+* **Homepage**: https://avalon.library.tamu.edu/collections/vd66w0068
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
+
+Before Migration
+================
+
+* N/A
 
 -------------------------------------
 Stephen Powys Marks London Collection
@@ -633,6 +762,31 @@ Before Migration
 * Extract coordinates from XML files
 * Download tifs from Fedora and convert to jp2s
 
+
+-----------------------------------------
+Texas A&M Forest Service Radio Broadcasts
+-----------------------------------------
+
+Contains 136 public service announcement radio broadcasts about forest fires and prevention.
+
+Contact: Krista Oldham
+
+* **Homepage**: https://avalon.library.tamu.edu/collections/xp68kg260
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
+
+Before Migration
+================
+
+* N/A
 
 --------------------------------------------------------
 A Time of Resolve: Texas A&M during the Great Depression
@@ -680,6 +834,32 @@ Migration Plans
 ===============
 
 * Move to Archipelago as Image
+
+Before Migration
+================
+
+* N/A
+
+
+----------------------
+Veterans of the Valley
+----------------------
+
+Contains 150 interviews conducted by Tom Turbiville with veterans from Brazos County.
+
+Contact: Anton duPlessis
+
+* **Homepage**: https://avalon.library.tamu.edu/collections/5999n359j
+
+Current Stack
+=============
+
+* Avalon
+
+Migration Plans
+===============
+
+* Move to Archipelago as StreamingVideo
 
 Before Migration
 ================
