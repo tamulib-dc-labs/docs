@@ -1,0 +1,62 @@
+Texas A&M Athletic Media Guides and Programs - Track and Field
+==============================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1331
+   * - Dates
+     - 1951; 1975-2009
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-and-programs-track-and-field <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-and-programs-track-and-field>`_
+   * - Extent
+     - 3 boxes
+   * - Total Boxes
+     - 3
+   * - Total Folders
+     - 35
+
+Scope and Content
+-----------------
+
+The collection contains both media guides and programs regarding the Track and Field teams at varying dates between 1951 and 2009. They include both men's and women's statistics and records for each year. The media guides provide individual and team statistics for each season, as well as the records held from previous years. Also, these include point totals from the Conference meets dating back to 1915. However, the programs include specific information relevant to an individual meet. This ranges from the schedule, the competitions' statistics, and Texas A&M's roster.
+
+System of Arrangement
+---------------------
+
+Chronologically in each series
+
+Notes
+-----
+
+Texas A&M Track and Field spring-boarded into a college team in 1909 when the "T-Men" joined together to enter the University of Texas's meet. Between its arrival in 1909 and the year 2009, the team acquired 17 Southwest Conference Outdoor titles and one Big 12 Outdoor titles. Women gained varsity status at Texas A&M in 1979 and acquired two Big 12 Conference titles before 2009. The men's team also won the NCAA Championship in 2009, 2010, 2011, and 2013. The Women were named NCAA Champions in 2009, 2010, 2011, and 2014.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1331-1
+     - Media Guides - Track and Field
+     - 1975-1998
+     - 20
+     - 20 folders
+   * - 1331-2
+     - Media Guides - Track and Field
+     - 1999-2009
+     - 10
+     - 10 folders
+   * - 1331-3
+     - Programs
+     - 1951; 1982-1992
+     - 5
+     - 5 folders

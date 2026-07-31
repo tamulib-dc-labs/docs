@@ -1,0 +1,21 @@
+Texas A&M Athletic Programs - Men's Basketball
+==============================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1469
+   * - Dates
+     - 1967-2017
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-programs-mens-basketball <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-programs-mens-basketball>`_
+   * - Extent
+     - 4 Boxes
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+.. warning:: Extent states 4 boxes but only 0 are described in the finding aid (4 unencoded/placeholder box(es) — check collection notes for gaps).

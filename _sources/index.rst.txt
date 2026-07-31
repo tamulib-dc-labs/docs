@@ -52,6 +52,13 @@ Libraries at Texas A&M University.
    crosswalking/*
 
 .. toctree::
+    :maxdepth: 1
+    :caption: Digitization Backlog
+    :glob:
+
+    digitization_areas/*
+
+.. toctree::
    :maxdepth: 1
    :caption: Archived
    :glob:

@@ -1,0 +1,62 @@
+Texas A&M Athletic Media Guides - Aquatics
+==========================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1334
+   * - Dates
+     - 1969-2009
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-aquatics <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-aquatics>`_
+   * - Extent
+     - 3 boxes
+   * - Total Boxes
+     - 3
+   * - Total Folders
+     - 31
+
+Scope and Content
+-----------------
+
+This collection includes media guides from both men and women's aquatic sports. The majority are specifically for swimming and diving, but some include details about water polo. The media guides contain statistics, schedules, and the Texas A&M roster for each season.
+
+System of Arrangement
+---------------------
+
+This collection is arranged chronologically.
+
+Notes
+-----
+
+The Varsity Men's Swimming team was recognized in 1933 under head coach Art Adamson. Women's Swimming became a varsity team in 1971 under head coach Dennis Fosdick. The diving team began competing in 1947 under Emil Mamaliga. After its resurrection in 1991, however, it was under the instruction of Mel Nash. The Aggies won their first Southwest Conference title in the 1944-1945 season. The men acquired 3 Conference titles between their recognition as a varsity sport and the year 2006. The women won the Big 12 Championships in 2007, giving them their only conference title between the years 1983 and 2008.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1334-1
+     - Aquatic Media Guides
+     - 1969-1999
+     - 21
+     - 21 folders
+   * - 1334-2
+     - Aquatic Media Guides
+     - 1999-2007
+     - 7
+     - 7 folders
+   * - 1334-3
+     - Aquatic Media Guides
+     - 2006-2009
+     - 3
+     - 3 folders

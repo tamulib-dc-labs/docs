@@ -1,0 +1,49 @@
+Texas A&M Athletic Media Guides - Spring Sports
+===============================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1338
+   * - Dates
+     - 1955-1983
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-spring-sports <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-spring-sports>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 17
+
+Scope and Content
+-----------------
+
+This collection includes media guides describing the details of several spring sports. These sports are track, baseball, golf, and tennis. The media guides provide schedules and rosters for each sport, as well as records and statistics for each year.
+
+Texas A&M University created a media guide that included several sports for people to buy. However, once each sport began selling its own extensive guides, these all-inclusive ones were discontinued.
+
+System of Arrangement
+---------------------
+
+This collection is arranged chronologically.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1338-1
+     - Spring Sports Media Guides
+     - 1955-1983
+     - 17
+     - 17 folders
