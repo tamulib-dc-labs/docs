@@ -60,7 +60,7 @@ Libraries at Texas A&M University.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Archived
+   :caption: DPMT Archived
    :glob:
 
    dpmt/*

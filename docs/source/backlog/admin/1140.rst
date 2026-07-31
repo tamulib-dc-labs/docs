@@ -1,0 +1,142 @@
+Texas A&M System Board of Directors Minutes
+===========================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1140
+   * - Dates
+     - 1886-2001
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-system-board-of-directors-minutes <https://findingaids.library.tamu.edu/index.php/texas-a-m-system-board-of-directors-minutes>`_
+   * - Extent
+     - 21 boxes
+   * - Total Boxes
+     - 21
+   * - Total Folders
+     - 0
+
+Notes
+-----
+
+*June 1, 1875, to January 23, 1876 copies also found as notes in "Annual Report 1875-1878" Call number: TAMU S 537 T5 found in 207*
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1140-1
+     - Board of Directors Minutes
+     - October 1886 - December 1901
+     - 0
+     - —
+   * - 1140-2
+     - Board of Directors Minutes
+     - January 1902 - December 1912
+     - 0
+     - —
+   * - 1140-3
+     - Board of Directors Minutes
+     - January 1913 - November 1925
+     - 0
+     - —
+   * - 1140-4
+     - Board of Directors Minutes
+     - February 1926 - November 1937
+     - 0
+     - —
+   * - 1140-5
+     - Board of Directors Minutes
+     - January 1938 - November 1944
+     - 0
+     - —
+   * - 1140-6
+     - Board of Directors Minutes
+     - January 1945 - July 1948
+     - 0
+     - —
+   * - 1140-7
+     - Board of Directors Minutes
+     - January 1949 - November 1952
+     - 0
+     - —
+   * - 1140-8
+     - Board of Directors Minutes
+     - February 1953 - November 1954
+     - 0
+     - —
+   * - 1140-9
+     - Board of Directors Minutes
+     - February 1955 - November 1958
+     - 0
+     - —
+   * - 1140-10
+     - Board of Directors Minutes
+     - February 1959 - November 1962
+     - 0
+     - —
+   * - 1140-11
+     - Board of Directors Minutes
+     - February 1963 - November 1965
+     - 0
+     - —
+   * - 1140-12
+     - Board of Directors Minutes
+     - March 1966 - November 1969
+     - 0
+     - —
+   * - 1140-13
+     - Board of Directors Minutes
+     - February 1970 - November 1973
+     - 0
+     - —
+   * - 1140-14
+     - Board of Directors Minutes
+     - January 1974 - November 1977
+     - 0
+     - —
+   * - 1140-15
+     - Board of Directors Minutes
+     - January 1978 - November 1981
+     - 0
+     - —
+   * - 1140-16
+     - Board of Directors Minutes
+     - January 1982 - November 1984
+     - 0
+     - —
+   * - 1140-17
+     - Board of Directors Minutes
+     - January 1985 - December 1989
+     - 0
+     - —
+   * - 1140-18
+     - Board of Directors Minutes
+     - January 1990 - December 1993
+     - 0
+     - —
+   * - 1140-19
+     - Board of Directors Minutes
+     - February 1994 - December 1996
+     - 0
+     - —
+   * - 1140-20
+     - Board of Directors Minutes
+     - January 1996 - November 2000
+     - 0
+     - —
+   * - 1140-21
+     - Board of Directors Minutes
+     - January 2001 - May 2001
+     - 0
+     - —

@@ -1,0 +1,80 @@
+Texas A&M Speeches
+==================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000284
+   * - Dates
+     - 1877-1997
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-speeches <https://findingaids.library.tamu.edu/index.php/texas-a-m-speeches>`_
+   * - Extent
+     - 3 Boxes
+   * - Total Boxes
+     - 6
+   * - Total Folders
+     - 68
+
+.. warning:: Extent states 3 boxes but only 6 are described in the finding aid (-3 unencoded/placeholder box(es) — check collection notes for gaps).
+
+Scope and Content
+-----------------
+
+This collection contains speeches that function as records of prominent speakers and mark the days of Commencement, Muster, and dedications at Texas A&M. This collection covers a range of years as far back as 1877 to 1997. The location of every speech given was at the A&M Campus.
+
+System of Arrangement
+---------------------
+
+This collection is arranged into the following series:
+* Series 1, A&M Commencement Speeches. (1877-1997)
+* Series 2, College of Medicine Commencement Speeches. (1981)
+* Series 3, Commissionary Speeches. (1948-1979)
+* Series 4, Valedictory Speeches. (1883-1954)
+* Series 5, Muster Speeches. (1946-1997)
+* Series 6, Miscellaneous A&M Speeches. (1951-1996)
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000284-S1
+     - A&M Commencement Speeches
+     - 1877-1997
+     - 41
+     - 41 folders
+   * - C000284-S2
+     - College of Medicine Commencement Speeches
+     - 1981
+     - 2
+     - 2 folders
+   * - C000284-S3
+     - Commissionary Speeches
+     - 1948-1979
+     - 7
+     - 7 folders
+   * - C000284-S4
+     - Valedictory Speeches
+     - 1883-1954
+     - 5
+     - 5 folders
+   * - C000284-S5
+     - Muster Speeches
+     - 1946-1997
+     - 5
+     - 5 folders
+   * - C000284-S6
+     - Miscellaneous A&M Speeches
+     - 1951-1996
+     - 8
+     - 8 folders

@@ -1,0 +1,152 @@
+Texas A&M Commencement Programs
+===============================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000285
+   * - Dates
+     - 1877-2021
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-commencement-programs <https://findingaids.library.tamu.edu/index.php/texas-a-m-commencement-programs>`_
+   * - Extent
+     - 22 boxes
+   * - Total Boxes
+     - 22
+   * - Total Folders
+     - 479
+
+Scope and Content
+-----------------
+
+This collection consists of Commencement Programs of the Agricultural and Mechanical College of Texas (TAMC) and Texas A&M University (TAMU).
+
+System of Arrangement
+---------------------
+
+Programs are arranged chronologically.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000285-1
+     - Commencement Programs
+     - 1877-1946
+     - 69
+     - 69 folders
+   * - C000285-2
+     - Commencement Programs
+     - 1947-1969
+     - 43
+     - 43 folders
+   * - C000285-3
+     - Commencement Programs
+     - 1970-1976
+     - 27
+     - 27 folders
+   * - C000285-4
+     - Commencement Programs
+     - 1977-1980
+     - 24
+     - 24 folders
+   * - C000285-5
+     - Commencement Programs
+     - 1981-1985
+     - 29
+     - 29 folders
+   * - C000285-6
+     - Commencement Programs
+     - 1986-1990
+     - 27
+     - 27 folders
+   * - C000285-7
+     - Commencement Programs
+     - 1991-1994
+     - 16
+     - 16 folders
+   * - C000285-8
+     - Commencement Programs
+     - 1994-1996
+     - 16
+     - 16 folders
+   * - C000285-9
+     - Commencement Programs
+     - 1996-1998
+     - 15
+     - 15 folders
+   * - C000285-10
+     - Commencement Programs
+     - 1998-2000
+     - 22
+     - 22 folders
+   * - C000285-11
+     - Commencement Programs
+     - 2001-2003
+     - 22
+     - 22 folders
+   * - C000285-12
+     - Commencement Programs
+     - 2003-2006
+     - 13
+     - 13 folders
+   * - C000285-13
+     - Commencement Programs
+     - 2006-2009
+     - 13
+     - 13 folders
+   * - C000285-14
+     - Commencement Programs
+     - 2009-2011
+     - 10
+     - 10 folders
+   * - C000285-15
+     - Commencement Programs
+     - 2011-2013
+     - 12
+     - 12 folders
+   * - C000285-16
+     - Commencement Programs
+     - 2013-2015
+     - 12
+     - 12 folders
+   * - C000285-17
+     - Commencement Programs
+     - 2015-2017
+     - 22
+     - 22 folders
+   * - C000285-18
+     - Commencement Programs
+     - 2017-2019
+     - 24
+     - 24 folders
+   * - C000285-19
+     - Commencement Programs
+     - 2019-2021
+     - 23
+     - 23 folders
+   * - C000285-20
+     - Commencement Programs
+     - 2021-2023
+     - 18
+     - 18 folders
+   * - C000285-21
+     - Commencement Programs
+     - 2023-2024
+     - 12
+     - 12 folders
+   * - C000285-22
+     - Commencement Programs
+     - 2025-
+     - 10
+     - 10 folders
