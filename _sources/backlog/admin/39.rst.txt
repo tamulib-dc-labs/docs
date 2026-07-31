@@ -1,0 +1,21 @@
+Office of Executive Vice President and Provost Records
+======================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 39
+   * - Dates
+     - 1965-1998
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/office-of-executive-vice-president-and-provost-records <https://findingaids.library.tamu.edu/index.php/office-of-executive-vice-president-and-provost-records>`_
+   * - Extent
+     - 74 boxes
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+.. warning:: Extent states 74 boxes but only 0 are described in the finding aid (74 unencoded/placeholder box(es) — check collection notes for gaps).
