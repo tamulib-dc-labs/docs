@@ -1,0 +1,52 @@
+Texas A&M Athletic Media Guides - Soccer
+========================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1342
+   * - Dates
+     - 1993-2005
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-soccer <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-soccer>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 11
+
+Scope and Content
+-----------------
+
+This collection contains media guides that cover one individual sport. These guides include details such as a schedule, the Texas A&M roster, statistics of the sport's history, and brief facts about the University.
+
+System of Arrangement
+---------------------
+
+This collection is arranged chronologically.
+
+Notes
+-----
+
+Texas A&M Women's soccer began as a club sport in 1977. It was recognized, officially, as a varsity sport in 1992. The Aggies were led by head coach Gerald Guerrieri. They have ten conference championship titles and five conference tournament titles. They have participated in the NCAA tournament every year since being recognized as a varsity sport.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1342-1
+     - Soccer Media Guides
+     - 1993-2005
+     - 11
+     - 11 folders

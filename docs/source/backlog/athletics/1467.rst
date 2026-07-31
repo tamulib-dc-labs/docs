@@ -1,0 +1,42 @@
+Texas A&M Athletic Programs - Baseball
+======================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1467
+   * - Dates
+     - 1979-2005
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-programs-baseball <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-programs-baseball>`_
+   * - Extent
+     - 1 Box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 23
+
+Scope and Content
+-----------------
+
+This collection contains baseball programs, scorecards, and schedules
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1467-1
+     - Baseball Schedule, Scorecards and Programs
+     - 1979-2005
+     - 23
+     - 23 Folders

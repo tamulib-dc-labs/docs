@@ -1,0 +1,42 @@
+Texas A&M Athletic Media Guides - Women's Basketball
+====================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1455
+   * - Dates
+     - 1977-2008
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-womens-basketball <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-media-guides-womens-basketball>`_
+   * - Extent
+     - 2 boxes
+   * - Total Boxes
+     - 2
+   * - Total Folders
+     - 25
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1455-1
+     - Women's Basketball Media Guides
+     - 1977-2000
+     - 19
+     - 19 folders
+   * - 1455-2
+     - Women's Basketball Media Guides
+     - 2000-2008
+     - 6
+     - 6 folders

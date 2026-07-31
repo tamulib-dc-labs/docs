@@ -1,0 +1,334 @@
+Texas A&M Athletic Programs - Football
+======================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000036
+   * - Dates
+     - 1906-2019
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-programs-football <https://findingaids.library.tamu.edu/index.php/texas-a-m-athletic-programs-football>`_
+   * - Extent
+     - 52 boxes
+   * - Total Boxes
+     - 51
+   * - Total Folders
+     - 777
+
+.. warning:: Extent states 52 boxes but only 51 are described in the finding aid (1 unencoded/placeholder box(es) — check collection notes for gaps).
+
+Scope and Content
+-----------------
+
+This collection contains gameday programs for the Texas A&M Football team.
+
+System of Arrangement
+---------------------
+
+The collection is arranged chronologically by season, and then chronologically within the season.
+
+Notes
+-----
+
+Missing and Needed
+
+* Texas A&M vs. Manhattan College, December 1936, reported missing in summer 1994.
+
+* Texas A&M vs. Manhattan College, October 2, 1937, reported missing in summer 1994.
+
+* Texas A&M vs. Miami University, 1944-12-08, reported missing March 5, 2015.
+
+* Texas A&M vs Rice, November 14, 1953, reported missing March 5, 2015.
+
+* Texas A&M vs Houston, October 9, 1954, reported missing March 5, 2015.
+
+* Texas A&M vs Texas, December 1, 1990, reported missing April 2, 2015
+
+* 2004 Season - box 38 is a placeholder for the 2004 season we currently do not have programs from.
+
+* 2015-2016 Season (partial) - box 48 is a placeholder for the parts of the 2015 and 2016 season that we currently do not have programs from.
+
+* Other seasons we currently do not have:
+
+* 1907-1915
+
+* 1918
+
+* 1920
+
+* 1928
+
+* 1930-1932
+
+* 1934
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000036-1
+     - 1906-1936 Football Seasons
+     - 1906-1936
+     - 41
+     - 41 folders
+   * - C000036-2
+     - 1937-1939 Football Seasons
+     - 1937-1940
+     - 24
+     - 24 folders
+   * - C000036-3
+     - 1940-1941 Football Seasons
+     - 1940-1942
+     - 19
+     - 19 folders
+   * - C000036-4
+     - 1942-1945 Football Seasons
+     - 1942-1945
+     - 22
+     - 22 folders
+   * - C000036-5
+     - 1946-1949 Football Seasons
+     - 1946-1949
+     - 20
+     - 20 folders
+   * - C000036-6
+     - 1950-1954 Football Seasons
+     - 1950-1954
+     - 41
+     - 41 folders
+   * - C000036-7
+     - 1955-1957 Football Seasons
+     - 1955-1957
+     - 31
+     - 31 folders
+   * - C000036-8
+     - 1958-1960 Football Seasons
+     - 1958-1960
+     - 31
+     - 31 folders
+   * - C000036-9
+     - 1961-1965 Football Seasons
+     - 1961-1965
+     - 45
+     - 45 folders
+   * - C000036-10
+     - 1966-1969 Football Seasons
+     - 1966-1969
+     - 25
+     - 25 folders
+   * - C000036-11
+     - 1970-1972 Football Seasons
+     - 1970-1972
+     - 33
+     - 33 folders
+   * - C000036-12
+     - 1973-1974 Football Seasons
+     - 1973-1974
+     - 22
+     - 22 folders
+   * - C000036-13
+     - 1975-1976 Football Seasons
+     - 1975-1977
+     - 24
+     - 24 folders
+   * - C000036-14
+     - 1977-1978 Football Seasons
+     - 1977-1978
+     - 24
+     - 24 folders
+   * - C000036-15
+     - 1979 Football Season
+     - 1979
+     - 11
+     - 11 folders
+   * - C000036-16
+     - 1980 Football Season
+     - 1980
+     - 11
+     - 11 folders
+   * - C000036-17
+     - 1981 Football Season
+     - 1981-1982
+     - 12
+     - 12 folders
+   * - C000036-18
+     - 1982 Football Season
+     - 1982
+     - 10
+     - 10 folders
+   * - C000036-19
+     - 1983 Football Season
+     - 1983
+     - 11
+     - 11 folders
+   * - C000036-20
+     - 1984 Football Season
+     - 1984-1985
+     - 12
+     - 12 folders
+   * - C000036-21
+     - 1985 Football Season
+     - 1985-1986
+     - 11
+     - 11 folders
+   * - C000036-22
+     - 1986 Football Season
+     - 1986-1987
+     - 12
+     - 12 folders
+   * - C000036-23
+     - 1987 Football Season
+     - 1987-1988
+     - 12
+     - 12 folders
+   * - C000036-24
+     - 1988 Football Season
+     - 1988
+     - 12
+     - 12 folders
+   * - C000036-25
+     - 1989 Football Season
+     - 1989
+     - 12
+     - 12 folders
+   * - C000036-26
+     - 1990 Football Season
+     - 1990
+     - 12
+     - 12 folders
+   * - C000036-27
+     - 1991 Football Season
+     - 1991-1992
+     - 12
+     - 12 folders
+   * - C000036-28
+     - 1992 Football Season
+     - 1992-1993
+     - 13
+     - 13 folders
+   * - C000036-29
+     - 1993 Football Season
+     - 1993-1994
+     - 12
+     - 12 folders
+   * - C000036-30
+     - 1994 Football Season
+     - 1994
+     - 11
+     - 11 folders
+   * - C000036-31
+     - 1995 Football Season
+     - 1995
+     - 12
+     - 12 folders
+   * - C000036-32
+     - 1996 Football Season
+     - 1996
+     - 12
+     - 12 folders
+   * - C000036-33
+     - 1997-1998 Football Seasons
+     - 1997-1999
+     - 16
+     - 16 folders
+   * - C000036-34
+     - 1999 Football Season
+     - 1999
+     - 7
+     - 7 folders
+   * - C000036-35
+     - 2000 Football Season
+     - 2000
+     - 8
+     - 8 folders
+   * - C000036-36
+     - 2001 Football Season
+     - 2001
+     - 10
+     - 10 folders
+   * - C000036-37
+     - 2002-2003 Football Season
+     - 2002-2003
+     - 13
+     - 13 folders
+   * - C000036-39
+     - 2005-2006 Football Season
+     - 2005-2006
+     - 13
+     - 13 folders
+   * - C000036-40
+     - 2007 Football Season
+     - 2007
+     - 7
+     - 7 folders
+   * - C000036-41
+     - 2008 Football Season
+     - 2008
+     - 6
+     - 6 folders
+   * - C000036-42
+     - 2009 Football Season
+     - 2009
+     - 9
+     - 9 folders
+   * - C000036-43
+     - 2010 Football Season
+     - 2010
+     - 9
+     - 9 folders
+   * - C000036-44
+     - 2011 Football Season
+     - 2011
+     - 9
+     - 9 folders
+   * - C000036-45
+     - 2012 Football Season
+     - 2012-2013
+     - 9
+     - 9 folders
+   * - C000036-46
+     - 2013 Football Season
+     - 2013
+     - 7
+     - 7 folders
+   * - C000036-47
+     - 2014 Football Season
+     - 2014
+     - 8
+     - 8 folders
+   * - C000036-48
+     - 2015 Football Season
+     - 2015
+     - 7
+     - 7 folders
+   * - C000036-49
+     - 2015-2016 Football Season
+     - 2015-2016
+     - 7
+     - 7 folders
+   * - C000036-50
+     - 2016 Football Season
+     - 2016
+     - 8
+     - 8 folders
+   * - C000036-51
+     - 2017 Football Season
+     - 2017
+     - 4
+     - 4 folders
+   * - C000036-52
+     - 2018-2019 Football Season
+     - 2018-2019
+     - 8
+     - 8 folders
