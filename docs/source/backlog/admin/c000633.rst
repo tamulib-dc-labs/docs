@@ -1,0 +1,47 @@
+Thomas S. Gathright Letters
+===========================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000633
+   * - Dates
+     - 1860-1883
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/thomas-s-gathright-letters <https://findingaids.library.tamu.edu/index.php/thomas-s-gathright-letters>`_
+   * - Extent
+     - 1 Box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 13
+
+Scope and Content
+-----------------
+
+This collection contains correspondence and a news release from Thomas S. Gathright, the first president of the Agricultural and Mechanical College of Texas (now Texas A&M University). Gathright also wrote correspondence before his presidency as the founder of the Summerville Institute in Gholson, Mississippi and during his residency as the Superintendent of Public Instruction of Mississippi. Some of the letters in the collection were transcribed in *Early History of Texas A&M College Through Letters and Papers* (1952), by David Brooks Cofer. Also included, is a folder containing xerox copies of Gathright's letters and a news release from the Mississippi State Archives.
+
+System of Arrangement
+---------------------
+
+This collection is arranged chronologically by year with the folder of xerox copies at the end of the collection.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000633-1
+     - Gathright Correspondence and Other Materials
+     - 1860-1883
+     - 13
+     - 13 folders
