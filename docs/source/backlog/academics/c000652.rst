@@ -1,0 +1,47 @@
+Commencement Programs Collection - School of Public Health
+==========================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000652
+   * - Dates
+     - 2002-2016
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/commencement-programs-collection-school-of-public-health <https://findingaids.library.tamu.edu/index.php/commencement-programs-collection-school-of-public-health>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes commencement programs for the School of Public Health at Texas A&M University from May 2002 - May 2016. The school was renamed to the "School of Public Health" on April 1, 2014. Previously it was called the "School of Rural Public Health" and this is reflected in the programs from 2002-2013. After 2016, the School of Public Health joined the main Texas A&M University commencement ceremony, so no programs were published after 2016.
+
+System of Arrangement
+---------------------
+
+The collection is organized chronologically.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000652-1
+     - School of Public Health Commencement Programs
+     - 2002-2016
+     - 0
+     - —

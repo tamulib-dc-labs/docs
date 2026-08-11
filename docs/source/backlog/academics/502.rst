@@ -1,0 +1,24 @@
+Department of Mathematics Publications
+======================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 502
+   * - Dates
+     - 1995-1996
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/department-of-mathematics-publications <https://findingaids.library.tamu.edu/index.php/department-of-mathematics-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection contains the publication *The Right Angle*.

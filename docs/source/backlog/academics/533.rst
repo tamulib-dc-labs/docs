@@ -1,0 +1,29 @@
+College of Education Publications
+=================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 533
+   * - Dates
+     - 1984-1996
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-education-publications <https://findingaids.library.tamu.edu/index.php/college-of-education-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes the following publication titles:
+* *Perspective* (1984-1990, 1992, 1994)
+* Aikin-Stinnett Lectures (1984-1985)
+* Education Administration Department's *The Principal's Center*
+* *Network* (1988, 1990)
+* Association for the Study of Higher Education (ASHE), *ASHE News Letter* (1993-1996)

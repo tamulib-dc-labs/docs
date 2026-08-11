@@ -1,0 +1,29 @@
+Commencement Programs Collection - College of Veterinary Medicine
+=================================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000293
+   * - Dates
+     - 1984-1999
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/commencement-programs-collection-college-of-veterinary-medicine <https://findingaids.library.tamu.edu/index.php/commencement-programs-collection-college-of-veterinary-medicine>`_
+   * - Extent
+     - 1.00 Box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection functions as a record of commencements done by Texas A&M's College of Veterinary Medicine. These programs are reports to the public, who attends the commencement, and clearly list all candidates for graduation.
+
+System of Arrangement
+---------------------
+
+This collection is organized in chronologic order and housed in one box.

@@ -1,0 +1,33 @@
+College of Architecture and Environmental Design Publications
+=============================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 441
+   * - Dates
+     - 1960s-1999
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-architecture-and-environmental-design-publications <https://findingaids.library.tamu.edu/index.php/college-of-architecture-and-environmental-design-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes the following publication titles:
+* *Focal Point* (1960s)
+* *ARCC Newsletter* Architectural Research Center Consortium (1987-1989)
+* *Right Angle* (1990-1996)
+* *Communique* (1983-1985)
+* *Synthesis: A Department Newsletter* (1982-1983, 1985, 1987-1988)
+* Landscape Architecture Department Newsletter (1982-1987)
+* TAMU Student Chapter ASLA *Workshop '84*
+* *Research Notes* (1986-1987)
+* *CARC News*; The Newsletter of Texas A&M University's College of Architecture (Winter 1999)

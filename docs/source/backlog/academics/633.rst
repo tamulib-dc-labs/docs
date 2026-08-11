@@ -1,0 +1,37 @@
+Department of Civil Engineering Newsletter
+==========================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 633
+   * - Dates
+     - 1986-1999
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/department-of-civil-engineering-newsletter <https://findingaids.library.tamu.edu/index.php/department-of-civil-engineering-newsletter>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 10
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 633-1
+     - Newsletter
+     - 1986-1999
+     - 10
+     - 10 folders

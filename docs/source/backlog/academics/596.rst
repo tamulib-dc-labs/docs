@@ -1,0 +1,26 @@
+Department of Agricultural Engineering Publications
+===================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 596
+   * - Dates
+     - 1962-1977
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/department-of-agricultural-engineering-publications <https://findingaids.library.tamu.edu/index.php/department-of-agricultural-engineering-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection contains:
+- Texas Agri-Business Electric Council *News and Preview* (1974-1977)
+- Newsletters (Holiday Greetings), 1962-1971

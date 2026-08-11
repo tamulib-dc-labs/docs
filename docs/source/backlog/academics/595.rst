@@ -1,0 +1,29 @@
+College of Agriculture Animal Science Department Technical Reports and Publications
+===================================================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 595
+   * - Dates
+     - —
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-agriculture-animal-science-department-technical-reports-and-publications <https://findingaids.library.tamu.edu/index.php/college-of-agriculture-animal-science-department-technical-reports-and-publications>`_
+   * - Extent
+     - 1.00 Boxes
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection contains the following materials:
+a) Departmental Technical Reports
+b) Publications:
+- *Animal Science Newsletter* (1969-1971, 1982-1991)
+- *The Cutting Edge* (1991-1993)
+- *The Reporter* (1991-1994)
