@@ -1,0 +1,33 @@
+College of Business Administration Publications
+===============================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 562
+   * - Dates
+     - 1982-1993
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-business-administration-publications <https://findingaids.library.tamu.edu/index.php/college-of-business-administration-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes the following publication titles:
+
+* *Businews*, 1984-1989
+* *Research Report*, 1983-1985
+* *Marketing Newsletter*, 1982
+* *Margin of Excellence*, 1991, 1993
+* *Fellows Reviews*, 1991
+* *BA Newsletter*
+* *Calendar of Events*, 1989-1990
+* Miscellaneous publications

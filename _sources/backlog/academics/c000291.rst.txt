@@ -1,0 +1,47 @@
+Commencement Programs Collection - College of Medicine
+======================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000291
+   * - Dates
+     - 1981-2001
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/commencement-programs-collection-college-of-medicine <https://findingaids.library.tamu.edu/index.php/commencement-programs-collection-college-of-medicine>`_
+   * - Extent
+     - 1 Box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes commencement programs for the College of Medicine at Texas A&M University from June 1981 - May 2001.
+
+System of Arrangement
+---------------------
+
+The collection is organized chronologically.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000291-1
+     - College of Medicine Commencement Programs
+     - 1981-2001
+     - 0
+     - —

@@ -1,0 +1,32 @@
+College of Liberal Arts Publications
+====================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 514
+   * - Dates
+     - 1952-1996
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-liberal-arts-publications <https://findingaids.library.tamu.edu/index.php/college-of-liberal-arts-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes the following titles:
+* Center for Biotechnology Policy and Ethics *Newsletter*, 1992-1996
+* Calendar of Events, 1988-1993
+* Public Policy Resources Laboratory, *Lab Notes*, 1984
+* Liberal Arts Council: Agenda and Minutes, 1988-1992
+* *English Bulletin*, 1952-1957; 1983-1987
+* Center for Public Leadership Studies: *Urban News*, 1995-
+* Center for Public Leadership Studies: *Illuminations*, 1987-1995
+* Anthropology Lab Reports

@@ -1,0 +1,40 @@
+College of Engineering Publications
+===================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 565
+   * - Dates
+     - 1985-1996
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-engineering-publications <https://findingaids.library.tamu.edu/index.php/college-of-engineering-publications>`_
+   * - Extent
+     - 1 Box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+The publication titles included in this collection are:
+
+* Electrical Engineering Department's *Current*, 1990-1996
+
+* Electrical Engineering Department's *Engineering Research Reports*, 1985; 1994-1995
+
+* Petroleum Engineering Department's *Reservoir*, 1993-1994
+
+* Petroleum Engineering Department's *Geological Surveys*
+
+* Mechanical Engineering Department's *ATME News*, 1986-1987
+
+* Mechanical Engineering Department's *The Linkage*, 1992
+
+* Mechanical Engineering Department's *ATME Linkage*, 1996
+
+* *Energy Systems Update*, 1993-1994

@@ -1,0 +1,26 @@
+College of Medicine Publications
+================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 564
+   * - Dates
+     - 1989-1995
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/college-of-medicine-publications <https://findingaids.library.tamu.edu/index.php/college-of-medicine-publications>`_
+   * - Extent
+     - 1 box
+   * - Total Boxes
+     - 0
+   * - Total Folders
+     - 0
+
+Scope and Content
+-----------------
+
+This collection includes the following publication titles:
+* *Faculty Forum*, 1989-1994
+* *Newsletter*, 1980-1991; 1994-1995
