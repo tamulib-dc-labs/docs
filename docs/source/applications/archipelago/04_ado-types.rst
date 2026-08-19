@@ -48,6 +48,7 @@ CreativeWorkSeries
 * File types: any
 * Example collections:
     * Building History Collection
+    * University Libraries Events
 * Example item: `Austin Hall <https://digitalcollections.library.tamu.edu/do/0f70681c-39ba-41cd-87bc-65b11b82eb80>`_
 
 -----
@@ -171,13 +172,12 @@ Manuscript
         * Strawberry (Descriptive Metadata source) for Digital Object
         * Strawberry (Descriptive Metadata source) for Digital Object Collection
 * Structure:
-    * Single High Resolution Image as Canvas
-    * 1 canvas
+    * Multiple High Resolution Images as Canvases
+    * 1 to n canvases
     * HTR for each canvas
     * Entire work can be downloaded as a PDF with HTR embedded
     * Should have its text and associated files set up for "collections as data"
     * Searchable
-    * Metadata Bundle: Should always be "Strawberry (Descriptive Metadata source) for Digital Object"
 * Display/viewer
     * Clover
 * File types: jpg, jp2
@@ -202,8 +202,8 @@ Leaf
     * Bundle
         * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
-    * Multiple High Resolution Images as Canvases
-    * 1 to n canvases
+    * Single High Resolution Image as Canvas
+    * 1 canvas
     * HTR for each canvas
     * Entire work can be downloaded as a PDF with HTR embedded
     * Should have its text and associated files set up for "collections as data"
@@ -253,9 +253,10 @@ VideoObject
     * Searchable captions
 * Display/viewer
     * Video player
+* File types: mp4, vtt
 * Example collection:
     * Music Activities Collection
-* Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
+* Example item: `WOLFCon 2020 - 126 <https://digitalcollections.library.tamu.edu/do/621e6da5-bf27-40c0-b05b-8faca9300243>`_
 
 -----------
 StreamingVideo
@@ -275,11 +276,11 @@ StreamingVideo
     * Searchable, synced vtt transcript
 * Display/viewer
     * Audio player
-* File types: mp3, opus, vtt
+* File types: mp3, mp4, opus, vtt
 * Example collections:
     * Veterans of the Valley
     * Oral Histories Collection
-* Example item: `Spec Gammon: Interview: "Forest Aflame" <https://digitalcollections.library.tamu.edu/do/282d54ca-5bee-4833-a569-a3f6ad8c6f7d>`_
+* Example item: `Spec Gammon: Interview <https://digitalcollections.library.tamu.edu/do/282d54ca-5bee-4833-a569-a3f6ad8c6f7d>`_
 
 -------
 WebPage
