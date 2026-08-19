@@ -16,21 +16,18 @@ Collection
     * Technical/Structural:
         * Has child ADOs
         * May be part of another collection
-    * Descriptive  
-        * No unique fields
+    * Descriptive:
+        * May have "about_collection"
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object Collection
 * Structure:
     * Should have its associated files set up for "collections as data"
     * May have a thumbnail
 * Display/viewer
-    * None
+    * No viewer
+    * Includes 50 hyperlinked child ADO thumbnails at the bottom of the page
 * File types: jpg (thumbnail)
-* Example item: `Brazos Maps <https://archipelago-dev.library.tamu.edu/do/c7d1a1e2-e0a2-43f9-ad52-e67597c714ec>`_
-
-All child ADOs are displayed at the bottom of the page.
-
-.. image:: docs/source/_static/images/exemplar-collection.png
-    :alt: Screenshot of a Digital Object Collection ADO.
-
+* Example item: `Raiford Stripling Architecture Collection <https://digitalcollections.library.tamu.edu/do/1f3911b8-70ac-42ea-8dbf-60bb18430467>`_
 
 ------------------
 CreativeWorkSeries
@@ -40,23 +37,18 @@ CreativeWorkSeries
     * Technical/Structural:
         * Has child ADOs in a prescribed order
         * May be part of a collection
-    * Descriptive  
-        *  No unique fields
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object Collection
 * Structure:
     * Should have its associated files set up for "collections as data"
+    * May have a thumbnail
 * Display/viewer
-    * Mirador - user can scroll through child ADOs
-* File types: None
+    * Clover - user can scroll through child ADOs
+    * Includes 25 hyperlinked child ADO thumbnails at the bottom of the page
+* File types: any
 * Example collections:
     * Building History Collection
-* Example item: `Bachelor Hall and Buggy House <https://archipelago-dev.library.tamu.edu/do/5524c1f2-de1b-4700-a033-c9d485bf65de#page/1>`_
-* Collection vs. CreativeWorkSeries
-    * Like a collection, a CreativeWorkSeries displays all ADOs at the bottom of the ADO page.
-    * Unlike a Collection, a CreativeWorkSeries includes a Mirador viewer with all ADOs in order. The user can scroll through enlarged ADOs without clicking off the page.
-    * Unlike a Collection, a CreativeWorkSeries has no thumbnail.
-
-.. image:: ../_static/images/exemplar-cws-mirador.png
-    :alt: Screenshot of the Mirador viewer of a CreativeWorkSeries ADO.
+* Example item: `Austin Hall <https://digitalcollections.library.tamu.edu/do/0f70681c-39ba-41cd-87bc-65b11b82eb80>`_
 
 -----
 Image
@@ -65,21 +57,20 @@ Image
 * Metadata:
     * Technical/Structural:
         * Checksums for files
-    * Descriptive  
-        * No unique fields
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
     * Individual canvases can be downloaded
-    * Not paged
 * Display/viewer
-    * Mirador
+    * Clover
 * File types: jpg, jp2
 * Example collections:
     * WWI Postcards
     * Wheelan Collection
     * Berger Cloonan
-* Example item: `Military Parade 1 <https://archipelago-dev.library.tamu.edu/do/a10a570a-4bb1-436b-9209-f195c73d7450>`_
+* Example item: `Woman Fills a Syringe with a Fluid, number 2 <https://digitalcollections.library.tamu.edu/do/2147aee4-69b7-49ca-ac8f-f0e183ddd35b>`_
 
 ---
 Map
@@ -91,25 +82,22 @@ Map
     * Descriptive  
         * Projection
         * Edition of the map / state of the map
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
-    * Not paged
-    * May have a watermark
+    * May have watermarks
 * Display/viewer 
-    * Mirador
+    * Clover
     * x, y, w, h of the watermark to the original canvas
+    * Canvases might be named using "canvas_labels" field
+    * May have "Georeference" tab
 * File types: jpg, jp2
 * Example collections:
     * Brazos Maps
     * WWII Service Maps
-* Example item: `Bryan-College Station Bicycle Plan <https://archipelago-dev.library.tamu.edu/do/97c56fb9-3ab7-43ee-9f3c-00e505274076#page/1>`_
-* Image vs. Map
-    * A Map will be annotated with a watermark, but an Image will not
-    * A Map contains unique metadata not included in any other worktype
-
-.. image:: ../_static/images/exemplar-map.png
-    :alt: Screenshot of a Map ADO.
+* Example item: `Aeneae Troiani navigatio <https://digitalcollections.library.tamu.edu/do/de282a68-3667-42e5-90f7-087f33597779>`_
 
 ----
 Book
@@ -119,36 +107,55 @@ Book
     * Technical/Structural:
         * Structures and Ranges
         * Checksums for files
-    * Descriptive  
-        * No unique fields
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
+        * Strawberry (Descriptive Metadata source) for Digital Object Collection
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
     * OCR and HOCR or AltoXML for each canvases
     * Entire work can be downloaded as a PDF with OCR embedded
     * Should have its text and associated files set up for "collections as data"
-    * Not paged
     * Searchable
 * Display/viewer
-    * Mirador
+    * Clover
 * File types: pdf, jpg, jp2
-* Image vs. Book
-    * A Book has OCR, an Image does not
-    * A Book is searchable, an Image is not
-    * Users can download an entire Book as a pdf, but Images must be downloaded individually as their original filetype (jpg or jp2).
 * Example collections:
     * Yearbooks
     * Committee on South Asian Women
     * Cherokee Freedmen
-* Example item: `The Olio <https://archipelago-dev.library.tamu.edu/do/d767aa3a-5f75-48c6-897d-c500cdceb75b#page/128/mode/2up>`_
+* Example items: 
+    * Digital Object Collection: `Committee on South Asian Women Newsletter Vol. 5, No. 1-2 <https://digitalcollections.library.tamu.edu/do/dcbd0593-69cd-4449-9244-dd5e3b76c742>`_
+    * Digital Object: `Worlds imagined: the Maps of Imaginary Places Collection <https://digitalcollections.library.tamu.edu/do/c457673b-230b-4237-acee-33ccdb666496>`_
 
-.. image:: ../_static/images/exemplar-book-search.png
-    :alt: Screenshot of the search function on a Book ADO.
+----
+Page
+----
 
-Here is the extracted text tab on the book:
-
-.. image:: ../_static/images/exemplar-book-ocr.png
-    :alt: Screenshot of the extracted text tab of a Book ADO.
+* Metadata:
+    * Technical/Structural:
+        * Structures and Ranges
+        * Checksums for files
+    * Descriptive  
+        * ispartof (must always be part of a Book)
+        * sequence_id
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
+* Structure:
+    * Single High Resolution Image as Canvas
+    * 1 canvas
+    * OCR and HOCR or AltoXML for each canvases
+    * Downloadable
+    * Should have its text and associated files set up for "collections as data"
+    * Searchable
+* Display/viewer
+    * Clover
+* File types: jpg, jp2
+* Example collections:
+    * Yearbooks
+    * Committee on South Asian Women
+* Example items: 
+    * `Page 2 of Committee on South Asian Women Newsletter Vol. 5, No. 1-2 <https://digitalcollections.library.tamu.edu/do/f2c1cc63-e88c-42a6-bed8-bc0f696a4d25>`_
 
 ----------
 Manuscript
@@ -159,28 +166,56 @@ Manuscript
         * Structures and ranges
         * Checksums for files
     * Descriptive  
-        * HTR
+        * transcription in the "annotations" metadata field
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
+        * Strawberry (Descriptive Metadata source) for Digital Object Collection
+* Structure:
+    * Single High Resolution Image as Canvas
+    * 1 canvas
+    * HTR for each canvas
+    * Entire work can be downloaded as a PDF with HTR embedded
+    * Should have its text and associated files set up for "collections as data"
+    * Searchable
+    * Metadata Bundle: Should always be "Strawberry (Descriptive Metadata source) for Digital Object"
+* Display/viewer
+    * Clover
+* File types: jpg, jp2
+* Example collections
+    * AMC Early Presidents
+    * Houston Oil Company Minutes
+* Example item: 
+    * `Letter from L. S. Ross to 'Major,' July 23, 1887 <https://digitalcollections.library.tamu.edu/do/abf26637-87df-4169-a856-6b86ffb4673e>`_
+
+----
+Leaf
+----
+
+* Metadata:
+    * Technical/Structural:
+        * Structures and ranges
+        * Checksums for files
+    * Descriptive  
+        * transcription in the "annotations" metadata field
+        * ispartof (must always be part of a Manuscript)
+        * sequence_id
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
     * Multiple High Resolution Images as Canvases
     * 1 to n canvases
     * HTR for each canvas
     * Entire work can be downloaded as a PDF with HTR embedded
     * Should have its text and associated files set up for "collections as data"
-    * Not paged
     * Searchable
 * Display/viewer
-    * Mirador
-* File types: pdf, jpg, jp2
-* Book vs. Manuscript
-    * A Manuscript does not have OCR or Extracted Text
-    * A Manuscript has HTR instead
+    * Clover
+* File types: jpg, jp2
 * Example collections
     * AMC Early Presidents
     * Houston Oil Company Minutes
-* Example item: `Letter to Louis L. McInnis from H. H. Dinwiddie, August 6, 1887 <https://archipelago-dev.library.tamu.edu/do/7964408b-f800-458a-bffd-cce3d799b0f1#page/1>`_
-
-.. image:: ../_static/images/exemplar-manuscript.png
-    :alt: Screenshot of a Manuscript ADO.
+* Example item: 
+    * `Page 4 of Minutes of Houston Oil Company of Texas <https://digitalcollections.library.tamu.edu/do/c44f420c-b981-4416-a23f-fca53bac6349>`_
 
 -----------
 AudioObject
@@ -189,30 +224,19 @@ AudioObject
 * Metadata:
     * Technical/Structural:
         * Checksums for files
-    * Descriptive  
-        * Link to Avalon
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
     * 1 - n audio files
     * File and transcript can be downloaded
     * Searchable, synced vtt transcript
 * Display/viewer
     * Audio player
-* File types: mp3, vtt
+* File types: mp3, opus, vtt
 * Example collections:
-    * Science Fiction Radio Show Collection
-    * Owens Folk Music
-    * Edge Grant Oral Histories
+    * Basbanes Collection
+    * Los Palabristas
 * Example item: `Bill Scott, Forest Ranger: "Forest Aflame" <https://archipelago-dev.library.tamu.edu/do/026b4752-bbf1-4e09-b5e0-28b7a8469e8f>`_
-
-In the example, the audio and transcript are synced and there is a button where the user can download the vtt.
-
-.. image:: ../_static/images/exemplar-audio.png
-    :alt: Screenshot of an AudioObject ADO.
-
-The vtt shows up as extracted text.
-
-.. image:: ../_static/images/exemplar-audio-text.png
-    :alt: Screenshot of the extracted text of an AudioObject ADO.
 
 -----------
 VideoObject
@@ -221,8 +245,8 @@ VideoObject
 * Metadata:
     * Technical/Structural:
         * Checksums for files
-    * Descriptive  
-        * Link to Avalon
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
     * 1 - n video files
     * File and transcript can be downloaded
@@ -230,44 +254,32 @@ VideoObject
 * Display/viewer
     * Video player
 * Example collection:
-    * Veterans of the Valley
-    * NASA A/V Recordings
+    * Music Activities Collection
 * Example item: `Jeff Bailey - part 1 interview <https://archipelago-dev.library.tamu.edu/do/0b220a77-19d6-4695-9645-e00d269b3652>`_
 
-.. image:: ../_static/images/exemplar-video.png
-    :alt: Screenshot of a VideoObject ADO.
-
-The vtt shows up as extracted text.
-
-.. image:: ../_static/images/exemplar-video-text.png
-    :alt: Screenshot of the extracted text of a Videobject ADO.
-
--------------
-MetadataOnly
--------------
+-----------
+StreamingVideo
+-----------
 
 * Metadata:
     * Technical/Structural:
+        * Checksums for files
+        * Video file migrated from Avalon using "iiifmanifest" metadata field
     * Descriptive  
-        * url to item
+        * Link to Avalon
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
-    * Searchable transcript/captions (or nothing)
+    * 1 - n audio files
+    * File and transcript can be downloaded
+    * Searchable, synced vtt transcript
 * Display/viewer
-    * None
-* File types: vtt if this is audio/video hosted on Avalon
-* Example collection:
-    * Dallas Women's Gallery
-* Example item: `Interview with Ann Stautberg <https://archipelago-dev.library.tamu.edu/do/792b193a-7d28-41db-b5b0-7878ddfa1f57>`_
-
-The user can download supplemental files but not the file the metadata is about.
-
-.. image:: ../_static/images/exemplar-metadataonly-vtts.png
-    :alt: Screenshot of a MetadataOnly ADO menu allowing the user to download two vtts.
-
-In this exemplar, the vtts are used to create extracted text, similar to that of a VideoObject or AudioObject.
-
-.. image:: ../_static/images/exemplar-metadataonly-text.png
-    :alt: Screenshot of the extracted text of a MetadataOnly ADO.
+    * Audio player
+* File types: mp3, opus, vtt
+* Example collections:
+    * Veterans of the Valley
+    * Oral Histories Collection
+* Example item: `Spec Gammon: Interview: "Forest Aflame" <https://digitalcollections.library.tamu.edu/do/282d54ca-5bee-4833-a569-a3f6ad8c6f7d>`_
 
 -------
 WebPage
@@ -277,6 +289,8 @@ WebPage
     * Technical/Structural:
     * Descriptive  
         * url from orginal site
+    * Bundle
+        * Strawberry (Descriptive Metadata source) for Digital Object
 * Structure:
     * Searchable
 * Display/viewer
@@ -285,18 +299,4 @@ WebPage
 * Example collection:
     * OJS Journals
     * Archived exhibits
-* Example item: `AAVPT Biennial Symposia <https://archipelago-dev.library.tamu.edu/do/6b86bd2a-8212-4d3c-8788-3100e9249f33#url=https%3A%2F%2Faavptbiennial-ojs-tamu.tdl.org%2Faavptbiennial&ts=20251205202838>`_
-* MetadataOnly vs. WebPage 
-    * While both MetadataOnly and WebPage require a link to another site, WebPage is intended for archived sites and MetadataOnly is more of a tool for discoverability
-    * WebPage opens a viewer so the user can navigate the site inside Archipelago
-    * WebPage asks the user to upload a warc, not just entering a link.
-
-The user can navigate the site in the viewer as if it were the original website
-
-.. image:: ../_static/images/exemplar-webpage.png
-    :alt: Screenshot of a WebPage ADO.
-
-In the metadata, the URL of the original site must be included: 
-
-.. image:: ../_static/images/exemplar-webpage-metadata.png
-    :alt: Screenshot of the metadata of a WebPage ADO.
+* Example item: `1940s Brazos County Aerial Photographs <https://digitalcollections.library.tamu.edu/do/1b4af164-3a6a-4ef9-bf52-e0529bc0afbc#view=pages>`_
