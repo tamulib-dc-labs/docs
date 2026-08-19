@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Restricting Access with IP Embargo" href="11_ip-embargo.html" /><link rel="prev" title="Uploading Pre-Created HOCR with Books" href="09_precreated-hocr.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Add URL alias for a Node" href="998_add_url_alias.html" /><link rel="prev" title="Featured Collections and Featured Works" href="10_featured-collections-and-works.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Featured Collections and Featured Works - TAMU Digital Collections Labs documentation</title>
+        <title>Restricting Access with IP Embargo - TAMU Digital Collections Labs documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -229,8 +229,8 @@
 <li class="toctree-l2"><a class="reference internal" href="07_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_promoting_collections_to_featured.html">Promoting Collections on the Front Page</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Featured Collections and Featured Works</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Restricting Access with IP Embargo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="998_add_url_alias.html">Add URL alias for a Node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="999_jmes_path_tester.html">Testing JMES Paths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
@@ -422,7 +422,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/applications/archipelago/10_featured-collections-and-works.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/applications/archipelago/11_ip-embargo.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -442,230 +442,438 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="featured-collections-and-featured-works">
-<h1>Featured Collections and Featured Works<a class="headerlink" href="#featured-collections-and-featured-works" title="Link to this heading">¶</a></h1>
-<p>The TAMU Digital Collections front page displays two curated sections:
-<strong>Featured Collections</strong> and <strong>Featured Works</strong>. These views surface hand-picked
-content to site visitors by curators. Both sections are driven by Drupal’s core
-<code class="docutils literal notranslate"><span class="pre">promote</span></code> field, a Search API Solr view, and a small amount of custom
-theme code.</p>
-<section id="how-it-works">
-<h2>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">¶</a></h2>
-<p>The overall flow for both sections is identical:</p>
-<ol class="arabic simple">
-<li><p>An editor checks a <strong>“Featured on front page”</strong> checkbox on a node edit form.</p></li>
-<li><p>The checkbox saves <code class="docutils literal notranslate"><span class="pre">1</span></code> to the node’s core <code class="docutils literal notranslate"><span class="pre">promote</span></code> field.</p></li>
-<li><p>A Search API Solr view filters for <code class="docutils literal notranslate"><span class="pre">promote</span> <span class="pre">=</span> <span class="pre">1</span></code> and renders matching
-nodes as cards.</p></li>
-<li><p>The view block is placed on the front page and restricted to <code class="docutils literal notranslate"><span class="pre">&lt;front&gt;</span></code>
-via block visibility settings.</p></li>
-</ol>
-</section>
-<section id="the-promote-checkbox">
-<h2>The Promote Checkbox<a class="headerlink" href="#the-promote-checkbox" title="Link to this heading">¶</a></h2>
-<p>Drupal’s <code class="docutils literal notranslate"><span class="pre">promote</span></code> field exists on all node types but is hidden by default
-in Archipelago. The TAMU theme exposes it through two
-<code class="docutils literal notranslate"><span class="pre">hook_form_FORM_ID_alter</span></code> implementations in
-<code class="docutils literal notranslate"><span class="pre">web/themes/custom/tamu_theme/tamu_theme.theme</span></code>.</p>
-<p><strong>For Digital Object Collections:</strong></p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function tamu_theme_form_node_digital_object_collection_edit_form_alter(</span>
-<span class="x">    &amp;$form, FormStateInterface $form_state, $form_id)</span>
-</pre></div>
-</div>
-<p><strong>For Digital Objects:</strong></p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function tamu_theme_form_node_digital_object_edit_form_alter(</span>
-<span class="x">    &amp;$form, FormStateInterface $form_state, $form_id)</span>
-</pre></div>
-</div>
-<p>Both hooks add a checkbox to the <strong>Advanced</strong> sidebar of the node edit form
-and attach a shared submit handler:</p>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function tamu_theme_promote_node_submit($form, FormStateInterface $form_state) {</span>
-<span class="x">  $node = $form_state-&gt;getFormObject()-&gt;getEntity();</span>
-<span class="x">  $node-&gt;set(&#39;promote&#39;, (int) $form_state-&gt;getValue(&#39;tamu_promote&#39;));</span>
-<span class="x">  $node-&gt;save();</span>
-<span class="x">}</span>
-</pre></div>
-</div>
+          <section id="restricting-access-with-ip-embargo">
+<h1>Restricting Access with IP Embargo<a class="headerlink" href="#restricting-access-with-ip-embargo" title="Link to this heading">¶</a></h1>
+<p>Archipelago can restrict an ADO’s media to visitors on a particular network range while leaving its
+metadata public to everyone. We use this for objects whose media lives in Avalon and is licensed for
+on-campus viewing only.</p>
+<p>This uses Archipelago’s built-in metadata-driven embargo with the IP bypass option. No custom module
+is needed. See also the upstream <a class="reference external" href="https://docs.archipelago.nyc/1.6.0/embargo/">Archipelago embargo documentation</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>After checking or unchecking the box and saving, the Search API Solr
-index must pick up the change. This usually happens within a few minutes
-via cron. To force it immediately go to
-<strong>Configuration → Search API → [your index] → Queue all items → Index now</strong>.</p>
+<p>The behavior described here was verified against the <code class="code docutils literal notranslate"><span class="pre">format_strawberryfield</span></code> module source
+(<code class="code docutils literal notranslate"><span class="pre">src/EmbargoResolver.php</span></code>), which differs from the 1.6.0 documentation in a few places. Where
+the two disagree, this page follows the source.</p>
 </div>
-</section>
-<section id="solr-index">
-<h2>Solr Index<a class="headerlink" href="#solr-index" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">promote</span></code> field must be present in the Search API index for the view
-filters to work.</p>
-<ol class="arabic simple">
-<li><p>Go to <strong>Configuration → Search API → [index] → Fields</strong>.</p></li>
-<li><p>Confirm <code class="docutils literal notranslate"><span class="pre">Promoted</span> <span class="pre">to</span> <span class="pre">front</span> <span class="pre">page</span></code> is listed (machine name <code class="docutils literal notranslate"><span class="pre">promote</span></code>,
-type <code class="docutils literal notranslate"><span class="pre">Integer</span></code>).</p></li>
-<li><p>If it is missing, click <strong>Add fields</strong>, find it under <em>Content</em>, add it,
-save, and re-index.</p></li>
-</ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You may see the message <em>“Your config-set contains manually added
-customizations.”</em> after adding this field. This is harmless — it simply
-means the Solr config was modified through the UI rather than regenerated
-from scratch. The field will continue to work correctly.</p>
+<p>Embargo is not an access control list. An embargoed ADO is still a published node. Its page loads
+for everyone, it still appears in search and browse, and its metadata exports stay open. Only
+viewers and files are withheld. Read <a class="reference internal" href="#what-ip-embargo-does-not-cover">What IP Embargo Does Not Cover</a> before promising a depositor
+that something is restricted.</p>
 </div>
-</section>
-<section id="views">
-<h2>Views<a class="headerlink" href="#views" title="Link to this heading">¶</a></h2>
-<section id="featured-collections">
-<h3>Featured Collections<a class="headerlink" href="#featured-collections" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p><strong>View machine name:</strong> <code class="docutils literal notranslate"><span class="pre">solr_search_collections</span></code></p></li>
-<li><p><strong>Display:</strong> a dedicated Block display within the collections view</p></li>
-<li><p><strong>Filter:</strong> <code class="docutils literal notranslate"><span class="pre">Content</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">Digital</span> <span class="pre">Object</span> <span class="pre">Collection</span></code> AND <code class="docutils literal notranslate"><span class="pre">promote</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
-<li><p><strong>Row style:</strong> Content rendered in the <code class="docutils literal notranslate"><span class="pre">digital_object_with_thumbnail_for_grid</span></code>
-display mode</p></li>
-<li><p><strong>Block visibility:</strong> restricted to <code class="docutils literal notranslate"><span class="pre">&lt;front&gt;</span></code></p></li>
-</ul>
-</section>
-<section id="featured-works">
-<h3>Featured Works<a class="headerlink" href="#featured-works" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p><strong>View machine name:</strong> <code class="docutils literal notranslate"><span class="pre">duplicate_of_collections</span></code></p></li>
-<li><p><strong>Display:</strong> Block display</p></li>
-<li><p><strong>Filter:</strong> <code class="docutils literal notranslate"><span class="pre">Content</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">Digital</span> <span class="pre">Object</span></code> AND <code class="docutils literal notranslate"><span class="pre">promote</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
-<li><p><strong>Row style:</strong> Content rendered in the <code class="docutils literal notranslate"><span class="pre">digital_object_with_thumbnail_for_grid</span></code>
-display mode</p></li>
-<li><p><strong>Block visibility:</strong> restricted to <code class="docutils literal notranslate"><span class="pre">&lt;front&gt;</span></code></p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">custom_frontpage</span></code> view (path <code class="docutils literal notranslate"><span class="pre">/node</span></code>) also filters on
-<code class="docutils literal notranslate"><span class="pre">promote</span> <span class="pre">=</span> <span class="pre">1</span></code>. To prevent promoted Digital Objects from rendering there
-in full-node mode, that view has a filter excluding the <code class="docutils literal notranslate"><span class="pre">digital_object</span></code>
-content type. If you see a promoted item appearing in an unexpected place,
-check that view’s filter criteria.</p>
-</div>
-</section>
-</section>
-<section id="card-masonry-rendering">
-<h2>Card / Masonry Rendering<a class="headerlink" href="#card-masonry-rendering" title="Link to this heading">¶</a></h2>
-<p>Both sections share the same card and masonry layout used by the collection
-membership grid.</p>
-<section id="display-mode">
-<h3>Display mode<a class="headerlink" href="#display-mode" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">digital_object_with_thumbnail_for_grid</span></code> display mode renders each
-node using:</p>
-<ul>
-<li><p><strong>DS layout:</strong> <code class="docutils literal notranslate"><span class="pre">ds-1col</span></code></p></li>
-<li><p><strong>Theme template:</strong>
-<code class="docutils literal notranslate"><span class="pre">web/themes/custom/tamu_theme/templates/node/ds-1col--node-digital-object-with-thumbnail-for-grid.html.twig</span></code></p>
-<p>This template outputs a <code class="docutils literal notranslate"><span class="pre">.tamu-card</span></code> wrapper with a thumbnail image
-region and a title/body region. The thumbnail is produced by the
-Strawberry Field formatter, which calls the
-<strong>tamu_custom_simple_card_thumbnail</strong> metadata display Twig template
-(stored in Archipelago’s metadata display system, not in the theme file
-system).</p>
-</li>
-</ul>
-</section>
-<section id="thumbnail-template">
-<h3>Thumbnail template<a class="headerlink" href="#thumbnail-template" title="Link to this heading">¶</a></h3>
-<p>Location (in Archipelago’s metadata display UI, not on disk):</p>
-<blockquote>
-<div><p><strong>tamu_custom_simple_card_thumbnail</strong></p>
-</div></blockquote>
-<p>This template builds a IIIF Image API URL from the node’s JSON data and
-renders a plain <code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> tag. The image size is controlled by the
-<code class="docutils literal notranslate"><span class="pre">iiif_size</span></code> variable at the top of that template (e.g. <code class="docutils literal notranslate"><span class="pre">pct:25</span></code> for
-25 % of the full image width).</p>
-</section>
-<section id="masonry-css">
-<h3>Masonry CSS<a class="headerlink" href="#masonry-css" title="Link to this heading">¶</a></h3>
-<p>The masonry layout is applied by
-<code class="docutils literal notranslate"><span class="pre">web/themes/custom/tamu_theme/css/cards.css</span></code>.</p>
-<p>The view’s unformatted list template must wrap each row in a plain <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>
-for the CSS columns layout to work correctly in Firefox:</p>
-<ul class="simple">
-<li><p><strong>Featured Collections template:</strong>
-<code class="docutils literal notranslate"><span class="pre">templates/views/views-view-unformatted--solr-search-collections.html.twig</span></code></p></li>
-<li><p><strong>Featured Works template:</strong>
-<code class="docutils literal notranslate"><span class="pre">templates/views/views-view-unformatted--duplicate-of-collections.html.twig</span></code></p></li>
-</ul>
-<p>Both templates have the same structure:</p>
-<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="x">&lt;div class=&quot;tamu-cards-grid w-100&quot;&gt;</span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">row</span> <span class="k">in</span> <span class="nv">rows</span> <span class="cp">%}</span>
-<span class="x">    &lt;div&gt;</span><span class="cp">{{</span> <span class="nv">row.content</span> <span class="cp">}}</span><span class="x">&lt;/div&gt;</span>
-<span class="x">  </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
-<span class="x">&lt;/div&gt;</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">tamu-cards-grid</span></code> class triggers the CSS columns grid. Without the
-inner <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> wrapper, Firefox renders all cards in a single row instead
-of columns.</p>
-</section>
-</section>
-<section id="adding-a-featured-item">
-<h2>Adding a Featured Item<a class="headerlink" href="#adding-a-featured-item" title="Link to this heading">¶</a></h2>
-<section id="collections">
-<h3>Collections<a class="headerlink" href="#collections" title="Link to this heading">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Edit the <strong>Digital Object Collection</strong> node.</p></li>
-<li><p>In the <strong>Advanced</strong> sidebar, check <strong>Featured on front page</strong>.</p></li>
-<li><p>Save.</p></li>
-<li><p>Wait for Solr to re-index (or force it manually).</p></li>
-<li><p>The collection will appear in the <strong>Featured Collections</strong> block on the
-front page.</p></li>
-</ol>
-</section>
-<section id="digital-objects-works">
-<h3>Digital Objects (Works)<a class="headerlink" href="#digital-objects-works" title="Link to this heading">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Edit the <strong>Digital Object</strong> node.</p></li>
-<li><p>In the <strong>Advanced</strong> sidebar, check <strong>Featured on front page</strong>.</p></li>
-<li><p>Save.</p></li>
-<li><p>Wait for Solr to re-index (or force it manually).</p></li>
-<li><p>The item will appear in the <strong>Featured Works</strong> block on the front page.</p></li>
-</ol>
-</section>
-</section>
-<section id="removing-a-featured-item">
-<h2>Removing a Featured Item<a class="headerlink" href="#removing-a-featured-item" title="Link to this heading">¶</a></h2>
-<p>Uncheck <strong>Featured on front page</strong> on the node edit form and save.
-The item will disappear from the front page after the next Solr index cycle.</p>
-</section>
-<section id="relevant-file-locations">
-<h2>Relevant File Locations<a class="headerlink" href="#relevant-file-locations" title="Link to this heading">¶</a></h2>
+<section id="how-the-embargo-flag-works">
+<h2>How the Embargo Flag Works<a class="headerlink" href="#how-the-embargo-flag-works" title="Link to this heading">¶</a></h2>
+<p>Embargo settings name a single flat, top-level key in the ADO’s JSON. It is a plain key name, not a
+JMESPath expression, so it cannot point at a nested value.</p>
+<p>The value stored under that key decides what happens, and its <strong>JSON type matters as much as its
+content</strong>:</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 40.0%" />
-<col style="width: 60.0%" />
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>File</p></th>
-<th class="head"><p>Purpose</p></th>
+<tr class="row-odd"><th class="head"><p>Value under the key</p></th>
+<th class="head"><p>Effect</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tamu_theme/tamu_theme.theme</span></code></p></td>
-<td><p>Promote checkbox hooks and submit handler</p></td>
+<tr class="row-even"><td><p>Key is absent</p></td>
+<td><p>No embargo. The object is public.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tamu_theme/css/cards.css</span></code></p></td>
-<td><p>Masonry grid and card image styles</p></td>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">null</span></code>, <code class="code docutils literal notranslate"><span class="pre">false</span></code>, <code class="code docutils literal notranslate"><span class="pre">0</span></code>, <code class="code docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, or a blank cell</p></td>
+<td><p>No embargo. The object is public.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tamu_theme/templates/node/ds-1col--node-digital-object-with-thumbnail-for-grid.html.twig</span></code></p></td>
-<td><p>Card HTML structure</p></td>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">true</span></code> (boolean) or <code class="code docutils literal notranslate"><span class="pre">1</span></code> (integer)</p></td>
+<td><p>Embargoed. The visitor’s IP is checked against the site-wide bypass list. <strong>This is the shape TAMU uses.</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tamu_theme/templates/views/views-view-unformatted--solr-search-collections.html.twig</span></code></p></td>
-<td><p>Featured Collections masonry wrapper</p></td>
+<tr class="row-odd"><td><p>An array of ranges, e.g. <code class="code docutils literal notranslate"><span class="pre">[&quot;128.194.0.0/16&quot;]</span></code></p></td>
+<td><p>Embargoed. The visitor’s IP is checked against that per-object list.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tamu_theme/templates/views/views-view-unformatted--duplicate-of-collections.html.twig</span></code></p></td>
-<td><p>Featured Works masonry wrapper</p></td>
-</tr>
-<tr class="row-odd"><td><p>Archipelago metadata display: <code class="docutils literal notranslate"><span class="pre">tamu_custom_simple_card_thumbnail</span></code></p></td>
-<td><p>IIIF thumbnail URL builder (managed in Drupal UI)</p></td>
+<tr class="row-even"><td><p>Any string, including <code class="code docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>, <code class="code docutils literal notranslate"><span class="pre">&quot;T&quot;</span></code>, or a URL</p></td>
+<td><p>Embargoed for <strong>everyone, permanently</strong>, on campus included. Never do this.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<section id="why-strings-break-everything">
+<h3>Why Strings Break Everything<a class="headerlink" href="#why-strings-break-everything" title="Link to this heading">¶</a></h3>
+<p>A string value is passed straight to the IP matcher:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">elseif (is_string($jsondata[$ip_embargo_key])) {</span>
+<span class="x">  $ip_embargo = IpUtils::checkIp4($current_ip, trim($jsondata[$ip_embargo_key]));</span>
+<span class="x">  $noembargo = $noembargo &amp;&amp; $ip_embargo;   // -&gt; FALSE</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">checkIp4()</span></code> cannot parse <code class="code docutils literal notranslate"><span class="pre">&quot;T&quot;</span></code>, <code class="code docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code>, or a URL, so it returns false and the object is
+embargoed. Nothing downstream can undo that, including a request from a campus address. This is why the
+flag must be written as a bare <code class="code docutils literal notranslate"><span class="pre">1</span></code> and never as a quoted string.</p>
+</section>
+<section id="why-we-use-a-boolean-or-integer-flag">
+<h3>Why We Use a Boolean or Integer Flag<a class="headerlink" href="#why-we-use-a-boolean-or-integer-flag" title="Link to this heading">¶</a></h3>
+<p>A <code class="code docutils literal notranslate"><span class="pre">true</span></code> or <code class="code docutils literal notranslate"><span class="pre">1</span></code> value skips the string branch entirely and is evaluated against the
+site-wide list of campus ranges:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">if ($this-&gt;embargoConfig-&gt;get(&#39;global_ip_bypass_enabled&#39;)) {</span>
+<span class="x">  $global_ip_embargo = ((is_bool($v) &amp;&amp; $v == TRUE) || $v == &quot;1&quot; || $v == 1);</span>
+<span class="x">  if ($global_ip_embargo) {</span>
+<span class="x">    $ip_embargo = $this-&gt;evaluateGlobalIPembargo($current_ip);</span>
+<span class="x">    $noembargo = $noembargo &amp;&amp; $ip_embargo;</span>
+<span class="x">  }</span>
+</pre></div>
+</div>
+<p>Campus ranges then live in <strong>one</strong> configuration field instead of being copied into every object, which
+is what we want for a list that changes over time.</p>
+<p>Two consequences of taking this branch:</p>
+<ul class="simple">
+<li><p><strong>Global IP Range Bypass Mode does not apply.</strong> The three-option dropdown
+(<code class="code docutils literal notranslate"><span class="pre">replace</span></code> / <code class="code docutils literal notranslate"><span class="pre">additive</span></code> / <code class="code docutils literal notranslate"><span class="pre">local</span></code>) is only reached when the ADO itself held real IP
+values. With a boolean or integer flag the mode is never read, so its value does not matter.</p></li>
+<li><p><strong>The modes could only ever tighten access anyway.</strong> By the time they run, the local list has already
+been combined with <code class="code docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, so an “additive” list cannot widen access.</p></li>
+</ul>
+</section>
+</section>
+<section id="flagging-an-object-during-ingest">
+<h2>Flagging an Object During Ingest<a class="headerlink" href="#flagging-an-object-during-ingest" title="Link to this heading">¶</a></h2>
+<section id="the-csv-column">
+<h3>The CSV Column<a class="headerlink" href="#the-csv-column" title="Link to this heading">¶</a></h3>
+<p>Add an <code class="code docutils literal notranslate"><span class="pre">embargo_ip_bypass</span></code> column to the AMI spreadsheet:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">1</span></code> means campus only</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">0</span></code> or blank means public</p></li>
+</ul>
+</section>
+<section id="the-ami-ingest-template">
+<h3>The AMI Ingest Template<a class="headerlink" href="#the-ami-ingest-template" title="Link to this heading">¶</a></h3>
+<p>In <code class="code docutils literal notranslate"><span class="pre">twig/metadatadisplays/AMI_Ingest_JSON_Template.twig.html</span></code>, the key is emitted after
+<code class="code docutils literal notranslate"><span class="pre">related_url</span></code>:</p>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="c">{# bare 1/null - do NOT use |json_encode|raw here like the keys around it. A quoted string is</span>
+<span class="c">   passed to IpUtils::checkIp4(), fails to parse, and embargoes the object for everyone including</span>
+<span class="c">   on campus. CSV column: 1 = campus only, 0 or blank = public. #}</span>
+<span class="x">&quot;embargo_ip_bypass&quot;: </span><span class="cp">{{</span> <span class="nv">data.embargo_ip_bypass</span><span class="o">|</span><span class="nf">default</span><span class="o">(</span><span class="s1">&#39;&#39;</span><span class="o">)|</span><span class="nf">trim</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="o">?</span> <span class="s1">&#39;1&#39;</span> <span class="o">:</span> <span class="s1">&#39;null&#39;</span> <span class="cp">}}</span><span class="x">,</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This line deliberately breaks the <code class="code docutils literal notranslate"><span class="pre">|json_encode|raw</span></code> pattern used by every other key in that
+template. “Fixing” it to match its neighbors produces a quoted string, which locks every flagged
+object permanently. The comment above the line is there to stop exactly that.</p>
+</div>
+</section>
+<section id="when-the-template-does-not-run">
+<h3>When the Template Does Not Run<a class="headerlink" href="#when-the-template-does-not-run" title="Link to this heading">¶</a></h3>
+<p>Some AMI sets are configured for direct column-to-key mapping. In those sets the ADO JSON keys are the
+CSV column headers themselves, the Twig ingest template never runs, and raw cell values pass through
+untouched. A <code class="code docutils literal notranslate"><span class="pre">T</span></code> in the spreadsheet becomes the JSON string <code class="code docutils literal notranslate"><span class="pre">&quot;T&quot;</span></code>, which permanently
+embargoes the object.</p>
+<p>Before relying on the template, confirm which kind of set you are working with, and check the resulting
+JSON of at least one object. AMI does coerce some types on the direct path (a <code class="code docutils literal notranslate"><span class="pre">date_issued</span></code> of
+<code class="code docutils literal notranslate"><span class="pre">1953</span></code> arrives as a JSON integer), which is another reason <code class="code docutils literal notranslate"><span class="pre">1</span></code> rather than <code class="code docutils literal notranslate"><span class="pre">T</span></code> or
+<code class="code docutils literal notranslate"><span class="pre">true</span></code> is the safest cell value.</p>
+</section>
+</section>
+<section id="configuring-embargo-in-drupal">
+<h2>Configuring Embargo in Drupal<a class="headerlink" href="#configuring-embargo-in-drupal" title="Link to this heading">¶</a></h2>
+<p>The settings live at <code class="code docutils literal notranslate"><span class="pre">/admin/config/archipelago/metadatabased_Embargo</span></code>. The form turns embargo
+enforcement on at the formatter level and names the JSON keys it acts on:</p>
+<img alt="The Archipelago metadata based embargo settings form, showing the two JSON key fields, the Embargo Direct File Paths and Enable Global IP Range Bypass checkboxes, the bypass mode dropdown, and the global IP ranges box" src="_static/images/archipelago-embargo-settings.png" />
+<p>Reading the form from top to bottom, these are the values the test site currently holds:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34.0%" />
+<col style="width: 30.0%" />
+<col style="width: 36.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Why</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Is Embargo checking and enforcing globally active?</p></td>
+<td><p>Checked</p></td>
+<td><p>The master switch. Nothing below it is consulted while it is off.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JSON key that contains an embargo lift date</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">date_embargo_lift</span></code></p></td>
+<td><p>Named on the form, but date embargo is not part of this work. The key is inert unless an ADO actually carries it, in which case that object would be embargoed until the date passes.</p></td>
+</tr>
+<tr class="row-even"><td><p>JSON key that contains an allowed to bypass embargo through a visitor IP or IP range</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">embargo_ip_bypass</span></code></p></td>
+<td><p>The key this whole feature turns on. It must match the key in the ingest template character for character.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Embargo Direct File Paths</p></td>
+<td><p>Checked</p></td>
+<td><p>The setting that actually refuses a download or stream to someone who knows the direct file path. The form notes it has performance implications for streamed media, and that hiding file-based viewers remains the site administrator’s job.</p></td>
+</tr>
+<tr class="row-even"><td><p>Enable Global IP Range Bypass Settings</p></td>
+<td><p>Checked</p></td>
+<td><p>Without it, a boolean or integer flag is evaluated against nothing and the object stays public.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global IP Range Bypass Mode</p></td>
+<td><p>Global IP Range will override any granular ADO values</p></td>
+<td><p>A required field, but not read for boolean or integer flags. It only changes behavior for ADOs that carry IP values of their own.</p></td>
+</tr>
+<tr class="row-even"><td><p>Global IP addresses and ranges embargo bypass</p></td>
+<td><p>Three ranges, described below</p></td>
+<td><p>The allow list.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note the key naming in the screenshot. The help text under <strong>Enable Global IP Range Bypass
+Settings</strong> gives its example as <code class="code docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;ip_embargo_bypass&quot;:</span> <span class="pre">true</span> <span class="pre">}</span></code>, the field above it is set to
+<code class="code docutils literal notranslate"><span class="pre">embargo_ip_bypass</span></code>, and the module’s own config schema defaults to <code class="code docutils literal notranslate"><span class="pre">ip_embargoed</span></code>.
+That is three different names for one key. Only the value typed into the field matters, and an ADO
+whose JSON uses any other spelling is simply public. See <a class="reference internal" href="#ways-embargo-silently-does-nothing">Ways Embargo Silently Does Nothing</a>.</p>
+</div>
+<section id="the-campus-ip-ranges">
+<h3>The Campus IP Ranges<a class="headerlink" href="#the-campus-ip-ranges" title="Link to this heading">¶</a></h3>
+<p><strong>Global IP addresses and ranges embargo bypass</strong> takes one CIDR range per line. The test site currently
+holds:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>10.0.0.0/8
+128.194.0.0/16
+172.31.0.0/16
+</pre></div>
+</div>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Range</p></th>
+<th class="head"><p>What it is</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">10.0.0.0/8</span></code></p></td>
+<td><p>RFC 1918 private space. On our Kubernetes deployment this covers the cluster’s own pod and ingress addresses, including the <code class="code docutils literal notranslate"><span class="pre">10.244.217.104</span></code> that dblog reports as the visitor Hostname. A testing entry, not a campus range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">128.194.0.0/16</span></code></p></td>
+<td><p>The public Texas A&amp;M campus range. This is the entry that does the intended work.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">172.31.0.0/16</span></code></p></td>
+<td><p>RFC 1918 private space used for internal and VPN-style addressing. Also a testing entry rather than a public campus range.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This list must not go to production as it stands. Two of its three ranges are private space, and
+while the reverse proxy is still unconfigured, Drupal compares each request against the ingress
+address rather than the visitor’s. That address falls inside <code class="code docutils literal notranslate"><span class="pre">10.0.0.0/8</span></code>, so every request
+matches the bypass list and no object is restricted from anyone. The form reads as correctly
+configured while enforcing nothing.</p>
+<p>A production list should hold only public campus ranges, confirmed with network services, and should
+be set only once the reverse proxy work in <a class="reference internal" href="#prerequisites-for-production">Prerequisites for Production</a> is done. Until then, treat
+the ranges above as scaffolding for testing.</p>
+</div>
+<p>At <code class="code docutils literal notranslate"><span class="pre">/admin/config/archipelago/metadataexpose</span></code>, tick <strong>Return 401 in case of an Embargo</strong> on
+<code class="code docutils literal notranslate"><span class="pre">iiifmanifest</span></code>, <code class="code docutils literal notranslate"><span class="pre">iiifmanifestv2</span></code>, <code class="code docutils literal notranslate"><span class="pre">iiifmanifest3cws</span></code>, and
+<code class="code docutils literal notranslate"><span class="pre">iiifmanifest3collection</span></code>. Leave <code class="code docutils literal notranslate"><span class="pre">mods</span></code>, <code class="code docutils literal notranslate"><span class="pre">dc</span></code>, and <code class="code docutils literal notranslate"><span class="pre">geojson</span></code> open so metadata
+keeps exporting.</p>
+<p>On the display mode formatters, tick <strong>Hide the Viewer in the presence of an Embargo</strong>. There is also an
+<code class="code docutils literal notranslate"><span class="pre">embargo_json_key_source</span></code> setting, which swaps in an alternate file set when an object is embargoed
+(a placeholder image, for example) instead of hiding the viewer altogether.</p>
+</section>
+</section>
+<section id="showing-a-campus-only-notice">
+<h2>Showing a Campus-Only Notice<a class="headerlink" href="#showing-a-campus-only-notice" title="Link to this heading">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">Object_Description.twig.html</span></code> and <code class="code docutils literal notranslate"><span class="pre">Object</span> <span class="pre">Display</span> <span class="pre">Clover.twig.html</span></code> display a campus-only
+notice gated on <code class="code docutils literal notranslate"><span class="pre">data_embargo.embargoed</span></code>. In <code class="code docutils literal notranslate"><span class="pre">Object_Description</span></code>, the notice sits above the
+tab content, between <code class="code docutils literal notranslate"><span class="pre">&lt;/nav&gt;</span></code> and <code class="code docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;tab-content&quot;&gt;</span></code>, so it appears whichever tab is
+active.</p>
+<p>Both templates already carry this flag, which hides the downloads dropdown:</p>
+<div class="highlight-twig notranslate"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">file_download_restricted</span> <span class="o">=</span> <span class="kp">false</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">data_embargo.embargoed</span> <span class="o">==</span> <span class="kp">true</span> <span class="cp">%}</span>
+<span class="x">   </span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">file_download_restricted</span> <span class="o">=</span> <span class="kp">true</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>That flag only hides links. It does not block the URLs behind them. Refusing the download itself is
+the job of <strong>Embargo Direct File Paths</strong> in the Drupal settings above.</p>
+</div>
+</section>
+<section id="roles-that-bypass-embargo">
+<h2>Roles That Bypass Embargo<a class="headerlink" href="#roles-that-bypass-embargo" title="Link to this heading">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">EmbargoResolver.php</span></code> short-circuits before any IP logic for:</p>
+<ul class="simple">
+<li><p>the <code class="code docutils literal notranslate"><span class="pre">administrator</span></code> role, which is never embargoed under any circumstances</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">see</span> <span class="pre">strawberryfield</span> <span class="pre">embargoed</span> <span class="pre">ados</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">see</span> <span class="pre">strawberryfield</span> <span class="pre">time</span> <span class="pre">embargoed</span> <span class="pre">ados</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">see</span> <span class="pre">strawberryfield</span> <span class="pre">IP</span> <span class="pre">embargoed</span> <span class="pre">ados</span></code></p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always test logged out or in a private window. Testing as an administrator shows content
+unrestricted regardless of your IP, which looks identical to a broken embargo.</p>
+</div>
+</section>
+<section id="what-ip-embargo-covers">
+<h2>What IP Embargo Covers<a class="headerlink" href="#what-ip-embargo-covers" title="Link to this heading">¶</a></h2>
+<p>The embargo resolver is consulted by:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">IiifBinaryController</span></code>, for direct file downloads, but only when <strong>Embargo Direct File Paths</strong> is on</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">MetadataExposeDisplayController</span></code>, for the <code class="code docutils literal notranslate"><span class="pre">/do/…</span></code> endpoints, but only where <strong>Return 401 in case of an Embargo</strong> is ticked for that expose config</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">MetadataAPIController</span></code> and <code class="code docutils literal notranslate"><span class="pre">MetadataDisplaySearchController</span></code></p></li>
+<li><p>the field formatters for Video, Audio, Image, Media, PDF, Paged, Mirador, Universal Viewer, 3D, Map, WARC, Pannellum, Citation, and MetadataTwig</p></li>
+<li><p>the <code class="code docutils literal notranslate"><span class="pre">ADOAccess</span></code> Views argument validator, which is opt-in</p></li>
+</ul>
+</section>
+<section id="what-ip-embargo-does-not-cover">
+<h2>What IP Embargo Does Not Cover<a class="headerlink" href="#what-ip-embargo-does-not-cover" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gap</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Search index</p></td>
+<td><p>The module feeding Solr has no embargo awareness. <code class="code docutils literal notranslate"><span class="pre">StrawberryFlavorContentAccess</span></code> uses Drupal node access grants, not embargo. Embargoed objects are still published nodes, so they appear in search and browse, and extracted text is indexed regardless.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IIIF Content Search</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">IiifContentSearchController</span></code> injects the embargo resolver but never calls it.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cantaloupe</p></td>
+<td><p>If the IIIF image server sits on a public hostname, tiles can be fetched directly from it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Metadata exports</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">mods.xml</span></code>, <code class="code docutils literal notranslate"><span class="pre">dc.xml</span></code>, GeoJSON, and OAI-PMH stay open by design. Anything they contain, such as an Avalon URL in <code class="code docutils literal notranslate"><span class="pre">related_url</span></code>, is published to harvesters.</p></td>
+</tr>
+<tr class="row-even"><td><p>Node access</p></td>
+<td><p>Not ACL. The object page still loads for everyone.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IPv6</p></td>
+<td><p>The matcher is <code class="code docutils literal notranslate"><span class="pre">IpUtils::checkIp4()</span></code>. A campus visitor arriving over IPv6 is treated as off campus.</p></td>
+</tr>
+<tr class="row-even"><td><p>Reverse proxy</p></td>
+<td><p><code class="code docutils literal notranslate"><span class="pre">getClientIp()</span></code> returns the proxy’s address unless Drupal’s <code class="code docutils literal notranslate"><span class="pre">reverse_proxy</span></code> settings are configured.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Page cache</p></td>
+<td><p>Disabled for anonymous visitors on any object carrying the embargo key.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The search gap and the ingest decision compound each other. If an ADO carries a text derivative, such as an
+HTML capture of the Avalon page it was built from, that text is indexed and searchable even while the object
+is embargoed. Where the media itself is restricted, the safer choice is not to ingest derivatives of it at
+all rather than to ingest them and rely on embargo.</p>
+</div>
+</section>
+<section id="ways-embargo-silently-does-nothing">
+<h2>Ways Embargo Silently Does Nothing<a class="headerlink" href="#ways-embargo-silently-does-nothing" title="Link to this heading">¶</a></h2>
+<p>Three misconfigurations fail <strong>open</strong>, with no error and no log entry, so the site looks exactly like a
+correctly configured one that happens to have nothing restricted:</p>
+<ol class="arabic simple">
+<li><p><strong>The key name does not match.</strong> The upstream example uses <code class="code docutils literal notranslate"><span class="pre">embargo_ip_bypass</span></code> while the
+module’s config schema defaults to <code class="code docutils literal notranslate"><span class="pre">ip_embargoed</span></code>. If the settings string and the JSON key
+differ by a single character, every object is public.</p></li>
+<li><p><strong>Enable Global IP Range Bypass Settings is unticked.</strong> A boolean <code class="code docutils literal notranslate"><span class="pre">true</span></code> then matches neither
+the array branch nor the string branch, nothing is evaluated, and the object is public.</p></li>
+<li><p><strong>The value is falsy.</strong> <code class="code docutils literal notranslate"><span class="pre">false</span></code>, <code class="code docutils literal notranslate"><span class="pre">0</span></code>, <code class="code docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, or a blank cell all read as “no embargo”.</p></li>
+</ol>
+<p>One misconfiguration fails <strong>closed</strong>: any non-IP string locks the object to everyone, as described in
+<a class="reference internal" href="#how-the-embargo-flag-works">How the Embargo Flag Works</a>.</p>
+</section>
+<section id="testing-an-embargoed-object">
+<h2>Testing an Embargoed Object<a class="headerlink" href="#testing-an-embargoed-object" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Log out, or use a private window. An administrator bypasses everything.</p></li>
+<li><p>Confirm the ADO JSON contains <code class="code docutils literal notranslate"><span class="pre">&quot;embargo_ip_bypass&quot;:</span> <span class="pre">1</span></code>, unquoted.</p></li>
+<li><p>Set the global bypass addresses to <code class="code docutils literal notranslate"><span class="pre">192.0.2.0/24</span></code>, a range that matches nobody. Expect the
+campus-only notice, a hidden viewer, and a <strong>401</strong> from
+<code class="code docutils literal notranslate"><span class="pre">/do/{uuid}/metadata/iiifmanifest/default.jsonld</span></code>.</p></li>
+<li><p>Replace it with the address Drupal actually sees for your client, clear caches, and confirm everything
+renders normally.</p></li>
+<li><p>Confirm that a control object without the flag is unaffected in both states.</p></li>
+<li><p>Confirm that a direct <code class="code docutils literal notranslate"><span class="pre">/do/{node}/file/{uuid}/download/{name}</span></code> URL returns 403 while embargoed.
+This requires <strong>Embargo Direct File Paths</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Metadata stays visible in every restricted case. That is by design, not a failed test. The 401 on the
+manifest is the cleanest pass or fail signal.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Nothing appears restricted.</strong> You are probably logged in as an administrator. Retest in a private
+window before changing any configuration.</p></li>
+<li><p><strong>An object is restricted even on campus.</strong> Check the ADO JSON for a quoted value. A string of any kind
+embargoes the object for everyone.</p></li>
+<li><p><strong>Do not draw conclusions while</strong> <code class="code docutils literal notranslate"><span class="pre">10.0.0.0/8</span></code> <strong>is in the bypass list.</strong> Campus WiFi NAT and
+container networks live in that range, so it matches the very addresses you are trying to test
+against, including the cluster’s own ingress. Remove it, or use <code class="code docutils literal notranslate"><span class="pre">192.0.2.0/24</span></code>, the RFC 5737
+documentation range, when you want a list that matches nobody. See <a class="reference internal" href="#the-campus-ip-ranges">The Campus IP Ranges</a>.</p></li>
+<li><p><strong>Find the IP Drupal is comparing against.</strong> Go to <code class="code docutils literal notranslate"><span class="pre">/admin/reports/dblog</span></code>, open any entry, and
+read <strong>Hostname</strong>. On our test site this showed <code class="code docutils literal notranslate"><span class="pre">10.244.217.104</span></code>, a Kubernetes pod address,
+meaning every request looked identical because Drupal was seeing the ingress rather than the visitor.</p></li>
+<li><p><strong>Never put the proxy address in the bypass list.</strong> Since every request appears to come from it, doing
+so grants campus access to the entire internet while looking like the feature works.</p></li>
+<li><p><strong>An object display template will not render on a test site.</strong> Check for Twig extensions the test site does
+not have. A missing <strong>function</strong>, such as <code class="code docutils literal notranslate"><span class="pre">allmaps_annotation_url</span></code>, is a compile-time error that fails
+the whole template and cannot be guarded with <code class="code docutils literal notranslate"><span class="pre">{%</span> <span class="pre">if</span> <span class="pre">%}</span></code>; set the value to <code class="code docutils literal notranslate"><span class="pre">null</span></code> for testing
+instead. A missing <code class="code docutils literal notranslate"><span class="pre">attach_library()</span></code> target, such as <code class="code docutils literal notranslate"><span class="pre">strawberryfield_clover</span></code>, is only a
+warning: the page renders and the Clover JS does not initialize, which is harmless for embargo testing.</p></li>
+</ul>
+</section>
+<section id="prerequisites-for-production">
+<h2>Prerequisites for Production<a class="headerlink" href="#prerequisites-for-production" title="Link to this heading">¶</a></h2>
+<p>These items are still open, and IP embargo cannot be trusted in production until they are resolved:</p>
+<ol class="arabic simple">
+<li><p><strong>Reverse proxy.</strong> <code class="code docutils literal notranslate"><span class="pre">$settings['reverse_proxy']</span></code> and <code class="code docutils literal notranslate"><span class="pre">$settings['reverse_proxy_addresses']</span></code>
+must be set in <code class="code docutils literal notranslate"><span class="pre">settings.php</span></code>, and the ingress must forward <code class="code docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code>. Until the
+dblog <strong>Hostname</strong> shows real client addresses, no IP rule can work.</p></li>
+<li><p><strong>The campus CIDR list.</strong> Available from network services, or from the EZproxy and e-resources
+configuration, which usually maintains one already for vendor licensing. Decide explicitly whether
+VPN, branch campuses, and residence halls count as on campus.</p></li>
+<li><p><strong>IPv6.</strong> Confirm that campus clients present IPv4 addresses. If they do not, this feature cannot work
+as designed.</p></li>
+<li><p><strong>How Avalon itself restricts the item.</strong> If Avalon’s restriction is login-based rather than IP-based,
+mirroring it as an IP rule is wrong in both directions.</p></li>
+<li><p><strong>Whether restricted items should be ingested at all.</strong> Not ingesting a poster image and page capture
+is simpler and safer than ingesting them and then relying on embargo.</p></li>
+</ol>
+</section>
+<section id="checking-avalon-s-access-state">
+<h2>Checking Avalon’s Access State<a class="headerlink" href="#checking-avalon-s-access-state" title="Link to this heading">¶</a></h2>
+<p>Avalon exposes an item’s access state in two ways:</p>
+<ol class="arabic simple">
+<li><p><strong>The HTTP status of its manifest.</strong> <code class="code docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/media_objects/&lt;id&gt;/manifest.json</span></code> returns <code class="code docutils literal notranslate"><span class="pre">401</span></code>
+when restricted and <code class="code docutils literal notranslate"><span class="pre">200</span></code> when public. This is only meaningful when requested from outside the
+allowed audience.</p></li>
+<li><p><strong>The</strong> <code class="code docutils literal notranslate"><span class="pre">Access</span> <span class="pre">Restrictions</span></code> <strong>entry inside the manifest metadata</strong>, for example
+<code class="code docutils literal notranslate"><span class="pre">&quot;This</span> <span class="pre">item</span> <span class="pre">is</span> <span class="pre">accessible</span> <span class="pre">by:</span> <span class="pre">the</span> <span class="pre">public.&quot;</span></code> This is authoritative, but only readable once you
+already have access.</p></li>
+</ol>
+<p>A reliable rule is that <code class="code docutils literal notranslate"><span class="pre">401</span></code> means restricted, and for <code class="code docutils literal notranslate"><span class="pre">200</span></code> you read the
+<code class="code docutils literal notranslate"><span class="pre">Access</span> <span class="pre">Restrictions</span></code> value. Verified samples: <code class="code docutils literal notranslate"><span class="pre">4b29b606w</span></code> returns 200 and is public, while
+<code class="code docutils literal notranslate"><span class="pre">41687h652</span></code> returns 401 and is restricted.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Twig cannot perform this check. No registered Archipelago Twig extension makes HTTP requests, so any
+manifest-based determination has to happen before ingest, while the spreadsheet is being prepared.</p>
 </div>
 </section>
 </section>
@@ -675,23 +883,23 @@ The item will disappear from the front page after the next Solr index cycle.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="11_ip-embargo.html">
+          <a class="next-page" href="998_add_url_alias.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Restricting Access with IP Embargo</div>
+                <div class="title">Add URL alias for a Node</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="09_precreated-hocr.html">
+          <a class="prev-page" href="10_featured-collections-and-works.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Uploading Pre-Created HOCR with Books</div>
+                <div class="title">Featured Collections and Featured Works</div>
                 
               </div>
             </a>
@@ -725,28 +933,31 @@ The item will disappear from the front page after the next Solr index cycle.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Featured Collections and Featured Works</a><ul>
-<li><a class="reference internal" href="#how-it-works">How It Works</a></li>
-<li><a class="reference internal" href="#the-promote-checkbox">The Promote Checkbox</a></li>
-<li><a class="reference internal" href="#solr-index">Solr Index</a></li>
-<li><a class="reference internal" href="#views">Views</a><ul>
-<li><a class="reference internal" href="#featured-collections">Featured Collections</a></li>
-<li><a class="reference internal" href="#featured-works">Featured Works</a></li>
+<li><a class="reference internal" href="#">Restricting Access with IP Embargo</a><ul>
+<li><a class="reference internal" href="#how-the-embargo-flag-works">How the Embargo Flag Works</a><ul>
+<li><a class="reference internal" href="#why-strings-break-everything">Why Strings Break Everything</a></li>
+<li><a class="reference internal" href="#why-we-use-a-boolean-or-integer-flag">Why We Use a Boolean or Integer Flag</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#card-masonry-rendering">Card / Masonry Rendering</a><ul>
-<li><a class="reference internal" href="#display-mode">Display mode</a></li>
-<li><a class="reference internal" href="#thumbnail-template">Thumbnail template</a></li>
-<li><a class="reference internal" href="#masonry-css">Masonry CSS</a></li>
+<li><a class="reference internal" href="#flagging-an-object-during-ingest">Flagging an Object During Ingest</a><ul>
+<li><a class="reference internal" href="#the-csv-column">The CSV Column</a></li>
+<li><a class="reference internal" href="#the-ami-ingest-template">The AMI Ingest Template</a></li>
+<li><a class="reference internal" href="#when-the-template-does-not-run">When the Template Does Not Run</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adding-a-featured-item">Adding a Featured Item</a><ul>
-<li><a class="reference internal" href="#collections">Collections</a></li>
-<li><a class="reference internal" href="#digital-objects-works">Digital Objects (Works)</a></li>
+<li><a class="reference internal" href="#configuring-embargo-in-drupal">Configuring Embargo in Drupal</a><ul>
+<li><a class="reference internal" href="#the-campus-ip-ranges">The Campus IP Ranges</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#removing-a-featured-item">Removing a Featured Item</a></li>
-<li><a class="reference internal" href="#relevant-file-locations">Relevant File Locations</a></li>
+<li><a class="reference internal" href="#showing-a-campus-only-notice">Showing a Campus-Only Notice</a></li>
+<li><a class="reference internal" href="#roles-that-bypass-embargo">Roles That Bypass Embargo</a></li>
+<li><a class="reference internal" href="#what-ip-embargo-covers">What IP Embargo Covers</a></li>
+<li><a class="reference internal" href="#what-ip-embargo-does-not-cover">What IP Embargo Does Not Cover</a></li>
+<li><a class="reference internal" href="#ways-embargo-silently-does-nothing">Ways Embargo Silently Does Nothing</a></li>
+<li><a class="reference internal" href="#testing-an-embargoed-object">Testing an Embargoed Object</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#prerequisites-for-production">Prerequisites for Production</a></li>
+<li><a class="reference internal" href="#checking-avalon-s-access-state">Checking Avalon’s Access State</a></li>
 </ul>
 </li>
 </ul>

@@ -6,6 +6,10 @@ Archipelago Digital Object (ADO) - any digital object or digital object collecti
 
 Archipelago Multi-Importer (AMI) - the module used to batch ingest ADOs into Archipelago using a spreadsheet.
 
+Embargo - a restriction that hides an ADO's viewers and files from some or all visitors while leaving its metadata public. Archipelago drives this from a key in the object's JSON, not from an access control list.
+
+IP embargo - an embargo that is lifted for visitors whose IP address falls inside a configured range, used at TAMU to make objects viewable on campus only. See :doc:`11_ip-embargo`.
+
 Element/Metadata element - a metadata concept (ie “subject”, “creator”).
 
 Field/Metadata field - the specific term used for a metadata concept in a repository (ie “dc.subject”, “dc.creator”).
