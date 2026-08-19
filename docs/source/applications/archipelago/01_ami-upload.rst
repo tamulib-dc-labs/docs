@@ -94,6 +94,15 @@ You can also link to media that is hosted online. This can be a IIIF link (any d
 
 If a digital object is made up of multiple files, list them all and separate them with semicolons.
 
+-------------------------------
+Restricting an object to campus
+-------------------------------
+
+If an object's media may only be viewed on campus, add an :code:`embargo_ip_bypass` column to the csv and put :code:`1` in it for those rows. Leave it blank, or use :code:`0`, for anything public. Metadata stays visible to everyone; the viewer and file downloads are withheld off campus.
+
+.. warning::
+    The cell must be exactly :code:`1`. Any other non-empty value, including :code:`T` or :code:`true`, either does nothing or locks the object to everyone permanently. Read :doc:`11_ip-embargo` before using this column.
+
 ---------------------
 Importing through AMI
 ---------------------
