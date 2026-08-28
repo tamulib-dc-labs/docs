@@ -122,11 +122,12 @@ Decision Tree
 Ground Rules for All Options
 -----------------------------
 
-- Must fit your job duties — some roles simply can't flex, and that's OK.
+- Must fit your job duties; some roles simply can't flex, and that's OK.
 - You must be in good standing (not under discipline, and your last review
   was at least "Meets Expectations"). Rare exceptions for the two one-off
   options require AUL + University Librarian approval.
-- None of these replace using Leave — they're for short, specific needs,
+- Typically not allowed until probationary status ends.
+- None of these replace using Leave; they're for short, specific needs,
   not ongoing absences.
 - Your supervisor can pause or end an arrangement anytime business needs
   require it.
@@ -137,7 +138,7 @@ While Working Flex or Remote, You're Expected To…
 - Reply within ~20 minutes to a direct message if you should be at your
   workstation (calendar open, no meeting, not at lunch).
 - Start on an assigned task within ~45 minutes of being asked.
-- Keep your calendar current and shared — block time and note why if
+- Keep your calendar current and shared. Block time and note why if
   you're unreachable during your schedule.
 - Be as available as if you were in the office, and come in when a
   business need requires it.
