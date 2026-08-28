@@ -81,13 +81,6 @@ Your 6 Options at a Glance
 Decision Tree
 -------------
 
-.. note::
-
-   Rendering this diagram requires the `sphinxcontrib-mermaid
-   <https://github.com/mgaitan/sphinxcontrib-mermaid>`_ extension. Add
-   ``"sphinxcontrib.mermaid"`` to the ``extensions`` list in your
-   ``conf.py`` (``pip install sphinxcontrib-mermaid``).
-
 .. mermaid::
 
    flowchart TD
