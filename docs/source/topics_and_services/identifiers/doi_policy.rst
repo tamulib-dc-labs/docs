@@ -1,3 +1,5 @@
+.. _doi-policy:
+
 ===========
 DOI Policy
 ===========
@@ -39,12 +41,14 @@ Registration Agency of Record
 
 The Libraries maintain an active institutional membership with
 **Crossref** and assign DOIs exclusively through that membership. Crossref
-membership carries binding obligations — most importantly, that every DOI
+membership carries binding obligations including most importantly, that every DOI
 resolve to a unique landing page carrying a full bibliographic citation,
 that the DOI be displayed on that page, and that the Libraries remain
 responsible for keeping the link current. Those obligations are the basis
 for most of the requirements below.
 
+
+.. _doi-why:
 
 Why We Assign DOIs
 ===================
@@ -56,7 +60,7 @@ commitment. Before a DOI is minted, the underlying reasoning is:
   citation link for its lifetime, independent of any particular URL,
   server migration, or platform change.
 * **Discoverability and reference linking.** Crossref DOIs plug content
-  into the scholarly citation graph — reference lists, indexing services,
+  into the scholarly citation graph. Reference lists, indexing services,
   and discovery layers rely on them to connect a citation to the work it
   points to.
 * **Meeting funder and publisher requirements.** Data-sharing mandates
@@ -72,6 +76,7 @@ Because that last point is a commitment, not a technical trick, a DOI is
 never minted purely because it was requested. It is minted because the
 content lives somewhere the Libraries control and intend to maintain.
 
+.. _doi-what:
 
 What We Assign DOIs To
 ========================
@@ -141,6 +146,7 @@ the OJS instance, the stewardship and landing-page requirements are met
 by construction: each article already has a stable, Libraries-controlled
 URL.
 
+.. _doi-stewardship:
 
 Stewardship Requirements
 ==========================
@@ -210,6 +216,7 @@ Roles and Responsibilities
   policy, consistent with Crossref's requirement that only the
   registering organization may update a DOI's metadata and target URL.
 
+.. _doi-policies-reviewed:
 
 Policies Reviewed
 ====================
