@@ -1,3 +1,25 @@
+/* ============================================================
+ * TAMU Digital Collections Labs — Custom CSS
+ * Texas A&M University Brand Colors:
+ *   Aggie Blue:  #003D7B  (primary)
+ *   Otto Red:     #B00026  (accent)
+ *   Aggie Gold:   #FFB81C  (secondary)
+ *   White:        #FFFFFF
+ *   Black:        #000000
+ * ============================================================ */
+
+/* ---- CSS Custom Properties for TAMU Brand Colors ---- */
+:root {
+  --tam-aggie-blue: #003D7B;
+  --tam-otto-red:   #B00026;
+  --tam-aggie-gold: #FFB81C;
+  --tam-white:      #FFFFFF;
+  --tam-black:      #000000;
+}
+
+/* ============================================================
+ * Mermaid overrides (preserved from original)
+ * ============================================================ */
 .mermaid svg {
     max-width: none !important;
     width: auto !important;
@@ -15,4 +37,277 @@
     white-space: normal !important;
     overflow: visible !important;
     text-overflow: clip !important;
+}
+
+/* ============================================================
+ * Furo Theme Overrides — TAMU Brand
+ * ============================================================ */
+
+/* ---- Header ---- */
+/* Aggie Blue background for the top navigation bar */
+html[data-theme="light"] .top-bar,
+html[data-theme="light"] .mobile-header {
+    background-color: var(--tam-aggie-blue);
+    border-bottom: 2px solid var(--tam-otto-red);
+}
+
+html[data-theme="light"] .top-bar a,
+html[data-theme="light"] .mobile-header a,
+html[data-theme="light"] .top-bar .button,
+html[data-theme="light"] .mobile-header .button {
+    color: var(--tam-white) !important;
+}
+
+/* Hover state for header links — Otto Red */
+html[data-theme="light"] .top-bar a:hover,
+html[data-theme="light"] .mobile-header a:hover,
+html[data-theme="light"] .top-bar .button:hover,
+html[data-theme="light"] .mobile-header .button:hover {
+    color: var(--tam-aggie-gold) !important;
+    background-color: rgba(176, 0, 38, 0.15);
+}
+
+/* ---- Sidebar / Navigation ---- */
+/* Aggie Blue background for sidebar */
+html[data-theme="light"] .sidebar-drawer,
+html[data-theme="light"] .sidebar-sticky {
+    background-color: var(--tam-white);
+}
+
+/* Sidebar brand text — Aggie Blue */
+html[data-theme="light"] .sidebar-brand-text,
+html[data-theme="light"] .brand {
+    color: var(--tam-aggie-blue) !important;
+    font-weight: 700 !important;
+}
+
+/* TAMU gold accent for active/current page in sidebar */
+html[data-theme="light"] .sidebar-tree a[href].current,
+html[data-theme="light"] .sidebar-tree a:hover {
+    color: var(--tam-otto-red) !important;
+}
+
+html[data-theme="light"] .sidebar-tree a.current {
+    color: var(--tam-otto-red) !important;
+    font-weight: 600;
+}
+
+/* ---- Main Content ---- */
+/* Headings in Aggie Blue */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6 {
+    color: var(--tam-aggie-blue);
+    border-bottom-color: var(--tam-aggie-gold);
+}
+
+/* Links and visited links use Otto Red */
+html[data-theme="light"] a,
+html[data-theme="light"] a:visited {
+    color: var(--tam-otto-red);
+}
+
+/* Hover state for links — Aggie Blue */
+html[data-theme="light"] a:hover {
+    color: var(--tam-aggie-blue);
+}
+
+/* ---- Code and Syntax Highlighting ---- */
+/* Aggie Blue border for code blocks */
+html[data-theme="light"] .highlight,
+html[data-theme="light"] .highlight pre,
+html[data-theme="light"] .code {
+    border-left: 3px solid var(--tam-aggie-blue);
+}
+
+/* Code background with subtle Aggie Blue tint */
+html[data-theme="light"] .highlight pre {
+    background-color: #f0f5fb;
+}
+
+html[data-theme="light"] code {
+    background-color: rgba(0, 61, 123, 0.08);
+    color: #b00026;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+/* ---- Admonitions / Notes / Warnings ---- */
+/* Tip/note boxes with Aggie Blue left border */
+html[data-theme="light"] .admonition.note,
+html[data-theme="light"] .admonition.tip {
+    border-left: 4px solid var(--tam-aggie-blue);
+}
+
+/* Warning/caution boxes with Otto Red */
+html[data-theme="light"] .admonition.warning,
+html[data-theme="light"] .admonition.danger,
+html[data-theme="light"] .admonition.error {
+    border-left: 4px solid var(--tam-otto-red);
+}
+
+/* Important boxes with Aggie Gold */
+html[data-theme="light"] .admonition.important {
+    border-left: 4px solid var(--tam-aggie-gold);
+}
+
+/* Admonition titles */
+html[data-theme="light"] .admonition .admonition-title {
+    color: var(--tam-aggie-blue);
+}
+
+/* Admonition icons */
+html[data-theme="light"] .admonition.note .admonition-icon::before,
+html[data-theme="light"] .admonition.tip .admonition-icon::before {
+    color: var(--tam-aggie-blue);
+}
+
+html[data-theme="light"] .admonition.warning .admonition-icon::before,
+html[data-theme="light"] .admonition.danger .admonition-icon::before,
+html[data-theme="light"] .admonition.error .admonition-icon::before {
+    color: var(--tam-otto-red);
+}
+
+/* ---- Tables ---- */
+html[data-theme="light"] table th {
+    background-color: var(--tam-aggie-blue);
+    color: var(--tam-white);
+}
+
+html[data-theme="light"] table tr:nth-child(even) {
+    background-color: rgba(0, 61, 123, 0.03);
+}
+
+html[data-theme="light"] table tr:hover {
+    background-color: rgba(176, 0, 38, 0.05);
+}
+
+/* ---- Buttons ---- */
+html[data-theme="light"] .button {
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+html[data-theme="light"] .button.button-primary,
+html[data-theme="light"] .button.primary {
+    background-color: var(--tam-aggie-blue);
+    border-color: var(--tam-aggie-blue);
+    color: var(--tam-white);
+}
+
+html[data-theme="light"] .button.button-primary:hover,
+html[data-theme="light"] .button.primary:hover {
+    background-color: var(--tam-otto-red);
+    border-color: var(--tam-otto-red);
+}
+
+/* ---- Breadcrumbs ---- */
+html[data-theme="light"] nav.breadcrumbs {
+    color: var(--tam-aggie-blue);
+}
+
+html[data-theme="light"] nav.breadcrumbs a {
+    color: var(--tam-otto-red);
+}
+
+html[data-theme="light"] nav.breadcrumbs a:hover {
+    color: var(--tam-aggie-blue);
+}
+
+/* ---- Search ---- */
+html[data-theme="light"] .sidebar-search-container input[type="search"] {
+    border-color: var(--tam-aggie-blue);
+}
+
+html[data-theme="light"] .sidebar-search-container input[type="search"]:focus {
+    border-color: var(--tam-otto-red);
+    box-shadow: 0 0 0 2px rgba(176, 0, 38, 0.2);
+}
+
+/* ---- Pagination ---- */
+html[data-theme="light"] .pagination .button {
+    color: var(--tam-aggie-blue);
+}
+
+html[data-theme="light"] .pagination .button:hover {
+    background-color: rgba(0, 61, 123, 0.08);
+}
+
+/* ---- Scrollbar ---- */
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background-color: var(--tam-aggie-blue);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--tam-otto-red);
+}
+
+/* ============================================================
+ * Dark Mode
+ * ============================================================ */
+html[data-theme="dark"] {
+  --tam-aggie-blue: #4da6ff;
+  --tam-otto-red:   #ff667a;
+  --tam-aggie-gold: #ffd46b;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+    color: var(--tam-aggie-gold);
+}
+
+html[data-theme="dark"] a,
+html[data-theme="dark"] a:visited {
+    color: var(--tam-otto-red);
+}
+
+html[data-theme="dark"] table th {
+    background-color: var(--tam-aggie-blue);
+    color: var(--tam-black);
+}
+
+html[data-theme="dark"] .highlight pre {
+    background-color: #1a2233;
+}
+
+/* ============================================================
+ * TAMU Footer
+ * ============================================================ */
+.tamu-footer {
+    border-top: 2px solid var(--tam-aggie-blue);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.tamu-footer-text {
+    color: #666;
+}
+
+html[data-theme="dark"] .tamu-footer-text {
+    color: #aaa;
+}
+
+.tamu-footer a {
+    color: var(--tam-aggie-blue);
+}
+
+.tamu-footer a:hover {
+    color: var(--tam-otto-red);
+}
+
+/* ============================================================
+ * Responsive Adjustments
+ * ============================================================ */
+@media (max-width: 768px) {
+    html[data-theme="light"] h1 {
+        font-size: 1.75rem;
+    }
 }
