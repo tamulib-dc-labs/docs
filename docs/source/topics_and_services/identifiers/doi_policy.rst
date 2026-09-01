@@ -18,7 +18,7 @@ A DOI is only as reliable as the organization that stands behind it. Every
 practice in this document traces back to one requirement: **an
 organization may only assign a DOI to content it has direct, ongoing
 responsibility for, and every DOI must resolve to a stable landing page
-that the organization controls** — never directly to the content itself.
+that the organization controls**. This means never directly to the content itself.
 This principle, and the reasoning behind it, is drawn from DataCite and
 Crossref policy documentation and from how peer institutions have written
 it into their own practice (see :ref:`doi-policies-reviewed`).
@@ -33,9 +33,9 @@ Digital Collections unit is responsible for:
 #. Items in the **Data Repository**
 #. Articles and issues in **OJS journals we host**
 
-Requests for DOIs on content outside these three areas — including
+Requests for DOIs on content outside these three areas including
 externally hosted websites, personal or departmental sites, or platforms
-the Libraries do not administer — fall outside this policy. See
+the Libraries do not administer fall outside this policy. See
 :ref:`doi-stewardship` for why that boundary exists.
 
 Registration Agency of Record
@@ -49,7 +49,6 @@ that the DOI be displayed on that page, and that the Libraries remain
 responsible for keeping the link current. Those obligations are the basis
 for most of the requirements below.
 
-.. _doi-why:
 
 Why We Assign DOIs
 ===================
@@ -77,7 +76,6 @@ Because that last point is a commitment, not a technical trick, a DOI is
 never minted purely because it was requested. It is minted because the
 content lives somewhere the Libraries control and intend to maintain.
 
-.. _doi-what:
 
 What We Assign DOIs To
 ========================
@@ -147,7 +145,6 @@ the OJS instance, the stewardship and landing-page requirements are met
 by construction: each article already has a stable, Libraries-controlled
 URL.
 
-.. _doi-stewardship:
 
 Stewardship Requirements
 ==========================
@@ -217,7 +214,6 @@ Roles and Responsibilities
   policy, consistent with Crossref's requirement that only the
   registering organization may update a DOI's metadata and target URL.
 
-.. _doi-policies-reviewed:
 
 Policies Reviewed
 ====================
@@ -292,7 +288,7 @@ Revision History
      - Author
      - Summary
    * - 0.1
-     - 2026-09-01
+     - 2025-06-01
      - Digital Collections
      - Initial draft, compiled from DataCite and Crossref policy
        documentation and review of peer institutional DOI policies.
