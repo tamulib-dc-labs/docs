@@ -21,4 +21,4 @@ Archipelago
    :glob:
    :caption: Archipelago Migration Testing
 
-   ../applications/archipelago-migration-testing/*
+   ../applications/archipelago-moving-files/*
