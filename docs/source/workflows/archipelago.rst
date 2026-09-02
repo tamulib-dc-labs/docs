@@ -19,6 +19,6 @@ Archipelago
 .. toctree::
    :maxdepth: 1
    :glob:
-   :caption: Archipelago Migration Testing
+   :caption: Migration Workflows
 
    ../applications/archipelago-moving-files/*
