@@ -21,3 +21,5 @@ Run :code:`create_ami_set`, but edit the Image and Document columns to include a
 Media files can be found on digital_project_management or cush_digital_collections drives. Transcript/captions files can be either found in edge-grant-reviewer or whisper-reviewer repositories.
 
 Media can be hosted on `Esmero Web <https://tamulib-dc-labs.github.io/docs/applications/archipelago-moving-files/esmero-web.html>`_. Read that documentation for further instructions. 
+
+Be sure you change the ADO type from StreamingAudio to AudioObject or VideoObject.
