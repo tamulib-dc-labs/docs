@@ -1,0 +1,165 @@
+Texas A&M Grade Reports Collection
+==================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1241
+   * - Dates
+     - 1877-1955
+   * - Finding Aid 
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-grade-reports-collection <https://findingaids.library.tamu.edu/index.php/texas-a-m-grade-reports-collection>`_
+   * - Extent
+     - 1 scrapbook
+
+Scope and Content
+-----------------
+
+This collection includes some personal grade reports from former students at Texas A&M. It also includes average semester grades for freshmen, sophomores, or by department for sessions 1925-1926 to 1939-1940.
+
+System of Arrangement
+---------------------
+
+1/1: Individual Grade Reports
+
+* Cader van Bieburstein (?). 1883 (6 reports)
+* J. H. Simpson. April 30, 1900
+* H. C. Dillingham. April 1, 1919
+* S. A. Richards. January 30, 1877 (2 reports)
+* Letter from Anne Stanley Williams to D. B. Cofer
+* A. W. Percy. January 24, 1918
+* Scholarship Certification for Mr. Harley Clay Dillingham. May 15, 1918
+* A. Howard. May, 195(?) (2 reports)
+* J. Hill. February 1925
+* Personal notes
+* W. C. Martin "Hours of Recitation" Class of 1898
+* F. J. Skeeler, Session 1917-918 and Samuro Kakiuchi's business card
+* Envelope addressed to Doctor D. B. Cofer
+* Letter from Anne Stanley (?) to Dr. D. B. Cofer. December 7, 1955
+* A. Homan. November 1894 - July 1895 (6 reports)
+* E. Giesecke. November 3, 1883
+
+1/2: Semester Grade Reports
+
+* Average grades for ten year period 1915-1925
+* 1925-1926 Session, Second Term Grades
+* By departments (all courses) November 26, 1926
+* Freshmen students (courses 101-199) November 26, 1926
+* Sophomore students (courses 201-299) November 26, 1926
+* Session 1926-1927, Second Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1927-1928, First Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1927-1928, Second Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1928-1929, First Term Grades
+* By departments (all courses) April 18, 1929
+* Freshmen students (courses 101-199) April 18, 1929
+* Sophomore students (courses 201-299) April 18, 1929
+* Session 1928-1929, Second Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1929-1930, First Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1929-1930, Second Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1930-1931, First Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1930-1931, Second Term Grades
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1931-1932, Second Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1932-1933, First Term Grades
+* By departments (all courses)
+* Freshmen students (courses 101-199)
+* Sophomore students (courses 201-299)
+* Session 1932-1933, Second Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomores (courses 201-299)
+* Session 1933-1934, First Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomores (courses 201-299)
+* Session 1934-1935, First Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomores (courses 201-299)
+* Session 1935-1936, Second Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomores (courses 201-299)
+* Session 1936-1937, First Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomores (courses 201-299)
+* Session 1936-1937, Second Term Grades
+* By departments (all courses)
+* Freshmen (courses 101-199)
+* Sophomores (courses 201-299)
+
+Session 1937-1938, First Term Grades
+
+By departments (all courses)
+
+Freshmen (all courses 101-199)
+
+Sophomores (all courses 201-299)
+
+Session 1937-1938, Second Term Grades
+
+By departments (all courses)
+
+Freshmen (courses 101-199)
+
+Sophomores (courses 201-299)
+
+Session 1938-1939, First Term Grades
+
+By departments (all courses)
+
+Freshmen (courses 101-199)
+
+Sophomores (courses 201-299)
+
+Session 1938-1939, Second Term Grades
+
+By departments (all courses)
+
+Freshmen (courses 101-199)
+
+Sophomores (courses 201-299)
+
+Session 1939-1940, First Term Grades
+
+By all departments (all courses)
+
+Freshmen (101-199)
+
+Sophomores (201-299)
+
+Session 1939-1940, Second Term Grades
+
+By departments (all courses)
+
+Freshmen (courses 101-199)
+
+Sophomores (courses 201-299)

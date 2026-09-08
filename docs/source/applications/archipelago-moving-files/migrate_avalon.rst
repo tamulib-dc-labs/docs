@@ -12,9 +12,9 @@ This will create an AMI set for a specific collection. You may need to do some m
 
 The ADO type for these items will be StreamingAudio. Do not use this for restricted items. Archipelago will not have access to the files and hence won't be able to upload media.
 
-=======================================
+---------------------------------------
 Migrating Avalon Restricted Collections
-=======================================
+---------------------------------------
 
 Run :code:`create_ami_set`, but edit the Image and Document columns to include a filepath to the vtt and media.
 
