@@ -179,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -247,7 +247,6 @@
 <li class="toctree-l2"><a class="reference internal" href="esmero-web.html">Migrating Using Esmero Web</a></li>
 <li class="toctree-l2"><a class="reference internal" href="innovation.html">Migrating Using Innovation Site</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Migrating Avalon Collections</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#migrating-avalon-restricted-collections">Migrating Avalon Restricted Collections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrate_fedora.html">Migrating Fedora Collections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="migrate_oaktrust.html">Migrating OAKTrust Collections</a></li>
 </ul>
@@ -397,6 +396,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1469.html">Texas A&amp;M Athletic Programs - Men’s Basketball</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1631.html">Texas A&amp;M Athletic Programs - Volleyball</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/c000036.html">Texas A&amp;M Athletic Programs - Football</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1241.html">Texas A&amp;M Grade Reports Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1396.html">D J. Finn ‘21 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1398.html">Edgar Petty Jennings Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1400.html">Allen Elmer Luddeke Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1417.html">Steven Simon, Jr. ‘22 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1421.html">Class of 1922 45th Class Reunion Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1422.html">Class of 1995 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1424.html">Texas A&amp;M College Social Events Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1425.html">W P. Trice Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1601.html">Louis A. Hartung ‘29 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/702.html">Pfeuffer Hall Student Scrapbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000284.html">Texas A&amp;M Speeches</a></li>
 </ul>
 </li>
@@ -447,7 +457,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -460,13 +470,13 @@
 <p><code class="code docutils literal notranslate"><span class="pre">pyavalon</span> <span class="pre">create_ami_set</span> <span class="pre">-c</span> <span class="pre">&lt;collection_id&gt;</span> <span class="pre">-i</span> <span class="pre">prod</span> <span class="pre">-o</span> <span class="pre">ami_set.csv</span></code></p>
 <p>This will create an AMI set for a specific collection. You may need to do some minor review to the generated output to ensure consistant formatting.</p>
 <p>The ADO type for these items will be StreamingAudio. Do not use this for restricted items. Archipelago will not have access to the files and hence won’t be able to upload media.</p>
-</section>
 <section id="migrating-avalon-restricted-collections">
-<h1>Migrating Avalon Restricted Collections<a class="headerlink" href="#migrating-avalon-restricted-collections" title="Link to this heading">¶</a></h1>
+<h2>Migrating Avalon Restricted Collections<a class="headerlink" href="#migrating-avalon-restricted-collections" title="Link to this heading">¶</a></h2>
 <p>Run <code class="code docutils literal notranslate"><span class="pre">create_ami_set</span></code>, but edit the Image and Document columns to include a filepath to the vtt and media.</p>
 <p>Media files can be found on digital_project_management or cush_digital_collections drives. Transcript/captions files can be either found in edge-grant-reviewer or whisper-reviewer repositories.</p>
 <p>Media can be hosted on <a class="reference external" href="https://tamulib-dc-labs.github.io/docs/applications/archipelago-moving-files/esmero-web.html">Esmero Web</a>. Read that documentation for further instructions.</p>
 <p>Be sure you change the ADO type from StreamingAudio to AudioObject or VideoObject.</p>
+</section>
 </section>
 
         </article>
@@ -512,8 +522,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Migrating Avalon Collections</a><ul>
+<li><a class="reference internal" href="#migrating-avalon-restricted-collections">Migrating Avalon Restricted Collections</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
