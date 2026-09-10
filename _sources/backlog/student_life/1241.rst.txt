@@ -1,33 +1,26 @@
 Texas A&M Grade Reports Collection
 ==================================
 
-.. list-table::
-   :widths: 25 75
-   :stub-columns: 1
 
-   * - Reference Code
-     - 1241
-   * - Dates
-     - 1877-1955
-   * - Finding Aid 
-     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-grade-reports-collection <https://findingaids.library.tamu.edu/index.php/texas-a-m-grade-reports-collection>`_
-   * - Extent
-     - 1 box
-   * - Total Boxes
+.. list-table::
+    :widths: 25 75
+    :stub-columns: 1
+
+    * - Reference Code
+      - 1241
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/texas-a-m-grade-reports-collection <https://findingaids.library.tamu.edu/index.php/texas-a-m-grade-reports-collection>`_
+    * - Extent
+      - 1 Box
+    * - Total Boxes
      - 1
-   * - Total Folders
+    * - Total Folders
      - 2
 
 Scope and Content
 -----------------
 
 This collection includes some personal grade reports from former students at Texas A&M. It also includes average semester grades for freshmen, sophomores, or by department for sessions 1925-1926 to 1939-1940.
-
-System of Arrangement
----------------------
-
-* 1/1: Individual Grade Reports
-* 1/2: Semester Grade Reports
 
 Box Inventory
 -------------
@@ -36,13 +29,13 @@ Box Inventory
    :header-rows: 1
    :widths: 15 45 15 10 15
 
-   * - Reference Code
-     - Title
-     - Dates
-     - Folders
-     - Extent
-   * - 1241-1
-     - Grade Reports
-     - 1877-1955
-     - 2
-     - 2 folders
+    * - Reference Code
+      - Title
+      - Dates
+      - Folders
+      - Extent
+    * - 1241-1
+      - Grade Reports
+      - 1877-1955
+      - 2
+      - 2 folders

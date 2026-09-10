@@ -2,6 +2,19 @@ Louis A. Hartung '29 Scrapbook
 ==============================
 
 .. list-table::
+    :widths: 25 75
+    :stub-columns: 1
+
+    * - Reference Code
+      - 1601
+    * - Date
+      - 1925-1929
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/louis-a-hartung-29-scrapbook <https://findingaids.library.tamu.edu/index.php/louis-a-hartung-29-scrapbook>`_
+    * - Extent
+      - 1 scrapbook
+
+.. list-table::
    :widths: 25 75
    :stub-columns: 1
 
@@ -18,41 +31,3 @@ Scope and Content
 -----------------
 
 This scrapbook contains photographs, programs and publications collected by Louis A. Hartung, Class of 1929 during his time at Texas A&M from 1925 to 1929.
-
-Materials inside include:
-
-AUTOGRAPHS
-
-SPORT
-
-* Intramural athletic association (constitution and bylaws)
-* Football tickets (1925)
-* Football programs (1925)
-* Football photographs
-* Basketball, track, baseball
-
-PHOROGRAPHS
-
-* Football
-* Company B
-* Aerial campus view
-* Austin Corps
-* Academic Building
-
-PUBLICATIONS
-
-* "An Open Letter to College Freshman"
-* "Fish Don'ts"
-* "Father's Idea of How his Son Spends the Day at A&M"
-* "There Goes the Grange"
-* "Westinghouse Light and Power Plants"
-* "Fairbanks - Morse"
-
-PROGRAMS
-
-* Review of Cadet Corps Honoring Visiting Railroad Officials
-* 50th Annual Commencement Exercises
-* Presentation of Commissions
-* 8th Annual Rodeo and Pageant
-* Choral Club of Baylor College
-* Patriotic Program and Banquet

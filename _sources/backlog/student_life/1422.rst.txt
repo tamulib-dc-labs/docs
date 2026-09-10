@@ -2,17 +2,17 @@ Class of 1995 Scrapbook
 =======================
 
 .. list-table::
-   :widths: 25 75
-   :stub-columns: 1
+    :widths: 25 75
+    :stub-columns: 1
 
-   * - Reference Code
-     - 1422
-   * - Dates
-     - 1995
-   * - Finding Aid 
-     - `https://findingaids.library.tamu.edu/index.php/class-of-1995-scrapbook <https://findingaids.library.tamu.edu/index.php/class-of-1995-scrapbook>`_
-   * - Extent
-     - 1 scrapbook
+    * - Reference Code
+      - 1422
+    * - Date
+      - 1995
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/class-of-1995-scrapbook <https://findingaids.library.tamu.edu/index.php/class-of-1995-scrapbook>`_
+    * - Extent
+      - 1 scrapbook
 
 Scope and Content
 -----------------
