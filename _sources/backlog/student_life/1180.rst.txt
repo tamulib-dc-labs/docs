@@ -30,18 +30,18 @@ Box Inventory
    :header-rows: 1
    :widths: 15 45 15 10 15
 
-    * - Reference Code
-      - Title
-      - Dates
-      - Folders
-      - Extent
-    * - 1180-1
-      - Tolson Papers
-      - 1917-1954
-      - 8
-      - 8 folders
-    * - 1180-OF1
-      - "The Men Who Direct the Destinies of the RCA Victor Company Inc."
-      - 1930
-      - 0
-      - 2 items
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1180-1
+     - Tolson Papers
+     - 1917-1954
+     - 8
+     - 8 folders
+   * - 1180-OF1
+    - "The Men Who Direct the Destinies of the RCA Victor Company Inc."
+     - 1930
+     - 0
+     - 2 items

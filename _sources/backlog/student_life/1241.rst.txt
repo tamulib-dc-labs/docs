@@ -13,9 +13,9 @@ Texas A&M Grade Reports Collection
     * - Extent
       - 1 Box
     * - Total Boxes
-     - 1
+      - 1
     * - Total Folders
-     - 2
+      - 2
 
 Scope and Content
 -----------------

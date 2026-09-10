@@ -14,19 +14,6 @@ Louis A. Hartung '29 Scrapbook
     * - Extent
       - 1 scrapbook
 
-.. list-table::
-   :widths: 25 75
-   :stub-columns: 1
-
-   * - Reference Code
-     - 1601
-   * - Dates
-     - 1925-1929
-   * - Finding Aid
-     - `https://findingaids.library.tamu.edu/index.php/louis-a-hartung-29-scrapbook <https://findingaids.library.tamu.edu/index.php/louis-a-hartung-29-scrapbook>`_
-   * - Extent
-     - 1 scrapbook
-
 Scope and Content
 -----------------
 
