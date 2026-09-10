@@ -1,0 +1,59 @@
+W A. Tolson Papers
+==================
+
+.. list-table::
+    :widths: 25 75
+    :stub-columns: 1
+
+    * - Reference Code
+      - 1223
+    * - Date
+      - 1917-1954
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/w-a-tolson-papers <https://findingaids.library.tamu.edu/index.php/w-a-tolson-papers>`_
+    * - Extent
+      - 1 box
+    * - Total Boxes
+      - 1
+    * - Total Folders
+      - 3
+
+Scope and Content
+-----------------
+
+This collection includes personal letters from "Doc" W. A. Tolson's life including grade reports from A&M College, personal letters dating 1918-1943, photographs from his life and family, and articles dating back to the first broadcasted A&M football game. Other included newspaper articles refer to the A&M College band, Tolson's life working in Radio RCA programs, and his teachings at Princeton.
+
+System of Arrangement
+---------------------
+
+* 1/1: Grade reports, starting in 1917
+* 1/2: Letters to his family, 1918-1923
+* 1/3: Letters to his family, 1937-1943
+* 1/4: 1923 Commencement invitation
+* 1/5: Newspaper articles, 1920-1954
+* 1/6: Photographs
+* 1/7: General Electric Publication
+* 1/8: RCA Victor Co., Inc. Publication
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+    * - Reference Code
+      - Title
+      - Dates
+      - Folders
+      - Extent
+    * - 1180-1
+      - Tolson Papers
+      - 1917-1954
+      - 8
+      - 8 folders
+    * - 1180-OF1
+      - "The Men Who Direct the Destinies of the RCA Victor Company Inc."
+      - 1930
+      - 0
+      - 2 items
