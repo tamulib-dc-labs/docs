@@ -1,0 +1,42 @@
+James T. Danklefs '43 Corregidor Muster Collection
+==================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 798
+   * - Dates
+     - 1946
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/james-t-danklefs-corregidor-muster-collection <https://findingaids.library.tamu.edu/index.php/james-t-danklefs-corregidor-muster-collection>`_
+   * - Extent
+     - 1 Box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 5
+
+Scope and Content
+-----------------
+
+This collection contains correspondence, photographs, a signed Douglas MacArthur address regarding the 1946 Corregidor Muster, and a Texas A&M Manilla club roster from March 1946.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 798-1
+     - Untitled
+     - 1946
+     - 5
+     - 5 folders

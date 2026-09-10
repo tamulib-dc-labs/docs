@@ -1,0 +1,92 @@
+Texas A&M Dance and Banquet Collection
+======================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000286
+   * - Dates
+     - 1878-1992
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-dance-and-banquet-collection <https://findingaids.library.tamu.edu/index.php/texas-a-m-dance-and-banquet-collection>`_
+   * - Extent
+     - 3 Boxes
+   * - Total Boxes
+     - 3
+   * - Total Folders
+     - 262
+
+
+Scope and Content
+-----------------
+
+This collection consists of the university's dance and banquet invitations dating back to the beginning of Texas A&M College. These invitations were once owned by students who attended the university/college.  Most invitations were produced as a means of communication, due to the limited means of communication in some eras. The invitations cover dates and times that were important to the TAMU/TAMC student body. They can be used to research the sociality of people of the 20th century as well as the late 19th century.
+
+System of Arrangement
+---------------------
+
+This collection is arranged into 8 series, with the contents of each series arranged first alphabetically and then chronologically.
+
+* Series 1, Club Dances, Hops, and Balls at A&M. 1901-1933
+* Series 2, Corps of Cadets Events at A&M. 1898-1990
+* Series 3, Senior Events at A&M. 1908-1942
+* Series 4, Junior Events at A&M. 1906-1977
+* Series 5, Sophomore Events at A&M. 1915-1979
+* Series 6, Freshman Events at A&M. 1946-1986
+* Series 7, Memorable Events at A&M. 1878-1992
+* Series 8, A&M Dance and Banquet Tickets. 1945-1946
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000286-S1
+     - Club Dances, Hopes, and Balls at A&M
+     - 1901-1933
+     - 20
+     - 20 folders
+   * - C000286-S2
+     - Corps of Cadets Events at A&M
+     - 1898-1990
+     - 84
+     - 84 folders
+   * - C000286-S3
+     - Senior Events at A&M
+     - 1908-1942
+     - 7
+     - 7 folders
+   * - C000286-S4
+     - Junior Events at A&M
+     - 1906-1977
+     - 36
+     - 36 folders
+   * - C000286-S5
+     - Sophomore Events at A&M
+     - 1915-1979
+     - 13
+     - 13 folders
+   * - C000286-S6
+     - Freshman Events at A&M
+     - 1946-1986
+     - 11
+     - 11 folders
+   * - C000286-S7
+     - Memorable Events at A&M
+     - 1878-1992
+     - 87
+     - 87 folders
+   * - C000286-S8
+     - A&M Dance and Banquet Tickets
+     - 1945-1946
+     - 4
+     - 4 folders

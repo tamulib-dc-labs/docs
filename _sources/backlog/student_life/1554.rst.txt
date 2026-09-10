@@ -1,0 +1,54 @@
+Texas A&M Hillel Articles and Photographs Collection
+====================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1554
+   * - Dates
+     - 1940-1960
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-hillel-articles-and-photographs-collection <https://findingaids.library.tamu.edu/index.php/texas-a-m-hillel-articles-and-photographs-collection>`_
+   * - Extent
+     - 4 Boxes
+   * - Total Boxes
+     - 4
+   * - Total Folders
+     - 41
+
+.. warning:: Extent states 4 boxes but only 2 are described in the finding aid.
+
+Scope and Content
+-----------------
+
+The Hillel Articles and Photographs Collection contains photocopies of newspaper clippings, photographs of social events, and a guest book ledger related to the Jewish student organization at Texas A&M University. The collection date range is from 1940 to the 1960’s. The collection contains information about Hillel’s involvement with the World War II effort, including highlights of Jewish Aggie veterans of World War II. Photographs, articles, ceremonies, and building information for the Texas A&M Ike and Fannie Sablosky B'Nai and B'Rith Hillel Building are included within the collection. Other information within the collection contain highlights of Hillel Club organized social dance, including photographs and a guest book ledger.
+
+System of Arrangement
+---------------------
+
+Collection arranged by date and original order of the materials as presented in scrapbooks.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 1554-1
+     - Newspaper Clippings, photographs, and guest book ledger
+     - 1940-1954
+     - 22
+     - 22 folders
+   * - 1554-2
+     - Newspaper Clippings, photographs
+     - 1955-1960
+     - 21
+     - 21 folders
