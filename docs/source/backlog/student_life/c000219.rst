@@ -1,0 +1,97 @@
+Cepheid Variable - AggieCon Collection
+======================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000219
+   * - Dates
+     - 1969-2025
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/cepheid-variable-aggiecon-collection <https://findingaids.library.tamu.edu/index.php/cepheid-variable-aggiecon-collection>`_
+   * - Extent
+     - 12 Boxes
+   * - Total Boxes
+     - 12
+   * - Total Folders
+     - 193
+
+Scope and Content
+-----------------
+
+The collection consists of the program books, documents, correspondence, and miscellaneous items collected by the Cepheid Variable Science Fiction Club from its inception in 1969 through 2005. The collection was assembled from deposits of the club, gifts from Bill Page, and other occasional donors.
+
+System of Arrangement
+---------------------
+
+This collection is organized into 6 series and is arranged generally as used by the Cepheid Variable Science Fiction Club at Texas A&M University. The other materials are interfiled into folders as is appropriate, especially the program booklets.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000219-S1
+     - AggieCon/Cepheid Variable Program Books and Other Documents
+     - 1969-2009
+     - 47
+     - 47 folders
+   * - C000219-S2
+     - AggieCon/Cepheid Variable Fanzines, Artwork, and Miscellaneous Materials
+     - 1976-2002
+     - 28
+     - 28 folders
+   * - C000219-S3
+     - AggieCon/Cepheid Variable Correspondence and Booklets
+     - 1969-2010
+     - 88
+     - 88 folders
+   * - C000219-S4
+     - AggieCon/Cepheid Variable Oversized Posters
+     - 1974-1975
+     - unknown
+     - unknown in Box 4, 1 oversize folder
+   * - C000219-S5
+     - AggieCon/Cepheid Materials, T-Shirts, and Posters
+     - 1971-2015
+     - unknown
+     - 3 boxes
+   * - C000219-S6
+     - Con Shirts
+     - unknown
+     - unknown
+     - unknown
+   * - C000219-1
+     - Goble Award
+     - 1971
+     - none
+     - 1 item
+   * - C000219-1
+     - March 2024 Addendum
+     - 1975, 2023-2024
+     - 4
+     - 4 folders and 2 newspapers
+   * - C000219-1
+     - July 2021 Addendum
+     - 1976-2003, undated
+     - 25
+     - 25 folders
+   * - C000219-1
+     - July 2021 Addendum
+     - undated
+     - none
+     - 1 item of clothing
+   * - C000219-1
+     - May 2026 Addendum
+     - 1980, 2008, 2019-2025
+     - unknown
+     - 1 box

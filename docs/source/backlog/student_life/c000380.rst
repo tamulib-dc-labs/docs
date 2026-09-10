@@ -1,0 +1,45 @@
+Muster Stage Notebooks
+======================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000380
+   * - Dates
+     - 2000-2017
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/muster-stage-notebooks <https://findingaids.library.tamu.edu/index.php/muster-stage-notebooks>`_
+   * - Extent
+     - 1 Box
+   * - Total Boxes
+     - 1
+   * - Total Folders
+     - 13
+
+
+Scope and Content
+-----------------
+
+This collection contains the working notebooks for the Aggie Campus Muster's. These notebooks include materials from the entire ceremony such as song sheets, prayers, list of current and former students who have passed to be honored, speeches from Texas A&M University officials, the Association of Former Students (AFS), the Muster speaker's speech, and the protocols for the ceremony.
+
+Aggie Muster takes place every year on April 21 for the commemoration of San Jacinto Day, where Teas won its independence from Mexico. Aggie Muster remembers any current or former student that has passed away in the previous year, and it currently is held in Reed Arena and celebrated across the world in multiple locations.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000380-1
+     - Aggie Muster Stage Notebooks
+     - 2000-2017
+     - 13
+     - 13 folders
