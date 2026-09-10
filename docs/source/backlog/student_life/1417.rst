@@ -2,94 +2,19 @@ Steven Simon, Jr. '22 Scrapbook
 ===============================
 
 .. list-table::
-   :widths: 25 75
-   :stub-columns: 1
+    :widths: 25 75
+    :stub-columns: 1
 
-   * - Reference Code
-     - 1398
-   * - Dates
-     - 1920-1944
-   * - Finding Aid 
-     - `https://findingaids.library.tamu.edu/index.php/steven-simon-jr-22-scrapbook <https://findingaids.library.tamu.edu/index.php/steven-simon-jr-22-scrapbook>`_
-   * - Extent
-     - 1 scrapbook
+    * - Reference Code
+      - 1417
+    * - Date
+      - 1920-1944
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/steven-simon-jr-22-scrapbook <https://findingaids.library.tamu.edu/index.php/steven-simon-jr-22-scrapbook>`_
+    * - Extent
+      - 1 scrapbook
 
 Scope and Contents
 -----------------
 
 This collection contains a scrapbook with photographs of early campus views Texas A&M College, its buildings, and the Aggie Band in the 1920s. Also included are clippings and materials from Simon's enlistment in World War II (WWII).
-
-Contents include:
-
-PHOTOGRAPHS
-
-Buildings
-* North to Mess Hall
-* Veterinary Medicine
-* Main Building
-* Old Agricultural Building
-
-POST CARD [A&M 22-Centre 14]
-
-* A&M College yells
-* Newspaper Clippings
-* Football
-* Hazing
-
-NEWSPAPER PUBLICATIONS
-
-* The Texas Aggie, September. 4, 1944
-* Roundup, May 1944
-* The Shield, December 1, 1925
-* Daily Guide, December 7, 1925
-* Daily Guide, November 2, 1925
-* Roundup, April 1944
-* The Shield, July 6, 1926
-* The Shield, December 1, 1925
-* Singing Corps
-* R.O.T.C.
-* Camp Alfred Vail
-* New Jersey, 1920
-
-PHOTOPGRAHS
-
-* A.M.C. Band at Waco, November 6, 1920
-* A.M.C. Cadet Corps at Waco, November 6, 1920
-* A.M.C. Calisthenic Exhibition-Waco, November 6, 1920
-* Armistice Day, November 11, 1919
-* Unveiling of Statue- Lawrence Sullivan Ross
-* A.M.C. "Basketball Team", 1920
-* That Famous Aggie "T"
-* A&M Baylor Game, November 1920
-* "Varsity" Basketball team, 1920-1921
-* Track: Southwestern Champions
-* The "T" Club, 1922
-* The Cavalry Pass in Review
-* Firing the General's Solute
-* Field Artillery
-* General Hines' Arrival of College
-* The bons in review
-* The Reviewing Staff
-
-PROGRAMS
-
-* Armistice Day Program, November 11, 1920
-* Banquet Rio Grande - "Possum" Simon
-* Junior Banquet, 1922
-* Annual Final Ball
-* Annual Engineering Inspection Trip
-* Passenger's Check- The Pullman Company
-* Rio Grande Valley Club, Christmas 1921
-
-PERSONAL DOCUMENTATION [Steve Simon]
-
-* Report of Physical Examination (2x)
-* The National Life and Accident Insurance Company
-* War Department, April 11, 1941, and July 1, 1942
-* Headquarters First Military Area
-* Honorable Discharge from United States Army
-
-APPOINTMENTS
-
-* First Lieutenant, Inactive
-* Second Lieutenant in the Signal Corps

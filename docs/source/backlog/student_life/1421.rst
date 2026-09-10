@@ -2,48 +2,19 @@ Class of 1922 45th Class Reunion Scrapbook
 ==========================================
 
 .. list-table::
-   :widths: 25 75
-   :stub-columns: 1
+    :widths: 25 75
+    :stub-columns: 1
 
-   * - Reference Code
-     - 1421
-   * - Dates
-     - 1967
-   * - Finding Aid 
-     - `https://findingaids.library.tamu.edu/index.php/class-of-1922-45th-class-reunion-scrapbook <https://findingaids.library.tamu.edu/index.php/class-of-1922-45th-class-reunion-scrapbook>`_
-   * - Extent
-     - 1 scrapbook
+    * - Reference Code
+      - 1421
+    * - Date
+      - 1967
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/class-of-1922-45th-class-reunion-scrapbook <https://findingaids.library.tamu.edu/index.php/class-of-1922-45th-class-reunion-scrapbook>`_
+    * - Extent
+      - 1 scrapbook
 
 Scope and Content
 -----------------
 
 This scrapbook was created by the Class of 1922 for their 45th reunion which took place on April 21, 1967.
-
-Contents include:
-
-* Class '22 - [Before and After Biographies]
-* Addresses
-* Photographs
-* Small Family and Work Information
-* Remembrance
-* Program: Inauguration of Jack Kenny Williams
-* Commencement: December 11, 1971
-* The Class of 1922 Memorial Fund Program
-* Ross Movement
-* Dallas Morning News, January 30, 1972
-* Remembrance to December 1966
-* Former Students
-* Snapshots, Part of Everyone's Accumulation of Life's
-* Small Relics-Are Friendly Moments Frozen:
-* Passing Milestones Recorded
-
-SPORTS
-
-* Football [Aggie Band]
-* Basketball
-* Tennis
-* Track
-* Baseball
-* Boxer
-* Wrestlers
-* 50th Reunion

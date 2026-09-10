@@ -2,55 +2,19 @@ W P. Trice Scrapbook
 =====================
 
 .. list-table::
-   :widths: 25 75
-   :stub-columns: 1
+    :widths: 25 75
+    :stub-columns: 1
 
-   * - Reference Code
-     - 1425
-   * - Dates
-     - 1910-1914
-   * - Finding Aid
-     - `https://findingaids.library.tamu.edu/index.php/w-p-trice-scrapbook <https://findingaids.library.tamu.edu/index.php/w-p-trice-scrapbook>`_
-   * - Extent
-     - 1 scrapbook
+    * - Reference Code
+      - 1425
+    * - Date
+      - 1910-1914
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/w-p-trice-scrapbook <https://findingaids.library.tamu.edu/index.php/w-p-trice-scrapbook>`_
+    * - Extent
+      - 1 scrapbook
 
 Scope and Content
 -----------------
 
 This collection consists of Trice's "Scrapbook of A&M College Life" containing photographs of campus buildings, sports teams and games, people, and other miscellaneous scenes from around A&M College during his time there from 1910-1914.
-
-Contents include:
-
-PHOTOGRAPHS
-
-* International Team, 1919
-* Missouri, "Y" Camp
-* First View
-* From Drill Ground
-* Main Building
-* GH
-* Leggett Building
-* Y.M.C.A
-* Francis Hall
-* Horse Barn
-* Fish Pond
-* Basketball Team, 1920
-* A.M.C (7) - T.U. (0), 1919
-* Texas A.M.C. (7) vs Texas University
-* A.M.C. vs. T.U., 1919
-* That Famous Aggie "T" Formation
-* A. and M. vs. Texas University, 1919
-* T.U. Girls at End of 1st Half with A&M (3), TU. (0)
-* Airplane View of Texas A&M, 1919
-
-PHOTOGRAPHS OF PEOPLE
-
-* C. B. Dyer; W. P. Trice; J. P. R.; General Scott
-
-MISCELLANEOUS
-
-* Boot the Ninth Annual A&M Interscholastic Meet, May 9, 1909
-* Tenth Annual A&M High School Day, May 1, 1920
-* A.&M.C., Y.M.C.A., Reception
-* Basketball, 1920
-* The Season's Score, 1919

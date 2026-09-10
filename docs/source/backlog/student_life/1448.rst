@@ -2,39 +2,26 @@ Joel Hunt Collection
 ====================
 
 .. list-table::
-   :widths: 25 75
-   :stub-columns: 1
+    :widths: 25 75
+    :stub-columns: 1
 
-   * - Reference Code
-     - 1448
-   * - Dates
-     - 1923-1927
-   * - Finding Aid 
-     - `https://findingaids.library.tamu.edu/index.php/joel-hunt-collection <https://findingaids.library.tamu.edu/index.php/joel-hunt-collection>`_
-   * - Extent
-     - 1 box
-   * Total Boxes
-     - 1
-   * Total Folders
-     - 8
+    * - Reference Code
+      - 1448
+    * - Date
+      - 1923-1927
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/joel-hunt-collection <https://findingaids.library.tamu.edu/index.php/joel-hunt-collection>`_
+    * - Extent
+      - 1 box
+    * - Total Boxes
+      - 1
+    * - Total Folders
+      - 8
 
 Scope and Content
 -----------------
 
 This collection contains telegrams, correspondence, and photographs of Joel Hunt, who played Quarterback for the Texas A&M Football team from 1925 to 1927. The items appear to be from Joel Hunt’s scrapbook that was disassembled into this collection.
-
-System of Arrangement
------------------
-
-* 1/1: Telegrams
-* 1/2: Correspondence
-* 1/3: Miscellaneous Items
-* 1/4: Senate Resolution in Memory of O. Joel Hunt, August 4, 1978
-* 1/5: Photographs of football-related from Joel Hunt scrapbook, the 1920s
-* 1/6: Photographs from the trip to California to play in the East/West game, 1927
-* 1/7: Photographs, Undated
-* 1/8: Photographs from Joel Hunt scrapbook, 1927
-
 
 Box Inventory
 -------------
@@ -43,12 +30,12 @@ Box Inventory
    :header-rows: 1
    :widths: 15 45 15 10 15
 
-   * - Reference Code
-     - Title
-     - Dates
-     - Extent
-   * - 1448-1
-     - J. Hunt Materials
-     - 1923-1927; 1958-1959; 1978; Undated
-     - 8
-     - 8 folders
+    * - Reference Code
+      - Title
+      - Dates
+      - Extent
+    * - 1448-1
+      - J. Hunt Materials
+      - 1923-1927; 1958-1959; 1978; Undated
+      - 8
+      - 8 folders

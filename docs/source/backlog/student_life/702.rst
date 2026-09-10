@@ -2,17 +2,18 @@ Pfeuffer Hall Student Scrapbook
 ===============================
 
 .. list-table::
-   :widths: 25 75
-   :stub-columns: 1
+    :widths: 25 75
+    :stub-columns: 1
 
-   * - Reference Code
-     - 702
-   * - Dates
-     - 1930-1931
-   * - Finding Aid 
-     - `https://findingaids.library.tamu.edu/index.php/pfeuffer-hall-student-scrapbook <https://findingaids.library.tamu.edu/index.php/pfeuffer-hall-student-scrapbook>`_
-   * - Extent
-     - 1 scrapbook
+    * - Reference Code
+      - 702
+    * - Date
+      - 1930-1931
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/pfeuffer-hall-student-scrapbook <https://findingaids.library.tamu.edu/index.php/pfeuffer-hall-student-scrapbook>`_
+    * - Extent
+      - 1 scrapbook
+
 
 Scope and Content
 -----------------
