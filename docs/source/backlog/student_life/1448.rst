@@ -33,6 +33,7 @@ Box Inventory
    * - Reference Code
      - Title
      - Dates
+     - Folders
      - Extent
    * - 1448-1
      - J. Hunt Materials
