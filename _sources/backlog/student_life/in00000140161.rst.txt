@@ -1,0 +1,19 @@
+Official directory of the faculty, staff, and student body 
+==========================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - in00000140161
+   * - Dates
+     - 1876-2012
+   * - Finding Aid
+     - `https://catalog.library.tamu.edu/Record/in00000140161 <https://catalog.library.tamu.edu/Record/in00000140161>`_
+   * - Extent
+     - n/a
+   * - Total Boxes
+     - n/a
+   * - Total Folders
+     - n/a
