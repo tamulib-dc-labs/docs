@@ -1,0 +1,70 @@
+E J. Kyle Papers
+================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 15
+   * - Dates
+     - 1902-1957
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/e-j-kyle-papers <https://findingaids.library.tamu.edu/index.php/e-j-kyle-papers>`_
+   * - Extent
+     - 7 boxes
+   * - Total Boxes
+     - 7
+   * - Total Folders
+     - 83
+
+Scope and Content
+-----------------
+
+The E. J. Kyle (1894-1957) Papers contains reports, correspondence, speeches, articles, applications, pamphlets, newspaper clippings, programs, pictures, memorandums, lists, and resolutions. Materials include correspondence, reports, speeches, and articles on E. J. Kyle's attempts to acquire more land and construct new buildings for the School of Agriculture at Texas A & M College. Other speeches and articles written by E. J. Kyle are concerned with subjects as cotton, soil conservation, and the cultivation of vegetables, fruits and nuts, particularly pecans.
+
+Also present are reports Kyle wrote pertaining to Texas A & M College's enrollment plans and teaching techniques in Agricultural classes. Since Kyle was the head of many different programs at Texas A & M College, his papers contain applications and other information regarding the Land Prize, Anderson-Clayton Company Scholarship, and programs on Short Courses taught from 1913 to 1936. In addition to his academic duties, Kyle was also deeply involved with various types of research and the papers contain a few of the booklets, articles, and resolutions pertaining to the Soil Erosion Project, Frozen Food Research, and Texas Wildlife Research.
+
+Correspondence in the papers deals with not only E. J. Kyle's work, but also contains letters from former students, commendations sent to Kyle, and letters concerning the naming of Kyle Field sports arena on the Texas A & M College campus.
+
+Photographs contained in the collection are pertain to agricultural topics, such as cattle and pecan trees, the NYA program, Texas A & M College buildings, Texas A & M College football teams and sports events, and Kyle Field.Several football team rosters, programs from football games, newspaper clippings about sports events, and correspondence dealing with Kyle's position on the Athletic Council represent Kyle's close connection with many of the Texas A & M College athletics program.
+
+Also present is a certificate of Kyle's appointment to the Farm Credit Association.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 15-S0001
+     - Texas A & M School of Agriculture
+     - 1912-1942
+     - 5
+     - 5 folders
+   * - 15-S0002
+     - Publications by Kyle on Agriculture
+     - 1913-1944
+     - 9
+     - 9 folders
+   * - 15-S0003
+     - Land Prize, Scholarships, and Short Courses
+     - 1913-1943
+     - 8
+     - 8 folders
+   * - 15-S0004
+     - Correspondence
+     - 1902-1957
+     - 61
+     - 61 folders
+   * - 15-S0005
+     - Scrapbooks
+     - 1910s-1940s
+     - none
+     - 6 items

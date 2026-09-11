@@ -1,0 +1,19 @@
+A trailblazing story and scrapbook, 50 years of memories : women's athletics Texas A&M University
+=================================================================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - in00005672352
+   * - Dates
+     - unknown
+   * - Finding Aid
+     - `https://catalog.library.tamu.edu/Record/in00005672352 <https://catalog.library.tamu.edu/Record/in00005672352>`_
+   * - Extent
+     - unknown
+   * - Total Boxes
+     - unknown
+   * - Total Folders
+     - unknown
