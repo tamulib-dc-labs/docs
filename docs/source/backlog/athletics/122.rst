@@ -1,0 +1,772 @@
+Texas A&M Photograph Files
+==========================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 122
+   * - Dates
+     - unknown
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-photograph-files <https://findingaids.library.tamu.edu/index.php/texas-a-m-photograph-files>`_
+   * - Extent
+     - 147 Boxes
+   * - Total Boxes
+     - 147
+   * - Total Folders
+     - unknown
+
+Scope and Content
+-----------------
+
+These files consist of pictures from multiple sources, including Aggielands, university photographers, and donors.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 122-B0001-B001A
+     - A&M Adjunct at Junction - Aggie G.O.P
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0001-B001B
+     - Aggie Hostel - Aggie Space Department
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0001-B001C
+     - Aggie Students for Space Exploration - Aggie Wranglers
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0001-B001D
+     - The Aggieland - Airplanes
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0001-B001E
+     - Alaskan Aggies - Alpha Kappa Psi
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0001-B001F
+     - Alpha Lamda Delta - Angel Flight
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0001-B001G
+     - Antique and Classic Car Club - Archives Exhibits
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0002-B002A
+     - Arts & Exhibits -  Bahai'i Club
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0002-B002B
+     - Ballet Folklorico Celestial - Bands (Other Than TAMU)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0002-B002C
+     - Baseball (1891-1900) - Baseball (1941-1950)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0002-B002D
+     - Baseball (1951-1960) - Baseball (1981-1990)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0002-B002E
+     - Baseball (1991-2000) - Men's Basketball (1931-1940)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0002-B002F
+     - Men's Basketball (1941-1950) - Men's Basketball (1971-1980)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003A
+     - Basketball- Fans, undated - Men's Basketball 1990
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003B
+     - Men's Basketball (1991-2000) - Men's Basketball (No Dates)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003C
+     - Basketball--Women (1971-1980) - Basketball--Women (1981-1990)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003D
+     - Basketball--Women (1991-2000) - Battalion Staff
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003E
+     - Beef Cattle Show Team - Board of Regents
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003F
+     - Bonfire
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0003-B003G
+     - Bonfire Tragedy - Brazos Transit System
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004A
+     - Big Hunters Club - Campus Views (Aerial 1961-1970)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004B
+     - Campus Views (Aerial 1971-1980) - Aerial Contour
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004C
+     - Campus Views (General)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004D
+     - Cane Rush - Centennial Convocation
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004E
+     - Centennial Woodcarvings - Chi Omega
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004F
+     - Chi Phi - Class/Laboratory Work
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0004-B004G
+     - Class of... - Commencement
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005A
+     - Committee for the Awareness of Mexican American Culture - Corps of Cadets (Aggie Band 1901-1910)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005B
+     - Corps of Cadets (Aggie Band 1911-1920) - Corps of Cadets (Aggie Band 1971-1980)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005C
+     - Corps of Cadets (Aggie Band 1981-1990) - Corps of Cadets (Aggie Band Misc. Dates)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005D
+     - Corps of Cadets (Air Force ROTC Staff) - Corps of Cadets (Artillery)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005E
+     - Corps of Cadets (Awards)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005F
+     - Corps of Cadets (Cadet Court) - Corps of Cadets (Cavalry)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0005-B005G
+     - Corps fo Cadets (Chemical Warfare) - Corps of Cadets (Commandants)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0006-B006A
+     - Corps of Cadets (Commander) - Corps of Cadets (Companies and Classes)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0006-B006B
+     - Corps of Cadets (Composites) - Corps of Cadets (Corps Trips)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0006-B006C
+     - Corps of Cadets (Deputy Corps Commander) - Corps of Cadets (Early Cadet Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0006-B006D
+     - Corps of Cadets (Early Companies & Classes) - Corps of Cadets (Final Review)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0006-B006E
+     - Corps of Cadets (Fish Drill Team Advisors) - Corps of Cadets (Freshman Orientation Week)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007A
+     - Corps of Cadets (General, No Dates)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007B
+     - Corps of Cadets (General Reviews)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007C
+     - Corps of Cadets (Unidentified Groups) - Corps of Cadets (March Ins and Parades)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007D
+     - Corps of Cadets (March in the Brazos) - Corps of Cadets (O. R. Simpson Honor Society)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007E
+     - Corps of Cadets (Outfit Logos) - Corps of Cadets (Company B-2 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007F
+     - Corps of Cadets (C Battery) - Corps of Cadets (Company D-2 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0007-B007G
+     - Corps of Cadets (Company E-1) - Corps of Cadets (Company H-2 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008A
+     - Corps of Cadets (Company I-1) - Corps of Cadets (Company M-2 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008B
+     - Corps of Cadets (Company N-1) - Corps of Cadets (Company W-1 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008C
+     - Corps of Cadets (Squadron 1) - Corps of Cadets (Squadron 7 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008D
+     - Corps of Cadets (Squadron 8) - Corps of Cadets (Squadron 17 Officers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008E
+     - Corps of Cadets (Ross Volunteers)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008F
+     - Corps of Cadets (Ross Volunteers Individuals)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0008-B008G
+     - Corps of Cadets (Rudders Rangers) - Corps of Cadets (Signal Corps)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0009-B009A
+     - Corps of Cadets (Aggie Pathfinders) - Corps of Cadets (Seal Platoon)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0009-B009B
+     - Corps of Cadets (Artillery Band Staff) - Corps of Cadets (1st Brigade Staff)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0009-B009C
+     - Corps of Cadets (2nd Brigade Staff) - Corps of Cadets (Navy/Marine ROTC Staff)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0009-B009D
+     - Corps of Cadets (Office of the Commandant) - Corps of Cadets (2nd Wing Staff)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0009-B009E
+     - Corps of Cadets (Summer Camps)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0009-B009F
+     - Corps of Cadets (Veterans of the Lost Cause) - Delta Chi
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010A
+     - Delta Delta Delta - Diving Team (Women's)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010B
+     - Dormitory Resident Groups
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010C
+     - Dramatics - Elephant Walk
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010D
+     - Emergency Care Team - Fantasy Role Players
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010E
+     - Federal Students - Fish Day
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010F
+     - Fish Olympics - Food Services
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0010-B010G
+     - Football (1890-1895) - Football (1921-1929)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011A
+     - Football (1930-1939) - Football (1973-1974)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011B
+     - Football (1975-1976)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011C
+     - Football (1977-1978)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011D
+     - Football (1979) - Football (1980-1981)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011E
+     - Football (1982-1983) - Football (1984-1985)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011F
+     - Football (1986-1987) - Football (1990-1994)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0011-B011G
+     - Football (1997) - Football (No Dates)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012A
+     - Football (Awards/Ceremonies) - Football Cotton Bowl
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012B
+     - Football Fans - Football Individuals (1920-1929)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012C
+     - Football Individuals (1930-1929) - Football Individuals (1970-1979)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012D
+     - Football Individuals (1980-1989) - Football Misc.
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012E
+     - Football Squads 1800s - Football Squads (1921-1930)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012F
+     - Football Squads (1931-1940) - Football Squads (No Dates)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0012-B012G
+     - Football (Twelfth Man Kick Off Team) - Former Students (Classes 1900)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013A
+     - Former Students (Classes 1904) - Former Students (General Individuals)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013B
+     - Former Students (Reunions 1920-1955) - Former Students (Reunions 1956-1972)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013C
+     - 4-H Club - Golf Men's
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013D
+     - Golf Women's - Gymnastics
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013E
+     - Habitat for Humanity - Hometown Clubs
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013F
+     - Honors Student Council - International Programs Office
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0013-B013G
+     - International Student Organization - Interurban Railway (Bryan & College Station)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0014-B014A
+     - Intramurals (Archery 1975-1985) - Intramurals (Cycling 1975-1985)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0014-B014B
+     - Intramurals (Disabled Students) - Intramurals (Horseshoes 1975-1985)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0014-B014C
+     - Intramurals (Horseshoes 1975-1985) - Intramurals (Soccer 1995-2005)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0014-B014D
+     - Intramurals (Softball 1975-1985) - Intramurals (Swimming 1986-1994)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0014-B014E
+     - Intramurals (Table Tennis 1975-1985) - Intramurals (Tug o' War 1975-1985)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0014-B014F
+     - Intramurals (Volleyball 1975-1985) - Intramurals (1984 Swim Meet)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0015-B015A
+     - Iota Lambda Sigma - Judo
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0015-B015B
+     - Junior Engineering Technical Society - Lacrosse
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0015-B015C
+     - Lambda Chi Alpha - Livestock
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0015-B015D
+     - Macaw Project - Mascots (General)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0015-B015E
+     - Mascots (Reveille I) - Mascots (Reveille VII)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0015-B015F
+     - Masters of Business Administration Law - Minorities in Agriculture
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016A
+     - Misc. Photographs
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016B
+     - Mother's Club (Federation of TAMU) - Mt. Aggie
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016C
+     - Musical Groups - Muster
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016D
+     - National Agri-Marketing Association - Old Army Gentleman Society
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016E
+     - Old Beck - Orchestra (Aggieland)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016F
+     - Order of Omega - Parents Weekend
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0016-B016G
+     - Peace Corps - Physical Therapy Club
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017A
+     - Pi Beta Pi - Political Forum
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017B
+     - Political Groups - Pre-Medical and Pre-Dental Society
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017C
+     - Presidential Visits - Psychology Club
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017D
+     - Publication Society - Railroads (Trains)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017E
+     - Real Estate Society - Registration
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017F
+     - Religion at A&M  - Retailing Society
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0017-B017G
+     - Reunion - Ring Dance
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018A
+     - Rings (Seniors) - Roadrunners
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018B
+     - Rodeo - Saddle Sirloin Club
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018C
+     - Sailing - SCONA
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018D
+     - Scuba-Diving Club - Senior Banquet/Weel
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018E
+     - Service Awareness Day - Ships (Grye)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018F
+     - Ships (Hidalgo) - Ships (Texas Clipper)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0018-B018G
+     - Sigma Alpha Epsilon - Sigma Phi Lambda
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019A
+     - Sigma Tau Delta - Skydiving Clubs
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019B
+     - Soccers (Men's) - Society of Creative Anachronism
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019C
+     - Society of Hispanic Professional Engineers - Softball
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019D
+     - SOL Club - Student Chapter of American Meteorological Society
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019E
+     - Student Engineering Council - Student Life
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019F
+     - Student Government (Graduate Student) - Student Life
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0019-B019G
+     - Student Life (1930s)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020A
+     - Student Programs Office - Students (Handicapped)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020B
+     - Students (Identified)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020C
+     - Students (Identified) cont.
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020D
+     - Students (Identified) cont.
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020E
+     - Students (Leaders) - Sul Ross Reunion
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020F
+     - Summer Dinner Theater (MSC) - Symphonic Band
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0020-B020G
+     - TAMU Singers - Television (KAMU)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021A
+     - Tennis (Men's) - Tennis Courts
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021B
+     - Texas A&M Longhorns - Texas Agriculture Extension Service (Entomology)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021C
+     - Texas Engineering Experiment Station - Texas Forest Service (Venture Photos)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021D
+     - Texas Sports Hall of Fame Exhibits - Town Hall
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021E
+     - Track
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021F
+     - Track (Cross Country) - Transfer Camp
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0021-B021G
+     - Trap and Skeet - UN Club
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0022-B022A
+     - Unicycle Club - University Faculty (Identified)
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0022-B022B
+     - University Faculty (TAES Staff) - University Outreach
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0022-B022C
+     - University Police - Upsilon Pi Epsilon
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0022-B022D
+     - US Asian American Committee - Wampus Club
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0022-B022E
+     - Water Polo - Wrestling
+     - unknown
+     - unknown
+     - unknown
+   * - 122-B0022-B022F
+     - Yell Leaders/Yell Practice - Zoo
+     - unknown
+     - unknown
+     - unknown
