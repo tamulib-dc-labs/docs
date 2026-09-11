@@ -1,0 +1,20 @@
+Linda Keefer Elephant Walk Hat
+==============================
+
+
+.. list-table::
+    :widths: 25 75
+    :stub-columns: 1
+
+    * - Reference Code
+      - 1624
+    * - Dates
+      - unknown
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/linda-keefer-elephant-walk-hat <https://findingaids.library.tamu.edu/index.php/linda-keefer-elephant-walk-hat>`_
+    * - Extent
+      - 1 Box
+    * - Total Boxes
+      - 1
+    * - Total Folders
+      - unknown

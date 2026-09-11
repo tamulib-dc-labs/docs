@@ -1,0 +1,25 @@
+MSC Bookstore Promotional Cap
+=============================
+
+
+.. list-table::
+    :widths: 25 75
+    :stub-columns: 1
+
+    * - Reference Code
+      - 1247
+    * - Dates
+      - unknown
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/msc-bookstore-promotional-cap <https://findingaids.library.tamu.edu/index.php/msc-bookstore-promotional-cap>`_
+    * - Extent
+      - 1 Box
+    * - Total Boxes
+      - 1
+    * - Total Folders
+      - unknown
+
+Scope and Content
+-----------------
+
+This collection consists of a single cotton baseball hat (white/maroon) with printed Texas A&M University Athletics logo and the other Texas A&M University logo with inscribed "Your Texas A&M Bookstore - The Memorial Student Center".

@@ -1,0 +1,21 @@
+March to the Brazos Photograph Album
+====================================
+
+.. list-table::
+    :widths: 25 75
+    :stub-columns: 1
+
+    * - Reference Code
+      - 700
+    * - Date
+      - 1909-1911
+    * - Finding Aid 
+      - `https://findingaids.library.tamu.edu/index.php/march-to-the-brazos-photograph-album <https://findingaids.library.tamu.edu/index.php/march-to-the-brazos-photograph-album>`_
+    * - Extent
+      - 1 album
+
+
+Scope and Content
+-----------------
+
+The March to the Brazos photographic scrapbook album contains photographs from 1909 to 1911 "March to the Brazos" Corps of Cadets tradition along with Texas A&M College Campus views, Campus tents, along with military campsites, and social events.
