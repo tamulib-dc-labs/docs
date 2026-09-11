@@ -1,0 +1,19 @@
+Memorial Student Center (MSC) Scrapbooks
+========================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 1019
+   * - Dates
+     - unknown
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/memorial-student-center-msc-scrapbooks <https://findingaids.library.tamu.edu/index.php/memorial-student-center-msc-scrapbooks>`_
+   * - Extent
+     - 12 Boxes
+   * - Total Boxes
+     - 12
+   * - Total Folders
+     - unknown

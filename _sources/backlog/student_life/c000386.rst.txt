@@ -1,0 +1,80 @@
+Fighting Aggie Band Collection
+==============================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - C000386
+   * - Dates
+     - unknown
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/fighting-texas-aggie-band-collection <https://findingaids.library.tamu.edu/index.php/fighting-texas-aggie-band-collection>`_
+   * - Extent
+     - 8 Boxes
+   * - Total Boxes
+     - 8
+   * - Total Folders
+     - unknown
+
+
+Scope and Content
+-----------------
+
+This collection contains the working notebooks for the Aggie Campus Muster's. These notebooks include materials from the entire ceremony such as song sheets, prayers, list of current and former students who have passed to be honored, speeches from Texas A&M University officials, the Association of Former Students (AFS), the Muster speaker's speech, and the protocols for the ceremony.
+
+Aggie Muster takes place every year on April 21 for the commemoration of San Jacinto Day, where Teas won its independence from Mexico. Aggie Muster remembers any current or former student that has passed away in the previous year, and it currently is held in Reed Arena and celebrated across the world in multiple locations.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - C000386-1
+     - Papers and Album Scrapbook Pages
+     - 1973-1987
+     - unknown
+     - unknown
+   * - C000386-2
+     - Album Scrapbook Pages
+     - 1986-1992
+     - unknown
+     - unknown
+   * - C000386-3
+     - Album Scrapbook Pages
+     - 1992-2010
+     - unknown
+     - unknown
+   * - C000386-4
+     - Letters, Photographs, and Quadrangle
+     - 1976-2006
+     - unknown
+     - unknown
+   * - C000386-5
+     - Aggie Band Railroad Car, DVDs, CDs, and Plaque
+     - unknown
+     - unknown
+     - unknown
+   * - C000386-6
+     - 1975-76 Aggie Band Scrapbook, and Newspapers
+     - 1975-1976
+     - unknown
+     - unknown
+   * - C000386-7
+     - Clarinet and 1928 Aggie Band Signatures
+     - unknown
+     - unknown
+     - unknown
+   * - C000386-8
+     - LPs
+     - unknown
+     - unknown
+     - unknown

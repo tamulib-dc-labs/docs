@@ -1,0 +1,19 @@
+Directory of the officers, faculty and students of the Agricultural and Mechanical College of Texas : including the experiment station, the extension service
+=============================================================================================================================================================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - in00004042708
+   * - Dates
+     - 1915-1963
+   * - Finding Aid
+     - `https://catalog.library.tamu.edu/Record/in00004042708 <https://catalog.library.tamu.edu/Record/in00004042708>`_
+   * - Extent
+     - n/a
+   * - Total Boxes
+     - n/a
+   * - Total Folders
+     - n/a
