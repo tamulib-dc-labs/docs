@@ -1,0 +1,262 @@
+Texas A&M Videos
+================
+
+.. list-table::
+   :widths: 25 75
+   :stub-columns: 1
+
+   * - Reference Code
+     - 146
+   * - Dates
+     - 1938-1994
+   * - Finding Aid
+     - `https://findingaids.library.tamu.edu/index.php/texas-a-m-videos <https://findingaids.library.tamu.edu/index.php/texas-a-m-videos>`_
+   * - Extent
+     - 
+   * - Total Boxes
+     - 
+   * - Total Folders
+     - 
+
+Scope and Content
+-----------------
+
+VHS and DVDs of Texas A&M athletic events, including football games, instructional material and lectures.
+
+System of Arrangement
+---------------------
+
+Each item is issued an item number.
+
+Box Inventory
+-------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 45 15 10 15
+
+   * - Reference Code
+     - Title
+     - Dates
+     - Folders
+     - Extent
+   * - 146-S01
+     - Football - Films 100-200
+     - 1938-1951    
+     - unknown
+     - 19 videos
+   * - 146-S02
+     - Football - Films 205-300
+     - 1951-1959 
+     - unknown
+     - 27 videos
+   * - 146-S03
+     - Football - Films 305-400
+     - 1937-1975
+     - unknown
+     - 26 videos
+   * - 146-S04
+     - Football - Films 410-500
+     - 1963-1967   
+     - unknown
+     - unknown
+   * - 146-S05
+     - Football - Films 510-700
+     - 1967-1973
+     - unknown
+     - 12 videos
+   * - 146-S06
+     - Football - Films 710-900
+     - 1973-1975   
+     - unknown
+     - 14 videos
+   * - 146-S07
+     - Football - Films 910-1010
+     - 1975-1976; 1981 
+     - unknown
+     - 19 videos
+   * - 146-S08
+     - Football and Basketball - Films 1011-1150
+     - 1976-1986 
+     - unknown
+     - unknown
+   * - 146-S09
+     - Football and Basketball - Films 1160-1310
+     - 1985-1988  
+     - unknown
+     - unknown
+   * - 146-S10
+     - Football and Basketball - Films 1320-1500
+     - 1987-1988
+     - unknown
+     - unknown
+   * - 146-S11
+     - Football and Basketball - Films 1510-1700
+     - 1988-1989
+     - unknown
+     - unknown
+   * - 146-S12
+     - Football and Basketball - Films 1710-1900
+     - 1989-1900
+     - unknown
+     - unknown
+   * - 146-S13
+     - Football and Basketball - Films 1910-2100
+     - 1990
+     - unknown
+     - unknown
+   * - 146-S14
+     - Football and Basketball - Films 2105-2300
+     - 1990-1992
+     - unknown
+     - unknown
+   * - 146-S15
+     - Football - Films 2310-2500
+     - 1992-1993
+     - unknown
+     - unknown
+   * - 146-S16
+     - Football - Films 2510-2700
+     - 1993-1996
+     - unknown
+     - unknown
+   * - 146-S17
+     - Football - Films 2710-2900
+     - 1995-1996
+     - unknown
+     - unknown
+   * - 146-S18
+     - Football - Films 2910-3100
+     - 1997
+     - unknown
+     - unknown
+   * - 146-S19
+     - Basketball and Baseball - Films 3110-3300
+     - 1988-1989; Undated
+     - unknown
+     - unknown
+   * - 146-S20
+     - Football and Basketball - Films 3310-3500
+     - 1953-1957; Undated
+     - unknown
+     - unknown
+   * - 146-S21
+     - Football - Films 3505-3700
+     - 1957-1961; 1971; 1997-1998
+     - unknown
+     - unknown
+   * - 146-S22
+     - Football and Basketball - Films 3705-3900
+     - 1957-2002
+     - unknown
+     - unknown
+   * - 146-S23
+     - Football, Basketball, and Baseball - Films 3905-4095
+     - 1936-2001
+     - unknown
+     - unknown
+   * - 146-S24
+     - Football and Basketball - Films 4100-4300
+     - 1952-2003
+     - unknown
+     - unknown
+   * - 146-S25
+     - Football and Basketball - Films 4305-4500
+     - 1946-1998
+     - unknown
+     - unknown
+   * - 146-S26
+     - Football - Films 4505-4700
+     - 1961-1980
+     - unknown
+     - unknown
+   * - 146-S0027
+     - Films 4705-4900
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0028
+     - Films 4901-5100
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0029
+     - Films 5105-5300
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0030
+     - Films 5305-5500
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0031
+     - Films 5505-5700
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0032
+     - Films 5705-5900
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0033
+     - Films 5905-6100
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0034
+     - Films 6105-6300
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0035
+     - Films 6305-10100
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0036
+     - Films 10110-10450
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0037
+     - Films 10460-10700
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0038
+     - Films 10710-11100
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0039
+     - Films 11110-114950
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0040
+     - Films 11510-11800
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0041
+     - Films 11810-12000
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0042
+     - Films 12005-12400
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0043
+     - Films 12405-12800
+     - unknown
+     - unknown
+     - unknown
+   * - 146-S0044
+     - Films 12805-12845
+     - unknown
+     - unknown
+     - unknown
