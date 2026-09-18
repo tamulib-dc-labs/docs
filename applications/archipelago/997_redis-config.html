@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Associating HTR with Image Files" href="indexing-hand-written-text.html" /><link rel="prev" title="Testing JMES Paths" href="999_jmes_path_tester.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Add URL alias for a Node" href="998_add_url_alias.html" /><link rel="prev" title="Restricting Access with IP Embargo" href="11_ip-embargo.html" />
 
     <link rel="shortcut icon" href="../../_static/TAM-MaroonBox.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Changing Branding in Archipelago - TAMU Digital Collections Labs</title>
+        <title>Redis Cache Configuration Change - TAMU Digital Collections Labs</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
@@ -235,10 +235,10 @@
 <li class="toctree-l2"><a class="reference internal" href="09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="997_redis-config.html">Redis Cache Configuration Change</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Redis Cache Configuration Change</a></li>
 <li class="toctree-l2"><a class="reference internal" href="998_add_url_alias.html">Add URL alias for a Node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="999_jmes_path_tester.html">Testing JMES Paths</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Changing Branding in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
@@ -464,12 +464,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/applications/archipelago/changing-branding.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/applications/archipelago/997_redis-config.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/applications/archipelago/changing-branding.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/applications/archipelago/997_redis-config.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -488,89 +488,245 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="changing-branding-in-archipelago">
-<h1>Changing Branding in Archipelago<a class="headerlink" href="#changing-branding-in-archipelago" title="Link to this heading">¶</a></h1>
-<p>This guide explains how to update the site name, slogan, and logo in an Archipelago site using the Chiloé subtheme.</p>
-<section id="change-the-site-name-and-slogan">
-<h2>1. Change the Site Name and Slogan<a class="headerlink" href="#change-the-site-name-and-slogan" title="Link to this heading">¶</a></h2>
-<ol class="arabic">
-<li><p>Go to:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Configuration</span> <span class="pre">&gt;</span> <span class="pre">System</span> <span class="pre">&gt;</span> <span class="pre">Basic</span> <span class="pre">site</span> <span class="pre">settings</span></code></p>
-<p>Direct URL:
-<code class="docutils literal notranslate"><span class="pre">/admin/config/system/site-information</span></code></p>
-</li>
-<li><p>Update the following fields:</p>
+          <section id="redis-cache-configuration-change">
+<h1>Redis Cache Configuration Change<a class="headerlink" href="#redis-cache-configuration-change" title="Link to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document explains the changes made to <code class="docutils literal notranslate"><span class="pre">settings.php</span></code> as part of
+the investigation into Redis (<code class="docutils literal notranslate"><span class="pre">archipelago</span></code> namespace) running at its
+memory ceiling and evicting cache entries – including expensive IIIF
+manifests for large creative-work-series objects – well before any
+reasonable TTL.</p>
+</div>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>Redis in the <code class="docutils literal notranslate"><span class="pre">archipelago</span></code> namespace was found running continuously at
+its configured memory ceiling, evicting cache entries under
+<code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code> eviction rather than expiring them on a normal TTL
+schedule. This was originally misdiagnosed as “cache busting after ~30
+minutes,” but investigation showed it was pure LRU eviction under memory
+pressure, unrelated to expiration.</p>
+<p>Initial evidence (captured 2026-08-26, production
+<code class="docutils literal notranslate"><span class="pre">redis-595986b5b6-hpkbh</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">used_memory</span><span class="p">:</span> <span class="mf">1023.99</span><span class="n">M</span>
+<span class="n">maxmemory</span><span class="p">:</span> <span class="mf">1.00</span><span class="n">G</span>          <span class="c1"># container pinned at its configured ceiling</span>
+<span class="n">maxmemory_policy</span><span class="p">:</span> <span class="n">allkeys</span><span class="o">-</span><span class="n">lru</span>
+<span class="n">evicted_keys</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="mi">754</span><span class="p">,</span><span class="mi">491</span>   <span class="c1"># lifetime evictions</span>
+<span class="n">expired_keys</span><span class="p">:</span> <span class="mi">0</span>           <span class="c1"># confirms this is NOT TTL-driven</span>
+<span class="n">keyspace_hits</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span><span class="mi">865</span><span class="p">,</span><span class="mi">703</span>
+<span class="n">keyspace_misses</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span><span class="mi">064</span><span class="p">,</span><span class="mi">972</span>   <span class="c1"># ~21% miss rate</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">expired_keys:</span> <span class="pre">0</span></code> ruled out expiration as the cause – every loss was a
+forced eviction from <code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code>, which discards keys once memory is
+full regardless of how expensive they were to regenerate.</p>
+</section>
+<section id="investigation-summary">
+<h2>Investigation Summary<a class="headerlink" href="#investigation-summary" title="Link to this heading">¶</a></h2>
+<p>Several avenues were tested in sequence before arriving at the
+<code class="docutils literal notranslate"><span class="pre">settings.php</span></code> change documented here.</p>
+<section id="raising-maxmemory-partial-fix">
+<h3>Raising <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> (partial fix)<a class="headerlink" href="#raising-maxmemory-partial-fix" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">-maxmemory</span></code> on the <code class="docutils literal notranslate"><span class="pre">redis</span></code> deployment was raised from <code class="docutils literal notranslate"><span class="pre">1024mb</span></code> to
+<code class="docutils literal notranslate"><span class="pre">1300mb</span></code>, staying under the pod’s <code class="docutils literal notranslate"><span class="pre">1536Mi</span></code> resource limit. This is a
+low-risk, config-only change with no application code impact.</p>
+<p>Result after several days at steady state: <code class="docutils literal notranslate"><span class="pre">used_memory</span></code> remained
+pinned within 1MB of the new <code class="docutils literal notranslate"><span class="pre">1300mb</span></code> ceiling, and eviction continued
+at a sustained rate of roughly <strong>64 evictions/minute (~92,000/day)</strong> over
+a 3.1-day observation window. The miss rate improved modestly, from
+~21% to ~17%, but the underlying problem was not resolved – the working
+set simply grew to fill the larger ceiling, the same pattern as before.</p>
+<p><strong>Conclusion:</strong> raising <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> alone is not sufficient. The
+working set genuinely exceeds the available memory under normal
+production traffic.</p>
+</section>
+<section id="ttl-audit-and-eviction-policy-allkeys-lru-vs-volatile-lru">
+<h3>TTL audit and eviction policy (<code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code> vs. <code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code>)<a class="headerlink" href="#ttl-audit-and-eviction-policy-allkeys-lru-vs-volatile-lru" title="Link to this heading">¶</a></h3>
+<p>A full census of the live keyspace (198,225 of 198,176 keys – effectively
+100% coverage) was taken to determine whether switching
+<code class="docutils literal notranslate"><span class="pre">maxmemory-policy</span></code> from <code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code> to <code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code> would
+meaningfully protect expensive manifest-related cache bins.</p>
+<p>Findings:</p>
 <ul class="simple">
-<li><p><strong>Site name</strong> — e.g., <code class="docutils literal notranslate"><span class="pre">Texas</span> <span class="pre">A&amp;M</span> <span class="pre">Digital</span> <span class="pre">Collections</span></code></p></li>
-<li><p><strong>Slogan</strong> — Update or clear this field as needed.</p></li>
+<li><p>Virtually every key in every cache bin (99.9%+) carries a TTL of
+approximately 360-365 days. This is not a real expiration policy –
+it is the Redis module’s technical “permanent cache” convention,
+which gives <code class="docutils literal notranslate"><span class="pre">CACHE_PERMANENT</span></code> items a long safety-net TTL rather
+than true infinite expiry.</p></li>
+<li><p>Because this ~1-year TTL is applied nearly uniformly across <em>all</em>
+bins – including manifest-adjacent bins (<code class="docutils literal notranslate"><span class="pre">page</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dynamic_page_cache</span></code>, <code class="docutils literal notranslate"><span class="pre">render</span></code>) and cheap, high-churn bins
+(<code class="docutils literal notranslate"><span class="pre">entity</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>) alike – TTL does not differentiate
+“expensive to regenerate” from “cheap to regenerate” data in this
+dataset.</p></li>
+<li><p>A handful of true no-TTL keys exist (7-8 keys total, out of ~198,000),
+but they are negligible in size and pose no meaningful OOM risk under
+<code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code>.</p></li>
 </ul>
-</li>
-<li><p>Click <strong>Save configuration</strong>.</p></li>
-</ol>
-<p>The updated site name will appear in the browser title and in the site header
-(unless hidden in a later step).</p>
+<p><strong>Conclusion:</strong> switching to <code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code> would be <em>safe</em> but would
+not provide the targeted protection originally hoped for, since manifest
+keys are not distinguishable from cheap keys by TTL. The eviction policy
+was not pursued further as the primary fix; <code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code> was retained.</p>
 </section>
-<section id="replace-the-logo">
-<h2>2. Replace the Logo<a class="headerlink" href="#replace-the-logo" title="Link to this heading">¶</a></h2>
-<ol class="arabic">
-<li><p>Go to:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Appearance</span> <span class="pre">&gt;</span> <span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Archipelago</span> <span class="pre">(Chiloé)</span></code></p>
-<p>Direct URL:
-<code class="docutils literal notranslate"><span class="pre">/admin/appearance/settings/archipelago_subtheme_chiloe</span></code></p>
-</li>
-<li><p>Scroll to the <strong>Logo image</strong> section.</p></li>
-<li><p>Uncheck:</p>
+<section id="settings-php-cache-bin-configuration-this-change">
+<h3><code class="docutils literal notranslate"><span class="pre">settings.php</span></code> cache bin configuration (this change)<a class="headerlink" href="#settings-php-cache-bin-configuration-this-change" title="Link to this heading">¶</a></h3>
+<p>With the memory-ceiling and eviction-policy avenues explored, attention
+turned to <code class="docutils literal notranslate"><span class="pre">settings.php</span></code> itself, where the site’s Redis configuration
+was compared against the Redis module’s current recommended setup
+(module version 1.11.0, <code class="docutils literal notranslate"><span class="pre">example.settings.php</span></code> /
+<code class="docutils literal notranslate"><span class="pre">example.services.yml</span></code>).</p>
+</section>
+</section>
+<section id="root-cause">
+<h2>Root Cause<a class="headerlink" href="#root-cause" title="Link to this heading">¶</a></h2>
+<p>Two categories of gaps were found between the site’s Redis configuration
+and the module’s current recommended pattern.</p>
+<section id="legacy-bootstrap-cache-bin-routing">
+<h3>1. Legacy bootstrap cache bin routing<a class="headerlink" href="#legacy-bootstrap-cache-bin-routing" title="Link to this heading">¶</a></h3>
+<p>The site was forcing four early-boot cache bins to the database backend
+instead of Redis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$settings[&#39;cache&#39;][&#39;bins&#39;][&#39;bootstrap&#39;]  = &#39;cache.backend.database&#39;;
+$settings[&#39;cache&#39;][&#39;bins&#39;][&#39;config&#39;]     = &#39;cache.backend.database&#39;;
+$settings[&#39;cache&#39;][&#39;bins&#39;][&#39;container&#39;]  = &#39;cache.backend.database&#39;;
+$settings[&#39;cache&#39;][&#39;bins&#39;][&#39;discovery&#39;]  = &#39;cache.backend.database&#39;;
+</pre></div>
+</div>
+<p>This is the <em>pre-1.11.0</em> conservative pattern. It exists historically
+because the <code class="docutils literal notranslate"><span class="pre">container</span></code> bin caches the built dependency-injection
+container itself – Drupal cannot ask the not-yet-built container for a
+Redis cache service to cache itself with, so early Redis module versions
+simply routed all four early-boot bins to the database as a safe
+fallback.</p>
+<p>No <code class="docutils literal notranslate"><span class="pre">$settings['bootstrap_container_definition']</span></code> (the mechanism that
+solves this bootstrapping problem) was present anywhere in
+<code class="docutils literal notranslate"><span class="pre">settings.php</span></code>, and no site-specific <code class="docutils literal notranslate"><span class="pre">services.yml</span></code> existed to
+provide an alternative route to the same result.</p>
+<p><strong>Impact:</strong> <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code>, <code class="docutils literal notranslate"><span class="pre">config</span></code>, and <code class="docutils literal notranslate"><span class="pre">discovery</span></code> caches are read
+on essentially every request, very early in the page lifecycle. Routing
+them to MySQL instead of an in-memory Redis lookup is a small but
+constant per-request performance cost, independent of the eviction
+issue.</p>
+</section>
+<section id="missing-memory-relevant-redis-module-settings">
+<h3>2. Missing memory-relevant Redis module settings<a class="headerlink" href="#missing-memory-relevant-redis-module-settings" title="Link to this heading">¶</a></h3>
+<p>Comparing against the module’s shipped example configuration surfaced
+two settings that bear directly on the memory-pressure problem driving
+this investigation, neither of which was set:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">redis_compress_length</span></code></dt><dd><p>Compresses cache entries larger than a configured byte threshold
+before storing them in Redis. Without this set, large cache entries
+– and IIIF manifests for creative-work-series objects are exactly
+the kind of entry this affects – are stored uncompressed, consuming
+more of the available <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> ceiling than necessary.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">redis_invalidate_all_as_delete</span></code></dt><dd><p>Changes cache-tag invalidation behavior so that invalidated entries
+are actually deleted from Redis rather than left in memory as stale,
+unusable data until naturally overwritten or evicted. Without this
+set, invalidated-but-undeleted cache data may have been consuming
+real memory for no benefit, causing the <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> ceiling to be
+reached sooner than the live working set alone would require.</p>
+</dd>
+</dl>
+<p>A third setting, <code class="docutils literal notranslate"><span class="pre">redis_ttl_offset</span></code>, staggers actual cache expiration
+to avoid a “thundering herd” of simultaneous regeneration when many
+entries share a nominal TTL. This is a performance/stability nicety
+rather than a direct contributor to the memory-pressure problem.</p>
+</section>
+</section>
+<section id="the-change">
+<h2>The Change<a class="headerlink" href="#the-change" title="Link to this heading">¶</a></h2>
+<p>The following was added to <code class="docutils literal notranslate"><span class="pre">settings.php</span></code>, and the four
+database-backend cache bin overrides were commented out (not deleted,
+to allow a fast one-line revert if needed):</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$settings[&#39;redis.connection&#39;][&#39;interface&#39;] = &#39;PhpRedis&#39;;</span>
+<span class="x">$settings[&#39;redis.connection&#39;][&#39;host&#39;]      = &#39;redis&#39;;</span>
+<span class="x">$settings[&#39;redis.connection&#39;][&#39;port&#39;]      = 6379;</span>
+<span class="x">$settings[&#39;cache&#39;][&#39;default&#39;] = &#39;cache.backend.redis&#39;;</span>
+
+<span class="x">// bootstrap/config/container/discovery no longer forced to the</span>
+<span class="x">// database backend -- see bootstrap_container_definition below.</span>
+<span class="x">// $settings[&#39;cache&#39;][&#39;bins&#39;][&#39;bootstrap&#39;]  = &#39;cache.backend.database&#39;;</span>
+<span class="x">// $settings[&#39;cache&#39;][&#39;bins&#39;][&#39;config&#39;]     = &#39;cache.backend.database&#39;;</span>
+<span class="x">// $settings[&#39;cache&#39;][&#39;bins&#39;][&#39;container&#39;]  = &#39;cache.backend.database&#39;;</span>
+<span class="x">// $settings[&#39;cache&#39;][&#39;bins&#39;][&#39;discovery&#39;]  = &#39;cache.backend.database&#39;;</span>
+
+<span class="x">$settings[&#39;lock&#39;][&#39;backend_factory&#39;]     = &#39;redis.lock.backend.redis&#39;;</span>
+<span class="x">$settings[&#39;lockSlow&#39;][&#39;backend_factory&#39;] = &#39;redis.lock.backend.redis&#39;;</span>
+<span class="x">$settings[&#39;cache_prefix&#39;] = &#39;archipelago_&#39;;</span>
+
+<span class="x">$settings[&#39;redis_compress_length&#39;] = 100;</span>
+<span class="x">$settings[&#39;redis_ttl_offset&#39;] = 3600;</span>
+<span class="x">$settings[&#39;redis_invalidate_all_as_delete&#39;] = TRUE;</span>
+
+<span class="x">$settings[&#39;container_yamls&#39;][] = &#39;modules/contrib/redis/example.services.yml&#39;;</span>
+<span class="x">$settings[&#39;container_yamls&#39;][] = &#39;modules/contrib/redis/redis.services.yml&#39;;</span>
+
+<span class="x">$class_loader-&gt;addPsr4(&#39;Drupal\\redis\\&#39;, &#39;modules/contrib/redis/src&#39;);</span>
+
+<span class="x">$settings[&#39;bootstrap_container_definition&#39;] = [</span>
+<span class="x">  &#39;parameters&#39; =&gt; [],</span>
+<span class="x">  &#39;services&#39; =&gt; [</span>
+<span class="x">    &#39;redis.factory&#39; =&gt; [</span>
+<span class="x">      &#39;class&#39; =&gt; &#39;Drupal\redis\ClientFactory&#39;,</span>
+<span class="x">    ],</span>
+<span class="x">    &#39;cache.backend.redis&#39; =&gt; [</span>
+<span class="x">      &#39;class&#39; =&gt; &#39;Drupal\redis\Cache\CacheBackendFactory&#39;,</span>
+<span class="x">      &#39;arguments&#39; =&gt; [&#39;@redis.factory&#39;, &#39;@cache_tags_provider.container&#39;, &#39;@serialization.phpserialize&#39;],</span>
+<span class="x">    ],</span>
+<span class="x">    &#39;cache.container&#39; =&gt; [</span>
+<span class="x">      &#39;class&#39; =&gt; &#39;\Drupal\redis\Cache\PhpRedis&#39;,</span>
+<span class="x">      &#39;factory&#39; =&gt; [&#39;@cache.backend.redis&#39;, &#39;get&#39;],</span>
+<span class="x">      &#39;arguments&#39; =&gt; [&#39;container&#39;],</span>
+<span class="x">    ],</span>
+<span class="x">    &#39;cache_tags_provider.container&#39; =&gt; [</span>
+<span class="x">      &#39;class&#39; =&gt; &#39;Drupal\redis\Cache\RedisCacheTagsChecksum&#39;,</span>
+<span class="x">      &#39;arguments&#39; =&gt; [&#39;@redis.factory&#39;],</span>
+<span class="x">    ],</span>
+<span class="x">    &#39;serialization.phpserialize&#39; =&gt; [</span>
+<span class="x">      &#39;class&#39; =&gt; &#39;Drupal\Component\Serialization\PhpSerialize&#39;,</span>
+<span class="x">    ],</span>
+<span class="x">  ],</span>
+<span class="x">];</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-and-rollout">
+<h2>Testing and Rollout<a class="headerlink" href="#testing-and-rollout" title="Link to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This change affects Drupal’s earliest bootstrap phase. A mistake in
+<code class="docutils literal notranslate"><span class="pre">bootstrap_container_definition</span></code> can produce confusing failures
+(blank pages, container errors) rather than a clear error message.
+Deploy to staging first.</p>
+</div>
+<p>Before production rollout:</p>
+<ol class="arabic simple">
+<li><p>Confirm PHP syntax is valid (<code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">-l</span> <span class="pre">settings.php</span></code>).</p></li>
+<li><p>Deploy to staging and verify the site loads normally, with no errors
+in the Drupal log or PHP error log related to the container or cache
+services.</p></li>
+<li><p>Confirm the exact semantics of <code class="docutils literal notranslate"><span class="pre">redis_invalidate_all_as_delete</span></code>
+against the installed Redis module version’s <code class="docutils literal notranslate"><span class="pre">README.md</span></code> –
+documented here based on general module knowledge, not a direct
+citation of this site’s module version.</p></li>
+<li><p>Verify whether the <code class="docutils literal notranslate"><span class="pre">addPsr4</span></code> classloader line is actually necessary
+on this Composer-managed site, or already redundant with Composer’s
+own autoloader (harmless either way if redundant).</p></li>
+<li><p>Once stable in staging and promoted to production, re-run the same
+Redis monitoring used to evaluate the <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> change
+(<code class="docutils literal notranslate"><span class="pre">evicted_keys</span></code> rate, <code class="docutils literal notranslate"><span class="pre">used_memory</span></code> vs. <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code>, miss rate)
+over a comparable multi-day window, to determine whether
+<code class="docutils literal notranslate"><span class="pre">redis_compress_length</span></code> and <code class="docutils literal notranslate"><span class="pre">redis_invalidate_all_as_delete</span></code>
+meaningfully reduce eviction pressure.</p></li>
+</ol>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">the</span> <span class="pre">logo</span> <span class="pre">supplied</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">theme</span></code></p></li>
-</ul>
-</li>
-<li><p>Upload your institutional logo file.</p>
-<p>Recommended:
-- Use a transparent PNG or SVG.
-- Ensure adequate resolution for retina displays.</p>
-</li>
-<li><p>Click <strong>Save configuration</strong>.</p></li>
-</ol>
-</section>
-<section id="optional-hide-the-site-name-text">
-<h2>3. (Optional) Hide the Site Name Text<a class="headerlink" href="#optional-hide-the-site-name-text" title="Link to this heading">¶</a></h2>
-<p>If your logo already includes the site name, you may wish to hide the text
-version of the site name.</p>
-<ol class="arabic">
-<li><p>Go to:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Structure</span> <span class="pre">&gt;</span> <span class="pre">Block</span> <span class="pre">layout</span></code></p>
-</li>
-<li><p>Ensure the active theme is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Archipelago</span> <span class="pre">(Chiloé)</span></code></p>
-</li>
-<li><p>Locate the <strong>Site branding</strong> block in the <strong>Top Header</strong> region.</p></li>
-<li><p>Click <strong>Configure</strong>.</p></li>
-<li><p>Uncheck:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Site</span> <span class="pre">name</span></code></p></li>
-</ul>
-</li>
-<li><p>Click <strong>Save block</strong>.</p></li>
-</ol>
-</section>
-<section id="clear-cache-if-changes-do-not-appear">
-<h2>Clear Cache (If Changes Do Not Appear)<a class="headerlink" href="#clear-cache-if-changes-do-not-appear" title="Link to this heading">¶</a></h2>
-<p>If updates are not visible immediately:</p>
-<ol class="arabic">
-<li><p>Go to:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Configuration</span> <span class="pre">&gt;</span> <span class="pre">Development</span> <span class="pre">&gt;</span> <span class="pre">Performance</span></code></p>
-</li>
-<li><p>Click:</p>
-<p><code class="docutils literal notranslate"><span class="pre">Clear</span> <span class="pre">all</span> <span class="pre">caches</span></code></p>
-</li>
-</ol>
-</section>
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Logo sizing and spacing may be affected by theme CSS.</p></li>
-<li><p>For advanced branding changes (colors, typography, layout), consult your
-Archipelago subtheme documentation or a developer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">web/modules/contrib/redis/example.settings.php</span></code> (module 1.11.0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">web/modules/contrib/redis/example.services.yml</span></code></p></li>
+<li><p>Production Redis pod: <code class="docutils literal notranslate"><span class="pre">redis-595986b5b6-hpkbh</span></code> (<code class="docutils literal notranslate"><span class="pre">archipelago</span></code>
+namespace)</p></li>
 </ul>
 </section>
 </section>
@@ -580,23 +736,23 @@ Archipelago subtheme documentation or a developer.</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="indexing-hand-written-text.html">
+          <a class="next-page" href="998_add_url_alias.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Associating HTR with Image Files</div>
+                <div class="title">Add URL alias for a Node</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="999_jmes_path_tester.html">
+          <a class="prev-page" href="11_ip-embargo.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Testing JMES Paths</div>
+                <div class="title">Restricting Access with IP Embargo</div>
                 
               </div>
             </a>
@@ -630,12 +786,22 @@ Archipelago subtheme documentation or a developer.</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Changing Branding in Archipelago</a><ul>
-<li><a class="reference internal" href="#change-the-site-name-and-slogan">1. Change the Site Name and Slogan</a></li>
-<li><a class="reference internal" href="#replace-the-logo">2. Replace the Logo</a></li>
-<li><a class="reference internal" href="#optional-hide-the-site-name-text">3. (Optional) Hide the Site Name Text</a></li>
-<li><a class="reference internal" href="#clear-cache-if-changes-do-not-appear">Clear Cache (If Changes Do Not Appear)</a></li>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#">Redis Cache Configuration Change</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#investigation-summary">Investigation Summary</a><ul>
+<li><a class="reference internal" href="#raising-maxmemory-partial-fix">Raising <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> (partial fix)</a></li>
+<li><a class="reference internal" href="#ttl-audit-and-eviction-policy-allkeys-lru-vs-volatile-lru">TTL audit and eviction policy (<code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code> vs. <code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code>)</a></li>
+<li><a class="reference internal" href="#settings-php-cache-bin-configuration-this-change"><code class="docutils literal notranslate"><span class="pre">settings.php</span></code> cache bin configuration (this change)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#root-cause">Root Cause</a><ul>
+<li><a class="reference internal" href="#legacy-bootstrap-cache-bin-routing">1. Legacy bootstrap cache bin routing</a></li>
+<li><a class="reference internal" href="#missing-memory-relevant-redis-module-settings">2. Missing memory-relevant Redis module settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-change">The Change</a></li>
+<li><a class="reference internal" href="#testing-and-rollout">Testing and Rollout</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
