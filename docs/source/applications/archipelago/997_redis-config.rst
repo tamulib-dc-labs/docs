@@ -248,6 +248,53 @@ Before production rollout:
    ``redis_compress_length`` and ``redis_invalidate_all_as_delete``
    meaningfully reduce eviction pressure.
 
+Result (production, 2026-09-18, 30-minute monitoring window post-deploy):
+``evicted_keys`` did not increase at all -- 0 evictions across the full
+window, versus a sustained ~64 evictions/minute under the ``maxmemory``-only
+configuration at the same 1300mb ceiling. ``used_memory`` held steady
+several MB below the ceiling rather than pinned against it. Miss rate was
+unchanged (~17%), as expected -- this fix targets eviction, not cache
+misses. A longer (24-48 hour) monitoring window covering peak traffic is
+still recommended to confirm this holds under all load conditions, but the
+initial result strongly supports the diagnosis in `Root Cause`_.
+
+Related Follow-up: Redis Persistence (Ticket Item #2)
+-------------------------------------------------------
+
+This change addresses eviction *pressure* (why Redis was full), but does
+nothing to protect the cache from being wiped out entirely by a pod
+restart or OOM event -- the concern behind the original ticket's item #2
+(mount a PVC for persistence).
+
+As of this writing, the ``redis`` deployment has no RDB/AOF persistence
+configured to a durable volume. If the pod restarts for any reason --
+scheduled restart, node maintenance, or an actual OOM kill -- the entire
+cache is lost and every subsequent request, including the expensive
+creative-work-series manifests this whole investigation is about, is
+regenerated from scratch simultaneously. This produces the same
+symptom (slow page loads, expensive manifest regeneration) as the
+eviction and cron issues, just triggered by a pod event rather than
+ongoing memory pressure or a scheduled cache-tag invalidation.
+
+This was independently flagged in a community Slack discussion (Diego
+Pino, Archipelago Commons, 2026-09-18/19; see References), who recommended:
+
+* Confirming the ``redis`` deployment's memory limit and host kernel
+  overcommit settings are sane, since Redis is prone to being OOM-killed
+  without proper memory accounting -- worth checking pod logs and node
+  events for any history of this, even though eviction (not OOM) was
+  confirmed as the primary driver of the original symptom.
+* Enabling periodic RDB snapshotting to a volume that survives pod
+  restarts, rather than relying on an always-warm in-memory cache. A
+  starting point along the lines of ``save 3600 1`` (snapshot at least
+  hourly, if at least one key changed) balances snapshot overhead against
+  how much regeneration work a cold start would otherwise cause.
+
+**Recommended next step:** revisit ticket item #2 -- mount a PVC for the
+``redis`` deployment and enable ``save`` directives (or AOF, if stronger
+durability is wanted) pointing at it, so a pod restart no longer means
+starting from a completely empty cache.
+
 References
 ----------
 
@@ -255,6 +302,14 @@ References
 * ``web/modules/contrib/redis/example.services.yml``
 * Production Redis pod: ``redis-595986b5b6-hpkbh`` (``archipelago``
   namespace)
-
-
-
+* Drupal Redis module commit `ce798336
+  <https://git.drupalcode.org/project/redis/-/commit/ce798336f759d75c01fa1530f68899b9f2adf2b8>`_,
+  "Enable performance-enhancing settings by default" -- independent
+  confirmation that ``redis_compress_length`` / ``redis_invalidate_all_as_delete``
+  are the module's current recommended defaults.
+* Archipelago Commons Slack, #general (Diego Pino, 2026-09-18/19) --
+  community discussion of eviction policy, compression, and Redis
+  persistence; referenced ``archipelago-deployment-live`` `docker-compose
+  example
+  <https://github.com/esmero/archipelago-deployment-live/blob/c98d4f8d65b53f1323f094400ce7961e3e17e357/deploy/ec2-docker/docker-compose-aws-s3.yml#L223>`_
+  showing a ``save`` directive pattern.
