@@ -763,6 +763,325 @@ how much regeneration work a cold start would otherwise cause.</p></li>
 durability is wanted) pointing at it, so a pod restart no longer means
 starting from a completely empty cache.</p>
 </section>
+<section id="follow-up-investigation-manifest-specific-cache-behavior-2026-09">
+<h2>Follow-up Investigation: Manifest-Specific Cache Behavior (2026-09)<a class="headerlink" href="#follow-up-investigation-manifest-specific-cache-behavior-2026-09" title="Link to this heading">¶</a></h2>
+<p>With eviction pressure addressed by the change above, a separate thread
+looked at why <em>individual</em> manifests – particularly large
+creative-work-series objects – still behaved differently from other
+cached content: busting faster than expected, or being disproportionately
+expensive relative to everything else in their bin. Several distinct,
+independent mechanisms were identified; none of them require further
+<code class="docutils literal notranslate"><span class="pre">settings.php</span></code> changes on their own, but they are documented here since
+they will very likely resurface in future performance investigations.</p>
+<section id="cron-driven-embargo-cache-tag-invalidation">
+<h3>Cron-driven embargo cache tag invalidation<a class="headerlink" href="#cron-driven-embargo-cache-tag-invalidation" title="Link to this heading">¶</a></h3>
+<p>A specific “manifests bust cache within ~30 minutes even with no
+data/twig changes” symptom was traced to source, not inferred:
+<code class="docutils literal notranslate"><span class="pre">format_strawberryfield_cron()</span></code> (<code class="docutils literal notranslate"><span class="pre">format_strawberryfield.module</span></code>)
+unconditionally invalidates a <code class="docutils literal notranslate"><span class="pre">format_strawberryfield:embargo:&lt;today's</span>
+<span class="pre">date&gt;</span></code> cache tag on <em>every</em> cron run, because its
+<code class="docutils literal notranslate"><span class="pre">$dayssince</span> <span class="pre">=</span> <span class="pre">ceil($timesincerun/60/60/24)</span></code> always rounds up to at
+least 1 for any positive elapsed time under 24 hours – so <code class="docutils literal notranslate"><span class="pre">$i=0</span></code>
+always resolves to today’s date regardless of how recently cron last
+ran. (The broader <code class="docutils literal notranslate"><span class="pre">format_strawberryfield:all_embargo</span></code> tag only fires
+if cron hasn’t run in over 7 days.)</p>
+<p>This tag is only ever attached to a manifest’s render dependencies by
+<code class="docutils literal notranslate"><span class="pre">MetadataExposeDisplayController</span></code> when <code class="docutils literal notranslate"><span class="pre">EmbargoResolver::embargoInfo()</span></code>
+finds that <em>specific object</em> currently has an active, future-dated
+<code class="docutils literal notranslate"><span class="pre">date_embargo_lift</span></code> value. In other words: this is <strong>not</strong> a blanket
+“cron busts all manifests” bug. It only affects an object whose own
+configured embargo happens to be lifting soon. To check whether it
+applies to any given object, inspect that node’s <code class="docutils literal notranslate"><span class="pre">date_embargo_lift</span></code>
+JSON value directly.</p>
+</section>
+<section id="ami-ingest-and-genuine-redis-eviction">
+<h3>AMI ingest and genuine Redis eviction<a class="headerlink" href="#ami-ingest-and-genuine-redis-eviction" title="Link to this heading">¶</a></h3>
+<p>A live ingest event was observed causing widespread cache <code class="docutils literal notranslate"><span class="pre">MISS</span></code> and
+intermittent 5xx/curl errors for roughly an hour. A concurrent
+<code class="docutils literal notranslate"><span class="pre">eviction_monitor.sh</span></code> run confirmed <strong>real</strong> eviction throughout the
+window (46-81 evictions/min, <code class="docutils literal notranslate"><span class="pre">used_memory</span></code> pinned at the ceiling),
+stopping almost exactly when the ingest finished per the operator’s own
+timestamp – a tight before/after correlation. Separately, Redis’s own
+<code class="docutils literal notranslate"><span class="pre">INFO</span></code> polling never lagged or failed during the same window, which
+argues against “Redis too resource-starved to respond” as the mechanism
+behind the MISS pattern; the accompanying 5xx/curl errors are more
+plausibly explained by PHP-FPM/web-tier worker exhaustion during bulk
+ingest – a different layer entirely from Redis memory pressure, and not
+yet investigated (<code class="docutils literal notranslate"><span class="pre">pm.max_children</span></code>, per-worker <code class="docutils literal notranslate"><span class="pre">memory_limit</span></code>,
+<code class="docutils literal notranslate"><span class="pre">max_execution_time</span></code>, and nginx/php-fpm timeout settings are the
+likely next place to look).</p>
+</section>
+<section id="maxmemory-sizing-and-an-open-discrepancy">
+<h3><code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> sizing and an open discrepancy<a class="headerlink" href="#maxmemory-sizing-and-an-open-discrepancy" title="Link to this heading">¶</a></h3>
+<p>With resourcing explicitly not a constraint, a working recommendation of
+roughly 4096mb (~3x the confirmed working set), with the pod memory
+limit set to 1.5-2x that to leave headroom for Redis’s own overhead and
+RDB fork/copy-on-write spikes, was given as a starting point; 8GB was
+separately discussed as reasonable in community correspondence (see
+References).</p>
+<p><strong>Open item:</strong> a community Slack exchange (Diego Pino) referenced a
+Redis instance at only ~1.3GB used memory with <code class="docutils literal notranslate"><span class="pre">maxmemory-policy</span></code> set
+to <code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code> – inconsistent with both this document’s confirmed
+production baseline (<code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code>, deliberately retained – see <a href="#id2"><span class="problematic" id="id3">`TTL
+audit and eviction policy`_</span></a>) and the scale of the eviction problem
+described above. It is not yet confirmed whether this figure describes
+production or a staging/lower environment. Before acting further on
+recommendations from that thread, confirm which environment is being
+discussed, and separately confirm whether <code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code> reflects a
+durable change in the deployment YAML or a transient <code class="docutils literal notranslate"><span class="pre">CONFIG</span> <span class="pre">SET</span></code> that
+would reset on pod restart.</p>
+</section>
+<section id="cache-bin-pollution-and-key-count-vs-key-size">
+<h3>Cache bin “pollution” and key-count vs. key-size<a class="headerlink" href="#cache-bin-pollution-and-key-count-vs-key-size" title="Link to this heading">¶</a></h3>
+<p>All cache bins under <code class="docutils literal notranslate"><span class="pre">cache.backend.redis</span></code> share a single flat memory
+pool with a single LRU policy. A high-churn, low-value bin can crowd out
+and cause premature eviction of a low-volume, high-value bin (e.g.
+<code class="docutils literal notranslate"><span class="pre">render</span></code> vs. <code class="docutils literal notranslate"><span class="pre">page</span></code>, the latter holding expensive manifest
+responses) purely through LRU recency, independent of which bin’s
+contents actually matter more. Drupal supports routing individual bins
+to a different backend for exactly this reason:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$settings[&#39;cache&#39;][&#39;bins&#39;][&#39;render&#39;] = &#39;cache.backend.database&#39;;
+</pre></div>
+</div>
+<p><strong>This has deliberately not been applied.</strong> Per explicit caution from
+the community discussion this idea originated in, the correct direction
+depends on real data and could just as easily be the opposite of the
+obvious guess – this is a lever to pull only after the analysis below
+(or its successors) confirms which bin, if any, is actually the
+problem.</p>
+<p>To investigate this, a small tool (<code class="docutils literal notranslate"><span class="pre">render_key_sizer.sh</span></code>, see
+<a class="reference internal" href="#id1">Diagnostic tooling</a>) was built to rank keys in a given bin by actual
+Redis <code class="docutils literal notranslate"><span class="pre">MEMORY</span> <span class="pre">USAGE</span></code> rather than raw key count, since a bin can have
+tens of thousands of small keys and a handful of huge ones, and a plain
+<code class="docutils literal notranslate"><span class="pre">--scan</span></code> listing shows neither.</p>
+<p>Two concrete findings came out of using it against production:</p>
+<dl>
+<dt>Cache-context cardinality, not key size, drives the <code class="docutils literal notranslate"><span class="pre">render</span></code> bin</dt><dd><p>Sampling all 13 cache entries belonging to a single node (59022)
+showed a normal-sized set (1.1-6.2 KB each, ~2.9 KB average) –
+but the same node produced 13 separate entries purely from cache
+<em>context</em> permutations: different view modes, permission-hash
+variants (anonymous / admin / specific role hash), referring pages,
+and – notably – one entry keyed on a full AJAX search request URL
+including the free-text search term itself
+(<code class="docutils literal notranslate"><span class="pre">search_api_fulltext=...</span></code>). Because Drupal’s render cache
+includes the full request URL as a cache context for that view, each
+distinct search query effectively mints its own cache entry that is
+unlikely to ever be reused. This is a much better explanation for
+the <code class="docutils literal notranslate"><span class="pre">render</span></code> bin’s ~85,000+ key count than either raw ingest
+volume or oversized individual entries, and it is a concrete,
+testable lead: excluding volatile query arguments (e.g.
+<code class="docutils literal notranslate"><span class="pre">search_api_fulltext</span></code>) from that view’s render cache keys, or
+disabling render caching on the search results view in favor of
+Dynamic Page Cache, is worth prototyping.</p>
+</dd>
+<dt>A genuine outsized entry does exist – in <code class="docutils literal notranslate"><span class="pre">page</span></code>, not <code class="docutils literal notranslate"><span class="pre">render</span></code></dt><dd><p>The manifest at <code class="docutils literal notranslate"><span class="pre">/do/20e7ff15-8932-447b-9030-dcf386c28532/metadata/iiifmanifest3cws/default.jsonld</span></code>
+– previously flagged as likely using the legacy “CWS” (Creative
+Work Series, per-ADO-canvas) manifest formatter rather than the
+newer “IIIF Presentation API 3 Series Manifest Unified” formatter
+(shipped since <code class="docutils literal notranslate"><span class="pre">format_strawberryfield</span></code> 1.6.0) – has a Drupal
+internal Page Cache entry (<code class="docutils literal notranslate"><span class="pre">page</span></code> bin) measuring <strong>165,092 bytes
+(~161 KB)</strong> via <code class="docutils literal notranslate"><span class="pre">MEMORY</span> <span class="pre">USAGE</span></code>. That is roughly 56x the <code class="docutils literal notranslate"><span class="pre">render</span></code>
+bin’s average key size and ~9x the largest individual entry found in
+a 500-key <code class="docutils literal notranslate"><span class="pre">render</span></code> bin sample. This is the first concrete
+confirmation, in this investigation, of a genuinely outsized single
+cache entry – just not where or why it was originally guessed
+(community discussion suspected AI/ML-generated listings in
+<code class="docutils literal notranslate"><span class="pre">render</span></code>; the actual outlier found is a legacy manifest formatter’s
+full response in <code class="docutils literal notranslate"><span class="pre">page</span></code>).</p>
+<p><strong>Not yet done:</strong> confirming whether this is typical of CWS-formatted
+objects generally (scan <code class="docutils literal notranslate"><span class="pre">archipelago_:page:*iiifmanifest3cws*</span></code> and
+size the results) or unusual even among them, and quantifying how
+much smaller the same object’s manifest would be under the Unified
+formatter, would settle whether migrating remaining CWS objects is
+worth prioritizing as its own fix.</p>
+</dd>
+</dl>
+</section>
+<section id="correction-performance-cache-page-max-age-does-not-disable-internal-page-cache-storage">
+<h3>Correction: <code class="docutils literal notranslate"><span class="pre">performance.cache.page.max_age</span></code> does not disable internal Page Cache storage<a class="headerlink" href="#correction-performance-cache-page-max-age-does-not-disable-internal-page-cache-storage" title="Link to this heading">¶</a></h3>
+<p>Earlier working notes in this investigation assumed the site’s
+<code class="docutils literal notranslate"><span class="pre">performance.cache.page.max_age</span> <span class="pre">=</span> <span class="pre">0</span></code> setting meant Drupal’s internal
+(Redis-backed) Page Cache was not storing responses for anonymous
+requests at all, and that the <code class="docutils literal notranslate"><span class="pre">Cache-Control:</span> <span class="pre">must-revalidate,</span>
+<span class="pre">no-cache,</span> <span class="pre">private</span></code> header seen on manifest responses confirmed this.
+The discovery of a live <code class="docutils literal notranslate"><span class="pre">page</span></code> bin entry for the manifest above
+disproves that: Drupal core’s <code class="docutils literal notranslate"><span class="pre">PageCache::getCacheId()</span></code>
+(<code class="docutils literal notranslate"><span class="pre">web/core/modules/page_cache/src/StackMiddleware/PageCache.php</span></code>)
+keys and stores full responses independent of <code class="docutils literal notranslate"><span class="pre">max_age</span></code>. That setting
+governs only the <em>outbound</em> browser-facing <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> /
+<code class="docutils literal notranslate"><span class="pre">Expires</span></code> headers Drupal generates – not whether the internal Redis
+store is written to or read from. <code class="docutils literal notranslate"><span class="pre">x-drupal-cache:</span> <span class="pre">HIT</span></code> and a
+<code class="docutils literal notranslate"><span class="pre">no-cache</span></code> browser header on the same response are consistent, not
+contradictory.</p>
+</section>
+<section id="diagnostic-tooling">
+<span id="id1"></span><h3>Diagnostic tooling<a class="headerlink" href="#diagnostic-tooling" title="Link to this heading">¶</a></h3>
+<p>Several small standalone scripts were built over the course of this
+investigation and are likely to be reusable for future cache
+performance work. None are checked into this repository yet; each is a
+single self-contained bash script run against production or pre via the
+existing <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">-n</span> <span class="pre">archipelago</span> <span class="pre">port-forward</span></code> pattern.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">eviction_monitor.sh</span></code></dt><dd><p>Polls <code class="docutils literal notranslate"><span class="pre">redis-cli</span> <span class="pre">INFO</span></code> at a fixed interval and logs
+<code class="docutils literal notranslate"><span class="pre">used_memory</span></code>, <code class="docutils literal notranslate"><span class="pre">evicted_keys</span></code>, and related counters to CSV –
+used to confirm genuine eviction (vs. expiration or unrelated
+errors) during both steady-state monitoring and the AMI ingest
+event above.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ttl_audit.sh</span></code></dt><dd><p>Cursor-loop census of TTLs across the live keyspace, bin by bin –
+used to determine that ~99.9% of keys carry the Redis module’s
+~360-365 day “permanent cache” TTL convention rather than a
+meaningful expiration policy (see <a href="#id4"><span class="problematic" id="id5">`TTL audit and eviction policy`_</span></a>).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cache_watch.sh</span></code></dt><dd><p>Polls a single URL at a fixed interval and reports exactly when
+<code class="docutils literal notranslate"><span class="pre">x-drupal-cache</span></code> flips HIT/MISS, with how long the prior state
+held – answers “how long does this specific page actually stay
+cached” in a way a single <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-I</span></code> snapshot cannot. Deliberately
+avoids <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code>/<code class="docutils literal notranslate"><span class="pre">pipefail</span></code> in its polling loop so a transient
+network blip doesn’t silently kill a run meant to last hours.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">render_key_sizer.sh</span></code></dt><dd><p>Samples keys matching a glob pattern (any bin, not just
+<code class="docutils literal notranslate"><span class="pre">render</span></code>) via cursor-loop <code class="docutils literal notranslate"><span class="pre">SCAN</span></code>, then ranks them by actual
+<code class="docutils literal notranslate"><span class="pre">MEMORY</span> <span class="pre">USAGE</span></code> rather than key count – the tool behind both
+findings in <a class="reference internal" href="#cache-bin-pollution-and-key-count-vs-key-size">Cache bin “pollution” and key-count vs. key-size</a>
+above. Usage: <code class="docutils literal notranslate"><span class="pre">REDIS_CLI=&quot;redis-cli</span> <span class="pre">-h</span> <span class="pre">127.0.0.1</span> <span class="pre">-p</span> <span class="pre">6379&quot;</span>
+<span class="pre">./render_key_sizer.sh</span> <span class="pre">[PATTERN]</span> <span class="pre">[SAMPLE_LIMIT]</span> <span class="pre">[TOP_N]</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="open-next-steps">
+<h3>Open Next Steps<a class="headerlink" href="#open-next-steps" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Confirm whether the community-discussion Redis figures (1.3GB,
+<code class="docutils literal notranslate"><span class="pre">volatile-lru</span></code>) describe production or a different environment
+before acting on recommendations from that thread.</p></li>
+<li><p>Prototype excluding volatile query arguments (e.g.
+<code class="docutils literal notranslate"><span class="pre">search_api_fulltext</span></code>) from the search results view’s render cache
+keys, or moving that view off render caching entirely, to address the
+cache-context cardinality driver identified above.</p></li>
+<li><p>Scan and size all <code class="docutils literal notranslate"><span class="pre">iiifmanifest3cws</span></code>-pattern <code class="docutils literal notranslate"><span class="pre">page</span></code> bin entries to
+determine whether the 165KB finding is typical of CWS-formatted
+objects or unusual even among them.</p></li>
+<li><p>Determine which objects are still served via the legacy CWS formatter
+vs. the newer Unified formatter, and estimate the memory/performance
+benefit of migrating the remainder.</p></li>
+<li><p>Investigate PHP-FPM (<code class="docutils literal notranslate"><span class="pre">pm.max_children</span></code>, per-worker <code class="docutils literal notranslate"><span class="pre">memory_limit</span></code>,
+<code class="docutils literal notranslate"><span class="pre">max_execution_time</span></code>) and nginx/php-fpm proxy timeout settings as
+the likely direct cause of 5xx errors on large manifests during bulk
+ingest.</p></li>
+<li><p>Capture a before/after “keys per cache bin” diff around a planned
+~500-page book ingest.</p></li>
+<li><p>Only after the above data is in hand, decide whether to implement
+selective cache-bin-to-database routing (<a class="reference internal" href="#cache-bin-pollution-and-key-count-vs-key-size">Cache bin “pollution” and
+key-count vs. key-size</a>) – not as a default fix, but as a
+data-justified change to a specific bin.</p></li>
+</ul>
+</section>
+</section>
+<section id="redis-cli-tips-and-tricks">
+<h2><code class="docutils literal notranslate"><span class="pre">redis-cli</span></code> Tips and Tricks<a class="headerlink" href="#redis-cli-tips-and-tricks" title="Link to this heading">¶</a></h2>
+<p>A running reference of <code class="docutils literal notranslate"><span class="pre">redis-cli</span></code> commands that came up repeatedly
+during this investigation. All of these were run against production/pre
+via the existing port-forward pattern:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="o">-</span><span class="n">n</span> <span class="n">archipelago</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">deploy</span><span class="o">/</span><span class="n">redis</span> <span class="mi">6379</span><span class="p">:</span><span class="mi">6379</span> <span class="o">&amp;</span>
+<span class="c1"># then either prefix every command with -h 127.0.0.1 -p 6379,</span>
+<span class="c1"># or just run `redis-cli -h 127.0.0.1 -p 6379` interactively.</span>
+</pre></div>
+</div>
+<section id="finding-keys">
+<h3>Finding keys<a class="headerlink" href="#finding-keys" title="Link to this heading">¶</a></h3>
+<p>Never use <code class="docutils literal notranslate"><span class="pre">KEYS</span> <span class="pre">*</span></code> (or <code class="docutils literal notranslate"><span class="pre">KEYS</span> <span class="pre">&lt;pattern&gt;</span></code>) against production – it
+blocks the whole server while it walks the entire keyspace. <code class="docutils literal notranslate"><span class="pre">SCAN</span></code>
+does the same job incrementally without blocking:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="o">--</span><span class="n">scan</span> <span class="o">--</span><span class="n">pattern</span> <span class="s2">&quot;archipelago_:render:*&quot;</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="mi">20</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--scan</span> <span class="pre">--pattern</span></code> is a convenience wrapper around the cursor-based
+<code class="docutils literal notranslate"><span class="pre">SCAN</span></code> command; it’s fine for a quick look, but for anything you want
+to count reliably or feed into a size-ranking pass, loop the cursor
+yourself (this is what <code class="docutils literal notranslate"><span class="pre">render_key_sizer.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">ttl_audit.sh</span></code> do
+under the hood – see <a class="reference internal" href="#id1">Diagnostic tooling</a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">SCAN</span> <span class="mi">0</span> <span class="n">MATCH</span> <span class="s2">&quot;archipelago_:render:*&quot;</span> <span class="n">COUNT</span> <span class="mi">200</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">MATCH</span></code> filters results <em>after</em> Redis walks its internal
+hash table – a very narrow pattern can still take many round-trips to
+finish if the total keyspace is large, even if very few keys actually
+match (we saw this directly: 1,396 SCAN round-trips to find 13 matching
+keys). That’s normal, not a sign of a stuck query.</p>
+<p>When you don’t know which bin something lives in (e.g. a specific
+node ID or object UUID, which can show up in <code class="docutils literal notranslate"><span class="pre">render</span></code>, <code class="docutils literal notranslate"><span class="pre">page</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dynamic_page_cache</span></code>, <code class="docutils literal notranslate"><span class="pre">entity</span></code>, or <code class="docutils literal notranslate"><span class="pre">data</span></code> depending on what
+triggered it), skip the bin prefix entirely and match on the
+identifying text anywhere in the key:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="o">--</span><span class="n">scan</span> <span class="o">--</span><span class="n">pattern</span> <span class="s2">&quot;*20e7ff15-8932-447b-9030-dcf386c28532*&quot;</span>
+<span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="o">--</span><span class="n">scan</span> <span class="o">--</span><span class="n">pattern</span> <span class="s2">&quot;*node:59022*&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="sizing-keys">
+<h3>Sizing keys<a class="headerlink" href="#sizing-keys" title="Link to this heading">¶</a></h3>
+<p>Key <em>count</em> and key <em>size</em> are independent questions – a bin can have
+80,000 tiny keys and a handful of huge ones, and <code class="docutils literal notranslate"><span class="pre">--scan</span></code> alone can’t
+tell you which. Size a specific key:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">MEMORY</span> <span class="n">USAGE</span> <span class="s1">&#39;&lt;key&gt;&#39;</span> <span class="n">SAMPLES</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>(<code class="docutils literal notranslate"><span class="pre">SAMPLES</span> <span class="pre">0</span></code> forces an exact count rather than an estimate – worth
+the extra cost for a one-off check; for ranking many keys at once, use
+<code class="docutils literal notranslate"><span class="pre">render_key_sizer.sh</span></code> instead of looping this by hand, since it’s one
+round-trip per key and adds up fast on a big sample.)</p>
+<p>Total dataset size, for a sanity-check against <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">DBSIZE</span>
+<span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">INFO</span> <span class="n">memory</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">used_memory</span><span class="p">:</span>
+</pre></div>
+</div>
+</section>
+<section id="freshness-staleness-of-a-specific-key">
+<h3>Freshness / staleness of a specific key<a class="headerlink" href="#freshness-staleness-of-a-specific-key" title="Link to this heading">¶</a></h3>
+<p>Redis has no “key created at” timestamp. Two proxies instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">OBJECT</span> <span class="n">IDLETIME</span> <span class="s1">&#39;&lt;key&gt;&#39;</span>   <span class="c1"># seconds since last read/write</span>
+<span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">TTL</span> <span class="s1">&#39;&lt;key&gt;&#39;</span>               <span class="c1"># seconds remaining</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">OBJECT</span> <span class="pre">IDLETIME</span></code> only works under an LRU eviction policy (it’s
+replaced by an access-frequency counter under LFU policies) – fine
+here since production runs <code class="docutils literal notranslate"><span class="pre">allkeys-lru</span></code>. Since this site’s Redis
+module TTL convention is ~360-365 days for effectively all keys (see
+<a href="#id6"><span class="problematic" id="id7">`TTL audit and eviction policy`_</span></a>), <code class="docutils literal notranslate"><span class="pre">TTL</span></code> can be used as a rough
+stand-in for “how long ago was this written”: <code class="docutils literal notranslate"><span class="pre">31536000</span> <span class="pre">-</span>
+<span class="pre">&lt;ttl_remaining&gt;</span></code> seconds. Neither command tells you whether a key was
+rewritten with identical content since it was first created – for that
+you need to watch a key over time (<code class="docutils literal notranslate"><span class="pre">cache_watch.sh</span></code>), not inspect a
+single snapshot.</p>
+</section>
+<section id="eviction-policy-and-config">
+<h3>Eviction policy and config<a class="headerlink" href="#eviction-policy-and-config" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">CONFIG</span> <span class="n">GET</span> <span class="n">maxmemory</span>
+<span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">CONFIG</span> <span class="n">GET</span> <span class="n">maxmemory</span><span class="o">-</span><span class="n">policy</span>
+</pre></div>
+</div>
+<p>Worth knowing: a <code class="docutils literal notranslate"><span class="pre">CONFIG</span> <span class="pre">SET</span></code> changes the running server only – it
+does not persist across a pod restart unless the same value is also set
+in the deployment’s startup args/config. If a policy or ceiling looks
+different than expected, check both the live <code class="docutils literal notranslate"><span class="pre">CONFIG</span> <span class="pre">GET</span></code> value and
+the deployment YAML before assuming one or the other is stale.</p>
+</section>
+<section id="eviction-and-hit-rate-health">
+<h3>Eviction and hit-rate health<a class="headerlink" href="#eviction-and-hit-rate-health" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">redis</span><span class="o">-</span><span class="n">cli</span> <span class="n">INFO</span> <span class="n">stats</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">E</span> <span class="s2">&quot;evicted_keys|expired_keys|keyspace_hits|keyspace_misses&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">evicted_keys</span></code> increasing means Redis is discarding data under memory
+pressure (LRU eviction); <code class="docutils literal notranslate"><span class="pre">expired_keys</span></code> increasing means normal
+TTL-based expiration. The two are easy to conflate but mean very
+different things – this distinction (<code class="docutils literal notranslate"><span class="pre">expired_keys:</span> <span class="pre">0</span></code> alongside
+climbing <code class="docutils literal notranslate"><span class="pre">evicted_keys</span></code>) is what originally confirmed eviction, not
+expiration, as the root cause documented in this report. For anything
+beyond a single snapshot, <code class="docutils literal notranslate"><span class="pre">eviction_monitor.sh</span></code> (<a class="reference internal" href="#id1">Diagnostic
+tooling</a>) polls this on an interval and logs it to CSV.</p>
+</section>
+</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -778,7 +1097,25 @@ are the module’s current recommended defaults.</p></li>
 community discussion of eviction policy, compression, and Redis
 persistence; referenced <code class="docutils literal notranslate"><span class="pre">archipelago-deployment-live</span></code> <a class="reference external" href="https://github.com/esmero/archipelago-deployment-live/blob/c98d4f8d65b53f1323f094400ce7961e3e17e357/deploy/ec2-docker/docker-compose-aws-s3.yml#L223">docker-compose
 example</a>
-showing a <code class="docutils literal notranslate"><span class="pre">save</span></code> directive pattern.</p></li>
+showing a <code class="docutils literal notranslate"><span class="pre">save</span></code> directive pattern; also discussed cache bin
+“pollution,” <code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> sizing, PHP-FPM/CPU exhaustion during
+ingest, and the CWS vs. Unified manifest formatter distinction (see
+<a class="reference internal" href="#follow-up-investigation-manifest-specific-cache-behavior-2026-09">Follow-up Investigation: Manifest-Specific Cache Behavior (2026-09)</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">web/modules/contrib/format_strawberryfield/format_strawberryfield.module</span></code>,
+<code class="docutils literal notranslate"><span class="pre">format_strawberryfield_cron()</span></code> – source of the cron-driven embargo
+cache tag invalidation described above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">web/modules/contrib/format_strawberryfield/src/Controller/MetadataExposeDisplayController.php</span></code>
+and <code class="docutils literal notranslate"><span class="pre">.../src/EmbargoResolver.php</span></code> – confirm the embargo cache tag is
+only attached to objects with a currently active
+<code class="docutils literal notranslate"><span class="pre">date_embargo_lift</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">web/core/modules/page_cache/src/StackMiddleware/PageCache.php</span></code>,
+<code class="docutils literal notranslate"><span class="pre">getCacheId()</span></code> – confirms the internal Page Cache key format and
+that storage is independent of <code class="docutils literal notranslate"><span class="pre">performance.cache.page.max_age</span></code>.</p></li>
+<li><p>Production manifest example used throughout the follow-up
+investigation: <code class="docutils literal notranslate"><span class="pre">/do/20e7ff15-8932-447b-9030-dcf386c28532/metadata/iiifmanifest3cws/default.jsonld</span></code>
+(<code class="docutils literal notranslate"><span class="pre">page</span></code> bin entry measured at 165,092 bytes via <code class="docutils literal notranslate"><span class="pre">MEMORY</span> <span class="pre">USAGE</span></code>,
+2026-09-22); node <code class="docutils literal notranslate"><span class="pre">59022</span></code> used as the cache-context cardinality case
+study (13 render-bin entries, 1.1-6.2 KB each).</p></li>
 </ul>
 </section>
 </section>
@@ -854,6 +1191,24 @@ showing a <code class="docutils literal notranslate"><span class="pre">save</spa
 <li><a class="reference internal" href="#the-change">The Change</a></li>
 <li><a class="reference internal" href="#testing-and-rollout">Testing and Rollout</a></li>
 <li><a class="reference internal" href="#related-follow-up-redis-persistence-ticket-item-2">Related Follow-up: Redis Persistence (Ticket Item #2)</a></li>
+<li><a class="reference internal" href="#follow-up-investigation-manifest-specific-cache-behavior-2026-09">Follow-up Investigation: Manifest-Specific Cache Behavior (2026-09)</a><ul>
+<li><a class="reference internal" href="#cron-driven-embargo-cache-tag-invalidation">Cron-driven embargo cache tag invalidation</a></li>
+<li><a class="reference internal" href="#ami-ingest-and-genuine-redis-eviction">AMI ingest and genuine Redis eviction</a></li>
+<li><a class="reference internal" href="#maxmemory-sizing-and-an-open-discrepancy"><code class="docutils literal notranslate"><span class="pre">maxmemory</span></code> sizing and an open discrepancy</a></li>
+<li><a class="reference internal" href="#cache-bin-pollution-and-key-count-vs-key-size">Cache bin “pollution” and key-count vs. key-size</a></li>
+<li><a class="reference internal" href="#correction-performance-cache-page-max-age-does-not-disable-internal-page-cache-storage">Correction: <code class="docutils literal notranslate"><span class="pre">performance.cache.page.max_age</span></code> does not disable internal Page Cache storage</a></li>
+<li><a class="reference internal" href="#diagnostic-tooling">Diagnostic tooling</a></li>
+<li><a class="reference internal" href="#open-next-steps">Open Next Steps</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#redis-cli-tips-and-tricks"><code class="docutils literal notranslate"><span class="pre">redis-cli</span></code> Tips and Tricks</a><ul>
+<li><a class="reference internal" href="#finding-keys">Finding keys</a></li>
+<li><a class="reference internal" href="#sizing-keys">Sizing keys</a></li>
+<li><a class="reference internal" href="#freshness-staleness-of-a-specific-key">Freshness / staleness of a specific key</a></li>
+<li><a class="reference internal" href="#eviction-policy-and-config">Eviction policy and config</a></li>
+<li><a class="reference internal" href="#eviction-and-hit-rate-health">Eviction and hit-rate health</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
