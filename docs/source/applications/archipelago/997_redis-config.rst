@@ -295,6 +295,347 @@ Pino, Archipelago Commons, 2026-09-18/19; see References), who recommended:
 durability is wanted) pointing at it, so a pod restart no longer means
 starting from a completely empty cache.
 
+Follow-up Investigation: Manifest-Specific Cache Behavior (2026-09)
+---------------------------------------------------------------------
+
+With eviction pressure addressed by the change above, a separate thread
+looked at why *individual* manifests -- particularly large
+creative-work-series objects -- still behaved differently from other
+cached content: busting faster than expected, or being disproportionately
+expensive relative to everything else in their bin. Several distinct,
+independent mechanisms were identified; none of them require further
+``settings.php`` changes on their own, but they are documented here since
+they will very likely resurface in future performance investigations.
+
+Cron-driven embargo cache tag invalidation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A specific "manifests bust cache within ~30 minutes even with no
+data/twig changes" symptom was traced to source, not inferred:
+``format_strawberryfield_cron()`` (``format_strawberryfield.module``)
+unconditionally invalidates a ``format_strawberryfield:embargo:<today's
+date>`` cache tag on *every* cron run, because its
+``$dayssince = ceil($timesincerun/60/60/24)`` always rounds up to at
+least 1 for any positive elapsed time under 24 hours -- so ``$i=0``
+always resolves to today's date regardless of how recently cron last
+ran. (The broader ``format_strawberryfield:all_embargo`` tag only fires
+if cron hasn't run in over 7 days.)
+
+This tag is only ever attached to a manifest's render dependencies by
+``MetadataExposeDisplayController`` when ``EmbargoResolver::embargoInfo()``
+finds that *specific object* currently has an active, future-dated
+``date_embargo_lift`` value. In other words: this is **not** a blanket
+"cron busts all manifests" bug. It only affects an object whose own
+configured embargo happens to be lifting soon. To check whether it
+applies to any given object, inspect that node's ``date_embargo_lift``
+JSON value directly.
+
+AMI ingest and genuine Redis eviction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A live ingest event was observed causing widespread cache ``MISS`` and
+intermittent 5xx/curl errors for roughly an hour. A concurrent
+``eviction_monitor.sh`` run confirmed **real** eviction throughout the
+window (46-81 evictions/min, ``used_memory`` pinned at the ceiling),
+stopping almost exactly when the ingest finished per the operator's own
+timestamp -- a tight before/after correlation. Separately, Redis's own
+``INFO`` polling never lagged or failed during the same window, which
+argues against "Redis too resource-starved to respond" as the mechanism
+behind the MISS pattern; the accompanying 5xx/curl errors are more
+plausibly explained by PHP-FPM/web-tier worker exhaustion during bulk
+ingest -- a different layer entirely from Redis memory pressure, and not
+yet investigated (``pm.max_children``, per-worker ``memory_limit``,
+``max_execution_time``, and nginx/php-fpm timeout settings are the
+likely next place to look).
+
+``maxmemory`` sizing and an open discrepancy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With resourcing explicitly not a constraint, a working recommendation of
+roughly 4096mb (~3x the confirmed working set), with the pod memory
+limit set to 1.5-2x that to leave headroom for Redis's own overhead and
+RDB fork/copy-on-write spikes, was given as a starting point; 8GB was
+separately discussed as reasonable in community correspondence (see
+References).
+
+**Open item:** a community Slack exchange (Diego Pino) referenced a
+Redis instance at only ~1.3GB used memory with ``maxmemory-policy`` set
+to ``volatile-lru`` -- inconsistent with both this document's confirmed
+production baseline (``allkeys-lru``, deliberately retained -- see `TTL
+audit and eviction policy`_) and the scale of the eviction problem
+described above. It is not yet confirmed whether this figure describes
+production or a staging/lower environment. Before acting further on
+recommendations from that thread, confirm which environment is being
+discussed, and separately confirm whether ``volatile-lru`` reflects a
+durable change in the deployment YAML or a transient ``CONFIG SET`` that
+would reset on pod restart.
+
+Cache bin "pollution" and key-count vs. key-size
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All cache bins under ``cache.backend.redis`` share a single flat memory
+pool with a single LRU policy. A high-churn, low-value bin can crowd out
+and cause premature eviction of a low-volume, high-value bin (e.g.
+``render`` vs. ``page``, the latter holding expensive manifest
+responses) purely through LRU recency, independent of which bin's
+contents actually matter more. Drupal supports routing individual bins
+to a different backend for exactly this reason::
+
+    $settings['cache']['bins']['render'] = 'cache.backend.database';
+
+**This has deliberately not been applied.** Per explicit caution from
+the community discussion this idea originated in, the correct direction
+depends on real data and could just as easily be the opposite of the
+obvious guess -- this is a lever to pull only after the analysis below
+(or its successors) confirms which bin, if any, is actually the
+problem.
+
+To investigate this, a small tool (``render_key_sizer.sh``, see
+`Diagnostic tooling`_) was built to rank keys in a given bin by actual
+Redis ``MEMORY USAGE`` rather than raw key count, since a bin can have
+tens of thousands of small keys and a handful of huge ones, and a plain
+``--scan`` listing shows neither.
+
+Two concrete findings came out of using it against production:
+
+Cache-context cardinality, not key size, drives the ``render`` bin
+   Sampling all 13 cache entries belonging to a single node (59022)
+   showed a normal-sized set (1.1-6.2 KB each, ~2.9 KB average) --
+   but the same node produced 13 separate entries purely from cache
+   *context* permutations: different view modes, permission-hash
+   variants (anonymous / admin / specific role hash), referring pages,
+   and -- notably -- one entry keyed on a full AJAX search request URL
+   including the free-text search term itself
+   (``search_api_fulltext=...``). Because Drupal's render cache
+   includes the full request URL as a cache context for that view, each
+   distinct search query effectively mints its own cache entry that is
+   unlikely to ever be reused. This is a much better explanation for
+   the ``render`` bin's ~85,000+ key count than either raw ingest
+   volume or oversized individual entries, and it is a concrete,
+   testable lead: excluding volatile query arguments (e.g.
+   ``search_api_fulltext``) from that view's render cache keys, or
+   disabling render caching on the search results view in favor of
+   Dynamic Page Cache, is worth prototyping.
+
+A genuine outsized entry does exist -- in ``page``, not ``render``
+   The manifest at ``/do/20e7ff15-8932-447b-9030-dcf386c28532/metadata/iiifmanifest3cws/default.jsonld``
+   -- previously flagged as likely using the legacy "CWS" (Creative
+   Work Series, per-ADO-canvas) manifest formatter rather than the
+   newer "IIIF Presentation API 3 Series Manifest Unified" formatter
+   (shipped since ``format_strawberryfield`` 1.6.0) -- has a Drupal
+   internal Page Cache entry (``page`` bin) measuring **165,092 bytes
+   (~161 KB)** via ``MEMORY USAGE``. That is roughly 56x the ``render``
+   bin's average key size and ~9x the largest individual entry found in
+   a 500-key ``render`` bin sample. This is the first concrete
+   confirmation, in this investigation, of a genuinely outsized single
+   cache entry -- just not where or why it was originally guessed
+   (community discussion suspected AI/ML-generated listings in
+   ``render``; the actual outlier found is a legacy manifest formatter's
+   full response in ``page``).
+
+   **Not yet done:** confirming whether this is typical of CWS-formatted
+   objects generally (scan ``archipelago_:page:*iiifmanifest3cws*`` and
+   size the results) or unusual even among them, and quantifying how
+   much smaller the same object's manifest would be under the Unified
+   formatter, would settle whether migrating remaining CWS objects is
+   worth prioritizing as its own fix.
+
+Correction: ``performance.cache.page.max_age`` does not disable internal Page Cache storage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Earlier working notes in this investigation assumed the site's
+``performance.cache.page.max_age = 0`` setting meant Drupal's internal
+(Redis-backed) Page Cache was not storing responses for anonymous
+requests at all, and that the ``Cache-Control: must-revalidate,
+no-cache, private`` header seen on manifest responses confirmed this.
+The discovery of a live ``page`` bin entry for the manifest above
+disproves that: Drupal core's ``PageCache::getCacheId()``
+(``web/core/modules/page_cache/src/StackMiddleware/PageCache.php``)
+keys and stores full responses independent of ``max_age``. That setting
+governs only the *outbound* browser-facing ``Cache-Control`` /
+``Expires`` headers Drupal generates -- not whether the internal Redis
+store is written to or read from. ``x-drupal-cache: HIT`` and a
+``no-cache`` browser header on the same response are consistent, not
+contradictory.
+
+.. _diagnostic-tooling:
+
+Diagnostic tooling
+~~~~~~~~~~~~~~~~~~~
+
+Several small standalone scripts were built over the course of this
+investigation and are likely to be reusable for future cache
+performance work. None are checked into this repository yet; each is a
+single self-contained bash script run against production or pre via the
+existing ``kubectl -n archipelago port-forward`` pattern.
+
+``eviction_monitor.sh``
+    Polls ``redis-cli INFO`` at a fixed interval and logs
+    ``used_memory``, ``evicted_keys``, and related counters to CSV --
+    used to confirm genuine eviction (vs. expiration or unrelated
+    errors) during both steady-state monitoring and the AMI ingest
+    event above.
+
+``ttl_audit.sh``
+    Cursor-loop census of TTLs across the live keyspace, bin by bin --
+    used to determine that ~99.9% of keys carry the Redis module's
+    ~360-365 day "permanent cache" TTL convention rather than a
+    meaningful expiration policy (see `TTL audit and eviction policy`_).
+
+``cache_watch.sh``
+    Polls a single URL at a fixed interval and reports exactly when
+    ``x-drupal-cache`` flips HIT/MISS, with how long the prior state
+    held -- answers "how long does this specific page actually stay
+    cached" in a way a single ``curl -I`` snapshot cannot. Deliberately
+    avoids ``set -e``/``pipefail`` in its polling loop so a transient
+    network blip doesn't silently kill a run meant to last hours.
+
+``render_key_sizer.sh``
+    Samples keys matching a glob pattern (any bin, not just
+    ``render``) via cursor-loop ``SCAN``, then ranks them by actual
+    ``MEMORY USAGE`` rather than key count -- the tool behind both
+    findings in `Cache bin "pollution" and key-count vs. key-size`_
+    above. Usage: ``REDIS_CLI="redis-cli -h 127.0.0.1 -p 6379"
+    ./render_key_sizer.sh [PATTERN] [SAMPLE_LIMIT] [TOP_N]``.
+
+Open Next Steps
+~~~~~~~~~~~~~~~~~
+
+* Confirm whether the community-discussion Redis figures (1.3GB,
+  ``volatile-lru``) describe production or a different environment
+  before acting on recommendations from that thread.
+* Prototype excluding volatile query arguments (e.g.
+  ``search_api_fulltext``) from the search results view's render cache
+  keys, or moving that view off render caching entirely, to address the
+  cache-context cardinality driver identified above.
+* Scan and size all ``iiifmanifest3cws``-pattern ``page`` bin entries to
+  determine whether the 165KB finding is typical of CWS-formatted
+  objects or unusual even among them.
+* Determine which objects are still served via the legacy CWS formatter
+  vs. the newer Unified formatter, and estimate the memory/performance
+  benefit of migrating the remainder.
+* Investigate PHP-FPM (``pm.max_children``, per-worker ``memory_limit``,
+  ``max_execution_time``) and nginx/php-fpm proxy timeout settings as
+  the likely direct cause of 5xx errors on large manifests during bulk
+  ingest.
+* Capture a before/after "keys per cache bin" diff around a planned
+  ~500-page book ingest.
+* Only after the above data is in hand, decide whether to implement
+  selective cache-bin-to-database routing (`Cache bin "pollution" and
+  key-count vs. key-size`_) -- not as a default fix, but as a
+  data-justified change to a specific bin.
+
+``redis-cli`` Tips and Tricks
+--------------------------------
+
+A running reference of ``redis-cli`` commands that came up repeatedly
+during this investigation. All of these were run against production/pre
+via the existing port-forward pattern::
+
+    kubectl -n archipelago port-forward deploy/redis 6379:6379 &
+    # then either prefix every command with -h 127.0.0.1 -p 6379,
+    # or just run `redis-cli -h 127.0.0.1 -p 6379` interactively.
+
+Finding keys
+~~~~~~~~~~~~~
+
+Never use ``KEYS *`` (or ``KEYS <pattern>``) against production -- it
+blocks the whole server while it walks the entire keyspace. ``SCAN``
+does the same job incrementally without blocking::
+
+    redis-cli --scan --pattern "archipelago_:render:*" | head -20
+
+``--scan --pattern`` is a convenience wrapper around the cursor-based
+``SCAN`` command; it's fine for a quick look, but for anything you want
+to count reliably or feed into a size-ranking pass, loop the cursor
+yourself (this is what ``render_key_sizer.sh`` and ``ttl_audit.sh`` do
+under the hood -- see `Diagnostic tooling`_)::
+
+    redis-cli SCAN 0 MATCH "archipelago_:render:*" COUNT 200
+
+Note that ``MATCH`` filters results *after* Redis walks its internal
+hash table -- a very narrow pattern can still take many round-trips to
+finish if the total keyspace is large, even if very few keys actually
+match (we saw this directly: 1,396 SCAN round-trips to find 13 matching
+keys). That's normal, not a sign of a stuck query.
+
+When you don't know which bin something lives in (e.g. a specific
+node ID or object UUID, which can show up in ``render``, ``page``,
+``dynamic_page_cache``, ``entity``, or ``data`` depending on what
+triggered it), skip the bin prefix entirely and match on the
+identifying text anywhere in the key::
+
+    redis-cli --scan --pattern "*20e7ff15-8932-447b-9030-dcf386c28532*"
+    redis-cli --scan --pattern "*node:59022*"
+
+Sizing keys
+~~~~~~~~~~~~
+
+Key *count* and key *size* are independent questions -- a bin can have
+80,000 tiny keys and a handful of huge ones, and ``--scan`` alone can't
+tell you which. Size a specific key::
+
+    redis-cli MEMORY USAGE '<key>' SAMPLES 0
+
+(``SAMPLES 0`` forces an exact count rather than an estimate -- worth
+the extra cost for a one-off check; for ranking many keys at once, use
+``render_key_sizer.sh`` instead of looping this by hand, since it's one
+round-trip per key and adds up fast on a big sample.)
+
+Total dataset size, for a sanity-check against ``maxmemory``::
+
+    redis-cli DBSIZE
+    redis-cli INFO memory | grep used_memory:
+
+Freshness / staleness of a specific key
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Redis has no "key created at" timestamp. Two proxies instead::
+
+    redis-cli OBJECT IDLETIME '<key>'   # seconds since last read/write
+    redis-cli TTL '<key>'               # seconds remaining
+
+``OBJECT IDLETIME`` only works under an LRU eviction policy (it's
+replaced by an access-frequency counter under LFU policies) -- fine
+here since production runs ``allkeys-lru``. Since this site's Redis
+module TTL convention is ~360-365 days for effectively all keys (see
+`TTL audit and eviction policy`_), ``TTL`` can be used as a rough
+stand-in for "how long ago was this written": ``31536000 -
+<ttl_remaining>`` seconds. Neither command tells you whether a key was
+rewritten with identical content since it was first created -- for that
+you need to watch a key over time (``cache_watch.sh``), not inspect a
+single snapshot.
+
+Eviction policy and config
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    redis-cli CONFIG GET maxmemory
+    redis-cli CONFIG GET maxmemory-policy
+
+Worth knowing: a ``CONFIG SET`` changes the running server only -- it
+does not persist across a pod restart unless the same value is also set
+in the deployment's startup args/config. If a policy or ceiling looks
+different than expected, check both the live ``CONFIG GET`` value and
+the deployment YAML before assuming one or the other is stale.
+
+Eviction and hit-rate health
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    redis-cli INFO stats | grep -E "evicted_keys|expired_keys|keyspace_hits|keyspace_misses"
+
+``evicted_keys`` increasing means Redis is discarding data under memory
+pressure (LRU eviction); ``expired_keys`` increasing means normal
+TTL-based expiration. The two are easy to conflate but mean very
+different things -- this distinction (``expired_keys: 0`` alongside
+climbing ``evicted_keys``) is what originally confirmed eviction, not
+expiration, as the root cause documented in this report. For anything
+beyond a single snapshot, ``eviction_monitor.sh`` (`Diagnostic
+tooling`_) polls this on an interval and logs it to CSV.
+
 References
 ----------
 
@@ -312,4 +653,22 @@ References
   persistence; referenced ``archipelago-deployment-live`` `docker-compose
   example
   <https://github.com/esmero/archipelago-deployment-live/blob/c98d4f8d65b53f1323f094400ce7961e3e17e357/deploy/ec2-docker/docker-compose-aws-s3.yml#L223>`_
-  showing a ``save`` directive pattern.
+  showing a ``save`` directive pattern; also discussed cache bin
+  "pollution," ``maxmemory`` sizing, PHP-FPM/CPU exhaustion during
+  ingest, and the CWS vs. Unified manifest formatter distinction (see
+  `Follow-up Investigation: Manifest-Specific Cache Behavior (2026-09)`_).
+* ``web/modules/contrib/format_strawberryfield/format_strawberryfield.module``,
+  ``format_strawberryfield_cron()`` -- source of the cron-driven embargo
+  cache tag invalidation described above.
+* ``web/modules/contrib/format_strawberryfield/src/Controller/MetadataExposeDisplayController.php``
+  and ``.../src/EmbargoResolver.php`` -- confirm the embargo cache tag is
+  only attached to objects with a currently active
+  ``date_embargo_lift``.
+* ``web/core/modules/page_cache/src/StackMiddleware/PageCache.php``,
+  ``getCacheId()`` -- confirms the internal Page Cache key format and
+  that storage is independent of ``performance.cache.page.max_age``.
+* Production manifest example used throughout the follow-up
+  investigation: ``/do/20e7ff15-8932-447b-9030-dcf386c28532/metadata/iiifmanifest3cws/default.jsonld``
+  (``page`` bin entry measured at 165,092 bytes via ``MEMORY USAGE``,
+  2026-09-22); node ``59022`` used as the cache-context cardinality case
+  study (13 render-bin entries, 1.1-6.2 KB each).
