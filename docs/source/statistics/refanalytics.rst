@@ -2,7 +2,7 @@
 RefAnalytics: Classifying a Patron Interaction
 ==============================================
 
-This document is based on `RefAnalytics Guide for Recording Patron Interactions <https://docs.google.com/document/d/1WEIoIK5KBM5hYA9nCLXje0IqDgqSQeNU/edit?usp=sharing&ouid=105546367335888507442&rtpof=true&sd=true>`.
+This document is based on `RefAnalytics Guide for Recording Patron Interactions <https://docs.google.com/document/d/1WEIoIK5KBM5hYA9nCLXje0IqDgqSQeNU/edit?usp=sharing&ouid=105546367335888507442&rtpof=true&sd=true>`_.
 
 **Guiding principle:** classify by the *expertise provided*, not by the location,
 service point, or communication channel (in person, phone, email, chat, text,
