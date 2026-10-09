@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <link rel="shortcut icon" href="../_static/TAM-MaroonBox.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>RefAnalytics: Classifying a Patron Interaction - TAMU Digital Collections Labs</title>
+        <title>Instruction Stats: Choosing a Category - TAMU Digital Collections Labs</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -467,12 +467,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/statistics/refanalytics.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/statistics/instruction-stats.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/statistics/refanalytics.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/statistics/instruction-stats.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -491,54 +491,75 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="refanalytics-classifying-a-patron-interaction">
-<h1>RefAnalytics: Classifying a Patron Interaction<a class="headerlink" href="#refanalytics-classifying-a-patron-interaction" title="Link to this heading">¶</a></h1>
-<p>This document is based on <a class="reference external" href="https://docs.google.com/document/d/1WEIoIK5KBM5hYA9nCLXje0IqDgqSQeNU/edit?usp=sharing&amp;ouid=105546367335888507442&amp;rtpof=true&amp;sd=true">RefAnalytics Guide for Recording Patron Interactions</a>.</p>
-<p><strong>Guiding principle:</strong> classify by the <em>expertise provided</em>, not by the location,
-service point, or communication channel (in person, phone, email, chat, text,
-virtual meeting).</p>
+          <section id="instruction-stats-choosing-a-category">
+<h1>Instruction Stats: Choosing a Category<a class="headerlink" href="#instruction-stats-choosing-a-category" title="Link to this heading">¶</a></h1>
+<p>This document is guided by the Libraries’ <a class="reference external" href="https://docs.google.com/document/d/1jZ8dK4u69tJzERr37SZ2TXDlH5FPwoCnEa3PCNd-kGY/edit?usp=sharing">A Guide to the Libraries’ Instruction Stats System</a>.</p>
+<p>Instruction and outreach statistics are recorded in the <strong>Instructional Stats</strong>
+tab of the Instruction Manager system (Evans, Annex, WCL, and Cushing).
+One-on-one reference consultations are <strong>not</strong> recorded here; they go in
+RefAnalytics.</p>
 <pre  class="mermaid">
         flowchart TD
-    START([Patron interaction]) --&gt; Q1{&quot;Is it a planned instructional activity?&lt;br/&gt;Workshop, class session, presentation,&lt;br/&gt;orientation, credit course, outreach&quot;}
+    START([Instruction or outreach activity]) --&gt; Q0{&quot;Is it a one-on-one reference&lt;br/&gt;interaction or consultation?&quot;}
 
-    Q1 -- Yes --&gt; INS[&quot;Instruction Session&lt;br/&gt;Record in Instruction Manager,&lt;br/&gt;not RefAnalytics&quot;]
-    Q1 -- No --&gt; Q2{&quot;Did you engage with an information&lt;br/&gt;or research need?&lt;br/&gt;Use, recommend, interpret, evaluate,&lt;br/&gt;or teach a resource or research tool&quot;}
+    Q0 -- Yes --&gt; RA[&quot;Record in RefAnalytics&lt;br/&gt;not Instruction Manager&quot;]
+    Q0 -- No --&gt; Q1{&quot;Is it for a curricular course with a&lt;br/&gt;department and number and an&lt;br/&gt;instructor of record?&quot;}
 
-    Q2 -- No --&gt; Q4{&quot;What kind of help?&quot;}
-    Q4 -- Navigation --&gt; DIR[&quot;Non-Reference: Directional&lt;br/&gt;Copier, stacks, restroom,&lt;br/&gt;service points, offices&quot;]
-    Q4 -- Equipment or software --&gt; TECH[&quot;Non-Reference: Technical&lt;br/&gt;Printing, paper jams,&lt;br/&gt;equipment operation&quot;]
-    Q4 -- Anything else --&gt; OTH[&quot;Non-Reference: Other&lt;br/&gt;Hours, parking, circulation,&lt;br/&gt;policy, lost and found&quot;]
+    Q1 -- Yes --&gt; CLASS[&quot;Library Class&lt;br/&gt;Record class section and format:&lt;br/&gt;in person, online, or hybrid&quot;]
+    Q1 -- No --&gt; Q2{&quot;Is the audience a K-12 school group&lt;br/&gt;not affiliated with the university?&quot;}
 
-    Q2 -- Yes --&gt; Q3{&quot;Was it substantial, individualized&lt;br/&gt;research guidance or extended support?&lt;br/&gt;Includes interactions that grew&lt;br/&gt;into substantial support&quot;}
-    Q3 -- Yes --&gt; CON[&quot;Consultation&lt;br/&gt;Research planning, search strategy,&lt;br/&gt;Zotero/EndNote training, scholarly comm,&lt;br/&gt;data, GIS, DH, archival discovery&quot;]
-    Q3 -- No --&gt; REF[&quot;Reference Transaction&lt;br/&gt;Catalog/database help, resource&lt;br/&gt;recommendations, citation help,&lt;br/&gt;brief instruction, referrals&quot;]
+    Q2 -- Yes --&gt; K12[&quot;K-12 School Visit&lt;br/&gt;Librarian-led tour or workshop&quot;]
+    Q2 -- No --&gt; Q3{&quot;Is it tied to new student orientation?&lt;br/&gt;New Student Conferences, Fish Camp,&lt;br/&gt;departmental or graduate orientation&quot;}
 
-    classDef ref fill:#dbeafe,stroke:#1e40af,color:#1e3a8a
-    classDef con fill:#dcfce7,stroke:#166534,color:#14532d
-    classDef non fill:#f3f4f6,stroke:#4b5563,color:#1f2937
-    classDef ins fill:#fef3c7,stroke:#92400e,color:#78350f
-    class REF ref
-    class CON con
-    class DIR,TECH,OTH non
-    class INS ins
+    Q3 -- Yes --&gt; ORI[&quot;Orientation Presentation&quot;]
+    Q3 -- No --&gt; Q4{&quot;Is it library-wide professional&lt;br/&gt;development or training&lt;br/&gt;for library staff?&quot;}
+
+    Q4 -- Yes --&gt; INT[&quot;Internal Library Training&quot;]
+    Q4 -- No --&gt; Q5{&quot;Is it a tour of library&lt;br/&gt;spaces or exhibits?&quot;}
+
+    Q5 -- &quot;Yes, library-led&quot; --&gt; TOUR[&quot;Library Tour&quot;]
+    Q5 -- &quot;Campus tour stopping&lt;br/&gt;at the library&quot; --&gt; SKIP[&quot;Not recorded&quot;]
+    Q5 -- No --&gt; Q6{&quot;Was the primary purpose teaching&lt;br/&gt;library resources, research skills,&lt;br/&gt;or services?&quot;}
+
+    Q6 -- Yes --&gt; WS[&quot;Workshop&lt;br/&gt;Reported to ACRL&quot;]
+    Q6 -- &quot;No: tabling, promotion,&lt;br/&gt;quick interactions&quot; --&gt; OUT[&quot;Outreach&lt;br/&gt;Internal reporting only&quot;]
+
+    classDef instr fill:#dbeafe,stroke:#1e40af,color:#1e3a8a
+    classDef out fill:#dcfce7,stroke:#166534,color:#14532d
+    classDef elsewhere fill:#f3f4f6,stroke:#4b5563,color:#1f2937
+    class CLASS,K12,ORI,INT,TOUR,WS instr
+    class OUT out
+    class RA,SKIP elsewhere
     </pre><section id="edge-cases">
 <h2>Edge cases<a class="headerlink" href="#edge-cases" title="Link to this heading">¶</a></h2>
 <dl class="simple">
-<dt>Referrals</dt><dd><p>If you engaged long enough to identify an information need (including a need
-for specialized IT, data, or software help) and then referred the patron, it is
-a <strong>Reference Transaction</strong>. If you only gave directions or routed the patron
-without engaging the need, it is <strong>Non-Reference (Directional)</strong>.</p>
+<dt>Workshop or Outreach?</dt><dd><p>Some outreach events include presentations or guided learning. If the
+primary purpose is instructional and participants are learning skills,
+concepts, resources, or research practices, record it as a <strong>Workshop</strong>
+so it is included in ACRL instructional reporting. Examples: Professional
+Development Series presentations, Aggie Moms presentations, Friends of the
+Libraries presentations, Peer Mentor Training.</p>
 </dd>
-<dt>Technology help</dt><dd><p>Teaching a patron to use technology in support of research or academic work is
-<strong>Reference</strong> or <strong>Consultation</strong>, depending on depth. Purely operational help
-(printing, paper jams) is <strong>Non-Reference (Technical)</strong>.</p>
+<dt>Co-taught or multi-unit events</dt><dd><p>Only <strong>one</strong> person records the event; list the others in the
+<em>Additional Library Instructor</em> field. Duplicate entries inflate the data.
+For example, the Head of Student Engagement and Outreach enters Open House
+for all participating groups.</p>
 </dd>
-<dt>Small groups</dt><dd><p>Group size does not decide the category. A customized research consultation is a
-<strong>Consultation</strong> whether it involves one person or a small group; a planned
-teaching activity is an <strong>Instruction Session</strong> at any size.</p>
+<dt>Multiple sessions with the same students</dt><dd><p>Use <strong>one</strong> entry and set <em>Number of Sessions (same students)</em>; you will be
+prompted for each session date.</p>
 </dd>
-<dt>Research teams</dt><dd><p>A consultation with a research team counts as <strong>one</strong> consultation, unless
-separate individualized consultations are held with individual team members.</p>
+<dt>Entering on someone else’s behalf</dt><dd><p>Select the person who taught at the top of the form. Otherwise the stat is
+credited to whoever entered it.</p>
+</dd>
+<dt>Time spent with librarian</dt><dd><p>For presentations, enter the length of the session (often 50–90 minutes).
+For tabling, enter how long an individual spends with you (often about
+5 minutes).</p>
+</dd>
+<dt>Requesting individual or group</dt><dd><p>Use the full department name. For activities originating in the Libraries,
+use <code class="docutils literal notranslate"><span class="pre">Libraries-&lt;unit</span> <span class="pre">name&gt;</span></code>.</p>
+</dd>
+<dt>CE Course, Credit Course, Other</dt><dd><p>Use these sparingly. Consult the Director of the Office of Information
+Literacy before choosing one, since most have only historical uses.</p>
 </dd>
 </dl>
 </section>
@@ -581,7 +602,7 @@ separate individualized consultations are held with individual team members.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">RefAnalytics: Classifying a Patron Interaction</a><ul>
+<li><a class="reference internal" href="#">Instruction Stats: Choosing a Category</a><ul>
 <li><a class="reference internal" href="#edge-cases">Edge cases</a></li>
 </ul>
 </li>
