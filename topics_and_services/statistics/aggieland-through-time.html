@@ -504,23 +504,8 @@
 building markers and marker clusters to Google Analytics 4. This page lists
 the events the map sends, their parameters, and the custom dimensions and
 metrics registered in GA4 to report on them.</p>
-<nav class="contents local" id="on-this-page">
-<p class="topic-title">On this page</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
-<li><p><a class="reference internal" href="#events" id="id2">Events</a></p>
-<ul>
-<li><p><a class="reference internal" href="#map-marker-click" id="id3"><code class="docutils literal notranslate"><span class="pre">map_marker_click</span></code></a></p></li>
-<li><p><a class="reference internal" href="#map-cluster-click" id="id4"><code class="docutils literal notranslate"><span class="pre">map_cluster_click</span></code></a></p></li>
-<li><p><a class="reference internal" href="#custom-dimensions" id="id5">Custom dimensions</a></p></li>
-<li><p><a class="reference internal" href="#custom-metrics" id="id6">Custom metrics</a></p></li>
-<li><p><a class="reference internal" href="#parameters-that-are-not-registered" id="id7">Parameters that are not registered</a></p></li>
-</ul>
-</li>
-</ul>
-</nav>
 <section id="overview">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Property:</strong> <code class="docutils literal notranslate"><span class="pre">G-CJRKTHT0N0</span></code> (this is just for testing and will be moved to main)</p></li>
 <li><p><strong>Tagging:</strong> <code class="docutils literal notranslate"><span class="pre">gtag.js</span></code> is loaded directly by the site’s <code class="docutils literal notranslate"><span class="pre">&lt;GoogleAnalytics&gt;</span></code>
@@ -537,9 +522,9 @@ complete, untruncated data for other scripts on the page to use.</p></li>
 </ol>
 </section>
 <section id="events">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Events</a><a class="headerlink" href="#events" title="Link to this heading">¶</a></h2>
+<h2>Events<a class="headerlink" href="#events" title="Link to this heading">¶</a></h2>
 <section id="map-marker-click">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">map_marker_click</span></code></a><a class="headerlink" href="#map-marker-click" title="Link to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">map_marker_click</span></code><a class="headerlink" href="#map-marker-click" title="Link to this heading">¶</a></h3>
 <p>Sent when a visitor clicks a single building marker. This also happens when
 the visitor clicks a marker after markers are ungrouped, or after zooming far
 enough in that clustering turns off.</p>
@@ -586,7 +571,7 @@ enough in that clustering turns off.</p>
 </div>
 </section>
 <section id="map-cluster-click">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">map_cluster_click</span></code></a><a class="headerlink" href="#map-cluster-click" title="Link to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">map_cluster_click</span></code><a class="headerlink" href="#map-cluster-click" title="Link to this heading">¶</a></h3>
 <p>Sent when a visitor clicks a numbered cluster of markers. The map then zooms
 in on the cluster or spreads it out. <code class="docutils literal notranslate"><span class="pre">map_zoom</span></code> is the zoom level <em>before</em>
 that happens.</p>
@@ -651,7 +636,7 @@ property.</p>
 </section>
 </section>
 <section id="custom-dimensions">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Custom dimensions</a><a class="headerlink" href="#custom-dimensions" title="Link to this heading">¶</a></h3>
+<h3>Custom dimensions<a class="headerlink" href="#custom-dimensions" title="Link to this heading">¶</a></h3>
 <p>All of these use <strong>Event</strong> scope.</p>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
@@ -700,7 +685,7 @@ property.</p>
 </div>
 </section>
 <section id="custom-metrics">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Custom metrics</a><a class="headerlink" href="#custom-metrics" title="Link to this heading">¶</a></h3>
+<h3>Custom metrics<a class="headerlink" href="#custom-metrics" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
 <colgroup>
@@ -729,7 +714,7 @@ property.</p>
 average it, and compare it.</p>
 </section>
 <section id="parameters-that-are-not-registered">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Parameters that are not registered</a><a class="headerlink" href="#parameters-that-are-not-registered" title="Link to this heading">¶</a></h3>
+<h3>Parameters that are not registered<a class="headerlink" href="#parameters-that-are-not-registered" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">cluster_lat</span></code> and <code class="docutils literal notranslate"><span class="pre">cluster_lng</span></code> are sent but not registered. Raw
 coordinates are of little use in GA4 reports, and registering them would use
 up dimension slots (a standard property allows 50 event-scoped custom
