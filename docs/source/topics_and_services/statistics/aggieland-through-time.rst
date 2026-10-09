@@ -7,10 +7,6 @@ building markers and marker clusters to Google Analytics 4. This page lists
 the events the map sends, their parameters, and the custom dimensions and
 metrics registered in GA4 to report on them.
 
-.. contents:: On this page
-   :local:
-   :depth: 2
-
 --------
 Overview
 --------
