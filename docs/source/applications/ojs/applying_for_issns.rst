@@ -8,10 +8,6 @@ on the Libraries' OJS service. It covers pre-publication (provisional) requests,
 the ISSN Uplink application, and the follow-up needed to confirm a provisional
 ISSN after launch.
 
-.. contents:: On this page
-   :local:
-   :depth: 2
-
 
 Overview
 ========
