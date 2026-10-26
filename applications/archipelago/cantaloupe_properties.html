@@ -1,0 +1,1425 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Changing Branding in Archipelago" href="changing-branding.html" /><link rel="prev" title="Testing JMES Paths" href="999_jmes_path_tester.html" />
+
+    <link rel="shortcut icon" href="../../_static/TAM-MaroonBox.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Cantaloupe Configuration Reference - TAMU Digital Collections Labs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=4dcc0f2f" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">TAMU Digital Collections Labs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/TAM-MaroonBox.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">TAMU Digital Collections Labs</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Overview of Digital Collections Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/01_about_digital_collections.html">Digital Collections Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/02_mission_and_vision.html">Mission and Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/03_people.html">People</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/04_cultral_heritage.html">Cultural Heritage Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/05_products_and_product_ownership.html">Products and Product Ownership</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/06_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/07_onboarding_checklist.html">Department and Supervisor Onboarding Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/08_partners_and_stakeholders.html">Partners and Stakeholders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/998_adjusted_flex.html">Adjusted &amp; Flexible Work Arrangements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/999_legacy.html">Legacy Infrastructure, Software, and Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Policies and Procedures</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/captions_and_transcripts.html">Policy and Guiding Principles for Captioning and Transcription of A/V Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/metadata.html">Metadata Guidelines for Digital Resources at Texas A&amp;M University Libraries</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_archipelago-terms.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_adding-ocr.html">Adding OCR to ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_structure-changes.html">Changing Structures on Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_promoting_collections_to_featured.html">Promoting Collections on the Front Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_node-override-templates.html">Overriding a Single Page with a Node Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="996_addressing_sort_canvas_order_issues.html">Troubleshooting: Series Unified Manifest: Canvas Sort Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="997_redis-config.html">Redis Cache Configuration Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="998_add_url_alias.html">Add URL alias for a Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9999_updating_archipelago_using_local.html">Archipelago 1.6.0 Upgrade Plan: Local Build, Lockfile Deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="999_jmes_path_tester.html">Testing JMES Paths</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Cantaloupe Configuration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting Archipelago Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/removing-date-updated.html">Removing Date Updated from Search Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/esmero-web.html">Migrating Using Esmero Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/innovation.html">Migrating Using Innovation Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_avalon.html">Migrating Avalon Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_fedora.html">Migrating Fedora Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_oaktrust.html">Migrating OAKTrust Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/api-batch-upload.html">Importing media into Avalon via API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_template.html">Template for Avalon Batch Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/downloading_from_avalon.html">Downloading media from Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/generating_structures_from_csv.html">Generating Structures from CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/metadata.html">Avalon Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/pdf-creation.html">How to make a PDF transcript to upload to Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/remediating-failed-imports.html">Remediating Failed Imports in Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/troubleshooting.html">Troubleshooting Various Avalon Wonky-ness</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-importing-large-batches.html">Batch Importing SAFs Using the DSpace Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_batch_import.html">Batch Import into DSpace Using SAFCreator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_entities.html">DSPACE Entity Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_extending_embargos.html">DSPACE: Extending Embargos in DSpace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities_ojs.html">DSPACE: Importing Entities from OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_moving_collections_btw_communities.html">Moving Collections from One Community to Another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/reporting_500_errors.html">Reporting 500 Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/creating-iiif-manifests.html">Creating IIIF Collections and Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/fedora_solr.html">Understanding Solr Config in Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/post-ingestion.html">Reindexing Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/using-karaf.html">Using Karaf</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/ojs.html">OJS</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ojs/applying_for_issns.html">Registering ISSNs for Hosted Journals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ojs/minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ojs/ojs34-editorial-workflow-tutorial.html">OJS 3.4 Editorial Workflow: Configuration &amp; Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ojs/onboarding_ojs_teams.html">1-Hour Journal Onboarding Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/open-oni.html">Open ONI</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Open ONI</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../open-oni/batch-processing.html">How to Process a Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../open-oni/loading_and_purging_batches.html">Batches: Loading and Purging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../open-oni/open-oni-problems.html">Solving Open Oni Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sage/delete-sage-solr-docs.html">Deleting Items from SAGE Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sage/sage-import.html">Importing media into SAGE - WITHOUT Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sage/sage_import.html">SAGE Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sage/solr6-vs-solr9.html">SAGE: Solr 6 versus Solr 9</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spotlight/browse-categories.html">Creating a Browse Category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spotlight/troubleshooting-write-issues.html">Troubleshooting Write Issues</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Services and Topics</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/accessibility.html">Accessibility</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Accessibility</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/audio_derivatives.html">Audio: Creating Service Files for Streaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/generating_service_files.html">Images: Generating Service Files and Derivatives</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/identifiers.html">Identifiers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Identifiers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/00_doi_handle_ark.html">Persistent Identifiers: Handle vs. ARK vs. DOI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/crossref-doi-requirements.html">General Requirements for Crossref DOIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/doi-naming.html">Conventions for Structuring DOIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/doi_policy.html">DOI Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/minting_a_doi.html">Minting DOIs in Crossref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/minting_arks.html">Minting ARKs with EZID</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/iiif.html">IIIF</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of IIIF</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/adding-thumbnails.html">Adding a Thumbnail to a IIIF Manifest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/finding_iiif.html">Finding IIIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/fixing-broken-cache-from-ir-iiif-service.html">Fixing Broken Cache from IR IIIF Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/generating_iiif_collections.html">IIIF: Generating IIIF and IIIF Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/kube.html">Kubernetes and Docker</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Kubernetes and Docker</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/creating-an-ingress.html">Creating an Ingress in Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/open_education_materials_and_ip.html">Open Education Materials and IP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/renaming_files_for_ts.html">Renaming Files from Preservation for Technology Services</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/statistics.html">Statistics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Statistics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/aggie-journals-dashboard.html">Aggie Journals Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/aggieland-through-time.html">Aggieland Through Time Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/instruction-stats.html">Instruction Stats: Choosing a Category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/refanalytics.html">RefAnalytics: Classifying a Patron Interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/using_super_computer_for_gpu_needs.html">Using the Super Computer when we Need GPU</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/whisper.html">Whisper</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Whisper</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisper-transcripts.html">Making Transcripts with Whisper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisper-transcripts-cleanup.html">Cleaning a Whisper Transcript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisperx-transcripts.html">Making Transcripts with WhisperX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/writing_documentation.html">How to Write Documentation on this website</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurations and Mappings</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../config/cantaloupe_config.html">Cantloupe Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Crosswalking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/avalon-to-pdf.html">Crosswalking: Avalon to PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/creating-ark.html">Creating ARKs with TAMU ID Minter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/marc-to-tamu-dc.html">Convert MARC Binary to TAMU DC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Digitization Backlog</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../digitization_areas/university-archives.html">University Archives</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of University Archives</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/441.html">College of Architecture and Environmental Design Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/502.html">Department of Mathematics Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/514.html">College of Liberal Arts Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/533.html">College of Education Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/562.html">College of Business Administration Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/564.html">College of Medicine Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/565.html">College of Engineering Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/595.html">College of Agriculture Animal Science Department Technical Reports and Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/596.html">Department of Agricultural Engineering Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/633.html">Department of Civil Engineering Newsletter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000285.html">Texas A&amp;M Commencement Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000291.html">Commencement Programs Collection - College of Medicine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000293.html">Commencement Programs Collection - College of Veterinary Medicine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000652.html">Commencement Programs Collection - School of Public Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/1140.html">Texas A&amp;M System Board of Directors Minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/373.html">Texas A&amp;M System Board of Regents Agendas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/39.html">Office of Executive Vice President and Provost Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/annual_reports.html">Texas A&amp;M System Annual Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/c000633.html">Thomas S. Gathright Letters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/122.html">Texas A&amp;M Photograph Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1331.html">Texas A&amp;M Athletic Media Guides and Programs - Track and Field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1334.html">Texas A&amp;M Athletic Media Guides - Aquatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1338.html">Texas A&amp;M Athletic Media Guides - Spring Sports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1342.html">Texas A&amp;M Athletic Media Guides - Soccer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1455.html">Texas A&amp;M Athletic Media Guides - Women’s Basketball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1457.html">Texas A&amp;M Athletic and Event Ticket Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/146.html">Texas A&amp;M Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1467.html">Texas A&amp;M Athletic Programs - Baseball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1468.html">Texas A&amp;M Athletic Programs - Softball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1469.html">Texas A&amp;M Athletic Programs - Men’s Basketball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/15.html">E J. Kyle Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1631.html">Texas A&amp;M Athletic Programs - Volleyball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/c000036.html">Texas A&amp;M Athletic Programs - Football</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/in00005672352.html">A trailblazing story and scrapbook, 50 years of memories : women’s athletics Texas A&amp;M University</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1019.html">Memorial Student Center (MSC) Scrapbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1180.html">W A. Tolson Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1223.html">F E. Giesecke Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1241.html">Texas A&amp;M Grade Reports Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1247.html">MSC Bookstore Promotional Cap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1396.html">D J. Finn ‘21 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1398.html">Edgar Petty Jennings Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1400.html">Allen Elmer Luddeke Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1417.html">Steven Simon, Jr. ‘22 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1421.html">Class of 1922 45th Class Reunion Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1422.html">Class of 1995 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1424.html">Texas A&amp;M College Social Events Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1425.html">W P. Trice Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1448.html">Joel Hunt Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1554.html">Texas A&amp;M Hillel Articles and Photographs Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1601.html">Louis A. Hartung ‘29 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1624.html">Linda Keefer Elephant Walk Hat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1625.html">Big Event T-Shirt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/700.html">March to the Brazos Photograph Album</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/702.html">Pfeuffer Hall Student Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/798.html">James T. Danklefs ‘43 Corregidor Muster Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000219.html">Cepheid Variable - AggieCon Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000281.html">Texas A&amp;M Student Government Association (SGA) Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000284.html">Texas A&amp;M Speeches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000286.html">Texas A&amp;M Dance and Banquet Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000380.html">Muster Stage Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000386.html">Fighting Aggie Band Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000735.html">Texas A&amp;M Student Organization Constitutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00000140161.html">Official directory of the faculty, staff, and student body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00000730323.html">Official directory of the faculty, staff, and student body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00004042708.html">Directory of the officers, faculty and students of the Agricultural and Mechanical College of Texas : including the experiment station, the extension service</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DPMT Archived</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dpmt/06_workflow.html">Digital Projects that Require Digitization Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dpmt/dpmt_process.html">DPMT Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Archived</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/05_projects.html">Archived - Projects</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/applications/archipelago/cantaloupe_properties.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/applications/archipelago/cantaloupe_properties.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="cantaloupe-configuration-reference">
+<span id="cantaloupe-properties"></span><h1>Cantaloupe Configuration Reference<a class="headerlink" href="#cantaloupe-configuration-reference" title="Link to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://cantaloupe-project.github.io/">Cantaloupe</a> is the IIIF Image API
+server used by Archipelago. It reads source images (TIFF, JP2, JPEG, PDF,
+video, etc.) from storage, processes them on request (crop, scale, rotate,
+convert), and returns derivatives to IIIF viewers such as Mirador, Universal
+Viewer, and Clover.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cantaloupe.properties</span></code> is a Java properties file. Each line is a
+<code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span> <span class="pre">value</span></code> pair, and lines beginning with <code class="docutils literal notranslate"><span class="pre">#</span></code> are comments. The file is
+organized into these major sections:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#cp-server"><span class="std std-ref">Server and Request Limits</span></a> — HTTP/HTTPS listeners and request limits</p></li>
+<li><p><a class="reference internal" href="#cp-delegate"><span class="std std-ref">Delegate Script</span></a> — optional Ruby delegate script</p></li>
+<li><p><a class="reference internal" href="#cp-endpoints"><span class="std std-ref">Endpoints</span></a> — IIIF, admin, API, and health endpoints</p></li>
+<li><p><a class="reference internal" href="#cp-sources"><span class="std std-ref">Sources</span></a> — where source images are read from</p></li>
+<li><p><a class="reference internal" href="#cp-processors"><span class="std std-ref">Processors</span></a> — which library decodes each image format</p></li>
+<li><p><a class="reference internal" href="#cp-client-cache"><span class="std std-ref">Client-Side Caching</span></a> — <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> headers sent to browsers</p></li>
+<li><p><a class="reference internal" href="#cp-server-cache"><span class="std std-ref">Server-Side Caching</span></a> — server-side source and derivative caching</p></li>
+<li><p><a class="reference internal" href="#cp-overlays"><span class="std std-ref">Overlays (Watermarks)</span></a> — watermarks</p></li>
+<li><p><a class="reference internal" href="#cp-logging"><span class="std std-ref">Logging</span></a> — application, error, and access logs</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most settings take effect without a restart. Settings marked with <code class="docutils literal notranslate"><span class="pre">!!</span></code>
+in the file’s comments <strong>require a restart</strong> of Cantaloupe (in Archipelago,
+restart the <code class="docutils literal notranslate"><span class="pre">esmero-cantaloupe</span></code> container or pod).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Empty values (<code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">=</span></code>) mean “use Cantaloupe’s default.” The file header
+notes that empty values may also be supplied by <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> (or a
+Kubernetes manifest) through environment variables, so the effective value
+in a running deployment may differ from what appears here.</p>
+</div>
+</section>
+<section id="quick-summary-of-this-configuration">
+<h2>Quick Summary of This Configuration<a class="headerlink" href="#quick-summary-of-this-configuration" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Concern</p></th>
+<th class="head"><p>Current setting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Listening on</p></td>
+<td><p>HTTP <code class="docutils literal notranslate"><span class="pre">0.0.0.0:8182</span></code> (HTTPS disabled)</p></td>
+</tr>
+<tr class="row-odd"><td><p>IIIF Image API</p></td>
+<td><p>Versions 2 and 3 enabled; version 1 disabled</p></td>
+</tr>
+<tr class="row-even"><td><p>Image source</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">S3Source</span></code> → MinIO at <code class="docutils literal notranslate"><span class="pre">http://esmero-minio:9000</span></code>, bucket <code class="docutils literal notranslate"><span class="pre">archipelago</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Processor selection</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ManualSelectionStrategy</span></code> (per-format mapping)</p></td>
+</tr>
+<tr class="row-even"><td><p>JPEG 2000 decoding</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OpenJpegProcessor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Server cache</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FilesystemCache</span></code> at <code class="docutils literal notranslate"><span class="pre">/var/cache/cantaloupe</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Derivative cache lifetime</p></td>
+<td><p>30 days</p></td>
+</tr>
+<tr class="row-odd"><td><p>Browser cache lifetime</p></td>
+<td><p>7 days</p></td>
+</tr>
+<tr class="row-even"><td><p>Admin panel and API</p></td>
+<td><p><strong>Enabled, with default credentials</strong> (see <a class="reference internal" href="#cp-security"><span class="std std-ref">Security Checklist</span></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Watermarks</p></td>
+<td><p>Disabled</p></td>
+</tr>
+<tr class="row-even"><td><p>Logging</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">info</span></code> level to console only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="server-and-request-limits">
+<span id="cp-server"></span><h2>Server and Request Limits<a class="headerlink" href="#server-and-request-limits" title="Link to this heading">¶</a></h2>
+<section id="temporary-directory">
+<h3>Temporary directory<a class="headerlink" href="#temporary-directory" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">temp_pathname</span><span class="w"> </span><span class="o">=</span>
+</pre></div>
+</div>
+<p>Blank uses the JVM’s default temp directory (usually <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>). Cantaloupe
+writes temporary files here when processing, so the location needs enough
+free space for the largest source images being processed concurrently.</p>
+</section>
+<section id="http-and-https-listeners">
+<h3>HTTP and HTTPS listeners<a class="headerlink" href="#http-and-https-listeners" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 20.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">http.enabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>Serve plain HTTP.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">http.host</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code></p></td>
+<td><p>Listen on all interfaces inside the container.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">http.port</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8182</span></code></p></td>
+<td><p>Standard Cantaloupe port.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">https.enabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>TLS is not terminated by Cantaloupe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">https.key_store_*</span></code></p></td>
+<td><p>placeholders</p></td>
+<td><p>Unused while HTTPS is disabled.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In Archipelago, TLS is normally terminated upstream (nginx or an ingress
+controller), which proxies to Cantaloupe over plain HTTP. The keystore values
+are sample placeholders and are ignored.</p>
+</section>
+<section id="thread-pool-and-queue">
+<h3>Thread pool and queue<a class="headerlink" href="#thread-pool-and-queue" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">http.min_threads</span><span class="w"> </span><span class="o">=</span>
+<span class="na">http.max_threads</span><span class="w"> </span><span class="o">=</span>
+<span class="na">http.accept_queue_limit</span><span class="w"> </span><span class="o">=</span>
+</pre></div>
+</div>
+<p>Blank values use Cantaloupe’s defaults. Tune these only if you observe request
+queuing or thread exhaustion under load.</p>
+</section>
+<section id="reverse-proxy-uris">
+<h3>Reverse-proxy URIs<a class="headerlink" href="#reverse-proxy-uris" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">base_uri</span><span class="w"> </span><span class="o">=</span>
+<span class="na">slash_substitute</span><span class="w"> </span><span class="o">=</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">base_uri</span></code></dt><dd><p>Overrides the base URL used in <code class="docutils literal notranslate"><span class="pre">info.json</span></code> <code class="docutils literal notranslate"><span class="pre">id</span></code>/<code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> values and
+<code class="docutils literal notranslate"><span class="pre">Link</span></code> headers. Leave blank when the proxy sends correct
+<code class="docutils literal notranslate"><span class="pre">X-Forwarded-Host</span></code>, <code class="docutils literal notranslate"><span class="pre">X-Forwarded-Proto</span></code>, <code class="docutils literal notranslate"><span class="pre">X-Forwarded-Port</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">X-Forwarded-Path</span></code> headers. If viewers receive <code class="docutils literal notranslate"><span class="pre">info.json</span></code> documents
+pointing at <code class="docutils literal notranslate"><span class="pre">http://esmero-cantaloupe:8182/...</span></code> instead of the public
+hostname, either fix the forwarded headers or set this value.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">slash_substitute</span></code></dt><dd><p>Archipelago identifiers are S3 object keys that can contain <code class="docutils literal notranslate"><span class="pre">/</span></code>. If a
+proxy decodes <code class="docutils literal notranslate"><span class="pre">%2F</span></code> before it reaches Cantaloupe, define a substitute
+character sequence here. Blank means slashes must arrive as <code class="docutils literal notranslate"><span class="pre">%2F</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="size-limits">
+<h3>Size limits<a class="headerlink" href="#size-limits" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_pixels</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">400000000</span></code></p></td>
+<td><p>Refuse responses larger than 400 megapixels. Protects memory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_scale</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p>Never upscale beyond the source’s native resolution.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="meta-identifiers">
+<h3>Meta-identifiers<a class="headerlink" href="#meta-identifiers" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">meta_identifier.transformer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">StandardMetaIdentifierTransformer</span>
+<span class="na">meta_identifier.transformer.StandardMetaIdentifierTransformer.delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">;</span>
+</pre></div>
+</div>
+<p>A <em>meta-identifier</em> extends an image identifier with extra information such as
+a page number. With the <code class="docutils literal notranslate"><span class="pre">;</span></code> delimiter, <code class="docutils literal notranslate"><span class="pre">my-file.pdf;3</span></code> requests page 3 of a
+multi-page source (PDF, multi-page TIFF). Archipelago relies on this for
+paged PDFs.</p>
+</section>
+<section id="error-reporting">
+<h3>Error reporting<a class="headerlink" href="#error-reporting" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">log_error_responses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">print_stack_trace_on_error_pages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">log_error_responses</span></code> logs every 4xx/5xx response, which is useful for
+diagnosing missing images. <code class="docutils literal notranslate"><span class="pre">print_stack_trace_on_error_pages</span></code> includes Java
+stack traces in HTTP error bodies.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Stack traces on public error pages reveal internal class names, paths, and
+versions. Set <code class="docutils literal notranslate"><span class="pre">print_stack_trace_on_error_pages</span> <span class="pre">=</span> <span class="pre">false</span></code> in production.</p>
+</div>
+</section>
+</section>
+<section id="delegate-script">
+<span id="cp-delegate"></span><h2>Delegate Script<a class="headerlink" href="#delegate-script" title="Link to this heading">¶</a></h2>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">delegate_script.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+<span class="na">delegate_script.pathname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">delegates.rb</span>
+</pre></div>
+</div>
+<p>The delegate script is an optional Ruby (JRuby) file that customizes
+Cantaloupe’s behavior per request: authorization, dynamic source lookup,
+per-request processor or overlay choices, and so on. It is <strong>disabled</strong> in
+this configuration, so every setting below that offers a
+<code class="docutils literal notranslate"><span class="pre">ScriptLookupStrategy</span></code> or <code class="docutils literal notranslate"><span class="pre">ScriptStrategy</span></code> option uses its <code class="docutils literal notranslate"><span class="pre">Basic</span></code>
+equivalent instead.</p>
+<p>Enable it if you need IIIF Auth, restricted-access images, or identifier
+rewriting that <code class="docutils literal notranslate"><span class="pre">BasicLookupStrategy</span></code> cannot express.</p>
+</section>
+<section id="endpoints">
+<span id="cp-endpoints"></span><h2>Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">¶</a></h2>
+<section id="iiif-image-api">
+<h3>IIIF Image API<a class="headerlink" href="#iiif-image-api" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 15.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.iiif.1.enabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/iiif/1</span></code> is off (legacy, rarely needed).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.iiif.2.enabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/iiif/2</span></code> is on.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.iiif.3.enabled</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/iiif/3</span></code> is on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.iiif.min_size</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">64</span></code></p></td>
+<td><p>Smallest size advertised in <code class="docutils literal notranslate"><span class="pre">info.json</span></code> <code class="docutils literal notranslate"><span class="pre">sizes</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.iiif.min_tile_size</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p></td>
+<td><p>Smallest tile size advertised in <code class="docutils literal notranslate"><span class="pre">info.json</span></code> <code class="docutils literal notranslate"><span class="pre">tiles</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.iiif.restrict_to_sizes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>Clients may request arbitrary sizes, not only advertised ones.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Example request patterns:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://&lt;host&gt;/cantaloupe/iiif/2/&lt;identifier&gt;/info.json
+https://&lt;host&gt;/cantaloupe/iiif/3/&lt;identifier&gt;/full/max/0/default.jpg
+</pre></div>
+</div>
+<p>The public path prefix depends on how your proxy or ingress routes to
+Cantaloupe.</p>
+</section>
+<section id="control-panel-and-http-api">
+<h3>Control Panel and HTTP API<a class="headerlink" href="#control-panel-and-http-api" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">endpoint.admin.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">endpoint.admin.username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">admin</span>
+<span class="na">endpoint.admin.secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">archipelago</span>
+
+<span class="na">endpoint.api.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">endpoint.api.username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">admin</span>
+<span class="na">endpoint.api.secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">archipelago</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">/admin</span></code></dt><dd><p>Web Control Panel for viewing and editing configuration and status.</p>
+</dd>
+<dt>HTTP API</dt><dd><p>Administrative API used for tasks such as purging cached items for an
+identifier (for example, after replacing a master file).</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The file header says <code class="docutils literal notranslate"><span class="pre">endpoint.admin.enabled</span></code> is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, but in
+this copy it is <strong>set to</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code>. Both the Control Panel and the API use
+the well-known default credentials <code class="docutils literal notranslate"><span class="pre">admin</span></code> / <code class="docutils literal notranslate"><span class="pre">archipelago</span></code>.
+See <a class="reference internal" href="#cp-security"><span class="std std-ref">Security Checklist</span></a>.</p>
+</div>
+</section>
+<section id="health-check">
+<h3>Health check<a class="headerlink" href="#health-check" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">endpoint.health.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">endpoint.health.dependency_check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">/health</span></code> returns a quick status suitable for Kubernetes liveness and
+readiness probes. With <code class="docutils literal notranslate"><span class="pre">dependency_check</span> <span class="pre">=</span> <span class="pre">false</span></code> the check does not probe
+S3 or caches, which keeps it fast and avoids pod restarts when MinIO is
+briefly unavailable.</p>
+</section>
+</section>
+<section id="sources">
+<span id="cp-sources"></span><h2>Sources<a class="headerlink" href="#sources" title="Link to this heading">¶</a></h2>
+<p>A <em>source</em> tells Cantaloupe where to find the original image for an
+identifier.</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">source.static</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">S3Source</span>
+<span class="na">source.delegate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</pre></div>
+</div>
+<p>All requests use <code class="docutils literal notranslate"><span class="pre">S3Source</span></code>. Because <code class="docutils literal notranslate"><span class="pre">source.delegate</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>, there
+is no per-request source selection.</p>
+<section id="s3source-active">
+<h3>S3Source (active)<a class="headerlink" href="#s3source-active" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 25.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.endpoint</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">http://esmero-minio:9000</span></code></p></td>
+<td><p>Archipelago’s MinIO service. Only needed for non-AWS S3.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.region</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">us-east-2</span></code></p></td>
+<td><p>Ignored by most MinIO setups, but must be a valid value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.access_key_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">minio</span></code></p></td>
+<td><p>Default MinIO credential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.secret_key</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">minio123</span></code></p></td>
+<td><p>Default MinIO credential.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.lookup_strategy</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BasicLookupStrategy</span></code></p></td>
+<td><p>Identifier maps directly to an object key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.BasicLookupStrategy.bucket.name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">archipelago</span></code></p></td>
+<td><p>Bucket holding Archipelago files.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.BasicLookupStrategy.path_prefix</span></code></p></td>
+<td><p><em>(blank)</em></p></td>
+<td><p>Nothing prepended to the identifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.BasicLookupStrategy.path_suffix</span></code></p></td>
+<td><p><em>(blank)</em></p></td>
+<td><p>Nothing appended to the identifier.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="how-identifiers-resolve">
+<h4>How identifiers resolve<a class="headerlink" href="#how-identifiers-resolve" title="Link to this heading">¶</a></h4>
+<p>With an empty prefix and suffix, the IIIF identifier <em>is</em> the object key in
+the <code class="docutils literal notranslate"><span class="pre">archipelago</span></code> bucket:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/iiif/3/2a%2Fe1%2Fimage-abc123.jp2/full/max/0/default.jpg
+              │
+              ▼
+s3://archipelago/2a/e1/image-abc123.jp2
+</pre></div>
+</div>
+</section>
+<section id="chunked-reads">
+<h4>Chunked reads<a class="headerlink" href="#chunked-reads" title="Link to this heading">¶</a></h4>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">S3Source.chunking.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">S3Source.chunking.chunk_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">512K</span>
+<span class="na">S3Source.chunking.cache.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">S3Source.chunking.cache.max_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">5M</span>
+</pre></div>
+</div>
+<p>Cantaloupe fetches the object in 512 KB ranged requests rather than all at
+once. For tiled pyramidal formats (JP2, tiled TIFF) this can avoid
+downloading the whole file to serve one tile. Downloaded chunks are cached in
+memory for the life of a single request, up to 5 MB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your deployment uses an external S3 service instead of the bundled
+MinIO container, <code class="docutils literal notranslate"><span class="pre">S3Source.endpoint</span></code>, credentials, bucket, and region are
+the values to change (or override via environment variables).</p>
+</div>
+</section>
+</section>
+<section id="inactive-sources">
+<h3>Inactive sources<a class="headerlink" href="#inactive-sources" title="Link to this heading">¶</a></h3>
+<p>The following sections are present but unused because <code class="docutils literal notranslate"><span class="pre">source.static</span></code> is
+<code class="docutils literal notranslate"><span class="pre">S3Source</span></code>. Their values are upstream samples.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">FilesystemSource</span></code></dt><dd><p>Reads from a local directory (<code class="docutils literal notranslate"><span class="pre">path_prefix</span> <span class="pre">=</span> <span class="pre">/home/myself/images/</span></code>).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">HttpSource</span></code></dt><dd><p>Fetches images from a URL prefix (<code class="docutils literal notranslate"><span class="pre">http://localhost/images/</span></code>), with
+optional Basic auth, HEAD-vs-ranged-GET probing, and chunking.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">AzureStorageSource</span></code></dt><dd><p>Reads from an Azure Blob Storage container.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">JdbcSource</span></code></dt><dd><p>Reads image blobs from a database (requires delegate methods and a JDBC
+driver).</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="processors">
+<span id="cp-processors"></span><h2>Processors<a class="headerlink" href="#processors" title="Link to this heading">¶</a></h2>
+<p>A <em>processor</em> decodes a source format and produces the requested derivative.</p>
+<section id="selection-strategy">
+<h3>Selection strategy<a class="headerlink" href="#selection-strategy" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">processor.selection_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ManualSelectionStrategy</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">ManualSelectionStrategy</span></code>, each format is explicitly mapped to a
+processor. The alternative, <code class="docutils literal notranslate"><span class="pre">AutomaticSelectionStrategy</span></code>, picks the “best”
+available processor at runtime.</p>
+</section>
+<section id="format-to-processor-map">
+<h3>Format-to-processor map<a class="headerlink" href="#format-to-processor-map" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Processor</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jp2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OpenJpegProcessor</span></code></p></td>
+<td><p>Required on ARM64. On x86/AMD64, <code class="docutils literal notranslate"><span class="pre">KakaduNativeProcessor</span></code> is faster
+if available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">png</span></code>, <code class="docutils literal notranslate"><span class="pre">tif</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Java2dProcessor</span></code></p></td>
+<td><p>Pure Java, no native dependencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PdfBoxProcessor</span></code></p></td>
+<td><p>Rasterizes PDF pages; use <code class="docutils literal notranslate"><span class="pre">;N</span></code> meta-identifiers for page N.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">avi</span></code>, <code class="docutils literal notranslate"><span class="pre">flv</span></code>, <code class="docutils literal notranslate"><span class="pre">mov</span></code>, <code class="docutils literal notranslate"><span class="pre">mp4</span></code>, <code class="docutils literal notranslate"><span class="pre">mv4</span></code>, <code class="docutils literal notranslate"><span class="pre">mpg</span></code>, <code class="docutils literal notranslate"><span class="pre">webm</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FfmpegProcessor</span></code></p></td>
+<td><p>Extracts still frames from video (e.g., poster images).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bmp</span></code>, <code class="docutils literal notranslate"><span class="pre">gif</span></code>, <code class="docutils literal notranslate"><span class="pre">xpm</span></code></p></td>
+<td><p><em>(blank)</em></p></td>
+<td><p>Fall through to the fallback.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>fallback</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Java2dProcessor</span></code></p></td>
+<td><p>Used for any format not listed.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="retrieval-strategy">
+<h3>Retrieval strategy<a class="headerlink" href="#retrieval-strategy" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">processor.stream_retrieval_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">StreamStrategy</span>
+<span class="na">processor.fallback_retrieval_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">CacheStrategy</span>
+<span class="na">processor.purge_incompatible_from_source_cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">S3Source</span></code> is a <em>stream</em> source. Some processors (notably
+<code class="docutils literal notranslate"><span class="pre">OpenJpegProcessor</span></code> and <code class="docutils literal notranslate"><span class="pre">FfmpegProcessor</span></code>) need a real file on disk.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StreamStrategy</span></code> streams directly whenever the processor allows it.</p></li>
+<li><p>When it doesn’t, <code class="docutils literal notranslate"><span class="pre">CacheStrategy</span></code> downloads the object into the
+<strong>source cache</strong> (<code class="docutils literal notranslate"><span class="pre">FilesystemCache</span></code>) and processes it from there. Later
+requests for the same image reuse the local copy instead of fetching it
+from S3 again.</p></li>
+<li><p>Files in the source cache whose format cannot be determined are purged.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Because JP2 requests go through the source cache, the volume behind
+<code class="docutils literal notranslate"><span class="pre">/var/cache/cantaloupe</span></code> should be sized for your working set of JP2
+masters, not just derivatives.</p>
+</div>
+</section>
+<section id="global-processing-options">
+<h3>Global processing options<a class="headerlink" href="#global-processing-options" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">processor.dpi</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">150</span></code></p></td>
+<td><p>Rasterization resolution for vector sources such as PDF.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processor.background_color</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">white</span></code></p></td>
+<td><p>Fill for rotation and alpha flattening.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">processor.downscale_filter</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bicubic</span></code></p></td>
+<td><p>Resampling filter when shrinking.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processor.upscale_filter</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bicubic</span></code></p></td>
+<td><p>Resampling filter when enlarging (moot with <code class="docutils literal notranslate"><span class="pre">max_scale</span> <span class="pre">=</span> <span class="pre">1.0</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">processor.downscale_linear</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>Linear-light downscaling off (faster).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processor.sharpen</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>No unsharp mask.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">processor.jpg.progressive</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>Output progressive JPEGs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processor.jpg.quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">80</span></code></p></td>
+<td><p>JPEG output quality (1–100).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">processor.tif.compression</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">LZW</span></code></p></td>
+<td><p>Compression for TIFF output.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="imageio-plugin-preferences">
+<h3>ImageIO plugin preferences<a class="headerlink" href="#imageio-plugin-preferences" title="Link to this heading">¶</a></h3>
+<p>All <code class="docutils literal notranslate"><span class="pre">processor.imageio.*</span></code> keys are blank, so Cantaloupe’s default Java
+ImageIO readers and writers are used. These should not normally be changed.</p>
+</section>
+<section id="processor-binary-paths">
+<h3>Processor binary paths<a class="headerlink" href="#processor-binary-paths" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">FfmpegProcessor.path_to_binaries</span><span class="w"> </span><span class="o">=</span>
+<span class="na">OpenJpegProcessor.path_to_binaries</span><span class="w"> </span><span class="o">=</span>
+<span class="na">GrokProcessor.path_to_binaries</span><span class="w"> </span><span class="o">=</span>
+</pre></div>
+</div>
+<p>Blank means the binaries (<code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code>/<code class="docutils literal notranslate"><span class="pre">ffprobe</span></code>, <code class="docutils literal notranslate"><span class="pre">opj_decompress</span></code>,
+<code class="docutils literal notranslate"><span class="pre">grk_decompress</span></code>) are found on the container’s <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+</section>
+<section id="pdf-memory-handling">
+<h3>PDF memory handling<a class="headerlink" href="#pdf-memory-handling" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">processor.pdf.scratch_file_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">processor.pdf.max_memory_bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-1</span>
+</pre></div>
+</div>
+<p>PDFBox may spill to disk while loading PDFs, with no cap on in-memory use.
+Very large PDFs can still consume significant heap; set a positive byte limit
+if PDF requests cause memory pressure.</p>
+</section>
+</section>
+<section id="client-side-caching">
+<span id="cp-client-cache"></span><h2>Client-Side Caching<a class="headerlink" href="#client-side-caching" title="Link to this heading">¶</a></h2>
+<p>These keys build the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> header on image responses.</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">cache.client.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">cache.client.max_age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">604800</span>
+<span class="na">cache.client.public</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">cache.client.must_revalidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">cache.client.no_transform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</pre></div>
+</div>
+<p>Resulting header:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="err">Cache-Control: public, max-age=604800, must-revalidate, no-transform</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Browsers and shared caches (CDNs, proxies) may store responses for
+<strong>7 days</strong>.</p></li>
+<li><p>After expiry, caches must revalidate before reusing a response.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no-transform</span></code> stops intermediaries from recompressing images.</p></li>
+</ul>
+</section>
+<section id="server-side-caching">
+<span id="cp-server-cache"></span><h2>Server-Side Caching<a class="headerlink" href="#server-side-caching" title="Link to this heading">¶</a></h2>
+<p>Cantaloupe keeps three kinds of server-side cache.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 25.0%" />
+<col style="width: 20.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cache</p></th>
+<th class="head"><p>Backend</p></th>
+<th class="head"><p>Lifetime</p></th>
+<th class="head"><p>Contents</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Source</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FilesystemCache</span></code></p></td>
+<td><p>3 days (<code class="docutils literal notranslate"><span class="pre">259200</span></code> s)</p></td>
+<td><p>Full copies of S3 source files needed by file-based processors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Derivative</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FilesystemCache</span></code></p></td>
+<td><p>30 days (<code class="docutils literal notranslate"><span class="pre">2592000</span></code> s)</p></td>
+<td><p>Processed tiles and images, and <code class="docutils literal notranslate"><span class="pre">info.json</span></code> responses.</p></td>
+</tr>
+<tr class="row-even"><td><p>Info</p></td>
+<td><p>JVM heap</p></td>
+<td><p>Process lifetime</p></td>
+<td><p>In-memory “level 1” cache of image info in front of the derivative
+cache.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Related behavior:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">cache.server.resolve_first</span> <span class="pre">=</span> <span class="pre">false</span></code></dt><dd><p>Cached derivatives are served without confirming the source still exists.
+Faster, but a deleted or replaced master may continue to be served from
+cache until it expires or is purged.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cache.server.purge_missing</span> <span class="pre">=</span> <span class="pre">true</span></code></dt><dd><p>Purge cached data for sources reported missing. Because
+<code class="docutils literal notranslate"><span class="pre">resolve_first</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>, this is effectively inactive.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cache.server.worker.enabled</span> <span class="pre">=</span> <span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">interval</span> <span class="pre">=</span> <span class="pre">86400</span></code></dt><dd><p>A background worker removes expired cache items once per day.</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When a master file is replaced in Archipelago under the same identifier,
+purge that identifier through the HTTP API (or wait for TTL expiry);
+otherwise viewers will keep seeing old tiles.</p>
+</div>
+<section id="filesystemcache">
+<h3>FilesystemCache<a class="headerlink" href="#filesystemcache" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">FilesystemCache.pathname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/var/cache/cantaloupe</span>
+<span class="na">FilesystemCache.dir.depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">3</span>
+<span class="na">FilesystemCache.dir.name_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">2</span>
+</pre></div>
+</div>
+<p>Cached files live under <code class="docutils literal notranslate"><span class="pre">/var/cache/cantaloupe</span></code> in a three-level directory
+tree with two-character directory names (e.g. <code class="docutils literal notranslate"><span class="pre">a1/b2/c3/...</span></code>), keeping the
+number of entries per directory manageable. In a container this path should
+be a persistent volume. Purge the cache after changing <code class="docutils literal notranslate"><span class="pre">depth</span></code> or
+<code class="docutils literal notranslate"><span class="pre">name_length</span></code>.</p>
+</section>
+<section id="inactive-cache-backends">
+<h3>Inactive cache backends<a class="headerlink" href="#inactive-cache-backends" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HeapCache</span></code>, <code class="docutils literal notranslate"><span class="pre">JdbcCache</span></code>, <code class="docutils literal notranslate"><span class="pre">S3Cache</span></code>, <code class="docutils literal notranslate"><span class="pre">AzureStorageCache</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">RedisCache</span></code> are configured with sample values but are not used, since both
+source and derivative caches are set to <code class="docutils literal notranslate"><span class="pre">FilesystemCache</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">S3Cache</span></code> is the most likely alternative in a Kubernetes deployment, because
+it lets multiple Cantaloupe replicas share one derivative cache without a
+shared filesystem volume. Its endpoint is already pointed at MinIO but its
+credentials and bucket are blank.</p>
+</section>
+</section>
+<section id="overlays-watermarks">
+<span id="cp-overlays"></span><h2>Overlays (Watermarks)<a class="headerlink" href="#overlays-watermarks" title="Link to this heading">¶</a></h2>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">overlays.strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">BasicStrategy</span>
+<span class="na">overlays.BasicStrategy.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</pre></div>
+</div>
+<p>Overlays are <strong>disabled</strong>. If enabled, <code class="docutils literal notranslate"><span class="pre">BasicStrategy</span></code> can stamp either a PNG
+image or a text string onto every derivative above a size threshold
+(400×300 pixels by default), at a configurable position and inset. The text,
+font, and image values in the file are upstream samples.</p>
+</section>
+<section id="logging">
+<span id="cp-logging"></span><h2>Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h2>
+<section id="application-log">
+<h3>Application log<a class="headerlink" href="#application-log" title="Link to this heading">¶</a></h3>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">log.application.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">info</span>
+<span class="na">log.application.ConsoleAppender.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</pre></div>
+</div>
+<p>Application messages at <code class="docutils literal notranslate"><span class="pre">info</span></code> and above go to standard output, where
+<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span></code> or <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">logs</span></code> can read them. File, rolling-file, and
+syslog appenders are disabled; their paths are placeholders. Logstash JSON
+encoding is available for each appender but disabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don’t enable <code class="docutils literal notranslate"><span class="pre">FileAppender</span></code> and <code class="docutils literal notranslate"><span class="pre">RollingFileAppender</span></code> at the same time.</p>
+</div>
+</section>
+<section id="error-log">
+<h3>Error log<a class="headerlink" href="#error-log" title="Link to this heading">¶</a></h3>
+<p>All error-log appenders are disabled. When enabled, they copy <code class="docutils literal notranslate"><span class="pre">WARN</span></code> and
+above into a separate file.</p>
+</section>
+<section id="access-log">
+<h3>Access log<a class="headerlink" href="#access-log" title="Link to this heading">¶</a></h3>
+<p>All access-log appenders, including the console appender, are disabled, so
+individual image requests are not logged. Enable
+<code class="docutils literal notranslate"><span class="pre">log.access.ConsoleAppender.enabled</span></code> temporarily when debugging viewer
+request patterns, or rely on your proxy/ingress access logs instead.</p>
+</section>
+</section>
+<section id="security-checklist">
+<span id="cp-security"></span><h2>Security Checklist<a class="headerlink" href="#security-checklist" title="Link to this heading">¶</a></h2>
+<p>This file ships with development-friendly defaults. Before running it in
+production, review the following.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.admin.enabled</span> <span class="pre">=</span> <span class="pre">true</span></code></p></td>
+<td><p>Disable, or change <code class="docutils literal notranslate"><span class="pre">endpoint.admin.secret</span></code> and block <code class="docutils literal notranslate"><span class="pre">/admin</span></code> at
+the proxy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">endpoint.api.secret</span> <span class="pre">=</span> <span class="pre">archipelago</span></code></p></td>
+<td><p>Change to a strong secret; restrict the API to internal networks.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">S3Source.access_key_id</span></code> / <code class="docutils literal notranslate"><span class="pre">secret_key</span></code></p></td>
+<td><p>Replace <code class="docutils literal notranslate"><span class="pre">minio</span></code> / <code class="docutils literal notranslate"><span class="pre">minio123</span></code> and supply via environment variables
+or Kubernetes secrets rather than this file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">print_stack_trace_on_error_pages</span> <span class="pre">=</span> <span class="pre">true</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">https.key_store_password</span> <span class="pre">=</span> <span class="pre">myPassword</span></code></p></td>
+<td><p>Harmless while HTTPS is off, but remove or replace if HTTPS is
+enabled.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cantaloupe-project.github.io/manual/">Cantaloupe user manual</a></p></li>
+<li><p><a class="reference external" href="https://iiif.io/api/image/3.0/">IIIF Image API 3.0</a></p></li>
+<li><p><a class="reference external" href="https://docs.archipelago.nyc/">Archipelago documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="changing-branding.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Changing Branding in Archipelago</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="999_jmes_path_tester.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Testing JMES Paths</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Texas A&amp;M Libraries - Digital Collections Services
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Cantaloupe Configuration Reference</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#quick-summary-of-this-configuration">Quick Summary of This Configuration</a></li>
+<li><a class="reference internal" href="#server-and-request-limits">Server and Request Limits</a><ul>
+<li><a class="reference internal" href="#temporary-directory">Temporary directory</a></li>
+<li><a class="reference internal" href="#http-and-https-listeners">HTTP and HTTPS listeners</a></li>
+<li><a class="reference internal" href="#thread-pool-and-queue">Thread pool and queue</a></li>
+<li><a class="reference internal" href="#reverse-proxy-uris">Reverse-proxy URIs</a></li>
+<li><a class="reference internal" href="#size-limits">Size limits</a></li>
+<li><a class="reference internal" href="#meta-identifiers">Meta-identifiers</a></li>
+<li><a class="reference internal" href="#error-reporting">Error reporting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#delegate-script">Delegate Script</a></li>
+<li><a class="reference internal" href="#endpoints">Endpoints</a><ul>
+<li><a class="reference internal" href="#iiif-image-api">IIIF Image API</a></li>
+<li><a class="reference internal" href="#control-panel-and-http-api">Control Panel and HTTP API</a></li>
+<li><a class="reference internal" href="#health-check">Health check</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sources">Sources</a><ul>
+<li><a class="reference internal" href="#s3source-active">S3Source (active)</a><ul>
+<li><a class="reference internal" href="#how-identifiers-resolve">How identifiers resolve</a></li>
+<li><a class="reference internal" href="#chunked-reads">Chunked reads</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inactive-sources">Inactive sources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#processors">Processors</a><ul>
+<li><a class="reference internal" href="#selection-strategy">Selection strategy</a></li>
+<li><a class="reference internal" href="#format-to-processor-map">Format-to-processor map</a></li>
+<li><a class="reference internal" href="#retrieval-strategy">Retrieval strategy</a></li>
+<li><a class="reference internal" href="#global-processing-options">Global processing options</a></li>
+<li><a class="reference internal" href="#imageio-plugin-preferences">ImageIO plugin preferences</a></li>
+<li><a class="reference internal" href="#processor-binary-paths">Processor binary paths</a></li>
+<li><a class="reference internal" href="#pdf-memory-handling">PDF memory handling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client-side-caching">Client-Side Caching</a></li>
+<li><a class="reference internal" href="#server-side-caching">Server-Side Caching</a><ul>
+<li><a class="reference internal" href="#filesystemcache">FilesystemCache</a></li>
+<li><a class="reference internal" href="#inactive-cache-backends">Inactive cache backends</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overlays-watermarks">Overlays (Watermarks)</a></li>
+<li><a class="reference internal" href="#logging">Logging</a><ul>
+<li><a class="reference internal" href="#application-log">Application log</a></li>
+<li><a class="reference internal" href="#error-log">Error log</a></li>
+<li><a class="reference internal" href="#access-log">Access log</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#security-checklist">Security Checklist</a></li>
+<li><a class="reference internal" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
