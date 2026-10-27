@@ -508,33 +508,210 @@
 <p>The <strong>Product Owner</strong> operates at the center of the product ecosystem, ensuring that stakeholder needs are understood,
 customer input is effectively translated, and development efforts are aligned with strategic objectives. They hold decision
 authority while maintaining continuous collaboration across institutional and technical boundaries.</p>
-<p>This document lays out product ownership for products in the Digital Collections unit.  It describes what is expected for
+<p>This document lays out product ownership for products in the Digital Collections unit.  It describes what is expected of
 the product owner, whom they represent, and what is necessary to successfully be a product owner for a service or application.</p>
+<p>If you want to weigh in on the direction of a product, contact its Product Owner. To propose a new digital project, start with
+the DPMT process rather than contacting a Product Owner directly. See <a class="reference internal" href="08_partners_and_stakeholders.html"><span class="doc">Partners and Stakeholders</span></a> for the full list
+of internal and external groups we work with.</p>
 <section id="terminology">
 <h3>Terminology<a class="headerlink" href="#terminology" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><strong>Stakeholder</strong>: Any individual or group impacted by the product, directly or indirectly. This includes end users, institutional</p></li>
+<li><p><strong>Product</strong>: A service, application, or platform that Digital Collections operates, develops, or relies on to deliver
+its work. A product has a Product Owner, at least one instance, and stakeholders.</p></li>
+<li><p><strong>Stakeholder</strong>: Any individual or group impacted by the product, directly or indirectly. This includes end users, institutional
+units, and external parties whose work or outcomes are affected.</p></li>
+<li><p><strong>Customer</strong>: A subset of stakeholders who are actively engaged in the product development process. Customers interact directly
+with the Product Owner, contribute requirements, provide feedback, and influence product direction.</p></li>
+<li><p><strong>Product Owner</strong>: The single person accountable for a product’s direction, priorities, and health. A product has exactly
+one Product Owner at a time, even when many people contribute to it.</p></li>
 </ul>
-<p>units, and external parties whose work or outcomes are affected.</p>
-<ul class="simple">
-<li><p><strong>Customer</strong>: A subset of stakeholders who are actively engaged in the product development process. Customers interact directly</p></li>
-</ul>
-<p>with the Product Owner, contribute requirements, provide feedback, and influence product direction.</p>
 </section>
 <section id="roles">
 <h3>Roles<a class="headerlink" href="#roles" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p><strong>Product Stewardship (Governance &amp; Long-Term Planning)</strong>: Ensure the long-term health, sustainability, and strategic alignment of the product. Establish and maintain governance structures, guide longterm product direction, and ensure continuity across development cycles. Balance immediate delivery needs with future viability, including technical sustainability, institutional alignment, and evolving stakeholder needs.</p></li>
-<li><p><strong>Stakeholder Management</strong>: Maintain awareness of all stakeholder groups, ensure clear stakeholder identification and definition, and understand their needs and their impact on the product, and the product’s impact on each stakeholder group.</p></li>
+<li><p><strong>Product Stewardship (Governance &amp; Long-Term Planning)</strong>: Ensure the long-term health, sustainability, and strategic alignment
+of the product. Establish and maintain governance structures, guide long-term product direction, and ensure continuity across
+development cycles. Balance immediate delivery needs with future viability, including technical sustainability, institutional
+alignment, and evolving stakeholder needs.</p></li>
+<li><p><strong>Stakeholder Management</strong>: Maintain awareness of all stakeholder groups, ensure clear stakeholder identification and
+definition, and understand their needs and their impact on the product, and the product’s impact on each stakeholder group.</p></li>
 <li><p><strong>Requirements Gathering</strong>: Actively engage customers to identify needs, anticipate requirements, and refine problem spaces.</p></li>
-<li><p><strong>Backlog Curation</strong>: Own and prioritize the product backlog in collaboration with the development team, balancing competing priorities while maintaining a coherent product vision.</p></li>
-<li><p><strong>Champion / Approval Authority</strong>: Serve as the final decision-maker for product direction, scope, and acceptance of work. Act as the primary advocate for the product, ensuring it receives appropriate development time, resources, and organizational support. Represent the product in prioritization discussions, defends its value, and ensures its needs are clearly articulated.</p></li>
+<li><p><strong>Backlog Curation</strong>: Own and prioritize the product backlog in collaboration with the development team, balancing competing
+priorities while maintaining a coherent product vision.</p></li>
+<li><p><strong>Champion / Approval Authority</strong>: Serve as the final decision-maker for product direction, scope, and acceptance of work.
+Act as the primary advocate for the product, ensuring it receives appropriate development time, resources, and organizational
+support. Represent the product in prioritization discussions, defend its value, and ensure its needs are clearly articulated.</p></li>
 <li><p><strong>Sprint Participation</strong>: Engage in sprint planning, reviews, and ongoing team interaction to ensure alignment and delivery quality.</p></li>
 </ul>
+</section>
+<section id="decision-authority">
+<h3>Decision Authority<a class="headerlink" href="#decision-authority" title="Link to this heading">¶</a></h3>
+<p>The Product Owner is the final decision-maker for the following, in consultation with customers and the development team:</p>
+<ul class="simple">
+<li><p>What gets built, fixed, or deferred, and in what order</p></li>
+<li><p>Whether completed work is accepted</p></li>
+<li><p>Whether the product is upgraded, migrated, or retired</p></li>
+<li><p>Who counts as a customer and how their feedback is gathered</p></li>
+</ul>
+<p>Decisions that cross product boundaries (for example, a change in Fedora that affects CAP, SAGE, and Avalon) should be raised
+with every affected Product Owner and, where they cannot agree, with the Director of Digital Collections. See
+<a class="reference internal" href="03_people.html"><span class="doc">People</span></a>.</p>
+</section>
+<section id="what-every-product-owner-should-be-able-to-do">
+<h3>What Every Product Owner Should Be Able to Do<a class="headerlink" href="#what-every-product-owner-should-be-able-to-do" title="Link to this heading">¶</a></h3>
+<p>Regardless of the product, a Product Owner should be able to:</p>
+<ul class="simple">
+<li><p>Explain what the product does, who uses it, and why the Libraries run it</p></li>
+<li><p>Name the product’s dependencies (see “Supports” and “Supported By” below) and what breaks if one of them goes down</p></li>
+<li><p>Describe each instance (Dev, Pre, Prod) and how a change moves between them</p></li>
+<li><p>Find the code, configuration, and documentation for the product</p></li>
+<li><p>Identify the upstream community, if there is one, and how to reach it</p></li>
+<li><p>Keep a current list of customers and known stakeholders</p></li>
+<li><p>Maintain a backlog, even if that backlog is short</p></li>
+<li><p>Say what the plan is for the product’s future, including when it will be retired</p></li>
+</ul>
+</section>
+<section id="becoming-or-handing-off-a-product-owner">
+<h3>Becoming or Handing Off a Product Owner<a class="headerlink" href="#becoming-or-handing-off-a-product-owner" title="Link to this heading">¶</a></h3>
+<p>When product ownership changes, the outgoing and incoming owners should work through the following together before the change
+is recorded on this page:</p>
+<ol class="arabic simple">
+<li><p>Review the product’s entry on this page and update anything that is out of date.</p></li>
+<li><p>Walk through every instance, including how to log in, where logs live, and how to deploy.</p></li>
+<li><p>Transfer access: repositories, upstream community accounts and mailing lists or Slack channels, and any vendor or
+consortium contacts.</p></li>
+<li><p>Introduce the new owner to customers and to Technology Services contacts, where applicable.</p></li>
+<li><p>Hand over the backlog, open issues, and any commitments made to stakeholders.</p></li>
+<li><p>Update the “Current Product Owner” line and notify the team.</p></li>
+</ol>
+</section>
+<section id="how-to-read-a-product-entry">
+<h3>How to Read a Product Entry<a class="headerlink" href="#how-to-read-a-product-entry" title="Link to this heading">¶</a></h3>
+<p>Each product below uses the same fields where they apply.</p>
+<ul class="simple">
+<li><p><strong>Current Product Owner</strong>: The person accountable for the product.</p></li>
+<li><p><strong>Repository</strong>: Where the code or configuration lives.</p></li>
+<li><p><strong>Development Support from Technology Services</strong>: Whether Technology Services (TS) staff develop the product.</p>
+<ul>
+<li><p><em>Yes</em>: TS provides development support.</p></li>
+<li><p><em>Yes (Third Party — Contribute)</em>: TS supports a third-party product and contributes changes back to it.</p></li>
+<li><p><em>No (Third Party — Consume)</em>: The product is third-party and we use it as released.</p></li>
+<li><p><em>No (DevOps and Deployment only)</em>: TS deploys and hosts the product but does not develop it.</p></li>
+<li><p><em>No (Not listed as a Technology Services product)</em>: TS does not formally list or support the product.</p></li>
+</ul>
+</li>
+<li><p><strong>Campus Category</strong>: <em>Common</em> products are widely used software that other institutions also run. <em>Unique</em> products are
+built at Texas A&amp;M for needs specific to us.</p></li>
+<li><p><strong>Supports</strong>: Products that depend on this product.</p></li>
+<li><p><strong>Supported By</strong>: Products this product depends on.</p></li>
+<li><p><strong>Instances and Clusters</strong>: The environments in which the product runs.</p></li>
+<li><p><strong>PODS and Containers</strong>: The Kubernetes pods and containers that make up a running instance.</p></li>
+<li><p><strong>Product Owner Expectations</strong>: What is asked of this product’s owner beyond the general expectations above.</p></li>
+<li><p><strong>Future Plans</strong>: Planned retirement, migration, or major change.</p></li>
+</ul>
+</section>
+<section id="products-at-a-glance">
+<h3>Products at a Glance<a class="headerlink" href="#products-at-a-glance" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Product</p></th>
+<th class="head"><p>Category</p></th>
+<th class="head"><p>TS Dev Support</p></th>
+<th class="head"><p>Depends on / Used by</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Archipelago</p></td>
+<td><p>TBD</p></td>
+<td><p>No (DevOps only)</p></td>
+<td><p>Primary platform for cultural heritage collections</p></td>
+</tr>
+<tr class="row-odd"><td><p>Avalon Media System</p></td>
+<td><p>Common</p></td>
+<td><p>No</p></td>
+<td><p>Supported by Fedora; related server: pyavalon</p></td>
+</tr>
+<tr class="row-even"><td><p>Cantaloupe</p></td>
+<td><p>TBD</p></td>
+<td><p>No</p></td>
+<td><p>Serves IIIFService (Fedora collections)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAP</p></td>
+<td><p>Unique</p></td>
+<td><p>Yes</p></td>
+<td><p>Supports Fedora, SAGE</p></td>
+</tr>
+<tr class="row-even"><td><p>Fedora</p></td>
+<td><p>Common</p></td>
+<td><p>No</p></td>
+<td><p>Supports Avalon, IIIF Service, SAGE, Spotlight</p></td>
+</tr>
+<tr class="row-odd"><td><p>IA Bookreader</p></td>
+<td><p>TBD</p></td>
+<td><p>No</p></td>
+<td><p>TBD</p></td>
+</tr>
+<tr class="row-even"><td><p>IIIFService</p></td>
+<td><p>Unique</p></td>
+<td><p>Yes</p></td>
+<td><p>Supported by DSpace, Fedora</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAGPIE</p></td>
+<td><p>Unique</p></td>
+<td><p>Yes</p></td>
+<td><p>Supported by SAF Creator, Weaver</p></td>
+</tr>
+<tr class="row-even"><td><p>Mirador</p></td>
+<td><p>Common</p></td>
+<td><p>No</p></td>
+<td><p>Supports CAP, SAGE, Spotlight</p></td>
+</tr>
+<tr class="row-odd"><td><p>OAKTrust</p></td>
+<td><p>TBD</p></td>
+<td><p>No</p></td>
+<td><p>Built on DSpace</p></td>
+</tr>
+<tr class="row-even"><td><p>Open Journal Systems</p></td>
+<td><p>TBD</p></td>
+<td><p>No</p></td>
+<td><p>TBD</p></td>
+</tr>
+<tr class="row-odd"><td><p>pyavalon</p></td>
+<td><p>TBD</p></td>
+<td><p>TBD</p></td>
+<td><p>TBD</p></td>
+</tr>
+<tr class="row-even"><td><p>SAF Creator</p></td>
+<td><p>Common</p></td>
+<td><p>Yes (Contribute)</p></td>
+<td><p>Supports DSpace, MAGPIE</p></td>
+</tr>
+<tr class="row-odd"><td><p>SAGE</p></td>
+<td><p>Common</p></td>
+<td><p>Yes</p></td>
+<td><p>Aggregates Avalon, CAP, DSpace, Fedora and others</p></td>
+</tr>
+<tr class="row-even"><td><p>Spotlight</p></td>
+<td><p>Common</p></td>
+<td><p>Yes (Contribute)</p></td>
+<td><p>Supported by IIIF Service, Mirador</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 <section id="archipelago">
 <h2>Archipelago<a class="headerlink" href="#archipelago" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3>About<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <p>Archipelago Commons is an open-source digital repository and digital asset management (DAM) platform built on top of
 Drupal and developed by the Metropolitan New York Library Council. It’s designed primarily for the GLAM community to
 manage, preserve, and provide access to digital collections. As of 2026, it is the primary solution for cultural heritage
@@ -542,6 +719,7 @@ collections at Texas A&amp;M University Libraries.</p>
 <p>Current Product Owner: Mark Baggett
 Repository: <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>
 Development Support from Technology Services: No (DevOps and Deployment only)</p>
+</section>
 <section id="instances-and-clusters">
 <h3>Instances and Clusters<a class="headerlink" href="#instances-and-clusters" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -565,17 +743,21 @@ Development Support from Technology Services: No (DevOps and Deployment only)</p
 <h3>Product Owner Expectations<a class="headerlink" href="#product-owner-expectations" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Serves as technical expert of platform in the Libraries</p></li>
-<li><p>Monitor Archipelago community development and contribute issues and other problems as necessary</p></li>
+<li><p>Monitors Archipelago community development and contributes issues and other problems as necessary</p></li>
 <li><p>Liaises with Archipelago community</p></li>
-<li><p>Listen to feedback from library stakeholders and bring problems or solutions to Archipelago community or digital collections team</p></li>
+<li><p>Listens to feedback from library stakeholders and brings problems or solutions to Archipelago community or digital collections team</p></li>
 <li><p>Leads troubleshooting of problems with platform</p></li>
 </ul>
+</section>
+<section id="related-documentation">
+<h3>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading">¶</a></h3>
+<p>See the <code class="docutils literal notranslate"><span class="pre">applications/archipelago</span></code> section of this documentation for workflows and troubleshooting.</p>
 </section>
 </section>
 <section id="avalon-media-system">
 <h2>Avalon Media System<a class="headerlink" href="#avalon-media-system" title="Link to this heading">¶</a></h2>
-<section id="id1">
-<h3>About<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="id2">
+<h3>About<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p>Avalon is an open-source system for managing and providing access to large collections of
 digital audio and video.</p>
 <p>Current Product Owner: Mark Baggett
@@ -584,27 +766,27 @@ Campus Category: Common
 Supported By: Fedora
 Related servers: pyavalon</p>
 </section>
-<section id="id2">
-<h3>Instances and Clusters<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="id3">
+<h3>Instances and Clusters<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Dev</p></li>
 <li><p>Pre</p></li>
 <li><p>Prod</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>PODS and Containers<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="id4">
+<h3>PODS and Containers<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>kaltura: streaming server</p></li>
 <li><p>avalon-db: database server</p></li>
 <li><p>avalon: application server</p></li>
 <li><p>avalon-solr: solr instance</p></li>
 <li><p>avalon-redis: caching layer</p></li>
-<li><p>avalonworker: not sure?</p></li>
+<li><p>avalonworker: TBD (document the purpose of this container)</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>Product Owner Expectations<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="id5">
+<h3>Product Owner Expectations<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Serves as technical expert of platform in the Libraries</p></li>
 <li><p>Monitors Avalon Slack channel</p></li>
@@ -612,29 +794,43 @@ Related servers: pyavalon</p>
 <li><p>Determines roadmap and next steps for Avalon migration</p></li>
 </ul>
 </section>
+<section id="id6">
+<h3>Related Documentation<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>See the <code class="docutils literal notranslate"><span class="pre">applications/avalon</span></code> section of this documentation for workflows and troubleshooting.</p>
+</section>
 </section>
 <section id="cantaloupe">
 <h2>Cantaloupe<a class="headerlink" href="#cantaloupe" title="Link to this heading">¶</a></h2>
+<section id="id7">
+<h3>About<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <p>Cantaloupe is an open-source dynamic image server for on-demand generation of derivatives
 of high-resolution source images.</p>
 <p>It is currently the service behind Fedora collections only.</p>
-<p>Development Support from Technology Services: No (Not listed as a Technology Services product)
-Serves: iriiifservice
-Product owner: Mark Baggett</p>
-<section id="id5">
-<h3>Instances and Clusters<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>Current Product Owner: Mark Baggett
+Development Support from Technology Services: No (Not listed as a Technology Services product)
+Serves: iriiifservice</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Archipelago runs its own Cantaloupe container (<code class="docutils literal notranslate"><span class="pre">esmero-cantaloupe</span></code>). That is a separate instance and is
+owned as part of Archipelago, not as part of this product.</p>
+</div>
+</section>
+<section id="id8">
+<h3>Instances and Clusters<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Dev</p></li>
 <li><p>Pre</p></li>
 <li><p>Prod</p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>PODS and Containers<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
-<p>cantaloupe</p>
+<section id="id9">
+<h3>PODS and Containers<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>cantaloupe</p></li>
+</ul>
 </section>
-<section id="id7">
-<h3>Product Owner Expectations<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<section id="id10">
+<h3>Product Owner Expectations<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Serves as technical expert of the platform, its delegates file, and the IIIF Image API</p></li>
 <li><p>Troubleshoots issues with the platform</p></li>
@@ -647,9 +843,13 @@ Product owner: Mark Baggett</p>
 </section>
 <section id="cap">
 <h2>CAP<a class="headerlink" href="#cap" title="Link to this heading">¶</a></h2>
-<section id="id8">
-<h3>About<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
-<p>The Curator’s Administrative Platform provides a user interface for Fedora repositories. This functionality could be extended to other repositories such as DSpace 7 with some development work. CAP ensures that curators use valid RDF predicates for triples about Fedora resources. More details are on the Lyrasis/Duraspace website at <a class="reference external" href="https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/">https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/</a> and in the code base hosted at <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>.</p>
+<section id="id11">
+<h3>About<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<p>The Curator’s Administrative Platform provides a user interface for Fedora repositories. This functionality could be extended
+to other repositories such as DSpace 7 with some development work. CAP ensures that curators use valid RDF predicates for
+triples about Fedora resources. More details are on the Lyrasis/Duraspace website at
+<a class="reference external" href="https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/">https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/</a> and in the code
+base hosted at <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>.</p>
 <p>Current Product Owner: Mark Baggett
 Repository: <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>
 Development Support from Technology Services: Yes
@@ -657,37 +857,37 @@ Campus Category: Unique
 Supports: Fedora, SAGE
 Supported By: Mirador, Tamu Library Components, Weaver</p>
 </section>
-<section id="id9">
-<h3>Product Owner Expectations<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<section id="id12">
+<h3>Product Owner Expectations<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Listen to feedback from library stakeholders and articulate problems to dev team</p></li>
-<li><p>Serve as technical expert</p></li>
-<li><p>Advocate for development</p></li>
+<li><p>Listens to feedback from library stakeholders and articulates problems to dev team</p></li>
+<li><p>Serves as technical expert</p></li>
+<li><p>Advocates for development</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3>Instances and Clusters<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<section id="id13">
+<h3>Instances and Clusters<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Dev</p></li>
 <li><p>Pre</p></li>
 <li><p>Prod</p></li>
 </ul>
 </section>
-<section id="id11">
-<h3>PODS and Containers<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<section id="id14">
+<h3>PODS and Containers<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>cap</p></li>
 </ul>
 </section>
-<section id="id12">
-<h3>Future Plans<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<section id="id15">
+<h3>Future Plans<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
 <p>Spin down once Fedora migration is complete.</p>
 </section>
 </section>
 <section id="fedora">
 <h2>Fedora<a class="headerlink" href="#fedora" title="Link to this heading">¶</a></h2>
-<section id="id13">
-<h3>About<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<section id="id16">
+<h3>About<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
 <p>Fedora is a digital repository that uses linked data (RDF). It is used as the assets management system for SAGE and Spotlight
 collections. The same instance is also used for Avalon Media System, although it functions very differently.  Specifically,
 Avalon only uses Fedora for asset management.  It does not use Fedora’s Solr or Fuseki instance which can be problematic
@@ -699,29 +899,67 @@ Campus Category: Common
 Supports: Avalon, IIIF Service, SAGE, Spotlight
 Supported By: CAP</p>
 </section>
+<section id="id17">
+<h3>Product Owner Expectations<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of the platform and of TAMU’s PCDM-based RDF model</p></li>
+<li><p>Coordinates changes that affect more than one dependent product (Avalon, IIIF Service, SAGE, Spotlight)</p></li>
+<li><p>Leads troubleshooting of problems with platform</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Future Plans<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<p>A Fedora migration is planned. CAP and Cantaloupe will be spun down once it is complete.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TBD: record the target platform for each Fedora collection and the expected migration timeline.</p>
+</div>
+</section>
 </section>
 <section id="ia-bookreader">
 <h2>IA Bookreader<a class="headerlink" href="#ia-bookreader" title="Link to this heading">¶</a></h2>
+<section id="id19">
+<h3>About<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
 <p>IA Bookreader was developed by the Internet Archive and open source contributors to provide
 online access to scanned books.</p>
-<p>Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
+<p>Current Product Owner: TBD
+Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
 </section>
-<section id="iriiifservice">
-<h2>IRIIIFService<a class="headerlink" href="#iriiifservice" title="Link to this heading">¶</a></h2>
-<section id="id14">
-<h3>About<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<section id="id20">
+<h3>Product Owner Expectations<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>TBD</p></li>
+</ul>
+</section>
+</section>
+<section id="iiifservice">
+<h2>IIIFService<a class="headerlink" href="#iiifservice" title="Link to this heading">¶</a></h2>
+<section id="id21">
+<h3>About<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
 <p>The IIIF Service provides IIIF manifest generation from DSpace RDF and/or Fedora PCDM.</p>
 <p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes
 Campus Category: Unique
 Supports: From the Page, Spotlight
-Supported By: DSpace, Fedora</p>
+Supported By: DSpace, Fedora, Cantaloupe</p>
+</section>
+<section id="id22">
+<h3>Product Owner Expectations<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of the platform and of the IIIF Presentation API</p></li>
+<li><p>Listens to feedback from library stakeholders and articulates problems to dev team</p></li>
+<li><p>Advocates for development</p></li>
+</ul>
+</section>
+<section id="id23">
+<h3>Related Documentation<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
+<p>See <code class="docutils literal notranslate"><span class="pre">other_services/iiif.rst</span></code> for background on IIIF at Texas A&amp;M.</p>
 </section>
 </section>
 <section id="magpie">
 <h2>MAGPIE<a class="headerlink" href="#magpie" title="Link to this heading">¶</a></h2>
-<section id="id15">
-<h3>About<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
+<section id="id24">
+<h3>About<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h3>
 <p>MAGPIE (Metadata Assignment GUI Providing Ingest and Export) provides a suite of features
 for curating documents for deposit to repositories.</p>
 <p>Current Product Owner: Mark Baggett
@@ -729,11 +967,19 @@ Development Support from Technology Services: Yes
 Campus Category: Unique
 Supported By: SAF Creator, Weaver</p>
 </section>
+<section id="id25">
+<h3>Product Owner Expectations<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Listens to feedback from library stakeholders and articulates problems to dev team</p></li>
+<li><p>Serves as technical expert</p></li>
+<li><p>Advocates for development</p></li>
+</ul>
+</section>
 </section>
 <section id="mirador">
 <h2>Mirador<a class="headerlink" href="#mirador" title="Link to this heading">¶</a></h2>
-<section id="id16">
-<h3>About<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<section id="id26">
+<h3>About<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h3>
 <p>Mirador is an open-source, web-based, multi-window image viewing platform with the ability
 to zoom, display, compare, and annotate images.</p>
 <p>Current Product Owner: Mark Baggett
@@ -742,22 +988,96 @@ Campus Category: Common
 Supports: CAP, SAGE, Spotlight
 Supported By: Cantaloupe</p>
 </section>
+<section id="id27">
+<h3>Product Owner Expectations<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of the viewer and its configuration</p></li>
+<li><p>Tracks upstream releases and decides when to upgrade</p></li>
+<li><p>Verifies that upgrades do not break CAP, SAGE, or Spotlight</p></li>
+</ul>
+</section>
 </section>
 <section id="oaktrust">
 <h2>OAKTrust<a class="headerlink" href="#oaktrust" title="Link to this heading">¶</a></h2>
-<p>Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
+<section id="id28">
+<h3>About<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
+<p>OAKTrust is the Texas A&amp;M University Libraries institutional repository. It collects, preserves, and provides access to the
+University’s scholarly output, along with that of partners such as Texas A&amp;M AgriLife and TEEX. It runs on DSpace, which we
+currently use without local modification.</p>
+<p>Current Product Owner: TBD
+Development Support from Technology Services: No (Not listed as a Technology Services product)
+Supported By: DSpace</p>
+</section>
+<section id="id29">
+<h3>Instances and Clusters<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>TBD</p></li>
+</ul>
+</section>
+<section id="id30">
+<h3>Product Owner Expectations<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of the platform</p></li>
+<li><p>Liaises with the DSpace community</p></li>
+<li><p>Listens to feedback from depositors and library stakeholders</p></li>
+<li><p>TBD: split responsibilities between the Product Owner and the Institutional Repository Administrator, who stewards the
+repository day to day (see <a class="reference internal" href="03_people.html"><span class="doc">People</span></a>)</p></li>
+</ul>
+</section>
+<section id="id31">
+<h3>Related Documentation<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h3>
+<p>See the <code class="docutils literal notranslate"><span class="pre">applications/dspace</span></code> section of this documentation for ingest workflows and troubleshooting.</p>
+</section>
 </section>
 <section id="open-journal-system">
 <h2>Open Journal System<a class="headerlink" href="#open-journal-system" title="Link to this heading">¶</a></h2>
-<p>Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
+<section id="id32">
+<h3>About<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h3>
+<p>Open Journal Systems (OJS) is an open-source journal management and publishing platform developed by the Public Knowledge
+Project. The Libraries host journals on OJS in partnership with the Texas Digital Library (see
+<a class="reference internal" href="08_partners_and_stakeholders.html"><span class="doc">Partners and Stakeholders</span></a>).</p>
+<p>Current Product Owner: Mark Baggett (oversees all instances of OJS)
+Development Support from Technology Services: No (Not listed as a Technology Services product)</p>
+</section>
+<section id="id33">
+<h3>Instances and Clusters<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>TBD</p></li>
+</ul>
+</section>
+<section id="id34">
+<h3>Product Owner Expectations<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Serves as technical expert of the platform</p></li>
+<li><p>Supports journal teams, including onboarding, ISSN registration, and DOI minting</p></li>
+<li><p>Tracks OJS upgrades and plans migrations between versions</p></li>
+</ul>
+</section>
+<section id="id35">
+<h3>Related Documentation<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h3>
+<p>See the <code class="docutils literal notranslate"><span class="pre">applications/ojs</span></code> section of this documentation.</p>
+</section>
 </section>
 <section id="pyavalon">
 <h2>pyavalon<a class="headerlink" href="#pyavalon" title="Link to this heading">¶</a></h2>
+<section id="id36">
+<h3>About<a class="headerlink" href="#id36" title="Link to this heading">¶</a></h3>
+<p>TBD: describe what pyavalon does and why it exists.</p>
+<p>Current Product Owner: TBD
+Development Support from Technology Services: TBD
+Related: Avalon Media System</p>
+</section>
+<section id="id37">
+<h3>Product Owner Expectations<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>TBD</p></li>
+</ul>
+</section>
 </section>
 <section id="saf-creator">
 <h2>SAF Creator<a class="headerlink" href="#saf-creator" title="Link to this heading">¶</a></h2>
-<section id="id17">
-<h3>About<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<section id="id38">
+<h3>About<a class="headerlink" href="#id38" title="Link to this heading">¶</a></h3>
 <p>SAF Creator is a desktop application that takes spreadsheets of metadata and documents and
 creates a DSpace SAF archive.</p>
 <p>Current Product Owner: Mark Baggett
@@ -765,11 +1085,19 @@ Development Support from Technology Services: Yes (Third Party — Contribute)
 Campus Category: Common
 Supports: DSpace, MAGPIE</p>
 </section>
+<section id="id39">
+<h3>Product Owner Expectations<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Listens to feedback from library stakeholders and articulates problems to dev team</p></li>
+<li><p>Serves as technical expert</p></li>
+<li><p>Advocates for development</p></li>
+</ul>
+</section>
 </section>
 <section id="sage">
 <h2>SAGE<a class="headerlink" href="#sage" title="Link to this heading">¶</a></h2>
-<section id="id18">
-<h3>About<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<section id="id40">
+<h3>About<a class="headerlink" href="#id40" title="Link to this heading">¶</a></h3>
 <p>SAGE (Solr AGgregation Engine) can combine Solr indices from multiple sources and make
 their documents discoverable in user-configurable views.</p>
 <p>Current Product Owner: Mark Baggett
@@ -777,17 +1105,37 @@ Development Support from Technology Services: Yes
 Campus Category: Common
 Supported By: Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver</p>
 </section>
+<section id="id41">
+<h3>Product Owner Expectations<a class="headerlink" href="#id41" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Listens to feedback from library stakeholders and articulates problems to dev team</p></li>
+<li><p>Serves as technical expert, including Solr schema and index configuration</p></li>
+<li><p>Advocates for development</p></li>
+</ul>
+</section>
+<section id="id42">
+<h3>Related Documentation<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h3>
+<p>See the <code class="docutils literal notranslate"><span class="pre">applications/sage</span></code> section of this documentation for import workflows.</p>
+</section>
 </section>
 <section id="spotlight">
 <h2>Spotlight<a class="headerlink" href="#spotlight" title="Link to this heading">¶</a></h2>
-<section id="id19">
-<h3>About<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<section id="id43">
+<h3>About<a class="headerlink" href="#id43" title="Link to this heading">¶</a></h3>
 <p>Spotlight is open-source software that enables librarians, curators, and other content
 experts to easily build feature-rich websites that showcase collections.</p>
 <p>Current Product Owner: Mark Baggett
 Development Support from Technology Services: Yes (Third Party — Contribute)
 Campus Category: Common
-Supported By: IIIF Service, Mirador</p>
+Supported By: IIIF Service, Mirador, Fedora</p>
+</section>
+<section id="id44">
+<h3>Product Owner Expectations<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Listens to feedback from library stakeholders and articulates problems to dev team</p></li>
+<li><p>Serves as technical expert</p></li>
+<li><p>Contributes fixes upstream where appropriate</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -851,66 +1199,105 @@ Supported By: IIIF Service, Mirador</p>
 <li><a class="reference internal" href="#about">About</a><ul>
 <li><a class="reference internal" href="#terminology">Terminology</a></li>
 <li><a class="reference internal" href="#roles">Roles</a></li>
+<li><a class="reference internal" href="#decision-authority">Decision Authority</a></li>
+<li><a class="reference internal" href="#what-every-product-owner-should-be-able-to-do">What Every Product Owner Should Be Able to Do</a></li>
+<li><a class="reference internal" href="#becoming-or-handing-off-a-product-owner">Becoming or Handing Off a Product Owner</a></li>
+<li><a class="reference internal" href="#how-to-read-a-product-entry">How to Read a Product Entry</a></li>
+<li><a class="reference internal" href="#products-at-a-glance">Products at a Glance</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#archipelago">Archipelago</a><ul>
+<li><a class="reference internal" href="#id1">About</a></li>
 <li><a class="reference internal" href="#instances-and-clusters">Instances and Clusters</a></li>
 <li><a class="reference internal" href="#pods-and-containers">PODS and Containers</a></li>
 <li><a class="reference internal" href="#product-owner-expectations">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#related-documentation">Related Documentation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#avalon-media-system">Avalon Media System</a><ul>
-<li><a class="reference internal" href="#id1">About</a></li>
-<li><a class="reference internal" href="#id2">Instances and Clusters</a></li>
-<li><a class="reference internal" href="#id3">PODS and Containers</a></li>
-<li><a class="reference internal" href="#id4">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id2">About</a></li>
+<li><a class="reference internal" href="#id3">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id4">PODS and Containers</a></li>
+<li><a class="reference internal" href="#id5">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id6">Related Documentation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cantaloupe">Cantaloupe</a><ul>
-<li><a class="reference internal" href="#id5">Instances and Clusters</a></li>
-<li><a class="reference internal" href="#id6">PODS and Containers</a></li>
-<li><a class="reference internal" href="#id7">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id7">About</a></li>
+<li><a class="reference internal" href="#id8">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id9">PODS and Containers</a></li>
+<li><a class="reference internal" href="#id10">Product Owner Expectations</a></li>
 <li><a class="reference internal" href="#future-plans">Future Plans</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cap">CAP</a><ul>
-<li><a class="reference internal" href="#id8">About</a></li>
-<li><a class="reference internal" href="#id9">Product Owner Expectations</a></li>
-<li><a class="reference internal" href="#id10">Instances and Clusters</a></li>
-<li><a class="reference internal" href="#id11">PODS and Containers</a></li>
-<li><a class="reference internal" href="#id12">Future Plans</a></li>
+<li><a class="reference internal" href="#id11">About</a></li>
+<li><a class="reference internal" href="#id12">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id13">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id14">PODS and Containers</a></li>
+<li><a class="reference internal" href="#id15">Future Plans</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#fedora">Fedora</a><ul>
-<li><a class="reference internal" href="#id13">About</a></li>
+<li><a class="reference internal" href="#id16">About</a></li>
+<li><a class="reference internal" href="#id17">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id18">Future Plans</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ia-bookreader">IA Bookreader</a></li>
-<li><a class="reference internal" href="#iriiifservice">IRIIIFService</a><ul>
-<li><a class="reference internal" href="#id14">About</a></li>
+<li><a class="reference internal" href="#ia-bookreader">IA Bookreader</a><ul>
+<li><a class="reference internal" href="#id19">About</a></li>
+<li><a class="reference internal" href="#id20">Product Owner Expectations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iiifservice">IIIFService</a><ul>
+<li><a class="reference internal" href="#id21">About</a></li>
+<li><a class="reference internal" href="#id22">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id23">Related Documentation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#magpie">MAGPIE</a><ul>
-<li><a class="reference internal" href="#id15">About</a></li>
+<li><a class="reference internal" href="#id24">About</a></li>
+<li><a class="reference internal" href="#id25">Product Owner Expectations</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#mirador">Mirador</a><ul>
-<li><a class="reference internal" href="#id16">About</a></li>
+<li><a class="reference internal" href="#id26">About</a></li>
+<li><a class="reference internal" href="#id27">Product Owner Expectations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#oaktrust">OAKTrust</a></li>
-<li><a class="reference internal" href="#open-journal-system">Open Journal System</a></li>
-<li><a class="reference internal" href="#pyavalon">pyavalon</a></li>
+<li><a class="reference internal" href="#oaktrust">OAKTrust</a><ul>
+<li><a class="reference internal" href="#id28">About</a></li>
+<li><a class="reference internal" href="#id29">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id30">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id31">Related Documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#open-journal-system">Open Journal System</a><ul>
+<li><a class="reference internal" href="#id32">About</a></li>
+<li><a class="reference internal" href="#id33">Instances and Clusters</a></li>
+<li><a class="reference internal" href="#id34">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id35">Related Documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyavalon">pyavalon</a><ul>
+<li><a class="reference internal" href="#id36">About</a></li>
+<li><a class="reference internal" href="#id37">Product Owner Expectations</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#saf-creator">SAF Creator</a><ul>
-<li><a class="reference internal" href="#id17">About</a></li>
+<li><a class="reference internal" href="#id38">About</a></li>
+<li><a class="reference internal" href="#id39">Product Owner Expectations</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#sage">SAGE</a><ul>
-<li><a class="reference internal" href="#id18">About</a></li>
+<li><a class="reference internal" href="#id40">About</a></li>
+<li><a class="reference internal" href="#id41">Product Owner Expectations</a></li>
+<li><a class="reference internal" href="#id42">Related Documentation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#spotlight">Spotlight</a><ul>
-<li><a class="reference internal" href="#id19">About</a></li>
+<li><a class="reference internal" href="#id43">About</a></li>
+<li><a class="reference internal" href="#id44">Product Owner Expectations</a></li>
 </ul>
 </li>
 </ul>
