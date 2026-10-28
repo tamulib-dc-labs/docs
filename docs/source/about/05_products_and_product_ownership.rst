@@ -200,7 +200,11 @@ manage, preserve, and provide access to digital collections. As of 2026, it is t
 collections at Texas A&M University Libraries.
 
 Current Product Owner: Mark Baggett
-Repository: https://github.com/tamulib/cap
+Repositories:
+
+* https://github.com/esmero
+* https://github.com/cantaloupe-project/cantaloupe
+
 Development Support from Technology Services: No (DevOps and Deployment only)
 
 Instances and Clusters
@@ -223,11 +227,14 @@ PODS and Containers
 Product Owner Expectations
 ==========================
 
-* Serves as technical expert of platform in the Libraries
+* Serves as technical expert of platform within the Libraries
 * Monitors Archipelago community development and contributes issues and other problems as necessary
 * Liaises with Archipelago community
 * Listens to feedback from library stakeholders and brings problems or solutions to Archipelago community or digital collections team
 * Leads troubleshooting of problems with platform
+* Monitors Archipelago security for needed fixes
+* Ensures the application is up to date, functioning, and secure
+* Monitors logs to ensure it is is functioning as expected
 
 Related Documentation
 =====================
@@ -265,7 +272,8 @@ PODS and Containers
 * avalon: application server
 * avalon-solr: solr instance
 * avalon-redis: caching layer
-* avalonworker: TBD (document the purpose of this container)
+* avalonworker: handles transcoding of audio / video
+* fedora (fcrepo4): serves as the repository
 
 Product Owner Expectations
 ==========================
