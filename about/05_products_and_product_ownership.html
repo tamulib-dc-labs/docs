@@ -717,8 +717,12 @@ Drupal and developed by the Metropolitan New York Library Council. It’s design
 manage, preserve, and provide access to digital collections. As of 2026, it is the primary solution for cultural heritage
 collections at Texas A&amp;M University Libraries.</p>
 <p>Current Product Owner: Mark Baggett
-Repository: <a class="reference external" href="https://github.com/tamulib/cap">https://github.com/tamulib/cap</a>
-Development Support from Technology Services: No (DevOps and Deployment only)</p>
+Repositories:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/esmero">https://github.com/esmero</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cantaloupe-project/cantaloupe">https://github.com/cantaloupe-project/cantaloupe</a></p></li>
+</ul>
+<p>Development Support from Technology Services: No (DevOps and Deployment only)</p>
 </section>
 <section id="instances-and-clusters">
 <h3>Instances and Clusters<a class="headerlink" href="#instances-and-clusters" title="Link to this heading">¶</a></h3>
@@ -742,11 +746,14 @@ Development Support from Technology Services: No (DevOps and Deployment only)</p
 <section id="product-owner-expectations">
 <h3>Product Owner Expectations<a class="headerlink" href="#product-owner-expectations" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Serves as technical expert of platform in the Libraries</p></li>
+<li><p>Serves as technical expert of platform within the Libraries</p></li>
 <li><p>Monitors Archipelago community development and contributes issues and other problems as necessary</p></li>
 <li><p>Liaises with Archipelago community</p></li>
 <li><p>Listens to feedback from library stakeholders and brings problems or solutions to Archipelago community or digital collections team</p></li>
 <li><p>Leads troubleshooting of problems with platform</p></li>
+<li><p>Monitors Archipelago security for needed fixes</p></li>
+<li><p>Ensures the application is up to date, functioning, and secure</p></li>
+<li><p>Monitors logs to ensure it is is functioning as expected</p></li>
 </ul>
 </section>
 <section id="related-documentation">
@@ -782,7 +789,8 @@ Related servers: pyavalon</p>
 <li><p>avalon: application server</p></li>
 <li><p>avalon-solr: solr instance</p></li>
 <li><p>avalon-redis: caching layer</p></li>
-<li><p>avalonworker: TBD (document the purpose of this container)</p></li>
+<li><p>avalonworker: handles transcoding of audio / video</p></li>
+<li><p>fedora (fcrepo4): serves as the repository</p></li>
 </ul>
 </section>
 <section id="id5">
