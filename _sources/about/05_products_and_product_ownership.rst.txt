@@ -32,8 +32,8 @@ Terminology
 * **Product Owner**: The single person accountable for a product's direction, priorities, and health. A product has exactly
   one Product Owner at a time, even when many people contribute to it.
 
-Roles
-=====
+Roles of Product Owner
+======================
 
 * **Product Stewardship (Governance & Long-Term Planning)**: Ensure the long-term health, sustainability, and strategic alignment
   of the product. Establish and maintain governance structures, guide long-term product direction, and ensure continuity across
@@ -330,7 +330,7 @@ Product Owner Expectations
 Future Plans
 ============
 
-Spin down once Fedora migration is complete.
+Spin down once Fedora migration is complete. This means
 
 ---
 CAP
