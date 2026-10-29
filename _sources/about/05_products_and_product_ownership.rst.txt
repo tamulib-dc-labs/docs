@@ -116,7 +116,7 @@ Each product below uses the same fields where they apply.
 * **Product Owner Expectations**: What is asked of this product's owner beyond the general expectations above.
 * **Future Plans**: Planned retirement, migration, or major change.
 
-Products at a Glance
+Products / Services at a Glance
 ====================
 
 .. list-table::
@@ -138,6 +138,11 @@ Products at a Glance
      - No (DevOps and Deployment only)
      - Fedora
      - Archipelago, Exhibits
+   * - Browsertrix
+     - Common
+     - No
+     - Need to complete
+     - Need to complete
    * - Cantaloupe
      - Common
      - No (DevOps and Deployment only)
@@ -148,6 +153,16 @@ Products at a Glance
      - Yes
      - Mirador, Tamu Library Components, Weaver
      - Fedora, SAGE
+   * - Crossref
+     - Common
+     - No
+     - Need to complet
+     - Need to complete
+   * - Datacite
+     - Common
+     - No
+     - Need to complet
+     - Need to complete
    * - Exhibits
      - Common
      - No (DevOps and Deployment only)
@@ -183,6 +198,11 @@ Products at a Glance
      - No (Third Party — Consume)
      - Cantaloupe
      - CAP, SAGE, Spotlight
+   * - Newspapers
+     - Common
+     - Yes?
+     - Need to complete
+     - Need to complete
    * - OAKTrust
      - Common
      - No (Not listed as a Technology Services product)
@@ -213,6 +233,17 @@ Products at a Glance
      - Yes (Third Party — Contribute)
      - IIIF Service, Mirador, Fedora
      - N/A
+   * - Strawberry Field Clover IIIF
+     - Unique
+     - No
+     - N/A
+     - N/A
+     - Archipelago
+   * - tamu_allmaps
+     - unique
+     - No
+     - Need to complete
+     - Need to complete
 
 -----------
 Archipelago
@@ -237,8 +268,8 @@ collections at Texas A&M University Libraries.
 Dependencies
 ============
 
-* **Depends on** (Supported By): Not yet recorded
-* **Used by** (Supports): Not yet recorded
+* **Depends on** (Supported By): Avalon, Strawberry Clover IIIF, TAMU Allmaps, AllMaps
+* **Used by** (Supports): Exhibits
 
 Instances and Clusters
 ======================
@@ -250,12 +281,18 @@ Instances and Clusters
 PODS and Containers
 ===================
 
+.. note::
+
+   For Archipelago, pods and containers vary by Cluster.  For instance, production has redis and no s3, but other Clusters
+   may have an s3 pod like seaweed.
+
 * esmero-cantaloupe: Used as image server in each cluster
 * esmero-minio: Used as storage instance in dev and pre.  Not used in prod.
 * esmero-nlp: Used for complex processing including in the OCR process
 * esmero-php: Used as Drupal, PHP, and Drush layer.
 * esmero-solr: Solr instance
 * esmero-web: Web server
+* redis: Serves as caching layer for front end
 
 Product Owner Expectations
 ==========================
