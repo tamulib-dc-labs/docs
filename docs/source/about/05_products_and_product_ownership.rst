@@ -131,28 +131,38 @@ Products at a Glance
    * - Archipelago
      - Common
      - No (DevOps and Deployment only)
-     - Not yet recorded
-     - Not yet recorded
+     - Avalon
+     - Exhibits
    * - Avalon Media System
      - Common
      - No (DevOps and Deployment only)
      - Fedora
-     - Not yet recorded
+     - Archipelago, Exhibits
    * - Cantaloupe
      - Common
      - No (DevOps and Deployment only)
-     - Not yet recorded
+     - Fedora
      - IIIFService, Mirador
    * - CAP
      - Unique
      - Yes
      - Mirador, Tamu Library Components, Weaver
      - Fedora, SAGE
+   * - Exhibits
+     - Common
+     - No (DevOps and Deployment only)
+     - Archipelago, Avalon
+     - Nothing
    * - Fedora
      - Common
      - No (Third Party — Consume)
      - CAP
      - Avalon, IIIF Service, SAGE, Spotlight
+   * - From the Page
+     - Common
+     - No (Third Party — Consume)
+     - Archipelago, IIIF Service, Cantaloupe
+     - ???
    * - IA Bookreader
      - Unique
      - No (Not listed as a Technology Services product)
@@ -167,7 +177,7 @@ Products at a Glance
      - Unique
      - Yes
      - SAF Creator, Weaver
-     - Not yet recorded
+     - Fedora
    * - Mirador
      - Common
      - No (Third Party — Consume)
@@ -177,32 +187,32 @@ Products at a Glance
      - Common
      - No (Not listed as a Technology Services product)
      - DSpace
-     - Not yet recorded
+     - Spotlight?
    * - Open Journal System
      - Common
      - No (Not listed as a Technology Services product)
-     - Not yet recorded
-     - Not yet recorded
+     - N/A
+     - ???
    * - pyavalon
      - Unique
      - No
-     - Not yet recorded
-     - Not yet recorded
+     - Avalon
+     - Avalon
    * - SAF Creator
      - Common
      - Yes (Third Party — Contribute)
-     - Not yet recorded
+     - ???
      - DSpace, MAGPIE
    * - SAGE
      - Unique
      - Yes
      - Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
-     - Not yet recorded
+     - N/A
    * - Spotlight
      - Common
      - Yes (Third Party — Contribute)
      - IIIF Service, Mirador, Fedora
-     - Not yet recorded
+     - N/A
 
 -----------
 Archipelago
