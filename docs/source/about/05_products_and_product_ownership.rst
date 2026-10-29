@@ -108,8 +108,9 @@ Each product below uses the same fields where they apply.
 
 * **Campus Category**: *Common* products are widely used software that other institutions also run. *Unique* products are
   built at Texas A&M for needs specific to us.
-* **Supports**: Products that depend on this product.
-* **Supported By**: Products this product depends on.
+* **Dependencies**: Each product has a Dependencies section with two lines. **Depends on** (Supported By) lists the products
+  this product needs in order to work. **Used by** (Supports) lists the products that need this one. Before changing,
+  upgrading, or retiring a product, check its "Used by" line and talk to those Product Owners.
 * **Instances and Clusters**: The environments in which the product runs.
 * **PODS and Containers**: The Kubernetes pods and containers that make up a running instance.
 * **Product Owner Expectations**: What is asked of this product's owner beyond the general expectations above.
@@ -120,72 +121,88 @@ Products at a Glance
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 20 20 40
+   :widths: 14 10 22 27 27
 
    * - Product
      - Category
      - TS Dev Support
-     - Depends on / Used by
+     - Depends On
+     - Used By
    * - Archipelago
      - TBD
-     - No (DevOps only)
-     - Primary platform for cultural heritage collections
+     - No (DevOps and Deployment only)
+     - Not yet recorded
+     - Not yet recorded
    * - Avalon Media System
      - Common
-     - No
-     - Supported by Fedora; related server: pyavalon
+     - No (Third Party — Consume)
+     - Fedora
+     - Not yet recorded
    * - Cantaloupe
      - TBD
-     - No
-     - Serves IIIFService (Fedora collections)
+     - No (Not listed as a Technology Services product)
+     - Not yet recorded
+     - IIIFService, Mirador
    * - CAP
      - Unique
      - Yes
-     - Supports Fedora, SAGE
+     - Mirador, Tamu Library Components, Weaver
+     - Fedora, SAGE
    * - Fedora
      - Common
-     - No
-     - Supports Avalon, IIIF Service, SAGE, Spotlight
+     - No (Third Party — Consume)
+     - CAP
+     - Avalon, IIIF Service, SAGE, Spotlight
    * - IA Bookreader
      - TBD
-     - No
-     - TBD
+     - No (Not listed as a Technology Services product)
+     - Not yet recorded
+     - Not yet recorded
    * - IIIFService
      - Unique
      - Yes
-     - Supported by DSpace, Fedora
+     - DSpace, Fedora, Cantaloupe
+     - From the Page, Spotlight
    * - MAGPIE
      - Unique
      - Yes
-     - Supported by SAF Creator, Weaver
+     - SAF Creator, Weaver
+     - Not yet recorded
    * - Mirador
      - Common
-     - No
-     - Supports CAP, SAGE, Spotlight
+     - No (Third Party — Consume)
+     - Cantaloupe
+     - CAP, SAGE, Spotlight
    * - OAKTrust
      - TBD
-     - No
-     - Built on DSpace
-   * - Open Journal Systems
+     - No (Not listed as a Technology Services product)
+     - DSpace
+     - Not yet recorded
+   * - Open Journal System
      - TBD
-     - No
-     - TBD
+     - No (Not listed as a Technology Services product)
+     - Not yet recorded
+     - Not yet recorded
    * - pyavalon
      - TBD
      - TBD
-     - TBD
+     - Not yet recorded
+     - Not yet recorded
    * - SAF Creator
      - Common
-     - Yes (Contribute)
-     - Supports DSpace, MAGPIE
+     - Yes (Third Party — Contribute)
+     - Not yet recorded
+     - DSpace, MAGPIE
    * - SAGE
      - Common
      - Yes
-     - Aggregates Avalon, CAP, DSpace, Fedora and others
+     - Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
+     - Not yet recorded
    * - Spotlight
      - Common
-     - Yes (Contribute)
-     - Supported by IIIF Service, Mirador
+     - Yes (Third Party — Contribute)
+     - IIIF Service, Mirador, Fedora
+     - Not yet recorded
 
 -----------
 Archipelago
@@ -199,13 +216,19 @@ Drupal and developed by the Metropolitan New York Library Council. It's designed
 manage, preserve, and provide access to digital collections. As of 2026, it is the primary solution for cultural heritage
 collections at Texas A&M University Libraries.
 
-Current Product Owner: Mark Baggett
-Repositories:
+* **Current Product Owner**: Mark Baggett
+* **Repositories**:
 
-* https://github.com/esmero
-* https://github.com/cantaloupe-project/cantaloupe
+  * https://github.com/esmero
+  * https://github.com/cantaloupe-project/cantaloupe
 
-Development Support from Technology Services: No (DevOps and Deployment only)
+* **Development Support from Technology Services**: No (DevOps and Deployment only)
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Not yet recorded
+* **Used by** (Supports): Not yet recorded
 
 Instances and Clusters
 ======================
@@ -251,11 +274,16 @@ About
 Avalon is an open-source system for managing and providing access to large collections of
 digital audio and video.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: No (Third Party — Consume)
-Campus Category: Common
-Supported By: Fedora
-Related servers: pyavalon
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: No (Third Party — Consume)
+* **Campus Category**: Common
+* **Related servers**: pyavalon
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Fedora
+* **Used by** (Supports): Not yet recorded
 
 Instances and Clusters
 ======================
@@ -300,9 +328,15 @@ of high-resolution source images.
 
 It is currently the service behind Fedora collections only.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: No (Not listed as a Technology Services product)
-Serves: iriiifservice
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: No (Not listed as a Technology Services product)
+* **Serves**: iriiifservice
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Not yet recorded
+* **Used by** (Supports): IIIFService, Mirador
 
 .. note::
 
@@ -345,12 +379,16 @@ triples about Fedora resources. More details are on the Lyrasis/Duraspace websit
 https://duraspace.org/introducing-cap-curators-administrative-platform-from-texas-am-university-libraries/ and in the code
 base hosted at https://github.com/tamulib/cap.
 
-Current Product Owner: Mark Baggett
-Repository: https://github.com/tamulib/cap
-Development Support from Technology Services: Yes
-Campus Category: Unique
-Supports: Fedora, SAGE
-Supported By: Mirador, Tamu Library Components, Weaver
+* **Current Product Owner**: Mark Baggett
+* **Repository**: https://github.com/tamulib/cap
+* **Development Support from Technology Services**: Yes
+* **Campus Category**: Unique
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Mirador, Tamu Library Components, Weaver
+* **Used by** (Supports): Fedora, SAGE
 
 Product Owner Expectations
 ==========================
@@ -390,11 +428,15 @@ for SAGE collections.
 
 Also, TAMU has its own specific flavor of RDF based loosely around PCDM.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: No (Third Party — Consume)
-Campus Category: Common
-Supports: Avalon, IIIF Service, SAGE, Spotlight
-Supported By: CAP
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: No (Third Party — Consume)
+* **Campus Category**: Common
+
+Dependencies
+============
+
+* **Depends on** (Supported By): CAP
+* **Used by** (Supports): Avalon, IIIF Service, SAGE, Spotlight
 
 Product Owner Expectations
 ==========================
@@ -422,8 +464,14 @@ About
 IA Bookreader was developed by the Internet Archive and open source contributors to provide
 online access to scanned books.
 
-Current Product Owner: TBD
-Development Support from Technology Services: No (Not listed as a Technology Services product)
+* **Current Product Owner**: TBD
+* **Development Support from Technology Services**: No (Not listed as a Technology Services product)
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Not yet recorded
+* **Used by** (Supports): Not yet recorded
 
 Product Owner Expectations
 ==========================
@@ -439,11 +487,15 @@ About
 
 The IIIF Service provides IIIF manifest generation from DSpace RDF and/or Fedora PCDM.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: Yes
-Campus Category: Unique
-Supports: From the Page, Spotlight
-Supported By: DSpace, Fedora, Cantaloupe
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: Yes
+* **Campus Category**: Unique
+
+Dependencies
+============
+
+* **Depends on** (Supported By): DSpace, Fedora, Cantaloupe
+* **Used by** (Supports): From the Page, Spotlight
 
 Product Owner Expectations
 ==========================
@@ -467,10 +519,15 @@ About
 MAGPIE (Metadata Assignment GUI Providing Ingest and Export) provides a suite of features
 for curating documents for deposit to repositories.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: Yes
-Campus Category: Unique
-Supported By: SAF Creator, Weaver
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: Yes
+* **Campus Category**: Unique
+
+Dependencies
+============
+
+* **Depends on** (Supported By): SAF Creator, Weaver
+* **Used by** (Supports): Not yet recorded
 
 Product Owner Expectations
 ==========================
@@ -489,11 +546,15 @@ About
 Mirador is an open-source, web-based, multi-window image viewing platform with the ability
 to zoom, display, compare, and annotate images.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: No (Third Party — Consume)
-Campus Category: Common
-Supports: CAP, SAGE, Spotlight
-Supported By: Cantaloupe
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: No (Third Party — Consume)
+* **Campus Category**: Common
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Cantaloupe
+* **Used by** (Supports): CAP, SAGE, Spotlight
 
 Product Owner Expectations
 ==========================
@@ -513,9 +574,14 @@ OAKTrust is the Texas A&M University Libraries institutional repository. It coll
 University's scholarly output, along with that of partners such as Texas A&M AgriLife and TEEX. It runs on DSpace, which we
 currently use without local modification.
 
-Current Product Owner: TBD
-Development Support from Technology Services: No (Not listed as a Technology Services product)
-Supported By: DSpace
+* **Current Product Owner**: TBD
+* **Development Support from Technology Services**: No (Not listed as a Technology Services product)
+
+Dependencies
+============
+
+* **Depends on** (Supported By): DSpace
+* **Used by** (Supports): Not yet recorded
 
 Instances and Clusters
 ======================
@@ -547,8 +613,14 @@ Open Journal Systems (OJS) is an open-source journal management and publishing p
 Project. The Libraries host journals on OJS in partnership with the Texas Digital Library (see
 :doc:`08_partners_and_stakeholders`).
 
-Current Product Owner: Mark Baggett (oversees all instances of OJS)
-Development Support from Technology Services: No (Not listed as a Technology Services product)
+* **Current Product Owner**: Mark Baggett (oversees all instances of OJS)
+* **Development Support from Technology Services**: No (Not listed as a Technology Services product)
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Not yet recorded
+* **Used by** (Supports): Not yet recorded
 
 Instances and Clusters
 ======================
@@ -576,9 +648,15 @@ About
 
 TBD: describe what pyavalon does and why it exists.
 
-Current Product Owner: TBD
-Development Support from Technology Services: TBD
-Related: Avalon Media System
+* **Current Product Owner**: TBD
+* **Development Support from Technology Services**: TBD
+* **Related**: Avalon Media System
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Not yet recorded
+* **Used by** (Supports): Not yet recorded
 
 Product Owner Expectations
 ==========================
@@ -595,10 +673,15 @@ About
 SAF Creator is a desktop application that takes spreadsheets of metadata and documents and
 creates a DSpace SAF archive.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: Yes (Third Party — Contribute)
-Campus Category: Common
-Supports: DSpace, MAGPIE
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: Yes (Third Party — Contribute)
+* **Campus Category**: Common
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Not yet recorded
+* **Used by** (Supports): DSpace, MAGPIE
 
 Product Owner Expectations
 ==========================
@@ -617,10 +700,15 @@ About
 SAGE (Solr AGgregation Engine) can combine Solr indices from multiple sources and make
 their documents discoverable in user-configurable views.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: Yes
-Campus Category: Common
-Supported By: Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: Yes
+* **Campus Category**: Common
+
+Dependencies
+============
+
+* **Depends on** (Supported By): Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
+* **Used by** (Supports): Not yet recorded
 
 Product Owner Expectations
 ==========================
@@ -644,10 +732,15 @@ About
 Spotlight is open-source software that enables librarians, curators, and other content
 experts to easily build feature-rich websites that showcase collections.
 
-Current Product Owner: Mark Baggett
-Development Support from Technology Services: Yes (Third Party — Contribute)
-Campus Category: Common
-Supported By: IIIF Service, Mirador, Fedora
+* **Current Product Owner**: Mark Baggett
+* **Development Support from Technology Services**: Yes (Third Party — Contribute)
+* **Campus Category**: Common
+
+Dependencies
+============
+
+* **Depends on** (Supported By): IIIF Service, Mirador, Fedora
+* **Used by** (Supports): Not yet recorded
 
 Product Owner Expectations
 ==========================
