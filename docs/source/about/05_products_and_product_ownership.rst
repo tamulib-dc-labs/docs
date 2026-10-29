@@ -128,6 +128,11 @@ Products / Services at a Glance
      - TS Dev Support
      - Depends On
      - Used By
+   * - Allmaps
+     - Common
+     - N/A
+     - N/A
+     - Archipelago, Exhibits
    * - Archipelago
      - Common
      - No (DevOps and Deployment only)
@@ -236,7 +241,6 @@ Products / Services at a Glance
    * - Strawberry Field Clover IIIF
      - Unique
      - No
-     - N/A
      - N/A
      - Archipelago
    * - tamu_allmaps
