@@ -129,18 +129,18 @@ Products at a Glance
      - Depends On
      - Used By
    * - Archipelago
-     - TBD
+     - Common
      - No (DevOps and Deployment only)
      - Not yet recorded
      - Not yet recorded
    * - Avalon Media System
      - Common
-     - No (Third Party — Consume)
+     - No (DevOps and Deployment only)
      - Fedora
      - Not yet recorded
    * - Cantaloupe
-     - TBD
-     - No (Not listed as a Technology Services product)
+     - Common
+     - No (DevOps and Deployment only)
      - Not yet recorded
      - IIIFService, Mirador
    * - CAP
@@ -154,7 +154,7 @@ Products at a Glance
      - CAP
      - Avalon, IIIF Service, SAGE, Spotlight
    * - IA Bookreader
-     - TBD
+     - Unique
      - No (Not listed as a Technology Services product)
      - Not yet recorded
      - Not yet recorded
@@ -174,18 +174,18 @@ Products at a Glance
      - Cantaloupe
      - CAP, SAGE, Spotlight
    * - OAKTrust
-     - TBD
+     - Common
      - No (Not listed as a Technology Services product)
      - DSpace
      - Not yet recorded
    * - Open Journal System
-     - TBD
+     - Common
      - No (Not listed as a Technology Services product)
      - Not yet recorded
      - Not yet recorded
    * - pyavalon
-     - TBD
-     - TBD
+     - Unique
+     - No
      - Not yet recorded
      - Not yet recorded
    * - SAF Creator
@@ -194,7 +194,7 @@ Products at a Glance
      - Not yet recorded
      - DSpace, MAGPIE
    * - SAGE
-     - Common
+     - Unique
      - Yes
      - Avalon, CAP, DSpace, Fedora, Mirador, Tamu Library Components, Weaver
      - Not yet recorded
