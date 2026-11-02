@@ -1,0 +1,1186 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Kubernetes and Docker" href="../../other_services/kube.html" /><link rel="prev" title="IIIF: Generating IIIF and IIIF Collections" href="generating_iiif_collections.html" />
+
+    <link rel="shortcut icon" href="../../_static/TAM-MaroonBox.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Warming the IIIF Image Cache Before a Browsertrix Crawl - TAMU Digital Collections Labs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=4dcc0f2f" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">TAMU Digital Collections Labs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/TAM-MaroonBox.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">TAMU Digital Collections Labs</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Overview of Digital Collections Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/01_about_digital_collections.html">Digital Collections Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/02_mission_and_vision.html">Mission and Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/03_people.html">People</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/04_cultral_heritage.html">Cultural Heritage Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/05_products_and_product_ownership.html">Products and Product Ownership</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/06_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/07_onboarding_checklist.html">Department and Supervisor Onboarding Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/08_partners_and_stakeholders.html">Partners and Stakeholders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/998_adjusted_flex.html">Adjusted &amp; Flexible Work Arrangements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/999_legacy.html">Legacy Infrastructure, Software, and Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Policies and Procedures</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/captions_and_transcripts.html">Policy and Guiding Principles for Captioning and Transcription of A/V Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/metadata.html">Metadata Guidelines for Digital Resources at Texas A&amp;M University Libraries</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/00_archipelago-terms.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/01_ami-upload.html">Creating new ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/03_adding-ocr.html">Adding OCR to ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/04_ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/06_structure-changes.html">Changing Structures on Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/07_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/08_promoting_collections_to_featured.html">Promoting Collections on the Front Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/12_node-override-templates.html">Overriding a Single Page with a Node Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/996_addressing_sort_canvas_order_issues.html">Troubleshooting: Series Unified Manifest: Canvas Sort Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/997_redis-config.html">Redis Cache Configuration Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/998_add_url_alias.html">Add URL alias for a Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/9999_updating_archipelago_using_local.html">Archipelago 1.6.0 Upgrade Plan: Local Build, Lockfile Deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/999_jmes_path_tester.html">Testing JMES Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/cantaloupe_properties.html">Cantaloupe Configuration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/changing-branding.html">Changing Branding in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago/troubleshooting.html">Troubleshooting Archipelago Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-structural-changes/change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-structural-changes/removing-date-updated.html">Removing Date Updated from Search Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-moving-files/esmero-web.html">Migrating Using Esmero Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-moving-files/innovation.html">Migrating Using Innovation Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-moving-files/migrate_avalon.html">Migrating Avalon Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-moving-files/migrate_fedora.html">Migrating Fedora Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/archipelago-moving-files/migrate_oaktrust.html">Migrating OAKTrust Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/api-batch-upload.html">Importing media into Avalon via API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/avalon_template.html">Template for Avalon Batch Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/downloading_from_avalon.html">Downloading media from Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/generating_structures_from_csv.html">Generating Structures from CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/metadata.html">Avalon Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/pdf-creation.html">How to make a PDF transcript to upload to Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/remediating-failed-imports.html">Remediating Failed Imports in Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/avalon/troubleshooting.html">Troubleshooting Various Avalon Wonky-ness</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace-importing-large-batches.html">Batch Importing SAFs Using the DSpace Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_batch_import.html">Batch Import into DSpace Using SAFCreator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_entities.html">DSPACE Entity Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_extending_embargos.html">DSPACE: Extending Embargos in DSpace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_importing_entities_ojs.html">DSPACE: Importing Entities from OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/dspace_moving_collections_btw_communities.html">Moving Collections from One Community to Another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/dspace/reporting_500_errors.html">Reporting 500 Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/creating-iiif-manifests.html">Creating IIIF Collections and Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/fedora_solr.html">Understanding Solr Config in Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/post-ingestion.html">Reindexing Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/fedora/using-karaf.html">Using Karaf</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/ojs.html">OJS</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/applying_for_issns.html">Registering ISSNs for Hosted Journals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/ojs34-editorial-workflow-tutorial.html">OJS 3.4 Editorial Workflow: Configuration &amp; Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/ojs/onboarding_ojs_teams.html">1-Hour Journal Onboarding Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/open-oni.html">Open ONI</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Open ONI</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/open-oni/batch-processing.html">How to Process a Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/open-oni/loading_and_purging_batches.html">Batches: Loading and Purging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/open-oni/open-oni-problems.html">Solving Open Oni Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/sage/delete-sage-solr-docs.html">Deleting Items from SAGE Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/sage/sage-import.html">Importing media into SAGE - WITHOUT Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/sage/sage_import.html">SAGE Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/sage/solr6-vs-solr9.html">SAGE: Solr 6 versus Solr 9</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/spotlight/browse-categories.html">Creating a Browse Category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/spotlight/troubleshooting-write-issues.html">Troubleshooting Write Issues</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Services and Topics</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/accessibility.html">Accessibility</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Accessibility</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/audio_derivatives.html">Audio: Creating Service Files for Streaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/generating_service_files.html">Images: Generating Service Files and Derivatives</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/identifiers.html">Identifiers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Identifiers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/00_doi_handle_ark.html">Persistent Identifiers: Handle vs. ARK vs. DOI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/crossref-doi-requirements.html">General Requirements for Crossref DOIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/doi-naming.html">Conventions for Structuring DOIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/doi_policy.html">DOI Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/minting_a_doi.html">Minting DOIs in Crossref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../identifiers/minting_arks.html">Minting ARKs with EZID</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../other_services/iiif.html">IIIF</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of IIIF</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adding-thumbnails.html">Adding a Thumbnail to a IIIF Manifest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finding_iiif.html">Finding IIIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fixing-broken-cache-from-ir-iiif-service.html">Fixing Broken Cache from IR IIIF Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generating_iiif_collections.html">IIIF: Generating IIIF and IIIF Collections</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Warming the IIIF Image Cache Before a Browsertrix Crawl</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/kube.html">Kubernetes and Docker</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Kubernetes and Docker</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kube-and-docker/creating-an-ingress.html">Creating an Ingress in Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kube-and-docker/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/open_education_materials_and_ip.html">Open Education Materials and IP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/renaming_files_for_ts.html">Renaming Files from Preservation for Technology Services</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/statistics.html">Statistics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Statistics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../statistics/aggie-journals-dashboard.html">Aggie Journals Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../statistics/aggieland-through-time.html">Aggieland Through Time Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../statistics/instruction-stats.html">Instruction Stats: Choosing a Category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../statistics/refanalytics.html">RefAnalytics: Classifying a Patron Interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/using_super_computer_for_gpu_needs.html">Using the Super Computer when we Need GPU</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/whisper.html">Whisper</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Whisper</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../whisper/whisper-transcripts.html">Making Transcripts with Whisper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whisper/whisper-transcripts-cleanup.html">Cleaning a Whisper Transcript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whisper/whisperx-transcripts.html">Making Transcripts with WhisperX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/writing_documentation.html">How to Write Documentation on this website</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurations and Mappings</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../config/cantaloupe_config.html">Cantloupe Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Crosswalking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/avalon-to-pdf.html">Crosswalking: Avalon to PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/creating-ark.html">Creating ARKs with TAMU ID Minter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/marc-to-tamu-dc.html">Convert MARC Binary to TAMU DC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Digitization Backlog</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../digitization_areas/university-archives.html">University Archives</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of University Archives</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/441.html">College of Architecture and Environmental Design Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/502.html">Department of Mathematics Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/514.html">College of Liberal Arts Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/533.html">College of Education Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/562.html">College of Business Administration Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/564.html">College of Medicine Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/565.html">College of Engineering Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/595.html">College of Agriculture Animal Science Department Technical Reports and Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/596.html">Department of Agricultural Engineering Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/633.html">Department of Civil Engineering Newsletter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000285.html">Texas A&amp;M Commencement Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000291.html">Commencement Programs Collection - College of Medicine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000293.html">Commencement Programs Collection - College of Veterinary Medicine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000652.html">Commencement Programs Collection - School of Public Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/1140.html">Texas A&amp;M System Board of Directors Minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/373.html">Texas A&amp;M System Board of Regents Agendas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/39.html">Office of Executive Vice President and Provost Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/annual_reports.html">Texas A&amp;M System Annual Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/c000633.html">Thomas S. Gathright Letters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/122.html">Texas A&amp;M Photograph Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1331.html">Texas A&amp;M Athletic Media Guides and Programs - Track and Field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1334.html">Texas A&amp;M Athletic Media Guides - Aquatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1338.html">Texas A&amp;M Athletic Media Guides - Spring Sports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1342.html">Texas A&amp;M Athletic Media Guides - Soccer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1455.html">Texas A&amp;M Athletic Media Guides - Women’s Basketball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1457.html">Texas A&amp;M Athletic and Event Ticket Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/146.html">Texas A&amp;M Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1467.html">Texas A&amp;M Athletic Programs - Baseball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1468.html">Texas A&amp;M Athletic Programs - Softball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1469.html">Texas A&amp;M Athletic Programs - Men’s Basketball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/15.html">E J. Kyle Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1631.html">Texas A&amp;M Athletic Programs - Volleyball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/c000036.html">Texas A&amp;M Athletic Programs - Football</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/in00005672352.html">A trailblazing story and scrapbook, 50 years of memories : women’s athletics Texas A&amp;M University</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1019.html">Memorial Student Center (MSC) Scrapbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1180.html">W A. Tolson Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1223.html">F E. Giesecke Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1241.html">Texas A&amp;M Grade Reports Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1247.html">MSC Bookstore Promotional Cap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1396.html">D J. Finn ‘21 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1398.html">Edgar Petty Jennings Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1400.html">Allen Elmer Luddeke Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1417.html">Steven Simon, Jr. ‘22 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1421.html">Class of 1922 45th Class Reunion Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1422.html">Class of 1995 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1424.html">Texas A&amp;M College Social Events Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1425.html">W P. Trice Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1448.html">Joel Hunt Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1554.html">Texas A&amp;M Hillel Articles and Photographs Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1601.html">Louis A. Hartung ‘29 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1624.html">Linda Keefer Elephant Walk Hat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1625.html">Big Event T-Shirt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/700.html">March to the Brazos Photograph Album</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/702.html">Pfeuffer Hall Student Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/798.html">James T. Danklefs ‘43 Corregidor Muster Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000219.html">Cepheid Variable - AggieCon Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000281.html">Texas A&amp;M Student Government Association (SGA) Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000284.html">Texas A&amp;M Speeches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000286.html">Texas A&amp;M Dance and Banquet Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000380.html">Muster Stage Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000386.html">Fighting Aggie Band Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000735.html">Texas A&amp;M Student Organization Constitutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00000140161.html">Official directory of the faculty, staff, and student body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00000730323.html">Official directory of the faculty, staff, and student body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00004042708.html">Directory of the officers, faculty and students of the Agricultural and Mechanical College of Texas : including the experiment station, the extension service</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DPMT Archived</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dpmt/06_workflow.html">Digital Projects that Require Digitization Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dpmt/dpmt_process.html">DPMT Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Archived</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/05_projects.html">Archived - Projects</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/topics_and_services/iiif/warming.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/topics_and_services/iiif/warming.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="warming-the-iiif-image-cache-before-a-browsertrix-crawl">
+<h1>Warming the IIIF Image Cache Before a Browsertrix Crawl<a class="headerlink" href="#warming-the-iiif-image-cache-before-a-browsertrix-crawl" title="Link to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>When Browsertrix crawls a page with a IIIF viewer, it captures every image
+request the viewer makes while the page loads. If our IIIF image server
+(Cantaloupe) has to generate those derivatives on the fly, some requests can
+be slow enough to time out or fail during the crawl. Those requests are then
+missing from the WACZ, and the archived page replays with broken or blank
+tiles.</p>
+<p>The fix is to request every image ahead of time so Cantaloupe generates the
+derivatives and stores them in its derivative cache. When Browsertrix runs
+afterward, the same requests are served quickly from cache.</p>
+<p>Warming happens in two passes:</p>
+<ol class="arabic simple">
+<li><p><strong>Collection-wide.</strong> Crawl the IIIF collection with <code class="docutils literal notranslate"><span class="pre">iiif_crawl.py</span></code>. It
+reads every manifest and requests every canvas, every image, and (optionally)
+every image service’s <code class="docutils literal notranslate"><span class="pre">info.json</span></code>. This covers every item in the
+collection, including ones nobody opens by hand before the crawl.</p></li>
+<li><p><strong>Page-specific.</strong> Capture the exact tile URLs a viewer requests on the
+pages you plan to crawl, and request those with <code class="docutils literal notranslate"><span class="pre">check-images.sh</span></code>.</p></li>
+</ol>
+<p>The first pass gets every source image read and every item’s base derivatives
+cached. The second catches the viewport-specific tiles the first pass can’t
+predict.</p>
+<p>This page covers:</p>
+<ul class="simple">
+<li><p>running <code class="docutils literal notranslate"><span class="pre">iiif_crawl.py</span></code> against a IIIF collection</p></li>
+<li><p>capturing the image URLs a page requests, using the browser’s Network panel</p></li>
+<li><p>running <code class="docutils literal notranslate"><span class="pre">check-images.sh</span></code> to request every URL and log the results</p></li>
+<li><p>reading the results to find and fix failures before the crawl</p></li>
+</ul>
+</section>
+<section id="when-to-use-this">
+<h2>When to Use This<a class="headerlink" href="#when-to-use-this" title="Link to this heading">¶</a></h2>
+<p>Use this process when:</p>
+<ul class="simple">
+<li><p>You are about to crawl pages that embed IIIF viewers (for example, exhibit
+pages or item pages with deep zoom).</p></li>
+<li><p>A previous crawl replayed with missing or broken image tiles.</p></li>
+<li><p>You want to confirm that every image on a page actually resolves before
+archiving it.</p></li>
+</ul>
+<p>It is less necessary for pages whose images were viewed recently (and are
+likely already cached) or that only use a few small static images.</p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Python 3.9 or later with the <code class="docutils literal notranslate"><span class="pre">requests</span></code> package (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">requests</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bash</span></code> and <code class="docutils literal notranslate"><span class="pre">curl</span></code> (on Windows, use Git Bash or WSL)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jq</span></code> for extracting URLs from the HAR file</p></li>
+<li><p>Firefox or Chrome</p></li>
+<li><p>Cantaloupe’s derivative cache enabled. Without it, warming has no lasting
+effect. In <code class="docutils literal notranslate"><span class="pre">cantaloupe.properties</span></code>, check:</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">cache.server.derivative.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="na">cache.server.derivative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">FilesystemCache</span>
+<span class="c1"># 0 = never expire; otherwise make sure the TTL outlasts the crawl</span>
+<span class="na">cache.server.derivative.ttl_seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
+</pre></div>
+</div>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">--info-json</span></code> in Step 1, also enable the info cache so those
+responses are kept:</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">cache.server.info.enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The cache only helps when Browsertrix requests the <strong>exact same URLs</strong> you
+warmed. A IIIF image URL encodes region, size, rotation, quality, and
+format, and viewers choose tiles and sizes based on the viewport. Step 1
+warms the image URLs listed in the manifests, which are usually full-size
+images, not viewer tiles. Steps 2 through 4 are what cover the tiles. When
+capturing, use a browser window roughly the same size as the Browsertrix
+crawler’s browser, and interact with the viewer (zoom, page through
+canvases) the same way the crawl will.</p>
+</div>
+</section>
+<section id="step-1-warm-the-whole-iiif-collection">
+<h2>Step 1: Warm the Whole IIIF Collection<a class="headerlink" href="#step-1-warm-the-whole-iiif-collection" title="Link to this heading">¶</a></h2>
+<p>Run <code class="docutils literal notranslate"><span class="pre">iiif_crawl.py</span></code> with the URL of the IIIF collection that holds the items
+you are about to crawl:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>iiif_crawl.py<span class="w"> </span>--info-json<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span><span class="w"> </span>-o<span class="w"> </span>iiif-results.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://api.library.tamu.edu/iiif-service/fedora/collection/3b/6f/c3/25/3b6fc325-f6ca-41d8-b91e-8c5db3be8c13/london-maps-batch-2&quot;</span>
+</pre></div>
+</div>
+<p>The script:</p>
+<ol class="arabic simple">
+<li><p>Reads the collection and gathers every manifest URL. It follows
+sub-collections and paged collections (<code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">next</span></code>).</p></li>
+<li><p>Fetches each manifest and finds every canvas and every image on each
+canvas.</p></li>
+<li><p>Requests the <code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> of every canvas, then the <code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> of every image on
+each canvas. Image responses are downloaded and discarded, which is what
+makes Cantaloupe generate and cache them.</p></li>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">--info-json</span></code>, also requests each image service’s <code class="docutils literal notranslate"><span class="pre">info.json</span></code>,
+which is the first thing a viewer asks for.</p></li>
+</ol>
+<p>It works with both IIIF Presentation 2 (<code class="docutils literal notranslate"><span class="pre">sequences</span></code> → <code class="docutils literal notranslate"><span class="pre">canvases</span></code> →
+<code class="docutils literal notranslate"><span class="pre">images</span></code> → <code class="docutils literal notranslate"><span class="pre">resource</span></code>) and Presentation 3 (<code class="docutils literal notranslate"><span class="pre">items</span></code> → <code class="docutils literal notranslate"><span class="pre">AnnotationPage</span></code>
+→ <code class="docutils literal notranslate"><span class="pre">Annotation</span></code> → <code class="docutils literal notranslate"><span class="pre">body</span></code>) manifests, including <code class="docutils literal notranslate"><span class="pre">Choice</span></code> images. Requests
+that return <code class="docutils literal notranslate"><span class="pre">429</span></code> or a <code class="docutils literal notranslate"><span class="pre">5xx</span></code> status are retried up to four times with
+backoff.</p>
+<p>As it runs, the script prints one line per manifest with its canvas and image
+counts, and prints every failure. When it finishes, it prints a total of
+successes and failures.</p>
+<section id="options">
+<h3>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-o</span></code>, <code class="docutils literal notranslate"><span class="pre">--output</span></code></dt><dd><p>Path for the results CSV. Default <code class="docutils literal notranslate"><span class="pre">iiif_crawl_results.csv</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--workers</span></code></dt><dd><p>Number of simultaneous requests within each manifest. Default <code class="docutils literal notranslate"><span class="pre">8</span></code>. As
+with <code class="docutils literal notranslate"><span class="pre">PARALLEL</span></code> for <code class="docutils literal notranslate"><span class="pre">check-images.sh</span></code>, keep this modest (<code class="docutils literal notranslate"><span class="pre">4</span></code> is a
+good start) so you don’t overload Cantaloupe while it generates
+derivatives. Large maps are especially expensive.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--image-method</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">get</span></code> (default) downloads each image and discards it. This is what
+warms the cache. <code class="docutils literal notranslate"><span class="pre">head</span></code> only checks that each image URL resolves. Use it
+for a quick check, not for warming.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--info-json</span></code></dt><dd><p>Also request each image service’s <code class="docutils literal notranslate"><span class="pre">info.json</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Link to this heading">¶</a></h3>
+<p>The script writes one row per request:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>level,manifest,canvas,url,status,ms,error
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">level</span></code> is <code class="docutils literal notranslate"><span class="pre">manifest</span></code>, <code class="docutils literal notranslate"><span class="pre">canvas</span></code>, <code class="docutils literal notranslate"><span class="pre">image</span></code>, or <code class="docutils literal notranslate"><span class="pre">info.json</span></code>. <code class="docutils literal notranslate"><span class="pre">ms</span></code> is
+the response time in milliseconds. <code class="docutils literal notranslate"><span class="pre">status</span></code> is empty when there was no HTTP
+response at all, and <code class="docutils literal notranslate"><span class="pre">error</span></code> then says why (timeout, connection reset, and
+so on).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Presentation 2 manifests, canvas <code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> values are often identifiers
+that were never meant to be dereferenced. A <code class="docutils literal notranslate"><span class="pre">404</span></code> on a <code class="docutils literal notranslate"><span class="pre">canvas</span></code> row
+does not necessarily mean anything is broken. Focus on <code class="docutils literal notranslate"><span class="pre">manifest</span></code>,
+<code class="docutils literal notranslate"><span class="pre">image</span></code>, and <code class="docutils literal notranslate"><span class="pre">info.json</span></code> failures.</p>
+</div>
+<p>For what the status codes on <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">info.json</span></code> rows mean, see
+<a class="reference internal" href="#step-5-review-the-results">Step 5: Review the Results</a>.</p>
+</section>
+<section id="the-script">
+<h3>The Script<a class="headerlink" href="#the-script" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Crawl a IIIF collection: fetch every manifest (recursing into sub-collections),</span>
+<span class="sd">request the id of every canvas, then request the id of every image on each canvas.</span>
+
+<span class="sd">Handles IIIF Presentation 2 (@id, sequences/canvases/images/resource) and</span>
+<span class="sd">Presentation 3 (id, items/AnnotationPage/Annotation/body).</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    pip install requests</span>
+<span class="sd">    python iiif_crawl.py URL [--workers 8] [--image-method get] [--info-json] [-o results.csv]</span>
+
+<span class="sd">Every request is written to a CSV row (level, manifest, canvas, url, status, ms, error),</span>
+<span class="sd">so you can filter for failures afterward.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">requests.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPAdapter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib3.util.retry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Retry</span>
+
+<span class="n">USER_AGENT</span> <span class="o">=</span> <span class="s2">&quot;TAMU-DigitalCollections-IIIF-Crawler/1.0 (mark.baggett@tamu.edu)&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_session</span><span class="p">(</span><span class="n">workers</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">retry</span> <span class="o">=</span> <span class="n">Retry</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                  <span class="n">status_forcelist</span><span class="o">=</span><span class="p">(</span><span class="mi">429</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">502</span><span class="p">,</span> <span class="mi">503</span><span class="p">,</span> <span class="mi">504</span><span class="p">),</span>
+                  <span class="n">allowed_methods</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;HEAD&quot;</span><span class="p">))</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">HTTPAdapter</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="n">retry</span><span class="p">,</span> <span class="n">pool_connections</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span> <span class="n">pool_maxsize</span><span class="o">=</span><span class="n">workers</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">USER_AGENT</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_id</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;@id&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_type</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;@type&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># &quot;sc:Manifest&quot; -&gt; &quot;Manifest&quot;</span>
+
+
+<span class="c1"># ---------- collection traversal ----------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">iter_manifest_urls</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">collection_url</span><span class="p">,</span> <span class="n">seen</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Yield manifest URLs from a collection, recursing into sub-collections.&quot;&quot;&quot;</span>
+    <span class="n">seen</span> <span class="o">=</span> <span class="n">seen</span> <span class="k">if</span> <span class="n">seen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">collection_url</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">collection_url</span><span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">collection_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">coll</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Presentation 2</span>
+    <span class="n">children</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">m</span><span class="p">,</span> <span class="s2">&quot;Manifest&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">coll</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;manifests&quot;</span><span class="p">,</span> <span class="p">[])]</span>
+    <span class="n">children</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;Collection&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coll</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;collections&quot;</span><span class="p">,</span> <span class="p">[])]</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">coll</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;members&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">get_type</span><span class="p">(</span><span class="n">m</span><span class="p">)))</span>
+    <span class="c1"># Presentation 3</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">coll</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">item</span><span class="p">,</span> <span class="n">get_type</span><span class="p">(</span><span class="n">item</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">child</span><span class="p">,</span> <span class="n">ctype</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+        <span class="n">cid</span> <span class="o">=</span> <span class="n">get_id</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cid</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">ctype</span> <span class="o">==</span> <span class="s2">&quot;Collection&quot;</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">iter_manifest_urls</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">seen</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">cid</span>
+
+    <span class="c1"># Paged collections (v2 &quot;next&quot;/&quot;first&quot;)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;next&quot;</span><span class="p">):</span>
+        <span class="n">nxt</span> <span class="o">=</span> <span class="n">get_id</span><span class="p">(</span><span class="n">coll</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="k">if</span> <span class="n">coll</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">nxt</span> <span class="ow">and</span> <span class="n">nxt</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">iter_manifest_urls</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">nxt</span><span class="p">,</span> <span class="n">seen</span><span class="p">)</span>
+
+
+<span class="c1"># ---------- manifest parsing ----------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">canvases_and_images</span><span class="p">(</span><span class="n">manifest</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return [(canvas_id, [image_ids...]), ...] for a v2 or v3 manifest.&quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="s2">&quot;sequences&quot;</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">:</span>  <span class="c1"># Presentation 2</span>
+        <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">manifest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sequences&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="k">for</span> <span class="n">canvas</span> <span class="ow">in</span> <span class="n">seq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;canvases&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">anno</span> <span class="ow">in</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="n">res</span> <span class="o">=</span> <span class="n">anno</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resource&quot;</span><span class="p">,</span> <span class="p">{})</span>
+                    <span class="c1"># Choice / multiple images</span>
+                    <span class="k">if</span> <span class="n">get_type</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Choice&quot;</span><span class="p">,</span> <span class="s2">&quot;oa:Choice&quot;</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="p">[])):</span>
+                            <span class="k">if</span> <span class="n">r</span> <span class="ow">and</span> <span class="n">get_id</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+                                <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_id</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+                    <span class="k">elif</span> <span class="n">get_id</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+                        <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_id</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">get_id</span><span class="p">(</span><span class="n">canvas</span><span class="p">),</span> <span class="n">imgs</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Presentation 3</span>
+        <span class="k">for</span> <span class="n">canvas</span> <span class="ow">in</span> <span class="n">manifest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="k">for</span> <span class="n">anno</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="n">body</span> <span class="o">=</span> <span class="n">anno</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="p">{})</span>
+                    <span class="n">bodies</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="k">if</span> <span class="n">get_type</span><span class="p">(</span><span class="n">body</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Choice&quot;</span> <span class="k">else</span> <span class="p">[</span><span class="n">body</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bodies</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">get_id</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                            <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">get_id</span><span class="p">(</span><span class="n">canvas</span><span class="p">),</span> <span class="n">imgs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">image_service_ids</span><span class="p">(</span><span class="n">manifest</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Map image id -&gt; image service id (for optional info.json checks).&quot;&quot;&quot;</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">svc_id</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+        <span class="n">svc</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;service&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">svc</span> <span class="o">=</span> <span class="n">svc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">svc</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">get_id</span><span class="p">(</span><span class="n">svc</span><span class="p">)</span> <span class="k">if</span> <span class="n">svc</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="s2">&quot;sequences&quot;</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;sequences&quot;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">canvas</span> <span class="ow">in</span> <span class="n">seq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;canvases&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="k">for</span> <span class="n">anno</span> <span class="ow">in</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="n">res</span> <span class="o">=</span> <span class="n">anno</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resource&quot;</span><span class="p">,</span> <span class="p">{})</span>
+                    <span class="k">if</span> <span class="n">get_id</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="ow">and</span> <span class="n">svc_id</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+                        <span class="n">mapping</span><span class="p">[</span><span class="n">get_id</span><span class="p">(</span><span class="n">res</span><span class="p">)]</span> <span class="o">=</span> <span class="n">svc_id</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">canvas</span> <span class="ow">in</span> <span class="n">manifest</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">canvas</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                <span class="k">for</span> <span class="n">anno</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">anno</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="p">{})</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">get_id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="ow">and</span> <span class="n">svc_id</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                        <span class="n">mapping</span><span class="p">[</span><span class="n">get_id</span><span class="p">(</span><span class="n">b</span><span class="p">)]</span> <span class="o">=</span> <span class="n">svc_id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mapping</span>
+
+
+<span class="c1"># ---------- requests ----------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">probe</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Request a URL; for GET, stream and discard the body. Returns (status, ms, error).&quot;&quot;&quot;</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;head&quot;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">405</span><span class="p">:</span>  <span class="c1"># HEAD not allowed -&gt; fall back to GET</span>
+                <span class="k">return</span> <span class="n">probe</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="s2">&quot;get&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">):</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">ap</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">RawDescriptionHelpFormatter</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;collection&quot;</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="s2">&quot;--output&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;iiif_crawl_results.csv&quot;</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--workers&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;parallel requests (default 8)&quot;</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--image-method&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="s2">&quot;head&quot;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;get&quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;GET downloads (and discards) each image, e.g. to warm a Cantaloupe cache; &quot;</span>
+                         <span class="s2">&quot;HEAD only checks it resolves&quot;</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--info-json&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;also request each image service&#39;s info.json&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">session</span> <span class="o">=</span> <span class="n">make_session</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span><span class="p">)</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;fail&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;manifest&quot;</span><span class="p">,</span> <span class="s2">&quot;canvas&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">record</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">manifest</span><span class="p">,</span> <span class="n">canvas</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">err</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">level</span><span class="p">,</span> <span class="n">manifest</span><span class="p">,</span> <span class="n">canvas</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">ms</span><span class="p">,</span> <span class="n">err</span><span class="p">])</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="n">status</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">status</span> <span class="o">&lt;</span> <span class="mi">400</span>
+            <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span> <span class="k">if</span> <span class="n">ok</span> <span class="k">else</span> <span class="s2">&quot;fail&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  FAIL [</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_manifest</span><span class="p">(</span><span class="n">murl</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">murl</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="n">manifest</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="n">record</span><span class="p">(</span><span class="s2">&quot;manifest&quot;</span><span class="p">,</span> <span class="n">murl</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">murl</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">elapsed</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">record</span><span class="p">(</span><span class="s2">&quot;manifest&quot;</span><span class="p">,</span> <span class="n">murl</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">murl</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="s2">&quot;status_code&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">murl</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+        <span class="n">pairs</span> <span class="o">=</span> <span class="n">canvases_and_images</span><span class="p">(</span><span class="n">manifest</span><span class="p">)</span>
+        <span class="n">services</span> <span class="o">=</span> <span class="n">image_service_ids</span><span class="p">(</span><span class="n">manifest</span><span class="p">)</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">info_json</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">canvas_id</span><span class="p">,</span> <span class="n">imgs</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+            <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;canvas&quot;</span><span class="p">,</span> <span class="n">canvas_id</span><span class="p">,</span> <span class="n">canvas_id</span><span class="p">,</span> <span class="s2">&quot;get&quot;</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">:</span>
+                <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">canvas_id</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">image_method</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
+                    <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;info.json&quot;</span><span class="p">,</span> <span class="n">canvas_id</span><span class="p">,</span> <span class="n">services</span><span class="p">[</span><span class="n">img</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/info.json&quot;</span><span class="p">,</span> <span class="s2">&quot;get&quot;</span><span class="p">))</span>
+
+        <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+            <span class="n">futs</span> <span class="o">=</span> <span class="p">{</span><span class="n">pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span> <span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">futs</span><span class="p">):</span>
+                <span class="n">level</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">futs</span><span class="p">[</span><span class="n">f</span><span class="p">]</span>
+                <span class="n">record</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">murl</span><span class="p">,</span> <span class="n">cid</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">*</span><span class="n">f</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+        <span class="n">n_img</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">murl</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs</span><span class="p">),</span> <span class="n">n_img</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reading collection </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">collection</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">manifest_urls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">iter_manifest_urls</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">collection</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">manifest_urls</span><span class="p">)</span><span class="si">}</span><span class="s2"> manifests</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">murl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">manifest_urls</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">ni</span> <span class="o">=</span> <span class="n">process_manifest</span><span class="p">(</span><span class="n">murl</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">manifest_urls</span><span class="p">)</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">nc</span><span class="si">}</span><span class="s2"> canvases, </span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2"> images  </span><span class="si">{</span><span class="n">murl</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+    <span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">mins</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Done in </span><span class="si">{</span><span class="n">mins</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> min: </span><span class="si">{</span><span class="n">counts</span><span class="p">[</span><span class="s1">&#39;ok&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> OK, </span><span class="si">{</span><span class="n">counts</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> failed -&gt; </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-2-capture-the-image-requests">
+<h2>Step 2: Capture the Image Requests<a class="headerlink" href="#step-2-capture-the-image-requests" title="Link to this heading">¶</a></h2>
+<section id="firefox">
+<h3>Firefox<a class="headerlink" href="#firefox" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Open Developer Tools and go to the <strong>Network</strong> panel.</p></li>
+<li><p>In the gear menu, enable <strong>Persist Logs</strong>.</p></li>
+<li><p>Check <strong>Disable Cache</strong> so every image shows up as a real request.</p></li>
+<li><p>Load the page and interact with the viewer as the crawl will.</p></li>
+<li><p>Right-click any request and choose <strong>Save All As HAR</strong>. Save the file as
+<code class="docutils literal notranslate"><span class="pre">capture.har</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Copy All As HAR</strong> also works, but large captures can be truncated when
+pasted from the clipboard. <strong>Save All As HAR</strong> is more reliable.</p>
+</div>
+</section>
+<section id="chrome">
+<h3>Chrome<a class="headerlink" href="#chrome" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Open Developer Tools and go to the <strong>Network</strong> panel.</p></li>
+<li><p>Check <strong>Preserve log</strong> and <strong>Disable cache</strong>.</p></li>
+<li><p>Load the page and interact with the viewer.</p></li>
+<li><p>Click the <strong>Export HAR</strong> (download arrow) button and save as
+<code class="docutils literal notranslate"><span class="pre">capture.har</span></code>.</p></li>
+</ol>
+</section>
+</section>
+<section id="step-3-extract-the-image-urls">
+<h2>Step 3: Extract the Image URLs<a class="headerlink" href="#step-3-extract-the-image-urls" title="Link to this heading">¶</a></h2>
+<p>Filter on the request URL rather than the response type. Failed requests have
+no MIME type, and those are exactly the ones we need to find:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.log.entries[]</span>
+<span class="s1">  | select(.request.url | test(&quot;\\.jpg(\\?|$)&quot;; &quot;i&quot;))</span>
+<span class="s1">  | .request.url&#39;</span><span class="w"> </span>capture.har<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>&gt;<span class="w"> </span>image-urls.txt
+</pre></div>
+</div>
+<p>To check how many requests the HAR contains before filtering:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jq<span class="w"> </span><span class="s1">&#39;.log.entries | length&#39;</span><span class="w"> </span>capture.har
+</pre></div>
+</div>
+<p>If the viewer also requests other formats (for example, <code class="docutils literal notranslate"><span class="pre">.png</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.webp</span></code>), widen the pattern: <code class="docutils literal notranslate"><span class="pre">test(&quot;\\.(jpg|png|webp)(\\?|$)&quot;;</span> <span class="pre">&quot;i&quot;)</span></code>.</p>
+</section>
+<section id="step-4-run-the-script">
+<h2>Step 4: Run the Script<a class="headerlink" href="#step-4-run-the-script" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>check-images.sh
+./check-images.sh<span class="w"> </span>image-urls.txt<span class="w"> </span>results.csv
+</pre></div>
+</div>
+<p>The script requests every URL with <code class="docutils literal notranslate"><span class="pre">curl</span></code>, discards the image data, and
+writes one row per URL to <code class="docutils literal notranslate"><span class="pre">results.csv</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>status,time_s,bytes,content_type,url
+</pre></div>
+</div>
+<p>When it finishes, it prints a count of requests by status code and a list of
+every failure.</p>
+<section id="id1">
+<h3>Options<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Options are set as environment variables:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PARALLEL</span></code></dt><dd><p>Number of simultaneous requests. Default <code class="docutils literal notranslate"><span class="pre">4</span></code>. Keep this modest when
+warming a cache so you don’t overload Cantaloupe while it generates
+derivatives.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">TIMEOUT</span></code></dt><dd><p>Maximum seconds per request. Default <code class="docutils literal notranslate"><span class="pre">60</span></code>.</p>
+</dd>
+</dl>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PARALLEL</span><span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="nv">TIMEOUT</span><span class="o">=</span><span class="m">120</span><span class="w"> </span>./check-images.sh<span class="w"> </span>image-urls.txt<span class="w"> </span>results.csv
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>The Script<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># Request every URL in a list and record the result.</span>
+<span class="c1">#</span>
+<span class="c1"># Usage:</span>
+<span class="c1">#   ./check-images.sh [input-file] [output-csv]</span>
+<span class="c1">#   PARALLEL=20 ./check-images.sh image-urls.txt results.csv</span>
+<span class="c1">#</span>
+<span class="c1"># Defaults: input = image-urls.txt, output = results.csv, PARALLEL = 4</span>
+<span class="c1"># Status 000 means no HTTP response at all (timeout, connection refused/reset, DNS, TLS).</span>
+
+<span class="nb">set</span><span class="w"> </span>-uo<span class="w"> </span>pipefail
+
+<span class="nv">input</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">image</span><span class="p">-urls.txt</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">out</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">2</span><span class="k">:-</span><span class="nv">results</span><span class="p">.csv</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">parallel</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PARALLEL</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">timeout</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TIMEOUT</span><span class="k">:-</span><span class="nv">60</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>!<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Input file not found: </span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;status,time_s,bytes,content_type,url&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$out</span><span class="s2">&quot;</span>
+
+<span class="c1"># Strip blank lines and Windows line endings, dedupe, then fetch in parallel.</span>
+<span class="c1"># The body is discarded; only the status and timing are kept.</span>
+grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;^[[:space:]]*$&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$input</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;\r&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>xargs<span class="w"> </span>-P<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$parallel</span><span class="s2">&quot;</span><span class="w"> </span>-I<span class="o">{}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>curl<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>--max-time<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$timeout</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-w<span class="w"> </span><span class="s1">&#39;%{http_code},%{time_total},%{size_download},%{content_type},%{url_effective}\n&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span><span class="s2">&quot;{}&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$out</span><span class="s2">&quot;</span>
+
+<span class="nv">total</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>wc<span class="w"> </span>-l<span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$out</span><span class="s2">&quot;</span><span class="k">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">))</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checked </span><span class="nv">$total</span><span class="s2"> URLs -&gt; </span><span class="nv">$out</span><span class="s2">&quot;</span>
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;By status:&quot;</span>
+awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;NR&gt;1 {c[$1]++} END {for (s in c) printf &quot;  %s  %d\n&quot;, s, c[s]}&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$out</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+<span class="nb">echo</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Failures (000 or &gt;= 400):&quot;</span>
+awk<span class="w"> </span>-F,<span class="w"> </span><span class="s1">&#39;NR&gt;1 &amp;&amp; ($1==&quot;000&quot; || $1+0&gt;=400) {printf &quot;  %s  %ss  %s\n&quot;, $1, $2, $5}&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$out</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="step-5-review-the-results">
+<h2>Step 5: Review the Results<a class="headerlink" href="#step-5-review-the-results" title="Link to this heading">¶</a></h2>
+<p>These apply to <code class="docutils literal notranslate"><span class="pre">results.csv</span></code> and to the <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">info.json</span></code> rows in
+<code class="docutils literal notranslate"><span class="pre">iiif-results.csv</span></code>. In <code class="docutils literal notranslate"><span class="pre">iiif-results.csv</span></code>, a request with no HTTP response
+has an empty <code class="docutils literal notranslate"><span class="pre">status</span></code> instead of <code class="docutils literal notranslate"><span class="pre">000</span></code>.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">200</span></code></dt><dd><p>Success. The derivative now exists in the cache.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">000</span></code></dt><dd><p>No HTTP response at all: a timeout, a refused or reset connection, or a
+DNS or TLS error. Often these are large derivatives that took longer than
+<code class="docutils literal notranslate"><span class="pre">TIMEOUT</span></code> to generate. Rerun them with a longer timeout.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">4xx</span></code></dt><dd><p>Usually a bad identifier, an invalid region or size, or a missing source
+image. Check the identifier and Cantaloupe’s logs.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">5xx</span></code></dt><dd><p>Cantaloupe failed to produce the image. Check its logs for the affected
+identifiers (common causes are unreadable source files, memory limits, or
+unsupported source formats).</p>
+</dd>
+</dl>
+</section>
+<section id="step-6-verify-the-cache-then-crawl">
+<h2>Step 6: Verify the Cache, Then Crawl<a class="headerlink" href="#step-6-verify-the-cache-then-crawl" title="Link to this heading">¶</a></h2>
+<p>Run both scripts a second time:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>iiif_crawl.py<span class="w"> </span>--info-json<span class="w"> </span>--workers<span class="w"> </span><span class="m">4</span><span class="w"> </span>-o<span class="w"> </span>iiif-results-pass2.csv<span class="w"> </span><span class="s2">&quot;&lt;collection URL&gt;&quot;</span>
+./check-images.sh<span class="w"> </span>image-urls.txt<span class="w"> </span>results-pass2.csv
+</pre></div>
+</div>
+<p>Every <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">info.json</span></code> row, and every row in
+<code class="docutils literal notranslate"><span class="pre">results-pass2.csv</span></code>, should now be <code class="docutils literal notranslate"><span class="pre">200</span></code>. The <code class="docutils literal notranslate"><span class="pre">ms</span></code> and <code class="docutils literal notranslate"><span class="pre">time_s</span></code> values
+should be much lower than in the first pass. That drop is how you can tell the
+derivatives are being served from cache. Once the second pass is clean, run
+the Browsertrix crawl.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt><strong>Everything succeeds in the script but still fails in the browser.</strong></dt><dd><p><code class="docutils literal notranslate"><span class="pre">curl</span></code> and <code class="docutils literal notranslate"><span class="pre">requests</span></code> do not enforce CORS, but browsers do. Check that
+Cantaloupe (or the proxy in front of it) sends the right
+<code class="docutils literal notranslate"><span class="pre">Access-Control-Allow-Origin</span></code> header.</p>
+</dd>
+<dt><strong>Failures appear only at higher concurrency.</strong></dt><dd><p>Try <code class="docutils literal notranslate"><span class="pre">PARALLEL=20</span></code> to mimic a viewer requesting many tiles at once. If
+failures appear, look at Cantaloupe’s resource limits, ingress or proxy
+timeouts, and any rate limiting.</p>
+</dd>
+<dt><strong>Full-size images fail in Step 1 but tiles work.</strong></dt><dd><p>The manifest’s image <code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> is often a full-size image (<code class="docutils literal notranslate"><span class="pre">full/full</span></code> or
+<code class="docutils literal notranslate"><span class="pre">full/max</span></code>). For very large maps, Cantaloupe may refuse these because of
+its <code class="docutils literal notranslate"><span class="pre">max_pixels</span></code> or <code class="docutils literal notranslate"><span class="pre">max_scale</span></code> limits, or take long enough to generate
+that a proxy times out. If the <code class="docutils literal notranslate"><span class="pre">info.json</span></code> rows succeed and the page
+viewer works, these failures may not affect the crawl. Rely on Steps 2
+through 4 for those items.</p>
+</dd>
+<dt><strong>Lots of ``404`` responses on canvas rows.</strong></dt><dd><p>Expected for many Presentation 2 manifests. Canvas <code class="docutils literal notranslate"><span class="pre">&#64;id</span></code> values are
+identifiers, not necessarily resolvable URLs. See the note under
+<a class="reference internal" href="#output">Output</a>.</p>
+</dd>
+<dt><strong>The second pass is not faster.</strong></dt><dd><p>The derivative cache is probably disabled, expiring too quickly, or using
+a cache location that is not shared across Cantaloupe replicas. Check the
+<code class="docutils literal notranslate"><span class="pre">cache.server.derivative</span></code> settings.</p>
+</dd>
+<dt><strong>The crawl still has broken tiles after warming.</strong></dt><dd><p>Browsertrix likely requested different tile URLs than the ones you
+captured. Recapture with a browser window closer to the crawler’s
+viewport size, interact with the viewer the same way the crawl does, and
+warm again.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../other_services/kube.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Kubernetes and Docker</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="generating_iiif_collections.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">IIIF: Generating IIIF and IIIF Collections</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Texas A&amp;M Libraries - Digital Collections Services
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Warming the IIIF Image Cache Before a Browsertrix Crawl</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#when-to-use-this">When to Use This</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#step-1-warm-the-whole-iiif-collection">Step 1: Warm the Whole IIIF Collection</a><ul>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#the-script">The Script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-2-capture-the-image-requests">Step 2: Capture the Image Requests</a><ul>
+<li><a class="reference internal" href="#firefox">Firefox</a></li>
+<li><a class="reference internal" href="#chrome">Chrome</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-3-extract-the-image-urls">Step 3: Extract the Image URLs</a></li>
+<li><a class="reference internal" href="#step-4-run-the-script">Step 4: Run the Script</a><ul>
+<li><a class="reference internal" href="#id1">Options</a></li>
+<li><a class="reference internal" href="#id2">The Script</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-5-review-the-results">Step 5: Review the Results</a></li>
+<li><a class="reference internal" href="#step-6-verify-the-cache-then-crawl">Step 6: Verify the Cache, Then Crawl</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
