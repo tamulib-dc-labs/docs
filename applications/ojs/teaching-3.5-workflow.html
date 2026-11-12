@@ -1,0 +1,1035 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Open ONI" href="../../workflows/open-oni.html" /><link rel="prev" title="1-Hour Journal Onboarding Checklist" href="onboarding_ojs_teams.html" />
+
+    <link rel="shortcut icon" href="../../_static/TAM-MaroonBox.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Teaching the OJS 3.5 Editorial Workflow (60 min) - TAMU Digital Collections Labs</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=4dcc0f2f" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">TAMU Digital Collections Labs</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/TAM-MaroonBox.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">TAMU Digital Collections Labs</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Overview of Digital Collections Services</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/01_about_digital_collections.html">Digital Collections Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/02_mission_and_vision.html">Mission and Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/03_people.html">People</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/04_cultral_heritage.html">Cultural Heritage Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/05_products_and_product_ownership.html">Products and Product Ownership</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/06_glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/07_onboarding_checklist.html">Department and Supervisor Onboarding Checklist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/08_partners_and_stakeholders.html">Partners and Stakeholders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/998_adjusted_flex.html">Adjusted &amp; Flexible Work Arrangements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about/999_legacy.html">Legacy Infrastructure, Software, and Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Policies and Procedures</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/captions_and_transcripts.html">Policy and Guiding Principles for Captioning and Transcription of A/V Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/metadata.html">Metadata Guidelines for Digital Resources at Texas A&amp;M University Libraries</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/00_archipelago-terms.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/01_ami-upload.html">Creating new ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/03_adding-ocr.html">Adding OCR to ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/04_ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/06_structure-changes.html">Changing Structures on Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/07_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/08_promoting_collections_to_featured.html">Promoting Collections on the Front Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/12_node-override-templates.html">Overriding a Single Page with a Node Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/996_addressing_sort_canvas_order_issues.html">Troubleshooting: Series Unified Manifest: Canvas Sort Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/997_redis-config.html">Redis Cache Configuration Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/998_add_url_alias.html">Add URL alias for a Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/9999_updating_archipelago_using_local.html">Archipelago 1.6.0 Upgrade Plan: Local Build, Lockfile Deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/999_jmes_path_tester.html">Testing JMES Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/cantaloupe_properties.html">Cantaloupe Configuration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/changing-branding.html">Changing Branding in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/troubleshooting.html">Troubleshooting Archipelago Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-viewer.html">Changing the template for a worktype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/removing-date-updated.html">Removing Date Updated from Search Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/webform.html">Modifying the Webform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/esmero-web.html">Migrating Using Esmero Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/innovation.html">Migrating Using Innovation Site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_avalon.html">Migrating Avalon Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_fedora.html">Migrating Fedora Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_oaktrust.html">Migrating OAKTrust Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/api-batch-upload.html">Importing media into Avalon via API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_importing_entities.html">Importing media into Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/avalon_template.html">Template for Avalon Batch Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/downloading_from_avalon.html">Downloading media from Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/generating_structures_from_csv.html">Generating Structures from CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/metadata.html">Avalon Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/pdf-creation.html">How to make a PDF transcript to upload to Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/remediating-failed-imports.html">Remediating Failed Imports in Avalon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avalon/troubleshooting.html">Troubleshooting Various Avalon Wonky-ness</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/dspace.html">DSPACE &amp; Oaktrust</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of DSPACE &amp; Oaktrust</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-entities.html">Understanding Our DSPACE Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace-importing-large-batches.html">Batch Importing SAFs Using the DSpace Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_9_testing.html">Features and Tests for DSPACE 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_batch_import.html">Batch Import into DSpace Using SAFCreator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_entities.html">DSPACE Entity Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_extending_embargos.html">DSPACE: Extending Embargos in DSpace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing.html">DSPACE: Importing Basic Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities.html">DSPACE: Importing Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_importing_entities_ojs.html">DSPACE: Importing Entities from OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/dspace_moving_collections_btw_communities.html">Moving Collections from One Community to Another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/oaktrust.html">OAKTrust and DSPACE Statistcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/rdfizing.html">RDFizing DSPACE Works to Generate Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dspace/reporting_500_errors.html">Reporting 500 Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/fedora.html">Fedora</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Fedora</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/creating-iiif-manifests.html">Creating IIIF Collections and Manifests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/fedora_solr.html">Understanding Solr Config in Fedora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/post-ingestion.html">Reindexing Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fedora/using-karaf.html">Using Karaf</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/ojs.html">OJS</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of OJS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="applying_for_issns.html">Registering ISSNs for Hosted Journals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minting_dois_in_ojs.html">Minting DOIs in OJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ojs34-editorial-workflow-tutorial.html">OJS 3.4 Editorial Workflow: Configuration &amp; Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ojs_and_doi_metadata.html">OJS and DOI Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onboarding_ojs_teams.html">1-Hour Journal Onboarding Checklist</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Teaching the OJS 3.5 Editorial Workflow (60 min)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/open-oni.html">Open ONI</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Open ONI</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../open-oni/batch-processing.html">How to Process a Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../open-oni/loading_and_purging_batches.html">Batches: Loading and Purging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../open-oni/open-oni-problems.html">Solving Open Oni Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/sage.html">SAGE</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of SAGE</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sage/delete-sage-solr-docs.html">Deleting Items from SAGE Solr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sage/sage-import.html">Importing media into SAGE - WITHOUT Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sage/sage_import.html">SAGE Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sage/solr6-vs-solr9.html">SAGE: Solr 6 versus Solr 9</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/spotlight_import.html">Spotlight</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Spotlight</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spotlight/browse-categories.html">Creating a Browse Category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spotlight/creating-an-exhibit.html">Creating and Modifying Exhibits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spotlight/troubleshooting-write-issues.html">Troubleshooting Write Issues</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other Services and Topics</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/accessibility.html">Accessibility</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Accessibility</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/accessibility/pdf_accessibility.html">PDF Accessibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/audio_derivatives.html">Audio: Creating Service Files for Streaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/generating_service_files.html">Images: Generating Service Files and Derivatives</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/identifiers.html">Identifiers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Identifiers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/00_doi_handle_ark.html">Persistent Identifiers: Handle vs. ARK vs. DOI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/crossref-doi-requirements.html">General Requirements for Crossref DOIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/doi-naming.html">Conventions for Structuring DOIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/doi_policy.html">DOI Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/minting_a_doi.html">Minting DOIs in Crossref</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/identifiers/minting_arks.html">Minting ARKs with EZID</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/iiif.html">IIIF</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of IIIF</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/adding-thumbnails.html">Adding a Thumbnail to a IIIF Manifest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/finding_iiif.html">Finding IIIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/fixing-broken-cache-from-ir-iiif-service.html">Fixing Broken Cache from IR IIIF Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/generating_iiif_collections.html">IIIF: Generating IIIF and IIIF Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/iiif/warming.html">Warming the IIIF Image Cache Before a Browsertrix Crawl</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/kube.html">Kubernetes and Docker</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Kubernetes and Docker</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/creating-an-ingress.html">Creating an Ingress in Rancher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/kubectl.html">Configuring and Using Kubectl to Access PODs without a Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/kube-and-docker/running_detached_processes_in_docker.html">Running Detached Processes in a Docker Container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/open_education_materials_and_ip.html">Open Education Materials and IP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/renaming_files_for_ts.html">Renaming Files from Preservation for Technology Services</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/statistics.html">Statistics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Statistics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/aggie-journals-dashboard.html">Aggie Journals Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/aggieland-through-time.html">Aggieland Through Time Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/instruction-stats.html">Instruction Stats: Choosing a Category</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/statistics/refanalytics.html">RefAnalytics: Classifying a Patron Interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/using_super_computer_for_gpu_needs.html">Using the Super Computer when we Need GPU</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_services/whisper.html">Whisper</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Whisper</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisper-transcripts.html">Making Transcripts with Whisper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisper-transcripts-cleanup.html">Cleaning a Whisper Transcript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../topics_and_services/whisper/whisperx-transcripts.html">Making Transcripts with WhisperX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_services/writing_documentation.html">How to Write Documentation on this website</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configurations and Mappings</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../config/cantaloupe_config.html">Cantloupe Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Crosswalking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/avalon-to-pdf.html">Crosswalking: Avalon to PDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/creating-ark.html">Creating ARKs with TAMU ID Minter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../crosswalking/marc-to-tamu-dc.html">Convert MARC Binary to TAMU DC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Digitization Backlog</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../digitization_areas/university-archives.html">University Archives</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of University Archives</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/441.html">College of Architecture and Environmental Design Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/502.html">Department of Mathematics Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/514.html">College of Liberal Arts Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/533.html">College of Education Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/562.html">College of Business Administration Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/564.html">College of Medicine Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/565.html">College of Engineering Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/595.html">College of Agriculture Animal Science Department Technical Reports and Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/596.html">Department of Agricultural Engineering Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/633.html">Department of Civil Engineering Newsletter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000285.html">Texas A&amp;M Commencement Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000291.html">Commencement Programs Collection - College of Medicine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000293.html">Commencement Programs Collection - College of Veterinary Medicine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/academics/c000652.html">Commencement Programs Collection - School of Public Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/1140.html">Texas A&amp;M System Board of Directors Minutes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/373.html">Texas A&amp;M System Board of Regents Agendas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/39.html">Office of Executive Vice President and Provost Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/annual_reports.html">Texas A&amp;M System Annual Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/admin/c000633.html">Thomas S. Gathright Letters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/122.html">Texas A&amp;M Photograph Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1331.html">Texas A&amp;M Athletic Media Guides and Programs - Track and Field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1334.html">Texas A&amp;M Athletic Media Guides - Aquatics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1338.html">Texas A&amp;M Athletic Media Guides - Spring Sports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1342.html">Texas A&amp;M Athletic Media Guides - Soccer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1455.html">Texas A&amp;M Athletic Media Guides - Women’s Basketball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1457.html">Texas A&amp;M Athletic and Event Ticket Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/146.html">Texas A&amp;M Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1467.html">Texas A&amp;M Athletic Programs - Baseball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1468.html">Texas A&amp;M Athletic Programs - Softball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1469.html">Texas A&amp;M Athletic Programs - Men’s Basketball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/15.html">E J. Kyle Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/1631.html">Texas A&amp;M Athletic Programs - Volleyball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/c000036.html">Texas A&amp;M Athletic Programs - Football</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/athletics/in00005672352.html">A trailblazing story and scrapbook, 50 years of memories : women’s athletics Texas A&amp;M University</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1019.html">Memorial Student Center (MSC) Scrapbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1180.html">W A. Tolson Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1223.html">F E. Giesecke Papers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1241.html">Texas A&amp;M Grade Reports Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1247.html">MSC Bookstore Promotional Cap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1396.html">D J. Finn ‘21 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1398.html">Edgar Petty Jennings Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1400.html">Allen Elmer Luddeke Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1417.html">Steven Simon, Jr. ‘22 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1421.html">Class of 1922 45th Class Reunion Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1422.html">Class of 1995 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1424.html">Texas A&amp;M College Social Events Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1425.html">W P. Trice Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1448.html">Joel Hunt Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1554.html">Texas A&amp;M Hillel Articles and Photographs Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1601.html">Louis A. Hartung ‘29 Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1624.html">Linda Keefer Elephant Walk Hat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/1625.html">Big Event T-Shirt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/700.html">March to the Brazos Photograph Album</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/702.html">Pfeuffer Hall Student Scrapbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/798.html">James T. Danklefs ‘43 Corregidor Muster Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000219.html">Cepheid Variable - AggieCon Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000281.html">Texas A&amp;M Student Government Association (SGA) Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000284.html">Texas A&amp;M Speeches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000286.html">Texas A&amp;M Dance and Banquet Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000380.html">Muster Stage Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000386.html">Fighting Aggie Band Collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/c000735.html">Texas A&amp;M Student Organization Constitutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00000140161.html">Official directory of the faculty, staff, and student body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00000730323.html">Official directory of the faculty, staff, and student body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../backlog/student_life/in00004042708.html">Directory of the officers, faculty and students of the Agricultural and Mechanical College of Texas : including the experiment station, the extension service</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DPMT Archived</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dpmt/06_workflow.html">Digital Projects that Require Digitization Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dpmt/dpmt_process.html">DPMT Workflow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Archived</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/05_projects.html">Archived - Projects</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/applications/ojs/teaching-3.5-workflow.rst?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/applications/ojs/teaching-3.5-workflow.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="teaching-the-ojs-3-5-editorial-workflow-60-min">
+<h1>Teaching the OJS 3.5 Editorial Workflow (60 min)<a class="headerlink" href="#teaching-the-ojs-3-5-editorial-workflow-60-min" title="Link to this heading">¶</a></h1>
+<section id="session-at-a-glance">
+<h2>Session at a glance<a class="headerlink" href="#session-at-a-glance" title="Link to this heading">¶</a></h2>
+<p>One pre-staged test submission carries the whole hour: attendees watch it move
+from Submission to Published, then practice on scenarios.</p>
+<p><strong>Audience:</strong> journal editors and section editors (copyeditors and layout
+editors welcome). <strong>Goal:</strong> by the end, each attendee can find their
+submissions on the 3.5 dashboard, take a submission through one review round,
+and know where copyediting and production happen. <strong>Out of scope:</strong> journal
+settings, user management beyond invitations, and theming.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12.0%" />
+<col style="width: 28.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Block</p></th>
+<th class="head"><p>What attendees leave with</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0–10</p></td>
+<td><p>Orientation</p></td>
+<td><p>The four stages and the new 3.5 dashboard</p></td>
+</tr>
+<tr class="row-odd"><td><p>10–20</p></td>
+<td><p>Submission stage</p></td>
+<td><p>Assigning an editor, discussions, sending to review</p></td>
+</tr>
+<tr class="row-even"><td><p>20–35</p></td>
+<td><p>Review stage</p></td>
+<td><p>Adding reviewers, reading reviews, recording a decision</p></td>
+</tr>
+<tr class="row-odd"><td><p>35–45</p></td>
+<td><p>Copyediting and Production</p></td>
+<td><p>Galleys, DOIs, scheduling for an issue</p></td>
+</tr>
+<tr class="row-even"><td><p>45–55</p></td>
+<td><p>Scenarios</p></td>
+<td><p>Finding the right action under pressure</p></td>
+</tr>
+<tr class="row-odd"><td><p>55–60</p></td>
+<td><p>Wrap-up</p></td>
+<td><p>Where to get help afterward</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="before-the-session">
+<h2>Before the session<a class="headerlink" href="#before-the-session" title="Link to this heading">¶</a></h2>
+<p>Start prep at least a week out: in 3.5, Journal Editors can no longer assign
+roles without sending an invitation the user must accept, so dummy accounts
+depend on someone clicking email links. Only Site Administrators (TDL, for our
+instance) can edit user details directly.</p>
+<p><strong>1. Get a sandbox journal.</strong> Ask TDL for a test journal on the 3.5 instance,
+or use a real journal with clearly labeled TEST submissions you delete
+afterward. Confirm the instance sends email, since invitations depend on it.</p>
+<p><strong>2. Create the cast.</strong> Use mailboxes you control (shared or departmental
+addresses work well). For each, go to Settings &gt; Users &amp; Roles &gt; Invite to a
+Role, search to confirm no existing account, enter the name and role, then
+Save and Continue &gt; Invite user to the role. Accept each invite from its
+mailbox.</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 25.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Account</p></th>
+<th class="head"><p>Role</p></th>
+<th class="head"><p>Used in</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ed Itor</p></td>
+<td><p>Journal Editor</p></td>
+<td><p>All blocks (your main view)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sam Section</p></td>
+<td><p>Section Editor</p></td>
+<td><p>Submission stage assignment</p></td>
+</tr>
+<tr class="row-even"><td><p>Ana Author</p></td>
+<td><p>Author</p></td>
+<td><p>Submitting, revisions, author’s view</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rev One</p></td>
+<td><p>Reviewer</p></td>
+<td><p>Review stage</p></td>
+</tr>
+<tr class="row-even"><td><p>Rev Two</p></td>
+<td><p>Reviewer</p></td>
+<td><p>Review stage, declined-review scenario</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cory Copy</p></td>
+<td><p>Copyeditor</p></td>
+<td><p>Copyediting stage</p></td>
+</tr>
+<tr class="row-even"><td><p>Lee Layout</p></td>
+<td><p>Layout Editor</p></td>
+<td><p>Production stage</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>3. Pre-stage four submissions</strong> (as Ana Author, using Start a New
+Submission), each with an obviously fake title:</p>
+<ol class="arabic simple">
+<li><p><strong>“TEST A”</strong> left in the Submission stage, unassigned (you assign it live).</p></li>
+<li><p><strong>“TEST B”</strong> sent to Review with Rev One and Rev Two assigned; complete Rev
+One’s review ahead of time so there is something to read.</p></li>
+<li><p><strong>“TEST C”</strong> in Copyediting, with a draft file and a Copyeditor assigned.</p></li>
+<li><p><strong>“TEST D”</strong> in Production, with a PDF ready to upload as a galley, plus a
+future issue created to schedule it into.</p></li>
+</ol>
+<p><strong>4. Set up the screen.</strong></p>
+<ul class="simple">
+<li><p>☐ Two browser profiles: one logged in as Ed Itor, one as Ana Author or a
+reviewer, to show both sides of a handoff. As a Journal Manager you can also
+use <strong>Login As</strong> from the Participants menu, but every action taken that way
+is logged.</p></li>
+<li><p>☐ Zoom the browser to 125% so the dashboard reads on a projector.</p></li>
+<li><p>☐ Start the recording.</p></li>
+<li><p>☐ Open the PKP editorial workflow guide in a tab for the wrap-up.</p></li>
+</ul>
+</section>
+<section id="block-1-010-min-orientation">
+<h2>Block 1 (0–10 min): Orientation<a class="headerlink" href="#block-1-010-min-orientation" title="Link to this heading">¶</a></h2>
+<p>The point to land: four stages, and the 3.5 dashboard is a set of filtered
+views over them. Navigation changed in 3.5; the stages did not.</p>
+<ol class="arabic simple">
+<li><p><strong>Draw the lifecycle</strong> (whiteboard or one slide): Submission → Review →
+Copyediting → Production → Scheduled → Published, with Declined branching
+off Submission and Review. Say once: any stage can be skipped (for example,
+Accept and Skip Review).</p></li>
+<li><p><strong>Log in as Ed Itor</strong> and open the Dashboard from the user menu. It opens on
+<strong>Assigned to Me</strong>.</p></li>
+<li><p><strong>Walk the columns:</strong> ID, Submission, Stage, Days (time in the current
+stage), Editorial Activity, Actions (View).</p></li>
+<li><p><strong>Point out the stage dots.</strong> Name each status: Incomplete, Submission,
+Review (with round number), Copyediting, Production, Scheduled for
+Publication, Published, Declined.</p></li>
+<li><p><strong>Click through the views</strong> in the left menu and watch the counts. Mention
+that Needs Editor and Declined are only visible at Journal Manager level;
+Section Editors see only their own declines.</p></li>
+<li><p><strong>Search and filter.</strong> Search for “TEST” to show all four submissions, then
+open Filters and show Sections and Days Since Last Activity. Tip for
+editors: Days Since Last Activity is the fastest way to find stalled items.</p></li>
+<li><p><strong>Show the bell icon</strong> (Tasks), top right. Mention the weekly email summary
+of items needing action.</p></li>
+<li><p><strong>Open TEST A with View</strong> and name the three columns of the submission
+record:</p>
+<ul class="simple">
+<li><p>Left: the <strong>Workflow</strong> menu (the four stages) and the <strong>Publication</strong> menu
+(title, metadata, galleys, issue).</p></li>
+<li><p>Center: stage status, <strong>Files</strong>, and <strong>Discussions</strong>.</p></li>
+<li><p>Right: <strong>action buttons</strong> (decisions) and <strong>Participants</strong>.</p></li>
+<li><p>Top right: <strong>Activity Log</strong> (with editor-only Notes) and <strong>Library</strong>.</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Say this:</strong> “If you get lost, the left menu tells you where you
+are, the right column tells you what you can do.”</p>
+</div>
+<p><strong>3.4 users will ask:</strong> Workflow and Publication used to be tabs across the
+top; they now sit in the left menu. Deleting Incomplete submissions is new
+(three dots next to Filter &gt; Delete Incomplete Submissions).</p>
+</section>
+<section id="block-2-1020-min-submission-stage">
+<h2>Block 2 (10–20 min): Submission stage<a class="headerlink" href="#block-2-1020-min-submission-stage" title="Link to this heading">¶</a></h2>
+<p>The point to land: nothing happens until an editor is a participant; then
+three buttons decide the submission’s path.</p>
+<p><strong>Demo on TEST A (unassigned):</strong></p>
+<ol class="arabic simple">
+<li><p>Open TEST A. Note the right column has no decision buttons yet, because no
+editor is assigned.</p></li>
+<li><p>Explain automatic assignment in one breath: if the journal has one editor,
+or editors assigned to the section or category, OJS assigns and notifies
+them automatically. Unassigned items show in the <strong>Needs Editor</strong> view.</p></li>
+<li><p>In <strong>Participants</strong>, click <strong>Assign</strong>. Search by role, choose Section
+Editor, and point out the count of submissions already assigned to each
+person (useful for balancing workload).</p></li>
+<li><p>Select Sam Section. Show the two choices that matter:</p>
+<ul class="simple">
+<li><p>Can <strong>record</strong> a decision vs. can only <strong>recommend</strong> one.</p></li>
+<li><p>Can or cannot <strong>edit publication details</strong>.</p></li>
+</ul>
+</li>
+<li><p>Keep the default email template, click <strong>OK</strong>. Sam now appears in
+Participants.</p></li>
+<li><p>Point out that a <strong>Pre-Review Discussion</strong> was created automatically.</p></li>
+<li><p><strong>Add a discussion:</strong> click Add discussion, pick Ana Author as participant,
+choose the generic Discussion template, write “Please confirm the figures
+are your own,” and click <strong>OK</strong>.</p></li>
+<li><p>Switch to the author browser and show Ana sees the discussion. Reply as Ana
+with <strong>Add Message</strong>.</p></li>
+<li><p>Back as Ed Itor, show the three action buttons and explain each:</p>
+<ul class="simple">
+<li><p><strong>Send to Review</strong>: moves to the Review stage; you choose which files
+reviewers get.</p></li>
+<li><p><strong>Accept and Skip Review</strong>: jumps straight to Copyediting (editorials,
+book reviews).</p></li>
+<li><p><strong>Decline Submission</strong>: desk reject; reversible with <strong>Revert Decline</strong>.</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Send to Review</strong>, check the files reviewers should see, and click
+<strong>OK</strong>. TEST A’s stage dot changes on the dashboard.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Say this:</strong> “Discussions are the paper trail. Replying to the
+notification email from your inbox does not log anything in OJS. Reply in
+the Discussions panel.”</p>
+</div>
+</section>
+<section id="block-3-2035-min-review-stage">
+<h2>Block 3 (20–35 min): Review stage<a class="headerlink" href="#block-3-2035-min-review-stage" title="Link to this heading">¶</a></h2>
+<p>The point to land: assign reviewers, watch the icons, confirm each review,
+then record one decision. This block gets the most time because it is where
+editors get stuck.</p>
+<p><strong>Part 1, assign a reviewer (live, on TEST A, now in Review):</strong></p>
+<ol class="arabic simple">
+<li><p>On the dashboard, open the <strong>Needs reviewers</strong> view. TEST A is there with
+an <strong>Assign Reviewers</strong> button in Editorial Activity.</p></li>
+<li><p>Click it. Walk the reviewer list: affiliation, active reviews, days since
+last assigned. Mention that author-suggested reviewers appear here too (new
+in 3.5).</p></li>
+<li><p>Click the blue arrow beside a reviewer to show their history and interests.</p></li>
+<li><p>Point to the bottom of the list: <strong>Create New Reviewer</strong> (no account yet)
+and <strong>Enroll Existing User</strong> (has an account, not a reviewer).</p></li>
+<li><p><strong>Select Reviewer</strong> on Rev One. In the request window, set the <strong>Response
+Due Date</strong> and <strong>Review Due Date</strong>, open <strong>Files to be Reviewed</strong>, and
+confirm the review type.</p></li>
+<li><p><strong>Anonymity check:</strong> if the review is Anonymous Reviewer/Anonymous Author,
+select only anonymized files. OJS hides names in the system, but not inside
+the Word file or its document properties.</p></li>
+<li><p>Click <strong>Add Reviewer</strong>.</p></li>
+</ol>
+<p><strong>Part 2, read the dashboard icons (switch to TEST B):</strong></p>
+<ol class="arabic simple" start="8">
+<li><p>Open the <strong>Awaiting reviews</strong> and <strong>Reviews submitted</strong> views and read TEST
+B’s Editorial Activity icons aloud.</p></li>
+</ol>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Icon</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Yellow circle with number</p></td>
+<td><p>Days left to respond to the request</p></td>
+</tr>
+<tr class="row-odd"><td><p>Outlined red circle</p></td>
+<td><p>Response overdue by that many days</p></td>
+</tr>
+<tr class="row-even"><td><p>Outlined blue circle</p></td>
+<td><p>Review in progress; days until due</p></td>
+</tr>
+<tr class="row-odd"><td><p>Filled red circle</p></td>
+<td><p>Review overdue by that many days</p></td>
+</tr>
+<tr class="row-even"><td><p>Pink circle with slash</p></td>
+<td><p>Reviewer declined</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pink circle with X</p></td>
+<td><p>Review cancelled</p></td>
+</tr>
+<tr class="row-even"><td><p>Green mail</p></td>
+<td><p>Review submitted; editor must confirm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green checkmark</p></td>
+<td><p>Review confirmed by an editor</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Part 3, read and confirm a review (TEST B):</strong></p>
+<ol class="arabic simple" start="9">
+<li><p>In the Reviewers panel, click <strong>Read Review</strong> beside Rev One. Show the
+recommendation and comments.</p></li>
+<li><p>Click <strong>Confirm</strong> at the bottom. Show the follow-ups that appear: <strong>Thank
+Reviewer</strong> and <strong>Revert Decision</strong>.</p></li>
+<li><p>Open the three-dots menu on Rev Two to show Email Reviewer, Edit (change
+due dates), and Cancel/Unassign Reviewer.</p></li>
+</ol>
+<p><strong>Part 4, record a decision (TEST B):</strong></p>
+<ol class="arabic simple" start="12">
+<li><p>Show the four action buttons: <strong>Request Revisions</strong>, <strong>Accept
+Submission</strong>, <strong>Create New Review Round</strong>, <strong>Decline Submission</strong>.</p></li>
+<li><p>Click <strong>Request Revisions</strong>. Choose whether the revision needs a new
+review round, edit the author email, optionally notify reviewers, and
+click <strong>Record Decision</strong>.</p></li>
+<li><p>Switch to the author browser. Show Ana’s view of the revision request and
+where she uploads the revised file.</p></li>
+<li><p>Back as Ed Itor, show the revised file under <strong>Revisions</strong>. Explain the
+next move is a new round, or <strong>Accept Submission</strong>, which sends it to
+Copyediting.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Say this:</strong> “Open a new review round only after the author uploads
+revisions. Otherwise the author may upload into the wrong round.”</p>
+</div>
+</section>
+<section id="block-4-3545-min-copyediting-and-production">
+<h2>Block 4 (35–45 min): Copyediting and Production<a class="headerlink" href="#block-4-3545-min-copyediting-and-production" title="Link to this heading">¶</a></h2>
+<p>The point to land: Copyediting turns a draft file into a copyedited file;
+Production turns that into galleys, checks the metadata, and schedules the
+article into an issue. Move briskly; most journals have one person doing both.</p>
+<p><strong>Copyediting (TEST C, about 4 minutes):</strong></p>
+<ol class="arabic simple">
+<li><p>Open the <strong>All in copyediting</strong> view and open TEST C.</p></li>
+<li><p>Show the two file panels: <strong>Draft Files</strong> (what came out of review) and
+<strong>Copyedited Files</strong> (the finished version).</p></li>
+<li><p>Point out Cory Copy in Participants. Assigning works exactly like assigning
+an editor: <strong>Assign</strong>, role Copyeditor, <strong>Search</strong>, <strong>OK</strong>. Assigning opens
+a discussion with the request.</p></li>
+<li><p>In <strong>Copyedited Files</strong>, click <strong>Upload/Select Files</strong>. Show the three
+options: upload a new file, select the draft unchanged, or select a file
+from a discussion. Check the file and click <strong>OK</strong>.</p></li>
+<li><p>Click <strong>Send to Production</strong>, keep the author email, confirm the copyedited
+files are selected, and click <strong>Record Decision</strong>.</p></li>
+</ol>
+<p><strong>Production (TEST D, about 6 minutes):</strong></p>
+<ol class="arabic simple" start="6">
+<li><p>Open TEST D from <strong>All in production</strong>. Show <strong>Production Ready Files</strong> and
+Lee Layout in Participants.</p></li>
+<li><p>In the left <strong>Publication</strong> menu, open <strong>Galleys</strong> &gt; <strong>Add galley</strong>. Label
+it PDF, choose the language, click <strong>Save</strong>, upload the PDF, and click
+<strong>Complete</strong>.</p></li>
+<li><p>Click <strong>Preview</strong> (top right) to show the article page as readers will see
+it.</p></li>
+<li><p>Walk the rest of the Publication menu in one pass: Title &amp; Abstract,
+Contributors, Metadata, References, JATS XML (new in 3.5, if your journals
+publish XML), Permissions &amp; Disclosure, Issue. Remind people to click
+<strong>Save</strong> on each page.</p></li>
+<li><p><strong>DOIs:</strong> if the journal uses Crossref, show the <strong>DOIs</strong> item in the left
+sidebar. Filter by <strong>Needs DOI</strong>, check TEST D, and use <strong>Bulk Actions</strong> &gt;
+Assign DOIs. Mention that Deposit is a separate step (Bulk Actions &gt;
+Deposit DOIs) unless automatic depositing is on.</p></li>
+<li><p>Click <strong>Schedule for Publication</strong>, choose the future issue you created in
+prep, and click <strong>Save</strong>. TEST D now shows Scheduled on the dashboard.</p></li>
+<li><p>Close the loop: in the left sidebar, open <strong>Issues</strong> &gt; Future Issues,
+click the blue arrow on that issue, and show <strong>Preview</strong> and <strong>Publish
+Issue</strong>. Do not click Publish Issue on a live journal.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Say this:</strong> “Once an article is published, small fixes mean
+Unpublish, fix, reschedule. Substantive changes, like a correction or
+retraction, mean Create New Version. And OJS won’t push metadata changes to
+Crossref on its own; you redeposit.”</p>
+</div>
+</section>
+<section id="block-5-4555-min-scenarios">
+<h2>Block 5 (45–55 min): Scenarios<a class="headerlink" href="#block-5-4555-min-scenarios" title="Link to this heading">¶</a></h2>
+<p>Read each scenario aloud and have attendees say (or, in a hands-on room,
+click) where they would go. Aim for 2 minutes each; skip the last ones if time
+runs short.</p>
+<dl class="simple">
+<dt><strong>1. A reviewer hasn’t answered the request, and it’s past the response date.</strong></dt><dd><p>On the dashboard you’ll see an outlined red circle. Click it to send a
+reminder or adjust the due date, or use the reviewer’s three-dots menu &gt;
+Unassign Reviewer, then add someone else.</p>
+</dd>
+<dt><strong>2. A reviewer declined.</strong></dt><dd><p>Pink circle with a slash. Open the submission &gt; Reviewers &gt; <strong>Add
+Reviewer</strong> and assign a replacement. To try the same person again, use
+<strong>Reinstate Reviewer</strong>; they must accept the new invitation.</p>
+</dd>
+<dt><strong>3. You declined a submission by mistake.</strong></dt><dd><p>Open the <strong>Declined</strong> view (Journal Manager level), open the submission,
+and click <strong>Revert Decline</strong>. It returns to its previous stage.</p>
+</dd>
+<dt><strong>4. The author replied to the OJS email from Outlook, and you can’t find the message in OJS.</strong></dt><dd><p>Inbox replies aren’t logged. Ask the author to reply in the Discussions
+panel, or paste the reply into a discussion yourself so the record is
+complete.</p>
+</dd>
+<dt><strong>5. An editorial or book review doesn’t need peer review.</strong></dt><dd><p>In the Submission stage, use <strong>Accept and Skip Review</strong>.</p>
+</dd>
+<dt><strong>6. A typo in a published article’s abstract.</strong></dt><dd><p>Publication menu &gt; <strong>Unpublish</strong>, fix it, <strong>Save</strong>, then <strong>Schedule for
+Publication</strong> again. If it has a DOI, redeposit the metadata from the DOIs
+page.</p>
+</dd>
+<dt><strong>7. Which submissions have stalled?</strong></dt><dd><p>Any dashboard view &gt; <strong>Filters</strong> &gt; Days Since Last Activity. Editors also
+get a weekly email listing copyediting and production items inactive for 30
+or more days.</p>
+</dd>
+<dt><strong>8. A colleague needs to join the editorial team.</strong></dt><dd><p>Settings &gt; Users &amp; Roles &gt; <strong>Invite to a Role</strong>. They must accept the
+emailed invitation before you can assign them. If they never receive it,
+the fix goes to the Site Administrator (TDL).</p>
+</dd>
+</dl>
+</section>
+<section id="block-6-5560-min-wrap-up">
+<h2>Block 6 (55–60 min): Wrap-up<a class="headerlink" href="#block-6-5560-min-wrap-up" title="Link to this heading">¶</a></h2>
+<p>End on where to get help, not on a recap.</p>
+<ol class="arabic simple">
+<li><p>Put the lifecycle diagram back up and ask: “Which stage do you expect to
+spend the most time in?” Take one or two answers.</p></li>
+<li><p>Share the leave-behinds (paste these in the chat or the follow-up email):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.pkp.sfu.ca/learning-ojs/editorial-workflow/en/">Learning OJS 3.5: The Editorial Workflow</a>, for
+editors, copyeditors, and layout editors</p></li>
+<li><p><a class="reference external" href="https://docs.pkp.sfu.ca/learning-ojs/reviewer/en/">Learning OJS 3.5 for Reviewers</a> and <a class="reference external" href="https://docs.pkp.sfu.ca/learning-ojs/author/en/">for Authors</a>, to forward to their
+reviewers and authors</p></li>
+<li><p><a class="reference external" href="https://docs.pkp.sfu.ca/learning-ojs/about-ojs/en/">About OJS 3.5</a>,
+including what changed in 3.5</p></li>
+<li><p>The session recording</p></li>
+</ul>
+</li>
+<li><p>Tell them who to contact: the library for workflow and journal setup
+questions; TDL (through the library) for account, email, and invitation
+problems.</p></li>
+<li><p>Take questions until time.</p></li>
+</ol>
+<p><strong>After the session:</strong></p>
+<ul class="simple">
+<li><p>☐ Delete or decline the TEST submissions, or ask TDL to remove the test
+journal.</p></li>
+<li><p>☐ Send the follow-up email with links and the recording.</p></li>
+<li><p>☐ Note the questions you couldn’t answer; they’re your FAQ for next time.</p></li>
+</ul>
+</section>
+<section id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>PKP, <a class="reference external" href="https://docs.pkp.sfu.ca/learning-ojs/editorial-workflow/en/">Learning OJS 3.5: The Editorial Workflow</a> (dashboard,
+submission, review, copyediting, production, and publication chapters)</p></li>
+<li><p>PKP, <a class="reference external" href="https://docs.pkp.sfu.ca/learning-ojs/journal-managers/en/">Learning OJS 3.5 for Journal Managers</a> (inviting
+users, DOIs)</p></li>
+<li><p>PKP, <a class="reference external" href="https://pkp.sfu.ca/2025/06/16/350-release-announcement/">OJS 3.5.0 release announcement</a></p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../workflows/open-oni.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Open ONI</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="onboarding_ojs_teams.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">1-Hour Journal Onboarding Checklist</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Texas A&amp;M Libraries - Digital Collections Services
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Teaching the OJS 3.5 Editorial Workflow (60 min)</a><ul>
+<li><a class="reference internal" href="#session-at-a-glance">Session at a glance</a></li>
+<li><a class="reference internal" href="#before-the-session">Before the session</a></li>
+<li><a class="reference internal" href="#block-1-010-min-orientation">Block 1 (0–10 min): Orientation</a></li>
+<li><a class="reference internal" href="#block-2-1020-min-submission-stage">Block 2 (10–20 min): Submission stage</a></li>
+<li><a class="reference internal" href="#block-3-2035-min-review-stage">Block 3 (20–35 min): Review stage</a></li>
+<li><a class="reference internal" href="#block-4-3545-min-copyediting-and-production">Block 4 (35–45 min): Copyediting and Production</a></li>
+<li><a class="reference internal" href="#block-5-4555-min-scenarios">Block 5 (45–55 min): Scenarios</a></li>
+<li><a class="reference internal" href="#block-6-5560-min-wrap-up">Block 6 (55–60 min): Wrap-up</a></li>
+<li><a class="reference internal" href="#sources">Sources</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
