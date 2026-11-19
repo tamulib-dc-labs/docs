@@ -1,0 +1,342 @@
+SA-CORE-2026-017 Security Patch: Drupal 10.6.22 and format_strawberryfield
+==========================================================================
+
+:Date: 2026-11-19
+:Author: Mark Baggett
+:Status: Planned
+:Applies to: Archipelago 1.6.0 on Kubernetes (namespace ``archipelago``)
+
+Summary
+-------
+
+On 2026-11-19 the Drupal Security Team published **SA-CORE-2026-017**, a
+critical remote code execution vulnerability in Drupal core. Under certain
+conditions an attacker can use ``core/install.php`` to try to reinstall
+Drupal on an already-installed site, which can lead to site takeover or
+remote code execution. Every Drupal 10 version below **10.6.22** is affected.
+
+On the same day Diego Pino (Archipelago Slack) announced a separate,
+required security update to ``strawberryfield/format_strawberryfield``,
+back-patched to the 1.4.0, 1.5.0, 1.6.0 and 1.7.0 branches.
+
+Upgrading core also triggers a known Drush 13 problem: the newest Drush 13
+pulls in a ``consolidation/robo`` release that needs Symfony Console 7.4,
+which Drupal 10.6 doesn't have. Pinning ``consolidation/robo:5.x-dev``
+works around it (Drush issue #6665).
+
+This is a **patch release**, not a minor-version upgrade. It uses a slimmed
+version of the :doc:`9999_updating_archipelago_using_local` runbook: the same
+safety rails, with less rehearsal.
+
+What changes
+------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 35 30 35
+
+   * - Package
+     - Before
+     - After
+   * - ``drupal/core-recommended`` (plus scaffold and project-message)
+     - 10.6.19
+     - 10.6.22
+   * - ``strawberryfield/format_strawberryfield``
+     - 1.6.0.x-dev ``b0fb34d``
+     - 1.6.0.x-dev (newer, patched commit)
+   * - ``consolidation/robo``
+     - pulled in by Drush 13
+     - ``5.x-dev`` (temporary pin)
+   * - ``drush/drush``
+     - 13.x-dev
+     - 13.x-dev (unchanged major)
+
+Starting state (checked 2026-11-19)
+-----------------------------------
+
+.. code-block:: console
+
+   $ kubectl -n archipelago exec -it <php-pod> -- bash -c "drush status --field=drupal-version; ..."
+   10.6.19
+   versions : * 13.x-dev                        # drush/drush
+   versions : * 1.6.0.x-dev                     # format_strawberryfield
+   source   : [git] ... b0fb34d9b13e894f702a7dd77d9aa3d415ecfab6
+
+   $ ... composer show drupal/core-dev
+   core-dev not installed
+
+Conclusions:
+
+* Drupal 10.6.19 is vulnerable, so the core upgrade is required.
+* Drush 13 is installed, so the Robo pin is required.
+* ``drupal/core-dev`` isn't installed, so skip the ``core-dev`` require.
+* format_strawberryfield 1.6.0 is on a back-patched branch and needs only
+  ``composer update``.
+
+Shared variables
+----------------
+
+All production commands below assume:
+
+.. code-block:: bash
+
+   NS=archipelago
+   POD=$(kubectl -n $NS get pods -o name | grep esmero-php | head -1 | cut -d/ -f2)
+   echo $POD
+
+Phase 0: Immediate mitigation (do first, today)
+-----------------------------------------------
+
+Block the installer at the edge. This stops the known attack path while
+the patch is tested, and the advisory recommends keeping it after the upgrade.
+
+If the ingress is ingress-nginx and snippet annotations are allowed, add this
+to the Archipelago ingress:
+
+.. code-block:: yaml
+
+   metadata:
+     annotations:
+       nginx.ingress.kubernetes.io/server-snippet: |
+         location = /core/install.php { return 403; }
+
+If snippets are disabled on the cluster (the default on newer
+ingress-nginx), add the same ``location`` block to the ``esmero-web``
+nginx config instead.
+
+Verify:
+
+.. code-block:: bash
+
+   curl -s -o /dev/null -w "%{http_code}\n" https://<archipelago-host>/core/install.php
+   # expect 403
+
+Also run the HTTP/2 check Diego shared (prompted by a separate alert):
+
+.. code-block:: bash
+
+   curl -I --http2 -s https://<archipelago-host> | grep -i "HTTP/"
+
+Archipelago's standard setup ships with HTTP/2 disabled (HTTP/1.1). If this
+returns ``HTTP/2``, the ingress has it on. Confirm with Diego before
+changing it cluster-wide (ingress-nginx: ``use-http2: "false"`` in the
+controller ConfigMap).
+
+Phase 1: Prep from production (read-only)
+-----------------------------------------
+
+#. Copy the composer files off the pod:
+
+   .. code-block:: bash
+
+      mkdir -p ~/prod-composer
+      kubectl -n $NS cp $POD:/var/www/html/composer.json ~/prod-composer/composer.json
+      kubectl -n $NS cp $POD:/var/www/html/composer.lock ~/prod-composer/composer.lock
+
+#. Record the PHP version and pending updates:
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "php -v; drush updatedb:status"
+
+#. Check whether ``require-dev`` in ``composer.json`` is empty. That decides
+   whether ``--no-dev`` is safe in Phase 3.
+
+Phase 2: Local test (Docker)
+----------------------------
+
+Run this in a local ``archipelago-deployment`` checkout using the same PHP
+version as production. The Drupal root is ``drupal/``, mounted at
+``/var/www/html`` in ``esmero-php``.
+
+#. Swap in production's composer files and install:
+
+   .. code-block:: bash
+
+      cp drupal/composer.json drupal/composer.json.bak
+      cp drupal/composer.lock drupal/composer.lock.bak
+      cp ~/prod-composer/composer.* drupal/
+      docker compose up -d
+      docker exec -ti esmero-php bash -c "composer install && drush status --field=drupal-version"
+      # expect 10.6.19
+
+   Production's lockfile already includes the custom modules
+   (``drupal/google_tag``, ``drupal/saml_sp``), so no separate require step
+   is needed.
+
+#. Optional, recommended: load a production database dump so ``updatedb``
+   runs against real data:
+
+   .. code-block:: bash
+
+      mysqldump -h <prod-db-host> -u <user> -p <dbname> > prod.sql
+      docker exec -i esmero-db mysql -u root -p<localpass> <dbname> < prod.sql
+
+   Files are in production S3, so images won't load locally. That's expected.
+
+#. Run the targeted upgrade. Pin exact versions and don't run a broad
+   ``composer update``:
+
+   .. code-block:: bash
+
+      docker exec -ti esmero-php bash -c "composer require \
+        drupal/core-recommended:10.6.22 \
+        drupal/core-composer-scaffold:10.6.22 \
+        drupal/core-project-message:10.6.22 \
+        consolidation/robo:5.x-dev -W \
+        && composer update strawberryfield/format_strawberryfield"
+
+      docker exec -ti esmero-php bash -c "drush updatedb -y && drush cr && drush status --field=drupal-version"
+
+#. Check:
+
+   * ``drush status`` reports **10.6.22** and drush runs with no
+     ``undefined method addCommand`` error.
+   * ``git diff drupal/composer.lock`` shows ``format_strawberryfield`` moved
+     off ``b0fb34d``, and no unexpected packages changed.
+   * The site loads, login works, and an object page renders.
+
+#. Keep the tested ``drupal/composer.json`` and ``drupal/composer.lock``,
+   then restore the ``.bak`` files to reset the local checkout.
+
+Optional: if dev Kubernetes already matches production, run Phase 3 there
+first with the same files. For a critical security patch, skip the full
+timing and rollback drill from the main runbook.
+
+Phase 3: Production cutover
+---------------------------
+
+Code lives on the ``archipelago`` PVC (``/var/www/html``), so changes made
+through ``kubectl exec`` persist across pod restarts.
+
+#. **Maintenance mode on:**
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "drush state:set system.maintenance_mode 1 && drush cr"
+
+#. **Back up** (code and database must be restorable together):
+
+   * Snapshot the ``archipelago`` PVC (VolumeSnapshot or ONTAP snapshot).
+     At minimum, keep the current ``composer.json`` and ``composer.lock``
+     (already in ``~/prod-composer``).
+   * Dump or snapshot the external database.
+
+#. **Copy in the tested files:**
+
+   .. code-block:: bash
+
+      kubectl -n $NS cp drupal/composer.json $POD:/var/www/html/composer.json
+      kubectl -n $NS cp drupal/composer.lock $POD:/var/www/html/composer.lock
+
+#. **Loosen permissions** so core scaffold can rewrite files in
+   ``sites/default``:
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "chmod u+w /var/www/html/web/sites/default /var/www/html/web/sites/default/settings.php"
+
+#. **Install.** Add ``--no-dev`` only if ``require-dev`` was empty in Phase 1:
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "cd /var/www/html && composer install"
+
+#. **Update the database**, protected against a dropped session:
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "nohup drush updatedb -y > /tmp/updb.log 2>&1 &"
+      kubectl -n $NS exec $POD -- tail -f /tmp/updb.log   # wait for completion
+      kubectl -n $NS exec $POD -- drush cr
+
+#. **Restore and harden permissions.** This also applies the advisory's
+   settings.php mitigation:
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "chmod 444 /var/www/html/web/sites/default/settings.php && chmod 555 /var/www/html/web/sites/default"
+
+   Make sure ``settings.php`` isn't owned by the web server user.
+
+#. **Smoke test:**
+
+   * ``drush status --field=drupal-version`` returns ``10.6.22``.
+   * SAML login works.
+   * An object page renders, with IIIF manifest and Cantaloupe images.
+   * Search and facets work.
+   * AMI loads.
+   * ``/core/install.php`` returns 403.
+
+#. **Maintenance mode off:**
+
+   .. code-block:: bash
+
+      kubectl -n $NS exec $POD -- bash -c "drush state:set system.maintenance_mode 0 && drush cr"
+
+#. **Report back:** add the emoji to Diego's 1:03 PM Slack message
+   confirming the format_strawberryfield update.
+
+#. **Commit** the new ``composer.json`` and ``composer.lock`` wherever
+   deployment config is kept.
+
+Rollback
+--------
+
+Roll back if ``composer install`` or ``drush updatedb`` fails, or the smoke
+test finds a blocking problem. Code and database must return together.
+
+#. Keep the site in maintenance mode.
+#. Restore the external database from the Phase 3 dump or snapshot.
+#. Restore code, either by:
+
+   * reverting the ``archipelago`` PVC to its snapshot, or
+   * copying back ``~/prod-composer/composer.*`` and running
+     ``composer install``.
+
+#. Run ``drush cr``, smoke test, then turn maintenance mode off.
+
+Even after a rollback, **leave the Phase 0 install.php block in place**.
+The site is still vulnerable until the upgrade succeeds.
+
+Follow-ups
+----------
+
+* **Robo pin:** ``consolidation/robo:5.x-dev`` is a development branch.
+  Once Robo tags a release with the fix, or Drush adds a conflict rule,
+  move back to a tagged version.
+* **Keep the install.php block** permanently. Diego's view is that the core
+  patch is fairly weak, and ``install.php`` should be fully disabled on an
+  installed site.
+* **Drupal 11:** the Robo issue doesn't affect Drupal 11 or Drush 12. Keep
+  this in mind when planning the D11 move.
+* **Process:** this run is the template for future Drupal security
+  advisories on a patch release: block at the edge, test locally from the
+  production lockfile with pinned versions, then cut over with maintenance
+  mode, a snapshot, and a smoke test.
+
+Outcome
+-------
+
+*Fill in after the cutover.*
+
+:Completed:
+:Downtime:
+:Issues:
+:Final versions:
+
+References
+----------
+
+* Drupal security advisory SA-CORE-2026-017:
+  https://www.drupal.org/sa-core-2026-017
+* Drupal 10.6.22 tag:
+  https://git.drupalcode.org/project/drupal/-/commits/10.6.22?ref_type=tags
+* Core fix commit:
+  https://git.drupalcode.org/project/drupal/-/commit/b5c1f46ddac59f9eda682002ae97d0603b0ed58a
+* Drush issue #6665 (Robo 5.2.3 breakage):
+  https://github.com/drush-ops/drush/issues/6665
+* Robo fix commit:
+  https://github.com/consolidation/robo/commit/1483e46c7d0c9961dee71834cf2f6fadc0c95774
+* Archipelago Slack thread, Diego Pino, 2026-11-19
+* :doc:`9999_updating_archipelago_using_local`
