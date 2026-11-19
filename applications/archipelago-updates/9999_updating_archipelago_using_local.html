@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Testing JMES Paths" href="999_jmes_path_tester.html" /><link rel="prev" title="Add URL alias for a Node" href="998_add_url_alias.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Avalon" href="../../workflows/avalon.html" /><link rel="prev" title="SA-CORE-2026-017 Security Patch: Drupal 10.6.22 and format_strawberryfield" href="10-6-22.html" />
 
     <link rel="shortcut icon" href="../../_static/TAM-MaroonBox.png"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Archipelago 1.6.0 Upgrade Plan: Local Build, Lockfile Deploy - TAMU Digital Collections Labs</title>
@@ -223,28 +223,27 @@
 <p class="caption" role="heading"><span class="caption-text">Applications and Workflows</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../workflows/archipelago.html">Archipelago</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Archipelago</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="00_archipelago-terms.html">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_ami-upload.html">Creating new ADOs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ami-update.html">Bulk updating metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_adding-ocr.html">Adding OCR to ADOs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_ado-types.html">ADO Types in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06_structure-changes.html">Changing Structures on Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_promoting_collections_to_featured.html">Promoting Collections on the Front Page</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="12_node-override-templates.html">Overriding a Single Page with a Node Template</a></li>
-<li class="toctree-l2"><a class="reference internal" href="996_addressing_sort_canvas_order_issues.html">Troubleshooting: Series Unified Manifest: Canvas Sort Order</a></li>
-<li class="toctree-l2"><a class="reference internal" href="997_redis-config.html">Redis Cache Configuration Change</a></li>
-<li class="toctree-l2"><a class="reference internal" href="998_add_url_alias.html">Add URL alias for a Node</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Archipelago 1.6.0 Upgrade Plan: Local Build, Lockfile Deploy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="999_jmes_path_tester.html">Testing JMES Paths</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cantaloupe_properties.html">Cantaloupe Configuration Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changing-branding.html">Changing Branding in Archipelago</a></li>
-<li class="toctree-l2"><a class="reference internal" href="indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting Archipelago Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/00_archipelago-terms.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/01_ami-upload.html">Creating new ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/02_ami-update.html">Bulk updating metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/03_adding-ocr.html">Adding OCR to ADOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/04_ado-types.html">ADO Types in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/05_crosswalking.html">Crosswalking from DSpace, Fedora, and Avalon to Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/06_structure-changes.html">Changing Structures on Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/07_linked-data-multivalue.html">Linked data and multivalue fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/08_promoting_collections_to_featured.html">Promoting Collections on the Front Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/09_precreated-hocr.html">Uploading Pre-Created HOCR with Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/10_featured-collections-and-works.html">Featured Collections and Featured Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/11_ip-embargo.html">Restricting Access with IP Embargo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/12_node-override-templates.html">Overriding a Single Page with a Node Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/996_addressing_sort_canvas_order_issues.html">Troubleshooting: Series Unified Manifest: Canvas Sort Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/997_redis-config.html">Redis Cache Configuration Change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/998_add_url_alias.html">Add URL alias for a Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/999_jmes_path_tester.html">Testing JMES Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/cantaloupe_properties.html">Cantaloupe Configuration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/changing-branding.html">Changing Branding in Archipelago</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/indexing-hand-written-text.html">Associating HTR with Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../archipelago/troubleshooting.html">Troubleshooting Archipelago Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-colors.html">Changing colors to fit TAMU brand</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-search-facets.html">Changing fields for search facets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-structural-changes/change-viewer.html">Changing the template for a worktype</a></li>
@@ -255,6 +254,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_avalon.html">Migrating Avalon Collections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_fedora.html">Migrating Fedora Collections</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../archipelago-moving-files/migrate_oaktrust.html">Migrating OAKTrust Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-6-22.html">SA-CORE-2026-017 Security Patch: Drupal 10.6.22 and format_strawberryfield</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Archipelago 1.6.0 Upgrade Plan: Local Build, Lockfile Deploy</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workflows/avalon.html">Avalon</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Avalon</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -479,12 +480,12 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/applications/archipelago/9999_updating_archipelago_using_local.rst?plain=true" title="View this page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/blob/main/docs/applications/archipelago-updates/9999_updating_archipelago_using_local.rst?plain=true" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/applications/archipelago/9999_updating_archipelago_using_local.rst" title="Edit this page">
+  <a class="muted-link" href="https://github.com/TAMULib/dc-labs-docs/edit/main/docs/applications/archipelago-updates/9999_updating_archipelago_using_local.rst" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
@@ -778,23 +779,23 @@ probes) are deferred to a separate change.</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="999_jmes_path_tester.html">
+          <a class="next-page" href="../../workflows/avalon.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Testing JMES Paths</div>
+                <div class="title">Avalon</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="998_add_url_alias.html">
+          <a class="prev-page" href="10-6-22.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Add URL alias for a Node</div>
+                <div class="title">SA-CORE-2026-017 Security Patch: Drupal 10.6.22 and format_strawberryfield</div>
                 
               </div>
             </a>

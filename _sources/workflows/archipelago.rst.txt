@@ -22,3 +22,11 @@ Archipelago
    :caption: Migration Workflows
 
    ../applications/archipelago-moving-files/*
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   :caption: Archipelago Updates
+
+   ../applications/archipelago-updates/*
+
