@@ -240,7 +240,7 @@ through ``kubectl exec`` persist across pod restarts.
 
    .. code-block:: bash
 
-      kubectl -n $NS exec $POD -- bash -c "cd /var/www/html && composer install"
+      kubectl -n $NS exec $POD -- bash -c "cd /var/www/html && composer install --no-dev"
 
 #. **Update the database**, protected against a dropped session:
 

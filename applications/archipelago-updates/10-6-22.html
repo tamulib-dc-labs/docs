@@ -739,7 +739,7 @@ kubectl<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NS</s
 </div>
 </li>
 <li><p><strong>Install.</strong> Add <code class="docutils literal notranslate"><span class="pre">--no-dev</span></code> only if <code class="docutils literal notranslate"><span class="pre">require-dev</span></code> was empty in Phase 1:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NS</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$POD</span><span class="w"> </span>--<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /var/www/html &amp;&amp; composer install&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NS</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="nv">$POD</span><span class="w"> </span>--<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /var/www/html &amp;&amp; composer install --no-dev&quot;</span>
 </pre></div>
 </div>
 </li>
